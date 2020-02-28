@@ -1,3 +1,9 @@
 [submodule "mpsoc-riscv"]
 	path = mpsoc-riscv
 	url = https://github.com/PacoReinaCampo/MPSoC-RISCV.git
+[submodule "mpsoc-or1k"]
+	path = mpsoc-or1k
+	url = https://github.com/PacoReinaCampo/MPSoC-OR1K.git
+[submodule "mpsoc-msp430"]
+	path = mpsoc-msp430
+	url = https://github.com/PacoReinaCampo/MPSoC-MSP430.git
