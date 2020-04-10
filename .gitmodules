@@ -13,6 +13,3 @@
 [submodule "MPSoC/dbg"]
 	path = MPSoC/dbg
 	url = https://github.com/PacoReinaCampo/MPSoC-DBG.git
-[submodule "MPSoC/noc"]
-	path = MPSoC/noc
-	url = https://github.com/PacoReinaCampo/MPSoC-NoC.git

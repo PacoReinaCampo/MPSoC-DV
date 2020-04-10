@@ -430,7 +430,7 @@ module mpbuffer_endpoint
 
 
    // The output packet buffer
-   mpsoc_noc_buffer
+   noc_buffer
      #(.DEPTH(SIZE), .FLIT_WIDTH(CONFIG.NOC_FLIT_WIDTH), .FULLPACKET(1))
    u_packetbuffer_out(.clk              (clk),
                       .rst              (rst),
@@ -445,7 +445,7 @@ module mpbuffer_endpoint
                       .out_ready        (egress_ready));
 
    // The input packet buffer
-   mpsoc_noc_buffer
+   noc_buffer
      #(.DEPTH(SIZE), .FLIT_WIDTH(CONFIG.NOC_FLIT_WIDTH), .FULLPACKET(1))
    u_packetbuffer_in(.clk               (clk),
                      .rst               (rst),

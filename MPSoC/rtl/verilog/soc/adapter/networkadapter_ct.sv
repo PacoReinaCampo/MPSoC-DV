@@ -297,7 +297,7 @@ endgenerate
    wire [1:0][FLIT_WIDTH-1:0] muxed_flit;
    wire [1:0]                 muxed_last, muxed_valid, muxed_ready;
 
-   mpsoc_noc_mux
+   noc_mux
      #(.FLIT_WIDTH(FLIT_WIDTH), .CHANNELS(2))
    u_mux0
      (.*,
@@ -310,7 +310,7 @@ endgenerate
       .out_valid (muxed_valid[0]),
       .out_ready (muxed_ready[0]));
 
-   mpsoc_noc_mux
+   noc_mux
      #(.FLIT_WIDTH(FLIT_WIDTH), .CHANNELS(2))
    u_mux1
      (.*,
@@ -323,7 +323,7 @@ endgenerate
       .out_valid (muxed_valid[1]),
       .out_ready (muxed_ready[1]));
 
-   mpsoc_noc_buffer
+   noc_buffer
      #(.FLIT_WIDTH(FLIT_WIDTH), .DEPTH(4))
    u_outbuffer0
      (.*,
@@ -338,7 +338,7 @@ endgenerate
       .packet_size ()
       );
 
-   mpsoc_noc_buffer
+   noc_buffer
      #(.FLIT_WIDTH(FLIT_WIDTH), .DEPTH(4))
    u_outbuffer1
      (.*,
@@ -356,7 +356,7 @@ endgenerate
    wire [1:0][FLIT_WIDTH-1:0] inbuffer_flit;
    wire [1:0]                 inbuffer_last, inbuffer_valid, inbuffer_ready;
 
-   mpsoc_noc_buffer
+   noc_buffer
      #(.FLIT_WIDTH(FLIT_WIDTH), .DEPTH(4))
    u_inbuffer0
      (.*,
@@ -371,7 +371,7 @@ endgenerate
       .packet_size ()
       );
 
-   mpsoc_noc_demux
+   noc_demux
      #(.FLIT_WIDTH (FLIT_WIDTH), .CHANNELS (2),
        .MAPPING ({ 48'h0, 8'h2, 8'h1 }))
    u_demux0
@@ -385,7 +385,7 @@ endgenerate
       .out_valid                  ({mod_in_valid[C_DMA_REQ], mod_in_valid[C_MPSIMPLE_REQ]}),
       .out_ready                  ({mod_in_ready[C_DMA_REQ], mod_in_ready[C_MPSIMPLE_REQ]}));
 
-   mpsoc_noc_buffer
+   noc_buffer
      #(.FLIT_WIDTH(FLIT_WIDTH), .DEPTH(4))
    u_inbuffer1
      (.*,
@@ -400,7 +400,7 @@ endgenerate
       .packet_size ()
       );
 
-   mpsoc_noc_demux
+   noc_demux
      #(.FLIT_WIDTH (FLIT_WIDTH), .CHANNELS (2),
        .MAPPING ({ 48'h0, 8'h2, 8'h1 }))
    u_demux1

@@ -106,7 +106,7 @@ module system_2x2_cccc_dm(
    wire [3:0][CHANNELS-1:0]                 link_out_valid;
    wire [3:0][CHANNELS-1:0]                 link_out_ready;
 
-   mpsoc_noc_mesh2d
+   noc_mesh
      #(.FLIT_WIDTH (FLIT_WIDTH), .X (2), .Y (2),
        .CHANNELS (CHANNELS), .ENABLE_VCHANNELS(CONFIG.NOC_ENABLE_VCHANNELS))
    u_noc
