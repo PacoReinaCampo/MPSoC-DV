@@ -1,10 +1,10 @@
 verilator -f mpsoc.vc --trace -Wno-fatal -CFLAGS "-std=c++11" -LDFLAGS "-pthread"
 make -f Vtb_system_2x2_cccc.mk
 
-rm -rf *.d
-rm -rf *.o
-rm -rf *.h
 rm -rf *.a
 rm -rf *.cpp
-rm -rf *.mk
+rm -rf *.d
 rm -rf *.dat
+rm -rf *.h
+rm -rf *.o
+rm -rf *.mk
