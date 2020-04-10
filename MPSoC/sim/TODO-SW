@@ -7,7 +7,6 @@ rm -rf stdout.*
 ./Vtb_compute_tile --meminit=hello_mp.vmem
 ./Vtb_compute_tile --meminit=hello_mpsimple.vmem
 
-./Vtb_system_2x2_cccc --meminit=heat_mpsimple.vmem
 ./Vtb_system_2x2_cccc --meminit=hello.vmem
 ./Vtb_system_2x2_cccc --meminit=hello_mp.vmem
 ./Vtb_system_2x2_cccc --meminit=hello_mpsimple.vmem
