@@ -7,3 +7,6 @@
 [submodule "mpsoc-msp430"]
 	path = mpsoc-msp430
 	url = https://github.com/PacoReinaCampo/MPSoC-MSP430.git
+[submodule "MPSoC/pu"]
+	path = MPSoC/pu
+	url = https://github.com/PacoReinaCampo/PU-OR1K.git
