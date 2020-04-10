@@ -10,3 +10,6 @@
 [submodule "MPSoC/pu"]
 	path = MPSoC/pu
 	url = https://github.com/PacoReinaCampo/PU-OR1K.git
+[submodule "MPSoC/dbg"]
+	path = MPSoC/dbg
+	url = https://github.com/PacoReinaCampo/MPSoC-DBG.git
