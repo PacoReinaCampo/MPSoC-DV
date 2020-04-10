@@ -1,0 +1,2 @@
+./Vtb_compute_tile --meminit=hello.vmem
+./Vtb_system_2x2_cccc --meminit=hello.vmem

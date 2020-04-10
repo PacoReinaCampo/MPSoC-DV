@@ -1,0 +1,10 @@
+verilator -f soc.vc --trace -Wno-fatal -CFLAGS "-std=c++11" -LDFLAGS "-pthread"
+make -f Vtb_compute_tile.mk
+
+rm -rf *.d
+rm -rf *.o
+rm -rf *.h
+rm -rf *.a
+rm -rf *.cpp
+rm -rf *.mk
+rm -rf *.dat
