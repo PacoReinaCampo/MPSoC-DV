@@ -83,7 +83,7 @@
 ../noc/rtl/verilog/router/noc_router_lookup.sv
 ../noc/rtl/verilog/router/noc_router_lookup_slice.sv
 ../noc/rtl/verilog/router/noc_router_output.sv
-../noc/rtl/verilog/topology/noc_mesh.sv
+../noc/rtl/verilog/topology/noc_mesh2d.sv
 ../pu/rtl/verilog/core/module/mor1kx_module.sv
 ../pu/rtl/verilog/core/mor1kx_branch_prediction.v
 ../pu/rtl/verilog/core/mor1kx_branch_predictor_gshare.v
@@ -145,9 +145,9 @@
 ../rtl/verilog/soc/spram/wb_sram_sp.sv
 ../rtl/verilog/soc/spram/wb2sram.sv
 ../rtl/verilog/soc/compute_tile_dm.sv
+../bench/verilog/glip/glip_tcp_toplevel.sv
 ../bench/verilog/monitor/r3_checker.v
 ../bench/verilog/monitor/trace_monitor.sv
-../bench/verilog/glip_tcp_toplevel.sv
 ../bench/verilog/tb_compute_tile.sv
 --top-module tb_compute_tile
 --exe
