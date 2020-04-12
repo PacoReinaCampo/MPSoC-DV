@@ -70,9 +70,9 @@
 ../dma/rtl/verilog/wb/mpsoc_dma_wb_interface.sv
 ../dma/rtl/verilog/wb/mpsoc_dma_wb_target.sv
 ../dma/rtl/verilog/wb/mpsoc_dma_wb_top.sv
-../rtl/verilog/mpi/mpbuffer_endpoint.sv
-../rtl/verilog/mpi/mpbuffer_wb.sv
-../rtl/verilog/mpi/mpbuffer.sv
+../mpi/rtl/verilog/core/mpi_buffer.sv
+../mpi/rtl/verilog/core/mpi_buffer_endpoint.sv
+../mpi/rtl/verilog/wb/mpi_wb.sv
 ../rtl/verilog/mpsoc/system_2x2_cccc_dm.sv
 ../noc/rtl/verilog/core/noc_buffer.sv
 ../noc/rtl/verilog/core/noc_demux.sv

@@ -193,7 +193,7 @@ module networkadapter_ct
    assign wbif_rty_o[ID_MPSIMPLE] = 1'b0;
 
    mpbuffer_wb
-     #(.CONFIG(CONFIG),.N(2),.SIZE(16))
+     #(.NOC_FLIT_WIDTH(CONFIG.NOC_FLIT_WIDTH),.N(2),.SIZE(16))
    u_mpbuffer
      (.*,
       .noc_out_flit  ({mod_out_flit[C_MPSIMPLE_RESP], mod_out_flit[C_MPSIMPLE_REQ]}),

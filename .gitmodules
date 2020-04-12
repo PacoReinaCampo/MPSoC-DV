@@ -19,3 +19,6 @@
 [submodule "MPSoC/dma"]
 	path = MPSoC/dma
 	url = https://github.com/PacoReinaCampo/MPSoC-DMA.git
+[submodule "MPSoC/mpi"]
+	path = MPSoC/mpi
+	url = https://github.com/PacoReinaCampo/MPSoC-MPI.git
