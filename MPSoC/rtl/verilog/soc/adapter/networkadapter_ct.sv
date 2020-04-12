@@ -249,16 +249,16 @@ module networkadapter_ct
     .wb_\(.*\)      (wbm_\1),
     .irq            (irq_dma),
     ); */
-   lisnoc_dma
-     #(.tileid(TILEID),.table_entries(CONFIG.NA_DMA_ENTRIES))
+   mpsoc_dma_wb_top
+     #(.TILEID(TILEID),.TABLE_ENTRIES(CONFIG.NA_DMA_ENTRIES))
    u_dma(/*AUTOINST*/
          // Outputs
          .noc_in_req_ready        (mod_in_ready[C_DMA_REQ]), // Templated
-         .noc_in_resp_ready       (mod_in_ready[C_DMA_RESP]), // Templated
+         .noc_in_res_ready        (mod_in_ready[C_DMA_RESP]), // Templated
          .noc_out_req_flit        (dma_out_flit[0]),       // Templated
          .noc_out_req_valid       (mod_out_valid[C_DMA_REQ]), // Templated
-         .noc_out_resp_flit       (dma_out_flit[1]),       // Templated
-         .noc_out_resp_valid      (mod_out_valid[C_DMA_RESP]), // Templated
+         .noc_out_res_flit        (dma_out_flit[1]),       // Templated
+         .noc_out_res_valid       (mod_out_valid[C_DMA_RESP]), // Templated
          .wb_if_dat_o             (wbif_dat_o[ID_DMA*32 +: 32]), // Templated
          .wb_if_ack_o             (wbif_ack_o[ID_DMA]),    // Templated
          .wb_if_err_o             (wbif_err_o[ID_DMA]),    // Templated
@@ -278,11 +278,11 @@ module networkadapter_ct
          .rst                     (rst),
          .noc_in_req_flit         (dma_in_flit[0]),        // Templated
          .noc_in_req_valid        (mod_in_valid[C_DMA_REQ]), // Templated
-         .noc_in_resp_flit        (dma_in_flit[1]),        // Templated
-         .noc_in_resp_valid       (mod_in_valid[C_DMA_RESP]), // Templated
+         .noc_in_res_flit         (dma_in_flit[1]),        // Templated
+         .noc_in_res_valid        (mod_in_valid[C_DMA_RESP]), // Templated
          .noc_out_req_ready       (mod_out_ready[C_DMA_REQ]), // Templated
-         .noc_out_resp_ready      (mod_out_ready[C_DMA_RESP]), // Templated
-         .wb_if_adr_i             ({8'h0, wbif_adr_i[ID_DMA*24 +: 24]}), // Templated
+         .noc_out_res_ready       (mod_out_ready[C_DMA_RESP]), // Templated
+         .wb_if_addr_i            ({8'h0, wbif_adr_i[ID_DMA*24 +: 24]}), // Templated
          .wb_if_dat_i             (wbif_dat_i[ID_DMA*32 +: 32]), // Templated
          .wb_if_cyc_i             (wbif_cyc_i[ID_DMA]),    // Templated
          .wb_if_stb_i             (wbif_stb_i[ID_DMA]),    // Templated
