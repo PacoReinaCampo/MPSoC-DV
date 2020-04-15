@@ -8,12 +8,11 @@
 -CFLAGS -I../bench/cpp/verilator/inc
 +incdir+../bench/cpp/glip
 -CFLAGS -I../bench/cpp/glip
-+incdir+../dma/rtl/verilog/pkg
--CFLAGS -I../dma/rtl/verilog/pkg
++incdir+../dma/rtl/verilog/wb/pkg
+-CFLAGS -I../dma/rtl/verilog/wb/pkg
 +incdir+../dbg/rtl/verilog/soc/pkg
 -CFLAGS -I../dbg/rtl/verilog/soc/pkg
 ../rtl/verilog/pkg/arbiter/arb_rr.sv
-../rtl/verilog/pkg/arbiter/lisnoc_arb_rr.v
 ../rtl/verilog/pkg/functions/optimsoc_functions.sv
 ../rtl/verilog/pkg/config/optimsoc_config.sv
 ../rtl/verilog/pkg/constants/optimsoc_constants.sv
@@ -61,18 +60,18 @@
 ../dbg/rtl/verilog/soc/router/lisnoc_router_input_route.v
 ../dbg/rtl/verilog/soc/router/lisnoc_router_output.v
 ../dbg/rtl/verilog/soc/router/lisnoc_router_output_arbiter.sv
-../dma/rtl/verilog/core/mpsoc_dma_initiator_nocreq.sv
-../dma/rtl/verilog/core/mpsoc_dma_packet_buffer.sv
-../dma/rtl/verilog/core/mpsoc_dma_request_table.sv
-../dma/rtl/verilog/wb/mpsoc_dma_wb_initiator.sv
-../dma/rtl/verilog/wb/mpsoc_dma_wb_initiator_nocres.sv
-../dma/rtl/verilog/wb/mpsoc_dma_wb_initiator_req.sv
-../dma/rtl/verilog/wb/mpsoc_dma_wb_interface.sv
-../dma/rtl/verilog/wb/mpsoc_dma_wb_target.sv
-../dma/rtl/verilog/wb/mpsoc_dma_wb_top.sv
-../mpi/rtl/verilog/core/mpi_buffer.sv
-../mpi/rtl/verilog/core/mpi_buffer_endpoint.sv
-../mpi/rtl/verilog/wb/mpi_wb.sv
+../dma/rtl/verilog/wb/core/mpsoc_dma_initiator_nocreq.sv
+../dma/rtl/verilog/wb/core/mpsoc_dma_packet_buffer.sv
+../dma/rtl/verilog/wb/core/mpsoc_dma_request_table.sv
+../dma/rtl/verilog/wb/wb/mpsoc_dma_wb_initiator.sv
+../dma/rtl/verilog/wb/wb/mpsoc_dma_wb_initiator_nocres.sv
+../dma/rtl/verilog/wb/wb/mpsoc_dma_wb_initiator_req.sv
+../dma/rtl/verilog/wb/wb/mpsoc_dma_wb_interface.sv
+../dma/rtl/verilog/wb/wb/mpsoc_dma_wb_target.sv
+../dma/rtl/verilog/wb/wb/mpsoc_dma_wb_top.sv
+../mpi/rtl/verilog/wb/core/mpi_buffer.sv
+../mpi/rtl/verilog/wb/core/mpi_buffer_endpoint.sv
+../mpi/rtl/verilog/wb/wb/mpi_wb.sv
 ../rtl/verilog/mpsoc/system_2x2_cccc_dm.sv
 ../noc/rtl/verilog/core/noc_buffer.sv
 ../noc/rtl/verilog/core/noc_demux.sv

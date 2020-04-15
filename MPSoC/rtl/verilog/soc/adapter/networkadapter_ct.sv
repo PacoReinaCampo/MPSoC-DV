@@ -192,9 +192,9 @@ module networkadapter_ct
    // just wire them statically for the moment
    assign wbif_rty_o[ID_MPSIMPLE] = 1'b0;
 
-   mpbuffer_wb
+   mpi_wb
      #(.NOC_FLIT_WIDTH(CONFIG.NOC_FLIT_WIDTH),.N(2),.SIZE(16))
-   u_mpbuffer
+   u_mpi
      (.*,
       .noc_out_flit  ({mod_out_flit[C_MPSIMPLE_RESP], mod_out_flit[C_MPSIMPLE_REQ]}),
       .noc_out_last  ({mod_out_last[C_MPSIMPLE_RESP], mod_out_last[C_MPSIMPLE_REQ]}),
