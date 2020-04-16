@@ -224,7 +224,6 @@ module compute_tile_dm #(
     end
   endgenerate
 
-
   localparam MOR1KX_FEATURE_FPU          = (CONFIG.CORE_ENABLE_FPU ? "ENABLED" : "NONE");
   localparam MOR1KX_FEATURE_PERFCOUNTERS = (CONFIG.CORE_ENABLE_PERFCOUNTERS ? "ENABLED" : "NONE");
   localparam MOR1KX_FEATURE_DEBUGUNIT    = "NONE"; // XXX: Enable debug unit with OSD CDM module (once it's ready)
@@ -239,16 +238,27 @@ module compute_tile_dm #(
         .FEATURE_DEBUGUNIT    (MOR1KX_FEATURE_DEBUGUNIT)
       )
       u_core (
-        // Interfaces
-        .trace_exec            (trace[c]),
+        .clk_i                 (clk),
+        .bus_clk_i             (clk),
+        .rst_i                 (rst_cpu),
+        .bus_rst_i             (rst_cpu),
 
-        // Outputs
+        .dbg_stall_i           (1'b0),
+        .dbg_ewt_i             (1'b0),
+        .dbg_stb_i             (1'b0),
+        .dbg_we_i              (1'b0),
+        .dbg_adr_i             (32'h00000000),
+        .dbg_dat_i             (32'h00000000),
         .dbg_lss_o             (),
         .dbg_is_o              (),
         .dbg_wp_o              (),
         .dbg_bp_o              (),
         .dbg_dat_o             (),
         .dbg_ack_o             (),
+
+        .pic_ints_i            (pic_ints_i[c]),
+
+        // Instruction WISHBONE interface
         .iwb_cyc_o             (busms_cyc_o[c*2  ]),
         .iwb_adr_o             (busms_adr_o[c*2  ][31:0]),
         .iwb_stb_o             (busms_stb_o[c*2  ]),
@@ -257,6 +267,12 @@ module compute_tile_dm #(
         .iwb_dat_o             (busms_dat_o[c*2  ][31:0]),
         .iwb_bte_o             (busms_bte_o[c*2  ][ 1:0]),
         .iwb_cti_o             (busms_cti_o[c*2  ][ 2:0]),
+        .iwb_ack_i             (busms_ack_i[c*2  ]),
+        .iwb_err_i             (busms_err_i[c*2  ]),
+        .iwb_rty_i             (busms_rty_i[c*2  ]),
+        .iwb_dat_i             (busms_dat_i[c*2  ][31:0]),
+
+        // Data WISHBONE interface
         .dwb_cyc_o             (busms_cyc_o[c*2+1]),
         .dwb_adr_o             (busms_adr_o[c*2+1][31:0]),
         .dwb_stb_o             (busms_stb_o[c*2+1]),
@@ -265,30 +281,16 @@ module compute_tile_dm #(
         .dwb_dat_o             (busms_dat_o[c*2+1][31:0]),
         .dwb_bte_o             (busms_bte_o[c*2+1][ 1:0]),
         .dwb_cti_o             (busms_cti_o[c*2+1][ 2:0]),
-
-        // Inputs
-        .clk_i                 (clk),
-        .bus_clk_i             (clk),
-        .rst_i                 (rst_cpu),
-        .bus_rst_i             (rst_cpu),
-        .dbg_stall_i           (1'b0),
-        .dbg_ewt_i             (1'b0),
-        .dbg_stb_i             (1'b0),
-        .dbg_we_i              (1'b0),
-        .dbg_adr_i             (32'h00000000),
-        .dbg_dat_i             (32'h00000000),
-        .pic_ints_i            (pic_ints_i[c]),
-        .iwb_ack_i             (busms_ack_i[c*2  ]),
-        .iwb_err_i             (busms_err_i[c*2  ]),
-        .iwb_rty_i             (busms_rty_i[c*2  ]),
-        .iwb_dat_i             (busms_dat_i[c*2  ][31:0]),
         .dwb_ack_i             (busms_ack_i[c*2+1]),
         .dwb_err_i             (busms_err_i[c*2+1]),
         .dwb_rty_i             (busms_rty_i[c*2+1]),
         .dwb_dat_i             (busms_dat_i[c*2+1][31:0]),
+
         .snoop_enable_i        (snoop_enable),
-        .snoop_adr_i           (snoop_adr)
-      );           
+        .snoop_adr_i           (snoop_adr),
+
+        .trace_exec            (trace[c])
+      );
 
       assign busms_cab_o [c*2  ] = 1'b0;
       assign busms_cab_o [c*2+1] = 1'b0;
@@ -353,22 +355,22 @@ module compute_tile_dm #(
   endgenerate
 
   wb_bus_b3 #(
-    .MASTERS(NR_MASTERS),
-    .SLAVES(NR_SLAVES),
-    .S0_ENABLE(CONFIG.ENABLE_DM),
-    .S0_RANGE_WIDTH(CONFIG.DM_RANGE_WIDTH),
-    .S0_RANGE_MATCH(CONFIG.DM_RANGE_MATCH),
-    .S1_ENABLE(CONFIG.ENABLE_PGAS),
-    .S1_RANGE_WIDTH(CONFIG.PGAS_RANGE_WIDTH),
-    .S1_RANGE_MATCH(CONFIG.PGAS_RANGE_MATCH),
-    .S2_RANGE_WIDTH(4),
-    .S2_RANGE_MATCH(4'he),
-    .S3_ENABLE(CONFIG.ENABLE_BOOTROM),
-    .S3_RANGE_WIDTH(4),
-    .S3_RANGE_MATCH(4'hf),
-    .S4_ENABLE(CONFIG.DEBUG_DEM_UART),
-    .S4_RANGE_WIDTH(28),
-    .S4_RANGE_MATCH(28'h9000000)
+    .MASTERS        (NR_MASTERS),
+    .SLAVES         (NR_SLAVES),
+    .S0_ENABLE      (CONFIG.ENABLE_DM),
+    .S0_RANGE_WIDTH (CONFIG.DM_RANGE_WIDTH),
+    .S0_RANGE_MATCH (CONFIG.DM_RANGE_MATCH),
+    .S1_ENABLE      (CONFIG.ENABLE_PGAS),
+    .S1_RANGE_WIDTH (CONFIG.PGAS_RANGE_WIDTH),
+    .S1_RANGE_MATCH (CONFIG.PGAS_RANGE_MATCH),
+    .S2_RANGE_WIDTH (4),
+    .S2_RANGE_MATCH (4'he),
+    .S3_ENABLE      (CONFIG.ENABLE_BOOTROM),
+    .S3_RANGE_WIDTH (4),
+    .S3_RANGE_MATCH (4'hf),
+    .S4_ENABLE      (CONFIG.DEBUG_DEM_UART),
+    .S4_RANGE_WIDTH (28),
+    .S4_RANGE_MATCH (28'h9000000)
   )
   u_bus (
     .clk_i                         (clk),
@@ -404,7 +406,8 @@ module compute_tile_dm #(
     .s_ack_i                       (bussl_ack_o_flat),
     .s_err_i                       (bussl_err_o_flat),
     .s_rty_i                       (bussl_rty_o_flat),
-    .bus_hold                      (1'b0));                        
+    .bus_hold                      (1'b0)
+  );
 
   // Unused leftover from an older Wishbone spec version
   assign bussl_cab_i_flat = NR_SLAVES'(1'b0);
@@ -435,9 +438,9 @@ module compute_tile_dm #(
       .clk_i           (clk),
       .rst_i           (rst_dbg),
       .debug_in        (dii_out[0]),
+      .debug_out       (dii_in [0]),
       .debug_in_ready  (dii_out_ready[0]),
-      .debug_out       (dii_in[0]),
-      .debug_out_ready (dii_in_ready[0]),
+      .debug_out_ready (dii_in_ready [0]),
       .id              (16'(DEBUG_BASEID)),
       .stb_o           (mam_dm_stb_o),
       .cyc_o           (mam_dm_cyc_o),
@@ -502,7 +505,8 @@ module compute_tile_dm #(
       .wb_out_ack_o                  (wb_mem_ack_o),
       .wb_out_err_o                  (wb_mem_err_o),
       .wb_out_rty_o                  (wb_mem_rty_o),
-      .wb_out_dat_o                  (wb_mem_dat_o));                
+      .wb_out_dat_o                  (wb_mem_dat_o)
+  );
   end
   else begin
     assign mam_dm_dat_i = 32'hx;
@@ -617,7 +621,8 @@ module compute_tile_dm #(
     .wbs_we_i                    (bussl_we_i [SLAVE_NA]),
     .wbs_cab_i                   (bussl_cab_i[SLAVE_NA]),
     .wbs_cti_i                   (bussl_cti_i[SLAVE_NA]),
-    .wbs_bte_i                   (bussl_bte_i[SLAVE_NA]));
+    .wbs_bte_i                   (bussl_bte_i[SLAVE_NA])
+  );
 
   generate
     if (CONFIG.ENABLE_BOOTROM) begin : gen_bootrom
