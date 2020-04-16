@@ -144,16 +144,16 @@ module wb_decode
     output                             m_err_o,
     output                             m_rty_o,
 
-    output reg [ADDR_WIDTH*SLAVES-1:0] s_adr_o,
-    output reg [DATA_WIDTH*SLAVES-1:0] s_dat_o,
-    output reg [SLAVES-1:0]            s_cyc_o,
-    output reg [SLAVES-1:0]            s_stb_o,
-    output reg [SEL_WIDTH*SLAVES-1:0]  s_sel_o,
-    output reg [SLAVES-1:0]            s_we_o,
-    output reg [SLAVES*3-1:0]          s_cti_o,
-    output reg [SLAVES*2-1:0]          s_bte_o,
+    output reg [SLAVES-1:0][ADDR_WIDTH-1:0] s_adr_o,
+    output reg [SLAVES-1:0][DATA_WIDTH-1:0] s_dat_o,
+    output reg [SLAVES-1:0]                 s_cyc_o,
+    output reg [SLAVES-1:0]                 s_stb_o,
+    output reg [SLAVES-1:0][SEL_WIDTH -1:0] s_sel_o,
+    output reg [SLAVES-1:0]                 s_we_o,
+    output reg [SLAVES-1:0][           2:0] s_cti_o,
+    output reg [SLAVES-1:0][           1:0] s_bte_o,
 
-    input [DATA_WIDTH*SLAVES-1:0]      s_dat_i,
+    input [SLAVES-1:0][DATA_WIDTH-1:0] s_dat_i,
     input [SLAVES-1:0]                 s_ack_i,
     input [SLAVES-1:0]                 s_err_i,
     input [SLAVES-1:0]                 s_rty_i
@@ -201,21 +201,21 @@ module wb_decode
       m_err = 1'b0;
       m_rty = 1'b0;
       for (i = 0; i < SLAVES; i = i + 1) begin
-         s_adr_o[i*ADDR_WIDTH +: ADDR_WIDTH] = m_adr_i;
-         s_dat_o[i*DATA_WIDTH +: DATA_WIDTH] = m_dat_i;
-         s_sel_o[i*SEL_WIDTH +: SEL_WIDTH] = m_sel_i;
-         s_we_o[i] = m_we_i;
-         s_cti_o[i*3 +: 3] = m_cti_i;
-         s_bte_o[i*2 +: 2] = m_bte_i;
+         s_adr_o[i] = m_adr_i;
+         s_dat_o[i] = m_dat_i;
+         s_sel_o[i] = m_sel_i;
+         s_we_o [i] = m_we_i;
+         s_cti_o[i] = m_cti_i;
+         s_bte_o[i] = m_bte_i;
 
          s_cyc_o[i] = m_cyc_i & s_select[i];
          s_stb_o[i] = m_stb_i & s_select[i];
 
          if (s_select[i]) begin
-            m_dat_o = s_dat_i[i*DATA_WIDTH +: DATA_WIDTH];
-            m_ack = s_ack_i[i];
-            m_err = s_err_i[i];
-            m_rty = s_rty_i[i];
+            m_dat_o = s_dat_i[i];
+            m_ack   = s_ack_i[i];
+            m_err   = s_err_i[i];
+            m_rty   = s_rty_i[i];
          end
       end
    end

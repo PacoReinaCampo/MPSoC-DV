@@ -137,7 +137,6 @@
 ../rtl/verilog/soc/bootrom/bootrom.v
 ../rtl/verilog/soc/interconnection/bus/wb_bus_b3.sv
 ../rtl/verilog/soc/interconnection/decode/wb_decode.sv
-../rtl/verilog/soc/interconnection/mux/wb_interconnect_arb_rr.v
 ../rtl/verilog/soc/interconnection/mux/wb_mux.sv
 ../rtl/verilog/soc/spram/sram_sp_impl_plain.sv
 ../rtl/verilog/soc/spram/sram_sp.sv

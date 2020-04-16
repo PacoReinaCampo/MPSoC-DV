@@ -90,15 +90,15 @@ module networkadapter_ct #(
   localparam ID_DMA      = 2;
   localparam SLAVES      = 3; // This is the number of maximum slaves
 
-  wire [24*SLAVES-1:0]                   wbif_adr_i;
-  wire [32*SLAVES-1:0]                   wbif_dat_i;
+  wire [SLAVES-1:0][23:0]                wbif_adr_i;
+  wire [SLAVES-1:0][31:0]                wbif_dat_i;
   wire [SLAVES-1:0]                      wbif_cyc_i;
   wire [SLAVES-1:0]                      wbif_stb_i;
-  wire [4*SLAVES-1:0]                    wbif_sel_i;
+  wire [SLAVES-1:0][ 3:0]                wbif_sel_i;
   wire [SLAVES-1:0]                      wbif_we_i;
-  wire [SLAVES*3-1:0]                    wbif_cti_i;
-  wire [SLAVES*2-1:0]                    wbif_bte_i;
-  wire [32*SLAVES-1:0]                   wbif_dat_o;
+  wire [SLAVES-1:0][ 2:0]                wbif_cti_i;
+  wire [SLAVES-1:0][ 1:0]                wbif_bte_i;
+  wire [SLAVES-1:0][31:0]                wbif_dat_o;
   wire [SLAVES-1:0]                      wbif_ack_o;
   wire [SLAVES-1:0]                      wbif_err_o;
   wire [SLAVES-1:0]                      wbif_rty_o;
@@ -156,7 +156,7 @@ module networkadapter_ct #(
     `endif
     `endif
     // Outputs
-    .data                         (wbif_dat_o[ID_CONF*32 +: 32]),
+    .data                         (wbif_dat_o[ID_CONF]),
     .ack                          (wbif_ack_o[ID_CONF]),
     .rty                          (wbif_rty_o[ID_CONF]),
     .err                          (wbif_err_o[ID_CONF]),
@@ -165,14 +165,16 @@ module networkadapter_ct #(
     .rst                          (rst),
     .adr                          (wbs_adr_i[15:0]),
     .we                           (wbs_cyc_i & wbs_stb_i & wbs_we_i),
-    .data_i                       (wbif_dat_i[ID_CONF*32 +: 32])
+    .data_i                       (wbif_dat_i[ID_CONF])
   );
 
   // just wire them statically for the moment
   assign wbif_rty_o[ID_MPSIMPLE] = 1'b0;
 
   mpi_wb #(
-    .NOC_FLIT_WIDTH(CONFIG.NOC_FLIT_WIDTH),.N(2),.SIZE(16)
+    .NOC_FLIT_WIDTH (CONFIG.NOC_FLIT_WIDTH),
+    .SIZE           (16),
+    .N              (2)
   )
   u_mpi (
     .*,
@@ -186,14 +188,14 @@ module networkadapter_ct #(
     .noc_in_valid  ({mod_in_valid[C_MPSIMPLE_RES],mod_in_valid[C_MPSIMPLE_REQ]}),
     .noc_in_ready  ({mod_in_ready[C_MPSIMPLE_RES],mod_in_ready[C_MPSIMPLE_REQ]}),
 
-    .wb_dat_o      (wbif_dat_o[ID_MPSIMPLE*32 +: 32]),
+    .wb_dat_o      (wbif_dat_o[ID_MPSIMPLE]),
     .wb_ack_o      (wbif_ack_o[ID_MPSIMPLE]),
     .wb_err_o      (wbif_err_o[ID_MPSIMPLE]),
-    .wb_adr_i      ({8'h0,wbif_adr_i[ID_MPSIMPLE*24 +: 24]}),
+    .wb_adr_i      ({8'h0,wbif_adr_i[ID_MPSIMPLE]}),
     .wb_we_i       (wbif_we_i[ID_MPSIMPLE]),
     .wb_cyc_i      (wbif_cyc_i[ID_MPSIMPLE]),
     .wb_stb_i      (wbif_stb_i[ID_MPSIMPLE]),
-    .wb_dat_i      (wbif_dat_i[ID_MPSIMPLE*32 +: 32]),
+    .wb_dat_i      (wbif_dat_i[ID_MPSIMPLE]),
 
     .irq           (irq[0])
   );
@@ -223,7 +225,7 @@ module networkadapter_ct #(
         .noc_out_req_valid       (mod_out_valid[C_DMA_REQ]),
         .noc_out_res_flit        (dma_out_flit[1]),
         .noc_out_res_valid       (mod_out_valid[C_DMA_RES]),
-        .wb_if_dat_o             (wbif_dat_o[ID_DMA*32 +: 32]),
+        .wb_if_dat_o             (wbif_dat_o[ID_DMA]),
         .wb_if_ack_o             (wbif_ack_o[ID_DMA]),
         .wb_if_err_o             (wbif_err_o[ID_DMA]),
         .wb_if_rty_o             (wbif_rty_o[ID_DMA]),
@@ -246,8 +248,8 @@ module networkadapter_ct #(
         .noc_in_res_valid        (mod_in_valid[C_DMA_RES]),
         .noc_out_req_ready       (mod_out_ready[C_DMA_REQ]),
         .noc_out_res_ready       (mod_out_ready[C_DMA_RES]),
-        .wb_if_addr_i            ({8'h0,wbif_adr_i[ID_DMA*24 +: 24]}),
-        .wb_if_dat_i             (wbif_dat_i[ID_DMA*32 +: 32]),
+        .wb_if_addr_i            ({8'h0,wbif_adr_i[ID_DMA]}),
+        .wb_if_dat_i             (wbif_dat_i[ID_DMA]),
         .wb_if_cyc_i             (wbif_cyc_i[ID_DMA]),
         .wb_if_stb_i             (wbif_stb_i[ID_DMA]),
         .wb_if_we_i              (wbif_we_i[ID_DMA]),
