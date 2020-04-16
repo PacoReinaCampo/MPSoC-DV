@@ -1,0 +1,12 @@
+export PATH=/opt/toolchains/or1k-elf-multicore/bin:${PATH}
+
+rm -rf stdout.*
+
+./Vtb_compute_tile --meminit=heat_mpsimple.vmem
+./Vtb_compute_tile --meminit=hello.vmem
+./Vtb_compute_tile --meminit=hello_mp.vmem
+./Vtb_compute_tile --meminit=hello_mpsimple.vmem
+
+./Vtb_system_2x2_cccc --meminit=hello.vmem
+./Vtb_system_2x2_cccc --meminit=hello_mp.vmem
+./Vtb_system_2x2_cccc --meminit=hello_mpsimple.vmem
