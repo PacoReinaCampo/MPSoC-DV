@@ -1,0 +1,12 @@
+prefix=@prefix@
+libdir=@libdir@
+includedir=@includedir@
+datadir=@datadir@
+buildscriptdir=${datadir}/build/baremetal-runtime
+
+Name: Optimsoc Runtime
+Description: OpTiMSoC runtime system libraries
+Version: 0.1
+Requires.private: optimsoc-baremetal
+Cflags: -I${includedir}/baremetal
+Libs: -L${libdir}/baremetal -lruntime -lbaremetal
