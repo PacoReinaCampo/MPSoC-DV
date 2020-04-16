@@ -1,1 +1,0 @@
-SUBDIRS = libbaremetal libruntime libmp

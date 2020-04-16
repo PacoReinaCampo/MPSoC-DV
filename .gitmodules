@@ -7,18 +7,3 @@
 [submodule "mpsoc-msp430"]
 	path = mpsoc-msp430
 	url = https://github.com/PacoReinaCampo/MPSoC-MSP430.git
-[submodule "MPSoC/pu"]
-	path = MPSoC/pu
-	url = https://github.com/PacoReinaCampo/PU-OR1K.git
-[submodule "MPSoC/dbg"]
-	path = MPSoC/dbg
-	url = https://github.com/PacoReinaCampo/MPSoC-DBG.git
-[submodule "MPSoC/noc"]
-	path = MPSoC/noc
-	url = https://github.com/PacoReinaCampo/MPSoC-NoC.git
-[submodule "MPSoC/dma"]
-	path = MPSoC/dma
-	url = https://github.com/PacoReinaCampo/MPSoC-DMA.git
-[submodule "MPSoC/mpi"]
-	path = MPSoC/mpi
-	url = https://github.com/PacoReinaCampo/MPSoC-MPI.git
