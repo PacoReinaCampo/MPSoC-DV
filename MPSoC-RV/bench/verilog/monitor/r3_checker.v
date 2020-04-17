@@ -27,11 +27,18 @@
  *   Stefan Wallentowitz <stefan.wallentowitz@tum.de>
  */
 
-module r3_checker(input clk, input valid, input we, input [4:0] addr, input [31:0] data, output reg [31:0] r3);
-   always @(posedge clk) begin
-      if (valid && we && (addr == 3)) begin
-         r3 <= data;
-      end
-   end
-endmodule // r3_checker
+module r3_checker (
+  input             clk,
+  input             valid,
+  input             we,
+  input      [ 4:0] addr,
+  input      [31:0] data,
+  output reg [31:0] r3
+);
 
+  always @(posedge clk) begin
+    if (valid && we && (addr == 3)) begin
+      r3 <= data;
+    end
+  end
+endmodule

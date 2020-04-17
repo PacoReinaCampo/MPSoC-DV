@@ -134,7 +134,6 @@ module tb_system_2x2_cccc (
           .termination_all        (termination)
         );
       end
-
     end
   endgenerate
 

@@ -41,92 +41,92 @@
  */
 
 module sram_sp_impl_plain(/*AUTOARG*/
-   // Outputs
-   dout,
-   // Inputs
-   clk, rst, ce, we, oe, waddr, din, sel
-   );
+  // Outputs
+  dout,
+  // Inputs
+  clk, rst, ce, we, oe, waddr, din, sel
+);
 
-   import optimsoc_functions::*;
+  import optimsoc_functions::*;
 
-   // byte address width
-   parameter AW = 32;
-   // data width (must be multiple of 8 for byte selects to work)
-   parameter DW = 32;
+  // byte address width
+  parameter AW = 32;
+  // data width (must be multiple of 8 for byte selects to work)
+  parameter DW = 32;
 
-   localparam SW = (DW == 32) ? 4 :
-                   (DW == 16) ? 2 :
-                   (DW ==  8) ? 1 : 'hx;
+  localparam SW = (DW == 32) ? 4 :
+                  (DW == 16) ? 2 :
+                  (DW ==  8) ? 1 : 'hx;
 
-   // word address width
-   parameter WORD_AW = AW - (SW >> 1);
+  // word address width
+  parameter WORD_AW = AW - (SW >> 1);
 
-   // size of the memory in bytes
-   parameter MEM_SIZE_BYTE = 'hx;
+  // size of the memory in bytes
+  parameter MEM_SIZE_BYTE = 'hx;
 
-   localparam MEM_SIZE_WORDS = MEM_SIZE_BYTE / SW;
+  localparam MEM_SIZE_WORDS = MEM_SIZE_BYTE / SW;
 
-   // VMEM file used to initialize the memory in simulation
-   parameter MEM_FILE = "sram.vmem";
+  // VMEM file used to initialize the memory in simulation
+  parameter MEM_FILE = "sram.vmem";
 
 
-   input                clk;  // Clock
-   input                rst;  // Reset
-   input                ce;   // Chip enable input
-   input                we;   // Write enable input
-   input                oe;   // Output enable input
-   input [WORD_AW-1:0]  waddr; // word address
-   input [DW-1:0]       din;  // input data bus
-   input [SW-1:0]       sel;  // select bytes
-   output reg [DW-1:0]  dout; // output data bus
+  input                clk;   // Clock
+  input                rst;   // Reset
+  input                ce;    // Chip enable input
+  input                we;    // Write enable input
+  input                oe;    // Output enable input
+  input [WORD_AW-1:0]  waddr; // word address
+  input      [DW-1:0]  din;   // input data bus
+  input      [SW-1:0]  sel;   // select bytes
+  output reg [DW-1:0]  dout;  // output data bus
 
-   (* ram_style = "block" *) reg [DW-1:0] mem [MEM_SIZE_WORDS-1:0] /*synthesis syn_ramstyle = "block_ram" */;
+  (* ram_style = "block" *) reg [DW-1:0] mem [MEM_SIZE_WORDS-1:0] /*synthesis syn_ramstyle = "block_ram" */;
 
-   always_ff @ (posedge clk) begin
-      if (we) begin
-         // memory write
-         for (int i = 0; i < SW; i = i + 1) begin
-            if (sel[i] == 1'b1) begin
-               mem[waddr][i*8 +: 8] <= din[i*8 +: 8];
-            end
-         end
+  always_ff @ (posedge clk) begin
+    if (we) begin
+      // memory write
+      for (int i = 0; i < SW; i = i + 1) begin
+        if (sel[i] == 1'b1) begin
+          mem[waddr][i*8 +: 8] <= din[i*8 +: 8];
+        end
       end
-      // memory read
-      dout <= mem[waddr];
-   end
+    end
+    // memory read
+    dout <= mem[waddr];
+  end
 
-`ifdef verilator
-   export "DPI-C" task do_readmemh;
+  `ifdef verilator
+  export "DPI-C" task do_readmemh;
 
-   task do_readmemh;
+  task do_readmemh;
+    $readmemh(MEM_FILE, mem);
+  endtask
+
+  export "DPI-C" task do_readmemh_file;
+
+  task do_readmemh_file;
+    input string file;
+    $readmemh(file, mem);
+  endtask
+
+  // Function to access RAM (for use by Verilator).
+  function [DW-1:0] get_mem;
+    // verilator public
+    input [WORD_AW-1:0] waddr; // word address
+    get_mem = mem[waddr];
+  endfunction
+
+  // Function to write RAM (for use by Verilator).
+  function set_mem;
+    // verilator public
+    input [WORD_AW-1:0] waddr; // word address
+    input [     DW-1:0] data;  // data to write
+    mem[waddr] = data;
+  endfunction
+  `else
+  initial
+    begin
       $readmemh(MEM_FILE, mem);
-   endtask
-
-   export "DPI-C" task do_readmemh_file;
-
-   task do_readmemh_file;
-      input string file;
-      $readmemh(file, mem);
-   endtask
-
-    // Function to access RAM (for use by Verilator).
-   function [DW-1:0] get_mem;
-      // verilator public
-      input [WORD_AW-1:0] waddr; // word address
-      get_mem = mem[waddr];
-   endfunction
-
-   // Function to write RAM (for use by Verilator).
-   function set_mem;
-      // verilator public
-      input [WORD_AW-1:0] waddr; // word address
-      input [DW-1:0]      data; // data to write
-      mem[waddr] = data;
-   endfunction // set_mem
-`else
-   initial
-     begin
-        $readmemh(MEM_FILE, mem);
-     end
-`endif
+    end
+  `endif
 endmodule

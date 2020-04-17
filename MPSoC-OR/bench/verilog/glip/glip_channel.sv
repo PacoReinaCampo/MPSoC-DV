@@ -25,25 +25,30 @@
  * Author(s):
  *   Stefan Wallentowitz <stefan@wallentowitz.de>
  */
-interface glip_channel
-  #(parameter WIDTH=16)
-   (input clk);
 
-   logic [WIDTH-1:0] data;
-   logic             valid;
-   logic             ready;
+interface glip_channel #(
+  parameter WIDTH=16
+)
+  (
+    input clk
+  );
 
-   modport master(output data, output valid, input ready);
+  logic [WIDTH-1:0] data;
+  logic             valid;
+  logic             ready;
 
-   modport slave(input data, input valid, output ready);
+  modport master(output data, output valid, input ready);
 
-   // a helper function to ease the assembly of interface signals
-   function logic assemble ( input logic [WIDTH-1:0] m_data,
-                             input logic m_valid
-                             );
-      data = m_data;
-      valid = m_valid;
-      return ready;
-   endfunction // assemble
+  modport slave(input data, input valid, output ready);
 
-endinterface // glip_channel
+  // a helper function to ease the assembly of interface signals
+  function logic assemble (
+    input logic [WIDTH-1:0] m_data,
+    input logic             m_valid
+  );
+
+    data  = m_data;
+    valid = m_valid;
+    return ready;
+  endfunction
+endinterface
