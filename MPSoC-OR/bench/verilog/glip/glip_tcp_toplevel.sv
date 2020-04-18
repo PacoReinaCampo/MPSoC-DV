@@ -88,7 +88,8 @@ module glip_tcp_toplevel #(
       com_rst = 0;
       rcnt = 0;
       wcnt = 0;
-    end else begin
+    end
+    else begin
       automatic int connected;
       automatic int unsigned state;
       automatic longint data;
@@ -96,7 +97,8 @@ module glip_tcp_toplevel #(
       connected = glip_tcp_connected(obj);
       if (connected > 0) begin
         com_rst = 1'b0;
-      end else begin
+      end
+      else begin
         com_rst = 1'b1;
       end
 
@@ -106,7 +108,8 @@ module glip_tcp_toplevel #(
       if ((state & STATE_MASK_CTRL) != 0) begin
         automatic int data = glip_tcp_control_msg(obj);
         logic_rst = data[0];
-      end else begin
+      end
+      else begin
         logic_rst = 1'b0;
       end
 
@@ -120,10 +123,12 @@ module glip_tcp_toplevel #(
           automatic longint data = glip_tcp_read(obj);
           fifo_in.data = data[WIDTH-1:0];
           fifo_in.valid = 1;
-        end else begin
+        end
+        else begin
           fifo_in.valid = 0;
         end
-      end else begin
+      end
+      else begin
         fifo_in.valid = 0;
       end
 
@@ -135,10 +140,12 @@ module glip_tcp_toplevel #(
 
         if (UART_LIKE ? wcnt == 1 : 1) begin
           fifo_out.ready = 1;
-        end else begin
+        end
+        else begin
           fifo_out.ready = 0;
         end
-      end else begin
+      end
+      else begin
         fifo_out.ready = 0;
       end
 

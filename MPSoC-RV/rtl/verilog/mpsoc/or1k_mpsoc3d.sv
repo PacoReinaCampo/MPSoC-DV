@@ -1,9 +1,12 @@
 import dii_package::dii_flit;
 import optimsoc_config::*;
 
-module system_2x2_cccc_dm #(
+module or1k_mpsoc3d #(
   parameter X = 2,
   parameter Y = 2,
+  parameter Z = 2,
+
+  localparam NODES = X*Y*Z,
 
   parameter config_t CONFIG = 'x
 )
@@ -14,29 +17,46 @@ module system_2x2_cccc_dm #(
     glip_channel c_glip_in,
     glip_channel c_glip_out,
 
-    output [3:0][31:0] wb_ext_adr_i,
-    output [3:0]       wb_ext_cyc_i,
-    output [3:0][31:0] wb_ext_dat_i,
-    output [3:0][ 3:0] wb_ext_sel_i,
-    output [3:0]       wb_ext_stb_i,
-    output [3:0]       wb_ext_we_i,
-    output [3:0]       wb_ext_cab_i,
-    output [3:0] [2:0] wb_ext_cti_i,
-    output [3:0][ 1:0] wb_ext_bte_i,
-    input  [3:0]       wb_ext_ack_o,
-    input  [3:0]       wb_ext_rty_o,
-    input  [3:0]       wb_ext_err_o,
-    input  [3:0][31:0] wb_ext_dat_o
+    output [NODES-1:0][31:0] wb_ext_adr_i,
+    output [NODES-1:0]       wb_ext_cyc_i,
+    output [NODES-1:0][31:0] wb_ext_dat_i,
+    output [NODES-1:0][ 3:0] wb_ext_sel_i,
+    output [NODES-1:0]       wb_ext_stb_i,
+    output [NODES-1:0]       wb_ext_we_i,
+    output [NODES-1:0]       wb_ext_cab_i,
+    output [NODES-1:0] [2:0] wb_ext_cti_i,
+    output [NODES-1:0][ 1:0] wb_ext_bte_i,
+    input  [NODES-1:0]       wb_ext_ack_o,
+    input  [NODES-1:0]       wb_ext_rty_o,
+    input  [NODES-1:0]       wb_ext_err_o,
+    input  [NODES-1:0][31:0] wb_ext_dat_o
   );
 
-  dii_flit [1:0] debug_ring_in  [0:3];
-  dii_flit [1:0] debug_ring_out [0:3];
+  localparam FLIT_WIDTH = CONFIG.NOC_FLIT_WIDTH;
+  localparam CHANNELS   = CONFIG.NOC_CHANNELS;
 
-  logic [1:0] debug_ring_in_ready  [0:3];
-  logic [1:0] debug_ring_out_ready [0:3];
+  dii_flit [1:0] debug_ring_in  [0:NODES-1];
+  dii_flit [1:0] debug_ring_out [0:NODES-1];
+
+  logic [1:0] debug_ring_in_ready  [0:NODES-1];
+  logic [1:0] debug_ring_out_ready [0:NODES-1];
 
   logic rst_sys;
   logic rst_cpu;
+
+  genvar i;
+
+  // Flits from NoC->tiles
+  wire [NODES-1:0][CHANNELS-1:0][FLIT_WIDTH-1:0] link_in_flit;
+  wire [NODES-1:0][CHANNELS-1:0]                 link_in_last;
+  wire [NODES-1:0][CHANNELS-1:0]                 link_in_valid;
+  wire [NODES-1:0][CHANNELS-1:0]                 link_in_ready;
+
+  // Flits from tiles->NoC
+  wire [NODES-1:0][CHANNELS-1:0][FLIT_WIDTH-1:0] link_out_flit;
+  wire [NODES-1:0][CHANNELS-1:0]                 link_out_last;
+  wire [NODES-1:0][CHANNELS-1:0]                 link_out_valid;
+  wire [NODES-1:0][CHANNELS-1:0]                 link_out_ready;
 
   debug_interface #(
     .SYSTEM_VENDOR_ID         (2),
@@ -68,29 +88,15 @@ module system_2x2_cccc_dm #(
   assign debug_ring_in[2] = debug_ring_out[3];
   assign debug_ring_out_ready[3] = debug_ring_in_ready[2];
 
-  localparam FLIT_WIDTH = CONFIG.NOC_FLIT_WIDTH;
-  localparam CHANNELS   = CONFIG.NOC_CHANNELS;
-
-  // Flits from NoC->tiles
-  wire [3:0][CHANNELS-1:0][FLIT_WIDTH-1:0] link_in_flit;
-  wire [3:0][CHANNELS-1:0]                 link_in_last;
-  wire [3:0][CHANNELS-1:0]                 link_in_valid;
-  wire [3:0][CHANNELS-1:0]                 link_in_ready;
-
-  // Flits from tiles->NoC
-  wire [3:0][CHANNELS-1:0][FLIT_WIDTH-1:0] link_out_flit;
-  wire [3:0][CHANNELS-1:0]                 link_out_last;
-  wire [3:0][CHANNELS-1:0]                 link_out_valid;
-  wire [3:0][CHANNELS-1:0]                 link_out_ready;
-
-  noc_mesh2d #(
+  noc_mesh3d #(
     .FLIT_WIDTH (FLIT_WIDTH),
     .CHANNELS   (CHANNELS),
 
     .ENABLE_VCHANNELS (CONFIG.NOC_ENABLE_VCHANNELS),
 
     .X (X),
-    .Y (X)
+    .Y (Y),
+    .Z (Z)
   )
   u_noc (
     .*,
@@ -103,11 +109,9 @@ module system_2x2_cccc_dm #(
     .out_valid (link_in_valid),
     .out_ready (link_in_ready)
   );
-
-  genvar i;
   generate
-    for (i=0; i<4; i=i+1) begin : gen_ct
-      compute_tile_dm #(
+    for (i=0; i<NODES; i=i+1) begin : gen_ct
+      or1k_tile #(
         .CONFIG       (CONFIG),
         .ID           (i),
         .COREBASE     (i*CONFIG.CORES_PER_TILE),

@@ -2,7 +2,7 @@ import dii_package::dii_flit;
 import opensocdebug::mor1kx_trace_exec;
 import optimsoc_config::*;
 
-module compute_tile_dm #(
+module or1k_tile #(
   parameter config_t CONFIG = 'x,
 
   parameter ID       = 'x,

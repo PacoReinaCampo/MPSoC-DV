@@ -72,6 +72,7 @@
 ../mpi/rtl/verilog/wb/core/mpi_buffer.sv
 ../mpi/rtl/verilog/wb/core/mpi_buffer_endpoint.sv
 ../mpi/rtl/verilog/wb/wb/mpi_wb.sv
+../rtl/verilog/mpsoc/or1k_mpsoc3d.sv
 ../noc/rtl/verilog/core/noc_buffer.sv
 ../noc/rtl/verilog/core/noc_demux.sv
 ../noc/rtl/verilog/core/noc_mux.sv
@@ -81,7 +82,7 @@
 ../noc/rtl/verilog/router/noc_router_lookup.sv
 ../noc/rtl/verilog/router/noc_router_lookup_slice.sv
 ../noc/rtl/verilog/router/noc_router_output.sv
-../noc/rtl/verilog/topology/noc_mesh2d.sv
+../noc/rtl/verilog/topology/noc_mesh3d.sv
 ../pu/rtl/verilog/core/module/mor1kx_module.sv
 ../pu/rtl/verilog/core/mor1kx_branch_prediction.v
 ../pu/rtl/verilog/core/mor1kx_branch_predictor_gshare.v
@@ -145,12 +146,12 @@
 ../bench/verilog/glip/glip_tcp_toplevel.sv
 ../bench/verilog/monitor/r3_checker.v
 ../bench/verilog/monitor/trace_monitor.sv
-../bench/verilog/or1k_tile_testbench.sv
---top-module or1k_tile_testbench
+../bench/verilog/or1k_mpsoc3d_testbench.sv
+--top-module or1k_mpsoc3d_testbench
 --exe
 ../bench/cpp/glip/glip_tcp_dpi.cpp
 ../bench/cpp/glip/GlipTcp.cpp
-../bench/cpp/or1k_tile_testbench.cpp
+../bench/cpp/or1k_mpsoc3d_testbench.cpp
 ../bench/cpp/verilator/src/OptionsParser.cpp
 ../bench/cpp/verilator/src/VerilatedControl.cpp
 -GNUM_CORES=2

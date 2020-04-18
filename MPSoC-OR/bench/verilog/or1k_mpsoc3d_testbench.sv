@@ -1,4 +1,4 @@
-module tb_system_2x2_cccc (
+module or1k_mpsoc3d_testbench (
   `ifdef verilator
   input clk,
   input rst
@@ -17,8 +17,8 @@ module tb_system_2x2_cccc (
   parameter integer LMEM_SIZE = 32*1024*1024;
 
   localparam base_config_t
-  BASE_CONFIG = '{NUMTILES: 4,
-                  NUMCTS: 4,
+  BASE_CONFIG = '{NUMTILES: 8,
+                  NUMCTS: 8,
                   CTLIST: {{60{16'hx}}, 16'h0, 16'h1, 16'h2, 16'h3},
                   CORES_PER_TILE: NUM_CORES,
                   GMEM_SIZE: 0,
@@ -137,7 +137,7 @@ module tb_system_2x2_cccc (
     end
   endgenerate
 
-  system_2x2_cccc_dm #(
+  or1k_mpsoc3d #(
     .CONFIG (CONFIG)
   )
   u_system (

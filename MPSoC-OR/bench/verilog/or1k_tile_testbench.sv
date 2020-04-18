@@ -34,7 +34,7 @@
  *   Stefan Wallentowitz <stefan.wallentowitz@tum.de>
  */
 
-module tb_compute_tile (
+module or1k_tile_testbench (
   `ifdef verilator
   input clk,
   input rst
@@ -219,7 +219,7 @@ module tb_compute_tile (
 
 
   // The actual system: a single compute tile
-  compute_tile_dm #(
+  or1k_tile #(
     .CONFIG       (CONFIG),
     .ID           (0),
     .MEM_FILE     ("ct.vmem"),

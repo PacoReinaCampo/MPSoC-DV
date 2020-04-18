@@ -1,7 +1,7 @@
-rm -rf Vtb_compute_tile
+rm -rf Vor1k_tile_testbench
 
 verilator -f soc.vc --trace -Wno-fatal -CFLAGS "-std=c++11" -LDFLAGS "-pthread"
-make -f Vtb_compute_tile.mk
+make -f Vor1k_tile_testbench.mk
 
 rm -rf *.a
 rm -rf *.cpp
