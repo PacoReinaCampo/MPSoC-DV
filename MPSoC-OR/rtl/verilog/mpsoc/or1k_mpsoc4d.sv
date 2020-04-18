@@ -1,7 +1,7 @@
 import dii_package::dii_flit;
 import optimsoc_config::*;
 
-module or1k_mpsoc3d #(
+module or1k_mpsoc4d #(
   parameter T = 2,
   parameter X = 2,
   parameter Y = 2,
@@ -89,7 +89,7 @@ module or1k_mpsoc3d #(
   assign debug_ring_in[2] = debug_ring_out[3];
   assign debug_ring_out_ready[3] = debug_ring_in_ready[2];
 
-  noc_mesh3d #(
+  noc_mesh4d #(
     .FLIT_WIDTH (FLIT_WIDTH),
     .CHANNELS   (CHANNELS),
 
