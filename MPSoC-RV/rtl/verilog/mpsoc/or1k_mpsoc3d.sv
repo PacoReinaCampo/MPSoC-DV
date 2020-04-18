@@ -24,7 +24,7 @@ module or1k_mpsoc3d #(
     output [NODES-1:0]       wb_ext_stb_i,
     output [NODES-1:0]       wb_ext_we_i,
     output [NODES-1:0]       wb_ext_cab_i,
-    output [NODES-1:0] [2:0] wb_ext_cti_i,
+    output [NODES-1:0][ 2:0] wb_ext_cti_i,
     output [NODES-1:0][ 1:0] wb_ext_bte_i,
     input  [NODES-1:0]       wb_ext_ack_o,
     input  [NODES-1:0]       wb_ext_rty_o,

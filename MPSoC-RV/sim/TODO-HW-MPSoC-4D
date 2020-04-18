@@ -1,0 +1,12 @@
+rm -rf Vor1k_mpsoc4d_testbench
+
+verilator -f mpsoc4d.vc --trace -Wno-fatal -CFLAGS "-std=c++11" -LDFLAGS "-pthread"
+make -f Vor1k_mpsoc4d_testbench.mk
+
+rm -rf *.a
+rm -rf *.cpp
+rm -rf *.d
+rm -rf *.dat
+rm -rf *.h
+rm -rf *.o
+rm -rf *.mk

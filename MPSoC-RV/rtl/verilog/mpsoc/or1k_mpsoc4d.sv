@@ -2,11 +2,12 @@ import dii_package::dii_flit;
 import optimsoc_config::*;
 
 module or1k_mpsoc3d #(
+  parameter T = 2,
   parameter X = 2,
   parameter Y = 2,
   parameter Z = 2,
 
-  localparam NODES = X*Y*Z,
+  localparam NODES = T*X*Y*Z,
 
   parameter config_t CONFIG = 'x
 )
@@ -94,6 +95,7 @@ module or1k_mpsoc3d #(
 
     .ENABLE_VCHANNELS (CONFIG.NOC_ENABLE_VCHANNELS),
 
+    .T (T),
     .X (X),
     .Y (Y),
     .Z (Z)

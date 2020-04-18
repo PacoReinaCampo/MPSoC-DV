@@ -1,0 +1,9 @@
+../../../../rtl/verilog/core/cache/riscv_dcache_core.sv
+../../../../rtl/verilog/core/cache/riscv_icache_core.sv
+../../../../rtl/verilog/core/memory/riscv_dmem_ctrl.sv
+../../../../rtl/verilog/core/memory/riscv_imem_ctrl.sv
+../../../../rtl/verilog/core/memory/riscv_mux.sv
+../../../../rtl/verilog/core/riscv_core.sv
+../../../../rtl/verilog/core/riscv_if.sv
+../../../../rtl/verilog/core/riscv_rf.sv
+../../../../rtl/verilog/pu/riscv_pu.sv

@@ -230,66 +230,62 @@ module or1k_tile #(
 
   generate
     for (c = 0; c < CONFIG.CORES_PER_TILE; c = c + 1) begin : gen_cores
-      mor1kx_module #(
-        .ID(c),
-        .NUMCORES             (CONFIG.CORES_PER_TILE),
-        .FEATURE_FPU          (MOR1KX_FEATURE_FPU),
-        .FEATURE_PERFCOUNTERS (MOR1KX_FEATURE_PERFCOUNTERS),
-        .FEATURE_DEBUGUNIT    (MOR1KX_FEATURE_DEBUGUNIT)
+      riscv_pu #(
+        .XLEN ( XLEN ),
+        .PLEN ( PLEN )
       )
       u_core (
-        .clk_i                 (clk),
-        .bus_clk_i             (clk),
-        .rst_i                 (rst_cpu),
-        .bus_rst_i             (rst_cpu),
+        //Common signals
+        .HRESETn       ( rst_cpu ),
+        .HCLK          ( clk     ),
 
-        .dbg_stall_i           (1'b0),
-        .dbg_ewt_i             (1'b0),
-        .dbg_stb_i             (1'b0),
-        .dbg_we_i              (1'b0),
-        .dbg_adr_i             (32'h00000000),
-        .dbg_dat_i             (32'h00000000),
-        .dbg_lss_o             (),
-        .dbg_is_o              (),
-        .dbg_wp_o              (),
-        .dbg_bp_o              (),
-        .dbg_dat_o             (),
-        .dbg_ack_o             (),
+        //PMA configuration
+        .pma_cfg_i     ( pma_cfg_i ),
+        .pma_adr_i     ( pma_adr_i ),
 
-        .pic_ints_i            (pic_ints_i[c]),
+        //AHB instruction
+        .ins_HSEL      ( bus_ins_HSEL      [t] ),
+        .ins_HADDR     ( bus_ins_HADDR     [t] ),
+        .ins_HWDATA    ( bus_ins_HWDATA    [t] ),
+        .ins_HRDATA    ( bus_ins_HRDATA    [t] ),
+        .ins_HWRITE    ( bus_ins_HWRITE    [t] ),
+        .ins_HSIZE     ( bus_ins_HSIZE     [t] ),
+        .ins_HBURST    ( bus_ins_HBURST    [t] ),
+        .ins_HPROT     ( bus_ins_HPROT     [t] ),
+        .ins_HTRANS    ( bus_ins_HTRANS    [t] ),
+        .ins_HMASTLOCK ( bus_ins_HMASTLOCK [t] ),
+        .ins_HREADY    ( bus_ins_HREADY    [t] ),
+        .ins_HRESP     ( bus_ins_HRESP     [t] ),
 
-        // Instruction WISHBONE interface
-        .iwb_cyc_o             (busms_cyc_o[c*2  ]),
-        .iwb_adr_o             (busms_adr_o[c*2  ][31:0]),
-        .iwb_stb_o             (busms_stb_o[c*2  ]),
-        .iwb_we_o              (busms_we_o [c*2  ]),
-        .iwb_sel_o             (busms_sel_o[c*2  ][ 3:0]),
-        .iwb_dat_o             (busms_dat_o[c*2  ][31:0]),
-        .iwb_bte_o             (busms_bte_o[c*2  ][ 1:0]),
-        .iwb_cti_o             (busms_cti_o[c*2  ][ 2:0]),
-        .iwb_ack_i             (busms_ack_i[c*2  ]),
-        .iwb_err_i             (busms_err_i[c*2  ]),
-        .iwb_rty_i             (busms_rty_i[c*2  ]),
-        .iwb_dat_i             (busms_dat_i[c*2  ][31:0]),
+        //AHB data
+        .dat_HSEL      ( dat_HSEL          [t] ),
+        .dat_HADDR     ( dat_HADDR         [t] ),
+        .dat_HWDATA    ( dat_HWDATA        [t] ),
+        .dat_HRDATA    ( dat_HRDATA        [t] ),
+        .dat_HWRITE    ( dat_HWRITE        [t] ),
+        .dat_HSIZE     ( dat_HSIZE         [t] ),
+        .dat_HBURST    ( dat_HBURST        [t] ),
+        .dat_HPROT     ( dat_HPROT         [t] ),
+        .dat_HTRANS    ( dat_HTRANS        [t] ),
+        .dat_HMASTLOCK ( dat_HMASTLOCK     [t] ),
+        .dat_HREADY    ( dat_HREADY        [t] ),
+        .dat_HRESP     ( dat_HRESP         [t] ),
 
-        // Data WISHBONE interface
-        .dwb_cyc_o             (busms_cyc_o[c*2+1]),
-        .dwb_adr_o             (busms_adr_o[c*2+1][31:0]),
-        .dwb_stb_o             (busms_stb_o[c*2+1]),
-        .dwb_we_o              (busms_we_o [c*2+1]),
-        .dwb_sel_o             (busms_sel_o[c*2+1][ 3:0]),
-        .dwb_dat_o             (busms_dat_o[c*2+1][31:0]),
-        .dwb_bte_o             (busms_bte_o[c*2+1][ 1:0]),
-        .dwb_cti_o             (busms_cti_o[c*2+1][ 2:0]),
-        .dwb_ack_i             (busms_ack_i[c*2+1]),
-        .dwb_err_i             (busms_err_i[c*2+1]),
-        .dwb_rty_i             (busms_rty_i[c*2+1]),
-        .dwb_dat_i             (busms_dat_i[c*2+1][31:0]),
+        //Interrupts Interface
+        .ext_nmi       ( ext_nmi           [t] ),
+        .ext_tint      ( ext_tint          [t] ),
+        .ext_sint      ( ext_sint          [t] ),
+        .ext_int       ( ext_int           [t] ),
 
-        .snoop_enable_i        (snoop_enable),
-        .snoop_adr_i           (snoop_adr),
-
-        .trace_exec            (trace[c])
+        //Debug Interface
+        .dbg_stall     ( dbg_stall         [t] ),
+        .dbg_strb      ( dbg_strb          [t] ),
+        .dbg_we        ( dbg_we            [t] ),
+        .dbg_addr      ( dbg_addr          [t] ),
+        .dbg_dati      ( dbg_dati          [t] ),
+        .dbg_dato      ( dbg_dato          [t] ),
+        .dbg_ack       ( dbg_ack           [t] ),
+        .dbg_bp        ( dbg_bp            [t] )
       );
 
       assign busms_cab_o [c*2  ] = 1'b0;

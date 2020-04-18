@@ -27,7 +27,6 @@
  *   Stefan Wallentowitz <stefan.wallentowitz@tum.de>
  */
 
-
 /*
  * BASE+
  * +----------------------------+
@@ -66,187 +65,191 @@
  * +----------------------------+
  */
 
-module networkadapter_conf
-  import optimsoc_config::*;
-  #(parameter config_t CONFIG = 'x,
-    parameter TILEID = 'x,
-    parameter COREBASE = 'x
-    )
+import optimsoc_config::*;
+
+module networkadapter_conf #(
+  parameter config_t CONFIG = 'x,
+  parameter TILEID          = 'x,
+  parameter COREBASE        = 'x
+)
   (
-`ifdef OPTIMSOC_CLOCKDOMAINS
- `ifdef OPTIMSOC_CDC_DYNAMIC
-                           cdc_conf, cdc_enable,
- `endif
-`endif
-                           /*AUTOARG*/
-   // Outputs
-   data, ack, rty, err,
-   // Inputs
-   clk, rst, adr, we, data_i
-   );
+    `ifdef OPTIMSOC_CLOCKDOMAINS
+    `ifdef OPTIMSOC_CDC_DYNAMIC
+    cdc_conf, cdc_enable,
+    `endif
+    `endif
 
-   reg [31:0] seed;
+    // Outputs
+    data, ack, rty, err,
+    // Inputs
+    clk, rst, adr, we, data_i
+  );
 
-`ifdef verilator
-   initial begin
-      seed = $random();
-   end
-`else
-   assign seed = 32'h0;
-`endif
+  reg [31:0] seed;
 
-   localparam REG_TILEID   = 0;
-   localparam REG_NUMTILES = 1;
-   localparam REG_CONF   = 3;
-   localparam REG_COREBASE = 4;
-   localparam REG_DOMAIN_NUMCORES = 6;
-   localparam REG_GMEM_SIZE = 7;
-   localparam REG_GMEM_TILE = 8;
-   localparam REG_LMEM_SIZE = 9;
-   localparam REG_NUMCTS = 10;
-   localparam REG_SEED = 11;
+  `ifdef verilator
+  initial begin
+    seed = $random();
+  end
+  `else
+  assign seed = 32'h0;
+  `endif
 
-   localparam REG_CDC      = 10'h40;
-   localparam REG_CDC_DYN  = 10'h41;
-   localparam REG_CDC_CONF = 10'h42;
+  localparam REG_TILEID          = 0;
+  localparam REG_NUMTILES        = 1;
+  localparam REG_CONF            = 3;
+  localparam REG_COREBASE        = 4;
+  localparam REG_DOMAIN_NUMCORES = 6;
+  localparam REG_GMEM_SIZE       = 7;
+  localparam REG_GMEM_TILE       = 8;
+  localparam REG_LMEM_SIZE       = 9;
+  localparam REG_NUMCTS          = 10;
+  localparam REG_SEED            = 11;
 
-   localparam REG_CTLIST = 10'h80;
+  localparam REG_CDC      = 10'h40;
+  localparam REG_CDC_DYN  = 10'h41;
+  localparam REG_CDC_CONF = 10'h42;
 
-   localparam REGBIT_CONF_MPSIMPLE = 0;
-   localparam REGBIT_CONF_DMA      = 1;
+  localparam REG_CTLIST = 10'h80;
 
-   input clk;
-   input rst;
+  localparam REGBIT_CONF_MPSIMPLE = 0;
+  localparam REGBIT_CONF_DMA      = 1;
 
-   input [15:0]      adr;
-   input             we;
-   input [31:0]      data_i;
+  input clk;
+  input rst;
 
-   output reg [31:0] data;
-   output            ack;
-   output            rty;
-   output            err;
+  input      [15:0] adr;
+  input             we;
+  input      [31:0] data_i;
 
-   assign ack = ~|adr[15:12];
-   assign err = ~ack;
-   assign rty = 1'b0;
+  output reg [31:0] data;
+  output            ack;
+  output            rty;
+  output            err;
 
-   // CDC configuration register
-`ifdef OPTIMSOC_CLOCKDOMAINS
- `ifdef OPTIMSOC_CDC_DYNAMIC
-   output reg [2:0]         cdc_conf;
-   output reg               cdc_enable;
- `endif
-`endif
+  assign ack = ~|adr[15:12];
+  assign err = ~ack;
+  assign rty = 1'b0;
 
-   wire [15:0]              ctlist_vector[0:63];
+  // CDC configuration register
+  `ifdef OPTIMSOC_CLOCKDOMAINS
+  `ifdef OPTIMSOC_CDC_DYNAMIC
+  output reg [2:0]         cdc_conf;
+  output reg               cdc_enable;
+  `endif
+  `endif
 
-   genvar                   i;
-   generate
-      for (i = 0; i < 64; i = i + 1) begin : gen_ctlist_vector // array is indexed by the desired destination
-         if (i < CONFIG.NUMCTS) begin
-            // The entries of the ctlist_vector array are subranges from the parameter, where
-            // the indexing is reversed (num_dests-i-1)!
-            assign ctlist_vector[CONFIG.NUMCTS - i - 1] = CONFIG.CTLIST[i];
-         end else begin
-            // All other entries are unused and zero'ed.
-            assign ctlist_vector[i] = 16'h0;
-         end
+  wire [15:0]              ctlist_vector[0:63];
+
+  genvar                   i;
+  generate
+    for (i = 0; i < 64; i = i + 1) begin : gen_ctlist_vector // array is indexed by the desired destination
+      if (i < CONFIG.NUMCTS) begin
+        // The entries of the ctlist_vector array are subranges from the parameter, where
+        // the indexing is reversed (num_dests-i-1)!
+        assign ctlist_vector[CONFIG.NUMCTS - i - 1] = CONFIG.CTLIST[i];
       end
-   endgenerate
+      else begin
+        // All other entries are unused and zero'ed.
+        assign ctlist_vector[i] = 16'h0;
+      end
+    end
+  endgenerate
 
-
-   always @(*) begin
-      if (adr[11:9] == REG_CTLIST[9:7]) begin
-         if (adr[1]) begin
-            data = {16'h0,ctlist_vector[adr[6:1]]};
-         end else begin
-            data = {ctlist_vector[adr[6:1]],16'h0};
-         end
-      end else begin
-         case (adr[11:2])
-           REG_TILEID: begin
-              data = TILEID;
-           end
-           REG_NUMTILES: begin
-              data = CONFIG.NUMTILES;
-           end
-           REG_CONF: begin
-              data = 32'h0000_0000;
-              data[REGBIT_CONF_MPSIMPLE] = CONFIG.NA_ENABLE_MPSIMPLE;
-              data[REGBIT_CONF_DMA] = CONFIG.NA_ENABLE_DMA;
-           end
-           REG_COREBASE: begin
-              data = 32'(COREBASE);
-           end
-           REG_DOMAIN_NUMCORES: begin
-              data = CONFIG.CORES_PER_TILE;
-           end
-           REG_GMEM_SIZE: begin
-              data = CONFIG.GMEM_SIZE;
-           end
-           REG_GMEM_TILE: begin
-              data = CONFIG.GMEM_TILE;
-           end
-           REG_LMEM_SIZE: begin
-              data = CONFIG.LMEM_SIZE;
-           end
-           REG_NUMCTS: begin
-              data = CONFIG.NUMCTS;
-           end
-           REG_SEED: begin
-              data = seed;
-           end
-           REG_CDC: begin
-`ifdef OPTIMSOC_CLOCKDOMAINS
-           data = 32'b1;
-`else
-           data = 32'b0;
-`endif
+  always @(*) begin
+    if (adr[11:9] == REG_CTLIST[9:7]) begin
+      if (adr[1]) begin
+        data = {16'h0,ctlist_vector[adr[6:1]]};
+      end
+      else begin
+        data = {ctlist_vector[adr[6:1]],16'h0};
+      end
+    end
+    else begin
+      case (adr[11:2])
+        REG_TILEID: begin
+          data = TILEID;
+        end
+        REG_NUMTILES: begin
+          data = CONFIG.NUMTILES;
+        end
+        REG_CONF: begin
+          data = 32'h0000_0000;
+          data[REGBIT_CONF_MPSIMPLE] = CONFIG.NA_ENABLE_MPSIMPLE;
+          data[REGBIT_CONF_DMA]      = CONFIG.NA_ENABLE_DMA;
+        end
+        REG_COREBASE: begin
+          data = 32'(COREBASE);
+        end
+        REG_DOMAIN_NUMCORES: begin
+          data = CONFIG.CORES_PER_TILE;
+        end
+        REG_GMEM_SIZE: begin
+          data = CONFIG.GMEM_SIZE;
+        end
+        REG_GMEM_TILE: begin
+          data = CONFIG.GMEM_TILE;
+        end
+        REG_LMEM_SIZE: begin
+          data = CONFIG.LMEM_SIZE;
+        end
+        REG_NUMCTS: begin
+          data = CONFIG.NUMCTS;
+        end
+        REG_SEED: begin
+          data = seed;
+        end
+        REG_CDC: begin
+          `ifdef OPTIMSOC_CLOCKDOMAINS
+          data = 32'b1;
+          `else
+          data = 32'b0;
+          `endif
         end
         REG_CDC_DYN: begin
-`ifdef OPTIMSOC_CDC_DYNAMIC
-           data = 32'b1;
-`else
-           data = 32'b0;
-`endif
+          `ifdef OPTIMSOC_CDC_DYNAMIC
+          data = 32'b1;
+          `else
+          data = 32'b0;
+          `endif
         end
         REG_CDC_CONF: begin
-`ifdef OPTIMSOC_CLOCKDOMAINS
- `ifdef OPTIMSOC_CDC_DYNAMIC
-           data = cdc_conf;
- `else
-           data = 32'hx;
- `endif
-`else
-           data = 32'hx;
-`endif
+          `ifdef OPTIMSOC_CLOCKDOMAINS
+          `ifdef OPTIMSOC_CDC_DYNAMIC
+          data = cdc_conf;
+          `else
+          data = 32'hx;
+          `endif
+          `else
+          data = 32'hx;
+          `endif
         end
 
-           default: begin
-              data = 32'hx;
-           end
-         endcase // case (adr[11:2])
-      end
-   end
+        default: begin
+          data = 32'hx;
+        end
+      endcase
+    end
+  end
 
-`ifdef OPTIMSOC_CLOCKDOMAINS
- `ifdef OPTIMSOC_CDC_DYNAMIC
-   always @(posedge clk) begin
-      if (rst) begin
-         cdc_conf <= `OPTIMSOC_CDC_DYN_DEFAULT;
-         cdc_enable <= 0;
-      end else begin
-         if ((adr[11:2]==REG_CDC_CONF) && we) begin
-            cdc_conf <= data_i[2:0];
-            cdc_enable <= 1;
-         end else begin
-            cdc_conf <= cdc_conf;
-            cdc_enable <= 0;
-         end
+  `ifdef OPTIMSOC_CLOCKDOMAINS
+  `ifdef OPTIMSOC_CDC_DYNAMIC
+  always @(posedge clk) begin
+    if (rst) begin
+      cdc_conf   <= `OPTIMSOC_CDC_DYN_DEFAULT;
+      cdc_enable <= 0;
+    end
+    else begin
+      if ((adr[11:2]==REG_CDC_CONF) && we) begin
+        cdc_conf   <= data_i[2:0];
+        cdc_enable <= 1;
       end
-   end // always @ (posedge clk)
- `endif //  `ifdef OPTIMSOC_CDC_DYNAMIC
-`endif //  `ifdef OPTIMSOC_CLOCKDOMAINS
-
-endmodule // networkadapter_conf
+      else begin
+        cdc_conf   <= cdc_conf;
+        cdc_enable <= 0;
+      end
+    end
+  end
+  `endif
+  `endif
+endmodule

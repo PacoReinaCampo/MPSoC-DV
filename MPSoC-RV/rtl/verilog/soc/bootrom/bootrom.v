@@ -37,15 +37,15 @@ module bootrom(/*AUTOARG*/
    input clk;
    input rst;
 
-   input [31:0] wb_adr_i;
-   input [31:0] wb_dat_i;
-   input        wb_cyc_i;
-   input        wb_stb_i;
-   input [3:0]  wb_sel_i;
+   input      [31:0] wb_adr_i;
+   input      [31:0] wb_dat_i;
+   input             wb_cyc_i;
+   input             wb_stb_i;
+   input      [ 3:0] wb_sel_i;
    output reg [31:0] wb_dat_o;
-   output reg    wb_ack_o;
-   output        wb_err_o;
-   output        wb_rty_o;
+   output reg        wb_ack_o;
+   output            wb_err_o;
+   output            wb_rty_o;
 
    always @(posedge clk) begin
       wb_ack_o <= wb_stb_i & ~wb_ack_o;
