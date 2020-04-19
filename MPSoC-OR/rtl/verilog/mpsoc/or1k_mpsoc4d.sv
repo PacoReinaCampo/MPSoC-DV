@@ -2,12 +2,12 @@ import dii_package::dii_flit;
 import optimsoc_config::*;
 
 module or1k_mpsoc4d #(
-  parameter T = 2,
   parameter X = 2,
   parameter Y = 2,
   parameter Z = 2,
+  parameter T = 2,
 
-  localparam NODES = T*X*Y*Z,
+  localparam NODES = X*Y*Z*T,
 
   parameter config_t CONFIG = 'x
 )
@@ -95,10 +95,10 @@ module or1k_mpsoc4d #(
 
     .ENABLE_VCHANNELS (CONFIG.NOC_ENABLE_VCHANNELS),
 
-    .T (T),
     .X (X),
     .Y (Y),
-    .Z (Z)
+    .Z (Z),
+    .T (T)
   )
   u_noc (
     .*,
