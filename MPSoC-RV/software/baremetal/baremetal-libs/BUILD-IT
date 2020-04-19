@@ -1,0 +1,8 @@
+export PATH=/opt/toolchains/or1k-elf-multicore/bin:${PATH}
+
+./autogen.sh
+mkdir sw
+mkdir build; cd build
+../configure --prefix=`pwd`/../sw --host=or1k-elf
+make
+make install

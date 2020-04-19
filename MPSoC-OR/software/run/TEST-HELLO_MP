@@ -1,0 +1,5 @@
+source ../build.sh
+
+cd ../baremetal/baremetal-apps/hello_mp
+make clean
+make
