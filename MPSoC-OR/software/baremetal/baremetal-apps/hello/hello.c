@@ -36,7 +36,7 @@ int main() {
          optimsoc_get_relcoreid()+1, optimsoc_get_tilenumcores(),
          optimsoc_get_tileid()+1, optimsoc_get_abscoreid()+1);
 
-  printf("There are %d compute tiles:\n", optimsoc_get_numct()+1);
+  printf("There are %d compute tiles:\n", optimsoc_get_numct());
 
   for (int r = 0; r < optimsoc_get_numct(); ++r) {
 	  printf(" rank %d is tile %d\n", r+1, optimsoc_get_ranktile(r)+1);
