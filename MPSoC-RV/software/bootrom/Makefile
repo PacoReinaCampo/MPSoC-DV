@@ -49,7 +49,7 @@ bin2vmem: bin2vmem.c
 	cp bin2vmem ../baremetal/host/bin/
 
 install:
-	cp -i bootrom_code.v ../../rtl/bootrom/verilog/
+	cp -i bootrom_code.v ../../rtl/verilog/soc/bootrom/
 
 clean:
 	rm -f a.out bootrom.bin bootrom.hex bootrom_code.v bin2vlogarray bin2vmem

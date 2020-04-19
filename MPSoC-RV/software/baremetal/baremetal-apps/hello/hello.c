@@ -32,14 +32,14 @@
 int main() {
   optimsoc_init(0);
 
-  printf("Hello World! Core %d of %d in tile %d, my absolute core id is: %d\n",
-         optimsoc_get_relcoreid(), optimsoc_get_tilenumcores(),
-         optimsoc_get_tileid(), optimsoc_get_abscoreid());
+  printf("Hello QueenField! Core %d of %d in tile %d, my absolute core id is: %d\n",
+         optimsoc_get_relcoreid()+1, optimsoc_get_tilenumcores(),
+         optimsoc_get_tileid()+1, optimsoc_get_abscoreid()+1);
 
-  printf("There are %d compute tiles:\n", optimsoc_get_numct());
+  printf("There are %d compute tiles:\n", optimsoc_get_numct()+1);
 
   for (int r = 0; r < optimsoc_get_numct(); ++r) {
-	  printf(" rank %d is tile %d\n", r, optimsoc_get_ranktile(r));
+	  printf(" rank %d is tile %d\n", r+1, optimsoc_get_ranktile(r)+1);
   }
 
   return 0;
