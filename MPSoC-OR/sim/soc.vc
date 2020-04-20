@@ -10,8 +10,6 @@
 -CFLAGS -I../bench/cpp/glip
 +incdir+../dma/rtl/verilog/wb/pkg
 -CFLAGS -I../dma/rtl/verilog/wb/pkg
-+incdir+../dbg/rtl/verilog/soc/pkg
--CFLAGS -I../dbg/rtl/verilog/soc/pkg
 ../rtl/verilog/pkg/arbiter/arb_rr.sv
 ../rtl/verilog/pkg/functions/optimsoc_functions.sv
 ../rtl/verilog/pkg/config/optimsoc_config.sv
@@ -52,14 +50,6 @@
 ../dbg/rtl/verilog/soc/interconnect/ring_router_mux_rr.sv
 ../dbg/rtl/verilog/soc/interconnect/ring_router_mux.sv
 ../dbg/rtl/verilog/soc/interconnect/ring_router.sv
-../dbg/rtl/verilog/soc/router/lisnoc_fifo.v
-../dbg/rtl/verilog/soc/router/lisnoc_router.v
-../dbg/rtl/verilog/soc/router/lisnoc_router_arbiter.sv
-../dbg/rtl/verilog/soc/router/lisnoc_router_arbiter_prio.sv
-../dbg/rtl/verilog/soc/router/lisnoc_router_input.v
-../dbg/rtl/verilog/soc/router/lisnoc_router_input_route.v
-../dbg/rtl/verilog/soc/router/lisnoc_router_output.v
-../dbg/rtl/verilog/soc/router/lisnoc_router_output_arbiter.sv
 ../dma/rtl/verilog/wb/core/mpsoc_dma_initiator_nocreq.sv
 ../dma/rtl/verilog/wb/core/mpsoc_dma_packet_buffer.sv
 ../dma/rtl/verilog/wb/core/mpsoc_dma_request_table.sv
