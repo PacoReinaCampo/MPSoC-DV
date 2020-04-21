@@ -247,18 +247,18 @@ module riscv_tile_testbench (
     .noc_out_ready     (noc_out_ready),
 
     // Unused
-    .wb_ext_hsel_i      (),
-    .wb_ext_haddr_i     (),
-    .wb_ext_hwdata_i    (),
-    .wb_ext_hrdata_o    ('0),
-    .wb_ext_hwrite_i    (),
-    .wb_ext_hsize_i     (),
-    .wb_ext_hburst_i    (),
-    .wb_ext_hprot_i     (),
-    .wb_ext_htrans_i    (),
-    .wb_ext_hmastlock_i (),
-    .wb_ext_hready_o    ('0),
-    .wb_ext_hresp_o     ('0)
+    .ahb3_ext_hsel_i      (),
+    .ahb3_ext_haddr_i     (),
+    .ahb3_ext_hwdata_i    (),
+    .ahb3_ext_hrdata_o    ('0),
+    .ahb3_ext_hwrite_i    (),
+    .ahb3_ext_hsize_i     (),
+    .ahb3_ext_hburst_i    (),
+    .ahb3_ext_hprot_i     (),
+    .ahb3_ext_htrans_i    (),
+    .ahb3_ext_hmastlock_i (),
+    .ahb3_ext_hready_o    ('0),
+    .ahb3_ext_hresp_o     ('0)
   );
 
   // Generate testbench signals.
