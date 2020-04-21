@@ -34,7 +34,7 @@
  *   Stefan Wallentowitz <stefan.wallentowitz@tum.de>
  */
 
-module or1k_tile_testbench (
+module riscv_tile_testbench (
   `ifdef verilator
   input clk,
   input rst
@@ -219,7 +219,7 @@ module or1k_tile_testbench (
 
 
   // The actual system: a single compute tile
-  or1k_tile #(
+  riscv_tile #(
     .CONFIG       (CONFIG),
     .ID           (0),
     .MEM_FILE     ("ct.vmem"),
@@ -247,19 +247,18 @@ module or1k_tile_testbench (
     .noc_out_ready     (noc_out_ready),
 
     // Unused
-    .wb_ext_adr_i (),
-    .wb_ext_cyc_i (),
-    .wb_ext_dat_i (),
-    .wb_ext_sel_i (),
-    .wb_ext_stb_i (),
-    .wb_ext_we_i  (),
-    .wb_ext_cab_i (),
-    .wb_ext_cti_i (),
-    .wb_ext_bte_i (),
-    .wb_ext_ack_o ('0),
-    .wb_ext_rty_o ('0),
-    .wb_ext_err_o ('0),
-    .wb_ext_dat_o ('0)
+    .wb_ext_hsel_i      (),
+    .wb_ext_haddr_i     (),
+    .wb_ext_hwdata_i    (),
+    .wb_ext_hrdata_o    ('0),
+    .wb_ext_hwrite_i    (),
+    .wb_ext_hsize_i     (),
+    .wb_ext_hburst_i    (),
+    .wb_ext_hprot_i     (),
+    .wb_ext_htrans_i    (),
+    .wb_ext_hmastlock_i (),
+    .wb_ext_hready_o    ('0),
+    .wb_ext_hresp_o     ('0)
   );
 
   // Generate testbench signals.

@@ -1,12 +1,13 @@
 import dii_package::dii_flit;
 import optimsoc_config::*;
 
-module or1k_mpsoc3d #(
+module or1k_mpsoc4d #(
   parameter X = 2,
   parameter Y = 2,
   parameter Z = 2,
+  parameter T = 2,
 
-  localparam NODES = X*Y*Z,
+  localparam NODES = X*Y*Z*T,
 
   parameter config_t CONFIG = 'x
 )
@@ -17,19 +18,18 @@ module or1k_mpsoc3d #(
     glip_channel c_glip_in,
     glip_channel c_glip_out,
 
-    output [NODES-1:0][31:0] wb_ext_adr_i,
-    output [NODES-1:0]       wb_ext_cyc_i,
-    output [NODES-1:0][31:0] wb_ext_dat_i,
-    output [NODES-1:0][ 3:0] wb_ext_sel_i,
-    output [NODES-1:0]       wb_ext_stb_i,
-    output [NODES-1:0]       wb_ext_we_i,
-    output [NODES-1:0]       wb_ext_cab_i,
-    output [NODES-1:0][ 2:0] wb_ext_cti_i,
-    output [NODES-1:0][ 1:0] wb_ext_bte_i,
-    input  [NODES-1:0]       wb_ext_ack_o,
-    input  [NODES-1:0]       wb_ext_rty_o,
-    input  [NODES-1:0]       wb_ext_err_o,
-    input  [NODES-1:0][31:0] wb_ext_dat_o
+    output [NODES-1:0]           wb_ext_hsel_i,
+    output [NODES-1:0][PLEN-1:0] wb_ext_haddr_i,
+    output [NODES-1:0][XLEN-1:0] wb_ext_hwdata_i,
+    input  [NODES-1:0][XLEN-1:0] wb_ext_hrdata_i,
+    output [NODES-1:0]           wb_ext_hwrite_o,
+    output [NODES-1:0][     2:0] wb_ext_hsize_i,
+    output [NODES-1:0][     2:0] wb_ext_hburst_i,
+    output [NODES-1:0][     3:0] wb_ext_hprot_i,
+    output [NODES-1:0][     1:0] wb_ext_htrans_i,
+    output [NODES-1:0]           wb_ext_hmastlock_i,
+    input  [NODES-1:0]           wb_ext_hready_o,
+    input  [NODES-1:0]           wb_ext_hresp_o
   );
 
   localparam FLIT_WIDTH = CONFIG.NOC_FLIT_WIDTH;
@@ -88,7 +88,7 @@ module or1k_mpsoc3d #(
   assign debug_ring_in[2] = debug_ring_out[3];
   assign debug_ring_out_ready[3] = debug_ring_in_ready[2];
 
-  noc_mesh3d #(
+  noc_mesh4d #(
     .FLIT_WIDTH (FLIT_WIDTH),
     .CHANNELS   (CHANNELS),
 
@@ -96,7 +96,8 @@ module or1k_mpsoc3d #(
 
     .X (X),
     .Y (Y),
-    .Z (Z)
+    .Z (Z),
+    .T (T)
   )
   u_noc (
     .*,
@@ -128,19 +129,18 @@ module or1k_mpsoc3d #(
         .debug_ring_out             (debug_ring_out       [i]),
         .debug_ring_out_ready       (debug_ring_out_ready [i]),
 
-        .wb_ext_ack_o               (wb_ext_ack_o [i]),
-        .wb_ext_rty_o               (wb_ext_rty_o [i]),
-        .wb_ext_err_o               (wb_ext_err_o [i]),
-        .wb_ext_dat_o               (wb_ext_dat_o [i]),
-        .wb_ext_adr_i               (wb_ext_adr_i [i]),
-        .wb_ext_cyc_i               (wb_ext_cyc_i [i]),
-        .wb_ext_dat_i               (wb_ext_dat_i [i]),
-        .wb_ext_sel_i               (wb_ext_sel_i [i]),
-        .wb_ext_stb_i               (wb_ext_stb_i [i]),
-        .wb_ext_we_i                (wb_ext_we_i  [i]),
-        .wb_ext_cab_i               (wb_ext_cab_i [i]),
-        .wb_ext_cti_i               (wb_ext_cti_i [i]),
-        .wb_ext_bte_i               (wb_ext_bte_i [i]),
+        .wb_ext_hsel_i              (wb_ext_hsel_i      [i]),
+        .wb_ext_haddr_i             (wb_ext_haddr_i     [i]),
+        .wb_ext_hwdata_i            (wb_ext_hwdata_i    [i]),
+        .wb_ext_hrdata_i            (wb_ext_hrdata_i    [i]),
+        .wb_ext_hwrite_o            (wb_ext_hwrite_o    [i]),
+        .wb_ext_hsize_i             (wb_ext_hsize_i     [i]),
+        .wb_ext_hburst_i            (wb_ext_hburst_i    [i]),
+        .wb_ext_hprot_i             (wb_ext_hprot_i     [i]),
+        .wb_ext_htrans_i            (wb_ext_htrans_i    [i]),
+        .wb_ext_hmastlock_i         (wb_ext_hmastlock_i [i]),
+        .wb_ext_hready_o            (wb_ext_hready_o    [i]),
+        .wb_ext_hresp_o             (wb_ext_hresp_o     [i]),
 
         .noc_in_ready               (link_in_ready  [i]),
         .noc_out_flit               (link_out_flit  [i]),

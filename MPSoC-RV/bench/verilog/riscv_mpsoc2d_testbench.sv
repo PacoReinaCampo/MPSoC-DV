@@ -1,4 +1,4 @@
-module or1k_mpsoc3d_testbench (
+module riscv_mpsoc2d_testbench (
   `ifdef verilator
   input clk,
   input rst
@@ -17,8 +17,8 @@ module or1k_mpsoc3d_testbench (
   parameter integer LMEM_SIZE = 32*1024*1024;
 
   localparam base_config_t
-  BASE_CONFIG = '{NUMTILES: 8,
-                  NUMCTS: 8,
+  BASE_CONFIG = '{NUMTILES: 4,
+                  NUMCTS: 4,
                   CTLIST: {{60{16'hx}}, 16'h0, 16'h1, 16'h2, 16'h3},
                   CORES_PER_TILE: NUM_CORES,
                   GMEM_SIZE: 0,
@@ -137,7 +137,7 @@ module or1k_mpsoc3d_testbench (
     end
   endgenerate
 
-  or1k_mpsoc3d #(
+  riscv_mpsoc2d #(
     .CONFIG (CONFIG)
   )
   u_system (
@@ -146,19 +146,18 @@ module or1k_mpsoc3d_testbench (
     .c_glip_in  (c_glip_in),
     .c_glip_out (c_glip_out),
 
-    .wb_ext_ack_o ('x),
-    .wb_ext_err_o ('x),
-    .wb_ext_rty_o ('x),
-    .wb_ext_dat_o ('x),
-    .wb_ext_adr_i (),
-    .wb_ext_cyc_i (),
-    .wb_ext_dat_i (),
-    .wb_ext_sel_i (),
-    .wb_ext_stb_i (),
-    .wb_ext_we_i  (),
-    .wb_ext_cab_i (),
-    .wb_ext_cti_i (),
-    .wb_ext_bte_i ()
+    .wb_ext_hsel_i      (),
+    .wb_ext_haddr_i     (),
+    .wb_ext_hwdata_i    (),
+    .wb_ext_hrdata_o    ('x),
+    .wb_ext_hwrite_i    (),
+    .wb_ext_hsize_i     (),
+    .wb_ext_hburst_i    (),
+    .wb_ext_hprot_i     (),
+    .wb_ext_htrans_i    (),
+    .wb_ext_hmastlock_i (),
+    .wb_ext_hready_o    ('x),
+    .wb_ext_hresp_o     ('x)
   );
 
   // Generate testbench signals.
