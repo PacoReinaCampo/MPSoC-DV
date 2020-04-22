@@ -118,14 +118,18 @@ module networkadapter_conf #(
   input clk;
   input rst;
 
-  input      [15:0] adr;
-  input             we;
-  input      [31:0] data_i;
-
-  output reg [31:0] data;
-  output            ack;
-  output            rty;
-  output            err;
+  input             hsel;
+  input  [    15:0] haddr;
+  input  [XLEN-1:0] hwdata;
+  output [XLEN-1:0] hrdata;
+  input             hwrite;
+  input  [     2:0] hsize;
+  input  [     2:0] hburst;
+  input  [     3:0] hprot;
+  input  [     1:0] htrans;
+  input             hmastlock;
+  output            hready;
+  output            hresp;
 
   assign ack = ~|adr[15:12];
   assign err = ~ack;

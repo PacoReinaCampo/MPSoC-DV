@@ -230,19 +230,21 @@ module networkadapter_ct #(
         .clk                     (clk),
         .rst                     (rst),
 
-        .noc_in_req_ready        (mod_in_ready[C_DMA_REQ]),
-        .noc_in_res_ready        (mod_in_ready[C_DMA_RES]),
-        .noc_out_req_flit        (dma_out_flit[0]),
-        .noc_out_req_valid       (mod_out_valid[C_DMA_REQ]),
-        .noc_out_res_flit        (dma_out_flit[1]),
-        .noc_out_res_valid       (mod_out_valid[C_DMA_RES]),
-
         .noc_in_req_flit         (dma_in_flit[0]),
         .noc_in_req_valid        (mod_in_valid[C_DMA_REQ]),
+        .noc_in_req_ready        (mod_in_ready[C_DMA_REQ]),
+
+        .noc_in_res_ready        (mod_in_ready[C_DMA_RES]),
         .noc_in_res_flit         (dma_in_flit[1]),
         .noc_in_res_valid        (mod_in_valid[C_DMA_RES]),
-        .noc_out_req_ready       (mod_out_ready[C_DMA_REQ]),
+
+        .noc_out_req_flit        (dma_out_flit[0]),
+        .noc_out_req_valid       (mod_out_valid[C_DMA_REQ]),
         .noc_out_res_ready       (mod_out_ready[C_DMA_RES]),
+
+        .noc_out_res_flit        (dma_out_flit[1]),
+        .noc_out_res_valid       (mod_out_valid[C_DMA_RES]),
+        .noc_out_req_ready       (mod_out_ready[C_DMA_REQ]),
 
         .ahb3_if_hsel_i      (ahb3if_hsel_i[ID_DMA]),
         .ahb3_if_haddr_i     ({8'h0,ahb3if_haddr_i[ID_DMA]}),

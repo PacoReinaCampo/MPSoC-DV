@@ -27,38 +27,35 @@
  *   Stefan Wallentowitz <stefan.wallentowitz@tum.de>
  */
 
-module bootrom(/*AUTOARG*/
-   // Outputs
-   wb_dat_o, wb_ack_o, wb_err_o, wb_rty_o,
-   // Inputs
-   clk, rst, wb_adr_i, wb_dat_i, wb_cyc_i, wb_stb_i, wb_sel_i
-   );
+module bootrom #(,
+   parameter PLEN = 32
+   parameter XLEN = 32
+)
+  (
+    input clk;
+    input rst;
 
-   input clk;
-   input rst;
+    input             ahb3_hsel_i,
+    input  [PLEN-1:0] ahb3_haddr_i,
+    input  [XLEN-1:0] ahb3_hwdata_i,
+    output [XLEN-1:0] ahb3_hrdata_o,
+    input             ahb3_hwrite_i,
+    input  [     2:0] ahb3_hsize_i,
+    input  [     2:0] ahb3_hburst_i,
+    input  [     3:0] ahb3_hprot_i,
+    input  [     1:0] ahb3_htrans_i,
+    input             ahb3_hmastlock_i,
+    output            ahb3_hready_o,
+    output            ahb3_hresp_o
+ );
 
-   input      [31:0] wb_adr_i;
-   input      [31:0] wb_dat_i;
-   input             wb_cyc_i;
-   input             wb_stb_i;
-   input      [ 3:0] wb_sel_i;
-   output reg [31:0] wb_dat_o;
-   output reg        wb_ack_o;
-   output            wb_err_o;
-   output            wb_rty_o;
-
-   always @(posedge clk) begin
-      wb_ack_o <= wb_stb_i & ~wb_ack_o;
-   end
-
-   assign wb_err_o = 1'b0;
-   assign wb_rty_o = 1'b0;
+   assign ahb3_hready_o = 1'b0;
+   assign ahb3_hresp_o  = 1'b0;
 
    always @(*) begin
       case(wb_adr_i[7:2])
-`include "bootrom_code.v"
-        default: wb_dat_o = 32'hx;
+        `include "bootrom_code.v"
+        default: ahb3_hrdata_o = 32'hx;
       endcase
    end
-
-endmodule // bootrom
+endmodule

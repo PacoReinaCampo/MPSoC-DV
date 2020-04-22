@@ -1,4 +1,4 @@
-export PATH=/opt/toolchains/or1k-elf-multicore/bin:${PATH}
+export PATH=/opt/or1k-elf-multicore/bin:${PATH}
 
 if [ -n "$BASH_SOURCE" ]; then
    OPTIMSOC="`cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd `"

@@ -27,7 +27,7 @@
  *   Stefan Wallentowitz <stefan.wallentowitz@tum.de>
  */
 
-module bootrom(/*AUTOARG*/
+module bootrom(
    // Outputs
    wb_dat_o, wb_ack_o, wb_err_o, wb_rty_o,
    // Inputs
@@ -61,4 +61,4 @@ module bootrom(/*AUTOARG*/
       endcase
    end
 
-endmodule // bootrom
+endmodule
