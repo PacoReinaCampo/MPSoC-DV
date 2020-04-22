@@ -25,7 +25,7 @@
  * See the README file in this directory for information about the common
  * ports and parameters used in all memory modules.
  *
- * The original code has been taken from wb_ram_b3.v, part of the ORPSoCv2
+ * The original code has been taken from ahb3_ram_b3.v, part of the ORPSoCv2
  * project on opencores.org.
  *
  * Author(s):
@@ -34,13 +34,13 @@
  *   Markus Goehrle <markus.goehrle@tum.de>
  */
 
-module wb2sram(/*AUTOARG*/
+module wb2sram(
   // Outputs
-  wb_ack_o, wb_err_o, wb_rty_o, wb_dat_o, sram_ce, sram_we,
+  ahb3_hready_o, ahb3_hresp_o, ahb3_hrdata_o, sram_ce, sram_we,
   sram_waddr, sram_din, sram_sel,
   // Inputs
-  wb_adr_i, wb_bte_i, wb_cti_i, wb_cyc_i, wb_dat_i, wb_sel_i,
-  wb_stb_i, wb_we_i, wb_clk_i, wb_rst_i, sram_dout
+  ahb3_haddr_i, ahb3_htrans_i, ahb3_hburst_i, ahb3_hmastlock_i, ahb3_hwdata_i, ahb3_hprot_i,
+  ahb3_hsel_i, ahb3_hwrite_i, ahb3_clk_i, ahb3_rst_i, sram_dout
 );
 
   import optimsoc_functions::*;
@@ -55,40 +55,39 @@ module wb2sram(/*AUTOARG*/
 
   // byte select width
   localparam SW = (DW == 32) ? 4 :
-  (DW == 16) ? 2 :
-  (DW ==  8) ? 1 : 'hx;
+                  (DW == 16) ? 2 :
+                  (DW ==  8) ? 1 : 'hx;
 
   /*
-    * +--------------+--------------+
-    * | word address | byte in word |
-    * +--------------+--------------+
-    *     WORD_AW         BYTE_AW
-    *        +----- AW -----+
-    */
+   * +--------------+--------------+
+   * | word address | byte in word |
+   * +--------------+--------------+
+   *     WORD_AW         BYTE_AW
+   *        +----- AW -----+
+   */
   localparam BYTE_AW = SW >> 1;
   localparam WORD_AW = AW - BYTE_AW;
 
   // wishbone ports
-  input [AW-1:0]       wb_adr_i;
-  input [1:0]          wb_bte_i;
-  input [2:0]          wb_cti_i;
-  input                wb_cyc_i;
-  input [DW-1:0]       wb_dat_i;
-  input [SW-1:0]       wb_sel_i;
-  input                wb_stb_i;
-  input                wb_we_i;
+  input [AW-1:0]       ahb3_haddr_i;
+  input [1:0]          ahb3_htrans_i;
+  input [2:0]          ahb3_hburst_i;
+  input                ahb3_hmastlock_i;
+  input [DW-1:0]       ahb3_hwdata_i;
+  input [SW-1:0]       ahb3_hprot_i;
+  input                ahb3_hsel_i;
+  input                ahb3_hwrite_i;
 
-  output               wb_ack_o;
-  output               wb_err_o;
-  output               wb_rty_o;
-  output [DW-1:0]      wb_dat_o;
+  output               ahb3_hready_o;
+  output               ahb3_hresp_o;
+  output [DW-1:0]      ahb3_hrdata_o;
 
-  input                wb_clk_i;
-  input                wb_rst_i;
+  input                ahb3_clk_i;
+  input                ahb3_rst_i;
 
   wire [WORD_AW-1:0]   word_addr_in;
 
-  assign word_addr_in = wb_adr_i[AW-1:BYTE_AW];
+  assign word_addr_in = ahb3_haddr_i[AW-1:BYTE_AW];
 
   // generic RAM ports
   output               sram_ce;
@@ -103,70 +102,70 @@ module wb2sram(/*AUTOARG*/
 
   // Register to indicate if the cycle is a Wishbone B3-registered feedback
   // type access
-  reg                  wb_b3_trans;
-  wire                 wb_b3_trans_start, wb_b3_trans_stop;
+  reg                  ahb3_b3_trans;
+  wire                 ahb3_b3_trans_start, ahb3_b3_trans_stop;
 
   // Register to use for counting the addresses when doing burst accesses
   reg [WORD_AW-1:0]    burst_adr_counter;
-  reg [        2:0]    wb_cti_i_r;
-  reg [        1:0]    wb_bte_i_r;
+  reg [        2:0]    ahb3_hburst_i_r;
+  reg [        1:0]    ahb3_htrans_i_r;
   wire                 using_burst_adr;
-  wire                 burst_access_wrong_wb_adr;
+  wire                 burst_access_wrong_ahb3_adr;
 
 
   // assignments from wb to memory
   assign sram_ce    = 1'b1;
-  assign sram_we    = wb_we_i & wb_ack_o;
-  assign sram_waddr = (wb_we_i) ? word_addr_reg : word_addr;
-  assign sram_din   = wb_dat_i;
-  assign sram_sel   = wb_sel_i;
+  assign sram_we    = ahb3_hwrite_i & ahb3_hready_o;
+  assign sram_waddr = (ahb3_hwrite_i) ? word_addr_reg : word_addr;
+  assign sram_din   = ahb3_hwdata_i;
+  assign sram_sel   = ahb3_hprot_i;
 
-  assign wb_dat_o = sram_dout;
+  assign ahb3_hrdata_o = sram_dout;
 
 
   // Logic to detect if there's a burst access going on
-  assign wb_b3_trans_start = ((wb_cti_i == 3'b001)|(wb_cti_i == 3'b010)) & wb_stb_i & !wb_b3_trans;
+  assign ahb3_b3_trans_start = ((ahb3_hburst_i == 3'b001)|(ahb3_hburst_i == 3'b010)) & ahb3_hsel_i & !ahb3_b3_trans;
 
-  assign  wb_b3_trans_stop = (wb_cti_i == 3'b111) & wb_stb_i & wb_b3_trans & wb_ack_o;
+  assign  ahb3_b3_trans_stop = (ahb3_hburst_i == 3'b111) & ahb3_hsel_i & ahb3_b3_trans & ahb3_hready_o;
 
-  always @(posedge wb_clk_i) begin
-    if (wb_rst_i) begin
-      wb_b3_trans <= 0;
+  always @(posedge ahb3_clk_i) begin
+    if (ahb3_rst_i) begin
+      ahb3_b3_trans <= 0;
     end
-    else if (wb_b3_trans_start) begin
-      wb_b3_trans <= 1;
+    else if (ahb3_b3_trans_start) begin
+      ahb3_b3_trans <= 1;
     end
-    else if (wb_b3_trans_stop) begin
-      wb_b3_trans <= 0;
+    else if (ahb3_b3_trans_stop) begin
+      ahb3_b3_trans <= 0;
     end
   end
 
   // Burst address generation logic
   always @(*) begin
-    if (wb_rst_i) begin
+    if (ahb3_rst_i) begin
       burst_adr_counter = 0;
     end
     else begin
       burst_adr_counter = word_addr_reg;
-      if (wb_b3_trans_start) begin
+      if (ahb3_b3_trans_start) begin
         burst_adr_counter = word_addr_in;
       end
-      else if ((wb_cti_i_r == 3'b010) & wb_ack_o & wb_b3_trans) begin
+      else if ((ahb3_hburst_i_r == 3'b010) & ahb3_hready_o & ahb3_b3_trans) begin
         // Incrementing burst
-        if (wb_bte_i_r == 2'b00) begin // Linear burst
+        if (ahb3_htrans_i_r == 2'b00) begin // Linear burst
           burst_adr_counter = word_addr_reg + 1;
         end
-        if (wb_bte_i_r == 2'b01) begin // 4-beat wrap burst
+        if (ahb3_htrans_i_r == 2'b01) begin // 4-beat wrap burst
           burst_adr_counter[1:0] = word_addr_reg[1:0] + 1;
         end
-        if (wb_bte_i_r == 2'b10) begin // 8-beat wrap burst
+        if (ahb3_htrans_i_r == 2'b10) begin // 8-beat wrap burst
           burst_adr_counter[2:0] = word_addr_reg[2:0] + 1;
         end
-        if (wb_bte_i_r == 2'b11) begin // 16-beat wrap burst
+        if (ahb3_htrans_i_r == 2'b11) begin // 16-beat wrap burst
           burst_adr_counter[3:0] = word_addr_reg[3:0] + 1;
         end
       end
-      else if (!wb_ack_o & wb_b3_trans) begin
+      else if (!ahb3_hready_o & ahb3_b3_trans) begin
         burst_adr_counter = word_addr_reg;
       end
     end
@@ -174,24 +173,24 @@ module wb2sram(/*AUTOARG*/
 
 
   // Register it locally
-  always @(posedge wb_clk_i) begin
-    wb_bte_i_r <= wb_bte_i;
+  always @(posedge ahb3_clk_i) begin
+    ahb3_htrans_i_r <= ahb3_htrans_i;
   end
 
-  always @(posedge wb_clk_i) begin
-    wb_cti_i_r <= wb_cti_i;
+  always @(posedge ahb3_clk_i) begin
+    ahb3_hburst_i_r <= ahb3_hburst_i;
   end
 
-  assign using_burst_adr = wb_b3_trans;
+  assign using_burst_adr = ahb3_b3_trans;
 
-  assign burst_access_wrong_wb_adr = (using_burst_adr & (word_addr_reg != word_addr_in));
+  assign burst_access_wrong_ahb3_adr = (using_burst_adr & (word_addr_reg != word_addr_in));
 
   // Address logic
   always @(*) begin
     if (using_burst_adr) begin
       word_addr = burst_adr_counter;
     end
-    else if (wb_cyc_i & wb_stb_i) begin
+    else if (ahb3_hmastlock_i & ahb3_hsel_i) begin
       word_addr = word_addr_in;
     end
     else begin
@@ -200,8 +199,8 @@ module wb2sram(/*AUTOARG*/
   end
 
   // Address registering logic
-  always @(posedge wb_clk_i) begin
-    if (wb_rst_i) begin
+  always @(posedge ahb3_clk_i) begin
+    if (ahb3_rst_i) begin
       word_addr_reg <= {WORD_AW{1'bx}};
     end
     else begin
@@ -209,71 +208,69 @@ module wb2sram(/*AUTOARG*/
     end
   end
 
-  assign wb_rty_o = 0;
-
   // Ack Logic
-  reg  wb_ack;
-  reg  nxt_wb_ack;
+  reg     ahb3_ack;
+  reg nxt_ahb3_ack;
 
-  assign wb_ack_o = wb_ack & wb_stb_i & ~burst_access_wrong_wb_adr;
+  assign ahb3_hready_o = ahb3_ack & ahb3_hsel_i & ~burst_access_wrong_ahb3_adr;
 
   always @(*) begin
-    if (wb_cyc_i) begin
-      if (wb_cti_i == 3'b000) begin
+    if (ahb3_hmastlock_i) begin
+      if (ahb3_hburst_i == 3'b000) begin
         // Classic cycle acks
-        if (wb_stb_i) begin
-          if (!wb_ack) begin
-            nxt_wb_ack = 1;
+        if (ahb3_hsel_i) begin
+          if (!ahb3_ack) begin
+            nxt_ahb3_ack = 1;
           end
           else begin
-            nxt_wb_ack = 0;
+            nxt_ahb3_ack = 0;
           end
         end
         else begin
-          nxt_wb_ack = 0;
+          nxt_ahb3_ack = 0;
         end
       end
-      else if ((wb_cti_i == 3'b001) ||
-               (wb_cti_i == 3'b010)) begin
+      else if ((ahb3_hburst_i == 3'b001) ||
+               (ahb3_hburst_i == 3'b010)) begin
         // Increment/constant address bursts
-        if (wb_stb_i) begin
-          nxt_wb_ack = 1;
+        if (ahb3_hsel_i) begin
+          nxt_ahb3_ack = 1;
         end
         else begin
-          nxt_wb_ack = 0;
+          nxt_ahb3_ack = 0;
         end
       end
-      else if (wb_cti_i == 3'b111) begin
+      else if (ahb3_hburst_i == 3'b111) begin
         // End of cycle
-        if (wb_stb_i) begin
-          if (!wb_ack) begin
-            nxt_wb_ack = 1;
+        if (ahb3_hsel_i) begin
+          if (!ahb3_ack) begin
+            nxt_ahb3_ack = 1;
           end
           else begin
-            nxt_wb_ack = 0;
+            nxt_ahb3_ack = 0;
           end
         end
         else begin
-          nxt_wb_ack = 0;
+          nxt_ahb3_ack = 0;
         end
       end
       else begin
-        nxt_wb_ack = 0;
+        nxt_ahb3_ack = 0;
       end
     end
     else begin
-      nxt_wb_ack = 0;
-    end
-  end // always @ begin
-
-  always @(posedge wb_clk_i) begin
-    if (wb_rst_i) begin
-      wb_ack <= 1'b0;
-    end
-    else begin
-      wb_ack <= nxt_wb_ack;
+      nxt_ahb3_ack = 0;
     end
   end
 
-  assign wb_err_o = wb_ack & wb_stb_i & (burst_access_wrong_wb_adr);
+  always @(posedge ahb3_clk_i) begin
+    if (ahb3_rst_i) begin
+      ahb3_ack <= 1'b0;
+    end
+    else begin
+      ahb3_ack <= nxt_ahb3_ack;
+    end
+  end
+
+  assign ahb3_hresp_o = ahb3_ack & ahb3_hsel_i & (burst_access_wrong_ahb3_adr);
 endmodule

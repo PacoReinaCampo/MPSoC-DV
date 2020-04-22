@@ -1,0 +1,9 @@
+rm -rf sim/verilog/regression/msim/transcript
+rm -rf sim/verilog/regression/msim/work
+rm -rf sim/verilog/regression/msim/stdout.*
+
+rm -rf sim/verilog/regression/vtor/Vor1k_tile_testbench
+rm -rf sim/verilog/regression/vtor/Vor1k_mpsoc2d_testbench
+rm -rf sim/verilog/regression/vtor/Vor1k_mpsoc3d_testbench
+rm -rf sim/verilog/regression/vtor/Vor1k_mpsoc4d_testbench
+rm -rf sim/verilog/regression/vtor/stdout.*
