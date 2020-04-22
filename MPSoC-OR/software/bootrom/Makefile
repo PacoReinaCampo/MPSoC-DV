@@ -49,6 +49,7 @@ bin2vmem: bin2vmem.c
 	cp bin2vmem ../baremetal/host/bin/
 
 install:
+	rm -f ../../rtl/verilog/soc/bootrom/bootrom_code.v
 	cp -i bootrom_code.v ../../rtl/verilog/soc/bootrom/
 
 clean:

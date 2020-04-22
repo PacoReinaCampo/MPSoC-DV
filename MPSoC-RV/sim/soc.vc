@@ -8,8 +8,8 @@
 -CFLAGS -I../bench/cpp/verilator/inc
 +incdir+../bench/cpp/glip
 -CFLAGS -I../bench/cpp/glip
-+incdir+../dma/rtl/verilog/wb/pkg
--CFLAGS -I../dma/rtl/verilog/wb/pkg
++incdir+../dma/rtl/verilog/ahb3/pkg
+-CFLAGS -I../dma/rtl/verilog/ahb3/pkg
 ../rtl/verilog/pkg/arbiter/arb_rr.sv
 ../rtl/verilog/pkg/functions/optimsoc_functions.sv
 ../rtl/verilog/pkg/config/optimsoc_config.sv
@@ -25,9 +25,9 @@
 ../dbg/rtl/verilog/soc/modules/ctm/riscv/mriscv/osd_ctm_mriscv.sv
 ../dbg/rtl/verilog/soc/blocks/eventpacket/osd_event_packetization_fixedwidth.sv
 ../dbg/rtl/verilog/soc/modules/him/osd_him.sv
-../dbg/rtl/verilog/soc/modules/mam/wishbone/mam_wb_adapter.sv
-../dbg/rtl/verilog/soc/modules/mam/wishbone/osd_mam_wb_if.sv
-../dbg/rtl/verilog/soc/modules/mam/wishbone/osd_mam_wb.sv
+../dbg/rtl/verilog/soc/modules/mam/ahb3/mam_ahb3_adapter.sv
+../dbg/rtl/verilog/soc/modules/mam/ahb3/osd_mam_ahb3_if.sv
+../dbg/rtl/verilog/soc/modules/mam/ahb3/osd_mam_ahb3.sv
 ../dbg/rtl/verilog/soc/modules/mam/common/osd_mam.sv
 ../dbg/rtl/verilog/soc/blocks/eventpacket/osd_event_packetization.sv
 ../dbg/rtl/verilog/soc/blocks/regaccess/osd_regaccess_demux.sv
@@ -40,7 +40,7 @@
 ../dbg/rtl/verilog/soc/blocks/timestamp/osd_timestamp.sv
 ../dbg/rtl/verilog/soc/modules/dem_uart/osd_dem_uart.sv
 ../dbg/rtl/verilog/soc/modules/dem_uart/osd_dem_uart_16550.sv
-../dbg/rtl/verilog/soc/modules/dem_uart/osd_dem_uart_wb.sv
+../dbg/rtl/verilog/soc/modules/dem_uart/osd_dem_uart_ahb3.sv
 ../dbg/rtl/verilog/soc/interconnect/debug_ring_expand.sv
 ../dbg/rtl/verilog/soc/interconnect/debug_ring.sv
 ../dbg/rtl/verilog/soc/interconnect/ring_router_demux.sv
@@ -50,18 +50,18 @@
 ../dbg/rtl/verilog/soc/interconnect/ring_router_mux_rr.sv
 ../dbg/rtl/verilog/soc/interconnect/ring_router_mux.sv
 ../dbg/rtl/verilog/soc/interconnect/ring_router.sv
-../dma/rtl/verilog/wb/core/mpsoc_dma_initiator_nocreq.sv
-../dma/rtl/verilog/wb/core/mpsoc_dma_packet_buffer.sv
-../dma/rtl/verilog/wb/core/mpsoc_dma_request_table.sv
-../dma/rtl/verilog/wb/wb/mpsoc_dma_wb_initiator.sv
-../dma/rtl/verilog/wb/wb/mpsoc_dma_wb_initiator_nocres.sv
-../dma/rtl/verilog/wb/wb/mpsoc_dma_wb_initiator_req.sv
-../dma/rtl/verilog/wb/wb/mpsoc_dma_wb_interface.sv
-../dma/rtl/verilog/wb/wb/mpsoc_dma_wb_target.sv
-../dma/rtl/verilog/wb/wb/mpsoc_dma_wb_top.sv
-../mpi/rtl/verilog/wb/core/mpi_buffer.sv
-../mpi/rtl/verilog/wb/core/mpi_buffer_endpoint.sv
-../mpi/rtl/verilog/wb/wb/mpi_wb.sv
+../dma/rtl/verilog/ahb3/core/mpsoc_dma_initiator_nocreq.sv
+../dma/rtl/verilog/ahb3/core/mpsoc_dma_packet_buffer.sv
+../dma/rtl/verilog/ahb3/core/mpsoc_dma_request_table.sv
+../dma/rtl/verilog/ahb3/ahb3/mpsoc_dma_ahb3_initiator.sv
+../dma/rtl/verilog/ahb3/ahb3/mpsoc_dma_ahb3_initiator_nocres.sv
+../dma/rtl/verilog/ahb3/ahb3/mpsoc_dma_ahb3_initiator_req.sv
+../dma/rtl/verilog/ahb3/ahb3/mpsoc_dma_ahb3_interface.sv
+../dma/rtl/verilog/ahb3/ahb3/mpsoc_dma_ahb3_target.sv
+../dma/rtl/verilog/ahb3/ahb3/mpsoc_dma_ahb3_top.sv
+../mpi/rtl/verilog/ahb3/core/mpi_buffer.sv
+../mpi/rtl/verilog/ahb3/core/mpi_buffer_endpoint.sv
+../mpi/rtl/verilog/ahb3/ahb3/mpi_ahb3.sv
 ../noc/rtl/verilog/core/noc_buffer.sv
 ../noc/rtl/verilog/core/noc_demux.sv
 ../noc/rtl/verilog/core/noc_mux.sv
@@ -77,7 +77,7 @@
 ../pu/rtl/verilog/core/mriscv_branch_predictor_gshare.v
 ../pu/rtl/verilog/core/mriscv_branch_predictor_saturation_counter.v
 ../pu/rtl/verilog/core/mriscv_branch_predictor_simple.v
-../pu/rtl/verilog/core/mriscv_bus_if_wb32.v
+../pu/rtl/verilog/core/mriscv_bus_if_ahb332.v
 ../pu/rtl/verilog/core/mriscv_cache_lru.v
 ../pu/rtl/verilog/core/mriscv_cfgrs.v
 ../pu/rtl/verilog/core/mriscv_cpu_cappuccino.v
@@ -109,8 +109,8 @@
 ../pu/rtl/verilog/core/mriscv_store_buffer.v
 ../pu/rtl/verilog/core/mriscv_ticktimer.v
 ../pu/rtl/verilog/core/mriscv_true_dpram_sclk.v
-../pu/rtl/verilog/core/mriscv_wb_mux_cappuccino.v
-../pu/rtl/verilog/core/mriscv_wb_mux_espresso.v
+../pu/rtl/verilog/core/mriscv_ahb3_mux_cappuccino.v
+../pu/rtl/verilog/core/mriscv_ahb3_mux_espresso.v
 ../pu/rtl/verilog/core/mriscv-defines.v
 ../pu/rtl/verilog/core/mriscv-sprs.v
 ../pu/rtl/verilog/core/mriscv.v
@@ -124,13 +124,13 @@
 ../rtl/verilog/soc/adapter/networkadapter_conf.sv
 ../rtl/verilog/soc/adapter/networkadapter_ct.sv
 ../rtl/verilog/soc/bootrom/bootrom.v
-../rtl/verilog/soc/interconnection/bus/wb_bus_b3.sv
-../rtl/verilog/soc/interconnection/decode/wb_decode.sv
-../rtl/verilog/soc/interconnection/mux/wb_mux.sv
+../rtl/verilog/soc/interconnection/bus/ahb3_bus_b3.sv
+../rtl/verilog/soc/interconnection/decode/ahb3_decode.sv
+../rtl/verilog/soc/interconnection/mux/ahb3_mux.sv
 ../rtl/verilog/soc/spram/sram_sp_impl_plain.sv
 ../rtl/verilog/soc/spram/sram_sp.sv
-../rtl/verilog/soc/spram/wb_sram_sp.sv
-../rtl/verilog/soc/spram/wb2sram.sv
+../rtl/verilog/soc/spram/ahb3_sram_sp.sv
+../rtl/verilog/soc/spram/ahb32sram.sv
 ../rtl/verilog/soc/riscv_tile.sv
 ../bench/verilog/glip/glip_tcp_toplevel.sv
 ../bench/verilog/monitor/r3_checker.v
