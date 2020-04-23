@@ -148,14 +148,15 @@ module riscv_mpsoc2d_testbench (
 
     .ahb3_ext_hsel_i      (),
     .ahb3_ext_haddr_i     (),
-    .ahb3_ext_hrdata_i    (),
-    .ahb3_ext_hwdata_o    ('x),
+    .ahb3_ext_hwdata_i    (),
     .ahb3_ext_hwrite_i    (),
     .ahb3_ext_hsize_i     (),
     .ahb3_ext_hburst_i    (),
     .ahb3_ext_hprot_i     (),
     .ahb3_ext_htrans_i    (),
     .ahb3_ext_hmastlock_i (),
+
+    .ahb3_ext_hrdata_o    ('x),
     .ahb3_ext_hready_o    ('x),
     .ahb3_ext_hresp_o     ('x)
   );

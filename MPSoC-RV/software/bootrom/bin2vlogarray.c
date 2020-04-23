@@ -44,13 +44,13 @@
 //
 // Looks like this:
 //
-// 0 : ahb3_hwdata_o <= 32'h18000000;
-// 1 : ahb3_hwdata_o <= 32'h18200000;
-// 2 : ahb3_hwdata_o <= 32'h1880b000;
-// 3 : ahb3_hwdata_o <= 32'ha8400051;
-// 4 : ahb3_hwdata_o <= 32'hd8041000;
-// 5 : ahb3_hwdata_o <= 32'h18c00000;
-// 6 : ahb3_hwdata_o <= 32'h18e00000;
+// 0 : ahb3_hrdata_o <= 32'h18000000;
+// 1 : ahb3_hrdata_o <= 32'h18200000;
+// 2 : ahb3_hrdata_o <= 32'h1880b000;
+// 3 : ahb3_hrdata_o <= 32'ha8400051;
+// 4 : ahb3_hrdata_o <= 32'hd8041000;
+// 5 : ahb3_hrdata_o <= 32'h18c00000;
+// 6 : ahb3_hrdata_o <= 32'h18e00000;
 //
 // etc...
 //
@@ -60,7 +60,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#define OUT_REG_STRING "ahb3_hwdata_o"
+#define OUT_REG_STRING "ahb3_hrdata_o"
 
 // OR1200 no longer has these #delays on synchronous assigns - so we don't need
 // them here anymore either.
@@ -72,7 +72,7 @@
 // Concatenate the defines 
 #define BEFORE_STRING "%d : "OUT_REG_STRING" "ASSIGN_STRING" "SIZE_STRING
 
-//#define BEFORE_STRING "%d : ahb3_hwdata_o <= 32'h"
+//#define BEFORE_STRING "%d : ahb3_hrdata_o <= 32'h"
 
 
 int main(void)

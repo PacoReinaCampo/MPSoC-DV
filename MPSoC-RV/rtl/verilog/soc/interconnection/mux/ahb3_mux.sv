@@ -23,15 +23,15 @@
  * This is a generic wishbone bus multiplexer (B3). The number of
  * masters is configurable.
  *
- * DATA_WIDTH and ADDR_WIDTH are defined in bits. DATA_WIDTH must be
+ * XLEN and PLEN are defined in bits. XLEN must be
  * full bytes (i.e., multiple of 8)!
  *
  * The ports are flattened. That means, that all masters share the bus
  * signal ports. With four masters and a data width of 32 bit the
  * m_hmastlock_i port is 4 bit wide and the m_hwdata_i is 128 (=4*32) bit wide.
  * The signals are arranged from right to left, meaning the m_hwdata_i is
- * defined as [MASTERS-1:0][DATA_WIDTH-1:0] and each port m is assigned to
- * [(m+1)*DATA_WIDTH-1:m*DATA_WIDTH].
+ * defined as [MASTERS-1:0][XLEN-1:0] and each port m is assigned to
+ * [(m+1)*XLEN-1:m*XLEN].
  *
  * Author(s):
  *   Stefan Wallentowitz <stefan.wallentowitz@tum.de>
@@ -39,53 +39,55 @@
 
 // TODO: * check bus hold signal correctness
 
-module wb_mux #(
+module ahb3_mux #(
   /* User parameters */
   // Set the number of slaves
   parameter MASTERS = 1,
 
   // Set bus address and data width in bits
-  // DATA_WIDTH must be a multiple of 8 (full bytes)!
-  parameter DATA_WIDTH = 32,
-  parameter ADDR_WIDTH = 32,
+  // XLEN must be a multiple of 8 (full bytes)!
+  parameter XLEN = 32,
+  parameter PLEN = 32,
 
   /* Derived local parameters */
   // Width of byte select registers
-  localparam SEL_WIDTH = DATA_WIDTH >> 3
+  localparam SW = XLEN >> 3
 )
   (
     /* Ports */
     input clk_i,
     input rst_i,
 
-    input      [MASTERS-1:0][ADDR_WIDTH-1:0] m_haddr_i,
-    input      [MASTERS-1:0][DATA_WIDTH-1:0] m_hwdata_i,
-    input      [MASTERS-1:0]                 m_hmastlock_i,
-    input      [MASTERS-1:0]                 m_hsel_i,
-    input      [MASTERS-1:0][SEL_WIDTH -1:0] m_hprot_i,
-    input      [MASTERS-1:0]                 m_hwrite_i,
-    input      [MASTERS-1:0][           2:0] m_hburst_i,
-    input      [MASTERS-1:0][           1:0] m_htrans_i,
+    input      [MASTERS-1:0]           m_hsel_i,
+    input      [MASTERS-1:0][PLEN-1:0] m_haddr_i,
+    input      [MASTERS-1:0][XLEN-1:0] m_hwdata_i,
+    input      [MASTERS-1:0]           m_hwrite_i,
+    input      [MASTERS-1:0][     2:0] m_hsize_i,
+    input      [MASTERS-1:0][     2:0] m_hburst_i,
+    input      [MASTERS-1:0][SW  -1:0] m_hprot_i,
+    input      [MASTERS-1:0][     1:0] m_htrans_i,
+    input      [MASTERS-1:0]           m_hmastlock_i,
 
-    output reg [MASTERS-1:0][DATA_WIDTH-1:0] m_hrdata_o,
-    output reg [MASTERS-1:0]                 m_hready_o,
-    output reg [MASTERS-1:0]                 m_hresp_o,
+    output reg [MASTERS-1:0][XLEN-1:0] m_hrdata_o,
+    output reg [MASTERS-1:0]           m_hready_o,
+    output reg [MASTERS-1:0]           m_hresp_o,
 
-    output reg              [ADDR_WIDTH-1:0] s_haddr_o,
-    output reg              [DATA_WIDTH-1:0] s_hrdata_o,
-    output reg                               s_hmastlock_o,
-    output reg                               s_hsel_o,
-    output reg              [SEL_WIDTH -1:0] s_hprot_o,
-    output reg                               s_hwrite_o,
-    output reg              [           2:0] s_hburst_o,
-    output reg              [           1:0] s_htrans_o,
+    output reg                         s_hsel_o,
+    output reg              [PLEN-1:0] s_haddr_o,
+    output reg              [XLEN-1:0] s_hwdata_o,
+    output reg                         s_hwrite_o,
+    output reg              [     2:0] s_hsize_o,
+    output reg              [     2:0] s_hburst_o,
+    output reg              [SW  -1:0] s_hprot_o,
+    output reg              [     1:0] s_htrans_o,
+    output reg                         s_hmastlock_o,
 
-    input                   [DATA_WIDTH-1:0] s_hwdata_i,
-    input                                    s_hready_i,
-    input                                    s_hresp_i,
+    input                   [XLEN-1:0] s_hrdata_i,
+    input                              s_hready_i,
+    input                              s_hresp_i,
 
-    input                                    bus_hold,
-    output reg                               bus_hold_ack
+    input      bus_hold,
+    output reg bus_hold_ack
   );
 
   // The granted master is one hot encoded
@@ -151,29 +153,29 @@ module wb_mux #(
   // Mux the bus based on the grant signal which must be one hot!
   always @(*) begin : bus_m_mux
     integer i;
-    s_haddr_o = {ADDR_WIDTH{1'bx}};
-    s_hrdata_o = {DATA_WIDTH{1'bx}};
-    s_hprot_o = {SEL_WIDTH{1'bx}};
-    s_hwrite_o  = 1'bx;
-    s_hburst_o = 3'bx;
-    s_htrans_o = 2'bx;
+    s_hsel_o      = 1'b0;
+    s_haddr_o     = {PLEN{1'bx}};
+    s_hwdata_o    = {XLEN{1'bx}};
+    s_hwrite_o    = 1'bx;
+    s_hburst_o    = 3'bx;
+    s_hprot_o     = {SW{1'bx}};
+    s_htrans_o    = 2'bx;
     s_hmastlock_o = 1'b0;
-    s_hsel_o = 1'b0;
 
     for (i = 0; i < MASTERS; i = i + 1) begin
-      m_hrdata_o[i] = s_hwdata_i;
+      m_hrdata_o[i] = s_hrdata_i;
       m_hready_o[i] = grant[i] & s_hready_i;
-      m_hresp_o[i] = grant[i] & s_hresp_i;
+      m_hresp_o[i]  = grant[i] & s_hresp_i;
 
       if (grant[i]) begin
-        s_haddr_o = m_haddr_i[i];
-        s_hrdata_o = m_hwdata_i[i];
-        s_hprot_o = m_hprot_i[i];
-        s_hwrite_o  = m_hwrite_i [i];
-        s_hburst_o = m_hburst_i[i];
-        s_htrans_o = m_htrans_i[i];
+        s_hsel_o      = m_hsel_i[i];
+        s_haddr_o     = m_haddr_i[i];
+        s_hwdata_o    = m_hwdata_i[i];
+        s_hwrite_o    = m_hwrite_i [i];
+        s_hburst_o    = m_hburst_i[i];
+        s_hprot_o     = m_hprot_i[i];
+        s_htrans_o    = m_htrans_i[i];
         s_hmastlock_o = m_hmastlock_i[i];
-        s_hsel_o = m_hsel_i[i];
       end
     end
   end

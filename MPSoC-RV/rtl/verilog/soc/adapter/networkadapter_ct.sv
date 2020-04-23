@@ -27,6 +27,7 @@ module networkadapter_ct #(
     input  [CHANNELS-1:0]                 noc_in_last,
     input  [CHANNELS-1:0]                 noc_in_valid,
     output [CHANNELS-1:0]                 noc_in_ready,
+
     output [CHANNELS-1:0][FLIT_WIDTH-1:0] noc_out_flit,
     output [CHANNELS-1:0]                 noc_out_last,
     output [CHANNELS-1:0]                 noc_out_valid,
@@ -35,26 +36,28 @@ module networkadapter_ct #(
     output                                ahb3m_hsel_o,
     output [PLEN-1:0]                     ahb3m_haddr_o,
     output [XLEN-1:0]                     ahb3m_hwdata_o,
-    input  [XLEN-1:0]                     ahb3m_hrdata_i,
     output                                ahb3m_hwrite_o,
     output [     2:0]                     ahb3m_hsize_o,
     output [     2:0]                     ahb3m_hburst_o,
     output [     3:0]                     ahb3m_hprot_o,
     output [     1:0]                     ahb3m_htrans_o,
     output                                ahb3m_hmastlock_o,
+
+    input  [XLEN-1:0]                     ahb3m_hrdata_i,
     input                                 ahb3m_hready_i,
     input                                 ahb3m_hresp_i,
 
     input                                 ahb3s_hsel_i,
     input  [PLEN-1:0]                     ahb3s_haddr_i,
-    input  [XLEN-1:0]                     ahb3s_hrdata_i,
-    output [XLEN-1:0]                     ahb3s_hwdata_o,
+    input  [XLEN-1:0]                     ahb3s_hwdata_i,
     input                                 ahb3s_hwrite_i,
     input  [     2:0]                     ahb3s_hsize_i,
     input  [     2:0]                     ahb3s_hburst_i,
     input  [     3:0]                     ahb3s_hprot_i,
     input  [     1:0]                     ahb3s_htrans_i,
     input                                 ahb3s_hmastlock_i,
+
+    output [XLEN-1:0]                     ahb3s_hrdata_o,
     output                                ahb3s_hready_o,
     output                                ahb3s_hresp_o,
 
@@ -92,22 +95,23 @@ module networkadapter_ct #(
   localparam SLAVES      = 3; // This is the number of maximum slaves
 
   wire [SLAVES-1:0]                      ahb3if_hsel_i;
-  wire [SLAVES-1:0][PLEN-1:0]            ahb3if_haddr_i;
-  wire [SLAVES-1:0][XLEN-1:0]            ahb3if_hrdata_i;
-  wire [SLAVES-1:0][XLEN-1:0]            ahb3if_hwdata_o;
+  wire [SLAVES-1:0][    23:0]            ahb3if_haddr_i;
+  wire [SLAVES-1:0][XLEN-1:0]            ahb3if_hwdata_i;
   wire [SLAVES-1:0]                      ahb3if_hwrite_i;
   wire [SLAVES-1:0][     2:0]            ahb3if_hsize_i;
   wire [SLAVES-1:0][     2:0]            ahb3if_hburst_i;
   wire [SLAVES-1:0][     3:0]            ahb3if_hprot_i;
   wire [SLAVES-1:0][     1:0]            ahb3if_htrans_i;
   wire [SLAVES-1:0]                      ahb3if_hmastlock_i;
+
+  wire [SLAVES-1:0][XLEN-1:0]            ahb3if_hrdata_o;
   wire [SLAVES-1:0]                      ahb3if_hready_o;
   wire [SLAVES-1:0]                      ahb3if_hresp_o;
 
-  wb_decode #(
+  ahb3_decode #(
     .SLAVES         (3),
-    .DATA_WIDTH     (32),
-    .ADDR_WIDTH     (24),
+    .XLEN           (32),
+    .PLEN           (24),
     .S0_RANGE_WIDTH (4),
     .S0_RANGE_MATCH (4'h0),
     .S1_RANGE_WIDTH (4),
@@ -121,7 +125,7 @@ module networkadapter_ct #(
 
     .m_hsel_i      (ahb3s_hsel_i),
     .m_haddr_i     (ahb3s_haddr_i[23:0]),
-    .m_hrdata_i    (ahb3s_hrdata_i),
+    .m_hwdata_i    (ahb3s_hwdata_i),
     .m_hwrite_i    (ahb3s_hwrite_i),
     .m_hsize_i     (ahb3s_hsize_i),
     .m_hburst_i    (ahb3s_hburst_i),
@@ -129,13 +133,13 @@ module networkadapter_ct #(
     .m_htrans_i    (ahb3s_htrans_i),
     .m_hmastlock_i (ahb3s_hmastlock_i),
 
-    .m_hwdata_o (ahb3s_hwdata_o),
+    .m_hrdata_o (ahb3s_hrdata_o),
     .m_hready_o (ahb3s_hready_o),
     .m_hresp_o  (ahb3s_hresp_o),
 
     .s_hsel_o      (ahb3if_hsel_i),
     .s_haddr_o     (ahb3if_haddr_i),
-    .s_hwdata_o    (ahb3if_hwdata_o),
+    .s_hwdata_o    (ahb3if_hwdata_i),
     .s_hwrite_o    (ahb3if_hwrite_i),
     .s_hsize_o     (ahb3if_hsize_i),
     .s_hburst_o    (ahb3if_hburst_i),
@@ -143,7 +147,7 @@ module networkadapter_ct #(
     .s_htrans_o    (ahb3if_htrans_i),
     .s_hmastlock_o (ahb3if_hmastlock_i),
 
-    .s_hrdata_i (ahb3if_hrdata_i),
+    .s_hrdata_i (ahb3if_hrdata_o),
     .s_hready_i (ahb3if_hready_o),
     .s_hresp_i  (ahb3if_hresp_o)
   );
@@ -156,29 +160,33 @@ module networkadapter_ct #(
   u_conf (
     `ifdef OPTIMSOC_CLOCKDOMAINS
     `ifdef OPTIMSOC_CDC_DYNAMIC
-    .cdc_conf                     (cdc_conf[2:0]),
-    .cdc_enable                   (cdc_enable),
+    .cdc_conf   (cdc_conf[2:0]),
+    .cdc_enable (cdc_enable),
     `endif
     `endif
-    .clk                          (clk),
-    .rst                          (rst),
+    .clk (clk),
+    .rst (rst),
 
     .hsel      (ahb3s_hsel_i),
     .haddr     (ahb3s_haddr_i[15:0]),
-    .hwrite    (ahb3if_hwrite_i),
+    .hwrite    (ahb3s_hwrite_i),
     .hsize     (ahb3s_hsize_i),
     .hburst    (ahb3s_hburst_i),
     .hprot     (ahb3s_hprot_i),
     .htrans    (ahb3s_htrans_i),
     .hmastlock (ahb3s_hmastlock_i),
 
-    .hrdata (ahb3if_hrdata_i[ID_CONF]),
-    .hwdata (ahb3if_hwdata_o[ID_CONF]),
-    .hready (ahb3if_hready_o[ID_CONF]),
-    .hresp  (ahb3if_hresp_o[ID_CONF])
+    .hrdata (ahb3if_hrdata_o [ID_CONF]),
+    .hwdata (ahb3if_hwdata_i [ID_CONF]),
+
+    .hready (ahb3if_hready_o [ID_CONF]),
+    .hresp  (ahb3if_hresp_o  [ID_CONF])
   );
 
-  mpi_wb #(
+  mpi_ahb3 #(
+    .PLEN (PLEN),
+    .XLEN (XLEN),
+
     .NOC_FLIT_WIDTH (CONFIG.NOC_FLIT_WIDTH),
     .SIZE           (16),
     .N              (2)
@@ -195,19 +203,19 @@ module networkadapter_ct #(
     .noc_in_valid  ({mod_in_valid[C_MPSIMPLE_RES],mod_in_valid[C_MPSIMPLE_REQ]}),
     .noc_in_ready  ({mod_in_ready[C_MPSIMPLE_RES],mod_in_ready[C_MPSIMPLE_REQ]}),
 
-    .ahb3if_hsel_i      (ahb3if_hsel_i[ID_MPSIMPLE]),
-    .ahb3if_haddr_i     ({8'h0,ahb3if_haddr_i[ID_MPSIMPLE]}),
-    .ahb3if_hrdata_i    (ahb3if_hrdata_i[ID_MPSIMPLE]),
-    .ahb3if_hwrite_i    (ahb3if_hwrite_i[ID_MPSIMPLE]),
-    .ahb3if_hsize_i     (ahb3if_hsize_i[ID_MPSIMPLE]),
-    .ahb3if_hburst_i    (ahb3if_hburst_i[ID_MPSIMPLE]),
-    .ahb3if_hprot_i     (ahb3if_hprot_i[ID_MPSIMPLE]),
-    .ahb3if_htrans_i    (ahb3if_htrans_i[ID_MPSIMPLE]),
-    .ahb3if_hmastlock_i (ahb3if_hmastlock_i[ID_MPSIMPLE]),
+    .ahb3_hsel_i      (ahb3if_hsel_i[ID_MPSIMPLE]),
+    .ahb3_haddr_i     ({8'h0,ahb3if_haddr_i[ID_MPSIMPLE]}),
+    .ahb3_hwdata_i    (ahb3if_hwdata_i[ID_MPSIMPLE]),
+    .ahb3_hwrite_i    (ahb3if_hwrite_i[ID_MPSIMPLE]),
+    .ahb3_hsize_i     (ahb3if_hsize_i[ID_MPSIMPLE]),
+    .ahb3_hburst_i    (ahb3if_hburst_i[ID_MPSIMPLE]),
+    .ahb3_hprot_i     (ahb3if_hprot_i[ID_MPSIMPLE]),
+    .ahb3_htrans_i    (ahb3if_htrans_i[ID_MPSIMPLE]),
+    .ahb3_hmastlock_i (ahb3if_hmastlock_i[ID_MPSIMPLE]),
 
-    .ahb3if_hwdata_o (ahb3if_hwdata_o[ID_MPSIMPLE]),
-    .ahb3if_hready_o (ahb3if_hready_o[ID_MPSIMPLE]),
-    .ahb3if_hresp_o  (ahb3if_hresp_o[ID_MPSIMPLE]),
+    .ahb3_hrdata_o (ahb3if_hrdata_o[ID_MPSIMPLE]),
+    .ahb3_hready_o (ahb3if_hready_o[ID_MPSIMPLE]),
+    .ahb3_hresp_o  (ahb3if_hresp_o[ID_MPSIMPLE]),
 
     .irq           (irq[0])
   );
@@ -251,12 +259,15 @@ module networkadapter_ct #(
 
         .ahb3_if_hsel      (ahb3if_hsel_i[ID_DMA]),
         .ahb3_if_haddr     ({8'h0,ahb3if_haddr_i[ID_DMA]}),
-        .ahb3_if_hrdata    (ahb3if_hrdata_i[ID_DMA]),
+        .ahb3_if_hwdata    (ahb3if_hwdata_i[ID_DMA]),
         .ahb3_if_hwrite    (ahb3if_hwrite_i[ID_DMA]),
+        .ahb3_if_hsize     (ahb3if_hsize_i[ID_DMA]),
+        .ahb3_if_hburst    (ahb3if_hburst_i[ID_DMA]),
+        .ahb3_if_hprot     (ahb3if_hprot_i[ID_DMA]),
         .ahb3_if_htrans    (ahb3if_htrans_i[ID_DMA]),
         .ahb3_if_hmastlock (ahb3if_hmastlock_i[ID_DMA]),
 
-        .ahb3_if_hwdata (ahb3if_hwdata_o[ID_DMA]),
+        .ahb3_if_hrdata (ahb3if_hrdata_o[ID_DMA]),
         .ahb3_if_hready (ahb3if_hready_o[ID_DMA]),
         .ahb3_if_hresp  (ahb3if_hresp_o[ID_DMA]),
 
@@ -270,10 +281,11 @@ module networkadapter_ct #(
         .ahb3_htrans    (ahb3m_htrans_o),
         .ahb3_hmastlock (ahb3m_hmastlock_o),
 
-        .ahb3_hrdata (ahb3m_hrdata_o),
+        .ahb3_hrdata (ahb3m_hrdata_i),
         .ahb3_hready (ahb3m_hready_i),
+        .ahb3_hresp  (ahb3m_hresp_i),
 
-        .irq                     (irq_dma)
+        .irq (irq_dma)
       );
     end
     else begin
@@ -301,7 +313,8 @@ module networkadapter_ct #(
   );
 
   noc_mux #(
-    .FLIT_WIDTH(FLIT_WIDTH),.CHANNELS(2)
+    .FLIT_WIDTH (FLIT_WIDTH),
+    .CHANNELS   (2)
   )
   u_mux1 (
     .*,

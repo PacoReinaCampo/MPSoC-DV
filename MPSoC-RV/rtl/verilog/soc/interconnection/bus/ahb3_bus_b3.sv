@@ -25,25 +25,25 @@
  * configurable memory map.
  *
  * Instantiation example:
- *  wb_bus_b3
- *   #(.DATA_WIDTH(32),.ADDR_WIDTH(32),
+ *  ahb3_bus_b3
+ *   #(.XLEN(32),.PLEN(32),
  *     .MASTERS(4),.SLAVES(2),
  *     .S0_RANGE_WIDTH(1),.S0_RANGE_MATCH(1'b0),
  *     .S1_RANGE_WIDTH(4),.S1_RANGE_MATCH(4'he))
  *  bus(.clk_i(clk),rst_i(rst),
- *      .m_adr_i({m_adr_i[3],..,m_adr_i[0]},
+ *      .m_haddr_i({m_haddr_i[3],..,m_haddr_i[0]},
  *      ...
  *      );
  *
- * DATA_WIDTH and ADDR_WIDTH are defined in bits. DATA_WIDTH must be
+ * XLEN and PLEN are defined in bits. XLEN must be
  * full bytes (i.e., multiple of 8)!
  *
  * The ports are flattened. That means, that all masters share the bus
  * signal ports. With four masters and a data width of 32 bit the
- * m_cyc_i port is 4 bit wide and the m_dat_i is 128 (=4*32) bit wide.
- * The signals are arranged from right to left, meaning the m_dat_i is
- * defined as [DATA_WIDTH*MASTERS-1:0] and each port m is assigned to
- * [(m+1)*DATA_WIDTH-1:m*DATA_WIDTH].
+ * m_hmastlock_i port is 4 bit wide and the m_hrdata_i is 128 (=4*32) bit wide.
+ * The signals are arranged from right to left, meaning the m_hrdata_i is
+ * defined as [XLEN*MASTERS-1:0] and each port m is assigned to
+ * [(m+1)*XLEN-1:m*XLEN].
  *
  * The memory map is defined with the S?_RANGE_WIDTH and
  * S?_RANGE_MATCH parameters. The WIDTH sets the number of most
@@ -70,16 +70,16 @@
  *   Stefan Wallentowitz <stefan.wallentowitz@tum.de>
  */
 
-module wb_bus_b3 #(
+module ahb3_bus_b3 #(
   /* User parameters */
   // Set the number of masters and slaves
   parameter MASTERS = 2,
-  parameter SLAVES = 1,
+  parameter SLAVES  = 1,
 
   // Set bus address and data width in bits
-  // DATA_WIDTH must be a multiple of 8 (full bytes)!
-  parameter DATA_WIDTH = 32,
-  parameter ADDR_WIDTH = 32,
+  // XLEN must be a multiple of 8 (full bytes)!
+  parameter XLEN = 32,
+  parameter PLEN = 32,
 
   // Memory range definitions, see above
   // The number of parameters actually limits the number of slaves as
@@ -118,107 +118,111 @@ module wb_bus_b3 #(
 
   /* Derived local parameters */
   // Width of byte select registers
-  localparam SEL_WIDTH = DATA_WIDTH >> 3
+  localparam SW = XLEN >> 3
 )
   (
     /* Ports */
     input clk_i,
     input rst_i,
 
-    input  [MASTERS-1:0][ADDR_WIDTH-1:0] m_adr_i,
-    input  [MASTERS-1:0][ADDR_WIDTH-1:0] m_dat_i,
-    input  [MASTERS-1:0]                 m_cyc_i,
-    input  [MASTERS-1:0]                 m_stb_i,
-    input  [MASTERS-1:0][SEL_WIDTH -1:0] m_sel_i,
-    input  [MASTERS-1:0]                 m_we_i,
-    input  [MASTERS-1:0][           2:0] m_cti_i,
-    input  [MASTERS-1:0][           1:0] m_bte_i,
+    input  [MASTERS-1:0]           m_hsel_i,
+    input  [MASTERS-1:0][PLEN-1:0] m_haddr_i,
+    input  [MASTERS-1:0][PLEN-1:0] m_hwdata_i,
+    input  [MASTERS-1:0]           m_hwrite_i,
+    input  [MASTERS-1:0][     2:0] m_hsize_i,
+    input  [MASTERS-1:0][     2:0] m_hburst_i,
+    input  [MASTERS-1:0][SW  -1:0] m_hprot_i,
+    input  [MASTERS-1:0][     1:0] m_htrans_i,
+    input  [MASTERS-1:0]           m_hmastlock_i,
 
-    output [MASTERS-1:0][DATA_WIDTH-1:0] m_dat_o,
-    output [MASTERS-1:0]                 m_ack_o,
-    output [MASTERS-1:0]                 m_err_o,
-    output [MASTERS-1:0]                 m_rty_o,
+    output [MASTERS-1:0][XLEN-1:0] m_hrdata_o,
+    output [MASTERS-1:0]           m_hready_o,
+    output [MASTERS-1:0]           m_hresp_o,
 
-    output [SLAVES-1:0][ADDR_WIDTH-1:0] s_adr_o,
-    output [SLAVES-1:0][DATA_WIDTH-1:0] s_dat_o,
-    output [SLAVES-1:0]                 s_cyc_o,
-    output [SLAVES-1:0]                 s_stb_o,
-    output [SLAVES-1:0][SEL_WIDTH -1:0] s_sel_o,
-    output [SLAVES-1:0]                 s_we_o,
-    output [SLAVES-1:0][           2:0] s_cti_o,
-    output [SLAVES-1:0][           1:0] s_bte_o,
+    output [SLAVES-1:0]           s_hsel_o,
+    output [SLAVES-1:0][PLEN-1:0] s_haddr_o,
+    output [SLAVES-1:0][XLEN-1:0] s_hwdata_o,
+    output [SLAVES-1:0]           s_hwrite_o,
+    output [SLAVES-1:0][     2:0] s_hsize_o,
+    output [SLAVES-1:0][     2:0] s_hburst_o,
+    output [SLAVES-1:0][SW  -1:0] s_hprot_o,
+    output [SLAVES-1:0][     1:0] s_htrans_o,
+    output [SLAVES-1:0]           s_hmastlock_o,
 
-    input  [SLAVES-1:0][DATA_WIDTH-1:0] s_dat_i,
-    input  [SLAVES-1:0]                 s_ack_i,
-    input  [SLAVES-1:0]                 s_err_i,
-    input  [SLAVES-1:0]                 s_rty_i,
+    input  [SLAVES-1:0][XLEN-1:0] s_hrdata_i,
+    input  [SLAVES-1:0]           s_hready_i,
+    input  [SLAVES-1:0]           s_hresp_i,
 
     // The snoop port forwards all write accesses on their success for
     // one cycle.
-    output             [DATA_WIDTH-1:0] snoop_adr_o,
-    output                              snoop_en_o,
+    output [XLEN-1:0] snoop_adr_o,
+    output            snoop_en_o,
 
-    input                               bus_hold,
-    output                              bus_hold_ack
+    input  bus_hold,
+    output bus_hold_ack
   );
 
-  wire [ADDR_WIDTH-1:0] bus_adr;
-  wire [DATA_WIDTH-1:0] bus_wdat;
-  wire                  bus_cyc;
-  wire                  bus_stb;
-  wire [SEL_WIDTH-1:0]  bus_sel;
-  wire                  bus_we;
-  wire [           2:0] bus_cti;
-  wire [           1:0] bus_bte;
+  wire            bus_hsel;
+  wire [PLEN-1:0] bus_haddr;
+  wire [XLEN-1:0] bus_hwdata;
+  wire            bus_hwrite;
+  wire [     2:0] bus_hsize;
+  wire [     2:0] bus_hburst;
+  wire [SW  -1:0] bus_hprot;
+  wire [     1:0] bus_htrans;
+  wire            bus_hmastlock;
 
-  wire [DATA_WIDTH-1:0] bus_rdat;
-  wire                  bus_ack;
-  wire                  bus_err;
-  wire                  bus_rty;
+  wire [XLEN-1:0] bus_hrdata;
+  wire            bus_hready;
+  wire            bus_hresp;
 
-  wb_mux #(
-    .MASTERS    (MASTERS),
-    .ADDR_WIDTH (ADDR_WIDTH),
-    .DATA_WIDTH (DATA_WIDTH)
+  ahb3_mux #(
+    .MASTERS (MASTERS),
+    .PLEN    (PLEN),
+    .XLEN    (XLEN)
   )
   u_mux (
-    // Outputs
-    .m_dat_o                       (m_dat_o),
-    .m_ack_o                       (m_ack_o),
-    .m_err_o                       (m_err_o),
-    .m_rty_o                       (m_rty_o),
-    .s_adr_o                       (bus_adr),
-    .s_dat_o                       (bus_wdat),
-    .s_cyc_o                       (bus_cyc),
-    .s_stb_o                       (bus_stb),
-    .s_sel_o                       (bus_sel),
-    .s_we_o                        (bus_we),
-    .s_cti_o                       (bus_cti),
-    .s_bte_o                       (bus_bte),
-    .bus_hold_ack                  (bus_hold_ack),
+    .clk_i         (clk_i),
+    .rst_i         (rst_i),
 
-    // Inputs
-    .clk_i                         (clk_i),
-    .rst_i                         (rst_i),
-    .m_adr_i                       (m_adr_i),
-    .m_dat_i                       (m_dat_i),
-    .m_cyc_i                       (m_cyc_i),
-    .m_stb_i                       (m_stb_i),
-    .m_sel_i                       (m_sel_i),
-    .m_we_i                        (m_we_i),
-    .m_cti_i                       (m_cti_i),
-    .m_bte_i                       (m_bte_i),
-    .s_dat_i                       (bus_rdat),
-    .s_ack_i                       (bus_ack),
-    .s_err_i                       (bus_err),
-    .s_rty_i                       (bus_rty),
-    .bus_hold                      (bus_hold)
+    // Masters
+    .m_hsel_i      (m_hsel_i),
+    .m_haddr_i     (m_haddr_i),
+    .m_hwdata_i    (m_hwdata_i),
+    .m_hwrite_i    (m_hwrite_i),
+    .m_hsize_i     (m_hsize_i),
+    .m_hburst_i    (m_hburst_i),
+    .m_hprot_i     (m_hprot_i),
+    .m_htrans_i    (m_htrans_i),
+    .m_hmastlock_i (m_hmastlock_i),
+
+    .m_hrdata_o    (m_hrdata_o),
+    .m_hready_o    (m_hready_o),
+    .m_hresp_o     (m_hresp_o),
+
+    // Slaves
+    .s_hsel_o      (bus_hsel),
+    .s_haddr_o     (bus_haddr),
+    .s_hwdata_o    (bus_hwdata),
+    .s_hwrite_o    (bus_hwrite),
+    .s_hsize_o     (bus_hsize),
+    .s_hburst_o    (bus_hburst),
+    .s_hprot_o     (bus_hprot),
+    .s_htrans_o    (bus_htrans),
+    .s_hmastlock_o (bus_hmastlock),
+
+    .s_hrdata_i    (bus_hrdata),
+    .s_hready_i    (bus_hready),
+    .s_hresp_i     (bus_hresp),
+
+    .bus_hold_ack  (bus_hold_ack),
+    .bus_hold      (bus_hold)
   );
 
-  wb_decode #(
+  ahb3_decode #(
     .SLAVES(SLAVES),
-    .ADDR_WIDTH(ADDR_WIDTH),
-    .DATA_WIDTH(DATA_WIDTH),
+    .PLEN(PLEN),
+    .XLEN(XLEN),
     .S0_ENABLE(S0_ENABLE),
     .S0_RANGE_WIDTH(S0_RANGE_WIDTH),
     .S0_RANGE_MATCH(S0_RANGE_MATCH),
@@ -248,43 +252,48 @@ module wb_bus_b3 #(
     .S8_RANGE_MATCH(S8_RANGE_MATCH),
     .S9_ENABLE(S9_ENABLE),
     .S9_RANGE_WIDTH(S9_RANGE_WIDTH),
-    .S9_RANGE_MATCH(S9_RANGE_MATCH))
+    .S9_RANGE_MATCH(S9_RANGE_MATCH)
+  )
   u_decode (
-    // Outputs
-    .m_dat_o                    (bus_rdat),
-    .m_ack_o                    (bus_ack),
-    .m_err_o                    (bus_err),
-    .m_rty_o                    (bus_rty),
-    .s_adr_o                    (s_adr_o),
-    .s_dat_o                    (s_dat_o),
-    .s_cyc_o                    (s_cyc_o),
-    .s_stb_o                    (s_stb_o),
-    .s_sel_o                    (s_sel_o),
-    .s_we_o                     (s_we_o),
-    .s_cti_o                    (s_cti_o),
-    .s_bte_o                    (s_bte_o),
+    .clk_i         (clk_i),
+    .rst_i         (rst_i),
 
-    // Inputs
-    .clk_i                      (clk_i),
-    .rst_i                      (rst_i),
-    .m_adr_i                    (bus_adr),
-    .m_dat_i                    (bus_wdat),
-    .m_cyc_i                    (bus_cyc),
-    .m_stb_i                    (bus_stb),
-    .m_sel_i                    (bus_sel),
-    .m_we_i                     (bus_we),
-    .m_cti_i                    (bus_cti),
-    .m_bte_i                    (bus_bte),
-    .s_dat_i                    (s_dat_i),
-    .s_ack_i                    (s_ack_i),
-    .s_err_i                    (s_err_i),
-    .s_rty_i                    (s_rty_i)
+    // Masters
+    .m_hsel_i      (bus_hsel),
+    .m_haddr_i     (bus_haddr),
+    .m_hwdata_i    (bus_hwdata),
+    .m_hwrite_i    (bus_hwrite),
+    .m_hsize_i     (bus_hsize),
+    .m_hburst_i    (bus_hburst),
+    .m_hprot_i     (bus_hprot),
+    .m_htrans_i    (bus_htrans),
+    .m_hmastlock_i (bus_hmastlock),
+
+    .m_hrdata_o    (bus_hrdata),
+    .m_hready_o    (bus_hready),
+    .m_hresp_o     (bus_hresp),
+
+
+    // Slaves
+    .s_hsel_o      (s_hsel_o),
+    .s_haddr_o     (s_haddr_o),
+    .s_hwdata_o    (s_hwdata_o),
+    .s_hwrite_o    (s_hwrite_o),
+    .s_hsize_o     (s_hsize_o),
+    .s_hburst_o    (s_hburst_o),
+    .s_hprot_o     (s_hprot_o),
+    .s_htrans_o    (s_htrans_o),
+    .s_hmastlock_o (s_hmastlock_o),
+
+    .s_hrdata_i    (s_hrdata_i),
+    .s_hready_i    (s_hready_i),
+    .s_hresp_i     (s_hresp_i)
   );
 
   // Snoop address comes direct from master bus
-  assign snoop_adr_o = bus_adr;
+  assign snoop_adr_o = bus_haddr;
   // Snoop on acknowledge and write. Mask with strobe to be sure
   // there actually is a something happing and no dangling signals
   // and always ack'ing slaves.
-  assign snoop_en_o = bus_ack & bus_stb & bus_we;
+  assign snoop_en_o = bus_hready & bus_hsel & bus_hwrite;
 endmodule

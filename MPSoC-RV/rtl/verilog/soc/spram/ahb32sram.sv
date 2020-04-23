@@ -34,7 +34,7 @@
  *   Markus Goehrle <markus.goehrle@tum.de>
  */
 
-module wb2sram(
+module ahb32sram(
   // Outputs
   ahb3_hready_o, ahb3_hresp_o, ahb3_hrdata_o, sram_ce, sram_we,
   sram_waddr, sram_din, sram_sel,
@@ -48,54 +48,54 @@ module wb2sram(
   // Memory parameters
   // data width (word size)
   // Valid values: 32, 16 and 8
-  parameter DW = 32;
+  parameter XLEN = 32;
 
   // address width
-  parameter AW = 32;
+  parameter PLEN = 32;
 
   // byte select width
-  localparam SW = (DW == 32) ? 4 :
-                  (DW == 16) ? 2 :
-                  (DW ==  8) ? 1 : 'hx;
+  localparam SW = (XLEN == 32) ? 4 :
+                  (XLEN == 16) ? 2 :
+                  (XLEN ==  8) ? 1 : 'hx;
 
   /*
    * +--------------+--------------+
    * | word address | byte in word |
    * +--------------+--------------+
    *     WORD_AW         BYTE_AW
-   *        +----- AW -----+
+   *        +----- PLEN -----+
    */
   localparam BYTE_AW = SW >> 1;
-  localparam WORD_AW = AW - BYTE_AW;
+  localparam WORD_AW = PLEN - BYTE_AW;
 
   // wishbone ports
-  input [AW-1:0]       ahb3_haddr_i;
-  input [1:0]          ahb3_htrans_i;
-  input [2:0]          ahb3_hburst_i;
-  input                ahb3_hmastlock_i;
-  input [DW-1:0]       ahb3_hwdata_i;
-  input [SW-1:0]       ahb3_hprot_i;
-  input                ahb3_hsel_i;
-  input                ahb3_hwrite_i;
+  input             ahb3_hsel_i;
+  input  [PLEN-1:0] ahb3_haddr_i;
+  input  [XLEN-1:0] ahb3_hwdata_i;
+  input  [     2:0] ahb3_hburst_i;
+  input  [SW  -1:0] ahb3_hprot_i;
+  input             ahb3_hwrite_i;
+  input  [     1:0] ahb3_htrans_i;
+  input             ahb3_hmastlock_i;
 
-  output               ahb3_hready_o;
-  output               ahb3_hresp_o;
-  output [DW-1:0]      ahb3_hrdata_o;
+  output [XLEN-1:0] ahb3_hrdata_o;
+  output            ahb3_hready_o;
+  output            ahb3_hresp_o;
 
-  input                ahb3_clk_i;
-  input                ahb3_rst_i;
+  input             ahb3_clk_i;
+  input             ahb3_rst_i;
 
-  wire [WORD_AW-1:0]   word_addr_in;
+  wire [WORD_AW-1:0] word_addr_in;
 
-  assign word_addr_in = ahb3_haddr_i[AW-1:BYTE_AW];
+  assign word_addr_in = ahb3_haddr_i[PLEN-1:BYTE_AW];
 
   // generic RAM ports
   output               sram_ce;
   output               sram_we;
   output [WORD_AW-1:0] sram_waddr;
-  output [     DW-1:0] sram_din;
-  output [     SW-1:0] sram_sel;
-  input  [     DW-1:0] sram_dout;
+  output [XLEN   -1:0] sram_din;
+  output [SW     -1:0] sram_sel;
+  input  [XLEN   -1:0] sram_dout;
 
   reg [WORD_AW-1:0]         word_addr_reg;
   reg [WORD_AW-1:0]         word_addr;
@@ -113,7 +113,7 @@ module wb2sram(
   wire                 burst_access_wrong_ahb3_adr;
 
 
-  // assignments from wb to memory
+  // assignments from ahb3 to memory
   assign sram_ce    = 1'b1;
   assign sram_we    = ahb3_hwrite_i & ahb3_hready_o;
   assign sram_waddr = (ahb3_hwrite_i) ? word_addr_reg : word_addr;

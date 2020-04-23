@@ -28,123 +28,122 @@
  *   Philipp Wagner <philipp.wagner@tum.de>
  */
 
-module wb_sram_sp(/*AUTOARG*/
-  // Outputs
-  wb_ack_o,wb_err_o,wb_rty_o,wb_dat_o,
-  // Inputs
-  wb_adr_i,wb_bte_i,wb_cti_i,wb_cyc_i,wb_dat_i,wb_sel_i,
-  wb_stb_i,wb_we_i,wb_clk_i,wb_rst_i
-);
+import optimsoc_functions::*;
 
-  import optimsoc_functions::*;
-
+module ahb3_sram_sp #(
   // Memory size in bytes
-  parameter MEM_SIZE_BYTE = 'hx;
+  parameter MEM_SIZE_BYTE = 'hx,
 
   // VMEM file used to initialize the memory in simulation
-  parameter MEM_FILE = "sram.vmem";
+  parameter MEM_FILE = "sram.vmem",
 
   // address width
-  parameter AW = $clog2(MEM_SIZE_BYTE);
+  parameter PLEN = $clog2(MEM_SIZE_BYTE),
 
   // data width (must be multiple of 8 for byte selects to work)
   // Valid values: 32,16 and 8
-  parameter DW = 32;
+  parameter XLEN = 32,
 
   // byte select width
-  localparam SW = (DW == 32) ? 4 :
-                  (DW == 16) ? 2 :
-                  (DW ==  8) ? 1 : 'hx;
+  localparam SW = (XLEN == 32) ? 4 :
+                  (XLEN == 16) ? 2 :
+                  (XLEN ==  8) ? 1 : 'hx,
 
   // Allowed values:
   //   * PLAIN
-  parameter MEM_IMPL_TYPE = "PLAIN";
+  parameter MEM_IMPL_TYPE = "PLAIN",
 
    /*
     * +--------------+--------------+
     * | word address | byte in word |
     * +--------------+--------------+
     *     WORD_AW         BYTE_AW
-    *        +----- AW -----+
+    *        +----- PLEN -----+
     */
-  localparam BYTE_AW = SW >> 1;
-  localparam WORD_AW = AW - BYTE_AW;
 
+  localparam BYTE_AW = SW >> 1,
+  localparam WORD_AW = PLEN - BYTE_AW
+)
+(
   // Wishbone SLAVE interface
-  input [AW-1:0]  wb_adr_i;
-  input [   1:0]  wb_bte_i;
-  input [   2:0]  wb_cti_i;
-  input           wb_cyc_i;
-  input [DW-1:0]  wb_dat_i;
-  input [SW-1:0]  wb_sel_i;
-  input           wb_stb_i;
-  input           wb_we_i;
+  input             ahb3_hsel_i,
+  input  [PLEN-1:0] ahb3_haddr_i,
+  input  [XLEN-1:0] ahb3_hwdata_i,
+  input             ahb3_hwrite_i,
+  input  [     2:0] ahb3_hsize_i,
+  input  [     2:0] ahb3_hburst_i,
+  input  [SW  -1:0] ahb3_hprot_i,
+  input  [     1:0] ahb3_htrans_i,
+  input             ahb3_hmastlock_i,
 
-  output          wb_ack_o;
-  output          wb_err_o;
-  output          wb_rty_o;
-  output [DW-1:0] wb_dat_o;
+  output [XLEN-1:0] ahb3_hrdata_o,
+  output            ahb3_hready_o,
+  output            ahb3_hresp_o,
 
-  input           wb_clk_i; // unused
-  input           wb_rst_i; // unused
+  input           ahb3_clk_i,
+  input           ahb3_rst_i
+);
 
   // Beginning of automatic wires (for undeclared instantiated-module outputs)
-  wire [WORD_AW-1:0]   sram_waddr;             // From wb_ram of wb2sram.v
-  wire                 sram_ce;                // From wb_ram of wb2sram.v
-  wire [DW-1:0]        sram_din;               // From wb_ram of wb2sram.v
-  wire [DW-1:0]        sram_dout;              // From sp_ram of sram_sp.v
-  wire [SW-1:0]        sram_sel;               // From wb_ram of wb2sram.v
-  wire                 sram_we;                // From wb_ram of wb2sram.v
+  wire [WORD_AW-1:0]   sram_waddr;             // From ahb3_ram of ahb32sram.v
+  wire                 sram_ce;                // From ahb3_ram of ahb32sram.v
+  wire [XLEN   -1:0]   sram_din;               // From ahb3_ram of ahb32sram.v
+  wire [XLEN   -1:0]   sram_dout;              // From sp_ram of sram_sp.v
+  wire [SW     -1:0]   sram_sel;               // From ahb3_ram of ahb32sram.v
+  wire                 sram_we;                // From ahb3_ram of ahb32sram.v
   // End of automatics
 
-  wb2sram #(
-    .AW (AW),
-    .DW (DW)
+  ahb32sram #(
+    .PLEN (PLEN),
+    .XLEN (XLEN)
    )
-  wb_ram (
-    // Outputs
-    .wb_ack_o                   (wb_ack_o),
-    .wb_err_o                   (wb_err_o),
-    .wb_rty_o                   (wb_rty_o),
-    .wb_dat_o                   (wb_dat_o[DW-1:0]),
+  ahb3_ram (
+    .ahb3_clk_i                 (ahb3_clk_i),
+    .ahb3_rst_i                 (ahb3_rst_i),
+
     .sram_ce                    (sram_ce),
     .sram_we                    (sram_we),
     .sram_waddr                 (sram_waddr),
-    .sram_din                   (sram_din[DW-1:0]),
+    .sram_din                   (sram_din[XLEN-1:0]),
     .sram_sel                   (sram_sel[SW-1:0]),
-    // Inputs
-    .wb_adr_i                   (wb_adr_i[AW-1:0]),
-    .wb_bte_i                   (wb_bte_i[1:0]),
-    .wb_cti_i                   (wb_cti_i[2:0]),
-    .wb_cyc_i                   (wb_cyc_i),
-    .wb_dat_i                   (wb_dat_i[DW-1:0]),
-    .wb_sel_i                   (wb_sel_i[SW-1:0]),
-    .wb_stb_i                   (wb_stb_i),
-    .wb_we_i                    (wb_we_i),
-    .wb_clk_i                   (wb_clk_i),
-    .wb_rst_i                   (wb_rst_i),
-    .sram_dout                  (sram_dout[DW-1:0])
+
+    .ahb3_hsel_i                (ahb3_hsel_i),
+    .ahb3_haddr_i               (ahb3_haddr_i[PLEN-1:0]),
+    .ahb3_hwdata_i              (ahb3_hwdata_i[XLEN-1:0]),
+    .ahb3_hwrite_i              (ahb3_hwrite_i),
+    .ahb3_hburst_i              (ahb3_hburst_i[2:0]),
+    .ahb3_hprot_i               (ahb3_hprot_i[SW-1:0]),
+    .ahb3_htrans_i              (ahb3_htrans_i[1:0]),
+    .ahb3_hmastlock_i           (ahb3_hmastlock_i),
+
+    .ahb3_hrdata_o              (ahb3_hrdata_o[XLEN-1:0]),
+    .ahb3_hready_o              (ahb3_hready_o),
+    .ahb3_hresp_o               (ahb3_hresp_o),
+
+    .sram_dout                  (sram_dout[XLEN-1:0])
   );
 
   sram_sp #(
-    .DW            (DW),
+    .XLEN          (XLEN),
+    .PLEN          (PLEN),
     .MEM_SIZE_BYTE (MEM_SIZE_BYTE),
-    .AW            (AW),
     .WORD_AW       (WORD_AW),
     .MEM_IMPL_TYPE (MEM_IMPL_TYPE),
     .MEM_FILE      (MEM_FILE)
   )
   sp_ram (
+    .clk   (ahb3_clk_i),
+    .rst   (ahb3_rst_i),
+
     // Outputs
-    .dout                      (sram_dout[DW-1:0]),
+    .dout  (sram_dout[XLEN-1:0]),
+
     // Inputs
-    .clk                       (wb_clk_i),
-    .rst                       (wb_rst_i),
-    .ce                        (sram_ce),
-    .we                        (sram_we),
-    .oe                        (1'b1),
-    .waddr                     (sram_waddr),
-    .din                       (sram_din),
-    .sel                       (sram_sel)
+    .ce    (sram_ce),
+    .we    (sram_we),
+    .oe    (1'b1),
+    .waddr (sram_waddr),
+    .din   (sram_din),
+    .sel   (sram_sel)
   );
 endmodule

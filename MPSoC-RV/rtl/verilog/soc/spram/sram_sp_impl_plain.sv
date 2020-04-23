@@ -50,16 +50,16 @@ module sram_sp_impl_plain(/*AUTOARG*/
   import optimsoc_functions::*;
 
   // byte address width
-  parameter AW = 32;
+  parameter PLEN = 32;
   // data width (must be multiple of 8 for byte selects to work)
-  parameter DW = 32;
+  parameter XLEN = 32;
 
-  localparam SW = (DW == 32) ? 4 :
-                  (DW == 16) ? 2 :
-                  (DW ==  8) ? 1 : 'hx;
+  localparam SW = (XLEN == 32) ? 4 :
+                  (XLEN == 16) ? 2 :
+                  (XLEN ==  8) ? 1 : 'hx;
 
   // word address width
-  parameter WORD_AW = AW - (SW >> 1);
+  parameter WORD_AW = PLEN - (SW >> 1);
 
   // size of the memory in bytes
   parameter MEM_SIZE_BYTE = 'hx;
@@ -70,17 +70,17 @@ module sram_sp_impl_plain(/*AUTOARG*/
   parameter MEM_FILE = "sram.vmem";
 
 
-  input                clk;   // Clock
-  input                rst;   // Reset
-  input                ce;    // Chip enable input
-  input                we;    // Write enable input
-  input                oe;    // Output enable input
-  input [WORD_AW-1:0]  waddr; // word address
-  input      [DW-1:0]  din;   // input data bus
-  input      [SW-1:0]  sel;   // select bytes
-  output reg [DW-1:0]  dout;  // output data bus
+  input                    clk;   // Clock
+  input                    rst;   // Reset
+  input                    ce;    // Chip enable input
+  input                    we;    // Write enable input
+  input                    oe;    // Output enable input
+  input      [WORD_AW-1:0] waddr; // word address
+  input      [XLEN   -1:0] din;   // input data bus
+  input      [SW     -1:0] sel;   // select bytes
+  output reg [XLEN   -1:0] dout;  // output data bus
 
-  (* ram_style = "block" *) reg [DW-1:0] mem [MEM_SIZE_WORDS-1:0] /*synthesis syn_ramstyle = "block_ram" */;
+  (* ram_style = "block" *) reg [XLEN-1:0] mem [MEM_SIZE_WORDS-1:0] /*synthesis syn_ramstyle = "block_ram" */;
 
   always_ff @ (posedge clk) begin
     if (we) begin
@@ -110,7 +110,7 @@ module sram_sp_impl_plain(/*AUTOARG*/
   endtask
 
   // Function to access RAM (for use by Verilator).
-  function [DW-1:0] get_mem;
+  function [XLEN-1:0] get_mem;
     // verilator public
     input [WORD_AW-1:0] waddr; // word address
     get_mem = mem[waddr];
@@ -120,7 +120,7 @@ module sram_sp_impl_plain(/*AUTOARG*/
   function set_mem;
     // verilator public
     input [WORD_AW-1:0] waddr; // word address
-    input [     DW-1:0] data;  // data to write
+    input [   XLEN-1:0] data;  // data to write
     mem[waddr] = data;
   endfunction
   `else

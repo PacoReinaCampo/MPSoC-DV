@@ -124,13 +124,14 @@ module networkadapter_conf #(
   input                 hsel;
   input      [    15:0] haddr;
   input      [XLEN-1:0] hwdata;
-  output reg [XLEN-1:0] hrdata;
   input                 hwrite;
   input      [     2:0] hsize;
   input      [     2:0] hburst;
   input      [     3:0] hprot;
   input      [     1:0] htrans;
   input                 hmastlock;
+
+  output reg [XLEN-1:0] hrdata;
   output                hready;
   output                hresp;
 

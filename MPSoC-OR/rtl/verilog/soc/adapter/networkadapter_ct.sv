@@ -117,6 +117,7 @@ module networkadapter_ct #(
   u_slavedecode (
     .clk_i (clk),
     .rst_i (rst),
+
     .m_adr_i (wbs_adr_i[23:0]),
     .m_dat_i (wbs_dat_i),
     .m_cyc_i (wbs_cyc_i),
@@ -125,10 +126,12 @@ module networkadapter_ct #(
     .m_we_i  (wbs_we_i),
     .m_cti_i (wbs_cti_i),
     .m_bte_i (wbs_bte_i),
+
     .m_dat_o (wbs_dat_o),
     .m_ack_o (wbs_ack_o),
     .m_err_o (wbs_err_o),
     .m_rty_o (wbs_rty_o),
+
     .s_adr_o (wbif_adr_i),
     .s_dat_o (wbif_dat_i),
     .s_cyc_o (wbif_cyc_i),
@@ -137,6 +140,7 @@ module networkadapter_ct #(
     .s_we_o  (wbif_we_i),
     .s_cti_o (wbif_cti_i),
     .s_bte_o (wbif_bte_i),
+
     .s_dat_i (wbif_dat_o),
     .s_ack_i (wbif_ack_o),
     .s_err_i (wbif_err_o),
