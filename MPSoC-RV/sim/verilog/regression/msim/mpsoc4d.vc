@@ -55,7 +55,7 @@
 ../../../../mpi/rtl/verilog/ahb3/core/mpi_buffer.sv
 ../../../../mpi/rtl/verilog/ahb3/core/mpi_buffer_endpoint.sv
 ../../../../mpi/rtl/verilog/ahb3/ahb3/mpi_ahb3.sv
-../../../../rtl/verilog/mpsoc/riscv_mpsoc2d.sv
+../../../../rtl/verilog/mpsoc/riscv_mpsoc4d.sv
 ../../../../noc/rtl/verilog/core/noc_buffer.sv
 ../../../../noc/rtl/verilog/core/noc_demux.sv
 ../../../../noc/rtl/verilog/core/noc_mux.sv
@@ -65,7 +65,7 @@
 ../../../../noc/rtl/verilog/router/noc_router_lookup.sv
 ../../../../noc/rtl/verilog/router/noc_router_lookup_slice.sv
 ../../../../noc/rtl/verilog/router/noc_router_output.sv
-../../../../noc/rtl/verilog/topology/noc_mesh2d.sv
+../../../../noc/rtl/verilog/topology/noc_mesh4d.sv
 ../../../../pu/rtl/verilog/core/cache/riscv_dcache_core.sv
 ../../../../pu/rtl/verilog/core/cache/riscv_dext.sv
 ../../../../pu/rtl/verilog/core/cache/riscv_icache_core.sv
@@ -114,4 +114,4 @@
 ../../../../bench/verilog/glip/glip_tcp_toplevel.sv
 ../../../../bench/verilog/monitor/r3_checker.v
 ../../../../bench/verilog/monitor/trace_monitor.sv
-../../../../bench/verilog/riscv_mpsoc2d_testbench.sv
+../../../../bench/verilog/riscv_mpsoc4d_testbench.sv

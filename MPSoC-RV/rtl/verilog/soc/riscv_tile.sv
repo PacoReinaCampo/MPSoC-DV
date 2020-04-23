@@ -27,8 +27,8 @@ module riscv_tile #(
 
     output                                ahb3_ext_hsel_i,
     output [PLEN-1:0]                     ahb3_ext_haddr_i,
-    output [XLEN-1:0]                     ahb3_ext_hwdata_i,
-    input  [XLEN-1:0]                     ahb3_ext_hrdata_o,
+    output [XLEN-1:0]                     ahb3_ext_hrdata_i,
+    input  [XLEN-1:0]                     ahb3_ext_hwdata_o,
     output                                ahb3_ext_hwrite_i,
     output [     2:0]                     ahb3_ext_hsize_i,
     output [     2:0]                     ahb3_ext_hburst_i,
@@ -128,18 +128,18 @@ module riscv_tile #(
   wire            busms_hready_i    [0:NR_MASTERS-1];
   wire            busms_hresp_i     [0:NR_MASTERS-1];
 
-  wire            bussl_hsel_o      [0:NR_SLAVES-1];
-  wire [PLEN-1:0] bussl_haddr_o     [0:NR_SLAVES-1];
+  wire            bussl_hsel_i      [0:NR_SLAVES-1];
+  wire [PLEN-1:0] bussl_haddr_i     [0:NR_SLAVES-1];
   wire [XLEN-1:0] bussl_hwdata_o    [0:NR_SLAVES-1];
   wire [XLEN-1:0] bussl_hrdata_i    [0:NR_SLAVES-1];
-  wire            bussl_hwrite_o    [0:NR_SLAVES-1];
-  wire [     2:0] bussl_hsize_o     [0:NR_SLAVES-1];
-  wire [     2:0] bussl_hburst_o    [0:NR_SLAVES-1];
-  wire [     3:0] bussl_hprot_o     [0:NR_SLAVES-1];
-  wire [     1:0] bussl_htrans_o    [0:NR_SLAVES-1];
-  wire            bussl_hmastlock_o [0:NR_SLAVES-1];
-  wire            bussl_hready_i    [0:NR_SLAVES-1];
-  wire            bussl_hresp_i     [0:NR_SLAVES-1];
+  wire            bussl_hwrite_i    [0:NR_SLAVES-1];
+  wire [     2:0] bussl_hsize_i     [0:NR_SLAVES-1];
+  wire [     2:0] bussl_hburst_i    [0:NR_SLAVES-1];
+  wire [     3:0] bussl_hprot_i     [0:NR_SLAVES-1];
+  wire [     1:0] bussl_htrans_i    [0:NR_SLAVES-1];
+  wire            bussl_hmastlock_i [0:NR_SLAVES-1];
+  wire            bussl_hready_o    [0:NR_SLAVES-1];
+  wire            bussl_hresp_o     [0:NR_SLAVES-1];
 
   wire          snoop_enable;
   wire [31:0]   snoop_adr;
@@ -164,50 +164,50 @@ module riscv_tile #(
   wire [NR_MASTERS-1:0]           busms_hready_i_flat;
   wire [NR_MASTERS-1:0]           busms_hresp_i_flat;
 
-  wire [NR_SLAVES-1:0]           bussl_hsel_o_flat;
-  wire [NR_SLAVES-1:0][PLEN-1:0] bussl_haddr_o_flat;
+  wire [NR_SLAVES-1:0]           bussl_hsel_i_flat;
+  wire [NR_SLAVES-1:0][PLEN-1:0] bussl_haddr_i_flat;
   wire [NR_SLAVES-1:0][XLEN-1:0] bussl_hwdata_o_flat;
   wire [NR_SLAVES-1:0][XLEN-1:0] bussl_hrdata_i_flat;
-  wire [NR_SLAVES-1:0]           bussl_hwrite_o_flat;
-  wire [NR_SLAVES-1:0][     2:0] bussl_hsize_o_flat;
-  wire [NR_SLAVES-1:0][     2:0] bussl_hburst_o_flat;
-  wire [NR_SLAVES-1:0][     3:0] bussl_hprot_o_flat;
-  wire [NR_SLAVES-1:0][     1:0] bussl_htrans_o_flat;
-  wire [NR_SLAVES-1:0]           bussl_hmastlock_o_flat;
-  wire [NR_SLAVES-1:0]           bussl_hready_i_flat;
-  wire [NR_SLAVES-1:0]           bussl_hresp_i_flat;
+  wire [NR_SLAVES-1:0]           bussl_hwrite_i_flat;
+  wire [NR_SLAVES-1:0][     2:0] bussl_hsize_i_flat;
+  wire [NR_SLAVES-1:0][     2:0] bussl_hburst_i_flat;
+  wire [NR_SLAVES-1:0][     3:0] bussl_hprot_i_flat;
+  wire [NR_SLAVES-1:0][     1:0] bussl_htrans_i_flat;
+  wire [NR_SLAVES-1:0]           bussl_hmastlock_i_flat;
+  wire [NR_SLAVES-1:0]           bussl_hready_o_flat;
+  wire [NR_SLAVES-1:0]           bussl_hresp_o_flat;
 
   generate
     for (m = 0; m < NR_MASTERS; m = m + 1) begin : gen_busms_flat
       assign busms_hsel_o_flat      [m] = busms_hsel_o      [m];
       assign busms_haddr_o_flat     [m] = busms_haddr_o     [m];
       assign busms_hwdata_o_flat    [m] = busms_hwdata_o    [m];
-      assign busms_hrdata_o_flat    [m] = busms_hrdata_o    [m];
+      assign busms_hwrite_o_flat    [m] = busms_hwrite_o    [m];
       assign busms_hsize_o_flat     [m] = busms_hsize_o     [m];
       assign busms_hburst_o_flat    [m] = busms_hburst_o    [m];
       assign busms_hprot_o_flat     [m] = busms_hprot_o     [m];
       assign busms_htrans_o_flat    [m] = busms_htrans_o    [m];
       assign busms_hmastlock_o_flat [m] = busms_hmastlock_o [m];
 
-      assign busms_hwrite_i [m] = busms_hwrite_i_flat [m];
+      assign busms_hrdata_i [m] = busms_hrdata_i_flat [m];
       assign busms_hready_i [m] = busms_hready_i_flat [m];
       assign busms_hresp_i  [m] = busms_hresp_i_flat  [m];
     end
 
     for (s = 0; s < NR_SLAVES; s = s + 1) begin : gen_bussl_flat
-      assign busms_hsel_i      [s] = busms_hsel_i_flat      [s];
-      assign busms_haddr_i     [s] = busms_haddr_i_flat     [s];
-      assign busms_hwdata_i    [s] = busms_hwdata_i_flat    [s];
-      assign busms_hrdata_i    [s] = busms_hrdata_i_flat    [s];
-      assign busms_hsize_i     [s] = busms_hsize_i_flat     [s];
-      assign busms_hburst_i    [s] = busms_hburst_i_flat    [s];
-      assign busms_hprot_i     [s] = busms_hprot_i_flat     [s];
-      assign busms_htrans_i    [s] = busms_htrans_i_flat    [s];
-      assign busms_hmastlock_i [s] = busms_hmastlock_i_flat [s];
+      assign bussl_hsel_i      [s] = bussl_hsel_i_flat      [s];
+      assign bussl_haddr_i     [s] = bussl_haddr_i_flat     [s];
+      assign bussl_hrdata_i    [s] = bussl_hrdata_i_flat    [s];
+      assign bussl_hwrite_i    [s] = bussl_hwrite_i_flat    [s];
+      assign bussl_hsize_i     [s] = bussl_hsize_i_flat     [s];
+      assign bussl_hburst_i    [s] = bussl_hburst_i_flat    [s];
+      assign bussl_hprot_i     [s] = bussl_hprot_i_flat     [s];
+      assign bussl_htrans_i    [s] = bussl_htrans_i_flat    [s];
+      assign bussl_hmastlock_i [s] = bussl_hmastlock_i_flat [s];
 
-      assign busms_hwrite_o_flat [s] = busms_hwrite_o [s];
-      assign busms_hready_o_flat [s] = busms_hready_o [s];
-      assign busms_hresp_o_flat  [s] = busms_hresp_o  [s];
+      assign bussl_hwdata_o_flat [s] = bussl_hwdata_o [s];
+      assign bussl_hready_o_flat [s] = bussl_hready_o [s];
+      assign bussl_hresp_o_flat  [s] = bussl_hresp_o  [s];
     end
   endgenerate
 
@@ -254,12 +254,12 @@ module riscv_tile #(
         .dat_HSEL      ( busms_hsel_o      [2*c+1]           ),
         .dat_HADDR     ( busms_haddr_o     [2*c+1][PLEN-1:0] ),
         .dat_HWDATA    ( busms_hwdata_o    [2*c+1][XLEN-1:0] ),
-        .dat_HRDATA    ( busms_hrdata_i    [2*c+1]           ),
-        .dat_HWRITE    ( busms_hwrite_o    [2*c+1][     2:0] ),
+        .dat_HRDATA    ( busms_hrdata_i    [2*c+1][XLEN-1:0] ),
+        .dat_HWRITE    ( busms_hwrite_o    [2*c+1]           ),
         .dat_HSIZE     ( busms_hsize_o     [2*c+1][     2:0] ),
-        .dat_HBURST    ( busms_hburst_o    [2*c+1][     3:0] ),
-        .dat_HPROT     ( busms_hprot_o     [2*c+1][     1:0] ),
-        .dat_HTRANS    ( busms_htrans_o    [2*c+1]           ),
+        .dat_HBURST    ( busms_hburst_o    [2*c+1][     2:0] ),
+        .dat_HPROT     ( busms_hprot_o     [2*c+1][     3:0] ),
+        .dat_HTRANS    ( busms_htrans_o    [2*c+1][     1:0] ),
         .dat_HMASTLOCK ( busms_hmastlock_o [2*c+1]           ),
         .dat_HREADY    ( busms_hready_i    [2*c+1]           ),
         .dat_HRESP     ( busms_hresp_i     [2*c+1]           ),
@@ -280,9 +280,6 @@ module riscv_tile #(
         .dbg_ack       (),
         .dbg_bp        ()
       );
-
-      assign busms_cab_o [c*2  ] = 1'b0;
-      assign busms_cab_o [c*2+1] = 1'b0;
 
       if (CONFIG.USE_DEBUG == 1) begin : gen_ctm_stm
         osd_stm_mriscv #(
@@ -330,7 +327,7 @@ module riscv_tile #(
 
         .ahb3_hsel_i      (bussl_hsel_i      [SLAVE_UART]),
         .ahb3_haddr_i     (bussl_haddr_i     [SLAVE_UART][3:0]),
-        .ahb3_hwdata_i    (bussl_hwdata_i    [SLAVE_UART]),
+        .ahb3_hrdata_i    (bussl_hrdata_i    [SLAVE_UART]),
         .ahb3_hwrite_i    (bussl_hwrite_i    [SLAVE_UART]),
         .ahb3_hsize_i     (bussl_hsize_i     [SLAVE_UART]),
         .ahb3_hburst_i    (bussl_hburst_i    [SLAVE_UART]),
@@ -338,7 +335,7 @@ module riscv_tile #(
         .ahb3_htrans_i    (bussl_htrans_i    [SLAVE_UART]),
         .ahb3_hmastlock_i (bussl_hmastlock_i [SLAVE_UART]),
 
-        .ahb3_hrdata_o (bussl_hrdata_o [SLAVE_UART]),
+        .ahb3_hwdata_o (bussl_hwdata_o [SLAVE_UART]),
         .ahb3_hready_o (bussl_hready_o [SLAVE_UART]),
         .ahb3_hresp_o  (bussl_hresp_o  [SLAVE_UART])
       );
@@ -367,33 +364,33 @@ module riscv_tile #(
     .clk_i                         (clk),
     .rst_i                         (rst_sys),
 
-    // Outputs
-    .s_hsel_o      (bussl_hsel_i_flat),
-    .s_haddr_o     (bussl_haddr_i_flat),
-    .s_hwdata_o    (bussl_hwdata_i_flat),
-    .s_hrdata_o    (bussl_hrdata_i_flat),
-    .s_hsize_o     (bussl_hsize_i_flat),
-    .s_hburst_o    (bussl_hburst_i_flat),
-    .s_hprot_o     (bussl_hprot_i_flat),
-    .s_htrans_o    (bussl_htrans_i_flat),
-    .s_hmastlock_o (bussl_hmastlock_i_flat),
-
-    .m_hwrite_o (busms_hwrite_i_flat),
-    .m_hready_o (busms_hready_i_flat),
-    .m_hresp_o  (busms_hresp_i_flat),
-
-    // Inputs
+    // Masters
     .m_hsel_i      (busms_hsel_o_flat),
     .m_haddr_i     (busms_haddr_o_flat),
-    .m_hwdata_i    (busms_hwdata_o_flat),
-    .m_hrdata_i    (busms_hrdata_o_flat),
+    .m_hrdata_i    (busms_hwdata_o_flat),
+    .m_hwrite_i    (busms_hwrite_o_flat),
     .m_hsize_i     (busms_hsize_o_flat),
     .m_hburst_i    (busms_hburst_o_flat),
     .m_hprot_i     (busms_hprot_o_flat),
     .m_htrans_i    (busms_htrans_o_flat),
     .m_hmastlock_i (busms_hmastlock_o_flat),
 
-    .s_hwrite_i (bussl_hwrite_o_flat),
+    .m_hwdata_o (busms_hrdata_i_flat),
+    .m_hready_o (busms_hready_i_flat),
+    .m_hresp_o  (busms_hresp_i_flat),
+
+    // Slaves
+    .s_hsel_o      (bussl_hsel_i_flat),
+    .s_haddr_o     (bussl_haddr_i_flat),
+    .s_hwdata_o    (bussl_hrdata_i_flat),
+    .s_hwrite_o    (busms_hwrite_i_flat),
+    .s_hsize_o     (bussl_hsize_i_flat),
+    .s_hburst_o    (bussl_hburst_i_flat),
+    .s_hprot_o     (bussl_hprot_i_flat),
+    .s_htrans_o    (bussl_htrans_i_flat),
+    .s_hmastlock_o (bussl_hmastlock_i_flat),
+
+    .s_hrdata_i (bussl_hwdata_o_flat),
     .s_hready_i (bussl_hready_o_flat),
     .s_hresp_i  (bussl_hresp_o_flat),
 
@@ -480,30 +477,30 @@ module riscv_tile #(
       // Outputs
       .ahb3_out_hsel_i      (ahb3_mem_hsel_i),
       .ahb3_out_haddr_i     (ahb3_mem_haddr_i),
-      .ahb3_out_hwdata_i    (ahb3_mem_hwdata_o),
       .ahb3_out_hrdata_i    (ahb3_mem_hrdata_i),
+      .ahb3_out_hwrite_i    (ahb3_mem_hwrite_i),
       .ahb3_out_hsize_i     (ahb3_mem_hsize_i),
       .ahb3_out_hburst_i    (ahb3_mem_hburst_i),
       .ahb3_out_hprot_i     (ahb3_mem_hprot_i),
       .ahb3_out_htrans_i    (ahb3_mem_htrans_i),
       .ahb3_out_hmastlock_i (ahb3_mem_hmastlock_i),
 
-      .ahb3_in_hwrite_o (bussl_hwrite_o [SLAVE_DM]),
+      .ahb3_in_hwdata_o (bussl_hwdata_o [SLAVE_DM]),
       .ahb3_in_hready_o (bussl_hready_o [SLAVE_DM]),
       .ahb3_in_hresp_o  (bussl_hresp_o  [SLAVE_DM]),
 
       // Inputs
       .ahb3_in_hsel_i      (bussl_hsel_i      [SLAVE_DM]),
       .ahb3_in_haddr_i     (bussl_haddr_i     [SLAVE_DM]),
-      .ahb3_in_hwdata_i    (bussl_hwdata_i    [SLAVE_DM]),
       .ahb3_in_hrdata_i    (bussl_hrdata_i    [SLAVE_DM]),
+      .ahb3_in_hwrite_i    (bussl_hwrite_i    [SLAVE_DM]),
       .ahb3_in_hsize_i     (bussl_hsize_i     [SLAVE_DM]),
       .ahb3_in_hburst_i    (bussl_hburst_i    [SLAVE_DM]),
       .ahb3_in_hprot_i     (bussl_hprot_i     [SLAVE_DM]),
       .ahb3_in_htrans_i    (bussl_htrans_i    [SLAVE_DM]),
       .ahb3_in_hmastlock_i (bussl_hmastlock_i [SLAVE_DM]),
 
-      .ahb3_out_hwrite_o (ahb3_mem_hwrite_i),
+      .ahb3_out_hwdata_o (ahb3_mem_hwdata_o),
       .ahb3_out_hready_o (ahb3_mem_hready_o),
       .ahb3_out_hresp_o  (ahb3_mem_hresp_o)
     );
@@ -513,13 +510,13 @@ module riscv_tile #(
     assign mam_dm_hready_i = 1'b0;
     assign mam_dm_hresp_i  = 1'b0;
 
-    assign bussl_hrdata_o [SLAVE_DM] = '0;
+    assign bussl_hwdata_o [SLAVE_DM] = '0;
     assign bussl_hready_o [SLAVE_DM] = 1'b0;
     assign bussl_hresp_o  [SLAVE_DM] = 1'b0;
   end
 
   if (!CONFIG.ENABLE_PGAS) begin : gen_tieoff_pgas
-    assign bussl_hrdata_o [SLAVE_PGAS] = '0;
+    assign bussl_hwdata_o [SLAVE_PGAS] = '0;
     assign bussl_hready_o [SLAVE_PGAS] = 1'b0;
     assign bussl_hresp_o  [SLAVE_PGAS] = 1'b0;
   end
@@ -535,34 +532,34 @@ module riscv_tile #(
       )
       u_ram (
         // Outputs
-        .ahb3_hwrite_o (ahb3_ext_hwrite_o);
-        .ahb3_hready_o (ahb3_ext_hready_o);
-        .ahb3_hresp_o  (ahb3_ext_hresp_o);
+        .ahb3_hwdata_o (ahb3_ext_hwdata_o),
+        .ahb3_hready_o (ahb3_ext_hready_o),
+        .ahb3_hresp_o  (ahb3_ext_hresp_o),
 
         // Inputs
-        .ahb3_hsel_i      (ahb3_mem_hsel_i);
-        .ahb3_haddr_i     (ahb3_mem_haddr_i[clog2_width(CONFIG.LMEM_SIZE)-1:0]);
-        .ahb3_hwdata_i    (ahb3_mem_hwdata_o);
-        .ahb3_hrdata_i    (ahb3_mem_hrdata_i);
-        .ahb3_hsize_i     (ahb3_mem_hsize_i);
-        .ahb3_hburst_i    (ahb3_mem_hburst_i);
-        .ahb3_hprot_i     (ahb3_mem_hprot_i);
-        .ahb3_htrans_i    (ahb3_mem_htrans_i);
+        .ahb3_hsel_i      (ahb3_mem_hsel_i),
+        .ahb3_haddr_i     (ahb3_mem_haddr_i[clog2_width(CONFIG.LMEM_SIZE)-1:0]),
+        .ahb3_hrdata_i    (ahb3_mem_hrdata_i),
+        .ahb3_hwrite_i    (ahb3_mem_hwrite_i),
+        .ahb3_hsize_i     (ahb3_mem_hsize_i),
+        .ahb3_hburst_i    (ahb3_mem_hburst_i),
+        .ahb3_hprot_i     (ahb3_mem_hprot_i),
+        .ahb3_htrans_i    (ahb3_mem_htrans_i),
         .ahb3_hmastlock_i (ahb3_mem_hmastlock_i)
       );
     end
     else begin
       assign ahb3_ext_hsel_i      = ahb3_mem_hsel_i;
       assign ahb3_ext_haddr_i     = ahb3_mem_haddr_i;
-      assign ahb3_ext_hwdata_i    = ahb3_mem_hwdata_o;
       assign ahb3_ext_hrdata_i    = ahb3_mem_hrdata_i;
+      assign ahb3_ext_hwrite_i    = ahb3_mem_hwrite_i;
       assign ahb3_ext_hsize_i     = ahb3_mem_hsize_i;
       assign ahb3_ext_hburst_i    = ahb3_mem_hburst_i;
       assign ahb3_ext_hprot_i     = ahb3_mem_hprot_i;
       assign ahb3_ext_htrans_i    = ahb3_mem_htrans_i;
       assign ahb3_ext_hmastlock_i = ahb3_mem_hmastlock_i;
 
-      assign ahb3_mem_hwrite_i = ahb3_ext_hwrite_o;
+      assign ahb3_mem_hwdata_o = ahb3_ext_hwdata_o;
       assign ahb3_mem_hready_o = ahb3_ext_hready_o;
       assign ahb3_mem_hresp_o  = ahb3_ext_hresp_o;
     end
@@ -595,35 +592,35 @@ module riscv_tile #(
 
     .irq                         (pic_ints_i[0][4:3]),
 
-    // Outputs
+    // Masters
     .ahb3m_hsel_o      (busms_hsel_o      [NR_MASTERS-1]),
     .ahb3m_haddr_o     (busms_haddr_o     [NR_MASTERS-1]),
     .ahb3m_hwdata_o    (busms_hwdata_o    [NR_MASTERS-1]),
-    .ahb3s_hwrite_o    (bussl_hwrite_o    [NR_MASTERS-1]),
+    .ahb3m_hwrite_o    (busms_hwrite_o    [NR_MASTERS-1]),
     .ahb3m_hsize_o     (busms_hsize_o     [NR_MASTERS-1]),
     .ahb3m_hburst_o    (busms_hburst_o    [NR_MASTERS-1]),
     .ahb3m_hprot_o     (busms_hprot_o     [NR_MASTERS-1]),
     .ahb3m_htrans_o    (busms_htrans_o    [NR_MASTERS-1]),
     .ahb3m_hmastlock_o (busms_hmastlock_o [NR_MASTERS-1]),
 
-    .ahb3m_hrdata_o (busms_hrdata_o [SLAVE_NA]),
-    .ahb3s_hready_o (bussl_hready_o [SLAVE_NA]),
-    .ahb3s_hresp_o  (bussl_hresp_o  [SLAVE_NA]),
+    .ahb3m_hrdata_i (busms_hrdata_i [NR_MASTERS-1]),
+    .ahb3m_hready_i (busms_hready_i [NR_MASTERS-1]),
+    .ahb3m_hresp_i  (busms_hresp_i  [NR_MASTERS-1]),
 
-    // Inputs
+    // Slaves
     .ahb3s_hsel_i      (bussl_hsel_i      [SLAVE_NA]),
     .ahb3s_haddr_i     (bussl_haddr_i     [SLAVE_NA]),
-    .ahb3s_hwdata_i    (bussl_hwdata_i    [SLAVE_NA]),
-    .ahb3m_hwrite_i    (busms_hwrite_i    [SLAVE_NA]),
+    .ahb3s_hrdata_i    (bussl_hrdata_i    [SLAVE_NA]),
+    .ahb3s_hwrite_i    (bussl_hwrite_i    [SLAVE_NA]),
     .ahb3s_hsize_i     (bussl_hsize_i     [SLAVE_NA]),
     .ahb3s_hburst_i    (bussl_hburst_i    [SLAVE_NA]),
     .ahb3s_hprot_i     (bussl_hprot_i     [SLAVE_NA]),
     .ahb3s_htrans_i    (bussl_htrans_i    [SLAVE_NA]),
     .ahb3s_hmastlock_i (bussl_hmastlock_i [SLAVE_NA]),
 
-    .ahb3s_hrdata_i (bussl_hrdata_i [NR_MASTERS-1]),
-    .ahb3m_hready_i (busms_hready_i [NR_MASTERS-1]),
-    .ahb3m_hresp_i  (busms_hresp_i  [NR_MASTERS-1])
+    .ahb3s_hwdata_o (bussl_hwdata_o [SLAVE_NA]),
+    .ahb3s_hready_o (bussl_hready_o [SLAVE_NA]),
+    .ahb3s_hresp_o  (bussl_hresp_o  [SLAVE_NA])
   );
 
   generate
@@ -633,14 +630,14 @@ module riscv_tile #(
         .rst                      (rst_sys),
 
         // Outputs
-        .ahb3_hrdata_o (bussl_hrdata_o [SLAVE_BOOT]),
+        .ahb3_hwdata_o (bussl_hwdata_o [SLAVE_BOOT]),
         .ahb3_hready_o (bussl_hready_o [SLAVE_BOOT]),
         .ahb3_hresp_o  (bussl_hresp_o  [SLAVE_BOOT]),
 
         // Inputs
         .ahb3_hsel_i      (bussl_hsel_i      [SLAVE_BOOT]),
         .ahb3_haddr_i     (bussl_haddr_i     [SLAVE_BOOT]),
-        .ahb3_hwdata_i    (bussl_hwdata_i    [SLAVE_BOOT]),
+        .ahb3_hrdata_i    (bussl_hrdata_i    [SLAVE_BOOT]),
         .ahb3_hwrite_i    (bussl_hwrite_i    [SLAVE_BOOT]),
         .ahb3_hsize_i     (bussl_hsize_i     [SLAVE_BOOT]),
         .ahb3_hburst_i    (bussl_hburst_i    [SLAVE_BOOT]),
@@ -650,7 +647,7 @@ module riscv_tile #(
       );
     end
     else begin
-      assign bussl_hrdata_o [SLAVE_BOOT] = 'x;
+      assign bussl_hwdata_o [SLAVE_BOOT] = 'x;
       assign bussl_hready_o [SLAVE_BOOT] = 1'b0;
       assign bussl_hresp_o  [SLAVE_BOOT] = 1'b0;
     end
