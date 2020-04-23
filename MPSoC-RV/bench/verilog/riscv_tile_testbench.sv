@@ -42,7 +42,7 @@ module riscv_tile_testbench (
 );
 
   import dii_package::dii_flit;
-  import opensocdebug::mor1kx_trace_exec;
+  import opensocdebug::mriscv_trace_exec;
   import optimsoc_config::*;
   import optimsoc_functions::*;
 
@@ -116,7 +116,7 @@ module riscv_tile_testbench (
   assign noc_out_ready = {CONFIG.NOC_CHANNELS{1'b0}};
 
   // Monitor system behavior in simulation
-  mor1kx_trace_exec [NUM_CORES-1:0] trace;
+  mriscv_trace_exec [NUM_CORES-1:0] trace;
   assign trace = u_compute_tile.trace;
 
   logic [31:0] trace_r3 [0:NUM_CORES-1];

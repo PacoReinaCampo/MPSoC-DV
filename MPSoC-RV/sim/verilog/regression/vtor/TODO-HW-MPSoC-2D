@@ -1,6 +1,6 @@
 rm -rf Vor1k_mpsoc2d_testbench
 
-verilator -f mpsoc2d.vc --trace -Wno-fatal -CFLAGS "-std=c++11" -LDFLAGS "-pthread"
+verilator -f mpsoc2d.vc --trace -Wno-fatal -Wno-lint -Wno-UNOPTFLAT -Wno-COMBDLY -CFLAGS "-std=c++11" -LDFLAGS "-pthread"
 make -f Vor1k_mpsoc2d_testbench.mk
 
 rm -rf *.a
