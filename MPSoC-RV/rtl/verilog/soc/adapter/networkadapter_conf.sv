@@ -68,6 +68,7 @@
 import optimsoc_config::*;
 
 module networkadapter_conf #(
+  parameter XLEN            = 32,
   parameter config_t CONFIG = 'x,
   parameter TILEID          = 'x,
   parameter COREBASE        = 'x
@@ -80,9 +81,11 @@ module networkadapter_conf #(
     `endif
 
     // Outputs
-    data, ack, rty, err,
+    hrdata, hready, hresp,
+
     // Inputs
-    clk, rst, adr, we, data_i
+    clk, rst,
+    hsel, haddr, hwdata, hwrite, hsize, hburst, hprot, htrans, hmastlock
   );
 
   reg [31:0] seed;
@@ -118,22 +121,21 @@ module networkadapter_conf #(
   input clk;
   input rst;
 
-  input             hsel;
-  input  [    15:0] haddr;
-  input  [XLEN-1:0] hwdata;
-  output [XLEN-1:0] hrdata;
-  input             hwrite;
-  input  [     2:0] hsize;
-  input  [     2:0] hburst;
-  input  [     3:0] hprot;
-  input  [     1:0] htrans;
-  input             hmastlock;
-  output            hready;
-  output            hresp;
+  input                 hsel;
+  input      [    15:0] haddr;
+  input      [XLEN-1:0] hwdata;
+  output reg [XLEN-1:0] hrdata;
+  input                 hwrite;
+  input      [     2:0] hsize;
+  input      [     2:0] hburst;
+  input      [     3:0] hprot;
+  input      [     1:0] htrans;
+  input                 hmastlock;
+  output                hready;
+  output                hresp;
 
-  assign ack = ~|adr[15:12];
-  assign err = ~ack;
-  assign rty = 1'b0;
+  assign hready = ~|haddr[15:12];
+  assign hresp  = ~hready;
 
   // CDC configuration register
   `ifdef OPTIMSOC_CLOCKDOMAINS
@@ -161,76 +163,76 @@ module networkadapter_conf #(
   endgenerate
 
   always @(*) begin
-    if (adr[11:9] == REG_CTLIST[9:7]) begin
-      if (adr[1]) begin
-        data = {16'h0,ctlist_vector[adr[6:1]]};
+    if (haddr[11:9] == REG_CTLIST[9:7]) begin
+      if (haddr[1]) begin
+        hrdata = {16'h0,ctlist_vector[haddr[6:1]]};
       end
       else begin
-        data = {ctlist_vector[adr[6:1]],16'h0};
+        hrdata = {ctlist_vector[haddr[6:1]],16'h0};
       end
     end
     else begin
-      case (adr[11:2])
+      case (haddr[11:2])
         REG_TILEID: begin
-          data = TILEID;
+          hrdata = TILEID;
         end
         REG_NUMTILES: begin
-          data = CONFIG.NUMTILES;
+          hrdata = CONFIG.NUMTILES;
         end
         REG_CONF: begin
-          data = 32'h0000_0000;
-          data[REGBIT_CONF_MPSIMPLE] = CONFIG.NA_ENABLE_MPSIMPLE;
-          data[REGBIT_CONF_DMA]      = CONFIG.NA_ENABLE_DMA;
+          hrdata = 32'h0000_0000;
+          hrdata[REGBIT_CONF_MPSIMPLE] = CONFIG.NA_ENABLE_MPSIMPLE;
+          hrdata[REGBIT_CONF_DMA]      = CONFIG.NA_ENABLE_DMA;
         end
         REG_COREBASE: begin
-          data = 32'(COREBASE);
+          hrdata = 32'(COREBASE);
         end
         REG_DOMAIN_NUMCORES: begin
-          data = CONFIG.CORES_PER_TILE;
+          hrdata = CONFIG.CORES_PER_TILE;
         end
         REG_GMEM_SIZE: begin
-          data = CONFIG.GMEM_SIZE;
+          hrdata = CONFIG.GMEM_SIZE;
         end
         REG_GMEM_TILE: begin
-          data = CONFIG.GMEM_TILE;
+          hrdata = CONFIG.GMEM_TILE;
         end
         REG_LMEM_SIZE: begin
-          data = CONFIG.LMEM_SIZE;
+          hrdata = CONFIG.LMEM_SIZE;
         end
         REG_NUMCTS: begin
-          data = CONFIG.NUMCTS;
+          hrdata = CONFIG.NUMCTS;
         end
         REG_SEED: begin
-          data = seed;
+          hrdata = seed;
         end
         REG_CDC: begin
           `ifdef OPTIMSOC_CLOCKDOMAINS
-          data = 32'b1;
+          hrdata = 32'b1;
           `else
-          data = 32'b0;
+          hrdata = 32'b0;
           `endif
         end
         REG_CDC_DYN: begin
           `ifdef OPTIMSOC_CDC_DYNAMIC
-          data = 32'b1;
+          hrdata = 32'b1;
           `else
-          data = 32'b0;
+          hrdata = 32'b0;
           `endif
         end
         REG_CDC_CONF: begin
           `ifdef OPTIMSOC_CLOCKDOMAINS
           `ifdef OPTIMSOC_CDC_DYNAMIC
-          data = cdc_conf;
+          hrdata = cdc_conf;
           `else
-          data = 32'hx;
+          hrdata = 32'hx;
           `endif
           `else
-          data = 32'hx;
+          hrdata = 32'hx;
           `endif
         end
 
         default: begin
-          data = 32'hx;
+          hrdata = 32'hx;
         end
       endcase
     end
@@ -244,7 +246,7 @@ module networkadapter_conf #(
       cdc_enable <= 0;
     end
     else begin
-      if ((adr[11:2]==REG_CDC_CONF) && we) begin
+      if ((haddr[11:2]==REG_CDC_CONF) && we) begin
         cdc_conf   <= data_i[2:0];
         cdc_enable <= 1;
       end

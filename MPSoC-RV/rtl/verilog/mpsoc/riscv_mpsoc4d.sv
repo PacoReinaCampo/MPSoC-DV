@@ -2,6 +2,9 @@ import dii_package::dii_flit;
 import optimsoc_config::*;
 
 module or1k_mpsoc4d #(
+  parameter PLEN = 32,
+  parameter XLEN = 32,
+
   parameter X = 2,
   parameter Y = 2,
   parameter Z = 2,
@@ -20,9 +23,9 @@ module or1k_mpsoc4d #(
 
     output [NODES-1:0]           ahb3_ext_hsel_i,
     output [NODES-1:0][PLEN-1:0] ahb3_ext_haddr_i,
-    output [NODES-1:0][XLEN-1:0] ahb3_ext_hwdata_i,
+    output [NODES-1:0][XLEN-1:0] ahb3_ext_hwdata_o,
     input  [NODES-1:0][XLEN-1:0] ahb3_ext_hrdata_i,
-    output [NODES-1:0]           ahb3_ext_hwrite_o,
+    output [NODES-1:0]           ahb3_ext_hwrite_i,
     output [NODES-1:0][     2:0] ahb3_ext_hsize_i,
     output [NODES-1:0][     2:0] ahb3_ext_hburst_i,
     output [NODES-1:0][     3:0] ahb3_ext_hprot_i,
@@ -131,9 +134,9 @@ module or1k_mpsoc4d #(
 
         .ahb3_ext_hsel_i            (ahb3_ext_hsel_i      [i]),
         .ahb3_ext_haddr_i           (ahb3_ext_haddr_i     [i]),
-        .ahb3_ext_hwdata_i          (ahb3_ext_hwdata_i    [i]),
+        .ahb3_ext_hwdata_o          (ahb3_ext_hwdata_o    [i]),
         .ahb3_ext_hrdata_i          (ahb3_ext_hrdata_i    [i]),
-        .ahb3_ext_hwrite_o          (ahb3_ext_hwrite_o    [i]),
+        .ahb3_ext_hwrite_i          (ahb3_ext_hwrite_i    [i]),
         .ahb3_ext_hsize_i           (ahb3_ext_hsize_i     [i]),
         .ahb3_ext_hburst_i          (ahb3_ext_hburst_i    [i]),
         .ahb3_ext_hprot_i           (ahb3_ext_hprot_i     [i]),

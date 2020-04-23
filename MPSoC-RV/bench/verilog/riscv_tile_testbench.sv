@@ -249,8 +249,8 @@ module riscv_tile_testbench (
     // Unused
     .ahb3_ext_hsel_i      (),
     .ahb3_ext_haddr_i     (),
-    .ahb3_ext_hwdata_i    (),
-    .ahb3_ext_hrdata_o    ('0),
+    .ahb3_ext_hrdata_i    (),
+    .ahb3_ext_hwdata_o    ('0),
     .ahb3_ext_hwrite_i    (),
     .ahb3_ext_hsize_i     (),
     .ahb3_ext_hburst_i    (),

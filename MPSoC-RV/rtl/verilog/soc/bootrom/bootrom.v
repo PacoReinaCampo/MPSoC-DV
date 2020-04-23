@@ -27,35 +27,35 @@
  *   Stefan Wallentowitz <stefan.wallentowitz@tum.de>
  */
 
-module bootrom #(,
-   parameter PLEN = 32
+module bootrom #(
+   parameter PLEN = 32,
    parameter XLEN = 32
 )
   (
-    input clk;
-    input rst;
+    input clk,
+    input rst,
 
-    input             ahb3_hsel_i,
-    input  [PLEN-1:0] ahb3_haddr_i,
-    input  [XLEN-1:0] ahb3_hwdata_i,
-    output [XLEN-1:0] ahb3_hrdata_o,
-    input             ahb3_hwrite_i,
-    input  [     2:0] ahb3_hsize_i,
-    input  [     2:0] ahb3_hburst_i,
-    input  [     3:0] ahb3_hprot_i,
-    input  [     1:0] ahb3_htrans_i,
-    input             ahb3_hmastlock_i,
-    output            ahb3_hready_o,
-    output            ahb3_hresp_o
+    input                 ahb3_hsel_i,
+    input      [PLEN-1:0] ahb3_haddr_i,
+    input      [XLEN-1:0] ahb3_hrdata_i,
+    output reg [XLEN-1:0] ahb3_hwdata_o,
+    input                 ahb3_hwrite_i,
+    input      [     2:0] ahb3_hsize_i,
+    input      [     2:0] ahb3_hburst_i,
+    input      [     3:0] ahb3_hprot_i,
+    input      [     1:0] ahb3_htrans_i,
+    input                 ahb3_hmastlock_i,
+    output                ahb3_hready_o,
+    output                ahb3_hresp_o
  );
 
    assign ahb3_hready_o = 1'b0;
    assign ahb3_hresp_o  = 1'b0;
 
    always @(*) begin
-      case(wb_adr_i[7:2])
+      case(ahb3_haddr_i[7:2])
         `include "bootrom_code.v"
-        default: ahb3_hrdata_o = 32'hx;
+        default: ahb3_hwdata_o = 32'hx;
       endcase
    end
 endmodule

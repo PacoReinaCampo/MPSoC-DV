@@ -6,7 +6,7 @@ module riscv_mpsoc4d_testbench (
 );
 
   import dii_package::dii_flit;
-  import opensocdebug::mor1kx_trace_exec;
+  import opensocdebug::mriscv_trace_exec;
   import optimsoc_config::*;
   import optimsoc_functions::*;
 
@@ -104,7 +104,7 @@ module riscv_mpsoc4d_testbench (
     for (t = 0; t < CONFIG.NUMCTS; t = t + 1) begin : gen_tracemon_ct
 
       logic [31:0] trace_r3 [0:CONFIG.CORES_PER_TILE-1];
-      mor1kx_trace_exec [CONFIG.CORES_PER_TILE-1:0] trace;
+      mriscv_trace_exec [CONFIG.CORES_PER_TILE-1:0] trace;
       assign trace = u_system.gen_ct[t].u_ct.trace;
 
       for (i = 0; i < CONFIG.CORES_PER_TILE; i = i + 1) begin : gen_tracemon_core
@@ -148,8 +148,8 @@ module riscv_mpsoc4d_testbench (
 
     .ahb3_ext_hsel_i      (),
     .ahb3_ext_haddr_i     (),
-    .ahb3_ext_hwdata_i    (),
-    .ahb3_ext_hrdata_o    ('x),
+    .ahb3_ext_hrdata_i    (),
+    .ahb3_ext_hwdata_o    ('x),
     .ahb3_ext_hwrite_i    (),
     .ahb3_ext_hsize_i     (),
     .ahb3_ext_hburst_i    (),

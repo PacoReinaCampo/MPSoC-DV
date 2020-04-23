@@ -1,8 +1,11 @@
 import dii_package::dii_flit;
-import opensocdebug::mor1kx_trace_exec;
+import opensocdebug::mriscv_trace_exec;
 import optimsoc_config::*;
 
 module riscv_tile #(
+  parameter PLEN = 32,
+  parameter XLEN = 32,
+
   parameter config_t CONFIG = 'x,
 
   parameter ID       = 'x,
@@ -22,18 +25,18 @@ module riscv_tile #(
     output [ 1:0]                         debug_ring_in_ready,
     input  [ 1:0]                         debug_ring_out_ready,
 
-    output                                ahb3_ext_hsel_o,
-    output [PLEN-1:0]                     ahb3_ext_haddr_o,
-    output [XLEN-1:0]                     ahb3_ext_hwdata_o,
-    input  [XLEN-1:0]                     ahb3_ext_hrdata_i,
-    output                                ahb3_ext_hwrite_o,
-    output [     2:0]                     ahb3_ext_hsize_o,
-    output [     2:0]                     ahb3_ext_hburst_o,
-    output [     3:0]                     ahb3_ext_hprot_o,
-    output [     1:0]                     ahb3_ext_htrans_o,
-    output                                ahb3_ext_hmastlock_o,
-    input                                 ahb3_ext_hready_i,
-    input                                 ahb3_ext_hresp_i,
+    output                                ahb3_ext_hsel_i,
+    output [PLEN-1:0]                     ahb3_ext_haddr_i,
+    output [XLEN-1:0]                     ahb3_ext_hwdata_i,
+    input  [XLEN-1:0]                     ahb3_ext_hrdata_o,
+    output                                ahb3_ext_hwrite_i,
+    output [     2:0]                     ahb3_ext_hsize_i,
+    output [     2:0]                     ahb3_ext_hburst_i,
+    output [     3:0]                     ahb3_ext_hprot_i,
+    output [     1:0]                     ahb3_ext_htrans_i,
+    output                                ahb3_ext_hmastlock_i,
+    input                                 ahb3_ext_hready_o,
+    input                                 ahb3_ext_hresp_o,
 
     input                                 clk,
     input                                 rst_dbg,
@@ -60,20 +63,20 @@ module riscv_tile #(
   localparam SLAVE_BOOT = 3;
   localparam SLAVE_UART = 4;
 
-  mor1kx_trace_exec [CONFIG.CORES_PER_TILE-1:0] trace;
+  mriscv_trace_exec [CONFIG.CORES_PER_TILE-1:0] trace;
 
-  logic            ahb3_mem_hsel_o;
-  logic [PLEN-1:0] ahb3_mem_haddr_o;
+  logic            ahb3_mem_hsel_i;
+  logic [PLEN-1:0] ahb3_mem_haddr_i;
   logic [XLEN-1:0] ahb3_mem_hwdata_o;
   logic [XLEN-1:0] ahb3_mem_hrdata_i;
-  logic            ahb3_mem_hwrite_o;
-  logic [     2:0] ahb3_mem_hsize_o;
-  logic [     2:0] ahb3_mem_hburst_o;
-  logic [     3:0] ahb3_mem_hprot_o;
-  logic [     1:0] ahb3_mem_htrans_o;
-  logic            ahb3_mem_hmastlock_o;
-  logic            ahb3_mem_hready_i;
-  logic            ahb3_mem_hresp_i;
+  logic            ahb3_mem_hwrite_i;
+  logic [     2:0] ahb3_mem_hsize_i;
+  logic [     2:0] ahb3_mem_hburst_i;
+  logic [     3:0] ahb3_mem_hprot_i;
+  logic [     1:0] ahb3_mem_htrans_i;
+  logic            ahb3_mem_hmastlock_i;
+  logic            ahb3_mem_hready_o;
+  logic            ahb3_mem_hresp_o;
 
   // create DI ring segment with routers
   localparam DEBUG_MODS_PER_TILE_NONZERO = (CONFIG.DEBUG_MODS_PER_TILE == 0) ? 1 : CONFIG.DEBUG_MODS_PER_TILE;
@@ -282,7 +285,7 @@ module riscv_tile #(
       assign busms_cab_o [c*2+1] = 1'b0;
 
       if (CONFIG.USE_DEBUG == 1) begin : gen_ctm_stm
-        osd_stm_mor1kx #(
+        osd_stm_mriscv #(
           .MAX_PKT_LEN (CONFIG.DEBUG_MAX_PKT_LEN)
         )
         u_stm (
@@ -296,7 +299,7 @@ module riscv_tile #(
           .trace_port      (trace[c])
         );
 
-        osd_ctm_mor1kx #(
+        osd_ctm_mriscv #(
           .MAX_PKT_LEN (CONFIG.DEBUG_MAX_PKT_LEN)
         )
         u_ctm (
@@ -477,7 +480,7 @@ module riscv_tile #(
       // Outputs
       .ahb3_out_hsel_i      (ahb3_mem_hsel_i),
       .ahb3_out_haddr_i     (ahb3_mem_haddr_i),
-      .ahb3_out_hwdata_i    (ahb3_mem_hwdata_i),
+      .ahb3_out_hwdata_i    (ahb3_mem_hwdata_o),
       .ahb3_out_hrdata_i    (ahb3_mem_hrdata_i),
       .ahb3_out_hsize_i     (ahb3_mem_hsize_i),
       .ahb3_out_hburst_i    (ahb3_mem_hburst_i),
@@ -500,7 +503,7 @@ module riscv_tile #(
       .ahb3_in_htrans_i    (bussl_htrans_i    [SLAVE_DM]),
       .ahb3_in_hmastlock_i (bussl_hmastlock_i [SLAVE_DM]),
 
-      .ahb3_out_hwrite_o (ahb3_mem_hwrite_o),
+      .ahb3_out_hwrite_o (ahb3_mem_hwrite_i),
       .ahb3_out_hready_o (ahb3_mem_hready_o),
       .ahb3_out_hresp_o  (ahb3_mem_hresp_o)
     );
@@ -539,7 +542,7 @@ module riscv_tile #(
         // Inputs
         .ahb3_hsel_i      (ahb3_mem_hsel_i);
         .ahb3_haddr_i     (ahb3_mem_haddr_i[clog2_width(CONFIG.LMEM_SIZE)-1:0]);
-        .ahb3_hwdata_i    (ahb3_mem_hwdata_i);
+        .ahb3_hwdata_i    (ahb3_mem_hwdata_o);
         .ahb3_hrdata_i    (ahb3_mem_hrdata_i);
         .ahb3_hsize_i     (ahb3_mem_hsize_i);
         .ahb3_hburst_i    (ahb3_mem_hburst_i);
@@ -551,7 +554,7 @@ module riscv_tile #(
     else begin
       assign ahb3_ext_hsel_i      = ahb3_mem_hsel_i;
       assign ahb3_ext_haddr_i     = ahb3_mem_haddr_i;
-      assign ahb3_ext_hwdata_i    = ahb3_mem_hwdata_i;
+      assign ahb3_ext_hwdata_i    = ahb3_mem_hwdata_o;
       assign ahb3_ext_hrdata_i    = ahb3_mem_hrdata_i;
       assign ahb3_ext_hsize_i     = ahb3_mem_hsize_i;
       assign ahb3_ext_hburst_i    = ahb3_mem_hburst_i;
@@ -559,7 +562,7 @@ module riscv_tile #(
       assign ahb3_ext_htrans_i    = ahb3_mem_htrans_i;
       assign ahb3_ext_hmastlock_i = ahb3_mem_hmastlock_i;
 
-      assign ahb3_mem_hwrite_o = ahb3_ext_hwrite_o;
+      assign ahb3_mem_hwrite_i = ahb3_ext_hwrite_o;
       assign ahb3_mem_hready_o = ahb3_ext_hready_o;
       assign ahb3_mem_hresp_o  = ahb3_ext_hresp_o;
     end
