@@ -1,12 +1,12 @@
-export PATH=/opt/toolchains/or1k-elf-multicore/bin:${PATH}
+export PATH=$PATH:/opt/riscv/bin
 
 rm -rf stdout.*
 
-./Vor1k_tile_testbench --meminit=heat_mpsimple.vmem
-./Vor1k_tile_testbench --meminit=hello.vmem
-./Vor1k_tile_testbench --meminit=hello_mp.vmem
-./Vor1k_tile_testbench --meminit=hello_mpsimple.vmem
+./Vriscv_tile_testbench --meminit=heat_mpsimple.vmem
+./Vriscv_tile_testbench --meminit=hello.vmem
+./Vriscv_tile_testbench --meminit=hello_mp.vmem
+./Vriscv_tile_testbench --meminit=hello_mpsimple.vmem
 
-./Vor1k_mpsoc2d_testbench --meminit=hello.vmem
-./Vor1k_mpsoc2d_testbench --meminit=hello_mp.vmem
-./Vor1k_mpsoc2d_testbench --meminit=hello_mpsimple.vmem
+./Vriscv_mpsoc2d_testbench --meminit=hello.vmem
+./Vriscv_mpsoc2d_testbench --meminit=hello_mp.vmem
+./Vriscv_mpsoc2d_testbench --meminit=hello_mpsimple.vmem

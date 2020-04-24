@@ -37,3 +37,18 @@
 [submodule "MPSoC-RV/pu"]
 	path = MPSoC-RV/pu
 	url = https://github.com/PacoReinaCampo/PU-RISCV.git
+[submodule "MPSoC-MSP/dbg"]
+	path = MPSoC-MSP/dbg
+	url = https://github.com/PacoReinaCampo/MPSoC-DBG.git
+[submodule "MPSoC-MSP/dma"]
+	path = MPSoC-MSP/dma
+	url = https://github.com/PacoReinaCampo/MPSoC-DMA.git
+[submodule "MPSoC-MSP/noc"]
+	path = MPSoC-MSP/noc
+	url = https://github.com/PacoReinaCampo/MPSoC-NoC.git
+[submodule "MPSoC-MSP/mpi"]
+	path = MPSoC-MSP/mpi
+	url = https://github.com/PacoReinaCampo/MPSoC-MPI.git
+[submodule "MPSoC-MSP/pu"]
+	path = MPSoC-MSP/pu
+	url = https://github.com/PacoReinaCampo/PU-MSP430.git
