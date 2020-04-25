@@ -9,9 +9,9 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-OR1K CPU                                                //
+//              MPSoC-RISCV CPU                                               //
 //              Multi Processor System on Chip                                //
-//              Wishbone Bus Interface                                        //
+//              AMBA3 AHB-Lite Bus Interface                                  //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -41,11 +41,11 @@
  */
 
 import dii_package::dii_flit;
-import opensocdebug::mor1kx_trace_exec;
+import opensocdebug::mriscv_trace_exec;
 import optimsoc_config::*;
 import optimsoc_functions::*;
 
-module or1k_mpsoc2d_testbench (
+module riscv_mpsoc4d_testbench (
   `ifdef verilator
   input clk,
   input rst
@@ -64,8 +64,8 @@ module or1k_mpsoc2d_testbench (
   parameter integer LMEM_SIZE = 32*1024*1024;
 
   localparam base_config_t
-  BASE_CONFIG = '{NUMTILES: 4,
-                  NUMCTS: 4,
+  BASE_CONFIG = '{NUMTILES: 16,
+                  NUMCTS: 16,
                   CTLIST: {{60{16'hx}}, 16'h0, 16'h1, 16'h2, 16'h3},
                   CORES_PER_TILE: NUM_CORES,
                   GMEM_SIZE: 0,
@@ -116,6 +116,9 @@ module or1k_mpsoc2d_testbench (
   reg rst;
   `endif
 
+  glip_channel c_glip_in  (.*);
+  glip_channel c_glip_out (.*);
+
   logic com_rst;
   logic logic_rst;
 
@@ -143,9 +146,6 @@ module or1k_mpsoc2d_testbench (
     end
   endgenerate
 
-  glip_channel c_glip_in  (.*);
-  glip_channel c_glip_out (.*);
-
   if (CONFIG.USE_DEBUG == 1) begin : gen_use_debug_glip
     // TCP communication interface (simulation only)
     glip_tcp_toplevel u_glip (
@@ -156,11 +156,12 @@ module or1k_mpsoc2d_testbench (
       .fifo_out  (c_glip_out)
     );
   end
+
   generate
     for (t = 0; t < CONFIG.NUMCTS; t = t + 1) begin : gen_tracemon_ct
 
       logic [31:0] trace_r3 [0:CONFIG.CORES_PER_TILE-1];
-      mor1kx_trace_exec [CONFIG.CORES_PER_TILE-1:0] trace;
+      mriscv_trace_exec [CONFIG.CORES_PER_TILE-1:0] trace;
       assign trace = u_system.gen_ct[t].u_ct.trace;
 
       for (i = 0; i < CONFIG.CORES_PER_TILE; i = i + 1) begin : gen_tracemon_core
@@ -193,7 +194,7 @@ module or1k_mpsoc2d_testbench (
     end
   endgenerate
 
-  or1k_mpsoc2d #(
+  riscv_mpsoc4d #(
     .CONFIG (CONFIG)
   )
   u_system (
@@ -202,19 +203,19 @@ module or1k_mpsoc2d_testbench (
     .c_glip_in  (c_glip_in),
     .c_glip_out (c_glip_out),
 
-    .wb_ext_ack_o ('x),
-    .wb_ext_err_o ('x),
-    .wb_ext_rty_o ('x),
-    .wb_ext_dat_o ('x),
-    .wb_ext_adr_i (),
-    .wb_ext_cyc_i (),
-    .wb_ext_dat_i (),
-    .wb_ext_sel_i (),
-    .wb_ext_stb_i (),
-    .wb_ext_we_i  (),
-    .wb_ext_cab_i (),
-    .wb_ext_cti_i (),
-    .wb_ext_bte_i ()
+    .ahb3_ext_hsel_i      (),
+    .ahb3_ext_haddr_i     (),
+    .ahb3_ext_hwdata_i    (),
+    .ahb3_ext_hwrite_i    (),
+    .ahb3_ext_hsize_i     (),
+    .ahb3_ext_hburst_i    (),
+    .ahb3_ext_hprot_i     (),
+    .ahb3_ext_htrans_i    (),
+    .ahb3_ext_hmastlock_i (),
+
+    .ahb3_ext_hrdata_o    ('x),
+    .ahb3_ext_hready_o    ('x),
+    .ahb3_ext_hresp_o     ('x)
   );
 
   // Generate testbench signals.

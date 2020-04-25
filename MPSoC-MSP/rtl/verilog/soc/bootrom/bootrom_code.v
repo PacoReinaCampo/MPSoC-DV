@@ -40,41 +40,41 @@
  *   Francisco Javier Reina Campo <frareicam@gmail.com>
  */
 
-module bootrom #(
-   parameter PLEN = 32,
-   parameter XLEN = 32
-)
-  (
-    input clk,
-    input rst,
-
-    input                 ahb3_hsel_i,
-    input      [PLEN-1:0] ahb3_haddr_i,
-    input      [XLEN-1:0] ahb3_hwdata_i,
-    input                 ahb3_hwrite_i,
-    input      [     2:0] ahb3_hsize_i,
-    input      [     2:0] ahb3_hburst_i,
-    input      [     3:0] ahb3_hprot_i,
-    input      [     1:0] ahb3_htrans_i,
-    input                 ahb3_hmastlock_i,
-
-    output reg [XLEN-1:0] ahb3_hrdata_o,
-    output                ahb3_hready_o,
-    output                ahb3_hresp_o
- );
-
-  ////////////////////////////////////////////////////////////////
-  //
-  // Module Body
-  //
-
-   assign ahb3_hready_o = 1'b0;
-   assign ahb3_hresp_o  = 1'b0;
-
-   always @(*) begin
-      case(ahb3_haddr_i[7:2])
-        `include "bootrom_code.v"
-        default: ahb3_hrdata_o = 32'hx;
-      endcase
-   end
-endmodule
+0 : ahb3_hrdata_o =  32'h1820e020;
+1 : ahb3_hrdata_o =  32'ha8211000;
+2 : ahb3_hrdata_o =  32'h1840e000;
+3 : ahb3_hrdata_o =  32'h8462001c;
+4 : ahb3_hrdata_o =  32'he4030000;
+5 : ahb3_hrdata_o =  32'h10000000;
+6 : ahb3_hrdata_o =  32'h15000000;
+7 : ahb3_hrdata_o =  32'h84820020;
+8 : ahb3_hrdata_o =  32'h9c400000;
+9 : ahb3_hrdata_o =  32'hd4011000;
+10 : ahb3_hrdata_o =  32'h9c600800;
+11 : ahb3_hrdata_o =  32'hd4011804;
+12 : ahb3_hrdata_o =  32'hd4012008;
+13 : ahb3_hrdata_o =  32'hd401100c;
+14 : ahb3_hrdata_o =  32'h9ca00001;
+15 : ahb3_hrdata_o =  32'hd4012810;
+16 : ahb3_hrdata_o =  32'hd4012814;
+17 : ahb3_hrdata_o =  32'h84e10014;
+18 : ahb3_hrdata_o =  32'hbc070001;
+19 : ahb3_hrdata_o =  32'h0ffffffe;
+20 : ahb3_hrdata_o =  32'h15000000;
+21 : ahb3_hrdata_o =  32'h9c402000;
+22 : ahb3_hrdata_o =  32'hd4011000;
+23 : ahb3_hrdata_o =  32'h9c600800;
+24 : ahb3_hrdata_o =  32'hd4011804;
+25 : ahb3_hrdata_o =  32'h9c800001;
+26 : ahb3_hrdata_o =  32'hd4012008;
+27 : ahb3_hrdata_o =  32'hd401100c;
+28 : ahb3_hrdata_o =  32'h9ca00001;
+29 : ahb3_hrdata_o =  32'hd4012810;
+30 : ahb3_hrdata_o =  32'hd4012814;
+31 : ahb3_hrdata_o =  32'h84e10014;
+32 : ahb3_hrdata_o =  32'hbc070001;
+33 : ahb3_hrdata_o =  32'h0ffffffe;
+34 : ahb3_hrdata_o =  32'h15000000;
+35 : ahb3_hrdata_o =  32'h9c200100;
+36 : ahb3_hrdata_o =  32'h44000800;
+37 : ahb3_hrdata_o =  32'h15000000;

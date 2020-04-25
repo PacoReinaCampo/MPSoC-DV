@@ -1,0 +1,5 @@
+ghdl -f system.vc
+
+ghdl -m riscv_pu
+
+ghdl -r riscv_pu --ieee-asserts=disable-at-0 --disp-tree=inst > riscv_pu_testbench.tree

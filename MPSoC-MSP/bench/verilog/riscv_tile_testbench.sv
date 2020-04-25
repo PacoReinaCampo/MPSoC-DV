@@ -9,9 +9,9 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-OR1K CPU                                                //
+//              MPSoC-RISCV CPU                                               //
 //              Multi Processor System on Chip                                //
-//              Wishbone Bus Interface                                        //
+//              AMBA3 AHB-Lite Bus Interface                                  //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -41,11 +41,11 @@
  */
 
 import dii_package::dii_flit;
-import opensocdebug::mor1kx_trace_exec;
+import opensocdebug::mriscv_trace_exec;
 import optimsoc_config::*;
 import optimsoc_functions::*;
 
-module or1k_tile_testbench (
+module riscv_tile_testbench (
   `ifdef verilator
   input clk,
   input rst
@@ -125,7 +125,7 @@ module or1k_tile_testbench (
   wire [CONFIG.NOC_CHANNELS-1:0]                            noc_out_ready;
 
   // Monitor system behavior in simulation
-  mor1kx_trace_exec [NUM_CORES-1:0] trace;
+  mriscv_trace_exec [NUM_CORES-1:0] trace;
 
   logic [31:0] trace_r3 [0:NUM_CORES-1];
 
@@ -243,7 +243,7 @@ module or1k_tile_testbench (
 
 
   // The actual system: a single compute tile
-  or1k_tile #(
+  riscv_tile #(
     .CONFIG       (CONFIG),
     .ID           (0),
     .MEM_FILE     ("ct.vmem"),
@@ -271,19 +271,19 @@ module or1k_tile_testbench (
     .noc_out_ready     (noc_out_ready),
 
     // Unused
-    .wb_ext_adr_i (),
-    .wb_ext_cyc_i (),
-    .wb_ext_dat_i (),
-    .wb_ext_sel_i (),
-    .wb_ext_stb_i (),
-    .wb_ext_we_i  (),
-    .wb_ext_cab_i (),
-    .wb_ext_cti_i (),
-    .wb_ext_bte_i (),
-    .wb_ext_ack_o ('0),
-    .wb_ext_rty_o ('0),
-    .wb_ext_err_o ('0),
-    .wb_ext_dat_o ('0)
+    .ahb3_ext_hsel_i      (),
+    .ahb3_ext_haddr_i     (),
+    .ahb3_ext_hwdata_i    (),
+    .ahb3_ext_hwrite_i    (),
+    .ahb3_ext_hsize_i     (),
+    .ahb3_ext_hburst_i    (),
+    .ahb3_ext_hprot_i     (),
+    .ahb3_ext_htrans_i    (),
+    .ahb3_ext_hmastlock_i (),
+
+    .ahb3_ext_hrdata_o    ('0),
+    .ahb3_ext_hready_o    ('0),
+    .ahb3_ext_hresp_o     ('0)
   );
 
   // Generate testbench signals.

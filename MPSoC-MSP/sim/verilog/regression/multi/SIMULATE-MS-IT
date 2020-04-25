@@ -1,0 +1,11 @@
+rm -rf run
+mkdir run
+
+ln -s $PWD/bin/Makefile         $PWD/run
+ln -s $PWD/bin/Makefile.include $PWD/run
+
+cd run
+
+export PATH=$PATH:/opt/intelFPGA_pro/19.2/modelsim_ase/linuxaloem/
+
+make SIM=msim

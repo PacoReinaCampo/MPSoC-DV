@@ -1,0 +1,104 @@
+###################################################################################
+##                                            __ _      _     _                  ##
+##                                           / _(_)    | |   | |                 ##
+##                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |                 ##
+##               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |                 ##
+##              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |                 ##
+##               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|                 ##
+##                  | |                                                          ##
+##                  |_|                                                          ##
+##                                                                               ##
+##                                                                               ##
+##              MPSoC-RV64 CPU                                                   ##
+##              Simulator Include File                                           ##
+##                                                                               ##
+###################################################################################
+
+###################################################################################
+##                                                                               ##
+## Copyright (c) 2017-2018 by the author(s)                                      ##
+##                                                                               ##
+## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
+## of this software and associated documentation files (the "Software"), to deal ##
+## in the Software without restriction, including without limitation the rights  ##
+## to use, copy, modify, merge, publish, distribute, sublicense, and/or sell     ##
+## copies of the Software, and to permit persons to whom the Software is         ##
+## furnished to do so, subject to the following conditions:                      ##
+##                                                                               ##
+## The above copyright notice and this permission notice shall be included in    ##
+## all copies or substantial portions of the Software.                           ##
+##                                                                               ##
+## THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR    ##
+## IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,      ##
+## FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE   ##
+## AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER        ##
+## LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, ##
+## OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN     ##
+## THE SOFTWARE.                                                                 ##
+##                                                                               ##
+## ============================================================================= ##
+## Author(s):                                                                    ##
+##   Francisco Javier Reina Campo <frareicam@gmail.com>                          ##
+##                                                                               ##
+###################################################################################
+
+#####################################################################
+# Design Sources
+#####################################################################
+RTL_TOP  = riscv_mpsoc
+DUT_SRC_DIR=$(ROOT_DIR)/rtl
+RTL_VLOG = $(DUT_SRC_DIR)/verilog/core/cache/riscv_dcache_core.sv \
+           $(DUT_SRC_DIR)/verilog/core/cache/riscv_icache_core.sv \
+           $(DUT_SRC_DIR)/verilog/core/execution/riscv_alu.sv \
+           $(DUT_SRC_DIR)/verilog/core/execution/riscv_lsu.sv \
+           $(DUT_SRC_DIR)/verilog/core/execution/riscv_bu.sv \
+           $(DUT_SRC_DIR)/verilog/core/memory/riscv_dmem_ctrl.sv \
+           $(DUT_SRC_DIR)/verilog/core/memory/riscv_imem_ctrl.sv \
+           $(DUT_SRC_DIR)/verilog/core/memory/riscv_membuf.sv \
+           $(DUT_SRC_DIR)/verilog/core/memory/riscv_mux.sv \
+           $(DUT_SRC_DIR)/verilog/core/memory/riscv_pmachk.sv \
+           $(DUT_SRC_DIR)/verilog/core/memory/riscv_pmpchk.sv \
+           $(DUT_SRC_DIR)/verilog/core/riscv_bp.sv \
+           $(DUT_SRC_DIR)/verilog/core/riscv_core.sv \
+           $(DUT_SRC_DIR)/verilog/core/riscv_du.sv \
+           $(DUT_SRC_DIR)/verilog/core/riscv_execution.sv \
+           $(DUT_SRC_DIR)/verilog/core/riscv_id.sv \
+           $(DUT_SRC_DIR)/verilog/core/riscv_if.sv \
+           $(DUT_SRC_DIR)/verilog/core/riscv_rf.sv \
+           $(DUT_SRC_DIR)/verilog/core/riscv_state.sv \
+           $(DUT_SRC_DIR)/verilog/memory/riscv_ram_1r1w_generic.sv \
+           $(DUT_SRC_DIR)/verilog/memory/riscv_ram_1rw_generic.sv \
+           $(DUT_SRC_DIR)/verilog/memory/riscv_ram_queue.sv \
+           $(DUT_SRC_DIR)/verilog/pu/riscv_biu.sv \
+           $(DUT_SRC_DIR)/verilog/pu/riscv_pu.sv
+
+RTL_VHDL = $(DUT_SRC_DIR)/vhdl/pkg/riscv_mpsoc_pkg.vhd \
+           $(DUT_SRC_DIR)/vhdl/core/cache/riscv_dext.vhd \
+           $(DUT_SRC_DIR)/vhdl/core/execution/riscv_div.vhd \
+           $(DUT_SRC_DIR)/vhdl/core/execution/riscv_mul.vhd \
+           $(DUT_SRC_DIR)/vhdl/core/memory/riscv_memmisaligned.vhd \
+           $(DUT_SRC_DIR)/vhdl/core/memory/riscv_mmu.vhd \
+           $(DUT_SRC_DIR)/vhdl/core/riscv_memory.vhd \
+           $(DUT_SRC_DIR)/vhdl/core/riscv_wb.vhd \
+           $(DUT_SRC_DIR)/vhdl/memory/riscv_ram_1r1w.vhd \
+           $(DUT_SRC_DIR)/vhdl/memory/riscv_ram_1rw.vhd
+
+
+#####################################################################
+# Testbench Sources
+#####################################################################
+TB_TOP=riscv_testbench
+TB_SRC_DIR=$(ROOT_DIR)/bench
+TB_VLOG = $(TB_SRC_DIR)/verilog/regression/riscv_testbench.sv \
+          $(TB_SRC_DIR)/verilog/regression/riscv_htif.sv \
+          $(TB_SRC_DIR)/verilog/regression/riscv_mmio_if.sv \
+          $(TB_SRC_DIR)/verilog/regression/riscv_memory_model.sv \
+          $(TB_SRC_DIR)/verilog/regression/riscv_dbg_bfm.sv
+
+TB_VHDL = $(DUT_SRC_DIR)/vhdl/pkg/riscv_mpsoc_pkg.vhd
+
+
+#####################################################################
+# Include Sources
+#####################################################################
+INCDIRS = $(DUT_SRC_DIR)/verilog/pkg

@@ -12,10 +12,11 @@
 //              MPSoC-RISCV CPU                                               //
 //              Multi Processor System on Chip                                //
 //              AMBA3 AHB-Lite Bus Interface                                  //
+//              WishBone Bus Interface                                        //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2019-2020 by the author(s)
+/* Copyright (c) 2018-2019 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -40,41 +41,61 @@
  *   Francisco Javier Reina Campo <frareicam@gmail.com>
  */
 
-module bootrom #(
-   parameter PLEN = 32,
-   parameter XLEN = 32
+module arb_rr #(
+  parameter N = 2
 )
   (
-    input clk,
-    input rst,
+    input  [N-1:0] req,
+    input          en,
+    input  [N-1:0] gnt,
+    output [N-1:0] nxt_gnt
+  );
 
-    input                 ahb3_hsel_i,
-    input      [PLEN-1:0] ahb3_haddr_i,
-    input      [XLEN-1:0] ahb3_hwdata_i,
-    input                 ahb3_hwrite_i,
-    input      [     2:0] ahb3_hsize_i,
-    input      [     2:0] ahb3_hburst_i,
-    input      [     3:0] ahb3_hprot_i,
-    input      [     1:0] ahb3_htrans_i,
-    input                 ahb3_hmastlock_i,
+  //////////////////////////////////////////////////////////////////
+  //
+  // Variables
+  //
 
-    output reg [XLEN-1:0] ahb3_hrdata_o,
-    output                ahb3_hready_o,
-    output                ahb3_hresp_o
- );
+  // Mask net
+  reg [N-1:0] mask [0:N-1];
 
-  ////////////////////////////////////////////////////////////////
+  integer i,j;
+
+  genvar k;
+
+  //////////////////////////////////////////////////////////////////
   //
   // Module Body
   //
 
-   assign ahb3_hready_o = 1'b0;
-   assign ahb3_hresp_o  = 1'b0;
+  // Calculate the mask
+  always @(*) begin : calc_mask
+    for (i=0;i<N;i=i+1) begin
+      // Initialize mask as 0
+      mask[i] = {N{1'b0}};
 
-   always @(*) begin
-      case(ahb3_haddr_i[7:2])
-        `include "bootrom_code.v"
-        default: ahb3_hrdata_o = 32'hx;
-      endcase
-   end
+      if(i>0)
+        // For i=N:1 the next right is i-1
+        mask[i][i-1] = ~gnt[i-1];
+      else
+        // For i=0 the next right is N-1
+        mask[i][N-1] = ~gnt[N-1];
+
+      for (j=2;j<N;j=j+1) begin
+        if (i-j>=0)
+          mask[i][i-j] = mask[i][i-j+1] & ~gnt[i-j];
+        else if (i-j+1>=0)
+          mask[i][i-j+N] = mask[i][i-j+1] & ~gnt[i-j+N];
+        else
+          mask[i][i-j+N] = mask[i][i-j+N+1] & ~gnt[i-j+N];
+      end
+    end
+  end
+
+  // Calculate the nxt_gnt
+  generate
+    for (k=0;k<N;k=k+1) begin : gen_nxt_gnt         
+      assign nxt_gnt[k] = en ? (~|(mask[k] & req) & req[k]) | (~|req & gnt[k]) : gnt[k];
+    end
+  endgenerate
 endmodule
