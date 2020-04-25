@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
 //                                            __ _      _     _               //
 //                                           / _(_)    | |   | |              //
 //                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
@@ -9,9 +9,9 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-MSP430 CPU                                              //
 //              Multi Processor System on Chip                                //
-//              AMBA3 AHB-Lite Bus Interface                                  //
+//              Blackbone Bus Interface                                       //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -81,7 +81,7 @@
 import optimsoc_config::*;
 
 module networkadapter_conf #(
-  parameter XLEN            = 32,
+  parameter DW              = 32,
   parameter config_t CONFIG = 'x,
   parameter TILEID          = 'x,
   parameter COREBASE        = 'x
@@ -98,19 +98,12 @@ module networkadapter_conf #(
     `endif
     `endif
 
-    input                 hsel,
-    input      [    15:0] haddr,
-    input      [XLEN-1:0] hwdata,
-    input                 hwrite,
-    input      [     2:0] hsize,
-    input      [     2:0] hburst,
-    input      [     3:0] hprot,
-    input      [     1:0] htrans,
-    input                 hmastlock,
+    input      [  15:0] addr,
+    input      [DW-1:0] din,
+    input               en,
+    input               we,
 
-    output reg [XLEN-1:0] hrdata,
-    output                hready,
-    output                hresp
+    output reg [DW-1:0] dout
   );
 
   ////////////////////////////////////////////////////////////////
@@ -162,9 +155,6 @@ module networkadapter_conf #(
   assign seed = 32'h0;
   `endif
 
-  assign hready = ~|haddr[15:12];
-  assign hresp  = ~hready;
-
   generate
     for (i = 0; i < 64; i = i + 1) begin : gen_ctlist_vector // array is indexed by the desired destination
       if (i < CONFIG.NUMCTS) begin
@@ -180,76 +170,76 @@ module networkadapter_conf #(
   endgenerate
 
   always @(*) begin
-    if (haddr[11:9] == REG_CTLIST[9:7]) begin
-      if (haddr[1]) begin
-        hrdata = {16'h0,ctlist_vector[haddr[6:1]]};
+    if (addr[11:9] == REG_CTLIST[9:7]) begin
+      if (addr[1]) begin
+        dout = {16'h0,ctlist_vector[addr[6:1]]};
       end
       else begin
-        hrdata = {ctlist_vector[haddr[6:1]],16'h0};
+        dout = {ctlist_vector[addr[6:1]],16'h0};
       end
     end
     else begin
-      case (haddr[11:2])
+      case (addr[11:2])
         REG_TILEID: begin
-          hrdata = TILEID;
+          dout = TILEID;
         end
         REG_NUMTILES: begin
-          hrdata = CONFIG.NUMTILES;
+          dout = CONFIG.NUMTILES;
         end
         REG_CONF: begin
-          hrdata = 32'h0000_0000;
-          hrdata[REGBIT_CONF_MPSIMPLE] = CONFIG.NA_ENABLE_MPSIMPLE;
-          hrdata[REGBIT_CONF_DMA]      = CONFIG.NA_ENABLE_DMA;
+          dout = 32'h0000_0000;
+          dout[REGBIT_CONF_MPSIMPLE] = CONFIG.NA_ENABLE_MPSIMPLE;
+          dout[REGBIT_CONF_DMA]      = CONFIG.NA_ENABLE_DMA;
         end
         REG_COREBASE: begin
-          hrdata = 32'(COREBASE);
+          dout = 32'(COREBASE);
         end
         REG_DOMAIN_NUMCORES: begin
-          hrdata = CONFIG.CORES_PER_TILE;
+          dout = CONFIG.CORES_PER_TILE;
         end
         REG_GMEM_SIZE: begin
-          hrdata = CONFIG.GMEM_SIZE;
+          dout = CONFIG.GMEM_SIZE;
         end
         REG_GMEM_TILE: begin
-          hrdata = CONFIG.GMEM_TILE;
+          dout = CONFIG.GMEM_TILE;
         end
         REG_LMEM_SIZE: begin
-          hrdata = CONFIG.LMEM_SIZE;
+          dout = CONFIG.LMEM_SIZE;
         end
         REG_NUMCTS: begin
-          hrdata = CONFIG.NUMCTS;
+          dout = CONFIG.NUMCTS;
         end
         REG_SEED: begin
-          hrdata = seed;
+          dout = seed;
         end
         REG_CDC: begin
           `ifdef OPTIMSOC_CLOCKDOMAINS
-          hrdata = 32'b1;
+          dout = 32'b1;
           `else
-          hrdata = 32'b0;
+          dout = 32'b0;
           `endif
         end
         REG_CDC_DYN: begin
           `ifdef OPTIMSOC_CDC_DYNAMIC
-          hrdata = 32'b1;
+          dout = 32'b1;
           `else
-          hrdata = 32'b0;
+          dout = 32'b0;
           `endif
         end
         REG_CDC_CONF: begin
           `ifdef OPTIMSOC_CLOCKDOMAINS
           `ifdef OPTIMSOC_CDC_DYNAMIC
-          hrdata = cdc_conf;
+          dout = cdc_conf;
           `else
-          hrdata = 32'hx;
+          dout = 32'hx;
           `endif
           `else
-          hrdata = 32'hx;
+          dout = 32'hx;
           `endif
         end
 
         default: begin
-          hrdata = 32'hx;
+          dout = 32'hx;
         end
       endcase
     end
@@ -263,8 +253,8 @@ module networkadapter_conf #(
       cdc_enable <= 0;
     end
     else begin
-      if ((haddr[11:2]==REG_CDC_CONF) && we) begin
-        cdc_conf   <= data_i[2:0];
+      if ((addr[11:2]==REG_CDC_CONF) && we) begin
+        cdc_conf   <= din[2:0];
         cdc_enable <= 1;
       end
       else begin

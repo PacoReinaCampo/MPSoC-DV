@@ -9,9 +9,9 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-MSP430 CPU                                              //
 //              Multi Processor System on Chip                                //
-//              AMBA3 AHB-Lite Bus Interface                                  //
+//              Blackbone Bus Interface                                       //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -41,26 +41,20 @@
  */
 
 module bootrom #(
-   parameter PLEN = 32,
-   parameter XLEN = 32
+   parameter AW = 32,
+   parameter DW = 32
 )
   (
     input clk,
     input rst,
 
-    input                 ahb3_hsel_i,
-    input      [PLEN-1:0] ahb3_haddr_i,
-    input      [XLEN-1:0] ahb3_hwdata_i,
-    input                 ahb3_hwrite_i,
-    input      [     2:0] ahb3_hsize_i,
-    input      [     2:0] ahb3_hburst_i,
-    input      [     3:0] ahb3_hprot_i,
-    input      [     1:0] ahb3_htrans_i,
-    input                 ahb3_hmastlock_i,
 
-    output reg [XLEN-1:0] ahb3_hrdata_o,
-    output                ahb3_hready_o,
-    output                ahb3_hresp_o
+    input      [AW-1:0] bb_addr_i,
+    input      [DW-1:0] bb_din_i,
+    input               bb_en_i,
+    input               bb_we_i,
+
+    output reg [DW-1:0] bb_dout_o
  );
 
   ////////////////////////////////////////////////////////////////
@@ -68,13 +62,10 @@ module bootrom #(
   // Module Body
   //
 
-   assign ahb3_hready_o = 1'b0;
-   assign ahb3_hresp_o  = 1'b0;
-
    always @(*) begin
-      case(ahb3_haddr_i[7:2])
+      case(bb_addr_i[7:2])
         `include "bootrom_code.v"
-        default: ahb3_hrdata_o = 32'hx;
+        default: bb_dout_o = 32'hx;
       endcase
    end
 endmodule

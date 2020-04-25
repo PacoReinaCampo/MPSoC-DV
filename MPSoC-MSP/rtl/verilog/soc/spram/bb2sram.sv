@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
 //                                            __ _      _     _               //
 //                                           / _(_)    | |   | |              //
 //                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
@@ -9,9 +9,9 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-MSP430 CPU                                              //
 //              Multi Processor System on Chip                                //
-//              AMBA3 AHB-Lite Bus Interface                                  //
+//              Blackbone Bus Interface                                       //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -46,52 +46,46 @@ module ahb32sram #(
   // Memory parameters
   // data width (word size)
   // Valid values: 32, 16 and 8
-  parameter XLEN = 32,
+  parameter DW = 32,
 
   // address width
-  parameter PLEN = 32,
+  parameter AW = 32,
 
   // byte select width
-  localparam SW = (XLEN == 32) ? 4 :
-                  (XLEN == 16) ? 2 :
-                  (XLEN ==  8) ? 1 : 'hx,
+  localparam SW = (DW == 32) ? 4 :
+                  (DW == 16) ? 2 :
+                  (DW ==  8) ? 1 : 'hx,
 
   /*
    * +--------------+--------------+
    * | word address | byte in word |
    * +--------------+--------------+
    *     WORD_AW         BYTE_AW
-   *        +----- PLEN -----+
+   *        +----- AW -----+
    */
 
   localparam BYTE_AW = SW >> 1,
-  localparam WORD_AW = PLEN - BYTE_AW
+  localparam WORD_AW = AW - BYTE_AW
 )
   (
     // AHB3 ports
-    input             ahb3_hsel_i,
-    input  [PLEN-1:0] ahb3_haddr_i,
-    input  [XLEN-1:0] ahb3_hwdata_i,
-    input  [     2:0] ahb3_hburst_i,
-    input  [SW  -1:0] ahb3_hprot_i,
-    input             ahb3_hwrite_i,
-    input  [     1:0] ahb3_htrans_i,
-    input             ahb3_hmastlock_i,
+    input  [AW-1:0] ahb3_addr_i,
+    input  [DW-1:0] ahb3_din_i,
+    input           ahb3_en_i,
+    input           ahb3_we_i,
 
-    output [XLEN-1:0] ahb3_hrdata_o,
-    output            ahb3_hready_o,
-    output            ahb3_hresp_o,
+    output [DW-1:0] ahb3_dout_o,
 
-    input             ahb3_clk_i,
-    input             ahb3_rst_i,
+    input           ahb3_clk_i,
+    input           ahb3_rst_i,
 
     // generic RAM ports
     output               sram_ce,
     output               sram_we,
     output [WORD_AW-1:0] sram_waddr,
-    output [XLEN   -1:0] sram_din,
+    output [DW     -1:0] sram_din,
     output [SW     -1:0] sram_sel,
-    input  [XLEN   -1:0] sram_dout
+    input  [DW     -1:0] sram_dout
   );
 
   ////////////////////////////////////////////////////////////////
@@ -125,7 +119,7 @@ module ahb32sram #(
   // Module Body
   //
 
-  assign word_addr_in = ahb3_haddr_i[PLEN-1:BYTE_AW];
+  assign word_addr_in = ahb3_haddr_i[AW-1:BYTE_AW];
 
   // assignments from ahb3 to memory
   assign sram_ce    = 1'b1;

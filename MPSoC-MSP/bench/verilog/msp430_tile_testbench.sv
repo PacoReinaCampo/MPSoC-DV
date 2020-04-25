@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
 //                                            __ _      _     _               //
 //                                           / _(_)    | |   | |              //
 //                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
@@ -9,9 +9,9 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-MSP430 CPU                                              //
 //              Multi Processor System on Chip                                //
-//              AMBA3 AHB-Lite Bus Interface                                  //
+//              Blackbone Bus Interface                                       //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -41,11 +41,11 @@
  */
 
 import dii_package::dii_flit;
-import opensocdebug::mriscv_trace_exec;
+import opensocdebug::mmsp430_trace_exec;
 import optimsoc_config::*;
 import optimsoc_functions::*;
 
-module riscv_tile_testbench (
+module msp430_tile_testbench (
   `ifdef verilator
   input clk,
   input rst
@@ -125,7 +125,7 @@ module riscv_tile_testbench (
   wire [CONFIG.NOC_CHANNELS-1:0]                            noc_out_ready;
 
   // Monitor system behavior in simulation
-  mriscv_trace_exec [NUM_CORES-1:0] trace;
+  mmsp430_trace_exec [NUM_CORES-1:0] trace;
 
   logic [31:0] trace_r3 [0:NUM_CORES-1];
 
@@ -243,7 +243,7 @@ module riscv_tile_testbench (
 
 
   // The actual system: a single compute tile
-  riscv_tile #(
+  msp430_tile #(
     .CONFIG       (CONFIG),
     .ID           (0),
     .MEM_FILE     ("ct.vmem"),
@@ -271,19 +271,13 @@ module riscv_tile_testbench (
     .noc_out_ready     (noc_out_ready),
 
     // Unused
-    .ahb3_ext_hsel_i      (),
-    .ahb3_ext_haddr_i     (),
-    .ahb3_ext_hwdata_i    (),
-    .ahb3_ext_hwrite_i    (),
-    .ahb3_ext_hsize_i     (),
-    .ahb3_ext_hburst_i    (),
-    .ahb3_ext_hprot_i     (),
-    .ahb3_ext_htrans_i    (),
-    .ahb3_ext_hmastlock_i (),
 
-    .ahb3_ext_hrdata_o    ('0),
-    .ahb3_ext_hready_o    ('0),
-    .ahb3_ext_hresp_o     ('0)
+    .bb_ext_addr_i (),
+    .bb_ext_din_i  (),
+    .bb_ext_en_i   (),
+    .bb_ext_we_i   (),
+
+    .bb_ext_dout_o ('x)
   );
 
   // Generate testbench signals.

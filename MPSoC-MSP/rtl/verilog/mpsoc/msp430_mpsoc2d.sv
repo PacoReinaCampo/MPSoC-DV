@@ -9,9 +9,9 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-MSP430 CPU                                              //
 //              Multi Processor System on Chip                                //
-//              AMBA3 AHB-Lite Bus Interface                                  //
+//              Blackbone Bus Interface                                       //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -43,16 +43,14 @@
 import dii_package::dii_flit;
 import optimsoc_config::*;
 
-module riscv_mpsoc4d #(
-  parameter PLEN = 32,
-  parameter XLEN = 32,
+module msp430_mpsoc2d #(
+  parameter AW = 32,
+  parameter DW = 32,
 
   parameter X = 2,
   parameter Y = 2,
-  parameter Z = 2,
-  parameter T = 2,
 
-  localparam NODES = X*Y*Z*T,
+  localparam NODES = X*Y,
 
   parameter config_t CONFIG = 'x
 )
@@ -63,19 +61,12 @@ module riscv_mpsoc4d #(
     glip_channel c_glip_in,
     glip_channel c_glip_out,
 
-    output [NODES-1:0]           ahb3_ext_hsel_i,
-    output [NODES-1:0][PLEN-1:0] ahb3_ext_haddr_i,
-    output [NODES-1:0][XLEN-1:0] ahb3_ext_hwdata_i,
-    output [NODES-1:0]           ahb3_ext_hwrite_i,
-    output [NODES-1:0][     2:0] ahb3_ext_hsize_i,
-    output [NODES-1:0][     2:0] ahb3_ext_hburst_i,
-    output [NODES-1:0][     3:0] ahb3_ext_hprot_i,
-    output [NODES-1:0][     1:0] ahb3_ext_htrans_i,
-    output [NODES-1:0]           ahb3_ext_hmastlock_i,
+    output [NODES-1:0][AW-1:0] bb_ext_addr_i,
+    output [NODES-1:0][DW-1:0] bb_ext_din_i,
+    output [NODES-1:0]         bb_ext_en_i,
+    output [NODES-1:0]         bb_ext_we_i,
 
-    input  [NODES-1:0][XLEN-1:0] ahb3_ext_hrdata_o,
-    input  [NODES-1:0]           ahb3_ext_hready_o,
-    input  [NODES-1:0]           ahb3_ext_hresp_o
+    input  [NODES-1:0][DW-1:0] bb_ext_dout_o
   );
 
   ////////////////////////////////////////////////////////////////
@@ -149,16 +140,14 @@ module riscv_mpsoc4d #(
   assign debug_ring_in[2] = debug_ring_out[3];
   assign debug_ring_out_ready[3] = debug_ring_in_ready[2];
 
-  noc_mesh4d #(
+  noc_mesh2d #(
     .FLIT_WIDTH (FLIT_WIDTH),
     .CHANNELS   (CHANNELS),
 
     .ENABLE_VCHANNELS (CONFIG.NOC_ENABLE_VCHANNELS),
 
     .X (X),
-    .Y (Y),
-    .Z (Z),
-    .T (T)
+    .Y (Y)
   )
   u_noc (
     .*,
@@ -173,7 +162,7 @@ module riscv_mpsoc4d #(
   );
   generate
     for (i=0; i<NODES; i=i+1) begin : gen_ct
-      riscv_tile #(
+      msp430_tile #(
         .CONFIG       (CONFIG),
         .ID           (i),
         .COREBASE     (i*CONFIG.CORES_PER_TILE),
@@ -190,19 +179,12 @@ module riscv_mpsoc4d #(
         .debug_ring_out             (debug_ring_out       [i]),
         .debug_ring_out_ready       (debug_ring_out_ready [i]),
 
-        .ahb3_ext_hsel_i            (ahb3_ext_hsel_i      [i]),
-        .ahb3_ext_haddr_i           (ahb3_ext_haddr_i     [i]),
-        .ahb3_ext_hwdata_i          (ahb3_ext_hwdata_i    [i]),
-        .ahb3_ext_hwrite_i          (ahb3_ext_hwrite_i    [i]),
-        .ahb3_ext_hsize_i           (ahb3_ext_hsize_i     [i]),
-        .ahb3_ext_hburst_i          (ahb3_ext_hburst_i    [i]),
-        .ahb3_ext_hprot_i           (ahb3_ext_hprot_i     [i]),
-        .ahb3_ext_htrans_i          (ahb3_ext_htrans_i    [i]),
-        .ahb3_ext_hmastlock_i       (ahb3_ext_hmastlock_i [i]),
+        .bb_ext_addr_i              (bb_ext_addr_i        [i]),
+        .bb_ext_din_i               (bb_ext_din_i         [i]),
+        .bb_ext_en_i                (bb_ext_en_i          [i]),
+        .bb_ext_we_i                (bb_ext_en_i          [i]),
 
-        .ahb3_ext_hrdata_o          (ahb3_ext_hrdata_o    [i]),
-        .ahb3_ext_hready_o          (ahb3_ext_hready_o    [i]),
-        .ahb3_ext_hresp_o           (ahb3_ext_hresp_o     [i]),
+        .bb_ext_dout_o              (bb_ext_dout_o        [i]),
 
         .noc_in_ready               (link_in_ready  [i]),
         .noc_out_flit               (link_out_flit  [i]),

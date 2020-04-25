@@ -308,11 +308,11 @@ module networkadapter_ct #(
 
         .noc_out_req_flit        (dma_out_flit[0]),
         .noc_out_req_valid       (mod_out_valid[C_DMA_REQ]),
-        .noc_out_res_ready       (mod_out_ready[C_DMA_RES]),
+        .noc_out_req_ready       (mod_out_ready[C_DMA_REQ]),
 
         .noc_out_res_flit        (dma_out_flit[1]),
         .noc_out_res_valid       (mod_out_valid[C_DMA_RES]),
-        .noc_out_req_ready       (mod_out_ready[C_DMA_REQ]),
+        .noc_out_res_ready       (mod_out_ready[C_DMA_RES]),
 
         .ahb3_if_hsel      (ahb3if_hsel_i[ID_DMA]),
         .ahb3_if_haddr     ({8'h0,ahb3if_haddr_i[ID_DMA]}),

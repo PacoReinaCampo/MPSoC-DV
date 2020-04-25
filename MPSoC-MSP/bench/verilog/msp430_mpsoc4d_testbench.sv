@@ -9,9 +9,9 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-MSP430 CPU                                              //
 //              Multi Processor System on Chip                                //
-//              AMBA3 AHB-Lite Bus Interface                                  //
+//              Blackbone Bus Interface                                       //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -41,11 +41,11 @@
  */
 
 import dii_package::dii_flit;
-import opensocdebug::mriscv_trace_exec;
+import opensocdebug::mmsp430_trace_exec;
 import optimsoc_config::*;
 import optimsoc_functions::*;
 
-module riscv_mpsoc4d_testbench (
+module msp430_mpsoc4d_testbench (
   `ifdef verilator
   input clk,
   input rst
@@ -161,7 +161,7 @@ module riscv_mpsoc4d_testbench (
     for (t = 0; t < CONFIG.NUMCTS; t = t + 1) begin : gen_tracemon_ct
 
       logic [31:0] trace_r3 [0:CONFIG.CORES_PER_TILE-1];
-      mriscv_trace_exec [CONFIG.CORES_PER_TILE-1:0] trace;
+      mmsp430_trace_exec [CONFIG.CORES_PER_TILE-1:0] trace;
       assign trace = u_system.gen_ct[t].u_ct.trace;
 
       for (i = 0; i < CONFIG.CORES_PER_TILE; i = i + 1) begin : gen_tracemon_core
@@ -194,7 +194,7 @@ module riscv_mpsoc4d_testbench (
     end
   endgenerate
 
-  riscv_mpsoc4d #(
+  msp430_mpsoc4d #(
     .CONFIG (CONFIG)
   )
   u_system (
@@ -203,19 +203,12 @@ module riscv_mpsoc4d_testbench (
     .c_glip_in  (c_glip_in),
     .c_glip_out (c_glip_out),
 
-    .ahb3_ext_hsel_i      (),
-    .ahb3_ext_haddr_i     (),
-    .ahb3_ext_hwdata_i    (),
-    .ahb3_ext_hwrite_i    (),
-    .ahb3_ext_hsize_i     (),
-    .ahb3_ext_hburst_i    (),
-    .ahb3_ext_hprot_i     (),
-    .ahb3_ext_htrans_i    (),
-    .ahb3_ext_hmastlock_i (),
+    .bb_ext_addr_i (),
+    .bb_ext_din_i  (),
+    .bb_ext_en_i   (),
+    .bb_ext_we_i   (),
 
-    .ahb3_ext_hrdata_o    ('x),
-    .ahb3_ext_hready_o    ('x),
-    .ahb3_ext_hresp_o     ('x)
+    .bb_ext_dout_o ('x)
   );
 
   // Generate testbench signals.

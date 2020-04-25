@@ -44,13 +44,13 @@
 //
 // Looks like this:
 //
-// 0 : per_dout <= 32'h18000000;
-// 1 : per_dout <= 32'h18200000;
-// 2 : per_dout <= 32'h1880b000;
-// 3 : per_dout <= 32'ha8400051;
-// 4 : per_dout <= 32'hd8041000;
-// 5 : per_dout <= 32'h18c00000;
-// 6 : per_dout <= 32'h18e00000;
+// 0 : bb_dout_o <= 32'h18000000;
+// 1 : bb_dout_o <= 32'h18200000;
+// 2 : bb_dout_o <= 32'h1880b000;
+// 3 : bb_dout_o <= 32'ha8400051;
+// 4 : bb_dout_o <= 32'hd8041000;
+// 5 : bb_dout_o <= 32'h18c00000;
+// 6 : bb_dout_o <= 32'h18e00000;
 //
 // etc...
 //
@@ -60,7 +60,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#define OUT_REG_STRING "per_dout"
+#define OUT_REG_STRING "bb_dout_o"
 
 // OR1200 no longer has these #delays on synchronous assigns - so we don't need
 // them here anymore either.
@@ -72,7 +72,7 @@
 // Concatenate the defines 
 #define BEFORE_STRING "%d : "OUT_REG_STRING" "ASSIGN_STRING" "SIZE_STRING
 
-//#define BEFORE_STRING "%d : per_dout <= 32'h"
+//#define BEFORE_STRING "%d : bb_dout_o <= 32'h"
 
 
 int main(void)

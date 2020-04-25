@@ -1,4 +1,0 @@
-rm -rf system.vvp
-iverilog -g2012 -o system.vvp -c system.vc -s riscv_pu \
--I ../../../../rtl/verilog/pkg
-vvp system.vvp
