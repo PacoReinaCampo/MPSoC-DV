@@ -1,8 +1,54 @@
+////////////////////////////////////////////////////////////////////////////////
+//                                            __ _      _     _               //
+//                                           / _(_)    | |   | |              //
+//                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
+//               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |              //
+//              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |              //
+//               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|              //
+//                  | |                                                       //
+//                  |_|                                                       //
+//                                                                            //
+//                                                                            //
+//              MPSoC-OR1K CPU                                                //
+//              Multi Processor System on Chip                                //
+//              Wishbone Bus Interface                                        //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+/* Copyright (c) 2019-2020 by the author(s)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * =============================================================================
+ * Author(s):
+ *   Francisco Javier Reina Campo <frareicam@gmail.com>
+ */
+
 import dii_package::dii_flit;
 import opensocdebug::mor1kx_trace_exec;
 import optimsoc_config::*;
+import optimsoc_functions::*;
 
 module or1k_tile #(
+  parameter AW = 32,
+  parameter DW = 32,
+
   parameter config_t CONFIG = 'x,
 
   parameter ID       = 'x,
@@ -19,22 +65,22 @@ module or1k_tile #(
     input                                 dii_flit [1:0] debug_ring_in,
     output                                dii_flit [1:0] debug_ring_out,
 
-    output [ 1:0]                         debug_ring_in_ready,
-    input  [ 1:0]                         debug_ring_out_ready,
+    output [   1:0]                       debug_ring_in_ready,
+    input  [   1:0]                       debug_ring_out_ready,
 
-    output [31:0]                         wb_ext_adr_i,
+    output [AW-1:0]                       wb_ext_adr_i,
     output                                wb_ext_cyc_i,
-    output [31:0]                         wb_ext_dat_i,
-    output [ 3:0]                         wb_ext_sel_i,
+    output [DW-1:0]                       wb_ext_dat_i,
+    output [   3:0]                       wb_ext_sel_i,
     output                                wb_ext_stb_i,
     output                                wb_ext_we_i,
     output                                wb_ext_cab_i,
-    output [ 2:0]                         wb_ext_cti_i,
-    output [ 1:0]                         wb_ext_bte_i,
+    output [   2:0]                       wb_ext_cti_i,
+    output [   1:0]                       wb_ext_bte_i,
     input                                 wb_ext_ack_o,
     input                                 wb_ext_rty_o,
     input                                 wb_ext_err_o,
-    input  [31:0]                         wb_ext_dat_o,
+    input  [DW-1:0]                       wb_ext_dat_o,
 
     input                                 clk,
     input                                 rst_dbg,
@@ -51,7 +97,10 @@ module or1k_tile #(
     input  [CHANNELS-1:0]                 noc_out_ready
   );
 
-  import optimsoc_functions::*;
+  ////////////////////////////////////////////////////////////////
+  //
+  // Constans
+  //
 
   localparam NR_MASTERS = CONFIG.CORES_PER_TILE * 2 + 1;
   localparam NR_SLAVES  = 5;
@@ -61,32 +110,126 @@ module or1k_tile #(
   localparam SLAVE_BOOT = 3;
   localparam SLAVE_UART = 4;
 
-  mor1kx_trace_exec [CONFIG.CORES_PER_TILE-1:0] trace;
-
-  logic        wb_mem_clk_i;
-  logic        wb_mem_rst_i;
-  logic [31:0] wb_mem_adr_i;
-  logic        wb_mem_cyc_i;
-  logic [31:0] wb_mem_dat_i;
-  logic [ 3:0] wb_mem_sel_i;
-  logic        wb_mem_stb_i;
-  logic        wb_mem_we_i;
-  logic        wb_mem_cab_i;
-  logic [ 2:0] wb_mem_cti_i;
-  logic [ 1:0] wb_mem_bte_i;
-  logic        wb_mem_ack_o;
-  logic        wb_mem_rty_o;
-  logic        wb_mem_err_o;
-  logic [31:0] wb_mem_dat_o;
+  localparam MOR1KX_FEATURE_FPU          = (CONFIG.CORE_ENABLE_FPU ? "ENABLED" : "NONE");
+  localparam MOR1KX_FEATURE_PERFCOUNTERS = (CONFIG.CORE_ENABLE_PERFCOUNTERS ? "ENABLED" : "NONE");
+  localparam MOR1KX_FEATURE_DEBUGUNIT    = "NONE"; // XXX: Enable debug unit with OSD CDM module (once it's ready)
 
   // create DI ring segment with routers
   localparam DEBUG_MODS_PER_TILE_NONZERO = (CONFIG.DEBUG_MODS_PER_TILE == 0) ? 1 : CONFIG.DEBUG_MODS_PER_TILE;
+
+  ////////////////////////////////////////////////////////////////
+  //
+  // Variables
+  //
+
+  mor1kx_trace_exec [CONFIG.CORES_PER_TILE-1:0] trace;
+
+  logic          wb_mem_clk_i;
+  logic          wb_mem_rst_i;
+  logic [AW-1:0] wb_mem_adr_i;
+  logic          wb_mem_cyc_i;
+  logic [DW-1:0] wb_mem_dat_i;
+  logic [   3:0] wb_mem_sel_i;
+  logic          wb_mem_stb_i;
+  logic          wb_mem_we_i;
+  logic          wb_mem_cab_i;
+  logic [   2:0] wb_mem_cti_i;
+  logic [   1:0] wb_mem_bte_i;
+  logic          wb_mem_ack_o;
+  logic          wb_mem_rty_o;
+  logic          wb_mem_err_o;
+  logic [DW-1:0] wb_mem_dat_o;
 
   dii_flit [DEBUG_MODS_PER_TILE_NONZERO-1:0] dii_in;
   dii_flit [DEBUG_MODS_PER_TILE_NONZERO-1:0] dii_out;
 
   logic [DEBUG_MODS_PER_TILE_NONZERO-1:0] dii_in_ready;
   logic [DEBUG_MODS_PER_TILE_NONZERO-1:0] dii_out_ready;
+
+  wire [AW-1:0] busms_adr_o[0:NR_MASTERS-1];
+  wire          busms_cyc_o[0:NR_MASTERS-1];
+  wire [DW-1:0] busms_dat_o[0:NR_MASTERS-1];
+  wire [   3:0] busms_sel_o[0:NR_MASTERS-1];
+  wire          busms_stb_o[0:NR_MASTERS-1];
+  wire          busms_we_o [0:NR_MASTERS-1];
+  wire          busms_cab_o[0:NR_MASTERS-1];
+  wire [   2:0] busms_cti_o[0:NR_MASTERS-1];
+  wire [   1:0] busms_bte_o[0:NR_MASTERS-1];
+  wire          busms_ack_i[0:NR_MASTERS-1];
+  wire          busms_rty_i[0:NR_MASTERS-1];
+  wire          busms_err_i[0:NR_MASTERS-1];
+  wire [DW-1:0] busms_dat_i[0:NR_MASTERS-1];
+
+  wire [AW-1:0] bussl_adr_i[0:NR_SLAVES-1];
+  wire          bussl_cyc_i[0:NR_SLAVES-1];
+  wire [DW-1:0] bussl_dat_i[0:NR_SLAVES-1];
+  wire [   3:0] bussl_sel_i[0:NR_SLAVES-1];
+  wire          bussl_stb_i[0:NR_SLAVES-1];
+  wire          bussl_we_i [0:NR_SLAVES-1];
+  wire          bussl_cab_i[0:NR_SLAVES-1];
+  wire [   2:0] bussl_cti_i[0:NR_SLAVES-1];
+  wire [   1:0] bussl_bte_i[0:NR_SLAVES-1];
+  wire          bussl_ack_o[0:NR_SLAVES-1];
+  wire          bussl_rty_o[0:NR_SLAVES-1];
+  wire          bussl_err_o[0:NR_SLAVES-1];
+  wire [DW-1:0] bussl_dat_o[0:NR_SLAVES-1];
+
+  wire          snoop_enable;
+  wire [31:0]   snoop_adr;
+
+  wire [31:0]   pic_ints_i [0:CONFIG.CORES_PER_TILE-1];
+
+  genvar c,m,s;
+
+  wire [NR_MASTERS-1:0][AW-1:0] busms_adr_o_flat;
+  wire [NR_MASTERS-1:0]         busms_cyc_o_flat;
+  wire [NR_MASTERS-1:0][DW-1:0] busms_dat_o_flat;
+  wire [NR_MASTERS-1:0][   3:0] busms_sel_o_flat;
+  wire [NR_MASTERS-1:0]         busms_stb_o_flat;
+  wire [NR_MASTERS-1:0]         busms_we_o_flat;
+  wire [NR_MASTERS-1:0]         busms_cab_o_flat;
+  wire [NR_MASTERS-1:0][   2:0] busms_cti_o_flat;
+  wire [NR_MASTERS-1:0][   1:0] busms_bte_o_flat;
+  wire [NR_MASTERS-1:0]         busms_ack_i_flat;
+  wire [NR_MASTERS-1:0]         busms_rty_i_flat;
+  wire [NR_MASTERS-1:0]         busms_err_i_flat;
+  wire [NR_MASTERS-1:0][DW-1:0] busms_dat_i_flat;
+
+  wire [NR_SLAVES-1:0][AW-1:0] bussl_adr_i_flat;
+  wire [NR_SLAVES-1:0]         bussl_cyc_i_flat;
+  wire [NR_SLAVES-1:0][DW-1:0] bussl_dat_i_flat;
+  wire [NR_SLAVES-1:0][   3:0] bussl_sel_i_flat;
+  wire [NR_SLAVES-1:0]         bussl_stb_i_flat;
+  wire [NR_SLAVES-1:0]         bussl_we_i_flat;
+  wire [NR_SLAVES-1:0]         bussl_cab_i_flat;
+  wire [NR_SLAVES-1:0][   2:0] bussl_cti_i_flat;
+  wire [NR_SLAVES-1:0][   1:0] bussl_bte_i_flat;
+  wire [NR_SLAVES-1:0]         bussl_ack_o_flat;
+  wire [NR_SLAVES-1:0]         bussl_rty_o_flat;
+  wire [NR_SLAVES-1:0]         bussl_err_o_flat;
+  wire [NR_SLAVES-1:0][DW-1:0] bussl_dat_o_flat;
+
+  //MAM - WB adapter signals
+  logic          mam_dm_stb_o;
+  logic          mam_dm_cyc_o;
+  logic          mam_dm_ack_i;
+  logic          mam_dm_err_i;
+  logic          mam_dm_rty_i;
+  logic          mam_dm_we_o;
+  logic [AW-1:0] mam_dm_adr_o;
+  logic [DW-1:0] mam_dm_dat_o;
+  logic [DW-1:0] mam_dm_dat_i;
+  logic [   2:0] mam_dm_cti_o;
+  logic [   1:0] mam_dm_bte_o;
+  logic [   3:0] mam_dm_sel_o;
+
+  ////////////////////////////////////////////////////////////////
+  //
+  // Module Body
+  //
+
+  assign pic_ints_i [0][31:5] = 27'h0;
+  assign pic_ints_i [0][ 1:0] = 2'b00;
 
   generate
     if (CONFIG.USE_DEBUG == 1) begin : gen_debug_ring
@@ -115,72 +258,6 @@ module or1k_tile #(
       );
     end
   endgenerate
-
-  wire [31:0]   busms_adr_o[0:NR_MASTERS-1];
-  wire          busms_cyc_o[0:NR_MASTERS-1];
-  wire [31:0]   busms_dat_o[0:NR_MASTERS-1];
-  wire [ 3:0]   busms_sel_o[0:NR_MASTERS-1];
-  wire          busms_stb_o[0:NR_MASTERS-1];
-  wire          busms_we_o [0:NR_MASTERS-1];
-  wire          busms_cab_o[0:NR_MASTERS-1];
-  wire [ 2:0]   busms_cti_o[0:NR_MASTERS-1];
-  wire [ 1:0]   busms_bte_o[0:NR_MASTERS-1];
-  wire          busms_ack_i[0:NR_MASTERS-1];
-  wire          busms_rty_i[0:NR_MASTERS-1];
-  wire          busms_err_i[0:NR_MASTERS-1];
-  wire [31:0]   busms_dat_i[0:NR_MASTERS-1];
-
-  wire [31:0]   bussl_adr_i[0:NR_SLAVES-1];
-  wire          bussl_cyc_i[0:NR_SLAVES-1];
-  wire [31:0]   bussl_dat_i[0:NR_SLAVES-1];
-  wire [ 3:0]   bussl_sel_i[0:NR_SLAVES-1];
-  wire          bussl_stb_i[0:NR_SLAVES-1];
-  wire          bussl_we_i [0:NR_SLAVES-1];
-  wire          bussl_cab_i[0:NR_SLAVES-1];
-  wire [ 2:0]   bussl_cti_i[0:NR_SLAVES-1];
-  wire [ 1:0]   bussl_bte_i[0:NR_SLAVES-1];
-  wire          bussl_ack_o[0:NR_SLAVES-1];
-  wire          bussl_rty_o[0:NR_SLAVES-1];
-  wire          bussl_err_o[0:NR_SLAVES-1];
-  wire [31:0]   bussl_dat_o[0:NR_SLAVES-1];
-
-  wire          snoop_enable;
-  wire [31:0]   snoop_adr;
-
-  wire [31:0]   pic_ints_i [0:CONFIG.CORES_PER_TILE-1];
-
-  assign pic_ints_i [0][31:5] = 27'h0;
-  assign pic_ints_i [0][ 1:0] = 2'b00;
-
-  genvar c,m,s;
-
-  wire [NR_MASTERS-1:0][31:0] busms_adr_o_flat;
-  wire [NR_MASTERS-1:0]       busms_cyc_o_flat;
-  wire [NR_MASTERS-1:0][31:0] busms_dat_o_flat;
-  wire [NR_MASTERS-1:0][ 3:0] busms_sel_o_flat;
-  wire [NR_MASTERS-1:0]       busms_stb_o_flat;
-  wire [NR_MASTERS-1:0]       busms_we_o_flat;
-  wire [NR_MASTERS-1:0]       busms_cab_o_flat;
-  wire [NR_MASTERS-1:0][ 2:0] busms_cti_o_flat;
-  wire [NR_MASTERS-1:0][ 1:0] busms_bte_o_flat;
-  wire [NR_MASTERS-1:0]       busms_ack_i_flat;
-  wire [NR_MASTERS-1:0]       busms_rty_i_flat;
-  wire [NR_MASTERS-1:0]       busms_err_i_flat;
-  wire [NR_MASTERS-1:0][31:0] busms_dat_i_flat;
-
-  wire [NR_SLAVES-1:0][31:0] bussl_adr_i_flat;
-  wire [NR_SLAVES-1:0]       bussl_cyc_i_flat;
-  wire [NR_SLAVES-1:0][31:0] bussl_dat_i_flat;
-  wire [NR_SLAVES-1:0][ 3:0] bussl_sel_i_flat;
-  wire [NR_SLAVES-1:0]       bussl_stb_i_flat;
-  wire [NR_SLAVES-1:0]       bussl_we_i_flat;
-  wire [NR_SLAVES-1:0]       bussl_cab_i_flat;
-  wire [NR_SLAVES-1:0][ 2:0] bussl_cti_i_flat;
-  wire [NR_SLAVES-1:0][ 1:0] bussl_bte_i_flat;
-  wire [NR_SLAVES-1:0]       bussl_ack_o_flat;
-  wire [NR_SLAVES-1:0]       bussl_rty_o_flat;
-  wire [NR_SLAVES-1:0]       bussl_err_o_flat;
-  wire [NR_SLAVES-1:0][31:0] bussl_dat_o_flat;
 
   generate
     for (m = 0; m < NR_MASTERS; m = m + 1) begin : gen_busms_flat
@@ -224,10 +301,6 @@ module or1k_tile #(
     end
   endgenerate
 
-  localparam MOR1KX_FEATURE_FPU          = (CONFIG.CORE_ENABLE_FPU ? "ENABLED" : "NONE");
-  localparam MOR1KX_FEATURE_PERFCOUNTERS = (CONFIG.CORE_ENABLE_PERFCOUNTERS ? "ENABLED" : "NONE");
-  localparam MOR1KX_FEATURE_DEBUGUNIT    = "NONE"; // XXX: Enable debug unit with OSD CDM module (once it's ready)
-
   generate
     for (c = 0; c < CONFIG.CORES_PER_TILE; c = c + 1) begin : gen_cores
       mor1kx_module #(
@@ -260,31 +333,31 @@ module or1k_tile #(
 
         // Instruction WISHBONE interface
         .iwb_cyc_o             (busms_cyc_o[c*2  ]),
-        .iwb_adr_o             (busms_adr_o[c*2  ][31:0]),
+        .iwb_adr_o             (busms_adr_o[c*2  ][AW-1:0]),
         .iwb_stb_o             (busms_stb_o[c*2  ]),
         .iwb_we_o              (busms_we_o [c*2  ]),
-        .iwb_sel_o             (busms_sel_o[c*2  ][ 3:0]),
-        .iwb_dat_o             (busms_dat_o[c*2  ][31:0]),
-        .iwb_bte_o             (busms_bte_o[c*2  ][ 1:0]),
-        .iwb_cti_o             (busms_cti_o[c*2  ][ 2:0]),
+        .iwb_sel_o             (busms_sel_o[c*2  ][   3:0]),
+        .iwb_dat_o             (busms_dat_o[c*2  ][DW-1:0]),
+        .iwb_bte_o             (busms_bte_o[c*2  ][   1:0]),
+        .iwb_cti_o             (busms_cti_o[c*2  ][   2:0]),
         .iwb_ack_i             (busms_ack_i[c*2  ]),
         .iwb_err_i             (busms_err_i[c*2  ]),
         .iwb_rty_i             (busms_rty_i[c*2  ]),
-        .iwb_dat_i             (busms_dat_i[c*2  ][31:0]),
+        .iwb_dat_i             (busms_dat_i[c*2  ][DW-1:0]),
 
         // Data WISHBONE interface
         .dwb_cyc_o             (busms_cyc_o[c*2+1]),
-        .dwb_adr_o             (busms_adr_o[c*2+1][31:0]),
+        .dwb_adr_o             (busms_adr_o[c*2+1][AW-1:0]),
         .dwb_stb_o             (busms_stb_o[c*2+1]),
         .dwb_we_o              (busms_we_o [c*2+1]),
-        .dwb_sel_o             (busms_sel_o[c*2+1][ 3:0]),
-        .dwb_dat_o             (busms_dat_o[c*2+1][31:0]),
-        .dwb_bte_o             (busms_bte_o[c*2+1][ 1:0]),
-        .dwb_cti_o             (busms_cti_o[c*2+1][ 2:0]),
+        .dwb_sel_o             (busms_sel_o[c*2+1][   3:0]),
+        .dwb_dat_o             (busms_dat_o[c*2+1][DW-1:0]),
+        .dwb_bte_o             (busms_bte_o[c*2+1][   1:0]),
+        .dwb_cti_o             (busms_cti_o[c*2+1][   2:0]),
         .dwb_ack_i             (busms_ack_i[c*2+1]),
         .dwb_err_i             (busms_err_i[c*2+1]),
         .dwb_rty_i             (busms_rty_i[c*2+1]),
-        .dwb_dat_i             (busms_dat_i[c*2+1][31:0]),
+        .dwb_dat_i             (busms_dat_i[c*2+1][DW-1:0]),
 
         .snoop_enable_i        (snoop_enable),
         .snoop_adr_i           (snoop_adr),
@@ -412,20 +485,6 @@ module or1k_tile #(
   // Unused leftover from an older Wishbone spec version
   assign bussl_cab_i_flat = NR_SLAVES'(1'b0);
 
-  //MAM - WB adapter signals
-  logic          mam_dm_stb_o;
-  logic          mam_dm_cyc_o;
-  logic          mam_dm_ack_i;
-  logic          mam_dm_err_i;
-  logic          mam_dm_rty_i;
-  logic          mam_dm_we_o;
-  logic [31:0]   mam_dm_addr_o;
-  logic [31:0]   mam_dm_dat_o;
-  logic [31:0]   mam_dm_dat_i;
-  logic [ 2:0]   mam_dm_cti_o;
-  logic [ 1:0]   mam_dm_bte_o;
-  logic [ 3:0]   mam_dm_sel_o;
-
   if (CONFIG.USE_DEBUG == 1) begin : gen_mam_dm_wb
     //MAM
     osd_mam_wb #(
@@ -446,7 +505,7 @@ module or1k_tile #(
       .cyc_o           (mam_dm_cyc_o),
       .ack_i           (mam_dm_ack_i),
       .we_o            (mam_dm_we_o),
-      .addr_o          (mam_dm_addr_o),
+      .addr_o          (mam_dm_adr_o),
       .dat_o           (mam_dm_dat_o),
       .dat_i           (mam_dm_dat_i),
       .cti_o           (mam_dm_cti_o),
@@ -461,7 +520,7 @@ module or1k_tile #(
       .AW (32)
     )
     u_mam_wb_adapter_dm (
-      .wb_mam_adr_o    (mam_dm_addr_o),
+      .wb_mam_adr_o    (mam_dm_adr_o),
       .wb_mam_cyc_o    (mam_dm_cyc_o),
       .wb_mam_dat_o    (mam_dm_dat_o),
       .wb_mam_sel_o    (mam_dm_sel_o),

@@ -1,0 +1,8 @@
+source ../build.sh
+
+cd ../baremetal/baremetal-apps/hello_mpsimple
+make clean
+make
+
+rm -rf ../../../../sim/hello_mpsimple.vmem
+cp hello_mpsimple.vmem ../../../../sim/

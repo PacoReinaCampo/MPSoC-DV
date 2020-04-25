@@ -1,0 +1,8 @@
+source ../build.sh
+
+cd ../baremetal/baremetal-apps/heat_mpsimple
+make clean
+make
+
+rm -rf ../../../../sim/heat_mpsimple.vmem
+cp heat_mpsimple.vmem ../../../../sim/

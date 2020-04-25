@@ -1,4 +1,21 @@
-/* Copyright (c) 2012-2015 by the author(s)
+////////////////////////////////////////////////////////////////////////////////
+//                                            __ _      _     _               //
+//                                           / _(_)    | |   | |              //
+//                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
+//               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |              //
+//              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |              //
+//               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|              //
+//                  | |                                                       //
+//                  |_|                                                       //
+//                                                                            //
+//                                                                            //
+//              MPSoC-RISCV CPU                                               //
+//              Multi Processor System on Chip                                //
+//              AMBA3 AHB-Lite Bus Interface                                  //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+/* Copyright (c) 2019-2020 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,20 +36,14 @@
  * THE SOFTWARE.
  *
  * =============================================================================
- *
- * A testbench for a simple systems with only one compute tile
- *
- * Parameters:
- *   USE_DEBUG:
- *     Enable the OSD-based debug system.
- *
- *   NUM_CORES:
- *     Number of CPU cores inside the compute tile (default: 1)
- *
  * Author(s):
- *   Philipp Wagner <philipp.wagner@tum.de>
- *   Stefan Wallentowitz <stefan.wallentowitz@tum.de>
+ *   Francisco Javier Reina Campo <frareicam@gmail.com>
  */
+
+import dii_package::dii_flit;
+import opensocdebug::mriscv_trace_exec;
+import optimsoc_config::*;
+import optimsoc_functions::*;
 
 module riscv_tile_testbench (
   `ifdef verilator
@@ -41,10 +52,10 @@ module riscv_tile_testbench (
   `endif
 );
 
-  import dii_package::dii_flit;
-  import opensocdebug::mriscv_trace_exec;
-  import optimsoc_config::*;
-  import optimsoc_functions::*;
+  ////////////////////////////////////////////////////////////////
+  //
+  // Constans
+  //
 
   // Simulation parameters
   parameter USE_DEBUG = 0;
@@ -87,12 +98,15 @@ module riscv_tile_testbench (
 
   localparam config_t CONFIG = derive_config(BASE_CONFIG);
 
+  ////////////////////////////////////////////////////////////////
+  //
+  // Variables
+  //
+
   logic rst_sys;
   logic rst_cpu;
 
   logic cpu_stall;
-
-  assign cpu_stall = 0;
 
   // In Verilator, we feed clk and rst from the C++ toplevel, in ModelSim & Co.
   // these signals are generated inside this testbench.
@@ -110,20 +124,37 @@ module riscv_tile_testbench (
   wire [CONFIG.NOC_CHANNELS-1:0]                            noc_out_valid;
   wire [CONFIG.NOC_CHANNELS-1:0]                            noc_out_ready;
 
+  // Monitor system behavior in simulation
+  mriscv_trace_exec [NUM_CORES-1:0] trace;
+
+  logic [31:0] trace_r3 [0:NUM_CORES-1];
+
+  wire [NUM_CORES-1:0] termination;
+
+  // OSD-based debug system
+  dii_flit [1:0] debug_ring_in;
+  dii_flit [1:0] debug_ring_out;
+
+  logic [1:0] debug_ring_in_ready;
+  logic [1:0] debug_ring_out_ready;
+
+  genvar i;
+
+  ////////////////////////////////////////////////////////////////
+  //
+  // Module Body
+  //
+
+  assign cpu_stall = 0;
+
   assign noc_in_flit   = {CONFIG.NOC_FLIT_WIDTH*CONFIG.NOC_CHANNELS{1'bx}};
   assign noc_in_last   = {CONFIG.NOC_CHANNELS{1'bx}};
   assign noc_in_valid  = {CONFIG.NOC_CHANNELS{1'b0}};
   assign noc_out_ready = {CONFIG.NOC_CHANNELS{1'b0}};
 
   // Monitor system behavior in simulation
-  mriscv_trace_exec [NUM_CORES-1:0] trace;
   assign trace = u_compute_tile.trace;
 
-  logic [31:0] trace_r3 [0:NUM_CORES-1];
-
-  wire [NUM_CORES-1:0] termination;
-
-  genvar i;
   generate
     for (i = 0; i < NUM_CORES; i = i + 1) begin
       r3_checker u_r3_checker (
@@ -153,13 +184,6 @@ module riscv_tile_testbench (
       );
     end
   endgenerate
-
-  // OSD-based debug system
-  dii_flit [1:0] debug_ring_in;
-  dii_flit [1:0] debug_ring_out;
-
-  logic [1:0] debug_ring_in_ready;
-  logic [1:0] debug_ring_out_ready;
 
   generate
     if (CONFIG.USE_DEBUG == 1) begin

@@ -1,7 +1,52 @@
+////////////////////////////////////////////////////////////////////////////////
+//                                            __ _      _     _               //
+//                                           / _(_)    | |   | |              //
+//                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
+//               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |              //
+//              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |              //
+//               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|              //
+//                  | |                                                       //
+//                  |_|                                                       //
+//                                                                            //
+//                                                                            //
+//              MPSoC-OR1K CPU                                                //
+//              Multi Processor System on Chip                                //
+//              Wishbone Bus Interface                                        //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+/* Copyright (c) 2019-2020 by the author(s)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * =============================================================================
+ * Author(s):
+ *   Francisco Javier Reina Campo <frareicam@gmail.com>
+ */
+
 import dii_package::dii_flit;
 import optimsoc_config::*;
 
 module or1k_mpsoc4d #(
+  parameter AW = 32,
+  parameter DW = 32,
+
   parameter X = 2,
   parameter Y = 2,
   parameter Z = 2,
@@ -18,23 +63,33 @@ module or1k_mpsoc4d #(
     glip_channel c_glip_in,
     glip_channel c_glip_out,
 
-    output [NODES-1:0][31:0] wb_ext_adr_i,
-    output [NODES-1:0]       wb_ext_cyc_i,
-    output [NODES-1:0][31:0] wb_ext_dat_i,
-    output [NODES-1:0][ 3:0] wb_ext_sel_i,
-    output [NODES-1:0]       wb_ext_stb_i,
-    output [NODES-1:0]       wb_ext_we_i,
-    output [NODES-1:0]       wb_ext_cab_i,
-    output [NODES-1:0][ 2:0] wb_ext_cti_i,
-    output [NODES-1:0][ 1:0] wb_ext_bte_i,
-    input  [NODES-1:0]       wb_ext_ack_o,
-    input  [NODES-1:0]       wb_ext_rty_o,
-    input  [NODES-1:0]       wb_ext_err_o,
-    input  [NODES-1:0][31:0] wb_ext_dat_o
+    output [NODES-1:0][AW-1:0] wb_ext_adr_i,
+    output [NODES-1:0]         wb_ext_cyc_i,
+    output [NODES-1:0][DW-1:0] wb_ext_dat_i,
+    output [NODES-1:0][   3:0] wb_ext_sel_i,
+    output [NODES-1:0]         wb_ext_stb_i,
+    output [NODES-1:0]         wb_ext_we_i,
+    output [NODES-1:0]         wb_ext_cab_i,
+    output [NODES-1:0][   2:0] wb_ext_cti_i,
+    output [NODES-1:0][   1:0] wb_ext_bte_i,
+    input  [NODES-1:0]         wb_ext_ack_o,
+    input  [NODES-1:0]         wb_ext_rty_o,
+    input  [NODES-1:0]         wb_ext_err_o,
+    input  [NODES-1:0][DW-1:0] wb_ext_dat_o
   );
+
+  ////////////////////////////////////////////////////////////////
+  //
+  // Constans
+  //
 
   localparam FLIT_WIDTH = CONFIG.NOC_FLIT_WIDTH;
   localparam CHANNELS   = CONFIG.NOC_CHANNELS;
+
+  ////////////////////////////////////////////////////////////////
+  //
+  // Variables
+  //
 
   dii_flit [1:0] debug_ring_in  [0:NODES-1];
   dii_flit [1:0] debug_ring_out [0:NODES-1];
@@ -58,6 +113,11 @@ module or1k_mpsoc4d #(
   wire [NODES-1:0][CHANNELS-1:0]                 link_out_last;
   wire [NODES-1:0][CHANNELS-1:0]                 link_out_valid;
   wire [NODES-1:0][CHANNELS-1:0]                 link_out_ready;
+
+  ////////////////////////////////////////////////////////////////
+  //
+  // Module Body
+  //
 
   debug_interface #(
     .SYSTEM_VENDOR_ID         (2),

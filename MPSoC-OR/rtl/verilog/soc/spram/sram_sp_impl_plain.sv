@@ -1,4 +1,21 @@
-/* Copyright (c) 2012-2018 by the author(s)
+////////////////////////////////////////////////////////////////////////////////
+//                                            __ _      _     _               //
+//                                           / _(_)    | |   | |              //
+//                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
+//               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |              //
+//              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |              //
+//               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|              //
+//                  | |                                                       //
+//                  |_|                                                       //
+//                                                                            //
+//                                                                            //
+//              MPSoC-OR1K CPU                                                //
+//              Multi Processor System on Chip                                //
+//              Wishbone Bus Interface                                        //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+/* Copyright (c) 2019-2020 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,66 +36,49 @@
  * THE SOFTWARE.
  *
  * =============================================================================
- *
- * Single-Port memory implemented as plain registers
- *
- * The main use case for this memory implementation are simulations, but
- * depending on the used Synthesis tool it might also be used in synthesized
- * systems, if the right memory blocks for the target hardware are inferred.
- *
- * The code has been written to follow the inferrence guidelines from Vivado
- * (UG 901, v2017.4) for Single-Port Block RAMs, and tested in Xilinx 7series
- * devices to ensure blockram is inferred.
- *
- * When using Verilator, this memory can be initialized from MEM_FILE by calling
- * the do_readmemh() function. It is also possible to read and write the memory
- * using the get_mem() and set_mem() functions.
- *
  * Author(s):
- *   Stefan Wallentowitz <stefan.wallentowitz@tum.de>
- *   Stefan Wallentowitz <stefan@wallentowitz.de>
- *   Philipp Wagner <philipp.wagner@tum.de>
+ *   Francisco Javier Reina Campo <frareicam@gmail.com>
  */
 
-module sram_sp_impl_plain(/*AUTOARG*/
-  // Outputs
-  dout,
-  // Inputs
-  clk, rst, ce, we, oe, waddr, din, sel
-);
+import optimsoc_functions::*;
 
-  import optimsoc_functions::*;
-
+module sram_sp_impl_plain #(
   // byte address width
-  parameter AW = 32;
+  parameter AW = 32,
   // data width (must be multiple of 8 for byte selects to work)
-  parameter DW = 32;
+  parameter DW = 32,
 
   localparam SW = (DW == 32) ? 4 :
                   (DW == 16) ? 2 :
-                  (DW ==  8) ? 1 : 'hx;
+                  (DW ==  8) ? 1 : 'hx,
 
   // word address width
-  parameter WORD_AW = AW - (SW >> 1);
+  parameter WORD_AW = AW - (SW >> 1),
 
   // size of the memory in bytes
-  parameter MEM_SIZE_BYTE = 'hx;
+  parameter MEM_SIZE_BYTE = 'hx,
 
-  localparam MEM_SIZE_WORDS = MEM_SIZE_BYTE / SW;
+  localparam MEM_SIZE_WORDS = MEM_SIZE_BYTE / SW,
 
   // VMEM file used to initialize the memory in simulation
-  parameter MEM_FILE = "sram.vmem";
+  parameter MEM_FILE = "sram.vmem"
+)
+  (
+    input                    clk,   // Clock
+    input                    rst,   // Reset
+    input                    ce,    // Chip enable input
+    input                    we,    // Write enable input
+    input                    oe,    // Output enable input
+    input      [WORD_AW-1:0] waddr, // word address
+    input      [DW     -1:0] din,   // input data bus
+    input      [SW     -1:0] sel,   // select bytes
+    output reg [DW     -1:0] dout   // output data bus
+  );
 
-
-  input                clk;   // Clock
-  input                rst;   // Reset
-  input                ce;    // Chip enable input
-  input                we;    // Write enable input
-  input                oe;    // Output enable input
-  input [WORD_AW-1:0]  waddr; // word address
-  input      [DW-1:0]  din;   // input data bus
-  input      [SW-1:0]  sel;   // select bytes
-  output reg [DW-1:0]  dout;  // output data bus
+  ////////////////////////////////////////////////////////////////
+  //
+  // Module Body
+  //
 
   (* ram_style = "block" *) reg [DW-1:0] mem [MEM_SIZE_WORDS-1:0] /*synthesis syn_ramstyle = "block_ram" */;
 

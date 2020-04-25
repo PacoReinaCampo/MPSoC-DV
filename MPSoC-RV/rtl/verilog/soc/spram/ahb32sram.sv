@@ -1,4 +1,21 @@
-/* Copyright (c) 2010-2017 by the author(s)
+///////////////////////////////////////////////////////////////////////////////
+//                                            __ _      _     _               //
+//                                           / _(_)    | |   | |              //
+//                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
+//               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |              //
+//              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |              //
+//               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|              //
+//                  | |                                                       //
+//                  |_|                                                       //
+//                                                                            //
+//                                                                            //
+//              MPSoC-RISCV CPU                                               //
+//              Multi Processor System on Chip                                //
+//              Wishbone Bus Interface                                        //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+/* Copyright (c) 2019-2020 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,44 +36,25 @@
  * THE SOFTWARE.
  *
  * =============================================================================
- *
- * RAM interface translation: Generic RAM interface to Wishbone
- *
- * See the README file in this directory for information about the common
- * ports and parameters used in all memory modules.
- *
- * The original code has been taken from ahb3_ram_b3.v, part of the ORPSoCv2
- * project on opencores.org.
- *
  * Author(s):
- *   Julius Baxter <julius@opencores.org> (original author)
- *   Stefan Wallentowitz <stefan@wallentowitz.de>
- *   Markus Goehrle <markus.goehrle@tum.de>
+ *   Francisco Javier Reina Campo <frareicam@gmail.com>
  */
 
-module ahb32sram(
-  // Outputs
-  ahb3_hready_o, ahb3_hresp_o, ahb3_hrdata_o, sram_ce, sram_we,
-  sram_waddr, sram_din, sram_sel,
-  // Inputs
-  ahb3_haddr_i, ahb3_htrans_i, ahb3_hburst_i, ahb3_hmastlock_i, ahb3_hwdata_i, ahb3_hprot_i,
-  ahb3_hsel_i, ahb3_hwrite_i, ahb3_clk_i, ahb3_rst_i, sram_dout
-);
+import optimsoc_functions::*;
 
-  import optimsoc_functions::*;
-
+module ahb32sram #(
   // Memory parameters
   // data width (word size)
   // Valid values: 32, 16 and 8
-  parameter XLEN = 32;
+  parameter XLEN = 32,
 
   // address width
-  parameter PLEN = 32;
+  parameter PLEN = 32,
 
   // byte select width
   localparam SW = (XLEN == 32) ? 4 :
                   (XLEN == 16) ? 2 :
-                  (XLEN ==  8) ? 1 : 'hx;
+                  (XLEN ==  8) ? 1 : 'hx,
 
   /*
    * +--------------+--------------+
@@ -65,37 +63,43 @@ module ahb32sram(
    *     WORD_AW         BYTE_AW
    *        +----- PLEN -----+
    */
-  localparam BYTE_AW = SW >> 1;
-  localparam WORD_AW = PLEN - BYTE_AW;
 
-  // wishbone ports
-  input             ahb3_hsel_i;
-  input  [PLEN-1:0] ahb3_haddr_i;
-  input  [XLEN-1:0] ahb3_hwdata_i;
-  input  [     2:0] ahb3_hburst_i;
-  input  [SW  -1:0] ahb3_hprot_i;
-  input             ahb3_hwrite_i;
-  input  [     1:0] ahb3_htrans_i;
-  input             ahb3_hmastlock_i;
+  localparam BYTE_AW = SW >> 1,
+  localparam WORD_AW = PLEN - BYTE_AW
+)
+  (
+    // AHB3 ports
+    input             ahb3_hsel_i,
+    input  [PLEN-1:0] ahb3_haddr_i,
+    input  [XLEN-1:0] ahb3_hwdata_i,
+    input  [     2:0] ahb3_hburst_i,
+    input  [SW  -1:0] ahb3_hprot_i,
+    input             ahb3_hwrite_i,
+    input  [     1:0] ahb3_htrans_i,
+    input             ahb3_hmastlock_i,
 
-  output [XLEN-1:0] ahb3_hrdata_o;
-  output            ahb3_hready_o;
-  output            ahb3_hresp_o;
+    output [XLEN-1:0] ahb3_hrdata_o,
+    output            ahb3_hready_o,
+    output            ahb3_hresp_o,
 
-  input             ahb3_clk_i;
-  input             ahb3_rst_i;
+    input             ahb3_clk_i,
+    input             ahb3_rst_i,
+
+    // generic RAM ports
+    output               sram_ce,
+    output               sram_we,
+    output [WORD_AW-1:0] sram_waddr,
+    output [XLEN   -1:0] sram_din,
+    output [SW     -1:0] sram_sel,
+    input  [XLEN   -1:0] sram_dout
+  );
+
+  ////////////////////////////////////////////////////////////////
+  //
+  // Variables
+  //
 
   wire [WORD_AW-1:0] word_addr_in;
-
-  assign word_addr_in = ahb3_haddr_i[PLEN-1:BYTE_AW];
-
-  // generic RAM ports
-  output               sram_ce;
-  output               sram_we;
-  output [WORD_AW-1:0] sram_waddr;
-  output [XLEN   -1:0] sram_din;
-  output [SW     -1:0] sram_sel;
-  input  [XLEN   -1:0] sram_dout;
 
   reg [WORD_AW-1:0]         word_addr_reg;
   reg [WORD_AW-1:0]         word_addr;
@@ -112,6 +116,16 @@ module ahb32sram(
   wire                 using_burst_adr;
   wire                 burst_access_wrong_ahb3_adr;
 
+  // Ack Logic
+  reg     ahb3_ack;
+  reg nxt_ahb3_ack;
+
+  ////////////////////////////////////////////////////////////////
+  //
+  // Module Body
+  //
+
+  assign word_addr_in = ahb3_haddr_i[PLEN-1:BYTE_AW];
 
   // assignments from ahb3 to memory
   assign sram_ce    = 1'b1;
@@ -121,7 +135,6 @@ module ahb32sram(
   assign sram_sel   = ahb3_hprot_i;
 
   assign ahb3_hrdata_o = sram_dout;
-
 
   // Logic to detect if there's a burst access going on
   assign ahb3_b3_trans_start = ((ahb3_hburst_i == 3'b001)|(ahb3_hburst_i == 3'b010)) & ahb3_hsel_i & !ahb3_b3_trans;
@@ -207,10 +220,6 @@ module ahb32sram(
       word_addr_reg <= word_addr;
     end
   end
-
-  // Ack Logic
-  reg     ahb3_ack;
-  reg nxt_ahb3_ack;
 
   assign ahb3_hready_o = ahb3_ack & ahb3_hsel_i & ~burst_access_wrong_ahb3_adr;
 

@@ -1,4 +1,21 @@
-/* Copyright (c) 2013-2017 by the author(s)
+////////////////////////////////////////////////////////////////////////////////
+//                                            __ _      _     _               //
+//                                           / _(_)    | |   | |              //
+//                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
+//               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |              //
+//              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |              //
+//               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|              //
+//                  | |                                                       //
+//                  |_|                                                       //
+//                                                                            //
+//                                                                            //
+//              MPSoC-RISCV CPU                                               //
+//              Multi Processor System on Chip                                //
+//              AMBA3 AHB-Lite Bus Interface                                  //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+/* Copyright (c) 2019-2020 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,26 +36,9 @@
  * THE SOFTWARE.
  *
  * =============================================================================
- *
- * This is a generic wishbone bus multiplexer (B3). The number of
- * masters is configurable.
- *
- * XLEN and PLEN are defined in bits. XLEN must be
- * full bytes (i.e., multiple of 8)!
- *
- * The ports are flattened. That means, that all masters share the bus
- * signal ports. With four masters and a data width of 32 bit the
- * m_hmastlock_i port is 4 bit wide and the m_hwdata_i is 128 (=4*32) bit wide.
- * The signals are arranged from right to left, meaning the m_hwdata_i is
- * defined as [MASTERS-1:0][XLEN-1:0] and each port m is assigned to
- * [(m+1)*XLEN-1:m*XLEN].
- *
  * Author(s):
- *   Stefan Wallentowitz <stefan.wallentowitz@tum.de>
+ *   Francisco Javier Reina Campo <frareicam@gmail.com>
  */
-
-// TODO: * check bus hold signal correctness
-
 module ahb3_mux #(
   /* User parameters */
   // Set the number of slaves
@@ -90,6 +90,11 @@ module ahb3_mux #(
     output reg bus_hold_ack
   );
 
+  ////////////////////////////////////////////////////////////////
+  //
+  // Variables
+  //
+
   // The granted master is one hot encoded
   wire [MASTERS-1:0]     grant;
   // The granted master from previous cycle (register)
@@ -107,6 +112,11 @@ module ahb3_mux #(
   // This is the arbitration net from round robin
   wire [MASTERS-1:0] arb_grant;
   reg  [MASTERS-1:0] prev_arb_grant;
+
+  ////////////////////////////////////////////////////////////////
+  //
+  // Module Body
+  //
 
   // It is masked with the bus_hold_ack to hold back the arbitration
   // as long as the bus is held

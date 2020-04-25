@@ -1,4 +1,21 @@
-/* Copyright (c) 2013-2017 by the author(s)
+////////////////////////////////////////////////////////////////////////////////
+//                                            __ _      _     _               //
+//                                           / _(_)    | |   | |              //
+//                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
+//               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |              //
+//              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |              //
+//               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|              //
+//                  | |                                                       //
+//                  |_|                                                       //
+//                                                                            //
+//                                                                            //
+//              MPSoC-OR1K CPU                                                //
+//              Multi Processor System on Chip                                //
+//              Wishbone Bus Interface                                        //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+/* Copyright (c) 2019-2020 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,48 +36,51 @@
  * THE SOFTWARE.
  *
  * =============================================================================
- *
- * Single Port RAM with Byte Select
- *
- * The width of the data and address bus can be configured using the DW and
- * AW parameters. To support byte selects DW must be a multiple of 8.
- *
  * Author(s):
- *   Stefan Wallentowitz <stefan@wallentowitz.de>
- *   Markus Goehrle <markus.goehrle@tum.de>
- *   Philipp Wagner <philipp.wagner@tum.de>
+ *   Francisco Javier Reina Campo <frareicam@gmail.com>
  */
 
-module sram_sp (
-  // Outputs
-  dout,
-  // Inputs
-  clk, rst, ce, we, oe, waddr, din, sel
-);
+import optimsoc_functions::*;
 
-  import optimsoc_functions::*;
-
-  parameter MEM_SIZE_BYTE = 'hx;
+module sram_sp #(
+  parameter MEM_SIZE_BYTE = 'hx,
 
   // address width
-  parameter AW = 32;
+  parameter AW = 32,
 
   // data width (word size)
   // Valid values: 32, 16 and 8
-  parameter DW = 32;
+  parameter DW = 32,
 
   // type of the memory implementation
-  parameter MEM_IMPL_TYPE = "PLAIN";
+  parameter MEM_IMPL_TYPE = "PLAIN",
   // VMEM memory file to load in simulation
-  parameter MEM_FILE = "sram.vmem";
+  parameter MEM_FILE = "sram.vmem",
 
   // byte select width (must be a power of two)
   localparam SW = (DW == 32) ? 4 :
                   (DW == 16) ? 2 :
-                  (DW ==  8) ? 1 : 'hx;
+                  (DW ==  8) ? 1 : 'hx,
 
   // word address width
-  parameter WORD_AW = AW - (SW >> 1);
+  parameter WORD_AW = AW - (SW >> 1)
+)
+  (
+    input                clk,   // Clock
+    input                rst,   // Reset
+    input                ce,    // Chip enable input
+    input                we,    // Write enable input
+    input                oe,    // Output enable input
+    input  [WORD_AW-1:0] waddr, // word address
+    input  [DW     -1:0] din,   // input data bus
+    input  [SW     -1:0] sel,   // select bytes
+    output [DW     -1:0] dout   // output data bus
+  );
+
+  ////////////////////////////////////////////////////////////////
+  //
+  // Module Body
+  //
 
   // ensure that parameters are set to allowed values
   initial begin
@@ -74,16 +94,6 @@ module sram_sp (
       $stop;
     end
   end
-
-  input                clk;   // Clock
-  input                rst;   // Reset
-  input                ce;    // Chip enable input
-  input                we;    // Write enable input
-  input                oe;    // Output enable input
-  input  [WORD_AW-1:0] waddr; // word address
-  input  [DW     -1:0] din;   // input data bus
-  input  [SW     -1:0] sel;   // select bytes
-  output [DW     -1:0] dout;  // output data bus
 
   // validate the memory address (check if it's inside the memory size bounds)
   `ifdef OPTIMSOC_SRAM_VALIDATE_ADDRESS

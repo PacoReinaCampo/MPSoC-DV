@@ -1,4 +1,21 @@
-/* Copyright (c) 2013-2015 by the author(s)
+////////////////////////////////////////////////////////////////////////////////
+//                                            __ _      _     _               //
+//                                           / _(_)    | |   | |              //
+//                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
+//               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |              //
+//              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |              //
+//               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|              //
+//                  | |                                                       //
+//                  |_|                                                       //
+//                                                                            //
+//                                                                            //
+//              MPSoC-OR1K CPU                                                //
+//              Multi Processor System on Chip                                //
+//              Wishbone Bus Interface                                        //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+/* Copyright (c) 2019-2020 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,12 +36,8 @@
  * THE SOFTWARE.
  *
  * =============================================================================
- *
- * This modules provides the configuration information of the network
- * adapter to the software via memory mapped registers.
- *
  * Author(s):
- *   Stefan Wallentowitz <stefan.wallentowitz@tum.de>
+ *   Francisco Javier Reina Campo <frareicam@gmail.com>
  */
 
 /*
@@ -68,32 +81,37 @@
 import optimsoc_config::*;
 
 module networkadapter_conf #(
+  parameter DW              = 32,
   parameter config_t CONFIG = 'x,
   parameter TILEID          = 'x,
   parameter COREBASE        = 'x
 )
   (
+    input clk,
+    input rst,
+
+    // CDC configuration register
     `ifdef OPTIMSOC_CLOCKDOMAINS
     `ifdef OPTIMSOC_CDC_DYNAMIC
-    cdc_conf, cdc_enable,
+    output reg [2:0] cdc_conf,
+    output reg       cdc_enable,
     `endif
     `endif
 
-    // Outputs
-    data, ack, rty, err,
-    // Inputs
-    clk, rst, adr, we, data_i
+    input      [  15:0] adr,
+    input               we,
+    input      [DW-1:0] data_i,
+
+    output reg [DW-1:0] data,
+    output              ack,
+    output              rty,
+    output              err
   );
 
-  reg [31:0] seed;
-
-  `ifdef verilator
-  initial begin
-    seed = $random();
-  end
-  `else
-  assign seed = 32'h0;
-  `endif
+  ////////////////////////////////////////////////////////////////
+  //
+  // Constans
+  //
 
   localparam REG_TILEID          = 0;
   localparam REG_NUMTILES        = 1;
@@ -115,33 +133,34 @@ module networkadapter_conf #(
   localparam REGBIT_CONF_MPSIMPLE = 0;
   localparam REGBIT_CONF_DMA      = 1;
 
-  input clk;
-  input rst;
+  ////////////////////////////////////////////////////////////////
+  //
+  // Variables
+  //
 
-  input      [15:0] adr;
-  input             we;
-  input      [31:0] data_i;
+  reg  [31:0] seed;
 
-  output reg [31:0] data;
-  output            ack;
-  output            rty;
-  output            err;
+  wire [15:0] ctlist_vector[0:63];
+
+  genvar i;
+
+  ////////////////////////////////////////////////////////////////
+  //
+  // Module Body
+  //
+
+  `ifdef verilator
+  initial begin
+    seed = $random();
+  end
+  `else
+  assign seed = 32'h0;
+  `endif
 
   assign ack = ~|adr[15:12];
   assign err = ~ack;
   assign rty = 1'b0;
 
-  // CDC configuration register
-  `ifdef OPTIMSOC_CLOCKDOMAINS
-  `ifdef OPTIMSOC_CDC_DYNAMIC
-  output reg [2:0]         cdc_conf;
-  output reg               cdc_enable;
-  `endif
-  `endif
-
-  wire [15:0]              ctlist_vector[0:63];
-
-  genvar                   i;
   generate
     for (i = 0; i < 64; i = i + 1) begin : gen_ctlist_vector // array is indexed by the desired destination
       if (i < CONFIG.NUMCTS) begin

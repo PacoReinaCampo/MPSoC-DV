@@ -1,4 +1,21 @@
-/* Copyright (c) 2010-2017 by the author(s)
+////////////////////////////////////////////////////////////////////////////////
+//                                            __ _      _     _               //
+//                                           / _(_)    | |   | |              //
+//                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
+//               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |              //
+//              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |              //
+//               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|              //
+//                  | |                                                       //
+//                  |_|                                                       //
+//                                                                            //
+//                                                                            //
+//              MPSoC-OR1K CPU                                                //
+//              Multi Processor System on Chip                                //
+//              Wishbone Bus Interface                                        //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+/* Copyright (c) 2019-2020 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,84 +36,71 @@
  * THE SOFTWARE.
  *
  * =============================================================================
- *
- * RAM interface translation: Generic RAM interface to Wishbone
- *
- * See the README file in this directory for information about the common
- * ports and parameters used in all memory modules.
- *
- * The original code has been taken from wb_ram_b3.v, part of the ORPSoCv2
- * project on opencores.org.
- *
  * Author(s):
- *   Julius Baxter <julius@opencores.org> (original author)
- *   Stefan Wallentowitz <stefan@wallentowitz.de>
- *   Markus Goehrle <markus.goehrle@tum.de>
+ *   Francisco Javier Reina Campo <frareicam@gmail.com>
  */
 
-module wb2sram(/*AUTOARG*/
-  // Outputs
-  wb_ack_o, wb_err_o, wb_rty_o, wb_dat_o, sram_ce, sram_we,
-  sram_waddr, sram_din, sram_sel,
-  // Inputs
-  wb_adr_i, wb_bte_i, wb_cti_i, wb_cyc_i, wb_dat_i, wb_sel_i,
-  wb_stb_i, wb_we_i, wb_clk_i, wb_rst_i, sram_dout
-);
+import optimsoc_functions::*;
 
-  import optimsoc_functions::*;
-
+module wb2sram #(
   // Memory parameters
   // data width (word size)
   // Valid values: 32, 16 and 8
-  parameter DW = 32;
+  parameter DW = 32,
 
   // address width
-  parameter AW = 32;
+  parameter AW = 32,
 
   // byte select width
   localparam SW = (DW == 32) ? 4 :
-  (DW == 16) ? 2 :
-  (DW ==  8) ? 1 : 'hx;
+                  (DW == 16) ? 2 :
+                  (DW ==  8) ? 1 : 'hx,
 
   /*
-    * +--------------+--------------+
-    * | word address | byte in word |
-    * +--------------+--------------+
-    *     WORD_AW         BYTE_AW
-    *        +----- AW -----+
-    */
-  localparam BYTE_AW = SW >> 1;
-  localparam WORD_AW = AW - BYTE_AW;
+   * +--------------+--------------+
+   * | word address | byte in word |
+   * +--------------+--------------+
+   *     WORD_AW         BYTE_AW
+   *        +----- AW -----+
+   */
 
-  // wishbone ports
-  input [AW-1:0]       wb_adr_i;
-  input [1:0]          wb_bte_i;
-  input [2:0]          wb_cti_i;
-  input                wb_cyc_i;
-  input [DW-1:0]       wb_dat_i;
-  input [SW-1:0]       wb_sel_i;
-  input                wb_stb_i;
-  input                wb_we_i;
+  localparam BYTE_AW = SW >> 1,
+  localparam WORD_AW = AW - BYTE_AW
+)
+  (
+    // Wishbone ports
+    input [AW-1:0]       wb_adr_i,
+    input [   1:0]       wb_bte_i,
+    input [   2:0]       wb_cti_i,
+    input                wb_cyc_i,
+    input [DW-1:0]       wb_dat_i,
+    input [SW-1:0]       wb_sel_i,
+    input                wb_stb_i,
+    input                wb_we_i,
 
-  output               wb_ack_o;
-  output               wb_err_o;
-  output               wb_rty_o;
-  output [DW-1:0]      wb_dat_o;
+    output               wb_ack_o,
+    output               wb_err_o,
+    output               wb_rty_o,
+    output [DW-1:0]      wb_dat_o,
 
-  input                wb_clk_i;
-  input                wb_rst_i;
+    input                wb_clk_i,
+    input                wb_rst_i,
 
-  wire [WORD_AW-1:0]   word_addr_in;
+    // generic RAM ports
+    output               sram_ce,
+    output               sram_we,
+    output [WORD_AW-1:0] sram_waddr,
+    output [     DW-1:0] sram_din,
+    output [     SW-1:0] sram_sel,
+    input  [     DW-1:0] sram_dout
+  );
 
-  assign word_addr_in = wb_adr_i[AW-1:BYTE_AW];
+  ////////////////////////////////////////////////////////////////
+  //
+  // Variables
+  //
 
-  // generic RAM ports
-  output               sram_ce;
-  output               sram_we;
-  output [WORD_AW-1:0] sram_waddr;
-  output [     DW-1:0] sram_din;
-  output [     SW-1:0] sram_sel;
-  input  [     DW-1:0] sram_dout;
+  wire [WORD_AW-1:0] word_addr_in;
 
   reg [WORD_AW-1:0]         word_addr_reg;
   reg [WORD_AW-1:0]         word_addr;
@@ -113,6 +117,16 @@ module wb2sram(/*AUTOARG*/
   wire                 using_burst_adr;
   wire                 burst_access_wrong_wb_adr;
 
+  // Ack Logic
+  reg  wb_ack;
+  reg  nxt_wb_ack;
+
+  ////////////////////////////////////////////////////////////////
+  //
+  // Module Body
+  //
+
+  assign word_addr_in = wb_adr_i[AW-1:BYTE_AW];
 
   // assignments from wb to memory
   assign sram_ce    = 1'b1;
@@ -122,7 +136,6 @@ module wb2sram(/*AUTOARG*/
   assign sram_sel   = wb_sel_i;
 
   assign wb_dat_o = sram_dout;
-
 
   // Logic to detect if there's a burst access going on
   assign wb_b3_trans_start = ((wb_cti_i == 3'b001)|(wb_cti_i == 3'b010)) & wb_stb_i & !wb_b3_trans;
@@ -210,10 +223,6 @@ module wb2sram(/*AUTOARG*/
   end
 
   assign wb_rty_o = 0;
-
-  // Ack Logic
-  reg  wb_ack;
-  reg  nxt_wb_ack;
 
   assign wb_ack_o = wb_ack & wb_stb_i & ~burst_access_wrong_wb_adr;
 

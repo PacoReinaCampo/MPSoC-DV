@@ -1,0 +1,4 @@
+export PATH=/opt/or1k-elf-multicore/bin:${PATH}
+
+make clean
+make 

@@ -1,6 +1,49 @@
+////////////////////////////////////////////////////////////////////////////////
+//                                            __ _      _     _               //
+//                                           / _(_)    | |   | |              //
+//                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
+//               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |              //
+//              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |              //
+//               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|              //
+//                  | |                                                       //
+//                  |_|                                                       //
+//                                                                            //
+//                                                                            //
+//              MPSoC-RISCV CPU                                               //
+//              Multi Processor System on Chip                                //
+//              AMBA3 AHB-Lite Bus Interface                                  //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+/* Copyright (c) 2019-2020 by the author(s)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * =============================================================================
+ * Author(s):
+ *   Francisco Javier Reina Campo <frareicam@gmail.com>
+ */
+
 import dii_package::dii_flit;
 import opensocdebug::mriscv_trace_exec;
 import optimsoc_config::*;
+import optimsoc_functions::*;
 
 module riscv_tile #(
   parameter PLEN = 32,
@@ -54,7 +97,10 @@ module riscv_tile #(
     input  [CHANNELS-1:0]                 noc_out_ready
   );
 
-  import optimsoc_functions::*;
+  ////////////////////////////////////////////////////////////////
+  //
+  // Constans
+  //
 
   localparam NR_MASTERS = CONFIG.CORES_PER_TILE * 2 + 1;
   localparam NR_SLAVES  = 5;
@@ -63,6 +109,18 @@ module riscv_tile #(
   localparam SLAVE_NA   = 2;
   localparam SLAVE_BOOT = 3;
   localparam SLAVE_UART = 4;
+
+  localparam MOR1KX_FEATURE_FPU          = (CONFIG.CORE_ENABLE_FPU ? "ENABLED" : "NONE");
+  localparam MOR1KX_FEATURE_PERFCOUNTERS = (CONFIG.CORE_ENABLE_PERFCOUNTERS ? "ENABLED" : "NONE");
+  localparam MOR1KX_FEATURE_DEBUGUNIT    = "NONE"; // XXX: Enable debug unit with OSD CDM module (once it's ready)
+
+  // create DI ring segment with routers
+  localparam DEBUG_MODS_PER_TILE_NONZERO = (CONFIG.DEBUG_MODS_PER_TILE == 0) ? 1 : CONFIG.DEBUG_MODS_PER_TILE;
+
+  ////////////////////////////////////////////////////////////////
+  //
+  // Variables
+  //
 
   mriscv_trace_exec [CONFIG.CORES_PER_TILE-1:0] trace;
 
@@ -83,42 +141,11 @@ module riscv_tile #(
   logic            ahb3_mem_hready_o;
   logic            ahb3_mem_hresp_o;
 
-  // create DI ring segment with routers
-  localparam DEBUG_MODS_PER_TILE_NONZERO = (CONFIG.DEBUG_MODS_PER_TILE == 0) ? 1 : CONFIG.DEBUG_MODS_PER_TILE;
-
   dii_flit [DEBUG_MODS_PER_TILE_NONZERO-1:0] dii_in;
   dii_flit [DEBUG_MODS_PER_TILE_NONZERO-1:0] dii_out;
 
   logic [DEBUG_MODS_PER_TILE_NONZERO-1:0] dii_in_ready;
   logic [DEBUG_MODS_PER_TILE_NONZERO-1:0] dii_out_ready;
-
-  generate
-    if (CONFIG.USE_DEBUG == 1) begin : gen_debug_ring
-      genvar i;
-      logic [CONFIG.DEBUG_MODS_PER_TILE-1:0][15:0] id_map;
-      for (i = 0; i < CONFIG.DEBUG_MODS_PER_TILE; i = i+1) begin
-        assign id_map[i][15:0] = 16'(DEBUG_BASEID+i);
-      end
-
-      debug_ring_expand #(
-        .BUFFER_SIZE (CONFIG.DEBUG_ROUTER_BUFFER_SIZE),
-        .PORTS       (CONFIG.DEBUG_MODS_PER_TILE)
-      )
-      u_debug_ring_segment (
-        .clk           (clk),
-        .rst           (rst_dbg),
-        .id_map        (id_map),
-        .dii_in        (dii_in),
-        .dii_in_ready  (dii_in_ready),
-        .dii_out       (dii_out),
-        .dii_out_ready (dii_out_ready),
-        .ext_in        (debug_ring_in),
-        .ext_in_ready  (debug_ring_in_ready),
-        .ext_out       (debug_ring_out),
-        .ext_out_ready (debug_ring_out_ready)
-      );
-    end
-  endgenerate
 
   wire            busms_hsel_o      [0:NR_MASTERS-1];
   wire [PLEN-1:0] busms_haddr_o     [0:NR_MASTERS-1];
@@ -153,9 +180,6 @@ module riscv_tile #(
 
   wire [31:0]   pic_ints_i [0:CONFIG.CORES_PER_TILE-1];
 
-  assign pic_ints_i [0][31:5] = 27'h0;
-  assign pic_ints_i [0][ 1:0] = 2'b00;
-
   genvar c,m,s;
 
   wire [NR_MASTERS-1:0]           busms_hsel_o_flat;
@@ -185,6 +209,57 @@ module riscv_tile #(
   wire [NR_SLAVES-1:0][XLEN-1:0] bussl_hrdata_o_flat;
   wire [NR_SLAVES-1:0]           bussl_hready_o_flat;
   wire [NR_SLAVES-1:0]           bussl_hresp_o_flat;
+
+  //MAM - AHB3 adapter signals
+  logic            mam_dm_hsel_o;
+  logic [PLEN-1:0] mam_dm_haddr_o;
+  logic [XLEN-1:0] mam_dm_hwdata_o;
+  logic            mam_dm_hwrite_o;
+  logic [     2:0] mam_dm_hsize_o;
+  logic [     2:0] mam_dm_hburst_o;
+  logic [     3:0] mam_dm_hprot_o;
+  logic [     1:0] mam_dm_htrans_o;
+  logic            mam_dm_hmastlock_o;
+
+  logic [XLEN-1:0] mam_dm_hrdata_i;
+  logic            mam_dm_hready_i;
+  logic            mam_dm_hresp_i;
+
+  ////////////////////////////////////////////////////////////////
+  //
+  // Module Body
+  //
+
+  assign pic_ints_i [0][31:5] = 27'h0;
+  assign pic_ints_i [0][ 1:0] = 2'b00;
+
+  generate
+    if (CONFIG.USE_DEBUG == 1) begin : gen_debug_ring
+      genvar i;
+      logic [CONFIG.DEBUG_MODS_PER_TILE-1:0][15:0] id_map;
+      for (i = 0; i < CONFIG.DEBUG_MODS_PER_TILE; i = i+1) begin
+        assign id_map[i][15:0] = 16'(DEBUG_BASEID+i);
+      end
+
+      debug_ring_expand #(
+        .BUFFER_SIZE (CONFIG.DEBUG_ROUTER_BUFFER_SIZE),
+        .PORTS       (CONFIG.DEBUG_MODS_PER_TILE)
+      )
+      u_debug_ring_segment (
+        .clk           (clk),
+        .rst           (rst_dbg),
+        .id_map        (id_map),
+        .dii_in        (dii_in),
+        .dii_in_ready  (dii_in_ready),
+        .dii_out       (dii_out),
+        .dii_out_ready (dii_out_ready),
+        .ext_in        (debug_ring_in),
+        .ext_in_ready  (debug_ring_in_ready),
+        .ext_out       (debug_ring_out),
+        .ext_out_ready (debug_ring_out_ready)
+      );
+    end
+  endgenerate
 
   generate
     for (m = 0; m < NR_MASTERS; m = m + 1) begin : gen_busms_flat
@@ -225,10 +300,6 @@ module riscv_tile #(
       assign pic_ints_i[c] = 32'h0;
     end
   endgenerate
-
-  localparam MOR1KX_FEATURE_FPU          = (CONFIG.CORE_ENABLE_FPU ? "ENABLED" : "NONE");
-  localparam MOR1KX_FEATURE_PERFCOUNTERS = (CONFIG.CORE_ENABLE_PERFCOUNTERS ? "ENABLED" : "NONE");
-  localparam MOR1KX_FEATURE_DEBUGUNIT    = "NONE"; // XXX: Enable debug unit with OSD CDM module (once it's ready)
 
   generate
     for (c = 0; c < CONFIG.CORES_PER_TILE; c = c + 1) begin : gen_cores
@@ -411,21 +482,6 @@ module riscv_tile #(
     .bus_hold                      (1'b0),
     .bus_hold_ack                  ()
   );
-
-  //MAM - AHB3 adapter signals
-  logic            mam_dm_hsel_o;
-  logic [PLEN-1:0] mam_dm_haddr_o;
-  logic [XLEN-1:0] mam_dm_hwdata_o;
-  logic            mam_dm_hwrite_o;
-  logic [     2:0] mam_dm_hsize_o;
-  logic [     2:0] mam_dm_hburst_o;
-  logic [     3:0] mam_dm_hprot_o;
-  logic [     1:0] mam_dm_htrans_o;
-  logic            mam_dm_hmastlock_o;
-
-  logic [XLEN-1:0] mam_dm_hrdata_i;
-  logic            mam_dm_hready_i;
-  logic            mam_dm_hresp_i;
 
   if (CONFIG.USE_DEBUG == 1) begin : gen_mam_dm_ahb3
     //MAM

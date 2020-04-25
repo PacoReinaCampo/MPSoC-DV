@@ -50,6 +50,11 @@ module bootrom #(
     output                ahb3_hresp_o
  );
 
+  ////////////////////////////////////////////////////////////////
+  //
+  // Module Body
+  //
+
    assign ahb3_hready_o = 1'b0;
    assign ahb3_hresp_o  = 1'b0;
 

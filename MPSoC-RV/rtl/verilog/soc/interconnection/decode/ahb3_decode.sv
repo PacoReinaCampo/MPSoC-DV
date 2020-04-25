@@ -1,4 +1,21 @@
-/* Copyright (c) 2013-2017 by the author(s)
+////////////////////////////////////////////////////////////////////////////////
+//                                            __ _      _     _               //
+//                                           / _(_)    | |   | |              //
+//                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
+//               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |              //
+//              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |              //
+//               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|              //
+//                  | |                                                       //
+//                  |_|                                                       //
+//                                                                            //
+//                                                                            //
+//              MPSoC-RISCV CPU                                               //
+//              Multi Processor System on Chip                                //
+//              AMBA3 AHB-Lite Bus Interface                                  //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+/* Copyright (c) 2019-2020 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,60 +36,8 @@
  * THE SOFTWARE.
  *
  * =============================================================================
- *
- * This is a generic slave selector for the Wishbone bus (B3). The
- * number of slaves is configurable and up to ten slaves can be
- * connected with a configurable memory map.
- *
- * Instantiation example:
- *  wb_sselect
- *   #(.XLEN(32), .PLEN(32),
- *     .SLAVES(2),
- *     .S0_ENABLE (1), .S0_RANGE_WIDTH(1), .S0_RANGE_MATCH(1'b0),
- *     .S1_ENABLE (1), .S1_RANGE_WIDTH(4), .S1_RANGE_MATCH(4'he))
- *  sselect(.clk_i(clk), rst_i(rst),
- *      .s_haddr_o({m_haddr_o[3],..,m_haddr_o[0]},
- *      ...
- *      );
- *
- * XLEN and PLEN are defined in bits. XLEN must be
- * full bytes (i.e., multiple of 8)!
- *
- * The ports are flattened. That means, that all slaves share the bus
- * signal ports. With four slaves and a data width of 32 bit the
- * s_hmastlock_o port is 4 bit wide and the s_hwdata_o is 128 (=4*32) bit wide.
- * The signals are arranged from right to left, meaning the s_hwdata_o is
- * defined as [XLEN*SLAVES-1:0] and each port s is assigned to
- * [(s+1)*XLEN-1:s*XLEN].
- *
- * The memory map is defined with the S?_RANGE_WIDTH and
- * S?_RANGE_MATCH parameters. The WIDTH sets the number of most
- * significant bits (i.e., those from the left) that are relevant to
- * define the memory range. The MATCH accordingly sets the value of
- * those bits of the address that define the memory range.
- *
- * Example (32 bit addresses):
- *  Slave 0: 0x00000000-0x7fffffff
- *  Slave 1: 0x80000000-0xbfffffff
- *  Slave 2: 0xe0000000-0xe0ffffff
- *
- * Slave 0 is defined by the uppermost bit, which is 0 for this
- * address range. Slave 1 is defined by the uppermost two bit, that
- * are 10 for the memory range. Slave 2 is defined by 8 bit which are
- * e0 for the memory range.
- *
- * This results in:
- *  S0_RANGE_WIDTH(1), S0_RANGE_MATCH(1'b0)
- *  S1_RANGE_WIDTH(2), S1_RANGE_MATCH(2'b10)
- *  S2_RANGE_WIDTH(8), S2_RANGE_MATCH(8'he0)
- *
- *
- * Finally, the slaves can be individually masked to ease
- * instantiation using the Sx_ENABLE parameter. By defaults all slaves
- * are enabled (and selected as long as x < SLAVES).
- *
  * Author(s):
- *   Stefan Wallentowitz <stefan.wallentowitz@tum.de>
+ *   Francisco Javier Reina Campo <frareicam@gmail.com>
  */
 
 module ahb3_decode #(
@@ -158,7 +123,22 @@ module ahb3_decode #(
     input      [SLAVES-1:0]           s_hresp_i
   );
 
-  wire [SLAVES-1:0]               s_select;
+  ////////////////////////////////////////////////////////////////
+  //
+  // Variables
+  //
+
+  wire [SLAVES-1:0] s_select;
+
+  // If two s_select are high or none, we might have an bus error
+  wire bus_error;
+
+  reg m_ack, m_err, m_rty;
+
+  ////////////////////////////////////////////////////////////////
+  //
+  // Module Body
+  //
 
   // Generate the slave select signals based on the master bus
   // address and the memory range parameters
@@ -186,10 +166,7 @@ module ahb3_decode #(
   endgenerate
 
   // If two s_select are high or none, we might have an bus error
-  wire bus_error;
   assign bus_error = ~^s_select;
-
-  reg m_ack, m_err, m_rty;
 
   // Mux the slave bus based on the slave select signal (one hot!)
   always @(*) begin : bus_s_mux

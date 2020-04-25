@@ -1,0 +1,8 @@
+source ../build.sh
+
+cd ../baremetal/baremetal-apps/hello
+make clean
+make
+
+rm -rf ../../../../sim/hello.vmem
+cp hello.vmem ../../../../sim/
