@@ -273,7 +273,7 @@ module wb2sram #(
     else begin
       nxt_wb_ack = 0;
     end
-  end // always @ begin
+  end
 
   always @(posedge wb_clk_i) begin
     if (wb_rst_i) begin

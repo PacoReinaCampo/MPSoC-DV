@@ -59,33 +59,19 @@ module wb_mux #(
     input clk_i,
     input rst_i,
 
-    input      [MASTERS-1:0][ADDR_WIDTH-1:0] m_adr_i,
-    input      [MASTERS-1:0][DATA_WIDTH-1:0] m_dat_i,
-    input      [MASTERS-1:0]                 m_cyc_i,
-    input      [MASTERS-1:0]                 m_stb_i,
-    input      [MASTERS-1:0][SEL_WIDTH -1:0] m_sel_i,
+    input      [MASTERS-1:0][ADDR_WIDTH-1:0] m_addr_i,
+    input      [MASTERS-1:0][DATA_WIDTH-1:0] m_din_i,
+    input      [MASTERS-1:0]                 m_en_i,
     input      [MASTERS-1:0]                 m_we_i,
-    input      [MASTERS-1:0][           2:0] m_cti_i,
-    input      [MASTERS-1:0][           1:0] m_bte_i,
 
-    output reg [MASTERS-1:0][DATA_WIDTH-1:0] m_dat_o,
-    output reg [MASTERS-1:0]                 m_ack_o,
-    output reg [MASTERS-1:0]                 m_err_o,
-    output reg [MASTERS-1:0]                 m_rty_o,
+    output reg [MASTERS-1:0][DATA_WIDTH-1:0] m_dout_o,
 
-    output reg              [ADDR_WIDTH-1:0] s_adr_o,
-    output reg              [DATA_WIDTH-1:0] s_dat_o,
-    output reg                               s_cyc_o,
-    output reg                               s_stb_o,
-    output reg              [SEL_WIDTH -1:0] s_sel_o,
+    output reg              [ADDR_WIDTH-1:0] s_addr_o,
+    output reg              [DATA_WIDTH-1:0] s_din_o,
+    output reg                               s_en_o,
     output reg                               s_we_o,
-    output reg              [           2:0] s_cti_o,
-    output reg              [           1:0] s_bte_o,
 
-    input                   [DATA_WIDTH-1:0] s_dat_i,
-    input                                    s_ack_i,
-    input                                    s_err_i,
-    input                                    s_rty_i,
+    input                   [DATA_WIDTH-1:0] s_dout_i,
 
     input                                    bus_hold,
     output reg                               bus_hold_ack
@@ -164,30 +150,19 @@ module wb_mux #(
   // Mux the bus based on the grant signal which must be one hot!
   always @(*) begin : bus_m_mux
     integer i;
-    s_adr_o = {ADDR_WIDTH{1'bx}};
-    s_dat_o = {DATA_WIDTH{1'bx}};
-    s_sel_o = {SEL_WIDTH{1'bx}};
-    s_we_o  = 1'bx;
-    s_cti_o = 3'bx;
-    s_bte_o = 2'bx;
-    s_cyc_o = 1'b0;
-    s_stb_o = 1'b0;
+    s_addr_o = {ADDR_WIDTH{1'bx}};
+    s_din_o  = {DATA_WIDTH{1'bx}};
+    s_en_o   = 3'bx;
+    s_we_o   = 1'bx;
 
     for (i = 0; i < MASTERS; i = i + 1) begin
       m_dat_o[i] = s_dat_i;
-      m_ack_o[i] = grant[i] & s_ack_i;
-      m_err_o[i] = grant[i] & s_err_i;
-      m_rty_o[i] = grant[i] & s_rty_i;
 
       if (grant[i]) begin
-        s_adr_o = m_adr_i[i];
-        s_dat_o = m_dat_i[i];
-        s_sel_o = m_sel_i[i];
-        s_we_o  = m_we_i [i];
-        s_cti_o = m_cti_i[i];
-        s_bte_o = m_bte_i[i];
-        s_cyc_o = m_cyc_i[i];
-        s_stb_o = m_stb_i[i];
+        s_addr_o = m_addr_i [i];
+        s_din_o  = m_din_i  [i];
+        s_en_o   = m_en_i   [i];
+        s_we_o   = m_we_i   [i];
       end
     end
   end

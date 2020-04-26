@@ -91,36 +91,22 @@ module wb_decode #(
 )
   (
     /* Ports */
-    input                              clk_i,
-    input                              rst_i,
+    input                                   clk_i,
+    input                                   rst_i,
 
-    input [ADDR_WIDTH-1:0]             m_adr_i,
-    input [DATA_WIDTH-1:0]             m_dat_i,
-    input                              m_cyc_i,
-    input                              m_stb_i,
-    input [SEL_WIDTH-1:0]              m_sel_i,
-    input                              m_we_i,
-    input [2:0]                        m_cti_i,
-    input [1:0]                        m_bte_i,
+    input                  [ADDR_WIDTH-1:0] m_addr_i,
+    input                  [DATA_WIDTH-1:0] m_din_i,
+    input                                   m_en_i,
+    input                                   m_we_i,
 
-    output reg [DATA_WIDTH-1:0]        m_dat_o,
-    output                             m_ack_o,
-    output                             m_err_o,
-    output                             m_rty_o,
+    output reg             [DATA_WIDTH-1:0] m_dout_o,
 
-    output reg [SLAVES-1:0][ADDR_WIDTH-1:0] s_adr_o,
-    output reg [SLAVES-1:0][DATA_WIDTH-1:0] s_dat_o,
-    output reg [SLAVES-1:0]                 s_cyc_o,
-    output reg [SLAVES-1:0]                 s_stb_o,
-    output reg [SLAVES-1:0][SEL_WIDTH -1:0] s_sel_o,
+    output reg [SLAVES-1:0][ADDR_WIDTH-1:0] s_addr_o,
+    output reg [SLAVES-1:0][DATA_WIDTH-1:0] s_dout_o,
+    output reg [SLAVES-1:0]                 s_en_o,
     output reg [SLAVES-1:0]                 s_we_o,
-    output reg [SLAVES-1:0][           2:0] s_cti_o,
-    output reg [SLAVES-1:0][           1:0] s_bte_o,
 
-    input [SLAVES-1:0][DATA_WIDTH-1:0] s_dat_i,
-    input [SLAVES-1:0]                 s_ack_i,
-    input [SLAVES-1:0]                 s_err_i,
-    input [SLAVES-1:0]                 s_rty_i
+    input      [SLAVES-1:0][DATA_WIDTH-1:0] s_din_i,
   );
 
   ////////////////////////////////////////////////////////////////
@@ -133,8 +119,6 @@ module wb_decode #(
   // If two s_select are high or none, we might have an bus error
   wire bus_error;
 
-  reg m_ack, m_err, m_rty;
-
   ////////////////////////////////////////////////////////////////
   //
   // Module Body
@@ -144,25 +128,25 @@ module wb_decode #(
   // address and the memory range parameters
   generate
     if (SLAVES > 0)
-      assign s_select[0] = S0_ENABLE & (m_adr_i[ADDR_WIDTH-1 -: S0_RANGE_WIDTH] == S0_RANGE_MATCH[S0_RANGE_WIDTH-1:0]);
+      assign s_select[0] = S0_ENABLE & (m_addr_i[ADDR_WIDTH-1 -: S0_RANGE_WIDTH] == S0_RANGE_MATCH[S0_RANGE_WIDTH-1:0]);
     if (SLAVES > 1)
-      assign s_select[1] = S1_ENABLE & (m_adr_i[ADDR_WIDTH-1 -: S1_RANGE_WIDTH] == S1_RANGE_MATCH[S1_RANGE_WIDTH-1:0]);
+      assign s_select[1] = S1_ENABLE & (m_addr_i[ADDR_WIDTH-1 -: S1_RANGE_WIDTH] == S1_RANGE_MATCH[S1_RANGE_WIDTH-1:0]);
     if (SLAVES > 2)
-      assign s_select[2] = S2_ENABLE & (m_adr_i[ADDR_WIDTH-1 -: S2_RANGE_WIDTH] == S2_RANGE_MATCH[S2_RANGE_WIDTH-1:0]);
+      assign s_select[2] = S2_ENABLE & (m_addr_i[ADDR_WIDTH-1 -: S2_RANGE_WIDTH] == S2_RANGE_MATCH[S2_RANGE_WIDTH-1:0]);
     if (SLAVES > 3)
-      assign s_select[3] = S3_ENABLE & (m_adr_i[ADDR_WIDTH-1 -: S3_RANGE_WIDTH] == S3_RANGE_MATCH[S3_RANGE_WIDTH-1:0]);
+      assign s_select[3] = S3_ENABLE & (m_addr_i[ADDR_WIDTH-1 -: S3_RANGE_WIDTH] == S3_RANGE_MATCH[S3_RANGE_WIDTH-1:0]);
     if (SLAVES > 4)
-      assign s_select[4] = S4_ENABLE & (m_adr_i[ADDR_WIDTH-1 -: S4_RANGE_WIDTH] == S4_RANGE_MATCH[S4_RANGE_WIDTH-1:0]);
+      assign s_select[4] = S4_ENABLE & (m_addr_i[ADDR_WIDTH-1 -: S4_RANGE_WIDTH] == S4_RANGE_MATCH[S4_RANGE_WIDTH-1:0]);
     if (SLAVES > 5)
-      assign s_select[5] = S5_ENABLE & (m_adr_i[ADDR_WIDTH-1 -: S5_RANGE_WIDTH] == S5_RANGE_MATCH[S5_RANGE_WIDTH-1:0]);
+      assign s_select[5] = S5_ENABLE & (m_addr_i[ADDR_WIDTH-1 -: S5_RANGE_WIDTH] == S5_RANGE_MATCH[S5_RANGE_WIDTH-1:0]);
     if (SLAVES > 6)
-      assign s_select[6] = S6_ENABLE & (m_adr_i[ADDR_WIDTH-1 -: S6_RANGE_WIDTH] == S6_RANGE_MATCH[S6_RANGE_WIDTH-1:0]);
+      assign s_select[6] = S6_ENABLE & (m_addr_i[ADDR_WIDTH-1 -: S6_RANGE_WIDTH] == S6_RANGE_MATCH[S6_RANGE_WIDTH-1:0]);
     if (SLAVES > 7)
-      assign s_select[7] = S7_ENABLE & (m_adr_i[ADDR_WIDTH-1 -: S7_RANGE_WIDTH] == S7_RANGE_MATCH[S7_RANGE_WIDTH-1:0]);
+      assign s_select[7] = S7_ENABLE & (m_addr_i[ADDR_WIDTH-1 -: S7_RANGE_WIDTH] == S7_RANGE_MATCH[S7_RANGE_WIDTH-1:0]);
     if (SLAVES > 8)
-      assign s_select[8] = S8_ENABLE & (m_adr_i[ADDR_WIDTH-1 -: S8_RANGE_WIDTH] == S8_RANGE_MATCH[S8_RANGE_WIDTH-1:0]);
+      assign s_select[8] = S8_ENABLE & (m_addr_i[ADDR_WIDTH-1 -: S8_RANGE_WIDTH] == S8_RANGE_MATCH[S8_RANGE_WIDTH-1:0]);
     if (SLAVES > 9)
-      assign s_select[9] = S9_ENABLE & (m_adr_i[ADDR_WIDTH-1 -: S9_RANGE_WIDTH] == S9_RANGE_MATCH[S9_RANGE_WIDTH-1:0]);
+      assign s_select[9] = S9_ENABLE & (m_addr_i[ADDR_WIDTH-1 -: S9_RANGE_WIDTH] == S9_RANGE_MATCH[S9_RANGE_WIDTH-1:0]);
   endgenerate
 
   // If two s_select are high or none, we might have an bus error
@@ -171,31 +155,17 @@ module wb_decode #(
   // Mux the slave bus based on the slave select signal (one hot!)
   always @(*) begin : bus_s_mux
     integer i;
-    m_dat_o = {DATA_WIDTH{1'b0}};
-    m_ack = 1'b0;
-    m_err = 1'b0;
-    m_rty = 1'b0;
+    m_dout_o = {DATA_WIDTH{1'b0}};
     for (i = 0; i < SLAVES; i = i + 1) begin
-      s_adr_o[i] = m_adr_i;
-      s_dat_o[i] = m_dat_i;
-      s_sel_o[i] = m_sel_i;
-      s_we_o [i] = m_we_i;
-      s_cti_o[i] = m_cti_i;
-      s_bte_o[i] = m_bte_i;
+      s_addr_o[i] = m_addr_i;
+      s_dout_o[i] = m_din_i;
+      s_we_o  [i] = m_we_i;
 
-      s_cyc_o[i] = m_cyc_i & s_select[i];
-      s_stb_o[i] = m_stb_i & s_select[i];
+      s_en_o[i] = m_en_i & s_select[i];
 
       if (s_select[i]) begin
-        m_dat_o = s_dat_i[i];
-        m_ack   = s_ack_i[i];
-        m_err   = s_err_i[i];
-        m_rty   = s_rty_i[i];
+        m_dout_o = s_din_i[i];
       end
     end
   end
-
-  assign m_ack_o = m_ack & !bus_error;
-  assign m_err_o = m_err | bus_error;
-  assign m_rty_o = m_rty & !bus_error;
 endmodule

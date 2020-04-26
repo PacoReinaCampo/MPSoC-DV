@@ -95,37 +95,23 @@ module wb_bus_b3 #(
     input clk_i,
     input rst_i,
 
-    input  [MASTERS-1:0][ADDR_WIDTH-1:0] m_adr_i,
-    input  [MASTERS-1:0][ADDR_WIDTH-1:0] m_dat_i,
-    input  [MASTERS-1:0]                 m_cyc_i,
-    input  [MASTERS-1:0]                 m_stb_i,
-    input  [MASTERS-1:0][SEL_WIDTH -1:0] m_sel_i,
+    input  [MASTERS-1:0][ADDR_WIDTH-1:0] m_addr_i,
+    input  [MASTERS-1:0][ADDR_WIDTH-1:0] m_din_i,
+    input  [MASTERS-1:0]                 m_en_i,
     input  [MASTERS-1:0]                 m_we_i,
-    input  [MASTERS-1:0][           2:0] m_cti_i,
-    input  [MASTERS-1:0][           1:0] m_bte_i,
 
-    output [MASTERS-1:0][DATA_WIDTH-1:0] m_dat_o,
-    output [MASTERS-1:0]                 m_ack_o,
-    output [MASTERS-1:0]                 m_err_o,
-    output [MASTERS-1:0]                 m_rty_o,
+    output [MASTERS-1:0][DATA_WIDTH-1:0] m_dout_o,
 
-    output [SLAVES-1:0][ADDR_WIDTH-1:0] s_adr_o,
-    output [SLAVES-1:0][DATA_WIDTH-1:0] s_dat_o,
-    output [SLAVES-1:0]                 s_cyc_o,
-    output [SLAVES-1:0]                 s_stb_o,
-    output [SLAVES-1:0][SEL_WIDTH -1:0] s_sel_o,
+    output [SLAVES-1:0][ADDR_WIDTH-1:0] s_addr_o,
+    output [SLAVES-1:0][DATA_WIDTH-1:0] s_dout_o,
+    output [SLAVES-1:0]                 s_en_o,
     output [SLAVES-1:0]                 s_we_o,
-    output [SLAVES-1:0][           2:0] s_cti_o,
-    output [SLAVES-1:0][           1:0] s_bte_o,
 
-    input  [SLAVES-1:0][DATA_WIDTH-1:0] s_dat_i,
-    input  [SLAVES-1:0]                 s_ack_i,
-    input  [SLAVES-1:0]                 s_err_i,
-    input  [SLAVES-1:0]                 s_rty_i,
+    input  [SLAVES-1:0][DATA_WIDTH-1:0] s_din_i,
 
     // The snoop port forwards all write accesses on their success for
     // one cycle.
-    output             [DATA_WIDTH-1:0] snoop_adr_o,
+    output             [DATA_WIDTH-1:0] snoop_addr_o,
     output                              snoop_en_o,
 
     input                               bus_hold,
@@ -140,16 +126,9 @@ module wb_bus_b3 #(
   wire [ADDR_WIDTH-1:0] bus_adr;
   wire [DATA_WIDTH-1:0] bus_wdat;
   wire                  bus_cyc;
-  wire                  bus_stb;
-  wire [SEL_WIDTH -1:0] bus_sel;
   wire                  bus_we;
-  wire [           2:0] bus_cti;
-  wire [           1:0] bus_bte;
 
   wire [DATA_WIDTH-1:0] bus_rdat;
-  wire                  bus_ack;
-  wire                  bus_err;
-  wire                  bus_rty;
 
   ////////////////////////////////////////////////////////////////
   //
@@ -166,32 +145,18 @@ module wb_bus_b3 #(
     .rst_i                         (rst_i),
 
     // Masters
-    .s_adr_o                       (bus_adr),
-    .s_dat_o                       (bus_wdat),
-    .s_cyc_o                       (bus_cyc),
-    .s_stb_o                       (bus_stb),
-    .s_sel_o                       (bus_sel),
+    .s_addr_o                      (bus_adr),
+    .s_dout_o                      (bus_wdat),
+    .s_en_o                        (bus_cyc),
     .s_we_o                        (bus_we),
-    .s_cti_o                       (bus_cti),
-    .s_bte_o                       (bus_bte),
-    .s_dat_i                       (bus_rdat),
-    .s_ack_i                       (bus_ack),
-    .s_err_i                       (bus_err),
-    .s_rty_i                       (bus_rty),
+    .s_din_i                       (bus_rdat),
 
     // Slaves
-    .m_adr_i                       (m_adr_i),
-    .m_dat_i                       (m_dat_i),
-    .m_cyc_i                       (m_cyc_i),
-    .m_stb_i                       (m_stb_i),
-    .m_sel_i                       (m_sel_i),
+    .m_addr_i                      (m_addr_i),
+    .m_din_i                       (m_din_i),
+    .m_en_i                        (m_en_i),
     .m_we_i                        (m_we_i),
-    .m_cti_i                       (m_cti_i),
-    .m_bte_i                       (m_bte_i),
-    .m_dat_o                       (m_dat_o),
-    .m_ack_o                       (m_ack_o),
-    .m_err_o                       (m_err_o),
-    .m_rty_o                       (m_rty_o),
+    .m_dout_o                      (m_dout_o),
 
     .bus_hold_ack                  (bus_hold_ack),
     .bus_hold                      (bus_hold)
@@ -237,36 +202,22 @@ module wb_bus_b3 #(
     .rst_i                      (rst_i),
 
     // Masters
-    .m_adr_i                    (bus_adr),
-    .m_dat_i                    (bus_wdat),
-    .m_cyc_i                    (bus_cyc),
-    .m_stb_i                    (bus_stb),
-    .m_sel_i                    (bus_sel),
+    .m_addr_i                   (bus_adr),
+    .m_din_i                    (bus_wdat),
+    .m_en_i                     (bus_cyc),
     .m_we_i                     (bus_we),
-    .m_cti_i                    (bus_cti),
-    .m_bte_i                    (bus_bte),
-    .m_dat_o                    (bus_rdat),
-    .m_ack_o                    (bus_ack),
-    .m_err_o                    (bus_err),
-    .m_rty_o                    (bus_rty),
+    .m_dout_o                   (bus_rdat),
 
     // Slaves
-    .s_adr_o                    (s_adr_o),
-    .s_dat_o                    (s_dat_o),
-    .s_cyc_o                    (s_cyc_o),
-    .s_stb_o                    (s_stb_o),
-    .s_sel_o                    (s_sel_o),
+    .s_addr_o                   (s_addr_o),
+    .s_dout_o                   (s_dout_o),
+    .s_en_o                     (s_en_o),
     .s_we_o                     (s_we_o),
-    .s_cti_o                    (s_cti_o),
-    .s_bte_o                    (s_bte_o),
-    .s_dat_i                    (s_dat_i),
-    .s_ack_i                    (s_ack_i),
-    .s_err_i                    (s_err_i),
-    .s_rty_i                    (s_rty_i)
+    .s_din_i                    (s_din_i)
   );
 
   // Snoop address comes direct from master bus
-  assign snoop_adr_o = bus_adr;
+  assign snoop_addr_o = bus_adr;
   // Snoop on acknowledge and write. Mask with strobe to be sure
   // there actually is a something happing and no dangling signals
   // and always ack'ing slaves.

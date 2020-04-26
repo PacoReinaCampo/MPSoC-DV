@@ -42,7 +42,7 @@
 
 import optimsoc_functions::*;
 
-module ahb3_sram_sp #(
+module bb_sram_sp #(
   // Memory size in bytes
   parameter MEM_SIZE_BYTE = 'hx,
 
@@ -50,16 +50,16 @@ module ahb3_sram_sp #(
   parameter MEM_FILE = "sram.vmem",
 
   // address width
-  parameter PLEN = $clog2(MEM_SIZE_BYTE),
+  parameter AW = $clog2(MEM_SIZE_BYTE),
 
   // data width (must be multiple of 8 for byte selects to work)
   // Valid values: 32,16 and 8
-  parameter XLEN = 32,
+  parameter DW = 32,
 
   // byte select width
-  localparam SW = (XLEN == 32) ? 4 :
-  (XLEN == 16) ? 2 :
-  (XLEN ==  8) ? 1 : 'hx,
+  localparam SW = (DW == 32) ? 4 :
+                  (DW == 16) ? 2 :
+                  (DW ==  8) ? 1 : 'hx,
 
   // Allowed values:
   //   * PLAIN
@@ -70,30 +70,23 @@ module ahb3_sram_sp #(
    * | word address | byte in word |
    * +--------------+--------------+
    *     WORD_AW         BYTE_AW
-   *        +---- PLEN ----+
+   *        +----- AW -----+
    */
 
   localparam BYTE_AW = SW >> 1,
-  localparam WORD_AW = PLEN - BYTE_AW
+  localparam WORD_AW = AW - BYTE_AW
 )
   (
     // AHB3 SLAVE interface
-    input             ahb3_hsel_i,
-    input  [PLEN-1:0] ahb3_haddr_i,
-    input  [XLEN-1:0] ahb3_hwdata_i,
-    input             ahb3_hwrite_i,
-    input  [     2:0] ahb3_hsize_i,
-    input  [     2:0] ahb3_hburst_i,
-    input  [SW  -1:0] ahb3_hprot_i,
-    input  [     1:0] ahb3_htrans_i,
-    input             ahb3_hmastlock_i,
+    input  [AW-1:0] bb_addr_i,
+    input  [DW-1:0] bb_din_i,
+    input           bb_en_i,
+    input           bb_we_i,
 
-    output [XLEN-1:0] ahb3_hrdata_o,
-    output            ahb3_hready_o,
-    output            ahb3_hresp_o,
+    output [DW-1:0] bb_dout_o,
 
-    input             ahb3_clk_i,
-    input             ahb3_rst_i
+    input           bb_clk_i,
+    input           bb_rst_i
   );
 
   ////////////////////////////////////////////////////////////////
@@ -102,12 +95,12 @@ module ahb3_sram_sp #(
   //
 
   // Beginning of automatic wires (for undeclared instantiated-module outputs)
-  wire [WORD_AW-1:0]   sram_waddr;             // From ahb3_ram of ahb32sram.v
-  wire                 sram_ce;                // From ahb3_ram of ahb32sram.v
-  wire [XLEN   -1:0]   sram_din;               // From ahb3_ram of ahb32sram.v
-  wire [XLEN   -1:0]   sram_dout;              // From sp_ram of sram_sp.v
-  wire [SW     -1:0]   sram_sel;               // From ahb3_ram of ahb32sram.v
-  wire                 sram_we;                // From ahb3_ram of ahb32sram.v
+  wire [WORD_AW-1:0]   sram_waddr;             // From bb_ram of ahb32sram.v
+  wire                 sram_ce;                // From bb_ram of ahb32sram.v
+  wire [DW     -1:0]   sram_din;               // From bb_ram of ahb32sram.v
+  wire [DW     -1:0]   sram_dout;              // From sp_ram of sram_sp.v
+  wire [SW     -1:0]   sram_sel;               // From bb_ram of ahb32sram.v
+  wire                 sram_we;                // From bb_ram of ahb32sram.v
   // End of automatics
 
   ////////////////////////////////////////////////////////////////
@@ -116,49 +109,43 @@ module ahb3_sram_sp #(
   //
 
   ahb32sram #(
-    .PLEN (PLEN),
-    .XLEN (XLEN)
+    .AW (AW),
+    .DW (DW)
   )
-  ahb3_ram (
-    .ahb3_clk_i                 (ahb3_clk_i),
-    .ahb3_rst_i                 (ahb3_rst_i),
+  bb_ram (
+    .bb_clk_i                 (bb_clk_i),
+    .bb_rst_i                 (bb_rst_i),
 
-    .sram_ce                    (sram_ce),
-    .sram_we                    (sram_we),
-    .sram_waddr                 (sram_waddr),
-    .sram_din                   (sram_din[XLEN-1:0]),
-    .sram_sel                   (sram_sel[SW-1:0]),
+    .sram_ce                  (sram_ce),
+    .sram_we                  (sram_we),
+    .sram_waddr               (sram_waddr),
+    .sram_din                 (sram_din[DW-1:0]),
+    .sram_sel                 (sram_sel[SW-1:0]),
 
-    .ahb3_hsel_i                (ahb3_hsel_i),
-    .ahb3_haddr_i               (ahb3_haddr_i[PLEN-1:0]),
-    .ahb3_hwdata_i              (ahb3_hwdata_i[XLEN-1:0]),
-    .ahb3_hwrite_i              (ahb3_hwrite_i),
-    .ahb3_hburst_i              (ahb3_hburst_i[2:0]),
-    .ahb3_hprot_i               (ahb3_hprot_i[SW-1:0]),
-    .ahb3_htrans_i              (ahb3_htrans_i[1:0]),
-    .ahb3_hmastlock_i           (ahb3_hmastlock_i),
+    .bb_addr_i                (bb_addr_i[AW-1:0]),
+    .bb_din_i                 (bb_din_i[DW-1:0]),
+    .bb_en_i                  (bb_en_i),
+    .bb_we_i                  (bb_we_i),
 
-    .ahb3_hrdata_o              (ahb3_hrdata_o[XLEN-1:0]),
-    .ahb3_hready_o              (ahb3_hready_o),
-    .ahb3_hresp_o               (ahb3_hresp_o),
+    .bb_dout_o                (bb_dout_o[DW-1:0]),
 
-    .sram_dout                  (sram_dout[XLEN-1:0])
+    .sram_dout                (sram_dout[DW-1:0])
   );
 
   sram_sp #(
-    .XLEN          (XLEN),
-    .PLEN          (PLEN),
+    .DW            (DW),
+    .AW            (AW),
     .MEM_SIZE_BYTE (MEM_SIZE_BYTE),
     .WORD_AW       (WORD_AW),
     .MEM_IMPL_TYPE (MEM_IMPL_TYPE),
     .MEM_FILE      (MEM_FILE)
   )
   sp_ram (
-    .clk   (ahb3_clk_i),
-    .rst   (ahb3_rst_i),
+    .clk   (bb_clk_i),
+    .rst   (bb_rst_i),
 
     // Outputs
-    .dout  (sram_dout[XLEN-1:0]),
+    .dout  (sram_dout[DW-1:0]),
 
     // Inputs
     .ce    (sram_ce),

@@ -72,9 +72,9 @@ module sram_sp #(
     input                we,    // Write enable input
     input                oe,    // Output enable input
     input  [WORD_AW-1:0] waddr, // word address
-    input  [DW   -1:0] din,   // input data bus
+    input  [DW     -1:0] din,   // input data bus
     input  [SW     -1:0] sel,   // select bytes
-    output [DW   -1:0] dout   // output data bus
+    output [DW     -1:0] dout   // output data bus
   );
 
   ////////////////////////////////////////////////////////////////
@@ -111,10 +111,10 @@ module sram_sp #(
     if (MEM_IMPL_TYPE == "PLAIN") begin : gen_sram_sp_impl
       sram_sp_impl_plain #(
         .AW                     (AW),
-        .WORD_AW                  (WORD_AW),
+        .WORD_AW                (WORD_AW),
         .DW                     (DW),
-        .MEM_SIZE_BYTE            (MEM_SIZE_BYTE),
-        .MEM_FILE                 (MEM_FILE)
+        .MEM_SIZE_BYTE          (MEM_SIZE_BYTE),
+        .MEM_FILE               (MEM_FILE)
       )
       u_impl (
         // Outputs
