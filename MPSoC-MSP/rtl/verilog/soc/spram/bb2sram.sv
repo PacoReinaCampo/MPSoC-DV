@@ -53,8 +53,8 @@ module bb2sram #(
 
   // byte select width
   localparam SW = (DW == 32) ? 4 :
-                  (DW == 16) ? 2 :
-                  (DW ==  8) ? 1 : 'hx,
+  (DW == 16) ? 2 :
+  (DW ==  8) ? 1 : 'hx,
 
   /*
    * +--------------+--------------+
@@ -105,21 +105,14 @@ module bb2sram #(
 
   // Register to use for counting the addresses when doing burst accesses
   reg [WORD_AW-1:0]    burst_adr_counter;
-  reg [        2:0]    bb_cti_i_r;
-  reg [        1:0]    bb_bte_i_r;
   wire                 using_burst_adr;
-  wire                 burst_access_wrong_bb_adr;
-
-  // Ack Logic
-  reg     bb_ack;
-  reg nxt_bb_ack;
 
   ////////////////////////////////////////////////////////////////
   //
   // Module Body
   //
 
-  assign word_addr_in = bb_haddr_i[AW-1:BYTE_AW];
+  assign word_addr_in = bb_din_i[AW-1:BYTE_AW];
 
   // assignments from bb to memory
   assign sram_ce    = 1'b1;
@@ -157,47 +150,20 @@ module bb2sram #(
       if (bb_b3_trans_start) begin
         burst_adr_counter = word_addr_in;
       end
-      else if ((bb_cti_i_r == 3'b010) & bb_b3_trans) begin
-        // Incrementing burst
-        if (bb_bte_i_r == 2'b00) begin // Linear burst
-          burst_adr_counter = word_addr_reg + 1;
-        end
-        if (bb_bte_i_r == 2'b01) begin // 4-beat wrap burst
-          burst_adr_counter[1:0] = word_addr_reg[1:0] + 1;
-        end
-        if (bb_bte_i_r == 2'b10) begin // 8-beat wrap burst
-          burst_adr_counter[2:0] = word_addr_reg[2:0] + 1;
-        end
-        if (bb_bte_i_r == 2'b11) begin // 16-beat wrap burst
-          burst_adr_counter[3:0] = word_addr_reg[3:0] + 1;
-        end
-      end
       else if (bb_b3_trans) begin
         burst_adr_counter = word_addr_reg;
       end
     end
   end
 
-
-  // Register it locally
-  always @(posedge bb_clk_i) begin
-    bb_bte_i_r <= bb_bte_i;
-  end
-
-  always @(posedge bb_clk_i) begin
-    bb_cti_i_r <= bb_cti_i;
-  end
-
   assign using_burst_adr = bb_b3_trans;
-
-  assign burst_access_wrong_bb_adr = (using_burst_adr & (word_addr_reg != word_addr_in));
 
   // Address logic
   always @(*) begin
     if (using_burst_adr) begin
       word_addr = burst_adr_counter;
     end
-    else if (bb_hmastlock_i & bb_hsel_i) begin
+    else if (bb_en_i) begin
       word_addr = word_addr_in;
     end
     else begin
@@ -212,64 +178,6 @@ module bb2sram #(
     end
     else begin
       word_addr_reg <= word_addr;
-    end
-  end
-
-  always @(*) begin
-    if (bb_hmastlock_i) begin
-      if (bb_cti_i == 3'b000) begin
-        // Classic cycle acks
-        if (bb_hsel_i) begin
-          if (!bb_ack) begin
-            nxt_bb_ack = 1;
-          end
-          else begin
-            nxt_bb_ack = 0;
-          end
-        end
-        else begin
-          nxt_bb_ack = 0;
-        end
-      end
-      else if ((bb_cti_i == 3'b001) ||
-               (bb_cti_i == 3'b010)) begin
-        // Increment/constant address bursts
-        if (bb_hsel_i) begin
-          nxt_bb_ack = 1;
-        end
-        else begin
-          nxt_bb_ack = 0;
-        end
-      end
-      else if (bb_cti_i == 3'b111) begin
-        // End of cycle
-        if (bb_hsel_i) begin
-          if (!bb_ack) begin
-            nxt_bb_ack = 1;
-          end
-          else begin
-            nxt_bb_ack = 0;
-          end
-        end
-        else begin
-          nxt_bb_ack = 0;
-        end
-      end
-      else begin
-        nxt_bb_ack = 0;
-      end
-    end
-    else begin
-      nxt_bb_ack = 0;
-    end
-  end
-
-  always @(posedge bb_clk_i) begin
-    if (bb_rst_i) begin
-      bb_ack <= 1'b0;
-    end
-    else begin
-      bb_ack <= nxt_bb_ack;
     end
   end
 endmodule

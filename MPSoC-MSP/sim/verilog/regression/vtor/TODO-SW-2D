@@ -1,12 +1,12 @@
-export PATH=$PATH:/opt/riscv/bin
+export PATH=$PATH:/opt/msp430/bin
 
 rm -rf stdout.*
 
-./Vriscv_tile_testbench --meminit=heat_mpsimple.vmem
-./Vriscv_tile_testbench --meminit=hello.vmem
-./Vriscv_tile_testbench --meminit=hello_mp.vmem
-./Vriscv_tile_testbench --meminit=hello_mpsimple.vmem
+./Vmsp430_tile_testbench --meminit=heat_mpsimple.vmem
+./Vmsp430_tile_testbench --meminit=hello.vmem
+./Vmsp430_tile_testbench --meminit=hello_mp.vmem
+./Vmsp430_tile_testbench --meminit=hello_mpsimple.vmem
 
-./Vriscv_mpsoc2d_testbench --meminit=hello.vmem
-./Vriscv_mpsoc2d_testbench --meminit=hello_mp.vmem
-./Vriscv_mpsoc2d_testbench --meminit=hello_mpsimple.vmem
+./Vmsp430_mpsoc2d_testbench --meminit=hello.vmem
+./Vmsp430_mpsoc2d_testbench --meminit=hello_mp.vmem
+./Vmsp430_mpsoc2d_testbench --meminit=hello_mpsimple.vmem

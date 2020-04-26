@@ -1,7 +1,7 @@
-rm -rf Vriscv_tile_testbench
+rm -rf Vmsp430_tile_testbench
 
 verilator -f soc.vc --trace -Wno-fatal -Wno-lint -Wno-UNOPTFLAT -Wno-COMBDLY -CFLAGS "-std=c++11" -LDFLAGS "-pthread"
-make -f Vriscv_tile_testbench.mk
+make -f Vmsp430_tile_testbench.mk
 
 rm -rf *.a
 rm -rf *.cpp

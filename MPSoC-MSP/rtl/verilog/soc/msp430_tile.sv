@@ -137,6 +137,7 @@ module msp430_tile #(
   wire [DW-1:0] busms_din_o  [0:NR_MASTERS-1];
   wire          busms_en_o   [0:NR_MASTERS-1];
   wire          busms_we_o   [0:NR_MASTERS-1];
+  wire [   1:0] busms_wen_o  [0:NR_MASTERS-1];
 
   wire [DW-1:0] busms_dout_i [0:NR_MASTERS-1];
 
@@ -243,87 +244,89 @@ module msp430_tile #(
   generate
     for (c = 0; c < CONFIG.CORES_PER_TILE; c = c + 1) begin : gen_cores
       MSP430_CORE #(
-        .DW ( DW ),
-        .AW ( AW )
+        .DW ( 16 ),
+        .AW ( 16 )
       )
       u_core (
-        .dbg_clk           (dbg_clk),
-        .dbg_rst           (dbg_rst),
+        .dbg_clk    (),
+        .dbg_rst    (),
+        .irq_detect (),
+        .nmi_detect (),
 
-        .dbg_freeze        (dbg_freeze),        // Freeze peripherals
-        .dbg_i2c_sda_out   (dbg_sda_slave_out), // Debug interface: I2C SDA OUT
-        .dbg_uart_txd      (dbg_uart_txd),      // Debug interface: UART TXD
-        .dbg_en            (dbg_en),            // Debug interface enable (asynchronous)
-        .dbg_i2c_addr      (I2C_ADDR),          // Debug interface: I2C Address
-        .dbg_i2c_broadcast (I2C_BROADCAST),     // Debug interface: I2C Broadcast Address (for multicore systems)
-        .dbg_i2c_scl       (dbg_scl_slave),     // Debug interface: I2C SCL
-        .dbg_i2c_sda_in    (dbg_sda_slave_in),  // Debug interface: I2C SDA IN
-        .dbg_uart_rxd      (dbg_uart_rxd),      // Debug interface: UART RXD (asynchronous)
+        .i_state (),
+        .e_state (),
+        .decode  (),
+        .ir      (),
+        .irq_num (),
+        .pc      (),
 
-        .aclk              (aclk),              // ASIC ONLY: ACLK
-        .aclk_en           (aclk_en),           // FPGA ONLY: ACLK enable
-        .cpu_en            (cpu_en),            // Enable CPU code execution (asynchronous)
-        .dco_clk           (dco_clk),           // Fast oscillator (fast clock)
-        .dco_enable        (dco_enable),        // ASIC ONLY: Fast oscillator enable
-        .dco_wkup          (dco_wkup),          // ASIC ONLY: Fast oscillator wake-up (asynchronous)
-        .decode            (decode),
-        .e_state           (e_state_bin),
-        .i_state           (i_state_bin),
-        .ir                (ir),
-        .irq               (irq_in),            // Maskable interrupts
-        .irq_acc           (irq_acc),           // Interrupt request accepted (one-hot signal)
-        .irq_detect        (irq_detect),
-        .irq_num           (irq_num),
-        .lfxt_clk          (lfxt_clk),          // Low frequency oscillator (typ 32kHz)
-        .lfxt_enable       (lfxt_enable),       // ASIC ONLY: Low frequency oscillator enable
-        .lfxt_wkup         (lfxt_wkup),         // ASIC ONLY: Low frequency oscillator wake-up (asynchronous)
-        .mclk              (mclk),              // Main system clock
-        .nmi               (nmi),               // Non-maskable interrupt (asynchronous)
-        .nmi_detect        (nmi_detect),
-        .nodiv_smclk       (nodiv_smclk),
-        .pc                (pc),
-        .puc_rst           (puc_rst),           // Main system reset
-        .reset_n           (reset_n),           // Reset Pin (low active, asynchronous)
-        .scan_enable       (scan_enable),       // ASIC ONLY: Scan enable (active during scan shifting)
-        .scan_mode         (scan_mode),         // ASIC ONLY: Scan mode
-        .smclk             (smclk),             // ASIC ONLY: SMCLK
-        .smclk_en          (smclk_en),          // FPGA ONLY: SMCLK enable
-        .wkup              (|wkup_in)           // ASIC ONLY: System Wake-up (asynchronous)
+        .nodiv_smclk (),
 
-        .per_addr          (per_addr),          // Peripheral address
-        .per_din           (per_din),           // Peripheral data input
-        .per_en            (per_en),            // Peripheral enable (high active)
-        .per_we            (per_we),            // Peripheral write enable (high active)
-        .per_dout          (per_dout),          // Peripheral data output
+        .aclk (),              // ASIC ONLY: ACLK
+        .aclk_en (),           // FPGA ONLY: ACLK enable
+        .dbg_freeze (),        // Freeze peripherals
+        .dbg_i2c_sda_out (),   // Debug interface: I2C SDA OUT
+        .dbg_uart_txd (),      // Debug interface: UART TXD
+        .dco_enable (),        // ASIC ONLY: Fast oscillator enable
+        .dco_wkup (),          // ASIC ONLY: Fast oscillator wake-up (asynchronous)
+        .irq_acc (),           // Interrupt request accepted (one-hot signal)
+        .lfxt_enable (),       // ASIC ONLY: Low frequency oscillator enable
+        .lfxt_wkup (),         // ASIC ONLY: Low frequency oscillator wake-up (asynchronous)
+        .mclk (),              // Main system clock
+        .puc_rst (),           // Main system reset
+        .smclk (),             // ASIC ONLY: SMCLK
+        .smclk_en (),          // FPGA ONLY: SMCLK enable
 
-        .pmem_addr         ( busms_addr_o [2*c  ][AW-1:0] ), // Program Memory address
-        .pmem_din          ( busms_din_o  [2*c  ][DW-1:0] ), // Program Memory data input (optional)
-        .pmem_cen          ( busms_en_o   [2*c  ]         ), // Program Memory chip enable (low active)
-        .pmem_wen          ( busms_we_o   [2*c  ]         ), // Program Memory write enable (low active) (optional)
-        .pmem_dout         ( busms_dout_i [2*c  ][DW-1:0] ), // Program Memory data output
+        .cpu_en (),            // Enable CPU code execution (asynchronous and non-glitchy)
+        .dbg_en (),            // Debug interface enable (asynchronous and non-glitchy)
+        .dbg_i2c_addr (),      // Debug interface: I2C Address
+        .dbg_i2c_broadcast (), // Debug interface: I2C Broadcast Address (for multicore systems)
+        .dbg_i2c_scl (),       // Debug interface: I2C SCL
+        .dbg_i2c_sda_in (),    // Debug interface: I2C SDA IN
+        .dbg_uart_rxd (),      // Debug interface: UART RXD (asynchronous)
+        .dco_clk (),           // Fast oscillator (fast clock)
+        .irq (),               // Maskable interrupts (14, 30 or 62)
+        .lfxt_clk (),          // Low frequency oscillator (typ 32kHz)
+        .nmi (),               // Non-maskable interrupt (asynchronous and non-glitchy)
+        .reset_n (),           // Reset Pin (active low, asynchronous and non-glitchy)
+        .scan_enable (),       // ASIC ONLY: Scan enable (active during scan shifting)
+        .scan_mode (),         // ASIC ONLY: Scan mode
+        .wkup (),              // ASIC ONLY: System Wake-up (asynchronous and non-glitchy)
 
-        .dmem_addr         ( busms_addr_o [2*c+1][AW-1:0] ), // Data Memory address
-        .dmem_din          ( busms_din_o  [2*c+1][DW-1:0] ), // Data Memory data input
-        .dmem_cen          ( busms_en_o   [2*c+1]         ), // Data Memory chip enable (low active)
-        .dmem_wen          ( busms_we_o   [2*c+1]         ), // Data Memory write enable (low active)
-        .dmem_dout         ( busms_dout_i [2*c+1][DW-1:0] ), // Data Memory data output
+        .pmem_addr         ( busms_addr_o [2*c  ][12:0] ), // Program Memory address
+        .pmem_din          ( busms_din_o  [2*c  ][15:0] ), // Program Memory data input (optional)
+        .pmem_cen          ( busms_en_o   [2*c  ]       ), // Program Memory chip enable (low active)
+        .pmem_wen          ( busms_wen_o  [2*c  ]       ), // Program Memory write enable (low active) (optional)
+        .pmem_dout         ( busms_dout_i [2*c  ][15:0] ), // Program Memory data output
 
-        .r0                (r0),
-        .r1                (r1),
-        .r2                (r2),
-        .r3                (r3),
-        .r4                (r4),
-        .r5                (r5),
-        .r6                (r6),
-        .r7                (r7),
-        .r8                (r8),
-        .r9                (r9),
-        .r10               (r10),
-        .r11               (r11),
-        .r12               (r12),
-        .r13               (r13),
-        .r14               (r14),
-        .r15               (r15)
+        .dmem_addr         ( busms_addr_o [2*c+1][10:0] ), // Data Memory address
+        .dmem_din          ( busms_din_o  [2*c+1][15:0] ), // Data Memory data input
+        .dmem_cen          ( busms_en_o   [2*c+1]       ), // Data Memory chip enable (low active)
+        .dmem_wen          ( busms_wen_o  [2*c+1]       ), // Data Memory write enable (low active)
+        .dmem_dout         ( busms_dout_i [2*c+1][15:0] ), // Data Memory data output
+
+        .per_addr          (),  // Peripheral address
+        .per_din           (),  // Peripheral data input
+        .per_en            (),  // Peripheral enable (high active)
+        .per_we            (),  // Peripheral write enable (high active)
+        .per_dout          (),  // Peripheral data output
+
+        .r0                (),
+        .r1                (),
+        .r2                (),
+        .r3                (),
+        .r4                (),
+        .r5                (),
+        .r6                (),
+        .r7                (),
+        .r8                (),
+        .r9                (),
+        .r10               (),
+        .r11               (),
+        .r12               (),
+        .r13               (),
+        .r14               (),
+        .r15               ()
       );
 
       if (CONFIG.USE_DEBUG == 1) begin : gen_ctm_stm
@@ -428,8 +431,8 @@ module msp430_tile #(
   if (CONFIG.USE_DEBUG == 1) begin : gen_mam_dm_bb
     //MAM
     osd_mam_bb #(
-      .AW  (16),
-      .DW  (DW),
+      .ADDR_WIDTH  (16),
+      .DATA_WIDTH  (DW),
 
       .MAX_PKT_LEN (CONFIG.DEBUG_MAX_PKT_LEN),
       .MEM_SIZE0   (CONFIG.LMEM_SIZE),
@@ -438,6 +441,7 @@ module msp430_tile #(
     u_mam_dm_bb (
       .clk_i           (clk),
       .rst_i           (rst_dbg),
+
       .debug_in        (dii_out[0]),
       .debug_out       (dii_in [0]),
       .debug_in_ready  (dii_out_ready[0]),
@@ -445,12 +449,12 @@ module msp430_tile #(
 
       .id              (16'(DEBUG_BASEID)),
 
-      .bb_addr_o (mam_dm_addr_o),
-      .bb_din_o  (mam_dm_din_o),
-      .bb_en_o   (mam_dm_en_o),
-      .bb_we_o   (mam_dm_we_o),
+      .addr_o (mam_dm_addr_o),
+      .din_o  (mam_dm_din_o),
+      .en_o   (mam_dm_en_o),
+      .we_o   (mam_dm_we_o),
 
-      .bb_dout_i (mam_dm_dout_i)
+      .dout_i (mam_dm_dout_i)
     );
   end
 

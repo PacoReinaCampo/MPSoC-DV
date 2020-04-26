@@ -77,7 +77,7 @@ module bb_sram_sp #(
   localparam WORD_AW = AW - BYTE_AW
 )
   (
-    // AHB3 SLAVE interface
+    // BB SLAVE interface
     input  [AW-1:0] bb_addr_i,
     input  [DW-1:0] bb_din_i,
     input           bb_en_i,
@@ -95,12 +95,12 @@ module bb_sram_sp #(
   //
 
   // Beginning of automatic wires (for undeclared instantiated-module outputs)
-  wire [WORD_AW-1:0]   sram_waddr;             // From bb_ram of ahb32sram.v
-  wire                 sram_ce;                // From bb_ram of ahb32sram.v
-  wire [DW     -1:0]   sram_din;               // From bb_ram of ahb32sram.v
+  wire [WORD_AW-1:0]   sram_waddr;             // From bb_ram of bb2sram.v
+  wire                 sram_ce;                // From bb_ram of bb2sram.v
+  wire [DW     -1:0]   sram_din;               // From bb_ram of bb2sram.v
   wire [DW     -1:0]   sram_dout;              // From sp_ram of sram_sp.v
-  wire [SW     -1:0]   sram_sel;               // From bb_ram of ahb32sram.v
-  wire                 sram_we;                // From bb_ram of ahb32sram.v
+  wire [SW     -1:0]   sram_sel;               // From bb_ram of bb2sram.v
+  wire                 sram_we;                // From bb_ram of bb2sram.v
   // End of automatics
 
   ////////////////////////////////////////////////////////////////
@@ -108,7 +108,7 @@ module bb_sram_sp #(
   // Module Body
   //
 
-  ahb32sram #(
+  bb2sram #(
     .AW (AW),
     .DW (DW)
   )

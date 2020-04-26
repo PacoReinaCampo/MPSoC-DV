@@ -75,19 +75,19 @@ module networkadapter_ct #(
     output [CHANNELS-1:0]                 noc_out_valid,
     input  [CHANNELS-1:0]                 noc_out_ready,
 
-    output [AW-1:0]                       wbm_addr_o,
-    output [DW-1:0]                       wbm_din_o,
-    output                                wbm_en_o,
-    output                                wbm_we_o,
+    output [AW-1:0]                       bbm_addr_o,
+    output [DW-1:0]                       bbm_din_o,
+    output                                bbm_en_o,
+    output                                bbm_we_o,
 
-    input  [DW-1:0]                       wbm_dout_i,
+    input  [DW-1:0]                       bbm_dout_i,
 
-    input  [AW-1:0]                       wbs_addr_i,
-    input  [DW-1:0]                       wbs_din_i,
-    input                                 wbs_en_i,
-    input                                 wbs_we_i,
+    input  [AW-1:0]                       bbs_addr_i,
+    input  [DW-1:0]                       bbs_din_i,
+    input                                 bbs_en_i,
+    input                                 bbs_we_i,
 
-    output [DW-1:0]                       wbs_dout_o,
+    output [DW-1:0]                       bbs_dout_o,
 
     output [   1:0]                       irq
   );
@@ -132,19 +132,19 @@ module networkadapter_ct #(
   wire [MODCHANNELS-1:0]                 mod_in_last;
   wire [MODCHANNELS-1:0][FLIT_WIDTH-1:0] mod_in_flit;
 
-  wire [SLAVES-1:0][  23:0]              wbif_addr_i;
-  wire [SLAVES-1:0][DW-1:0]              wbif_din_i;
-  wire [SLAVES-1:0]                      wbif_en_i;
-  wire [SLAVES-1:0]                      wbif_we_i;
+  wire [SLAVES-1:0][  23:0]              bbif_addr_i;
+  wire [SLAVES-1:0][DW-1:0]              bbif_din_i;
+  wire [SLAVES-1:0]                      bbif_en_i;
+  wire [SLAVES-1:0]                      bbif_we_i;
 
-  wire [SLAVES-1:0][DW-1:0]              wbif_dout_o;
+  wire [SLAVES-1:0][DW-1:0]              bbif_dout_o;
 
   ////////////////////////////////////////////////////////////////
   //
   // Module Body
   //
 
-  wb_decode #(
+  bb_decode #(
     .SLAVES         (3),
     .DATA_WIDTH     (DW),
     .ADDR_WIDTH     (24),
@@ -159,19 +159,19 @@ module networkadapter_ct #(
     .clk_i (clk),
     .rst_i (rst),
 
-    .m_addr_i (wbs_addr_i[23:0]),
-    .m_din_i  (wbs_din_i),
-    .m_en_i   (wbs_en_i),
-    .m_we_i   (wbs_we_i),
+    .m_addr_i (bbs_addr_i[23:0]),
+    .m_din_i  (bbs_din_i),
+    .m_en_i   (bbs_en_i),
+    .m_we_i   (bbs_we_i),
 
-    .m_dout_o (wbs_dout_o),
+    .m_dout_o (bbs_dout_o),
 
-    .s_addr_o (wbif_addr_i),
-    .s_din_o  (wbif_din_i),
-    .s_en_o   (wbif_en_i),
-    .s_we_o   (wbif_we_i),
+    .s_addr_o (bbif_addr_i),
+    .s_din_o  (bbif_din_i),
+    .s_en_o   (bbif_en_i),
+    .s_we_o   (bbif_we_i),
 
-    .s_dout_i (wbif_dout_o)
+    .s_dout_i (bbif_dout_o)
   );
 
   networkadapter_conf #(
@@ -189,18 +189,15 @@ module networkadapter_ct #(
     .clk                          (clk),
     .rst                          (rst),
 
-    .addr                         (wbs_addr_i[15:0]),
-    .din                          (wbif_dat_i[ID_CONF]),
-    .en                           (wbs_en_i),
-    .we                           (wbs_we_i),
+    .addr                         (bbs_addr_i[15:0]),
+    .din                          (bbif_din_i[ID_CONF]),
+    .en                           (bbs_en_i),
+    .we                           (bbs_we_i),
 
-    .dout                         (wbif_dat_o[ID_CONF])
+    .dout                         (bbif_dout_o[ID_CONF])
   );
 
-  // just wire them statically for the moment
-  assign wbif_rty_o[ID_MPSIMPLE] = 1'b0;
-
-  mpi_wb #(
+  mpi_bb #(
     .NOC_FLIT_WIDTH (CONFIG.NOC_FLIT_WIDTH),
     .SIZE           (16),
     .N              (2)
@@ -217,12 +214,12 @@ module networkadapter_ct #(
     .noc_in_valid  ({mod_in_valid[C_MPSIMPLE_RES],mod_in_valid[C_MPSIMPLE_REQ]}),
     .noc_in_ready  ({mod_in_ready[C_MPSIMPLE_RES],mod_in_ready[C_MPSIMPLE_REQ]}),
 
-    .wb_dout_o     (wbif_dout_o[ID_MPSIMPLE]),
+    .bb_dout_o     (bbif_dout_o[ID_MPSIMPLE]),
 
-    .wb_addr_i     ({8'h0,wbif_addr_i[ID_MPSIMPLE]}),
-    .wb_dout_i     (wbif_dout_i[ID_MPSIMPLE]),
-    .wb_en_i       (wbif_en_i[ID_MPSIMPLE]),
-    .wb_we_i       (wbif_we_i[ID_MPSIMPLE]),
+    .bb_addr_i     ({8'h0,bbif_addr_i[ID_MPSIMPLE]}),
+    .bb_din_i      (bbif_din_i[ID_MPSIMPLE]),
+    .bb_en_i       (bbif_en_i[ID_MPSIMPLE]),
+    .bb_we_i       (bbif_we_i[ID_MPSIMPLE]),
 
     .irq           (irq[0])
   );
@@ -240,7 +237,7 @@ module networkadapter_ct #(
       assign mod_out_last[C_DMA_RES] = dma_out_flit[1][CONFIG.NOC_FLIT_WIDTH+1];
       assign mod_out_flit[C_DMA_RES] = dma_out_flit[1][CONFIG.NOC_FLIT_WIDTH-1:0];
 
-      mpsoc_dma_wb_top #(
+      mpsoc_dma_bb_top #(
         .TILEID        (TILEID),
         .TABLE_ENTRIES (CONFIG.NA_DMA_ENTRIES)
       )
@@ -264,19 +261,19 @@ module networkadapter_ct #(
         .noc_out_res_valid       (mod_out_valid[C_DMA_RES]),
         .noc_out_res_ready       (mod_out_ready[C_DMA_RES]),
 
-        .wb_if_addr_i            ({8'h0,wbif_addr_i[ID_DMA]}),
-        .wb_if_dout_i            (wbif_dout_i[ID_DMA]),
-        .wb_if_en_i              (wbif_en_i[ID_DMA]),
-        .wb_if_we_i              (wbif_we_i[ID_DMA]),
+        .bb_if_addr_i            ({8'h0,bbif_addr_i[ID_DMA]}),
+        .bb_if_din_i             (bbif_din_i[ID_DMA]),
+        .bb_if_en_i              (bbif_en_i[ID_DMA]),
+        .bb_if_we_i              (bbif_we_i[ID_DMA]),
 
-        .wb_if_dout_o            (wbif_dout_o[ID_DMA]),
+        .bb_if_dout_o            (bbif_dout_o[ID_DMA]),
 
-        .wb_addr_o               (wbm_addr_o),
-        .wb_dout_o               (wbm_dout_o),
-        .wb_en_o                 (wbm_en_o),
-        .wb_we_o                 (wbm_we_o),
+        .bb_addr_o               (bbm_addr_o),
+        .bb_din_o                (bbm_din_o),
+        .bb_en_o                 (bbm_en_o),
+        .bb_we_o                 (bbm_we_o),
 
-        .wb_dout_i               (wbm_dout_i),
+        .bb_dout_i               (bbm_dout_i),
 
         .irq                     (irq_dma)
       );

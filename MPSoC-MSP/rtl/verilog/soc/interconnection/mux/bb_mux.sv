@@ -40,7 +40,7 @@
  *   Francisco Javier Reina Campo <frareicam@gmail.com>
  */
 
-module wb_mux #(
+module bb_mux #(
   /* User parameters */
   // Set the number of slaves
   parameter MASTERS = 1,
@@ -110,13 +110,13 @@ module wb_mux #(
   assign grant = arb_grant & {MASTERS{!bus_hold_ack}};
 
   always @(*) begin
-    if (|(m_cyc_i & prev_grant)) begin
+    if (|(m_en_i & prev_grant)) begin
       // The bus is not released this cycle
       m_req        = prev_grant;
       bus_hold_ack = 1'b0;
     end 
     else begin
-      m_req        = m_cyc_i;
+      m_req        = m_en_i;
       bus_hold_ack = bus_hold;
     end
   end
@@ -156,7 +156,7 @@ module wb_mux #(
     s_we_o   = 1'bx;
 
     for (i = 0; i < MASTERS; i = i + 1) begin
-      m_dat_o[i] = s_dat_i;
+      m_dout_o[i] = s_dout_i;
 
       if (grant[i]) begin
         s_addr_o = m_addr_i [i];

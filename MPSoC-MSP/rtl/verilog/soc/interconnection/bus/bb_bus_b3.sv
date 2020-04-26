@@ -40,7 +40,7 @@
  *   Francisco Javier Reina Campo <frareicam@gmail.com>
  */
 
-module wb_bus_b3 #(
+module bb_bus_b3 #(
   /* User parameters */
   // Set the number of masters and slaves
   parameter MASTERS = 2,
@@ -103,15 +103,15 @@ module wb_bus_b3 #(
     output [MASTERS-1:0][DATA_WIDTH-1:0] m_dout_o,
 
     output [SLAVES-1:0][ADDR_WIDTH-1:0] s_addr_o,
-    output [SLAVES-1:0][DATA_WIDTH-1:0] s_dout_o,
+    output [SLAVES-1:0][DATA_WIDTH-1:0] s_din_o,
     output [SLAVES-1:0]                 s_en_o,
     output [SLAVES-1:0]                 s_we_o,
 
-    input  [SLAVES-1:0][DATA_WIDTH-1:0] s_din_i,
+    input  [SLAVES-1:0][DATA_WIDTH-1:0] s_dout_i,
 
     // The snoop port forwards all write accesses on their success for
     // one cycle.
-    output             [DATA_WIDTH-1:0] snoop_addr_o,
+    output             [DATA_WIDTH-1:0] snoop_adr_o,
     output                              snoop_en_o,
 
     input                               bus_hold,
@@ -125,7 +125,7 @@ module wb_bus_b3 #(
 
   wire [ADDR_WIDTH-1:0] bus_adr;
   wire [DATA_WIDTH-1:0] bus_wdat;
-  wire                  bus_cyc;
+  wire                  bus_en;
   wire                  bus_we;
 
   wire [DATA_WIDTH-1:0] bus_rdat;
@@ -135,7 +135,7 @@ module wb_bus_b3 #(
   // Module Body
   //
 
-  wb_mux #(
+  bb_mux #(
     .MASTERS    (MASTERS),
     .ADDR_WIDTH (ADDR_WIDTH),
     .DATA_WIDTH (DATA_WIDTH)
@@ -146,10 +146,10 @@ module wb_bus_b3 #(
 
     // Masters
     .s_addr_o                      (bus_adr),
-    .s_dout_o                      (bus_wdat),
+    .s_din_o                       (bus_wdat),
     .s_en_o                        (bus_cyc),
     .s_we_o                        (bus_we),
-    .s_din_i                       (bus_rdat),
+    .s_dout_i                      (bus_rdat),
 
     // Slaves
     .m_addr_i                      (m_addr_i),
@@ -162,7 +162,7 @@ module wb_bus_b3 #(
     .bus_hold                      (bus_hold)
   );
 
-  wb_decode #(
+  bb_decode #(
     .SLAVES(SLAVES),
     .ADDR_WIDTH(ADDR_WIDTH),
     .DATA_WIDTH(DATA_WIDTH),
@@ -204,22 +204,22 @@ module wb_bus_b3 #(
     // Masters
     .m_addr_i                   (bus_adr),
     .m_din_i                    (bus_wdat),
-    .m_en_i                     (bus_cyc),
+    .m_en_i                     (bus_en),
     .m_we_i                     (bus_we),
     .m_dout_o                   (bus_rdat),
 
     // Slaves
     .s_addr_o                   (s_addr_o),
-    .s_dout_o                   (s_dout_o),
+    .s_din_o                    (s_din_o),
     .s_en_o                     (s_en_o),
     .s_we_o                     (s_we_o),
-    .s_din_i                    (s_din_i)
+    .s_dout_i                   (s_dout_i)
   );
 
   // Snoop address comes direct from master bus
-  assign snoop_addr_o = bus_adr;
+  assign snoop_adr_o = bus_adr;
   // Snoop on acknowledge and write. Mask with strobe to be sure
   // there actually is a something happing and no dangling signals
   // and always ack'ing slaves.
-  assign snoop_en_o = bus_ack & bus_stb & bus_we;
+  assign snoop_en_o = bus_en & bus_we;
 endmodule

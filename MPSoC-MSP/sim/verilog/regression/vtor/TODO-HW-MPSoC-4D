@@ -1,7 +1,7 @@
-rm -rf Vriscv_mpsoc4d_testbench
+rm -rf Vmsp430_mpsoc4d_testbench
 
 verilator -f mpsoc4d.vc --trace -Wno-fatal -Wno-lint -Wno-UNOPTFLAT -Wno-COMBDLY -CFLAGS "-std=c++11" -LDFLAGS "-pthread"
-make -f Vriscv_mpsoc4d_testbench.mk
+make -f Vmsp430_mpsoc4d_testbench.mk
 
 rm -rf *.a
 rm -rf *.cpp

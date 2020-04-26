@@ -40,7 +40,7 @@
  *   Francisco Javier Reina Campo <frareicam@gmail.com>
  */
 
-module wb_decode #(
+module bb_decode #(
   /* User parameters */
   // Set the number of slaves
   parameter SLAVES = 1,
@@ -102,11 +102,11 @@ module wb_decode #(
     output reg             [DATA_WIDTH-1:0] m_dout_o,
 
     output reg [SLAVES-1:0][ADDR_WIDTH-1:0] s_addr_o,
-    output reg [SLAVES-1:0][DATA_WIDTH-1:0] s_dout_o,
+    output reg [SLAVES-1:0][DATA_WIDTH-1:0] s_din_o,
     output reg [SLAVES-1:0]                 s_en_o,
     output reg [SLAVES-1:0]                 s_we_o,
 
-    input      [SLAVES-1:0][DATA_WIDTH-1:0] s_din_i,
+    input      [SLAVES-1:0][DATA_WIDTH-1:0] s_dout_i
   );
 
   ////////////////////////////////////////////////////////////////
@@ -158,13 +158,13 @@ module wb_decode #(
     m_dout_o = {DATA_WIDTH{1'b0}};
     for (i = 0; i < SLAVES; i = i + 1) begin
       s_addr_o[i] = m_addr_i;
-      s_dout_o[i] = m_din_i;
+      s_din_o [i] = m_din_i;
       s_we_o  [i] = m_we_i;
 
       s_en_o[i] = m_en_i & s_select[i];
 
       if (s_select[i]) begin
-        m_dout_o = s_din_i[i];
+        m_dout_o = s_dout_i[i];
       end
     end
   end
