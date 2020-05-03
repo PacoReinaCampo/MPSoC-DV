@@ -1,8 +1,0 @@
-source ../build.sh
-
-cd ../baremetal/baremetal-apps/hello_mp
-make clean
-make
-
-rm -rf ../../../../sim/hello_mp.vmem
-cp hello_mp.vmem ../../../../sim/

@@ -1,8 +1,0 @@
-*~
-Makefile.in
-build-aux/
-build/
-.project
-.cproject
-autom4te.cache
-aclocal.m4

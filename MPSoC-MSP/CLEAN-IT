@@ -1,9 +1,0 @@
-rm -rf sim/verilog/regression/msim/transcript
-rm -rf sim/verilog/regression/msim/work
-rm -rf sim/verilog/regression/msim/stdout.*
-
-rm -rf sim/verilog/regression/vtor/Vmsp430_tile_testbench
-rm -rf sim/verilog/regression/vtor/Vmsp430_mpsoc2d_testbench
-rm -rf sim/verilog/regression/vtor/Vmsp430_mpsoc3d_testbench
-rm -rf sim/verilog/regression/vtor/Vmsp430_mpsoc4d_testbench
-rm -rf sim/verilog/regression/vtor/stdout.*

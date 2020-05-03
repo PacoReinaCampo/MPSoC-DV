@@ -1,9 +1,0 @@
-.project
-.cproject
-build-aux/
-build/
-aclocal.m4
-autom4te.cache
-Makefile.in
-configure
-.settings
