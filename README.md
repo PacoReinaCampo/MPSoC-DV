@@ -1,116 +1,262 @@
-# Accellera Universal Verification Methodology (UVM, IEEE 1800.2-2017)
+# MPSoC-UVM WIKI
 
-# Scope
+## Definition
 
-This kit provides a Systemverilog library matching the requirements of [IEEE 1800.2-2017](https://ieeexplore.ieee.org/document/7932212/). 
-See details in the Library Release Description below.
+A Multi-Processor System on Chip (MPSoC) is a System on Chip (SoC) which includes multiple Processing Units (PU). As such, it is a Multi-Core System-on-Chip. All PUs are linked to each other by a Network on Chip (NoC). These technologies meet the performance needs of multimedia applications, telecommunication architectures or network security.
 
-**Note:** The implementation provided deviates from the 1800.2-2017 standard, see [DEVIATIONS.md] for additional details.
+A Standard UVM improves interoperability and reduces the cost of repurchasing and rewriting IP for each new project or Electronic Design Automation tool. It also makes it easier to reuse verification components. The UVM Class Library provides generic utilities, such as component hierarchy, Transaction Library Model or configuration database, which enable the user to create virtually any structure wanted for the testbench.
 
-# Kit version
 
-1800.2-2017 1.0
+## FRONT-END Open Source Tools
 
-This kit was generated based upon the following git commit state: 60b56b09e9e78bfec23575529e37fed8d0ccc757.
+### Verilator
+SystemVerilog System Description Language Simulator
 
-# License
-
-The UVM kit is licensed under the Apache-2.0 license.  The full text of
-the Apache license is provided in this kit in the file [LICENSE.txt](./LICENSE.txt).
-
-# Copyright
-
-All copyright owners for this kit are listed in [NOTICE.txt](./NOTICE.txt).
-
-All Rights Reserved Worldwide
-
-# Contacts and Support
-
-If you have questions about this implementation and/or its application to verification environments, please visit the
-[Accellera UVM 2017 - Methodology and BCL Forum](http://forums.accellera.org/forum/43-uvm-2017-methodology-and-bcl-forum/) or 
-contact the Accellera UVM Working Group (uvm-wg@lists.accellera.org).
-
-# Installing the kit
-
-Installation of UVM requires first unpacking the kit in a convenient
-location.
+*A System Description Language Simulator (translator) is a computer program that translates computer code written in a Programming Language (the source language) into a Hardware Design Language (the target language). The compiler is primarily used for programs that translate source code from a high-level programming language to a low-level language to create an executable program.*
 
 ```
-    % mkdir path/to/convenient/location
-    % cd path/to/convenient/location
-    % gunzip -c path/to/UVM/distribution/tar.gz | tar xvf -
+git clone http://git.veripool.org/git/verilator
+
+cd verilator
+autoconf
+./configure
+make
+sudo make install
 ```
 
-Follow the installation instructions provided by your tool vendor for
-using this UVM installation and tool version dependencies.
-
-# Prerequisites
-
-- IEEE1800 compliant SV simulator. Please check with your tool vendor for exact tool version requirements.
-- C compiler to compile the DPI code (if not otherwise provided by tool vendor)
-
-
-# Library Release description
-
-Each class and method in the standard is annotated in the implementation, allowing tools to identify 
-the corresponding section in the standard. 
-
-Example:
 ```
-// @uvm-ieee 1800.2-2017 auto 16.5.3.2
-extern virtual function void get_packed_bits (ref bit unsigned stream[]);
+cd sim/verilog/regression/wb/vtor
+source SIMULATE-IT
 ```
 
-In addition to the APIs described in the standard, the Library includes the following categories of extra API:
-
-1. APIs that are being considered for contribution to the IEEE by Accellera.  They are identified by the following annotation:
 ```
-// @uvm-contrib Potential Contribution to 1800.2
+cd sim/verilog/regression/ahb3/vtor
+source SIMULATE-IT
 ```
-2. APIs that are not being considered for contribution to the IEEE.  Generally these are provided for debug purposes.  They are identified by the following annotation:
+
+### Icarus Verilog
+Verilog Hardware Description Language Simulator
+
+*A Hardware Description Language Simulator uses mathematical models to replicate the behavior of an actual hardware device. Simulation software allows for modeling of circuit operation and is an invaluable analysis tool. Simulating a circuit’s behavior before actually building it can greatly improve design efficiency by making faulty designs known as such, and providing insight into the behavior of electronics circuit designs.*
+
 ```
-// @uvm-accellera Accellera Implementation-specific API
+git clone https://github.com/steveicarus/iverilog
+
+cd iverilog
+./configure
+make
+sh autoconf.sh
+sudo make install
 ```
-3. Deprecated UVM 1.2 API\
-**Note:** The deprecated UVM 1.2 APIs are under a `` `ifdef UVM_ENABLE_DEPRECATED_API `` guard.  These APIs are
-only supported when the UVM 1.2 API didn't contradict 1800.2-2017 API.  When `UVM_ENABLE_DEPRECATED_API` is defined
-both the 1.2 and 1800.2 APIs are available.  When `UVM_ENABLE_DEPRECATED_API` is _not_ defined, the UVM 1.2
-APIs are not available, and any code referencing them will miscompile.\
-\
-These APIs will only be supported until the next release of the 1800.2 standard.  Code leveraging these UVM 1.2 APIs
-should be migrated to 1800.2 standard APIs to maintain compatibility with future versions of the implementation. \
-\
-By default, `UVM_ENABLE_DEPRECATED_API` is not  defined. 
-4. APIs used within the library that are not intended to be directly used outside of the implementation.
 
-**Note:** While the Accellera UVM Working Group supports the APIs described in (1), (2) and (3) above, these APIs are technically not a part of the 1800.2 standard.  As such, any code which leverages these APIs may not be portable to alternative 1800.2 implementations.  
+```
+cd sim/verilog/regression/wb/iverilog
+source SIMULATE-IT
+```
 
-# Backwards Compatibility Concerns
+```
+cd sim/verilog/regression/ahb3/iverilog
+source SIMULATE-IT
+```
 
-These are instances wherein the functionality of an API that exists in both UVM 1.2 and the IEEE 1800.2 standard has changed in a non 
-backwards-compatible manner.
+### GHDL
+VHDL Hardware Description Language Simulator
 
-1. [Mantis 6644](https://accellera.mantishub.io/view.php?id=6644) Changes to big endian support in uvm_reg_map.  In previous versions of UVM, configuring a uvm_reg_map to UVM_BIG_ENDIAN didn't change the byte ordering for data (effectively always forcing LITTLE endian, regardless of configuration).  This has been corrected in the 1800.2 release, such that the data provided to the adapter is now properly ordered.  Users can update their adapter to handle the new properly ordered data, or configure their map to UVM_LITTLE_ENDIAN.
-                             
-2. [Mantis 6773](https://accellera.mantishub.io/view.php?id=6773) Changes to physical address calculation in uvm_reg_map. In previous versions of UVM, address calculation for memory objects narrower than the enclosing map was done as unpacked addressing. This functionality has changed in this release of the UVM library to packed addressing. This implies that, for a memory object whose width is less than the enclosing map width, address of the Nth word of the memory (N > 0) will be different than what was calculated in previous versions of UVM. For future releases of the library, API changes to the register layer will be required to support both packed and unpacked modes of physical address calculation.
+*A Hardware Description Language Simulator uses mathematical models to replicate the behavior of an actual hardware device. Simulation software allows for modeling of circuit operation and is an invaluable analysis tool. Simulating a circuit’s behavior before actually building it can greatly improve design efficiency by making faulty designs known as such, and providing insight into the behavior of electronics circuit designs.*
 
-3. Changes to physical address calculation in uvm_reg_map require that memory width be an integer multiple of 8 bits(k*8).
+```
+git clone https://github.com/ghdl/ghdl
 
-4. Changes to physical address calculation in uvm_reg_map require that, where the map and memory widths do not match, the larger width be an integer multiple of the smaller width (larger_width = k*smaller_width).
+cd ghdl
+./configure --prefix=/usr/local
+make
+sudo make install
+```
 
-5. As of 1800.2, the uvm_packer class no longer contains a knob for "big_endian".  While the big_endian knob _is_ included when running with deprecated APIs enabled, the default polarity of the bit is inverted.  This ensures that the packer will operate the same by default regardless of whether deprecated APIs were present.  Users relying on the old behavior will need to explicitly set big_endian to '1'.
+```
+cd sim/vhdl/regression/wb/ghdl
+source SIMULATE-IT
+```
 
-# Migration instructions
+```
+cd sim/vhdl/regression/ahb3/ghdl
+source SIMULATE-IT
+```
 
-In order to migrate to the Library version of the release, It is recommended that you perform the following steps to get your code to 
-run with this release of UVM. 
+### Yosys-ABC
+Verilog Hardware Description Language Synthesizer
 
-1. Compile/Run using a UVM1.2 library with `UVM_NO_DEPRECATED` defined. This will ensure that your code runs 
-with UVM 1.2 which was a baseline for the IEEE 1800.2 standard development.  
+*A Hardware Description Language Synthesizer turns a RTL implementation into a Logical Gate Level implementation. Logical design is a step in the standard design cycle in which the functional design of an electronic circuit is converted into the representation which captures logic operations, arithmetic operations, control flow, etc. In EDA parts of the logical design is automated using synthesis tools based on the behavioral description of the circuit.*
 
-**Note:** All code deprecated in UVM 1.2 has been removed from this version of the library.
+Hardware Description Language Optimizer
 
-2. Compile/Run using this library with `UVM_ENABLE_DEPRECATED_API` defined.  This step helps identify the areas where your code may need modifications to comply with the standard.
+*A Hardware Description Language Optimizer finds an equivalent representation of the specified logic circuit under specified constraints (minimum area, pre-specified delay). This tool combines scalable logic optimization based on And-Inverter Graphs (AIGs), optimal-delay DAG-based technology mapping for look-up tables and standard cells, and innovative algorithms for sequential synthesis and verification.*
+
+```
+git clone https://github.com/YosysHQ/yosys
+
+cd yosys
+make
+sudo make install
+```
+
+```
+cd synthesis/yosys
+source SYNTHESIZE-IT
+```
+
+## BACK-END Open Source Tools
+
+```
+mkdir qflow
+cd qflow
+```
+
+### Magic
+Floor-Planner
+
+*A Floor-Planner of an Integrated Circuit (IC) is a schematic representation of tentative placement of its major functional blocks. In modern electronic design process floor-plans are created during the floor-planning design stage, an early stage in the hierarchical approach to Integrated Circuit design. Depending on the design methodology being followed, the actual definition of a floor-plan may differ.*
+
+Standard Cell Checker
+
+*A Standard Cell Checker is a geometric constraint imposed on Printed Circuit Board (PCB) and Integrated Circuit (IC) designers to ensure their designs function properly, reliably, and can be produced with acceptable yield. Design Rules for production are developed by hardware engineers based on the capability of their processes to realize design intent. Design Rule Checking (DRC) is used to ensure that designers do not violate design rules.*
+
+Standard Cell Editor
+
+*A Standard Cell Editor allows to print a set of standard cells. The standard cell methodology is an abstraction, whereby a low-level VLSI layout is encapsulated into a logical representation. A standard cell is a group of transistor and interconnect structures that provides a boolean logic function (AND, OR, XOR, XNOR, inverters) or a storage function (flipflop or latch).*
+
+```
+git clone https://github.com/RTimothyEdwards/magic
+
+cd magic
+./configure
+make
+sudo make install
+```
+
+### Graywolf
+Standard Cell Placer
+
+*A Standard Cell Placer takes a given synthesized circuit netlist together with a technology library and produces a valid placement layout. The layout is optimized according to the aforementioned objectives and ready for cell resizing and buffering, a step essential for timing and signal integrity satisfaction. Physical design flow are iterated a number of times until design closure is achieved.*
+
+```
+git clone https://github.com/rubund/graywolf
+cd graywolf
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
+
+### OpenSTA
+Standard Cell Timing-Analizer
+
+*A Standard Cell Timing-Analizer is a simulation method of computing the expected timing of a digital circuit without requiring a simulation of the full circuit. High-performance integrated circuits have traditionally been characterized by the clock frequency at which they operate. Measuring the ability of a circuit to operate at the specified speed requires an ability to measure, during the design process, its delay at numerous steps.*
+
+```
+git clone https://github.com/The-OpenROAD-Project/OpenSTA
+cd OpenSTA
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
+
+### Qrouter
+Standard Cell Router
+
+*A Standard Cell Router takes pre-existing polygons consisting of pins on cells, and pre-existing wiring called pre-routes. Each of these polygons are associated with a net. The primary task of the router is to create geometries such that all terminals assigned to the same net are connected, no terminals assigned to different nets are connected, and all design rules are obeyed.*
+
+```
+git clone https://github.com/RTimothyEdwards/qrouter
+cd qrouter
+./configure
+make
+sudo make install
+```
+
+### Irsim
+Standard Cell Simulator
+
+*A Standard Cell Simulator treats transistors as ideal switches. Extracted capacitance and lumped resistance values are used to make the switch a little bit more realistic than the ideal, using the RC time constants to predict the relative timing of events. This simulator represents a circuit in terms of its exact transistor structure but describes the electrical behavior in a highly idealized way.*
+
+```
+git clone https://github.com/RTimothyEdwards/irsim
+cd irsim
+./configure
+make
+sudo make install
+```
+
+### Netgen
+Standard Cell Verifier
+
+*A Standard Cell Verifier compares netlists, a process known as LVS (Layout vs. Schematic). This step ensures that the geometry that has been laid out matches the expected circuit. The greatest need for LVS is in large analog or mixed-signal circuits that cannot be simulated in reasonable time. LVS can be done faster than simulation, and provides feedback that makes it easier to find errors.*
+
+```
+git clone https://github.com/RTimothyEdwards/netgen
+cd netgen
+./configure
+make
+sudo make install
+```
+
+### Qflow
+Back-End Workflow
+```
+git clone https://github.com/RTimothyEdwards/qflow
+cd qflow
+./configure
+make
+sudo make install
+```
+
+```
+cd synthesis/qflow
+source FLOW-IT
+```
 
 
-3. Compile/Run using this library without `UVM_ENABLE_DEPRECATED_API` defined. Removing the define ensures that only the 1800.2 API documented in the standard, along with any non-deprecation accellera supplied API, is used.  Any new compile failures are the result of deprecated 1.2 APIs.
+## for WINDOWS users!
+
+open Microsoft Store and install Ubuntu
+
+type:
+```
+sudo apt update
+sudo apt upgrade
+
+sudo apt install bison cmake flex freeglut3-dev libcairo2-dev libgsl-dev \
+libncurses-dev libx11-dev m4 python-tk python3-tk swig tcl tcl-dev tk-dev tcsh
+
+sudo apt install gcc-msp430
+```
+
+### FRONT-END
+
+type:
+```
+sudo apt install verilator
+sudo apt install iverilog
+sudo apt install ghdl
+
+sudo apt install yosys
+```
+
+### BACK-END
+
+type:
+```
+mkdir qflow
+cd qflow
+
+git clone https://github.com/RTimothyEdwards/magic
+git clone https://github.com/rubund/graywolf
+git clone https://github.com/The-OpenROAD-Project/OpenSTA
+git clone https://github.com/RTimothyEdwards/qrouter
+git clone https://github.com/RTimothyEdwards/irsim
+git clone https://github.com/RTimothyEdwards/netgen
+git clone https://github.com/RTimothyEdwards/qflow
+```
