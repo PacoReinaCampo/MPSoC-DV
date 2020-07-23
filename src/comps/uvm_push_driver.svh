@@ -1,8 +1,8 @@
 //
 //------------------------------------------------------------------------------
-// Copyright 2007-2011 Mentor Graphics Corporation
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2015-2018 NVIDIA Corporation
+//   Copyright 2007-2011 Mentor Graphics Corporation
+//   Copyright 2007-2011 Cadence Design Systems, Inc. 
+//   Copyright 2010 Synopsys, Inc.
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -22,7 +22,7 @@
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_push_driver #(REQ,RSP)
+// CLASS: uvm_push_driver #(REQ,RSP)
 //
 // Base class for a driver that passively receives transactions, i.e. does not
 // initiate requests transactions. Also known as ~push~ mode. Its ports are
@@ -36,14 +36,10 @@
 //
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 13.8.1
 class uvm_push_driver #(type REQ=uvm_sequence_item,
                         type RSP=REQ) extends uvm_component;
 
-  `uvm_component_param_utils(uvm_push_driver#(REQ,RSP))
-  `uvm_type_name_decl("uvm_push_driver #(REQ,RSP)")
-  
-  // Port -- NODOCS -- req_export
+  // Port: req_export
   //
   // This export provides the blocking put interface whose default 
   // implementation produces an error. Derived drivers must override ~put~
@@ -52,7 +48,7 @@ class uvm_push_driver #(type REQ=uvm_sequence_item,
 
   uvm_blocking_put_imp #(REQ, uvm_push_driver #(REQ,RSP)) req_export;
 
-  // Port -- NODOCS -- rsp_port
+  // Port: rsp_port
   //
   // This analysis port is used to send response transactions back to the
   // originating sequencer.
@@ -62,7 +58,7 @@ class uvm_push_driver #(type REQ=uvm_sequence_item,
   REQ req;
   RSP rsp;
 
-  // Function -- NODOCS -- new
+  // Function: new
   //
   // Creates and initializes an instance of this class using the normal
   // constructor arguments for <uvm_component>: ~name~ is the name of the
@@ -90,4 +86,11 @@ class uvm_push_driver #(type REQ=uvm_sequence_item,
     uvm_report_fatal("UVM_PUSH_DRIVER", "Put task for push driver is not implemented", UVM_NONE);
   endtask
 
+  const static string type_name = "uvm_push_driver #(REQ,RSP)";
+
+  virtual function string get_type_name ();
+    return type_name;
+  endfunction
+
 endclass
+

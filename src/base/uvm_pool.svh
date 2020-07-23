@@ -1,10 +1,8 @@
 //
 //------------------------------------------------------------------------------
-// Copyright 2007-2014 Mentor Graphics Corporation
-// Copyright 2010-2014 Synopsys, Inc.
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2011 AMD
-// Copyright 2014-2018 NVIDIA Corporation
+//   Copyright 2007-2011 Mentor Graphics Corporation
+//   Copyright 2007-2010 Cadence Design Systems, Inc. 
+//   Copyright 2010 Synopsys, Inc.
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -22,40 +20,38 @@
 //   permissions and limitations under the License.
 //------------------------------------------------------------------------------
 
-// Title -- NODOCS -- Pool Classes
+// Title: Pool Classes
 // This section defines the <uvm_pool #(KEY, T)> class and derivative.
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_pool #(KEY,T)
+// CLASS: uvm_pool #(KEY,T)
 //
 //------------------------------------------------------------------------------
 // Implements a class-based dynamic associative array. Allows sparse arrays to
 // be allocated on demand, and passed and stored by reference.
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 11.2.1
 class uvm_pool #(type KEY=int, T=uvm_void) extends uvm_object;
+
+  const static string type_name = "uvm_pool";
 
   typedef uvm_pool #(KEY,T) this_type;
 
   static protected this_type m_global_pool;
   protected T pool[KEY];
 
-  `uvm_object_param_utils(uvm_pool #(KEY,T))
-  `uvm_type_name_decl("uvm_pool")
-  
-  // Function -- NODOCS -- new
+
+  // Function: new
   //
   // Creates a new pool with the given ~name~.
 
-  // @uvm-ieee 1800.2-2017 auto 11.2.2.1
   function new (string name="");
     super.new(name);
   endfunction
 
 
-  // Function -- NODOCS -- get_global_pool
+  // Function: get_global_pool
   //
   // Returns the singleton global pool for the item type, T. 
   //
@@ -69,11 +65,10 @@ class uvm_pool #(type KEY=int, T=uvm_void) extends uvm_object;
   endfunction
 
 
-  // Function -- NODOCS -- get_global
+  // Function: get_global
   //
   // Returns the specified item instance from the global item pool. 
 
-  // @uvm-ieee 1800.2-2017 auto 11.2.2.3
   static function T get_global (KEY key);
     this_type gpool;
     gpool = get_global_pool(); 
@@ -81,14 +76,13 @@ class uvm_pool #(type KEY=int, T=uvm_void) extends uvm_object;
   endfunction
 
 
-  // Function -- NODOCS -- get
+  // Function: get
   //
   // Returns the item with the given ~key~.
   //
   // If no item exists by that key, a new item is created with that key
   // and returned.
 
-  // @uvm-ieee 1800.2-2017 auto 11.2.2.4
   virtual function T get (KEY key);
     if (!pool.exists(key)) begin
       T default_value;
@@ -98,32 +92,29 @@ class uvm_pool #(type KEY=int, T=uvm_void) extends uvm_object;
   endfunction
   
 
-  // Function -- NODOCS -- add
+  // Function: add
   //
   // Adds the given (~key~, ~item~) pair to the pool. If an item already
   // exists at the given ~key~ it is overwritten with the new ~item~.
 
-  // @uvm-ieee 1800.2-2017 auto 11.2.2.5
   virtual function void add (KEY key, T item);
     pool[key] = item;
   endfunction
   
 
-  // Function -- NODOCS -- num
+  // Function: num
   //
   // Returns the number of uniquely keyed items stored in the pool.
 
-  // @uvm-ieee 1800.2-2017 auto 11.2.2.6
   virtual function int num ();
     return pool.num();
   endfunction
 
 
-  // Function -- NODOCS -- delete
+  // Function: delete
   //
   // Removes the item with the given ~key~ from the pool.
 
-  // @uvm-ieee 1800.2-2017 auto 11.2.2.7
   virtual function void delete (KEY key);
     if (!exists(key)) begin
       uvm_report_warning("POOLDEL",
@@ -134,18 +125,17 @@ class uvm_pool #(type KEY=int, T=uvm_void) extends uvm_object;
   endfunction
 
 
-  // Function -- NODOCS -- exists
+  // Function: exists
   //
   // Returns 1 if an item with the given ~key~ exists in the pool,
   // 0 otherwise.
 
-  // @uvm-ieee 1800.2-2017 auto 11.2.2.8
   virtual function int exists (KEY key);
     return pool.exists(key);
   endfunction
 
 
-  // Function -- NODOCS -- first
+  // Function: first
   //
   // Returns the key of the first item stored in the pool.
   //
@@ -154,13 +144,12 @@ class uvm_pool #(type KEY=int, T=uvm_void) extends uvm_object;
   // If the pool is not empty, then ~key~ is key of the first item
   // and 1 is returned.
 
-  // @uvm-ieee 1800.2-2017 auto 11.2.2.9
   virtual function int first (ref KEY key);
     return pool.first(key);
   endfunction
 
 
-  // Function -- NODOCS -- last
+  // Function: last
   //
   // Returns the key of the last item stored in the pool.
   //
@@ -169,13 +158,12 @@ class uvm_pool #(type KEY=int, T=uvm_void) extends uvm_object;
   // If the pool is not empty, then ~key~ is set to the last key in
   // the pool and 1 is returned.
 
-  // @uvm-ieee 1800.2-2017 auto 11.2.2.10
   virtual function int last (ref KEY key);
     return pool.last(key);
   endfunction
 
 
-  // Function -- NODOCS -- next
+  // Function: next
   //
   // Returns the key of the next item in the pool.
   //
@@ -185,13 +173,12 @@ class uvm_pool #(type KEY=int, T=uvm_void) extends uvm_object;
   // If a next key is found, then ~key~ is updated with that key
   // and 1 is returned.
 
-  // @uvm-ieee 1800.2-2017 auto 11.2.2.11
   virtual function int next (ref KEY key);
     return pool.next(key);
   endfunction
 
 
-  // Function -- NODOCS -- prev
+  // Function: prev
   //
   // Returns the key of the previous item in the pool.
   //
@@ -201,9 +188,19 @@ class uvm_pool #(type KEY=int, T=uvm_void) extends uvm_object;
   // If a previous key is found, then ~key~ is updated with that key
   // and 1 is returned.
 
-  // @uvm-ieee 1800.2-2017 auto 11.2.2.12
   virtual function int prev (ref KEY key);
     return pool.prev(key);
+  endfunction
+
+
+  virtual function uvm_object create (string name=""); 
+    this_type v;
+    v=new(name);
+    return v;
+  endfunction
+
+  virtual function string get_type_name ();
+    return type_name;
   endfunction
 
   virtual function void do_copy (uvm_object rhs);
@@ -237,7 +234,7 @@ endclass
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_object_string_pool #(T)
+// CLASS: uvm_object_string_pool #(T)
 //
 //------------------------------------------------------------------------------
 // This provides a specialization of the generic <uvm_pool #(KEY,T)> class for
@@ -252,10 +249,8 @@ class uvm_object_string_pool #(type T=uvm_object) extends uvm_pool #(string,T);
   typedef uvm_object_string_pool #(T) this_type;
   static protected this_type m_global_pool;
 
-  `uvm_object_param_utils(uvm_object_string_pool#(T))
-  `uvm_type_name_decl("uvm_obj_str_pool")
 
-  // Function -- NODOCS -- new
+  // Function: new
   //
   // Creates a new pool with the given ~name~.
 
@@ -263,7 +258,19 @@ class uvm_object_string_pool #(type T=uvm_object) extends uvm_pool #(string,T);
     super.new(name);
   endfunction
 
-  // Function -- NODOCS -- get_global_pool
+
+  const static string type_name = {"uvm_obj_str_pool"};
+
+  // Function: get_type_name
+  //
+  // Returns the type name of this object.
+
+  virtual function string get_type_name();
+    return type_name;
+  endfunction
+
+
+  // Function: get_global_pool
   //
   // Returns the singleton global pool for the item type, T. 
   //
@@ -277,7 +284,7 @@ class uvm_object_string_pool #(type T=uvm_object) extends uvm_pool #(string,T);
   endfunction
 
 
-  // Function -- NODOCS -- get_global
+  // Function: get_global
   //
   // Returns the specified item instance from the global item pool. 
 
@@ -288,7 +295,7 @@ class uvm_object_string_pool #(type T=uvm_object) extends uvm_pool #(string,T);
   endfunction
 
 
-  // Function -- NODOCS -- get
+  // Function: get
   //
   // Returns the object item at the given string ~key~.
   //
@@ -302,7 +309,7 @@ class uvm_object_string_pool #(type T=uvm_object) extends uvm_pool #(string,T);
   endfunction
   
 
-  // Function -- NODOCS -- delete
+  // Function: delete
   //
   // Removes the item with the given string ~key~ from the pool.
 
@@ -334,5 +341,7 @@ endclass
 typedef class uvm_barrier;
 typedef class uvm_event;
 
-typedef uvm_object_string_pool #(uvm_barrier) uvm_barrier_pool /* @uvm-ieee 1800.2-2017 auto 10.4.2.1*/   ;
-typedef uvm_object_string_pool #(uvm_event#(uvm_object)) uvm_event_pool /* @uvm-ieee 1800.2-2017 auto 10.4.1.1*/   ;
+typedef uvm_object_string_pool #(uvm_barrier) uvm_barrier_pool;
+typedef uvm_object_string_pool #(uvm_event#(uvm_object)) uvm_event_pool;
+
+

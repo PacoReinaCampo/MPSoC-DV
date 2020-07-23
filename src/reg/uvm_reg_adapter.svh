@@ -1,11 +1,7 @@
 //
 // -------------------------------------------------------------
-// Copyright 2010-2011 Mentor Graphics Corporation
-// Copyright 2014 Semifore
-// Copyright 2004-2018 Synopsys, Inc.
-// Copyright 2010-2018 Cadence Design Systems, Inc.
-// Copyright 2010 AMD
-// Copyright 2014-2015 NVIDIA Corporation
+//    Copyright 2004-2009 Synopsys, Inc.
+//    Copyright 2010 Mentor Graphics Corporation
 //    All Rights Reserved Worldwide
 //
 //    Licensed under the Apache License, Version 2.0 (the
@@ -25,7 +21,7 @@
 //
  
 //------------------------------------------------------------------------------
-// Title -- NODOCS -- Classes for Adapting Between Register and Bus Operations
+// Title: Classes for Adapting Between Register and Bus Operations
 //
 // This section defines classes used to convert transaction streams between
 // generic register address/data reads and writes and physical bus accesses. 
@@ -34,30 +30,24 @@
 
 //------------------------------------------------------------------------------
 //
-// Class -- NODOCS -- uvm_reg_adapter
+// Class: uvm_reg_adapter
 //
 // This class defines an interface for converting between <uvm_reg_bus_op>
 // and a specific bus transaction. 
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 19.2.1.1
 virtual class uvm_reg_adapter extends uvm_object;
 
-
-   `uvm_object_abstract_utils(uvm_reg_adapter)
-
-
-  // Function -- NODOCS -- new
+  // Function: new
   //
   // Create a new instance of this type, giving it the optional ~name~.
 
-  // @uvm-ieee 1800.2-2017 auto 19.2.1.2.1
   function new(string name="");
     super.new(name);
   endfunction
 
 
-  // Variable -- NODOCS -- supports_byte_enable
+  // Variable: supports_byte_enable
   //
   // Set this bit in extensions of this class if the bus protocol supports
   // byte enables.
@@ -65,7 +55,7 @@ virtual class uvm_reg_adapter extends uvm_object;
   bit supports_byte_enable;
 
 
-  // Variable -- NODOCS -- provides_responses
+  // Variable: provides_responses
   //
   // Set this bit in extensions of this class if the bus driver provides
   // separate response items.
@@ -73,7 +63,7 @@ virtual class uvm_reg_adapter extends uvm_object;
   bit provides_responses; 
 
 
-  // Variable -- NODOCS -- parent_sequence
+  // Variable: parent_sequence
   //
   // Set this member in extensions of this class if the bus driver requires
   // bus items be executed via a particular sequence base type. The sequence
@@ -82,7 +72,7 @@ virtual class uvm_reg_adapter extends uvm_object;
   uvm_sequence_base parent_sequence; 
 
 
-  // Function -- NODOCS -- reg2bus
+  // Function: reg2bus
   //
   // Extensions of this class ~must~ implement this method to convert the specified
   // <uvm_reg_bus_op> to a corresponding <uvm_sequence_item> subtype that defines the bus
@@ -93,11 +83,10 @@ virtual class uvm_reg_adapter extends uvm_object;
   // the corresponding members from the given generic ~rw~ bus operation, then
   // return it.
 
-  // @uvm-ieee 1800.2-2017 auto 19.2.1.2.5
   pure virtual function uvm_sequence_item reg2bus(const ref uvm_reg_bus_op rw);
 
 
-  // Function -- NODOCS -- bus2reg
+  // Function: bus2reg
   //
   // Extensions of this class ~must~ implement this method to copy members
   // of the given bus-specific ~bus_item~ to corresponding members of the provided
@@ -105,15 +94,22 @@ virtual class uvm_reg_adapter extends uvm_object;
   // is not allocated from scratch. This is to accommodate applications
   // where the bus response must be returned in the original request.
 
-  // @uvm-ieee 1800.2-2017 auto 19.2.1.2.6
   pure virtual function void bus2reg(uvm_sequence_item bus_item,
                                      ref uvm_reg_bus_op rw);
 
 
   local uvm_reg_item m_item;
 
-  
-  // @uvm-ieee 1800.2-2017 auto 19.2.1.2.7
+  // function: get_item
+  //
+  // Returns the bus-independent read/write information that corresponds to
+  // the generic bus transaction currently translated to a bus-specific
+  // transaction.
+  // This function returns a value reference only when called in the
+  // <uvm_reg_adapter::reg2bus()> method.
+  // It returns ~null~ at all other times.
+  // The content of the return <uvm_reg_item> instance must not be modified
+  // and used strictly to obtain additional information about the operation.  
   virtual function uvm_reg_item get_item();
     return m_item;
   endfunction
@@ -125,7 +121,7 @@ endclass
 
 
 //------------------------------------------------------------------------------
-// Group -- NODOCS -- Example
+// Group: Example
 //
 // The following example illustrates how to implement a RegModel-BUS adapter class
 // for the APB bus protocol.
@@ -165,13 +161,12 @@ endclass
 
 //------------------------------------------------------------------------------
 //
-// Class -- NODOCS -- uvm_reg_tlm_adapter
+// Class: uvm_reg_tlm_adapter
 //
 // For converting between <uvm_reg_bus_op> and <uvm_tlm_gp> items.
 //
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 19.2.2.1
 class uvm_reg_tlm_adapter extends uvm_reg_adapter;
 
   `uvm_object_utils(uvm_reg_tlm_adapter)
@@ -180,11 +175,10 @@ class uvm_reg_tlm_adapter extends uvm_reg_adapter;
     super.new(name);
   endfunction
 
-  // Function -- NODOCS -- reg2bus
+  // Function: reg2bus
   //
   // Converts a <uvm_reg_bus_op> struct to a <uvm_tlm_gp> item.
 
-  // @uvm-ieee 1800.2-2017 auto 19.2.2.2.1
   virtual function uvm_sequence_item reg2bus(const ref uvm_reg_bus_op rw);
 
      uvm_tlm_gp gp = uvm_tlm_gp::type_id::create("tlm_gp",, this.get_full_name());
@@ -216,8 +210,11 @@ class uvm_reg_tlm_adapter extends uvm_reg_adapter;
   endfunction
 
 
-
-  // @uvm-ieee 1800.2-2017 auto 19.2.2.2.2
+  // Function: bus2reg
+  //
+  // Converts a <uvm_tlm_gp> item to a <uvm_reg_bus_op>.
+  // into the provided ~rw~ transaction.
+  //
   virtual function void bus2reg(uvm_sequence_item bus_item,
                                 ref uvm_reg_bus_op rw);
 
@@ -253,3 +250,4 @@ class uvm_reg_tlm_adapter extends uvm_reg_adapter;
   endfunction
 
 endclass
+

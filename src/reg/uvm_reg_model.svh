@@ -1,12 +1,8 @@
 //
 // -------------------------------------------------------------
-// Copyright 2010-2011 Mentor Graphics Corporation
-// Copyright 2014 Semifore
-// Copyright 2014 Intel Corporation
-// Copyright 2004-2010 Synopsys, Inc.
-// Copyright 2010-2018 Cadence Design Systems, Inc.
-// Copyright 2010 AMD
-// Copyright 2015-2018 NVIDIA Corporation
+//    Copyright 2004-2009 Synopsys, Inc.
+//    Copyright 2010-2011 Mentor Graphics Corporation
+//    Copyright 2010 Cadence Design Systems, Inc.
 //    All Rights Reserved Worldwide
 //
 //    Licensed under the Apache License, Version 2.0 (the
@@ -26,7 +22,7 @@
 //
 
 //------------------------------------------------------------------------------
-// TITLE -- NODOCS -- Global Declarations for the Register Layer
+// TITLE: Global Declarations for the Register Layer
 //------------------------------------------------------------------------------
 //
 // This section defines globally available types, enums, and utility classes.
@@ -53,45 +49,45 @@ typedef class uvm_reg_indirect_data;
 
 
 //-------------
-// Group -- NODOCS -- Types
+// Group: Types
 //-------------
 
-// Type -- NODOCS -- uvm_reg_data_t
+// Type: uvm_reg_data_t
 //
 // 2-state data value with <`UVM_REG_DATA_WIDTH> bits
 //
 typedef  bit unsigned [`UVM_REG_DATA_WIDTH-1:0]  uvm_reg_data_t ;
 
 
-// Type -- NODOCS -- uvm_reg_data_logic_t
+// Type: uvm_reg_data_logic_t
 //
 // 4-state data value with <`UVM_REG_DATA_WIDTH> bits
 //
 typedef  logic unsigned [`UVM_REG_DATA_WIDTH-1:0]  uvm_reg_data_logic_t ;
 
 
-// Type -- NODOCS -- uvm_reg_addr_t
+// Type: uvm_reg_addr_t
 //
 // 2-state address value with <`UVM_REG_ADDR_WIDTH> bits
 //
 typedef  bit unsigned [`UVM_REG_ADDR_WIDTH-1:0]  uvm_reg_addr_t ;
 
 
-// Type -- NODOCS -- uvm_reg_addr_logic_t
+// Type: uvm_reg_addr_logic_t
 //
 // 4-state address value with <`UVM_REG_ADDR_WIDTH> bits
 //
 typedef  logic unsigned [`UVM_REG_ADDR_WIDTH-1:0]  uvm_reg_addr_logic_t ;
 
 
-// Type -- NODOCS -- uvm_reg_byte_en_t
+// Type: uvm_reg_byte_en_t
 //
 // 2-state byte_enable value with <`UVM_REG_BYTENABLE_WIDTH> bits
 //
 typedef  bit unsigned [`UVM_REG_BYTENABLE_WIDTH-1:0]  uvm_reg_byte_en_t ;
 
 
-// Type -- NODOCS -- uvm_reg_cvr_t
+// Type: uvm_reg_cvr_t
 //
 // Coverage model value set with <`UVM_REG_CVR_WIDTH> bits.
 //
@@ -109,7 +105,7 @@ typedef  bit unsigned [`UVM_REG_BYTENABLE_WIDTH-1:0]  uvm_reg_byte_en_t ;
 typedef  bit [`UVM_REG_CVR_WIDTH-1:0]  uvm_reg_cvr_t ;
 
 
-// Type -- NODOCS -- uvm_hdl_path_slice
+// Type: uvm_hdl_path_slice
 //
 // Slice of an HDL path
 //
@@ -137,10 +133,10 @@ typedef uvm_resource_db#(uvm_reg_cvr_t) uvm_reg_cvr_rsrc_db;
 
 
 //--------------------
-// Group -- NODOCS -- Enumerations
+// Group: Enumerations
 //--------------------
 
-// Enum -- NODOCS -- uvm_status_e
+// Enum: uvm_status_e
 //
 // Return status for register operations
 //
@@ -156,7 +152,7 @@ typedef uvm_resource_db#(uvm_reg_cvr_t) uvm_reg_cvr_rsrc_db;
    } uvm_status_e;
 
 
-// Enum -- NODOCS -- uvm_door_e
+// Enum: uvm_path_e
 //
 // Path used for register operation
 //
@@ -164,22 +160,17 @@ typedef uvm_resource_db#(uvm_reg_cvr_t) uvm_reg_cvr_rsrc_db;
 // UVM_BACKDOOR     - Use the back door
 // UVM_PREDICT      - Operation derived from observations by a bus monitor via
 //                    the <uvm_reg_predictor> class.
-// UVM_DEFAULT_DOOR - Operation specified by the context
+// UVM_DEFAULT_PATH - Operation specified by the context
 //
-
    typedef enum {
       UVM_FRONTDOOR,
       UVM_BACKDOOR,
       UVM_PREDICT,
-      UVM_DEFAULT_DOOR
-   } uvm_door_e;
+      UVM_DEFAULT_PATH
+   } uvm_path_e;
 
-`ifdef UVM_ENABLE_DEPRECATED_API
-   typedef uvm_door_e uvm_path_e;
-   parameter uvm_path_e UVM_DEFAULT_PATH = UVM_DEFAULT_DOOR;
-`endif
 
-// Enum -- NODOCS -- uvm_check_e
+// Enum: uvm_check_e
 //
 // Read-only or read-and-check
 //
@@ -192,7 +183,7 @@ typedef uvm_resource_db#(uvm_reg_cvr_t) uvm_reg_cvr_rsrc_db;
    } uvm_check_e;
 
 
-// Enum -- NODOCS -- uvm_endianness_e
+// Enum: uvm_endianness_e
 //
 // Specifies byte ordering
 //
@@ -211,7 +202,7 @@ typedef uvm_resource_db#(uvm_reg_cvr_t) uvm_reg_cvr_rsrc_db;
    } uvm_endianness_e;
 
 
-// Enum -- NODOCS -- uvm_elem_kind_e
+// Enum: uvm_elem_kind_e
 //
 // Type of element being read or written
 //
@@ -226,7 +217,7 @@ typedef uvm_resource_db#(uvm_reg_cvr_t) uvm_reg_cvr_rsrc_db;
    } uvm_elem_kind_e;
 
 
-// Enum -- NODOCS -- uvm_access_e
+// Enum: uvm_access_e
 //
 // Type of operation begin performed
 //
@@ -241,7 +232,7 @@ typedef uvm_resource_db#(uvm_reg_cvr_t) uvm_reg_cvr_rsrc_db;
    } uvm_access_e;
 
 
-// Enum -- NODOCS -- uvm_hier_e
+// Enum: uvm_hier_e
 //
 // Whether to provide the requested information from a hierarchical context.
 //
@@ -254,7 +245,7 @@ typedef uvm_resource_db#(uvm_reg_cvr_t) uvm_reg_cvr_rsrc_db;
    } uvm_hier_e;
 
 
-// Enum -- NODOCS -- uvm_predict_e
+// Enum: uvm_predict_e
 //
 // How the mirror is to be updated
 //
@@ -269,7 +260,7 @@ typedef uvm_resource_db#(uvm_reg_cvr_t) uvm_reg_cvr_rsrc_db;
    } uvm_predict_e;
 
 
-// Enum -- NODOCS -- uvm_coverage_model_e
+// Enum: uvm_coverage_model_e
 //
 // Coverage models available or desired.
 // Multiple models may be specified by bitwise OR'ing individual model identifiers.
@@ -289,7 +280,7 @@ typedef uvm_resource_db#(uvm_reg_cvr_t) uvm_reg_cvr_rsrc_db;
    } uvm_coverage_model_e;
 
 
-// Enum -- NODOCS -- uvm_reg_mem_tests_e
+// Enum: uvm_reg_mem_tests_e
 //
 // Select which pre-defined test sequence to execute.
 //
@@ -320,11 +311,11 @@ typedef enum bit [63:0] {
 
 
 //-----------------------
-// Group -- NODOCS -- Utility Classes
+// Group: Utility Classes
 //-----------------------
 
 //------------------------------------------------------------------------------
-// Class -- NODOCS -- uvm_hdl_path_concat
+// Class: uvm_hdl_path_concat
 //
 // Concatenation of HDL variables
 //
@@ -354,25 +345,25 @@ typedef enum bit [63:0] {
 
 class uvm_hdl_path_concat;
 
-   // Variable -- NODOCS -- slices
+   // Variable: slices
    // Array of individual slices,
    // stored in most-to-least significant order
    uvm_hdl_path_slice slices[];
 
-   // Function -- NODOCS -- set
+   // Function: set
    // Initialize the concatenation using an array literal
    function void set(uvm_hdl_path_slice t[]);
       slices = t;
    endfunction
 
-   // Function -- NODOCS -- add_slice
+   // Function: add_slice
    // Append the specified ~slice~ literal to the path concatenation
    function void add_slice(uvm_hdl_path_slice slice);
       slices = new [slices.size()+1] (slices);
       slices[slices.size()-1] = slice;
    endfunction
 
-   // Function -- NODOCS -- add_path
+   // Function: add_path
    // Append the specified ~path~ to the path concatenation,
    // for the specified number of bits at the specified ~offset~.
    function void add_path(string path,

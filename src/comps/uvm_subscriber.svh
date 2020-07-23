@@ -1,8 +1,8 @@
 //
 //------------------------------------------------------------------------------
-// Copyright 2007-2011 Mentor Graphics Corporation
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2015 NVIDIA Corporation
+//   Copyright 2007-2011 Mentor Graphics Corporation
+//   Copyright 2007-2010 Cadence Design Systems, Inc. 
+//   Copyright 2010 Synopsys, Inc.
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -22,7 +22,7 @@
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_subscriber
+// CLASS: uvm_subscriber
 //
 // This class provides an analysis export for receiving transactions from a
 // connected analysis export. Making such a connection "subscribes" this
@@ -33,19 +33,18 @@
 // collector that attaches to a monitor. 
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 13.9.1
 virtual class uvm_subscriber #(type T=int) extends uvm_component;
 
   typedef uvm_subscriber #(T) this_type;
 
-  // Port -- NODOCS -- analysis_export
+  // Port: analysis_export
   //
   // This export provides access to the write method, which derived subscribers
   // must implement.
 
   uvm_analysis_imp #(T, this_type) analysis_export;
   
-  // Function -- NODOCS -- new
+  // Function: new
   //
   // Creates and initializes an instance of this class using the normal
   // constructor arguments for <uvm_component>: ~name~ is the name of the
@@ -56,13 +55,13 @@ virtual class uvm_subscriber #(type T=int) extends uvm_component;
     analysis_export = new("analysis_imp", this);
   endfunction
   
-  // Function -- NODOCS -- write
+  // Function: write
   //
   // A pure virtual method that must be defined in each subclass. Access
   // to this method by outside components should be done via the
   // analysis_export.
 
-  // @uvm-ieee 1800.2-2017 auto 13.9.3.2
   pure virtual function void write(T t);
     
 endclass
+

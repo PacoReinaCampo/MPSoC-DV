@@ -1,10 +1,8 @@
 // 
 // -------------------------------------------------------------
-// Copyright 2010-2011 Mentor Graphics Corporation
-// Copyright 2004-2010 Synopsys, Inc.
-// Copyright 2010-2018 Cadence Design Systems, Inc.
-// Copyright 2010 AMD
-// Copyright 2015 NVIDIA Corporation
+//    Copyright 2004-2008 Synopsys, Inc.
+//    Copyright 2010 Mentor Graphics Corporation
+//    Copyright 2010-2013 Cadence Design Systems, Inc.
 //    All Rights Reserved Worldwide
 // 
 //    Licensed under the Apache License, Version 2.0 (the
@@ -25,7 +23,7 @@
 
 //------------------------------------------------------------------------------
 //
-// Title -- NODOCS -- Register Access Test Sequences
+// Title: Register Access Test Sequences
 //
 // This section defines sequences that test DUT register access via the
 // available frontdoor and backdoor paths defined in the provided register
@@ -36,7 +34,7 @@ typedef class uvm_mem_access_seq;
 
 //------------------------------------------------------------------------------
 //
-// Class -- NODOCS -- uvm_reg_single_access_seq
+// Class: uvm_reg_single_access_seq
 //
 // Verify the accessibility of a register
 // by writing through its default address map
@@ -61,16 +59,14 @@ typedef class uvm_mem_access_seq;
 //
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto E.3.1.1
 class uvm_reg_single_access_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item));
 
-   // Variable -- NODOCS -- rg
+   // Variable: rg
    // The register to be tested
    uvm_reg rg;
 
    `uvm_object_utils(uvm_reg_single_access_seq)
 
-   // @uvm-ieee 1800.2-2017 auto E.3.1.3
    function new(string name="uvm_reg_single_access_seq");
      super.new(name);
    endfunction
@@ -179,7 +175,7 @@ endclass: uvm_reg_single_access_seq
 
 //------------------------------------------------------------------------------
 //
-// Class -- NODOCS -- uvm_reg_access_seq
+// Class: uvm_reg_access_seq
 //
 // Verify the accessibility of all registers in a block
 // by executing the <uvm_reg_single_access_seq> sequence on
@@ -196,17 +192,16 @@ endclass: uvm_reg_single_access_seq
 //
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto E.3.2.1
 class uvm_reg_access_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item));
 
-   // Variable -- NODOCS -- model
+   // Variable: model
    //
    // The block to be tested. Declared in the base class.
    //
    //| uvm_reg_block model; 
 
 
-   // Variable -- NODOCS -- reg_seq
+   // Variable: reg_seq
    //
    // The sequence used to test one register
    //
@@ -214,14 +209,16 @@ class uvm_reg_access_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item)
    
    `uvm_object_utils(uvm_reg_access_seq)
 
-   // @uvm-ieee 1800.2-2017 auto E.3.2.3.1
    function new(string name="uvm_reg_access_seq");
      super.new(name);
    endfunction
 
 
-
-   // @uvm-ieee 1800.2-2017 auto E.3.2.3.2
+   // Task: body
+   //
+   // Executes the Register Access sequence.
+   // Do not call directly. Use seq.start() instead.
+   //
    virtual task body();
 
       if (model == null) begin
@@ -240,7 +237,7 @@ class uvm_reg_access_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item)
    endtask: body
 
 
-   // Task -- NODOCS -- do_block
+   // Task: do_block
    //
    // Test all of the registers in a block
    //
@@ -285,7 +282,7 @@ class uvm_reg_access_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item)
    endtask: do_block
 
 
-   // Task -- NODOCS -- reset_blk
+   // Task: reset_blk
    //
    // Reset the DUT that corresponds to the specified block abstraction class.
    //
@@ -306,7 +303,7 @@ endclass: uvm_reg_access_seq
 
 //------------------------------------------------------------------------------
 //
-// Class -- NODOCS -- uvm_reg_mem_access_seq
+// Class: uvm_reg_mem_access_seq
 //
 // Verify the accessibility of all registers and memories in a block
 // by executing the <uvm_reg_access_seq> and
@@ -318,12 +315,10 @@ endclass: uvm_reg_access_seq
 //
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto E.3.3.1
 class uvm_reg_mem_access_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item));
 
    `uvm_object_utils(uvm_reg_mem_access_seq)
 
-   // @uvm-ieee 1800.2-2017 auto E.3.3.2
    function new(string name="uvm_reg_mem_access_seq");
      super.new(name);
    endfunction

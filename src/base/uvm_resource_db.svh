@@ -1,15 +1,6 @@
 //----------------------------------------------------------------------
-// Copyright 2010-2011 Paradigm Works
-// Copyright 2010-2011 Mentor Graphics Corporation
-// Copyright 2015 Analog Devices, Inc.
-// Copyright 2017 Intel Corporation
-// Copyright 2010-2014 Synopsys, Inc.
-// Copyright 2010-2018 Cadence Design Systems, Inc.
-// Copyright 2011 AMD
-// Copyright 2014-2018 NVIDIA Corporation
-// Copyright 2017 Cisco Systems, Inc.
-// Copyright 2011 Cypress Semiconductor Corp.
-// Copyright 2017 Verific
+//   Copyright 2011 Cypress Semiconductor
+//   Copyright 2010 Mentor Graphics Corporation
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -28,7 +19,7 @@
 //----------------------------------------------------------------------
 
 //----------------------------------------------------------------------
-// Title -- NODOCS -- UVM Resource Database
+// Title: UVM Resource Database
 //
 // Topic: Intro
 //
@@ -46,14 +37,20 @@
 typedef class uvm_resource_db_options;
 typedef class uvm_cmdline_processor;
 
-
-// Class: uvm_resource_db
-// Implementation of uvm_resource_db, as defined in section
-// C.3.2.1 of 1800.2-2017.
+//----------------------------------------------------------------------
+// class: uvm_resource_db
 //
-//| class uvm_resource_db#(type T=uvm_object)
-  
-// @uvm-ieee 1800.2-2017 auto C.3.2.1
+// All of the functions in uvm_resource_db#(T) are static, so they
+// must be called using the :: operator.  For example:
+//
+//|  uvm_resource_db#(int)::set("A", "*", 17, this);
+//
+// The parameter value "int" identifies the resource type as
+// uvm_resource#(int).  Thus, the type of the object in the resource
+// container is int. This maintains the type-safety characteristics of
+// resource operations.
+//
+//----------------------------------------------------------------------
 class uvm_resource_db #(type T=uvm_object);
 
   typedef uvm_resource #(T) rsrc_t;
@@ -61,79 +58,42 @@ class uvm_resource_db #(type T=uvm_object);
   protected function new();
   endfunction
 
-  // function -- NODOCS -- get_by_type
+  // function: get_by_type
   //
   // Get a resource by type.  The type is specified in the db
   // class parameter so the only argument to this function is the
   // ~scope~.
 
-  // @uvm-ieee 1800.2-2017 auto C.3.2.2.5
   static function rsrc_t get_by_type(string scope);
-    uvm_resource_pool rp = uvm_resource_pool::get();
-    uvm_resource_base rsrc_base;
-    rsrc_t rsrc;
-    string msg;
-    uvm_resource_base type_handle = rsrc_t::get_type();
-
-    if(type_handle == null)
-       return null;
-
-    rsrc_base = rp.get_by_type(scope, type_handle);
-    if(!$cast(rsrc, rsrc_base)) begin
-      $sformat(msg, "Resource with specified type handle in scope %s was not located", scope);
-      `uvm_warning("RSRCNF", msg)
-      return null;
-    end
-
-    return rsrc;
+    return rsrc_t::get_by_type(scope, rsrc_t::get_type());
   endfunction
 
-  // function -- NODOCS -- get_by_name
+  // function: get_by_name
   //
   // Imports a resource by ~name~.  The first argument is the current 
   // ~scope~ of the resource to be retrieved and the second argument is
   // the ~name~. The ~rpterr~ flag indicates whether or not to generate
   // a warning if no matching resource is found.
 
-  // @uvm-ieee 1800.2-2017 auto C.3.2.2.4
   static function rsrc_t get_by_name(string scope,
                                      string name,
                                      bit rpterr=1);
 
-    uvm_resource_pool rp = uvm_resource_pool::get();
-    uvm_resource_base rsrc_base;
-    rsrc_t rsrc;
-    string msg;
-
-    rsrc_base = rp.get_by_name(scope, name, rsrc_t::get_type(), rpterr);
-    if(rsrc_base == null)
-      return null;
-
-    if(!$cast(rsrc, rsrc_base)) begin
-      if(rpterr) begin
-        $sformat(msg, "Resource with name %s in scope %s has incorrect type", name, scope);
-        `uvm_warning("RSRCTYPE", msg)
-      end
-      return null;
-    end
-
-    return rsrc;
+    return rsrc_t::get_by_name(scope, name, rpterr);
   endfunction
 
-  // function -- NODOCS -- set_default
+  // function: set_default
   //
   // add a new item into the resources database.  The item will not be
   // written to so it will have its default value. The resource is
   // created using ~name~ and ~scope~ as the lookup parameters.
 
-  // @uvm-ieee 1800.2-2017 auto C.3.2.2.2
   static function rsrc_t set_default(string scope, string name);
 
     rsrc_t r;
-    uvm_resource_pool rp = uvm_resource_pool::get();
     
-    r = new(name);
-    rp.set_scope(r, scope);
+    r = new(name, scope);
+    r.set();
     return r;
   endfunction
 
@@ -153,37 +113,42 @@ class uvm_resource_db #(type T=uvm_object);
           T foo;
           string msg=`uvm_typename(foo);
 
-          $sformat(msg, "%s scope='%s' name='%s' (type %s) %s accessor=%s = %s",
-              rtype,scope,name, msg,action,
+          $sformat(msg, "%s '%s%s' (type %s) %s by %s = %s",
+              rtype,scope, name=="" ? "" : {".",name}, msg,action,
               (accessor != null) ? accessor.get_full_name() : "<unknown>",
               rsrc==null?"null (failed lookup)":rsrc.convert2string());
 
           `uvm_info(id, msg, UVM_LOW)
   endfunction
 
-
-  // @uvm-ieee 1800.2-2017 auto C.3.2.2.1
+  // function: set
+  //
+  // Create a new resource, write a ~val~ to it, and set it into the
+  // database using ~name~ and ~scope~ as the lookup parameters. The
+  // ~accessor~ is used for auditing.
   static function void set(input string scope, input string name,
                            T val, input uvm_object accessor = null);
 
-    uvm_resource_pool rp = uvm_resource_pool::get();
-    rsrc_t rsrc = new(name);
+    rsrc_t rsrc = new(name, scope);
     rsrc.write(val, accessor);
-    rp.set_scope(rsrc, scope);
+    rsrc.set();
 
     if(uvm_resource_db_options::is_tracing())
       m_show_msg("RSRCDB/SET", "Resource","set", scope, name, accessor, rsrc);
   endfunction
 
-
-  // @uvm-ieee 1800.2-2017 auto C.3.2.2.3
+  // function: set_anonymous
+  //
+  // Create a new resource, write a ~val~ to it, and set it into the
+  // database.  The resource has no name and therefore will not be
+  // entered into the name map. But is does have a ~scope~ for lookup
+  // purposes. The ~accessor~ is used for auditing.
   static function void set_anonymous(input string scope,
                                      T val, input uvm_object accessor = null);
 
-    uvm_resource_pool rp = uvm_resource_pool::get();
-    rsrc_t rsrc = new("");
+    rsrc_t rsrc = new("", scope);
     rsrc.write(val, accessor);
-    rp.set_scope(rsrc, scope);
+    rsrc.set();
 
     if(uvm_resource_db_options::is_tracing())
       m_show_msg("RSRCDB/SETANON","Resource", "set", scope, "", accessor, rsrc);
@@ -198,11 +163,9 @@ class uvm_resource_db #(type T=uvm_object);
 
   static function void set_override(input string scope, input string name,
                                     T val, uvm_object accessor = null);
-
-    uvm_resource_pool rp = uvm_resource_pool::get();
-    rsrc_t rsrc = new(name);
+    rsrc_t rsrc = new(name, scope);
     rsrc.write(val, accessor);
-    rp.set_override(rsrc, scope);
+    rsrc.set_override();
 
     if(uvm_resource_db_options::is_tracing())
       m_show_msg("RSRCDB/SETOVRD", "Resource","set", scope, name, accessor, rsrc);
@@ -220,11 +183,9 @@ class uvm_resource_db #(type T=uvm_object);
 
   static function void set_override_type(input string scope, input string name,
                                          T val, uvm_object accessor = null);
-
-    uvm_resource_pool rp = uvm_resource_pool::get();
-    rsrc_t rsrc = new(name);
+    rsrc_t rsrc = new(name, scope);
     rsrc.write(val, accessor);
-    rp.set_type_override(rsrc, scope);
+    rsrc.set_override(uvm_resource_types::TYPE_OVERRIDE);
 
     if(uvm_resource_db_options::is_tracing())
       m_show_msg("RSRCDB/SETOVRDTYP","Resource", "set", scope, name, accessor, rsrc);
@@ -240,38 +201,20 @@ class uvm_resource_db #(type T=uvm_object);
 
   static function void set_override_name(input string scope, input string name,
                                   T val, uvm_object accessor = null);
-
-    uvm_resource_pool rp = uvm_resource_pool::get();
-    rsrc_t rsrc = new(name);
+    rsrc_t rsrc = new(name, scope);
     rsrc.write(val, accessor);
-    rp.set_name_override(rsrc, scope);
+    rsrc.set_override(uvm_resource_types::NAME_OVERRIDE);
 
     if(uvm_resource_db_options::is_tracing())
       m_show_msg("RSRCDB/SETOVRDNAM","Resource", "set", scope, name, accessor, rsrc);
   endfunction
 
-
   // function: read_by_name
   //
-  // Locates a resource by name and scope and reads its value. The value is returned through the inout argument
-  // val. The return value is a bit that indicates whether or not the read was successful. The accessor is available
-  // for an implementation to use for debug purposes only; its value shall have no functional effect on outcome
-  // of this method.
-  //
-  // *Note:*  This function deviates from IEEE 1800.2-2017 LRM as it defines the ~val~ argument as inout, 
-  // whereas the LRM defines it as an output.
-  //
-  //|   static function bit read_by_name(input string scope,
-  //|                                    input string name,
-  //|                                    inout T val, 
-  //|                                    input uvm_object accessor = null);
-  //
-  //  The implementation treats the argument as inout for cases where a read may fail 
-  //  and the value will not change from its original supplied value.
-  //
-  // @uvm-contrib This API is being considered for potential contribution to 1800.2
-
-  // @uvm-ieee 1800.2-2017 auto C.3.2.2.6
+  // locate a resource by ~name~ and ~scope~ and read its value. The value 
+  // is returned through the output argument ~val~.  The return value is a bit 
+  // that indicates whether or not the read was successful. The ~accessor~
+  // is used for auditing.
   static function bit read_by_name(input string scope,
                                    input string name,
                                    inout T val, input uvm_object accessor = null);
@@ -292,24 +235,10 @@ class uvm_resource_db #(type T=uvm_object);
 
   // function: read_by_type
   //
-  // Reads a value by type. The value is returned through the inout argument val. The scope is used for the
-  // lookup. The return value is a bit that indicates whether or not the read is successful. The accessor is
-  // available for an implementation to use for debug purposes only; its value shall have no functional effect on
-  // outcome of this method.
-  // 
-  // *Note:* This function deviates from IEEE 1800.2-2017 LRM as it defines the <val> argument as inout, whereas the
-  // LRM defines it as an output.
-  //
-  //|    static function bit read_by_type(input string scope,
-  //|                                     inout T val,
-  //|                                     input uvm_object accessor = null);
-  //
-  // The implementation treats the argument as inout for cases where a read may fail 
-  // and the value will not change from its original supplied value.
-  //
-  // @uvm-contrib This API is being considered for potential contribution to 1800.2
-
-  // @uvm-ieee 1800.2-2017 auto C.3.2.2.7
+  // Read a value by type.  The value is returned through the output
+  // argument ~val~.  The ~scope~ is used for the lookup. The return
+  // value is a bit that indicates whether or not the read is successful.
+  // The ~accessor~ is used for auditing.
   static function bit read_by_type(input string scope,
                                    inout T val,
                                    input uvm_object accessor = null);
@@ -328,8 +257,18 @@ class uvm_resource_db #(type T=uvm_object);
 
   endfunction
 
-
-  // @uvm-ieee 1800.2-2017 auto C.3.2.2.8
+  // function: write_by_name
+  //
+  // write a ~val~ into the resources database.  First, look up the
+  // resource by ~name~ and ~scope~.  If it is not located then add a new 
+  // resource to the database and then write its value.
+  //
+  // Because the ~scope~ is matched to a resource which may be a
+  // regular expression, and consequently may target other scopes beyond
+  // the ~scope~ argument. Care must be taken with this function. If
+  // a <get_by_name> match is found for ~name~ and ~scope~ then ~val~
+  // will be written to that matching resource and thus may impact
+  // other scopes which also match the resource.
   static function bit write_by_name(input string scope, input string name,
                                     input T val, input uvm_object accessor = null);
 
@@ -347,8 +286,18 @@ class uvm_resource_db #(type T=uvm_object);
 
   endfunction
 
-
-  // @uvm-ieee 1800.2-2017 auto C.3.2.2.9
+  // function: write_by_type
+  //
+  // write a ~val~ into the resources database.  First, look up the
+  // resource by type.  If it is not located then add a new resource to
+  // the database and then write its value.
+  //
+  // Because the ~scope~ is matched to a resource which may be a
+  // regular expression, and consequently may target other scopes beyond
+  // the ~scope~ argument. Care must be taken with this function. If
+  // a <get_by_name> match is found for ~name~ and ~scope~ then ~val~
+  // will be written to that matching resource and thus may impact
+  // other scopes which also match the resource.
   static function bit write_by_type(input string scope,
                                     input T val, input uvm_object accessor = null);
 
@@ -365,7 +314,7 @@ class uvm_resource_db #(type T=uvm_object);
     return 1;
   endfunction
 
-  // function -- NODOCS -- dump
+  // function: dump
   //
   // Dump all the resources in the resource pool. This is useful for
   // debugging purposes.  This function does not use the parameter T, so
@@ -380,3 +329,71 @@ class uvm_resource_db #(type T=uvm_object);
 endclass
 
 
+//----------------------------------------------------------------------
+// Class: uvm_resource_db_options
+//
+// Provides a namespace for managing options for the
+// resources DB facility.  The only thing allowed in this class is static
+// local data members and static functions for manipulating and
+// retrieving the value of the data members.  The static local data
+// members represent options and settings that control the behavior of
+// the resources DB facility.
+
+// Options include:
+//
+//  * tracing:  on/off
+//
+//    The default for tracing is off.
+//
+//----------------------------------------------------------------------
+class uvm_resource_db_options;
+   
+  static local bit ready;
+  static local bit tracing;
+
+  // Function: turn_on_tracing
+  //
+  // Turn tracing on for the resource database. This causes all
+  // reads and writes to the database to display information about
+  // the accesses. Tracing is off by default.
+  //
+  // This method is implicitly called by the ~+UVM_RESOURCE_DB_TRACE~.
+
+  static function void turn_on_tracing();
+     if (!ready) init();
+    tracing = 1;
+  endfunction
+
+  // Function: turn_off_tracing
+  //
+  // Turn tracing off for the resource database.
+
+  static function void turn_off_tracing();
+     if (!ready) init();
+    tracing = 0;
+  endfunction
+
+  // Function: is_tracing
+  //
+  // Returns 1 if the tracing facility is on and 0 if it is off.
+
+  static function bit is_tracing();
+    if (!ready) init();
+    return tracing;
+  endfunction
+
+
+  static local function void init();
+     uvm_cmdline_processor clp;
+     string trace_args[$];
+     
+     clp = uvm_cmdline_processor::get_inst();
+
+     if (clp.get_arg_matches("+UVM_RESOURCE_DB_TRACE", trace_args)) begin
+        tracing = 1;
+     end
+
+     ready = 1;
+  endfunction
+
+endclass

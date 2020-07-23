@@ -1,10 +1,7 @@
 //
 //--------------------------------------------------------------
-// Copyright 2010-2011 Mentor Graphics Corporation
-// Copyright 2004-2018 Synopsys, Inc.
-// Copyright 2010-2018 Cadence Design Systems, Inc.
-// Copyright 2010 AMD
-// Copyright 2014-2018 NVIDIA Corporation
+//    Copyright 2004-2009 Synopsys, Inc.
+//    Copyright 2010 Mentor Graphics Corporation
 //    All Rights Reserved Worldwide
 //
 //    Licensed under the Apache License, Version 2.0 (the
@@ -24,7 +21,7 @@
 //
  
 //------------------------------------------------------------------------------
-// Title -- NODOCS -- Generic Register Operation Descriptors
+// Title: Generic Register Operation Descriptors
 //
 // This section defines the abstract register transaction item. It also defines
 // a descriptor for a physical bus operation that is used by <uvm_reg_adapter>
@@ -34,26 +31,25 @@
 
 
 //------------------------------------------------------------------------------
-// CLASS -- NODOCS -- uvm_reg_item
+// CLASS: uvm_reg_item
 //
 // Defines an abstract register transaction item. No bus-specific information
 // is present, although a handle to a <uvm_reg_map> is provided in case a user
 // wishes to implement a custom address translation algorithm.
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 19.1.1.1
 class uvm_reg_item extends uvm_sequence_item;
 
   `uvm_object_utils(uvm_reg_item)
 
-  // Variable -- NODOCS -- element_kind
+  // Variable: element_kind
   //
   // Kind of element being accessed: REG, MEM, or FIELD. See <uvm_elem_kind_e>.
   //
   uvm_elem_kind_e element_kind;
 
 
-  // Variable -- NODOCS -- element
+  // Variable: element
   //
   // A handle to the RegModel model element associated with this transaction.
   // Use <element_kind> to determine the type to cast  to: <uvm_reg>,
@@ -62,14 +58,14 @@ class uvm_reg_item extends uvm_sequence_item;
   uvm_object element;
 
 
-  // Variable -- NODOCS -- kind
+  // Variable: kind
   //
   // Kind of access: READ or WRITE.
   //
   rand uvm_access_e kind;
 
 
-  // Variable -- NODOCS -- value
+  // Variable: value
   //
   // The value to write to, or after completion, the value read from the DUT.
   // Burst operations use the <values> property.
@@ -80,7 +76,7 @@ class uvm_reg_item extends uvm_sequence_item;
   // TODO: parameterize
   constraint max_values { value.size() > 0 && value.size() < 1000; }
 
-  // Variable -- NODOCS -- offset
+  // Variable: offset
   //
   // For memory accesses, the offset address. For bursts,
   // the ~starting~ offset address.
@@ -88,7 +84,7 @@ class uvm_reg_item extends uvm_sequence_item;
   rand uvm_reg_addr_t offset;
 
 
-  // Variable -- NODOCS -- status
+  // Variable: status
   //
   // The result of the transaction: IS_OK, HAS_X, or ERROR.
   // See <uvm_status_e>.
@@ -96,7 +92,7 @@ class uvm_reg_item extends uvm_sequence_item;
   uvm_status_e status;
 
 
-  // Variable -- NODOCS -- local_map
+  // Variable: local_map
   //
   // The local map used to obtain addresses. Users may customize 
   // address-translation using this map. Access to the sequencer
@@ -107,7 +103,7 @@ class uvm_reg_item extends uvm_sequence_item;
   uvm_reg_map local_map;
 
 
-  // Variable -- NODOCS -- map
+  // Variable: map
   //
   // The original map specified for the operation. The actual <map>
   // used may differ when a test or sequence written at the block
@@ -116,21 +112,21 @@ class uvm_reg_item extends uvm_sequence_item;
   uvm_reg_map map;
 
 
-  // Variable -- NODOCS -- path
+  // Variable: path
   //
   // The path being used: <UVM_FRONTDOOR> or <UVM_BACKDOOR>.
   //
-  uvm_door_e path;
+  uvm_path_e path;
 
 
-  // Variable -- NODOCS -- parent
+  // Variable: parent
   //
   // The sequence from which the operation originated.
   //
   rand uvm_sequence_base parent;
 
 
-  // Variable -- NODOCS -- prior
+  // Variable: prior
   //
   // The priority requested of this transfer, as defined by
   // <uvm_sequence_base::start_item>.
@@ -138,7 +134,7 @@ class uvm_reg_item extends uvm_sequence_item;
   int prior = -1;
 
 
-  // Variable -- NODOCS -- extension
+  // Variable: extension
   //
   // Handle to optional user data, as conveyed in the call to
   // write(), read(), mirror(), or update() used to trigger the operation.
@@ -146,7 +142,7 @@ class uvm_reg_item extends uvm_sequence_item;
   rand uvm_object extension;
 
 
-  // Variable -- NODOCS -- bd_kind
+  // Variable: bd_kind
   //
   // If path is UVM_BACKDOOR, this member specifies the abstraction 
   // kind for the backdoor access, e.g. "RTL" or "GATES".
@@ -154,7 +150,7 @@ class uvm_reg_item extends uvm_sequence_item;
   string bd_kind;
 
 
-  // Variable -- NODOCS -- fname
+  // Variable: fname
   //
   // The file name from where this transaction originated, if provided
   // at the call site.
@@ -162,7 +158,7 @@ class uvm_reg_item extends uvm_sequence_item;
   string fname;
 
 
-  // Variable -- NODOCS -- lineno
+  // Variable: lineno
   //
   // The file name from where this transaction originated, if provided 
   // at the call site.
@@ -170,16 +166,20 @@ class uvm_reg_item extends uvm_sequence_item;
   int lineno;
 
 
-
-  // @uvm-ieee 1800.2-2017 auto 19.1.1.3.1
+  // Function: new
+  //
+  // Create a new instance of this type, giving it the optional ~name~.
+  //
   function new(string name="");
     super.new(name);
     value = new[1];
   endfunction
 
 
-
-  // @uvm-ieee 1800.2-2017 auto 19.1.1.3.2
+  // Function: convert2string
+  //
+  // Returns a string showing the contents of this transaction.
+  //
   virtual function string convert2string();
     string s,value_s;
     s = {"kind=",kind.name(),
@@ -204,7 +204,7 @@ class uvm_reg_item extends uvm_sequence_item;
   endfunction
 
 
-  // Function -- NODOCS -- do_copy
+  // Function: do_copy
   //
   // Copy the ~rhs~ object into this object. The ~rhs~ object must
   // derive from <uvm_reg_item>.
@@ -218,7 +218,7 @@ class uvm_reg_item extends uvm_sequence_item;
       `uvm_error("WRONG_TYPE","Provided rhs is not of type uvm_reg_item")
       return;
     end
-    super.do_copy(rhs);
+    super.copy(rhs);
     element_kind = rhs_.element_kind;
     element = rhs_.element;
     kind = rhs_.kind;
@@ -240,21 +240,49 @@ endclass
 
 
 
+//------------------------------------------------------------------------------
+//
+// CLASS: uvm_reg_bus_op
+//
+// Struct that defines a generic bus transaction for register and memory accesses, having
+// ~kind~ (read or write), ~address~, ~data~, and ~byte enable~ information.
+// If the bus is narrower than the register or memory location being accessed,
+// there will be multiple of these bus operations for every abstract
+// <uvm_reg_item> transaction. In this case, ~data~ represents the portion 
+// of <uvm_reg_item::value> being transferred during this bus cycle. 
+// If the bus is wide enough to perform the register or memory operation in
+// a single cycle, ~data~ will be the same as <uvm_reg_item::value>.
+//------------------------------------------------------------------------------
 
 typedef struct {
 
-
+  // Variable: kind
+  //
+  // Kind of access: READ or WRITE.
+  //
   uvm_access_e kind;
 
 
-
+  // Variable: addr
+  //
+  // The bus address.
+  //
   uvm_reg_addr_t addr;
 
 
-
+  // Variable: data
+  //
+  // The data to write. If the bus width is smaller than the register or
+  // memory width, ~data~ represents only the portion of ~value~ that is
+  // being transferred this bus cycle.
+  //
   uvm_reg_data_t data;
 
    
+  // Variable: n_bits
+  //
+  // The number of bits of <uvm_reg_item::value> being transferred by
+  // this transaction.
 
   int n_bits;
 
@@ -266,11 +294,22 @@ typedef struct {
   */
 
 
-
+  // Variable: byte_en
+  //
+  // Enables for the byte lanes on the bus. Meaningful only when the
+  // bus supports byte enables and the operation originates from a field
+  // write/read.
+  //
   uvm_reg_byte_en_t byte_en;
 
 
-
+  // Variable: status
+  //
+  // The result of the transaction: UVM_IS_OK, UVM_HAS_X, UVM_NOT_OK.
+  // See <uvm_status_e>.
+  //
   uvm_status_e status;
 
 } uvm_reg_bus_op;
+
+

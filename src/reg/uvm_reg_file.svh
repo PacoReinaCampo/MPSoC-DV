@@ -1,11 +1,8 @@
 //
 // -------------------------------------------------------------
-// Copyright 2010-2011 Mentor Graphics Corporation
-// Copyright 2014 Semifore
-// Copyright 2010-2018 Synopsys, Inc.
-// Copyright 2010-2018 Cadence Design Systems, Inc.
-// Copyright 2010 AMD
-// Copyright 2015 NVIDIA Corporation
+//    Copyright 2010 Synopsys, Inc.
+//    Copyright 2010 Mentor Graphics Corporation
+//    Copyright 2010 Cadence Design Systems, Inc.
 //    All Rights Reserved Worldwide
 //
 //    Licensed under the Apache License, Version 2.0 (the
@@ -25,9 +22,16 @@
 //
 
 
-
-// @uvm-ieee 1800.2-2017 auto 18.3.1
-class uvm_reg_file extends uvm_object;
+//
+// CLASS: uvm_reg_file
+// Register file abstraction base class
+//
+// A register file is a collection of register files and registers
+// used to create regular repeated structures.
+//
+// Register files are usually instantiated as arrays.
+//
+virtual class uvm_reg_file extends uvm_object;
 
    local uvm_reg_block     parent;
    local uvm_reg_file   m_rf;
@@ -35,36 +39,55 @@ class uvm_reg_file extends uvm_object;
    local uvm_object_string_pool #(uvm_queue #(string)) hdl_paths_pool;
 
 
-   `uvm_object_utils(uvm_reg_file)
-
-
    //----------------------
-   // Group -- NODOCS -- Initialization
+   // Group: Initialization
    //----------------------
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.3.2.1
+   //
+   // Function: new
+   //
+   // Create a new instance
+   //
+   // Creates an instance of a register file abstraction class
+   // with the specified name.
+   //
    extern function                  new        (string name="");
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.3.2.2
+   //
+   // Function: configure
+   // Configure a register file instance
+   //
+   // Specify the parent block and register file of the register file
+   // instance.
+   // If the register file is instantiated in a block,
+   // ~regfile_parent~ is specified as ~null~.
+   // If the register file is instantiated in a register file,
+   // ~blk_parent~ must be the block parent of that register file and
+   // ~regfile_parent~ is specified as that register file.
+   //
+   // If the register file corresponds to a hierarchical RTL structure,
+   // its contribution to the HDL path is specified as the ~hdl_path~.
+   // Otherwise, the register file does not correspond to a hierarchical RTL
+   // structure (e.g. it is physically flattened) and does not contribute
+   // to the hierarchical HDL path of any contained registers.
+   //
    extern function void     configure  (uvm_reg_block blk_parent,
                                         uvm_reg_file regfile_parent,
                                         string hdl_path = "");
  
    //---------------------
-   // Group -- NODOCS -- Introspection
+   // Group: Introspection
    //---------------------
 
    //
-   // Function -- NODOCS -- get_name
+   // Function: get_name
    // Get the simple name
    //
    // Return the simple object name of this register file.
    //
 
    //
-   // Function -- NODOCS -- get_full_name
+   // Function: get_full_name
    // Get the hierarchical name
    //
    // Return the hierarchal name of this register file.
@@ -72,48 +95,115 @@ class uvm_reg_file extends uvm_object;
    //
    extern virtual function string        get_full_name();
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.3.3.1
+   //
+   // Function: get_parent
+   // Get the parent block
+   //
    extern virtual function uvm_reg_block get_parent ();
    extern virtual function uvm_reg_block get_block  ();
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.3.3.2
+   //
+   // Function: get_regfile
+   // Get the parent register file
+   //
+   // Returns ~null~ if this register file is instantiated in a block.
+   //
    extern virtual function uvm_reg_file  get_regfile     ();
 
 
    //----------------
-   // Group -- NODOCS -- Backdoor
+   // Group: Backdoor
    //----------------
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.3.4.1
+   //
+   // Function:  clear_hdl_path
+   // Delete HDL paths
+   //
+   // Remove any previously specified HDL path to the register file instance
+   // for the specified design abstraction.
+   //
    extern function void clear_hdl_path    (string kind = "RTL");
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.3.4.2
+   //
+   // Function:  add_hdl_path
+   // Add an HDL path
+   //
+   // Add the specified HDL path to the register file instance for the specified
+   // design abstraction. This method may be called more than once for the
+   // same design abstraction if the register file is physically duplicated
+   // in the design abstraction
+   //
    extern function void add_hdl_path      (string path, string kind = "RTL");
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.3.4.3
+   //
+   // Function:   has_hdl_path
+   // Check if a HDL path is specified
+   //
+   // Returns TRUE if the register file instance has a HDL path defined for the
+   // specified design abstraction. If no design abstraction is specified,
+   // uses the default design abstraction specified for the nearest
+   // enclosing register file or block
+   //
+   // If no design abstraction is specified, the default design abstraction
+   // for this register file is used.
+   //
    extern function bit  has_hdl_path      (string kind = "");
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.3.4.4
+   //
+   // Function:  get_hdl_path
+   // Get the incremental HDL path(s)
+   //
+   // Returns the HDL path(s) defined for the specified design abstraction
+   // in the register file instance. If no design abstraction is specified, uses
+   // the default design abstraction specified for the nearest enclosing
+   // register file or block.
+   // Returns only the component of the HDL paths that corresponds to
+   // the register file, not a full hierarchical path
+   //
+   // If no design abstraction is specified, the default design abstraction
+   // for this register file is used.
+   //
    extern function void get_hdl_path      (ref string paths[$], input string kind = "");
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.3.4.5
+   //
+   // Function:  get_full_hdl_path
+   // Get the full hierarchical HDL path(s)
+   //
+   // Returns the full hierarchical HDL path(s) defined for the specified
+   // design abstraction in the register file instance. If no design abstraction
+   // is specified, uses the default design abstraction specified for the
+   // nearest enclosing register file or block.
+   // There may be more than one path returned even
+   // if only one path was defined for the register file instance, if any of the
+   // parent components have more than one path defined for the same design
+   // abstraction
+   //
+   // If no design abstraction is specified, the default design abstraction
+   // for each ancestor register file or block is used to get each
+   // incremental path.
+   //
    extern function void get_full_hdl_path (ref string paths[$],
                                            input string kind = "",
                                            input string separator = ".");
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.3.4.7
+   //
+   // Function:    set_default_hdl_path
+   // Set the default design abstraction
+   //
+   // Set the default design abstraction for this register file instance.
+   //
    extern function void   set_default_hdl_path (string kind);
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.3.4.6
+   //
+   // Function:  get_default_hdl_path
+   // Get the default design abstraction
+   //
+   // Returns the default design abstraction for this register file instance.
+   // If a default design abstraction has not been explicitly set for this
+   // register file instance, returns the default design abstraction for the
+   // nearest register file or block ancestor.
+   // Returns "" if no default design abstraction has been specified.
+   //
    extern function string get_default_hdl_path ();
 
 
@@ -406,3 +496,5 @@ endfunction
 function void uvm_reg_file::do_unpack (uvm_packer packer);
   `uvm_warning("RegModel","RegModel register files cannot be unpacked")
 endfunction
+
+

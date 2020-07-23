@@ -1,12 +1,8 @@
 //
 // -------------------------------------------------------------
-// Copyright 2010-2011 Mentor Graphics Corporation
-// Copyright 2014 Semifore
-// Copyright 2004-2014 Synopsys, Inc.
-// Copyright 2010-2018 Cadence Design Systems, Inc.
-// Copyright 2010 AMD
-// Copyright 2014-2018 NVIDIA Corporation
-// Copyright 2018 Cisco Systems, Inc.
+//    Copyright 2004-2009 Synopsys, Inc.
+//    Copyright 2010-2011 Mentor Graphics Corporation
+//    Copyright 2010 Cadence Design Systems, Inc.
 //    All Rights Reserved Worldwide
 //
 //    Licensed under the Apache License, Version 2.0 (the
@@ -27,7 +23,7 @@
 
 //------------------------------------------------------------------------------
 //
-// Title -- NODOCS -- Memory Allocation Manager
+// Title: Memory Allocation Manager
 //
 // Manages the exclusive allocation of consecutive memory locations
 // called ~regions~.
@@ -57,7 +53,7 @@ typedef class uvm_mem;
 
 
 //------------------------------------------------------------------------------
-// CLASS -- NODOCS -- uvm_mem_mam
+// CLASS: uvm_mem_mam
 //------------------------------------------------------------------------------
 // Memory allocation manager
 //
@@ -67,14 +63,13 @@ typedef class uvm_mem;
 // contiguous address space.
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 18.12.1
 class uvm_mem_mam;
 
    //----------------------
-   // Group -- NODOCS -- Initialization
+   // Group: Initialization
    //----------------------
 
-   // Type -- NODOCS -- alloc_mode_e
+   // Type: alloc_mode_e
    //
    // Memory allocation mode
    //
@@ -86,7 +81,7 @@ class uvm_mem_mam;
    typedef enum {GREEDY, THRIFTY} alloc_mode_e;
 
 
-   // Type -- NODOCS -- locality_e
+   // Type: locality_e
    //
    // Location of memory regions
    //
@@ -99,7 +94,7 @@ class uvm_mem_mam;
 
 
 
-   // Variable -- NODOCS -- default_alloc
+   // Variable: default_alloc
    //
    // Region allocation policy
    //
@@ -115,7 +110,7 @@ class uvm_mem_mam;
    local int lineno;
 
 
-   // Function -- NODOCS -- new
+   // Function: new
    //
    // Create a new manager instance
    //
@@ -134,7 +129,7 @@ class uvm_mem_mam;
                        uvm_mem mem=null);
 
 
-   // Function -- NODOCS -- reconfigure
+   // Function: reconfigure
    //
    // Reconfigure the manager
    //
@@ -153,10 +148,10 @@ class uvm_mem_mam;
 
 
    //-------------------------
-   // Group -- NODOCS -- Memory Management
+   // Group: Memory Management
    //-------------------------
 
-   // Function -- NODOCS -- reserve_region
+   // Function: reserve_region
    //
    // Reserve a specific memory region
    //
@@ -178,7 +173,7 @@ class uvm_mem_mam;
                                                  int          lineno = 0);
 
 
-   // Function -- NODOCS -- request_region
+   // Function: request_region
    //
    // Request and reserve a memory region
    //
@@ -207,7 +202,7 @@ class uvm_mem_mam;
                                                  int            lineno = 0);
 
 
-   // Function -- NODOCS -- release_region
+   // Function: release_region
    //
    // Release the specified region
    //
@@ -219,7 +214,7 @@ class uvm_mem_mam;
    extern function void release_region(uvm_mem_region region);
 
 
-   // Function -- NODOCS -- release_all_regions
+   // Function: release_all_regions
    //
    // Forcibly release all allocated memory regions. 
    //
@@ -227,10 +222,10 @@ class uvm_mem_mam;
 
 
    //---------------------
-   // Group -- NODOCS -- Introspection
+   // Group: Introspection
    //---------------------
 
-   // Function -- NODOCS -- convert2string
+   // Function: convert2string
    //
    // Image of the state of the manager
    //
@@ -240,7 +235,7 @@ class uvm_mem_mam;
    extern function string convert2string();
 
 
-   // Function -- NODOCS -- for_each
+   // Function: for_each
    //
    // Iterate over all currently allocated regions
    //
@@ -252,7 +247,7 @@ class uvm_mem_mam;
    extern function uvm_mem_region for_each(bit reset = 0);
 
 
-   // Function -- NODOCS -- get_memory
+   // Function: get_memory
    //
    // Get the managed memory implementation
    //
@@ -269,7 +264,7 @@ endclass: uvm_mem_mam
 
 
 //------------------------------------------------------------------------------
-// CLASS -- NODOCS -- uvm_mem_region
+// CLASS: uvm_mem_region
 //------------------------------------------------------------------------------
 // Allocated memory region descriptor
 //
@@ -280,7 +275,6 @@ endclass: uvm_mem_mam
 // methods. 
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 18.12.7.1
 class uvm_mem_region;
 
    /*local*/ bit [63:0] Xstart_offsetX;  // Can't be local since function
@@ -300,7 +294,7 @@ class uvm_mem_region;
                                  int unsigned n_bytes,
                                  uvm_mem_mam      parent);
 
-   // Function -- NODOCS -- get_start_offset
+   // Function: get_start_offset
    //
    // Get the start offset of the region
    //
@@ -310,7 +304,7 @@ class uvm_mem_region;
    extern function bit [63:0] get_start_offset();
 
 
-   // Function -- NODOCS -- get_end_offset
+   // Function: get_end_offset
    //
    // Get the end offset of the region
    //
@@ -320,7 +314,7 @@ class uvm_mem_region;
    extern function bit [63:0] get_end_offset();
 
 
-   // Function -- NODOCS -- get_len
+   // Function: get_len
    //
    // Size of the memory region
    //
@@ -330,7 +324,7 @@ class uvm_mem_region;
    extern function int unsigned get_len();
 
 
-   // Function -- NODOCS -- get_n_bytes
+   // Function: get_n_bytes
    //
    // Number of bytes in the region
    //
@@ -342,27 +336,52 @@ class uvm_mem_region;
    extern function int unsigned get_n_bytes();
 
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.12.7.2.5
+   // Function: release_region
+   //
+   // Release this region
+   //
    extern function void release_region();
 
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.12.7.2.6
+   // Function: get_memory
+   //
+   // Get the memory where the region resides
+   //
+   // Return a reference to the memory abstraction class
+   // for the memory implementing this allocated memory region.
+   // Returns ~null~ if no memory abstraction class was specified
+   // for the allocation manager that allocated this region. 
+   //
    extern function uvm_mem get_memory();
 
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.12.7.2.7
+   // Function: get_virtual_registers
+   //
+   // Get the virtual register array in this region
+   //
+   // Return a reference to the virtual register array abstraction class
+   // implemented in this region.
+   // Returns ~null~ if the memory region is
+   // not known to implement virtual registers. 
+   //
    extern function uvm_vreg get_virtual_registers();
 
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.12.7.2.8
+   // Task: write
+   //
+   // Write to a memory location in the region.
+   //
+   // Write to the memory location that corresponds to the
+   // specified ~offset~ within this region.
+   // Requires that the memory abstraction class be associated with
+   // the memory allocation manager that allocated this region.
+   //
+   // See <uvm_mem::write()> for more details.
+   //
    extern task write(output uvm_status_e       status,
                      input  uvm_reg_addr_t     offset,
                      input  uvm_reg_data_t     value,
-                     input  uvm_door_e         path   = UVM_DEFAULT_DOOR,
+                     input  uvm_path_e         path   = UVM_DEFAULT_PATH,
                      input  uvm_reg_map        map    = null,
                      input  uvm_sequence_base  parent = null,
                      input  int                prior = -1,
@@ -371,12 +390,21 @@ class uvm_mem_region;
                      input  int                lineno = 0);
 
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.12.7.2.9
+   // Task: read
+   //
+   // Read from a memory location in the region.
+   //
+   // Read from the memory location that corresponds to the
+   // specified ~offset~ within this region.
+   // Requires that the memory abstraction class be associated with
+   // the memory allocation manager that allocated this region.
+   //
+   // See <uvm_mem::read()> for more details.
+   //
    extern task read(output uvm_status_e       status,
                     input  uvm_reg_addr_t     offset,
                     output uvm_reg_data_t     value,
-                    input  uvm_door_e         path   = UVM_DEFAULT_DOOR,
+                    input  uvm_path_e         path   = UVM_DEFAULT_PATH,
                     input  uvm_reg_map        map    = null,
                     input  uvm_sequence_base  parent = null,
                     input  int                prior = -1,
@@ -385,12 +413,21 @@ class uvm_mem_region;
                     input  int                lineno = 0);
 
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.12.7.2.10
+   // Task: burst_write
+   //
+   // Write to a set of memory location in the region.
+   //
+   // Write to the memory locations that corresponds to the
+   // specified ~burst~ within this region.
+   // Requires that the memory abstraction class be associated with
+   // the memory allocation manager that allocated this region.
+   //
+   // See <uvm_mem::burst_write()> for more details.
+   //
    extern task burst_write(output uvm_status_e       status,
                            input  uvm_reg_addr_t     offset,
                            input  uvm_reg_data_t     value[],
-                           input  uvm_door_e         path   = UVM_DEFAULT_DOOR,
+                           input  uvm_path_e         path   = UVM_DEFAULT_PATH,
                            input  uvm_reg_map        map    = null,
                            input  uvm_sequence_base  parent = null,
                            input  int                prior  = -1,
@@ -399,12 +436,21 @@ class uvm_mem_region;
                            input  int                lineno = 0);
 
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.12.7.2.11
+   // Task: burst_read
+   //
+   // Read from a set of memory location in the region.
+   //
+   // Read from the memory locations that corresponds to the
+   // specified ~burst~ within this region.
+   // Requires that the memory abstraction class be associated with
+   // the memory allocation manager that allocated this region.
+   //
+   // See <uvm_mem::burst_read()> for more details.
+   //
    extern task burst_read(output uvm_status_e       status,
                           input  uvm_reg_addr_t     offset,
                           output uvm_reg_data_t     value[],
-                          input  uvm_door_e         path   = UVM_DEFAULT_DOOR,
+                          input  uvm_path_e         path   = UVM_DEFAULT_PATH,
                           input  uvm_reg_map        map    = null,
                           input  uvm_sequence_base  parent = null,
                           input  int                prior  = -1,
@@ -413,8 +459,18 @@ class uvm_mem_region;
                           input  int                lineno = 0);
 
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.12.7.2.12
+   // Task: poke
+   //
+   // Deposit in a memory location in the region.
+   //
+   // Deposit the specified value in the memory location
+   // that corresponds to the
+   // specified ~offset~ within this region.
+   // Requires that the memory abstraction class be associated with
+   // the memory allocation manager that allocated this region.
+   //
+   // See <uvm_mem::poke()> for more details.
+   //
    extern task poke(output uvm_status_e       status,
                     input  uvm_reg_addr_t     offset,
                     input  uvm_reg_data_t     value,
@@ -424,8 +480,17 @@ class uvm_mem_region;
                     input  int                lineno = 0);
 
 
-
-   // @uvm-ieee 1800.2-2017 auto 18.12.7.2.13
+   // Task: peek
+   //
+   // Sample a memory location in the region.
+   //
+   // Sample the memory location that corresponds to the
+   // specified ~offset~ within this region.
+   // Requires that the memory abstraction class be associated with
+   // the memory allocation manager that allocated this region.
+   //
+   // See <uvm_mem::peek()> for more details.
+   //
    extern task peek(output uvm_status_e       status,
                     input  uvm_reg_addr_t     offset,
                     output uvm_reg_data_t     value,
@@ -442,7 +507,7 @@ endclass
 
 
 //------------------------------------------------------------------------------
-// Class -- NODOCS -- uvm_mem_mam_policy
+// Class: uvm_mem_mam_policy
 //------------------------------------------------------------------------------
 //
 // An instance of this class is randomized to determine
@@ -454,25 +519,24 @@ endclass
 // it can be implemented in the pre/post_randomize() method.
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 18.12.8.1
 class uvm_mem_mam_policy;
-   // variable -- NODOCS -- len
+   // variable: len
    // Number of addresses required
    int unsigned len;
 
-   // variable -- NODOCS -- start_offset
+   // variable: start_offset
    // The starting offset of the region
    rand bit [63:0] start_offset;
 
-   // variable -- NODOCS -- min_offset
+   // variable: min_offset
    // Minimum address offset in the managed address space
    bit [63:0] min_offset;
 
-   // variable -- NODOCS -- max_offset
+   // variable: max_offset
    // Maximum address offset in the managed address space
    bit [63:0] max_offset;
 
-   // variable -- NODOCS -- in_use
+   // variable: in_use
    // Regions already allocated in the managed address space
    uvm_mem_region in_use[$];
 
@@ -492,27 +556,30 @@ endclass
 
 
 
-
-// @uvm-ieee 1800.2-2017 auto 18.12.9.1
+//
+// CLASS: uvm_mem_mam_cfg
+// Specifies the memory managed by an instance of a <uvm_mem_mam> memory
+// allocation manager class. 
+//
 class uvm_mem_mam_cfg;
-   // variable -- NODOCS -- n_bytes
+   // variable: n_bytes
    // Number of bytes in each memory location
    rand int unsigned n_bytes;
 
-// Mantis 6601 calls for these two offset fields to be type longint unsigned
-   // variable -- NODOCS -- start_offset
+// FIXME start_offset and end_offset should be "longint unsigned" to match the memory addr types
+   // variable: start_offset
    // Lowest address of managed space
    rand bit [63:0] start_offset;
 
-   // variable -- NODOCS -- end_offset
+   // variable: end_offset
    // Last address of managed space
    rand bit [63:0] end_offset;
 
-   // variable -- NODOCS -- mode
+   // variable: mode
    // Region allocation mode
    rand uvm_mem_mam::alloc_mode_e mode;
 
-   // variable -- NODOCS -- locality
+   // variable: locality
    // Region location mode
    rand uvm_mem_mam::locality_e   locality;
 
@@ -635,13 +702,13 @@ function uvm_mem_region uvm_mem_mam::reserve_region(bit [63:0]   start_offset,
    this.fname = fname;
    this.lineno = lineno;
    if (n_bytes == 0) begin
-      `uvm_error("RegModel", "Cannot reserve 0 bytes")
+      `uvm_error("RegModel", "Cannot reserve 0 bytes");
       return null;
    end
 
    if (start_offset < this.cfg.start_offset) begin
       `uvm_error("RegModel", $sformatf("Cannot reserve before start of memory space: 'h%h < 'h%h",
-                                     start_offset, this.cfg.start_offset))
+                                     start_offset, this.cfg.start_offset));
       return null;
    end
 
@@ -650,7 +717,7 @@ function uvm_mem_region uvm_mem_mam::reserve_region(bit [63:0]   start_offset,
 
    if (end_offset > this.cfg.end_offset) begin
       `uvm_error("RegModel", $sformatf("Cannot reserve past end of memory space: 'h%h > 'h%h",
-                                     end_offset, this.cfg.end_offset))
+                                     end_offset, this.cfg.end_offset));
       return null;
    end
     
@@ -666,7 +733,7 @@ function uvm_mem_region uvm_mem_mam::reserve_region(bit [63:0]   start_offset,
          // Overlap!
          `uvm_error("RegModel", $sformatf("Cannot reserve ['h%h:'h%h] because it overlaps with %s",
                                         start_offset, end_offset,
-                                        this.in_use[i].convert2string()))
+                                        this.in_use[i].convert2string()));
          return null;
       end
 
@@ -699,7 +766,7 @@ function uvm_mem_region uvm_mem_mam::request_region(int unsigned      n_bytes,
    alloc.in_use     = this.in_use;
 
    if (!alloc.randomize()) begin
-      `uvm_error("RegModel", "Unable to randomize policy")
+      `uvm_error("RegModel", "Unable to randomize policy");
       return null;
    end
 
@@ -718,7 +785,7 @@ function void uvm_mem_mam::release_region(uvm_mem_region region);
       end
    end
    `uvm_error("RegModel", {"Attempting to release unallocated region\n",
-                      region.convert2string()})
+                      region.convert2string()});
 endfunction: release_region
 
 
@@ -757,7 +824,7 @@ endfunction: get_memory
 task uvm_mem_region::write(output uvm_status_e       status,
                            input  uvm_reg_addr_t     offset,
                            input  uvm_reg_data_t     value,
-                           input  uvm_door_e         path = UVM_DEFAULT_DOOR,
+                           input  uvm_path_e         path = UVM_DEFAULT_PATH,
                            input  uvm_reg_map        map    = null,
                            input  uvm_sequence_base  parent = null,
                            input  int                prior = -1,
@@ -770,7 +837,7 @@ task uvm_mem_region::write(output uvm_status_e       status,
    this.lineno = lineno;
 
    if (mem == null) begin
-      `uvm_error("RegModel", "Cannot use uvm_mem_region::write() on a region that was allocated by a Memory Allocation Manager that was not associated with a uvm_mem instance")
+      `uvm_error("RegModel", "Cannot use uvm_mem_region::write() on a region that was allocated by a Memory Allocation Manager that was not associated with a uvm_mem instance");
       status = UVM_NOT_OK;
       return;
    end
@@ -778,7 +845,7 @@ task uvm_mem_region::write(output uvm_status_e       status,
    if (offset > this.len) begin
       `uvm_error("RegModel",
                  $sformatf("Attempting to write to an offset outside of the allocated region (%0d > %0d)",
-                           offset, this.len))
+                           offset, this.len));
       status = UVM_NOT_OK;
       return;
    end
@@ -791,7 +858,7 @@ endtask: write
 task uvm_mem_region::read(output uvm_status_e       status,
                           input  uvm_reg_addr_t     offset,
                           output uvm_reg_data_t     value,
-                          input  uvm_door_e         path = UVM_DEFAULT_DOOR,
+                          input  uvm_path_e         path = UVM_DEFAULT_PATH,
                           input  uvm_reg_map        map    = null,
                           input  uvm_sequence_base  parent = null,
                           input  int                prior = -1,
@@ -803,7 +870,7 @@ task uvm_mem_region::read(output uvm_status_e       status,
    this.lineno = lineno;
 
    if (mem == null) begin
-      `uvm_error("RegModel", "Cannot use uvm_mem_region::read() on a region that was allocated by a Memory Allocation Manager that was not associated with a uvm_mem instance")
+      `uvm_error("RegModel", "Cannot use uvm_mem_region::read() on a region that was allocated by a Memory Allocation Manager that was not associated with a uvm_mem instance");
       status = UVM_NOT_OK;
       return;
    end
@@ -811,7 +878,7 @@ task uvm_mem_region::read(output uvm_status_e       status,
    if (offset > this.len) begin
       `uvm_error("RegModel",
                  $sformatf("Attempting to read from an offset outside of the allocated region (%0d > %0d)",
-                           offset, this.len))
+                           offset, this.len));
       status = UVM_NOT_OK;
       return;
    end
@@ -824,7 +891,7 @@ endtask: read
 task uvm_mem_region::burst_write(output uvm_status_e       status,
                                  input  uvm_reg_addr_t     offset,
                                  input  uvm_reg_data_t     value[],
-                                 input  uvm_door_e         path = UVM_DEFAULT_DOOR,
+                                 input  uvm_path_e         path = UVM_DEFAULT_PATH,
                                  input  uvm_reg_map        map    = null,
                                  input  uvm_sequence_base  parent = null,
                                  input  int                prior = -1,
@@ -836,7 +903,7 @@ task uvm_mem_region::burst_write(output uvm_status_e       status,
    this.lineno = lineno;
 
    if (mem == null) begin
-      `uvm_error("RegModel", "Cannot use uvm_mem_region::burst_write() on a region that was allocated by a Memory Allocation Manager that was not associated with a uvm_mem instance")
+      `uvm_error("RegModel", "Cannot use uvm_mem_region::burst_write() on a region that was allocated by a Memory Allocation Manager that was not associated with a uvm_mem instance");
       status = UVM_NOT_OK;
       return;
    end
@@ -858,7 +925,7 @@ endtask: burst_write
 task uvm_mem_region::burst_read(output uvm_status_e       status,
                                 input  uvm_reg_addr_t     offset,
                                 output uvm_reg_data_t     value[],
-                                input  uvm_door_e         path = UVM_DEFAULT_DOOR,
+                                input  uvm_path_e         path = UVM_DEFAULT_PATH,
                                 input  uvm_reg_map        map    = null,
                                 input  uvm_sequence_base  parent = null,
                                 input  int                prior = -1,
@@ -870,7 +937,7 @@ task uvm_mem_region::burst_read(output uvm_status_e       status,
    this.lineno = lineno;
 
    if (mem == null) begin
-      `uvm_error("RegModel", "Cannot use uvm_mem_region::burst_read() on a region that was allocated by a Memory Allocation Manager that was not associated with a uvm_mem instance")
+      `uvm_error("RegModel", "Cannot use uvm_mem_region::burst_read() on a region that was allocated by a Memory Allocation Manager that was not associated with a uvm_mem instance");
       status = UVM_NOT_OK;
       return;
    end
@@ -901,7 +968,7 @@ task uvm_mem_region::poke(output uvm_status_e       status,
    this.lineno = lineno;
 
    if (mem == null) begin
-      `uvm_error("RegModel", "Cannot use uvm_mem_region::poke() on a region that was allocated by a Memory Allocation Manager that was not associated with a uvm_mem instance")
+      `uvm_error("RegModel", "Cannot use uvm_mem_region::poke() on a region that was allocated by a Memory Allocation Manager that was not associated with a uvm_mem instance");
       status = UVM_NOT_OK;
       return;
    end
@@ -909,7 +976,7 @@ task uvm_mem_region::poke(output uvm_status_e       status,
    if (offset > this.len) begin
       `uvm_error("RegModel",
                  $sformatf("Attempting to poke to an offset outside of the allocated region (%0d > %0d)",
-                           offset, this.len))
+                           offset, this.len));
       status = UVM_NOT_OK;
       return;
    end
@@ -930,7 +997,7 @@ task uvm_mem_region::peek(output uvm_status_e       status,
    this.lineno = lineno;
 
    if (mem == null) begin
-      `uvm_error("RegModel", "Cannot use uvm_mem_region::peek() on a region that was allocated by a Memory Allocation Manager that was not associated with a uvm_mem instance")
+      `uvm_error("RegModel", "Cannot use uvm_mem_region::peek() on a region that was allocated by a Memory Allocation Manager that was not associated with a uvm_mem instance");
       status = UVM_NOT_OK;
       return;
    end
@@ -938,7 +1005,7 @@ task uvm_mem_region::peek(output uvm_status_e       status,
    if (offset > this.len) begin
       `uvm_error("RegModel",
                  $sformatf("Attempting to peek from an offset outside of the allocated region (%0d > %0d)",
-                           offset, this.len))
+                           offset, this.len));
       status = UVM_NOT_OK;
       return;
    end

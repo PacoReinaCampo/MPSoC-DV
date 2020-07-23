@@ -1,6 +1,5 @@
 //----------------------------------------------------------------------
-// Copyright 2010-2012 Mentor Graphics Corporation
-// Copyright 2010-2018 Cadence Design Systems, Inc.
+//   Copyright 2010-2011 Mentor Graphics Corporation
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -22,6 +21,7 @@
 
 `ifndef UVM_REGEX_NO_DPI
 import "DPI-C" context function int uvm_re_match(string re, string str);
+import "DPI-C" context function void uvm_dump_re_cache();
 import "DPI-C" context function string uvm_glob_to_re(string glob);
 
 `else
@@ -76,6 +76,9 @@ function int uvm_re_match(string re, string str);
   else begin
     return 1;
   end
+endfunction
+
+function void uvm_dump_re_cache();
 endfunction
 
 function string uvm_glob_to_re(string glob);

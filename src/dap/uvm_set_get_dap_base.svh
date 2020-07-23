@@ -1,8 +1,9 @@
 // 
 //------------------------------------------------------------------------------
-// Copyright 2007-2009 Mentor Graphics Corporation
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2013-2015 NVIDIA Corporation
+//   Copyright 2007-2011 Mentor Graphics Corporation
+//   Copyright 2007-2011 Cadence Design Systems, Inc.
+//   Copyright 2010-2011 Synopsys, Inc.
+//   Copyright 2013      NVIDIA Corporation
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -20,7 +21,7 @@
 //   permissions and limitations under the License.
 //------------------------------------------------------------------------------
 
-// Class -- NODOCS -- uvm_set_get_dap_base
+// Class: uvm_set_get_dap_base
 // Provides the 'set' and 'get' interface for Data Access Policies (DAPs)
 //
 // The 'Set/Get' base class simply provides a common interface for
@@ -33,27 +34,27 @@ virtual class uvm_set_get_dap_base#(type T=int) extends uvm_object;
    // Used for self references
    typedef uvm_set_get_dap_base#(T) this_type;
 
-   // Function -- NODOCS -- new
+   // Function: new
    // Constructor
    function new(string name="unnamed-uvm_set_get_dap_base#(T)");
       super.new(name);
    endfunction : new
 
-   // Group -- NODOCS -- Set/Get Interface
+   // Group: Set/Get Interface
    //
    // All implementations of the ~uvm_set_get_dap_base~ class must
    // provide an implementation of the four basic "Set and Get"
    // accessors.
    //
 
-   // Function -- NODOCS -- set
+   // Function: set
    // Sets the value contained within the resource.
    //
    // Depending on the DAP policies, an error may be reported if
    // it is illegal to 'set' the value at this time.
    pure virtual function void set(T value);
 
-   // Function -- NODOCS -- try_set
+   // Function: try_set
    // Attempts to set the value contained within the resource.
    //
    // If the DAP policies forbid setting at this time, then
@@ -62,14 +63,14 @@ virtual class uvm_set_get_dap_base#(type T=int) extends uvm_object;
    // will be treated like a standard <set> call.
    pure virtual function bit try_set(T value);
    
-   // Function -- NODOCS -- get
+   // Function: get
    // Retrieves the value contained within the resource.
    //
    // Depending on the DAP policies, an error may be reported
    // if it is illegal to 'get' the value at this time.
    pure virtual function T get();
 
-   // Function -- NODOCS -- try_get
+   // Function: try_get
    // Attempts to retrieve the value contained within the resource.
    //
    // If the DAP policies forbid retrieving at this time, then
@@ -79,3 +80,4 @@ virtual class uvm_set_get_dap_base#(type T=int) extends uvm_object;
    pure virtual function bit try_get(output T value);
 
 endclass : uvm_set_get_dap_base
+

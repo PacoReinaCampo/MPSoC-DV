@@ -1,11 +1,7 @@
 //----------------------------------------------------------------------
-// Copyright 2007-2013 Mentor Graphics Corporation
-// Copyright 2014 Semifore
-// Copyright 2010-2013 Synopsys, Inc.
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2010-2012 AMD
-// Copyright 2013-2018 NVIDIA Corporation
-// Copyright 2014 Cisco Systems, Inc.
+//   Copyright 2007-2011 Mentor Graphics Corporation
+//   Copyright 2007-2010 Cadence Design Systems, Inc. 
+//   Copyright 2010 Synopsys, Inc.
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -29,7 +25,7 @@ typedef class uvm_sequencer_base;
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_sequence_item
+// CLASS: uvm_sequence_item
 //
 // The base class for user-defined sequence items and also the base class for
 // the uvm_sequence class. The uvm_sequence_item class provides the basic
@@ -38,7 +34,6 @@ typedef class uvm_sequencer_base;
 //
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 14.1.1
 class uvm_sequence_item extends uvm_transaction;
 
   local      int                m_sequence_id = -1;
@@ -50,11 +45,10 @@ class uvm_sequence_item extends uvm_transaction;
   bit        print_sequence_info;
 
 
-  // Function -- NODOCS -- new
+  // Function: new
   //
   // The constructor method for uvm_sequence_item. 
   
-  // @uvm-ieee 1800.2-2017 auto 14.1.2.1
   function new (string name = "uvm_sequence_item");
     super.new(name);
   endfunction
@@ -74,7 +68,7 @@ class uvm_sequence_item extends uvm_transaction;
   endfunction
 
 
-  // Function -- NODOCS -- get_sequence_id
+  // Function: get_sequence_id
   //
   // private
   //
@@ -109,11 +103,10 @@ class uvm_sequence_item extends uvm_transaction;
   endfunction
 
 
-  // Function -- NODOCS -- set_item_context
+  // Function: set_item_context
   //
   // Set the sequence and sequencer execution context for a sequence item
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.2.2
   function void set_item_context(uvm_sequence_base  parent_seq,
                                  uvm_sequencer_base sequencer = null);
      set_use_sequence_info(1);
@@ -125,16 +118,15 @@ class uvm_sequence_item extends uvm_transaction;
   endfunction
 
 
-  // Function -- NODOCS -- set_use_sequence_info
+  // Function: set_use_sequence_info
   //
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.2.3
   function void set_use_sequence_info(bit value);
     m_use_sequence_info = value;
   endfunction
 
 
-  // Function -- NODOCS -- get_use_sequence_info
+  // Function: get_use_sequence_info
   //
   // These methods are used to set and get the status of the use_sequence_info
   // bit. Use_sequence_info controls whether the sequence information
@@ -143,19 +135,17 @@ class uvm_sequence_item extends uvm_transaction;
   // sequence information is not used. When use_sequence_info is set to 1,
   // the sequence information will be used in printing and copying.
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.2.3
   function bit get_use_sequence_info();
     return (m_use_sequence_info);
   endfunction
 
 
-  // Function -- NODOCS -- set_id_info
+  // Function: set_id_info
   //
   // Copies the sequence_id and transaction_id from the referenced item into
   // the calling item.  This routine should always be used by drivers to
   // initialize responses for future compatibility.
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.2.4
   function void set_id_info(uvm_sequence_item item);
     if (item == null) begin
       uvm_report_fatal(get_full_name(), "set_id_info called with null parameter", UVM_NONE);
@@ -165,73 +155,65 @@ class uvm_sequence_item extends uvm_transaction;
   endfunction
 
 
-  // Function -- NODOCS -- set_sequencer
+  // Function: set_sequencer
   //
   // Sets the default sequencer for the sequence to sequencer.  It will take
   // effect immediately, so it should not be called while the sequence is
   // actively communicating with the sequencer.
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.2.6
   virtual function void set_sequencer(uvm_sequencer_base sequencer);
     m_sequencer = sequencer;
     m_set_p_sequencer();
   endfunction
 
 
-  // Function -- NODOCS -- get_sequencer
+  // Function: get_sequencer
   //
   // Returns a reference to the default sequencer used by this sequence.
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.2.5
   function uvm_sequencer_base get_sequencer();
     return m_sequencer;
   endfunction
 
 
-  // Function -- NODOCS -- set_parent_sequence
+  // Function: set_parent_sequence
   //
   // Sets the parent sequence of this sequence_item.  This is used to identify
   // the source sequence of a sequence_item.
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.2.8
-  // @uvm-ieee 1800.2-2017 auto 19.1.1.2.10
   function void set_parent_sequence(uvm_sequence_base parent);
     m_parent_sequence = parent;
   endfunction
 
 
-  // Function -- NODOCS -- get_parent_sequence
+  // Function: get_parent_sequence
   //
   // Returns a reference to the parent sequence of any sequence on which this
   // method was called. If this is a parent sequence, the method returns ~null~.
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.2.7
-  // @uvm-ieee 1800.2-2017 auto 19.1.1.2.10
   function uvm_sequence_base get_parent_sequence();
     return (m_parent_sequence);
   endfunction 
 
 
-  // Function -- NODOCS -- set_depth
+  // Function: set_depth
   //
   // The depth of any sequence is calculated automatically.  However, the user
   // may use  set_depth to specify the depth of a particular sequence. This
   // method will override the automatically calculated depth, even if it is
   // incorrect.  
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.2.10
   function void set_depth(int value);
     m_depth = value;
   endfunction
 
 
-  // Function -- NODOCS -- get_depth
+  // Function: get_depth
   //
   // Returns the depth of a sequence from its parent.  A  parent sequence will
   // have a depth of 1, its child will have a depth  of 2, and its grandchild
   // will have a depth of 3.
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.2.9
   function int get_depth();
 
     // If depth has been set or calculated, then use that
@@ -250,12 +232,11 @@ class uvm_sequence_item extends uvm_transaction;
   endfunction 
 
 
-  // Function -- NODOCS -- is_item
+  // Function: is_item
   //
   // This function may be called on any sequence_item or sequence. It will
   // return 1 for items and 0 for sequences (which derive from this class).
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.2.11
   virtual function bit is_item();
     return(1);
   endfunction
@@ -278,11 +259,10 @@ class uvm_sequence_item extends uvm_transaction;
   endfunction
 
 
-  // Function -- NODOCS -- get_root_sequence_name
+  // Function: get_root_sequence_name
   //
   // Provides the name of the root sequence (the top-most parent sequence).
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.2.12
   function string get_root_sequence_name();
     uvm_sequence_base root_seq;
     root_seq = get_root_sequence();
@@ -302,11 +282,10 @@ class uvm_sequence_item extends uvm_transaction;
   endfunction  
 
 
-  // Function -- NODOCS -- get_root_sequence
+  // Function: get_root_sequence
   //
   // Provides a reference to the root sequence (the top-most parent sequence).
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.2.13
   function uvm_sequence_base get_root_sequence();
     uvm_sequence_item root_seq_base;
     uvm_sequence_base root_seq;
@@ -322,12 +301,11 @@ class uvm_sequence_item extends uvm_transaction;
   endfunction
 
 
-  // Function -- NODOCS -- get_sequence_path
+  // Function: get_sequence_path
   //
   // Provides a string of names of each sequence in the full hierarchical
   // path. A "." is used as the separator between each sequence.
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.2.14
   function string get_sequence_path();
     uvm_sequence_item this_item;
     string seq_path;
@@ -345,7 +323,7 @@ class uvm_sequence_item extends uvm_transaction;
 
 
   //---------------------------
-  // Group -- NODOCS -- Reporting Interface
+  // Group: Reporting Interface
   //---------------------------
   //
   // Sequence items and sequences will use the sequencer which they are
@@ -354,7 +332,6 @@ class uvm_sequence_item extends uvm_transaction;
   // <uvm_sequence_base::start_item> or <uvm_sequence_base::start>),
   // then the global reporter will be used.
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.3.1
   virtual function uvm_report_object uvm_get_report_object();
     if(m_sequencer == null) begin
       uvm_coreservice_t cs = uvm_coreservice_t::get();
@@ -363,7 +340,6 @@ class uvm_sequence_item extends uvm_transaction;
       return m_sequencer;
   endfunction
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.3.2
   function int uvm_report_enabled(int verbosity, 
     				  uvm_severity severity=UVM_INFO, string id="");
     uvm_report_object l_report_object = uvm_get_report_object();
@@ -372,8 +348,7 @@ class uvm_sequence_item extends uvm_transaction;
     return 1;
   endfunction
 
-
-  // @uvm-ieee 1800.2-2017 auto 14.1.3.3
+  // Function: uvm_report
   virtual function void uvm_report( uvm_severity severity,
                                     string id,
                                     string message,
@@ -395,9 +370,8 @@ class uvm_sequence_item extends uvm_transaction;
 
   endfunction
     
-  // Function -- NODOCS -- uvm_report_info
+  // Function: uvm_report_info
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.3.3
   virtual function void uvm_report_info( string id,
 					 string message,
    					 int verbosity = UVM_MEDIUM,
@@ -410,9 +384,8 @@ class uvm_sequence_item extends uvm_transaction;
                     context_name, report_enabled_checked);
   endfunction
 
-  // Function -- NODOCS -- uvm_report_warning
+  // Function: uvm_report_warning
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.3.3
   virtual function void uvm_report_warning( string id,
 					    string message,
    					    int verbosity = UVM_MEDIUM,
@@ -425,12 +398,11 @@ class uvm_sequence_item extends uvm_transaction;
                     context_name, report_enabled_checked);
   endfunction
 
-  // Function -- NODOCS -- uvm_report_error
+  // Function: uvm_report_error
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.3.3
   virtual function void uvm_report_error( string id,
 					  string message,
-   					  int verbosity = UVM_NONE,
+   					  int verbosity = UVM_LOW,
 					  string filename = "",
 					  int line = 0,
    					  string context_name = "",
@@ -440,14 +412,13 @@ class uvm_sequence_item extends uvm_transaction;
                     context_name, report_enabled_checked);
   endfunction
 
-  // Function -- NODOCS -- uvm_report_fatal
+  // Function: uvm_report_fatal
   //
   // These are the primary reporting methods in the UVM. uvm_sequence_item
   // derived types delegate these functions to their associated sequencer
   // if they have one, or to the global reporter. See <uvm_report_object::Reporting>
   // for details on the messaging functions.
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.3.3
   virtual function void uvm_report_fatal( string id,
 					  string message,
    					  int verbosity = UVM_NONE,
@@ -460,7 +431,6 @@ class uvm_sequence_item extends uvm_transaction;
                     context_name, report_enabled_checked);
   endfunction
 
-  // @uvm-ieee 1800.2-2017 auto 14.1.3.4
   virtual function void uvm_process_report_message (uvm_report_message report_message);
     uvm_report_object l_report_object = uvm_get_report_object();
     report_message.set_report_object(l_report_object);

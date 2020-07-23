@@ -1,10 +1,7 @@
 // 
 // -------------------------------------------------------------
-// Copyright 2010-2011 Mentor Graphics Corporation
-// Copyright 2004-2010 Synopsys, Inc.
-// Copyright 2010-2018 Cadence Design Systems, Inc.
-// Copyright 2010 AMD
-// Copyright 2014-2018 NVIDIA Corporation
+//    Copyright 2004-2008 Synopsys, Inc.
+//    Copyright 2010 Mentor Graphics Corporation
 //    All Rights Reserved Worldwide
 // 
 //    Licensed under the Apache License, Version 2.0 (the
@@ -25,7 +22,7 @@
 
 
 //------------------------------------------------------------------------------
-// Title -- NODOCS -- Memory Walking-Ones Test Sequences
+// Title: Memory Walking-Ones Test Sequences
 //
 // This section defines sequences for applying a "walking-ones"
 // algorithm on one or more memories.
@@ -33,7 +30,7 @@
 
 
 //------------------------------------------------------------------------------
-// Class -- NODOCS -- uvm_mem_single_walk_seq
+// Class: uvm_mem_single_walk_seq
 //
 // Runs the walking-ones algorithm on the memory given by the <mem> property,
 // which must be assigned prior to starting this sequence.
@@ -60,41 +57,38 @@
 //
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto E.6.1.1
 class uvm_mem_single_walk_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item));
 
    `uvm_object_utils(uvm_mem_single_walk_seq)
 
 
-   // Variable -- NODOCS -- mem
+   // Variable: mem
    //
    // The memory to test; must be assigned prior to starting sequence.
 
    uvm_mem mem;
 
 
-   // Function -- NODOCS -- new
+   // Function: new
    //
    // Creates a new instance of the class with the given name.
 
-   // @uvm-ieee 1800.2-2017 auto E.6.1.3.1
    function new(string name="uvm_mem_walk_seq");
      super.new(name);
    endfunction
 
 
-   // Task -- NODOCS -- body
+   // Task: body
    //
    // Performs the walking-ones algorithm on each map of the memory
    // specified in <mem>.
 
-   // @uvm-ieee 1800.2-2017 auto E.6.1.3.2
    virtual task body();
       uvm_reg_map maps[$];
       int n_bits;
 
       if (mem == null) begin
-         `uvm_error("uvm_mem_walk_seq", "No memory specified to run sequence on")
+         `uvm_error("uvm_mem_walk_seq", "No memory specified to run sequence on");
          return;
       end
 
@@ -121,40 +115,41 @@ class uvm_mem_single_walk_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_
          if (mem.get_access(maps[j]) != "RW") continue;
 
          `uvm_info("uvm_mem_walk_seq", $sformatf("Walking memory %s in map \"%s\"...",
-                                    mem.get_full_name(), maps[j].get_full_name()), UVM_LOW)
+                                    mem.get_full_name(), maps[j].get_full_name()), UVM_LOW);
          
          // The walking process is, for address k:
          // - Write ~k
          // - Read k-1 and expect ~(k-1) if k > 0
          // - Write k-1 at k-1
          // - Read k and expect ~k if k == last address
-         for (int k = 0; k < mem.get_size(); k++) begin 
-            mem.write(status, k, ~k, UVM_FRONTDOOR, maps[j], this); 
+         for (int k = 0; k < mem.get_size(); k++) begin
+
+            mem.write(status, k, ~k, UVM_FRONTDOOR, maps[j], this);
 
             if (status != UVM_IS_OK) begin
                `uvm_error("uvm_mem_walk_seq", $sformatf("Status was %s when writing \"%s[%0d]\" through map \"%s\".",
-                                           status.name(), mem.get_full_name(), k, maps[j].get_full_name()))
+                                           status.name(), mem.get_full_name(), k, maps[j].get_full_name()));
             end
             
             if (k > 0) begin
                mem.read(status, k-1, val, UVM_FRONTDOOR, maps[j], this);
                if (status != UVM_IS_OK) begin
                   `uvm_error("uvm_mem_walk_seq", $sformatf("Status was %s when reading \"%s[%0d]\" through map \"%s\".",
-                                              status.name(), mem.get_full_name(), k, maps[j].get_full_name()))
+                                              status.name(), mem.get_full_name(), k, maps[j].get_full_name()));
                end
                else begin
                   exp = ~(k-1) & ((1'b1<<n_bits)-1);
                   if (val !== exp) begin
-                     `uvm_error("uvm_mem_walk_seq", $sformatf("\"%s[%0d]\" read back as 'h%h instead of 'h%h.",
-                                                 mem.get_full_name(), k-1, val, exp))
+                     `uvm_error("uvm_mem_walk_seq", $sformatf("\"%s[%0d-1]\" read back as 'h%h instead of 'h%h.",
+                                                 mem.get_full_name(), k, val, exp));
                      
                   end
                end
                
                mem.write(status, k-1, k-1, UVM_FRONTDOOR, maps[j], this);
                if (status != UVM_IS_OK) begin
-                  `uvm_error("uvm_mem_walk_seq", $sformatf("Status was %s when writing \"%s[%0d]\" through map \"%s\".",
-                                              status.name(), mem.get_full_name(), k-1, maps[j].get_full_name()))
+                  `uvm_error("uvm_mem_walk_seq", $sformatf("Status was %s when writing \"%s[%0d-1]\" through map \"%s\".",
+                                              status.name(), mem.get_full_name(), k, maps[j].get_full_name()));
                end
             end
             
@@ -162,13 +157,13 @@ class uvm_mem_single_walk_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_
                mem.read(status, k, val, UVM_FRONTDOOR, maps[j], this);
                if (status != UVM_IS_OK) begin
                   `uvm_error("uvm_mem_walk_seq", $sformatf("Status was %s when reading \"%s[%0d]\" through map \"%s\".",
-                                              status.name(), mem.get_full_name(), k, maps[j].get_full_name()))
+                                              status.name(), mem.get_full_name(), k, maps[j].get_full_name()));
                end
                else begin
                   exp = ~(k) & ((1'b1<<n_bits)-1);
                   if (val !== exp) begin
                      `uvm_error("uvm_mem_walk_seq", $sformatf("\"%s[%0d]\" read back as 'h%h instead of 'h%h.",
-                                                 mem.get_full_name(), k, val, exp))
+                                                 mem.get_full_name(), k, val, exp));
                      
                   end
                end
@@ -182,7 +177,7 @@ endclass: uvm_mem_single_walk_seq
 
 
 //------------------------------------------------------------------------------
-// Class -- NODOCS -- uvm_mem_walk_seq
+// Class: uvm_mem_walk_seq
 //
 // Verifies the all memories in a block
 // by executing the <uvm_mem_single_walk_seq> sequence on
@@ -199,17 +194,16 @@ endclass: uvm_mem_single_walk_seq
 //
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto E.6.2.1
 class uvm_mem_walk_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item));
 
-   // Variable -- NODOCS -- model
+   // Variable: model
    //
    // The block to be tested. Declared in the base class.
    //
    //| uvm_reg_block model; 
 
 
-   // Variable -- NODOCS -- mem_seq
+   // Variable: mem_seq
    //
    // The sequence used to test one memory
    //
@@ -217,18 +211,20 @@ class uvm_mem_walk_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item));
 
    `uvm_object_utils(uvm_mem_walk_seq)
 
-   // @uvm-ieee 1800.2-2017 auto E.6.3.1
    function new(string name="uvm_mem_walk_seq");
      super.new(name);
    endfunction
 
 
-
-   // @uvm-ieee 1800.2-2017 auto E.6.3.2
+   // Task: body
+   //
+   // Executes the mem walk sequence, one block at a time.
+   // Do not call directly. Use seq.start() instead.
+   //
    virtual task body();
 
       if (model == null) begin
-         `uvm_error("uvm_mem_walk_seq", "No register model specified to run sequence on")
+         `uvm_error("uvm_mem_walk_seq", "No register model specified to run sequence on");
          return;
       end
 
@@ -243,7 +239,7 @@ class uvm_mem_walk_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item));
    endtask: body
 
 
-   // Task -- NODOCS -- do_block
+   // Task: do_block
    //
    // Test all of the memories in a given ~block~
    //
@@ -285,7 +281,7 @@ class uvm_mem_walk_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item));
    endtask: do_block
 
 
-   // Task -- NODOCS -- reset_blk
+   // Task: reset_blk
    //
    // Reset the DUT that corresponds to the specified block abstraction class.
    //

@@ -1,13 +1,8 @@
 //
 //------------------------------------------------------------------------------
-// Copyright 2007-2014 Mentor Graphics Corporation
-// Copyright 2014 Semifore
-// Copyright 2010-2014 Synopsys, Inc.
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2010-2012 AMD
-// Copyright 2013-2018 NVIDIA Corporation
-// Copyright 2013 Cisco Systems, Inc.
-// Copyright 2017 Verific
+//   Copyright 2007-2010 Mentor Graphics Corporation
+//   Copyright 2007-2011 Cadence Design Systems, Inc.
+//   Copyright 2010 Synopsys, Inc.
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -34,7 +29,7 @@ typedef class uvm_root;
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_report_object
+// CLASS: uvm_report_object
 //
 //------------------------------------------------------------------------------
 //
@@ -83,45 +78,38 @@ typedef class uvm_root;
 //
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 6.3.1
 class uvm_report_object extends uvm_object;
 
   uvm_report_handler m_rh;
 
-  local bit m_rh_set;
-  local function void m_rh_init();
-    if (!m_rh_set)
-      set_report_handler(uvm_report_handler::type_id::create(get_name()));
-  endfunction : m_rh_init
 
-  // Function -- NODOCS -- new
+  // Function: new
   //
   // Creates a new report object with the given name. This method also creates
   // a new <uvm_report_handler> object to which most tasks are delegated.
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.2
   function new(string name = "");
     super.new(name);
+    m_rh = uvm_report_handler::type_id::create(name);
   endfunction
 
 
   //----------------------------------------------------------------------------
-  // Group -- NODOCS -- Reporting
+  // Group: Reporting
   //----------------------------------------------------------------------------
 
-  // Function -- NODOCS -- uvm_get_report_object
+  // Function: uvm_get_report_object
   //
   // Returns the nearest uvm_report_object when called.  From inside a
   // uvm_component, the method simply returns ~this~.
   // 
   // See also the global version of <uvm_get_report_object>.
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.3.1
   function uvm_report_object uvm_get_report_object();
     return this;
   endfunction
 
-  // Function -- NODOCS -- uvm_report_enabled
+  // Function: uvm_report_enabled
   //
   // Returns 1 if the configured verbosity for this severity/id is greater than 
   // or equal to ~verbosity~ else returns 0.
@@ -129,7 +117,6 @@ class uvm_report_object extends uvm_object;
   // See also <get_report_verbosity_level> and the global version of 
   // <uvm_report_enabled>.
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.3.2
   function int uvm_report_enabled(int verbosity, 
   				  uvm_severity severity = UVM_INFO, string id = "");
     if (get_report_verbosity_level(severity, id) < verbosity)
@@ -137,9 +124,8 @@ class uvm_report_object extends uvm_object;
     return 1;
   endfunction
 
-  // Function -- NODOCS -- uvm_report
+  // Function: uvm_report
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.3.3
   virtual function void uvm_report( uvm_severity severity,
                                     string id,
                                     string message,
@@ -150,7 +136,7 @@ class uvm_report_object extends uvm_object;
                                     string context_name = "",
                                     bit report_enabled_checked =0);
     uvm_report_message l_report_message;
-    if ((severity == UVM_INFO) && (report_enabled_checked == 0)) begin
+    if (report_enabled_checked == 0) begin
       if (!uvm_report_enabled(verbosity, severity, id))
         return;
     end
@@ -161,9 +147,8 @@ class uvm_report_object extends uvm_object;
   endfunction 
 
 
-  // Function -- NODOCS -- uvm_report_info
+  // Function: uvm_report_info
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.3.3
   virtual function void uvm_report_info( string id,
 					 string message,
 					 int verbosity = UVM_MEDIUM,
@@ -176,9 +161,8 @@ class uvm_report_object extends uvm_object;
                 filename, line, context_name, report_enabled_checked);
   endfunction
 
-  // Function -- NODOCS -- uvm_report_warning
+  // Function: uvm_report_warning
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.3.3
   virtual function void uvm_report_warning( string id,
 					    string message,
     					    int verbosity = UVM_MEDIUM,
@@ -191,12 +175,11 @@ class uvm_report_object extends uvm_object;
                 filename, line, context_name, report_enabled_checked);
   endfunction
 
-  // Function -- NODOCS -- uvm_report_error
+  // Function: uvm_report_error
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.3.3
   virtual function void uvm_report_error( string id,
 					  string message,
-   					  int verbosity = UVM_NONE,
+   					  int verbosity = UVM_LOW,
 					  string filename = "",
 					  int line = 0,
    					  string context_name = "",
@@ -206,7 +189,7 @@ class uvm_report_object extends uvm_object;
                 filename, line, context_name, report_enabled_checked);
   endfunction
 
-  // Function -- NODOCS -- uvm_report_fatal
+  // Function: uvm_report_fatal
   //
   // These are the primary reporting methods in the UVM. Using these instead
   // of ~$display~ and other ad hoc approaches ensures consistent output and
@@ -245,7 +228,6 @@ class uvm_report_object extends uvm_object;
   //               the message should be processed. If it hasn't been checked, 
   //               it will be checked inside the uvm_report function.
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.3.3
   virtual function void uvm_report_fatal( string id,
 					  string message,
    					  int verbosity = UVM_NONE,
@@ -258,72 +240,63 @@ class uvm_report_object extends uvm_object;
                 filename, line, context_name, report_enabled_checked);
   endfunction
 
-  // Function -- NODOCS -- uvm_process_report_message
+  // Function: uvm_process_report_message
   //
   // This method takes a preformed uvm_report_message, populates it with 
   // the report object and passes it to the report handler for processing.
   // It is expected to be checked for verbosity and populated.
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.3.4
   virtual function void uvm_process_report_message(uvm_report_message report_message);
-    m_rh_init();
     report_message.set_report_object(this);
     m_rh.process_report_message(report_message);
   endfunction
 
 
   //----------------------------------------------------------------------------
-  // Group -- NODOCS -- Verbosity Configuration
+  // Group: Verbosity Configuration
   //----------------------------------------------------------------------------
 
 
-  // Function -- NODOCS -- get_report_verbosity_level
+  // Function: get_report_verbosity_level
   //
   // Gets the verbosity level in effect for this object. Reports issued
   // with verbosity greater than this will be filtered out. The severity
   // and tag arguments check if the verbosity level has been modified for
   // specific severity/tag combinations.
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.4.1
   function int get_report_verbosity_level(uvm_severity severity=UVM_INFO, string id="");
-    m_rh_init();
     return m_rh.get_verbosity_level(severity, id);
   endfunction
 
 
-  // Function -- NODOCS -- get_report_max_verbosity_level
+  // Function: get_report_max_verbosity_level
   //
   // Gets the maximum verbosity level in effect for this report object.
   // Any report from this component whose verbosity exceeds this maximum will
   // be ignored.
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.4.2
   function int get_report_max_verbosity_level();
-    m_rh_init();
     return m_rh.m_max_verbosity_level;
   endfunction
 
 
-  // Function -- NODOCS -- set_report_verbosity_level
+  // Function: set_report_verbosity_level
   //
   // This method sets the maximum verbosity level for reports for this component.
   // Any report from this component whose verbosity exceeds this maximum will
   // be ignored.
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.4.3
   function void set_report_verbosity_level (int verbosity_level);
-    m_rh_init();
     m_rh.set_verbosity_level(verbosity_level);
   endfunction
 
-
-  // @uvm-ieee 1800.2-2017 auto 6.3.4.4
+  // Function: set_report_id_verbosity
+  //
   function void set_report_id_verbosity (string id, int verbosity);
-    m_rh_init();
     m_rh.set_id_verbosity(id, verbosity);
   endfunction
 
-  // Function -- NODOCS -- set_report_severity_id_verbosity
+  // Function: set_report_severity_id_verbosity
   //
   // These methods associate the specified verbosity threshold with reports of the
   // given ~severity~, ~id~, or ~severity-id~ pair. This threshold is compared with
@@ -336,47 +309,41 @@ class uvm_report_object extends uvm_object;
   // predefined <uvm_verbosity> value, <UVM_NONE>, <UVM_LOW>, <UVM_MEDIUM>,
   // <UVM_HIGH>, <UVM_FULL>.
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.4.4
   function void set_report_severity_id_verbosity (uvm_severity severity,
                                                string id, int verbosity);
-    m_rh_init();
     m_rh.set_severity_id_verbosity(severity, id, verbosity);
   endfunction
 
 
   //----------------------------------------------------------------------------
-  // Group -- NODOCS -- Action Configuration
+  // Group: Action Configuration
   //----------------------------------------------------------------------------
 
 
-  // Function -- NODOCS -- get_report_action
+  // Function: get_report_action
   //
   // Gets the action associated with reports having the given ~severity~
   // and ~id~.
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.5.1
   function int get_report_action(uvm_severity severity, string id);
-    m_rh_init();
     return m_rh.get_action(severity,id);
   endfunction
 
 
-
-  // @uvm-ieee 1800.2-2017 auto 6.3.5.2
+  // Function: set_report_severity_action
+  //
   function void set_report_severity_action (uvm_severity severity,
                                             uvm_action action);
-    m_rh_init();
     m_rh.set_severity_action(severity, action);
   endfunction
 
-
-  // @uvm-ieee 1800.2-2017 auto 6.3.5.2
+  // Function: set_report_id_action
+  //
   function void set_report_id_action (string id, uvm_action action);
-    m_rh_init();
     m_rh.set_id_action(id, action);
   endfunction
 
-  // Function -- NODOCS -- set_report_severity_id_action
+  // Function: set_report_severity_id_action
   //
   // These methods associate the specified action or actions with reports of the
   // given ~severity~, ~id~, or ~severity-id~ pair. An action associated with a
@@ -387,55 +354,46 @@ class uvm_report_object extends uvm_object;
   // bitwise OR of any combination of <UVM_DISPLAY>, <UVM_LOG>, <UVM_COUNT>,
   // <UVM_STOP>, <UVM_EXIT>, and <UVM_CALL_HOOK>.
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.5.2
   function void set_report_severity_id_action (uvm_severity severity,
                                                string id, uvm_action action);
-    m_rh_init();
     m_rh.set_severity_id_action(severity, id, action);
   endfunction
 
 
   //----------------------------------------------------------------------------
-  // Group -- NODOCS -- File Configuration
+  // Group: File Configuration
   //----------------------------------------------------------------------------
 
 
-  // Function -- NODOCS -- get_report_file_handle
+  // Function: get_report_file_handle
   //
   // Gets the file descriptor associated with reports having the given
   // ~severity~ and ~id~.
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.6.1
   function int get_report_file_handle(uvm_severity severity, string id);
-    m_rh_init();
     return m_rh.get_file_handle(severity,id);
   endfunction
 
 
-  // Function -- NODOCS -- set_report_default_file
+  // Function: set_report_default_file
   
-  // @uvm-ieee 1800.2-2017 auto 6.3.6.2
   function void set_report_default_file (UVM_FILE file);
-    m_rh_init();
     m_rh.set_default_file(file);
   endfunction
 
-  // Function -- NODOCS -- set_report_id_file
+  // Function: set_report_id_file
   
-  // @uvm-ieee 1800.2-2017 auto 6.3.6.2
   function void set_report_id_file (string id, UVM_FILE file);
-    m_rh_init();
     m_rh.set_id_file(id, file);
   endfunction
 
-
-  // @uvm-ieee 1800.2-2017 auto 6.3.6.2
+  // Function: set_report_severity_file
+  //
   function void set_report_severity_file (uvm_severity severity, UVM_FILE file);
-    m_rh_init();
     m_rh.set_severity_file(severity, file);
   endfunction
 
-  // Function -- NODOCS -- set_report_severity_id_file
+  // Function: set_report_severity_id_file
   //
   // These methods configure the report handler to direct some or all of its
   // output to the given file descriptor. The ~file~ argument must be a
@@ -451,75 +409,249 @@ class uvm_report_object extends uvm_object;
   // set, the report will be sent to its associated FILE descriptor.
   // The user is responsible for opening and closing these files.
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.6.2
   function void set_report_severity_id_file (uvm_severity severity, string id,
                                              UVM_FILE file);
-    m_rh_init();
     m_rh.set_severity_id_file(severity, id, file);
   endfunction
 
 
   //----------------------------------------------------------------------------
-  // Group -- NODOCS -- Override Configuration
+  // Group: Override Configuration
   //----------------------------------------------------------------------------
 
 
-
-  // @uvm-ieee 1800.2-2017 auto 6.3.7
+  // Function: set_report_severity_override
+  //
   function void set_report_severity_override(uvm_severity cur_severity,
                                              uvm_severity new_severity);
-    m_rh_init();
     m_rh.set_severity_override(cur_severity, new_severity);
   endfunction
 
-
-  // @uvm-ieee 1800.2-2017 auto 6.3.7
+  // Function: set_report_severity_id_override
+  //
+  // These methods provide the ability to upgrade or downgrade a message in
+  // terms of severity given ~severity~ and ~id~.  An upgrade or downgrade for
+  // a specific ~id~ takes precedence over an upgrade or downgrade associated 
+  // with a ~severity~.
   function void set_report_severity_id_override(uvm_severity cur_severity,
                                                 string id, 
                                                 uvm_severity new_severity);
-    m_rh_init();
     m_rh.set_severity_id_override(cur_severity, id, new_severity);
   endfunction
 
 
   //----------------------------------------------------------------------------
-  // Group -- NODOCS -- Report Handler Configuration
+  // Group: Report Handler Configuration
   //----------------------------------------------------------------------------
 
-  // Function -- NODOCS -- set_report_handler
+  // Function: set_report_handler
   //
   // Sets the report handler, overwriting the default instance. This allows
   // more than one component to share the same report handler.
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.8.2
   function void set_report_handler(uvm_report_handler handler);
     m_rh = handler;
-    m_rh_set = 1;
   endfunction
 
 
-  // Function -- NODOCS -- get_report_handler
+  // Function: get_report_handler
   //
   // Returns the underlying report handler to which most reporting tasks
   // are delegated.
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.8.1
   function uvm_report_handler get_report_handler();
-    m_rh_init();
     return m_rh;
   endfunction
 
 
-  // Function -- NODOCS -- reset_report_handler
+  // Function: reset_report_handler
   //
   // Resets the underlying report handler to its default settings. This clears
   // any settings made with the ~set_report_*~ methods (see below).
 
-  // @uvm-ieee 1800.2-2017 auto 6.3.8.3
   function void reset_report_handler;
-    m_rh_init();
     m_rh.initialize();
   endfunction
+
+
+`ifndef UVM_NO_DEPRECATED
+
+
+  //----------------------------------------------------------------------------
+  // Group- Callbacks
+  //----------------------------------------------------------------------------
+
+
+  // Function- report_info_hook
+  //
+  //
+
+  virtual function bit report_info_hook(
+           string id, string message, int verbosity, string filename, int line);
+    return 1;
+  endfunction
+
+  // Function- report_error_hook
+  //
+  //
+
+  virtual function bit report_error_hook(
+           string id, string message, int verbosity, string filename, int line);
+    return 1;
+  endfunction
+
+  // Function- report_warning_hook
+  //
+  //
+
+  virtual function bit report_warning_hook(
+           string id, string message, int verbosity, string filename, int line);
+    return 1;
+  endfunction
+
+  // Function- report_fatal_hook
+  //
+  //
+
+  virtual function bit report_fatal_hook(
+           string id, string message, int verbosity, string filename, int line);
+    return 1;
+  endfunction
+
+  // Function- report_hook
+  // 
+  // These hook methods can be defined in derived classes to perform additional
+  // actions when reports are issued. They are called only if the <UVM_CALL_HOOK>
+  // bit is specified in the action associated with the report. The default
+  // implementations return 1, which allows the report to be processed. If an
+  // override returns 0, then the report is not processed.
+  //
+  // First, the ~report_hook~ method is called, followed by the severity-specific
+  // hook (<report_info_hook>, etc.). If either hook method
+  // returns 0 then the report is not processed further.
+
+  virtual function bit report_hook(
+           string id, string message, int verbosity, string filename, int line);
+    return 1;
+  endfunction
+
+
+  // Function- report_header
+  //
+  // Prints version and copyright information. This information is sent to the
+  // command line if ~file~ is 0, or to the file descriptor ~file~ if it is not 0. 
+  // The <uvm_root::run_test> task calls this method just before it component
+  // phasing begins.
+  //
+  // Use <uvm_root::report_header()>
+
+  virtual function void report_header(UVM_FILE file = 0);    
+     uvm_root l_root;
+     uvm_coreservice_t cs;
+     cs = uvm_coreservice_t::get();
+     l_root = cs.get_root();
+     l_root.report_header(file);
+  endfunction
+
+
+  // Function- report_summarize
+  //
+  // Outputs statistical information on the reports issued by the central report
+  // server. This information will be sent to the command line if ~file~ is 0, or
+  // to the file descriptor ~file~ if it is not 0.
+  //
+  // The <run_test> method in uvm_top calls this method.
+  //
+  // Use:
+  // uvm_report_server rs =uvm_report_server::get_server();
+  // rs.report_summarize();
+
+  virtual function void report_summarize(UVM_FILE file = 0);
+    uvm_report_server l_rs = uvm_report_server::get_server();
+    l_rs.report_summarize(file);
+  endfunction
+
+
+  // Function- die
+  //
+  // This method is called by the report server if a report reaches the maximum
+  // quit count or has a UVM_EXIT action associated with it, e.g., as with
+  // fatal errors.
+  //
+  // Calls the <uvm_component::pre_abort()> method
+  // on the entire <uvm_component> hierarchy in a bottom-up fashion.
+  // It then call calls <report_summarize> and terminates the simulation
+  // with ~$finish~.
+  //
+  // Use:
+  // uvm_report_server rs =uvm_report_server::get_server();
+  // rs.die()
+
+  virtual function void die();       
+     uvm_root l_root;
+     uvm_coreservice_t cs;
+     cs = uvm_coreservice_t::get();
+     l_root = cs.get_root();
+    l_root.die();
+  endfunction
+
+
+  // Function- set_report_max_quit_count
+  //
+  // Sets the maximum quit count in the report handler to ~max_count~. When the
+  // number of UVM_COUNT actions reaches ~max_count~, the <die> method is called. 
+  //
+  // The default value of 0 indicates that there is no upper limit to the number
+  // of UVM_COUNT reports.
+  //
+  // Use:
+  // uvm_report_server rs =uvm_report_server::get_server();
+  // rs.set_max_quit_count()
+
+  function void set_report_max_quit_count(int max_count);
+    uvm_report_server l_rs = uvm_report_server::get_server();
+    l_rs.set_max_quit_count(max_count);
+  endfunction
+
+
+  // Function- get_report_server
+  //
+  // Returns the <uvm_report_server> instance associated with this report object.
+  //
+  // Use <uvm_report_server::get_server()>
+
+  function uvm_report_server get_report_server();
+    uvm_report_server l_rs = uvm_report_server::get_server();
+    return l_rs;
+  endfunction
+
+
+  // Function- dump_report_state
+  //
+  // This method dumps the internal state of the report handler. This includes
+  // information about the maximum quit count, the maximum verbosity, and the
+  // action and files associated with severities, ids, and (severity, id) pairs.
+  //
+  // Use:
+  // uvm_report_handler rh =get_report_handler();
+  // rh.print().
+
+  function void dump_report_state();
+    m_rh.dump_state();
+  endfunction
+
+
+  //----------------------------------------------------------------------------
+  //                     PRIVATE or PSUEDO-PRIVATE members
+  //                      *** Do not call directly ***
+  //         Implementation and even existence are subject to change. 
+  //----------------------------------------------------------------------------
+
+  protected virtual function uvm_report_object m_get_report_object();
+    return this;
+  endfunction
+
+`endif
 
 endclass
 

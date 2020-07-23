@@ -1,11 +1,8 @@
 //----------------------------------------------------------------------
-// Copyright 2007-2014 Mentor Graphics Corporation
-// Copyright 2014 Semifore
-// Copyright 2010-2014 Synopsys, Inc.
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2010-2012 AMD
-// Copyright 2014-2015 NVIDIA Corporation
-// Copyright 2013 Cisco Systems, Inc.
+//   Copyright 2007-2011 Mentor Graphics Corporation
+//   Copyright 2007-2010 Cadence Design Systems, Inc. 
+//   Copyright 2010 Synopsys, Inc.
+//   Copyright 2013 Cisco Systems, Inc.
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -26,14 +23,13 @@
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_sequence #(REQ,RSP)
+// CLASS: uvm_sequence #(REQ,RSP)
 //
 // The uvm_sequence class provides the interfaces necessary in order to create
 // streams of sequence items and/or other sequences.
 //
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 14.3.1
 virtual class uvm_sequence #(type REQ = uvm_sequence_item,
                              type RSP = REQ) extends uvm_sequence_base;
 
@@ -41,30 +37,29 @@ virtual class uvm_sequence #(type REQ = uvm_sequence_item,
 
   sequencer_t        param_sequencer;
 
-  // Variable -- NODOCS -- req
+  // Variable: req
   //
   // The sequence contains a field of the request type called req.  The user
   // can use this field, if desired, or create another field to use.  The
   // default ~do_print~ will print this field.
   REQ                req;
 
-  // Variable -- NODOCS -- rsp
+  // Variable: rsp
   //
   // The sequence contains a field of the response type called rsp.  The user
   // can use this field, if desired, or create another field to use.   The
   // default ~do_print~ will print this field.
   RSP                rsp;
 
-  // Function -- NODOCS -- new
+  // Function: new
   //
   // Creates and initializes a new sequence object.
 
-  // @uvm-ieee 1800.2-2017 auto 14.3.3.1
   function new (string name = "uvm_sequence");
     super.new(name);
   endfunction
 
-  // Function -- NODOCS -- send_request
+  // Function: send_request
   //
   // This method will send the request item to the sequencer, which will forward
   // it to the driver.  If the rerandomize bit is set, the item will be
@@ -73,7 +68,7 @@ virtual class uvm_sequence #(type REQ = uvm_sequence_item,
 
   function void send_request(uvm_sequence_item request, bit rerandomize = 0);
     REQ m_request;
-
+    
     if (m_sequencer == null) begin
       uvm_report_fatal("SSENDREQ", "Null m_sequencer reference", UVM_NONE);
     end
@@ -84,7 +79,7 @@ virtual class uvm_sequence #(type REQ = uvm_sequence_item,
   endfunction
 
 
-  // Function -- NODOCS -- get_current_item
+  // Function: get_current_item
   //
   // Returns the request item currently being executed by the sequencer. If the
   // sequencer is not currently executing an item, this method will return ~null~.
@@ -95,7 +90,6 @@ virtual class uvm_sequence #(type REQ = uvm_sequence_item,
   // Note that a driver that only calls get will never show a current item,
   // since the item is completed at the same time as it is requested.
 
-  // @uvm-ieee 1800.2-2017 auto 14.3.3.2
   function REQ get_current_item();
     if (!$cast(param_sequencer, m_sequencer))
       uvm_report_fatal("SGTCURR", "Failure to cast m_sequencer to the parameterized sequencer", UVM_NONE);
@@ -103,7 +97,7 @@ virtual class uvm_sequence #(type REQ = uvm_sequence_item,
   endfunction
 
 
-  // Task -- NODOCS -- get_response
+  // Task: get_response
   //
   // By default, sequences must retrieve responses by calling get_response.
   // If no transaction_id is specified, this task will return the next response
@@ -119,9 +113,8 @@ virtual class uvm_sequence #(type REQ = uvm_sequence_item,
   //
   // If a response is dropped in the response queue, an error will be reported
   // unless the error reporting is disabled via
-  // set_response_queue_error_report_enabled.
+  // set_response_queue_error_report_disabled.
 
-  // @uvm-ieee 1800.2-2017 auto 14.3.3.3
   virtual task get_response(output RSP response, input int transaction_id = -1);
     uvm_sequence_item rsp;
     get_base_response( rsp, transaction_id);

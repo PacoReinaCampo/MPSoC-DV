@@ -1,9 +1,8 @@
 //
 //----------------------------------------------------------------------
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2007-2011 Mentor Graphics Corporation
-// Copyright 2011 AMD
-// Copyright 2015 NVIDIA Corporation
+//   Copyright 2007-2011 Mentor Graphics Corporation
+//   Copyright 2007-2010 Cadence Design Systems, Inc.
+//   Copyright 2010 Synopsys, Inc.
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -23,7 +22,7 @@
 
 //------------------------------------------------------------------------------
 //
-// Class -- NODOCS -- uvm_bottomup_phase
+// Class: uvm_bottomup_phase
 //
 //------------------------------------------------------------------------------
 // Virtual base class for function phases that operate bottom-up.
@@ -34,18 +33,22 @@
 // has been called and returned on all applicable components
 // in the hierarchy.
 
-// @uvm-ieee 1800.2-2017 auto 9.5.1
 virtual class uvm_bottomup_phase extends uvm_phase;
 
-
-  // @uvm-ieee 1800.2-2017 auto 9.5.2.1
+  // Function: new
+  //
+  // Create a new instance of a bottom-up phase.
+  //
   function new(string name);
     super.new(name,UVM_PHASE_IMP);
   endfunction
 
 
-
-  // @uvm-ieee 1800.2-2017 auto 9.5.2.2
+  // Function: traverse
+  //
+  // Traverses the component tree in bottom-up order, calling <execute> for
+  // each component.
+  //
   virtual function void traverse(uvm_component comp,
                                  uvm_phase phase,
                                  uvm_phase_state state);
@@ -91,8 +94,10 @@ virtual class uvm_bottomup_phase extends uvm_phase;
   endfunction
 
 
-
-  // @uvm-ieee 1800.2-2017 auto 9.5.2.3
+  // Function: execute
+  //
+  // Executes the bottom-up phase ~phase~ for the component ~comp~. 
+  //
   virtual function void execute(uvm_component comp,
                                           uvm_phase phase);
     // reseed this process for random stability
@@ -104,3 +109,4 @@ virtual class uvm_bottomup_phase extends uvm_phase;
   endfunction
 
 endclass
+

@@ -1,10 +1,7 @@
 // 
 // -------------------------------------------------------------
-// Copyright 2010-2011 Mentor Graphics Corporation
-// Copyright 2004-2010 Synopsys, Inc.
-// Copyright 2010-2018 Cadence Design Systems, Inc.
-// Copyright 2010 AMD
-// Copyright 2015-2018 NVIDIA Corporation
+//    Copyright 2004-2008 Synopsys, Inc.
+//    Copyright 2010 Mentor Graphics Corporation
 //    All Rights Reserved Worldwide
 // 
 //    Licensed under the Apache License, Version 2.0 (the
@@ -24,11 +21,11 @@
 // 
 
 //
-// TITLE -- NODOCS -- Memory Access Test Sequence
+// TITLE: Memory Access Test Sequence
 //
 
 //
-// class -- NODOCS -- uvm_mem_single_access_seq
+// class: uvm_mem_single_access_seq
 //
 // Verify the accessibility of a memory
 // by writing through its default address map
@@ -50,10 +47,9 @@
 // The DUT should be idle and not modify the memory during this test.
 //
 
-// @uvm-ieee 1800.2-2017 auto E.5.1.1
 class uvm_mem_single_access_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item));
 
-   // Variable -- NODOCS -- mem
+   // Variable: mem
    //
    // The memory to be tested
    //
@@ -61,7 +57,6 @@ class uvm_mem_single_access_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_re
 
    `uvm_object_utils(uvm_mem_single_access_seq)
 
-   // @uvm-ieee 1800.2-2017 auto E.5.1.3
    function new(string name="uam_mem_single_access_seq");
      super.new(name);
    endfunction
@@ -72,7 +67,7 @@ class uvm_mem_single_access_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_re
       int n_bits;
 
       if (mem == null) begin
-         `uvm_error("uvm_mem_access_seq", "No register specified to run sequence on")
+         `uvm_error("uvm_mem_access_seq", "No register specified to run sequence on");
          return;
       end
 
@@ -181,7 +176,7 @@ endclass: uvm_mem_single_access_seq
 
 
 //
-// class -- NODOCS -- uvm_mem_access_seq
+// class: uvm_mem_access_seq
 //
 // Verify the accessibility of all memories in a block
 // by executing the <uvm_mem_single_access_seq> sequence on
@@ -197,17 +192,16 @@ endclass: uvm_mem_single_access_seq
 //|                            "NO_MEM_TESTS", 1, this);
 //
 
-// @uvm-ieee 1800.2-2017 auto E.5.2.1
 class uvm_mem_access_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item));
 
-   // Variable -- NODOCS -- model
+   // Variable: model
    //
    // The block to be tested. Declared in the base class.
    //
    //| uvm_reg_block model; 
 
 
-   // Variable -- NODOCS -- mem_seq
+   // Variable: mem_seq
    //
    // The sequence used to test one memory
    //
@@ -215,17 +209,19 @@ class uvm_mem_access_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item)
 
    `uvm_object_utils(uvm_mem_access_seq)
 
-   // @uvm-ieee 1800.2-2017 auto E.5.2.3.1
    function new(string name="uvm_mem_access_seq");
      super.new(name);
    endfunction
 
-
-   // @uvm-ieee 1800.2-2017 auto E.5.2.3.2
+   // Task: body
+   //
+   // Execute the Memory Access sequence.
+   // Do not call directly. Use seq.start() instead.
+   //
    virtual task body();
 
       if (model == null) begin
-         `uvm_error("uvm_mem_access_seq", "No register model specified to run sequence on")
+         `uvm_error("uvm_mem_access_seq", "No register model specified to run sequence on");
          return;
       end
 
@@ -240,7 +236,7 @@ class uvm_mem_access_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item)
    endtask: body
 
 
-   // Task -- NODOCS -- do_block
+   // Task: do_block
    //
    // Test all of the memories in a given ~block~
    //
@@ -271,7 +267,7 @@ class uvm_mem_access_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item)
          if (mems[i].get_backdoor() == null &&
              !mems[i].has_hdl_path()) begin
             `uvm_warning("uvm_mem_access_seq", $sformatf("Memory \"%s\" does not have a backdoor mechanism available",
-                                               mems[i].get_full_name()))
+                                               mems[i].get_full_name()));
             continue;
          end
          
@@ -290,7 +286,7 @@ class uvm_mem_access_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item)
    endtask: do_block
 
 
-   // Task -- NODOCS -- reset_blk
+   // Task: reset_blk
    //
    // Reset the DUT that corresponds to the specified block abstraction class.
    //
@@ -307,3 +303,5 @@ class uvm_mem_access_seq extends uvm_reg_sequence #(uvm_sequence #(uvm_reg_item)
 
 
 endclass: uvm_mem_access_seq
+
+

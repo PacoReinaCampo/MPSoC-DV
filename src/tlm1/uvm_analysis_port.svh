@@ -1,9 +1,8 @@
 //
 //----------------------------------------------------------------------
-// Copyright 2007-2011 Mentor Graphics Corporation
-// Copyright 2010 Synopsys, Inc.
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2015 NVIDIA Corporation
+//   Copyright 2007-2011 Mentor Graphics Corporation
+//   Copyright 2007-2011 Cadence Design Systems, Inc. 
+//   Copyright 2010 Synopsys, Inc.
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -23,7 +22,7 @@
 
 
 //------------------------------------------------------------------------------
-// Title -- NODOCS -- Analysis Ports
+// Title: Analysis Ports
 //------------------------------------------------------------------------------
 //
 // This section defines the port, export, and imp classes used for transaction
@@ -33,7 +32,7 @@
 
 
 //------------------------------------------------------------------------------
-// Class -- NODOCS -- uvm_analysis_port
+// Class: uvm_analysis_port
 //
 // Broadcasts a value to all subscribers implementing a <uvm_analysis_imp>.
 // 
@@ -54,7 +53,6 @@
 //| endclass
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 12.2.10.1.1
 class uvm_analysis_port # (type T = int)
   extends uvm_port_base # (uvm_tlm_if_base #(T,T));
 
@@ -67,8 +65,8 @@ class uvm_analysis_port # (type T = int)
     return "uvm_analysis_port";
   endfunction
 
-
-  // @uvm-ieee 1800.2-2017 auto 12.2.10.1.2
+  // Method: write
+  // Send specified value to all connected interface
   function void write (input T t);
     uvm_tlm_if_base # (T, T) tif;
     for (int i = 0; i < this.size(); i++) begin
@@ -84,7 +82,7 @@ endclass
 
 
 //------------------------------------------------------------------------------
-// Class -- NODOCS -- uvm_analysis_imp
+// Class: uvm_analysis_imp
 //
 // Receives all transactions broadcasted by a <uvm_analysis_port>. It serves as
 // the termination point of an analysis port/export/imp connection. The component
@@ -109,7 +107,6 @@ endclass
 //| endclass
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 12.2.10.2
 class uvm_analysis_imp #(type T=int, type IMP=int)
   extends uvm_port_base #(uvm_tlm_if_base #(T,T));
   `UVM_IMP_COMMON(`UVM_TLM_ANALYSIS_MASK,"uvm_analysis_imp",IMP)
@@ -121,17 +118,16 @@ endclass
 
 
 //------------------------------------------------------------------------------
-// Class -- NODOCS -- uvm_analysis_export
+// Class: uvm_analysis_export
 //
 // Exports a lower-level <uvm_analysis_imp> to its parent.
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 12.2.10.3.1
 class uvm_analysis_export #(type T=int)
   extends uvm_port_base #(uvm_tlm_if_base #(T,T));
 
-
-  // @uvm-ieee 1800.2-2017 auto 12.2.10.3.2
+  // Function: new
+  // Instantiate the export.
   function new (string name, uvm_component parent = null);
     super.new (name, parent, UVM_EXPORT, 1, UVM_UNBOUNDED_CONNECTIONS);
     m_if_mask = `UVM_TLM_ANALYSIS_MASK;
@@ -155,3 +151,5 @@ class uvm_analysis_export #(type T=int)
   endfunction
 
 endclass
+
+

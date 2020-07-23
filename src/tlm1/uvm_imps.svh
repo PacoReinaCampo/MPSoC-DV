@@ -1,9 +1,8 @@
 //
 //------------------------------------------------------------------------------
-// Copyright 2007-2011 Mentor Graphics Corporation
-// Copyright 2010-2018 Synopsys, Inc.
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2015-2018 NVIDIA Corporation
+//   Copyright 2007-2011 Mentor Graphics Corporation
+//   Copyright 2007-2010 Cadence Design Systems, Inc. 
+//   Copyright 2010 Synopsys, Inc.
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -22,15 +21,15 @@
 //-------------.----------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Title -- NODOCS -- uvm_*_imp ports
+// Title: uvm_*_imp ports
 //
-// The following defines the UVM TLM implementation (imp) classes.
+// The following defines the TLM implementation (imp) classes.
 //------------------------------------------------------------------------------
 
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_*_imp #(T,IMP)
+// CLASS: uvm_*_imp #(T,IMP)
 //
 // Unidirectional implementation (imp) port classes--An imp port provides access
 // to an implementation of the associated interface to all connected ~ports~ and
@@ -70,7 +69,7 @@
 //------------------------------------------------------------------------------
 
 
-// Function -- NODOCS -- new
+// Function: new
 // 
 // Creates a new unidirectional imp port with the given ~name~ and ~parent~.
 // The ~parent~ must implement the interface associated with this port.
@@ -154,7 +153,7 @@ endclass
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_*_imp #(REQ, RSP, IMP, REQ_IMP, RSP_IMP)
+// CLASS: uvm_*_imp #(REQ, RSP, IMP, REQ_IMP, RSP_IMP)
 //
 // Bidirectional implementation (imp) port classes--An imp port provides access
 // to an implementation of the associated interface to all connected ~ports~ and
@@ -210,7 +209,7 @@ endclass
 //------------------------------------------------------------------------------
 
 
-// Function -- NODOCS -- new
+// Function: new
 //
 // Creates a new bidirectional imp port with the given ~name~ and ~parent~.
 // The ~parent~, whose type is specified by ~IMP~ type parameter,
@@ -314,3 +313,4 @@ class uvm_transport_imp #(type REQ=int, type RSP=REQ, type IMP=int)
   `UVM_BLOCKING_TRANSPORT_IMP (m_imp, REQ, RSP, req, rsp)
   `UVM_NONBLOCKING_TRANSPORT_IMP (m_imp, REQ, RSP, req, rsp)
 endclass
+

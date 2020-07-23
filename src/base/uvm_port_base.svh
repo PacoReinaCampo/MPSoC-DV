@@ -1,15 +1,9 @@
 //
 //------------------------------------------------------------------------------
-// Copyright 2007-2018 Mentor Graphics Corporation
-// Copyright 2015 Analog Devices, Inc.
-// Copyright 2014 Semifore
-// Copyright 2014 Intel Corporation
-// Copyright 2010-2018 Synopsys, Inc.
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2010 AMD
-// Copyright 2014-2018 NVIDIA Corporation
-// Copyright 2012-2017 Cisco Systems, Inc.
-// Copyright 2017 Verific
+//   Copyright 2007-2011 Mentor Graphics Corporation
+//   Copyright 2007-2011 Cadence Design Systems, Inc.
+//   Copyright 2010 Synopsys, Inc.
+//   Copyright 2013 Cisco Systems, Inc.
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the "License"); you may not
@@ -31,20 +25,12 @@ const string s_connection_warning_id = "Connection Warning";
 const string s_spaces = "                       ";
 
 typedef class uvm_port_component_base;
+typedef uvm_port_component_base uvm_port_list[string];
 
 
 // TITLE: Port Base Classes
 //
 
-
-//
-// CLASS: uvm_port_list
-//
-// Associative array of uvm_port_component_base class handles, indexed by string
-//
-// @uvm-accellera The details of this API are specific to the Accellera implementation, and are not being considered for contribution to 1800.2
-
-typedef uvm_port_component_base uvm_port_list[string];
 
 //------------------------------------------------------------------------------
 //
@@ -55,10 +41,11 @@ typedef uvm_port_component_base uvm_port_list[string];
 // after or during the end_of_elaboration phase.  The sub-class,
 // <uvm_port_component #(PORT)>, implements this interface.
 //
-// Each port's full name and type name can be retrieved using ~get_full_name~ 
-// and ~get_type_name~ methods inherited from <uvm_component>.
-//
-// @uvm-accellera The details of this API are specific to the Accellera implementation, and are not being considered for contribution to 1800.2
+// The connectivity lists are returned in the form of handles to objects of this
+// type. This allowing traversal of any port's fan-out and fan-in network
+// through recursive calls to <get_connected_to> and <get_provided_to>. Each
+// port's full name and type name can be retrieved using ~get_full_name~ and
+// ~get_type_name~ methods inherited from <uvm_component>.
 //------------------------------------------------------------------------------
 
 virtual class uvm_port_component_base extends uvm_component;
@@ -72,20 +59,26 @@ virtual class uvm_port_component_base extends uvm_component;
   // For a port or export type, this function fills ~list~ with all
   // of the ports, exports and implementations that this port is
   // connected to.
-  //
-  // @uvm-accellera The details of this API are specific to the Accellera implementation, and are not being considered for contribution to 1800.2
 
   pure virtual function void get_connected_to(ref uvm_port_list list);
 
-  // Function -- NODOCS -- is_port
+  // Function: get_provided_to
+  //
+  // For an implementation or export type, this function fills ~list~ with all
+  // of the ports, exports and implementations that this port is
+  // provides its implementation to.
+
+  pure virtual function void get_provided_to(ref uvm_port_list list);
+
+  // Function: is_port
   //
   pure virtual function bit is_port();
 
-  // Function -- NODOCS -- is_export
+  // Function: is_export
   //
   pure virtual function bit is_export();
 
-  // Function -- NODOCS -- is_imp
+  // Function: is_imp
   //
   // These function determine the type of port. The functions are
   // mutually exclusive; one will return 1 and the other two will
@@ -94,10 +87,11 @@ virtual class uvm_port_component_base extends uvm_component;
   pure virtual function bit is_imp();
 
   // Turn off auto config by not calling build_phase()
-  virtual function bit use_automatic_config();
-    return 0;
-  endfunction : use_automatic_config    
-   
+  virtual function void build_phase(uvm_phase phase);
+    build(); //for backward compat
+    return;
+  endfunction
+
   virtual task do_task_phase (uvm_phase phase);
   endtask
 endclass
@@ -108,12 +102,10 @@ endclass
 // CLASS: uvm_port_component #(PORT)
 //
 //------------------------------------------------------------------------------
-// This implementation of uvm_port_component class from IEEE 1800.2 declares all the
-// API described in the LRM, plus it inherits from uvm_port_component_base for the
-// purpose of providing the get_connected_to() method.
-//
-// @uvm-accellera The details of this API are specific to the Accellera implementation, and are not being considered for contribution to 1800.2
+// See description of <uvm_port_component_base> for information about this class
 //------------------------------------------------------------------------------
+
+
 class uvm_port_component #(type PORT=uvm_object) extends uvm_port_component_base;
   
   PORT m_port;
@@ -134,7 +126,7 @@ class uvm_port_component #(type PORT=uvm_object) extends uvm_port_component_base
     m_port.resolve_bindings();
   endfunction
   
-  // Function -- NODOCS -- get_port
+  // Function: get_port
   //
   // Retrieve the actual port object that this proxy refers to.
 
@@ -142,19 +134,12 @@ class uvm_port_component #(type PORT=uvm_object) extends uvm_port_component_base
     return m_port;
   endfunction
 
-  // Function: get_connected_to
-  //
-  // Implementation of the pure function declared in uvm_port_component_base
-  //
-  // @uvm-accellera The details of this API are specific to the Accellera implementation, and are not being considered for contribution to 1800.2
-
   virtual function void get_connected_to(ref uvm_port_list list);
-    PORT list1[string];
-    m_port.get_connected_to(list1);
-    list.delete();
-    foreach(list1[name]) begin
-      list[name] = list1[name].get_comp();
-    end
+    m_port.get_connected_to(list);
+  endfunction
+
+  virtual function void get_provided_to(ref uvm_port_list list);
+    m_port.get_provided_to(list);
   endfunction
 
   function bit is_port ();
@@ -174,7 +159,7 @@ endclass
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_port_base #(IF)
+// CLASS: uvm_port_base #(IF)
 //
 //------------------------------------------------------------------------------
 //
@@ -187,8 +172,9 @@ endclass
 //
 //   IF  - The interface type implemented by the subtype to this base port
 //
-// The UVM provides a complete set of ports, exports, and imps to enable transaction-level communication between entities.
-// They can be found in the ../src/tlm*/ directory. See Section 12.1 of the IEEE Spec for details.
+// The UVM provides a complete set of ports, exports, and imps for the OSCI-
+// standard TLM interfaces. They can be found in the ../src/tlm/ directory.
+// For the TLM interfaces, the IF parameter is always <uvm_tlm_if_base #(T1,T2)>.
 //
 // Just before <uvm_component::end_of_elaboration_phase>, an internal
 // <uvm_component::resolve_bindings> process occurs, after which each port and
@@ -204,17 +190,9 @@ endclass
 // implements and <uvm_component>. Thus, uvm_port_base contains a local instance
 // of uvm_component, to which it delegates such commands as get_name,
 // get_full_name, and get_parent.
-// The connectivity lists are returned in the form of handles to objects of this
-// type. This allowing traversal of any port's fan-out and fan-in network
-// through recursive calls to <get_connected_to> and <get_provided_to>. 
 //
 //------------------------------------------------------------------------------
 
-// Class: uvm_port_base
-// The library implements the following public API beyond what is documented
-// in 1800.2.
-
-// @uvm-ieee 1800.2-2017 auto 5.5.1
 virtual class uvm_port_base #(type IF=uvm_void) extends IF;
    
 
@@ -233,7 +211,7 @@ virtual class uvm_port_base #(type IF=uvm_void) extends IF;
   local bit               m_resolved;
   local this_type         m_imp_list[string];
 
-  // Function -- NODOCS -- new
+  // Function: new
   //
   // The first two arguments are the normal <uvm_component> constructor
   // arguments.
@@ -251,7 +229,6 @@ virtual class uvm_port_base #(type IF=uvm_void) extends IF;
   // port's ~check_connection_relationships~ bit via ~uvm_config_int::set()~. See
   // <connect> for more information.
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.1
   function new (string name,
                 uvm_component parent,
                 uvm_port_type_e port_type,
@@ -270,31 +247,28 @@ virtual class uvm_port_base #(type IF=uvm_void) extends IF;
   endfunction
 
 
-  // Function -- NODOCS -- get_name
+  // Function: get_name
   //
   // Returns the leaf name of this port. 
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.2
   function string get_name();
     return m_comp.get_name();
   endfunction
 
 
-  // Function -- NODOCS -- get_full_name
+  // Function: get_full_name
   //
   // Returns the full hierarchical name of this port. 
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.3
   virtual function string get_full_name();
     return m_comp.get_full_name();
   endfunction
 
 
-  // Function -- NODOCS -- get_parent
+  // Function: get_parent
   //
   // Returns the handle to this port's parent, or ~null~ if it has no parent.
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.4
   virtual function uvm_component get_parent();
     return m_comp.get_parent();
   endfunction
@@ -307,21 +281,18 @@ virtual class uvm_port_base #(type IF=uvm_void) extends IF;
   // Ports are considered components. However, they do not inherit
   // <uvm_component>. Instead, they contain an instance of
   // <uvm_port_component #(PORT)> that serves as a proxy to this port.
-  //
-  // @uvm-accellera The details of this API are specific to the Accellera implementation, and are not being considered for contribution to 1800.2
 
   virtual function uvm_port_component_base get_comp();
     return m_comp;
   endfunction
 
 
-  // Function -- NODOCS -- get_type_name
+  // Function: get_type_name
   //
   // Returns the type name to this port. Derived port classes must implement
   // this method to return the concrete type. Otherwise, only a generic
   // "uvm_port", "uvm_export" or "uvm_implementation" is returned.
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.5
   virtual function string get_type_name();
     case( m_port_type )
       UVM_PORT : return "port";
@@ -331,72 +302,65 @@ virtual class uvm_port_base #(type IF=uvm_void) extends IF;
   endfunction
 
 
-  // Function -- NODOCS -- min_size
+  // Function: min_size
   //
   // Returns the minimum number of implementation ports that must
   // be connected to this port by the end_of_elaboration phase.
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.7
   function int max_size ();
     return m_max_size;
   endfunction
 
 
-  // Function -- NODOCS -- max_size
+  // Function: max_size
   //
   // Returns the maximum number of implementation ports that must
   // be connected to this port by the end_of_elaboration phase.
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.6
   function int min_size ();
     return m_min_size;
   endfunction
 
 
-  // Function -- NODOCS -- is_unbounded
+  // Function: is_unbounded
   //
   // Returns 1 if this port has no maximum on the number of implementation
   // ports this port can connect to. A port is unbounded when the ~max_size~
   // argument in the constructor is specified as ~UVM_UNBOUNDED_CONNECTIONS~.
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.8
   function bit is_unbounded ();
     return (m_max_size ==  UVM_UNBOUNDED_CONNECTIONS);
   endfunction
 
 
-  // Function -- NODOCS -- is_port
+  // Function: is_port
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.11
   function bit is_port ();
     return m_port_type == UVM_PORT;
   endfunction
 
-  // Function -- NODOCS -- is_export
+  // Function: is_export
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.11
   function bit is_export ();
     return m_port_type == UVM_EXPORT;
   endfunction
 
-  // Function -- NODOCS -- is_imp
+  // Function: is_imp
   //
   // Returns 1 if this port is of the type given by the method name,
   // 0 otherwise.
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.11
   function bit is_imp ();
     return m_port_type == UVM_IMPLEMENTATION;
   endfunction
 
 
-  // Function -- NODOCS -- size
+  // Function: size
   //
   // Gets the number of implementation ports connected to this port. The value
   // is not valid before the end_of_elaboration phase, as port connections have
   // not yet been resolved.
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.12
   function int size ();
     return m_imp_list.num();
   endfunction
@@ -413,20 +377,19 @@ virtual class uvm_port_base #(type IF=uvm_void) extends IF;
   endfunction
 
 
-  // Function -- NODOCS -- set_default_index
+  // Function: set_default_index
   // 
   // Sets the default implementation port to use when calling an interface
   // method. This method should only be called on UVM_EXPORT types. The value
   // must not be set before the end_of_elaboration phase, when port connections
   // have not yet been resolved.
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.13
   function void set_default_index (int index);
     m_def_index = index;
   endfunction
 
 
-  // Function -- NODOCS -- connect
+  // Function: connect
   //
   // Connects this port to the given ~provider~ port. The ports must be 
   // compatible in the following ways
@@ -454,7 +417,7 @@ virtual class uvm_port_base #(type IF=uvm_void) extends IF;
   //
   // Relationships, when enabled, are checked are as follows:
   //
-  // - If this port is an UVM_PORT type, the ~provider~ can be a parent port,
+  // - If this port is a UVM_PORT type, the ~provider~ can be a parent port,
   //   or a sibling export or implementation port.
   //
   // - If this port is a <UVM_EXPORT> type, the provider can be a child
@@ -466,7 +429,6 @@ virtual class uvm_port_base #(type IF=uvm_void) extends IF;
   // as this method. The component's ~connect~ method is a phase callback where
   // port's ~connect~ method calls are made.
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.14
   virtual function void connect (this_type provider);
      uvm_root top;
      uvm_coreservice_t cs;
@@ -533,9 +495,6 @@ virtual class uvm_port_base #(type IF=uvm_void) extends IF;
   //
   // This method must not be called before the end_of_elaboration phase, as port
   // connections are not resolved until then.
-  //
-  // @uvm-accellera The details of this API are specific to the Accellera implementation, and are not being considered for contribution to 1800.2
-
 
   function void debug_connected_to (int level=0, int max_level=-1);
     int sz, num, curr_num;
@@ -600,9 +559,6 @@ virtual class uvm_port_base #(type IF=uvm_void) extends IF;
   //
   // This method must not be called before the end_of_elaboration phase, as port
   // connections are not resolved until then.
-  //
-  // @uvm-accellera The details of this API are specific to the Accellera implementation, and are not being considered for contribution to 1800.2
-
 
   function void debug_provided_to  (int level=0, int max_level=-1);
     string nm;
@@ -645,13 +601,12 @@ virtual class uvm_port_base #(type IF=uvm_void) extends IF;
   // get_connected_to
   // ----------------
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.9
-  function void get_connected_to (ref uvm_port_base #(IF) list[string]);
+  function void get_connected_to (ref uvm_port_list list);
     this_type port;
     list.delete();
     foreach (m_provided_by[name]) begin
       port = m_provided_by[name];
-      list[name] = port;
+      list[name] = port.get_comp();
     end
   endfunction
 
@@ -659,13 +614,12 @@ virtual class uvm_port_base #(type IF=uvm_void) extends IF;
   // get_provided_to
   // ---------------
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.10
-  function void get_provided_to (ref uvm_port_base #(IF) list[string]);
+  function void get_provided_to (ref uvm_port_list list);
     this_type port;
     list.delete();
     foreach (m_provided_to[name]) begin
       port = m_provided_to[name];
-      list[name] = port;
+      list[name] = port.get_comp();
     end
   endfunction
 
@@ -761,7 +715,7 @@ virtual class uvm_port_base #(type IF=uvm_void) extends IF;
   endfunction
 
 
-  // Function -- NODOCS -- resolve_bindings
+  // Function: resolve_bindings
   //
   // This callback is called just before entering the end_of_elaboration phase.
   // It recurses through each port's fanout to determine all the imp 
@@ -772,7 +726,6 @@ virtual class uvm_port_base #(type IF=uvm_void) extends IF;
   // This method is automatically called just before the start of the
   // end_of_elaboration phase. Users should not need to call it directly.
 
-  // @uvm-ieee 1800.2-2017 auto 5.5.2.15
   virtual function void resolve_bindings();
     if (m_resolved) // don't repeat ourselves
      return;
@@ -809,7 +762,7 @@ virtual class uvm_port_base #(type IF=uvm_void) extends IF;
   endfunction
   
 
-  // Function -- NODOCS -- get_if
+  // Function: get_if
   //
   // Returns the implementation (imp) port at the given index from the array of
   // imps this port is connected to. Use <size> to get the valid range for index.
@@ -836,3 +789,4 @@ virtual class uvm_port_base #(type IF=uvm_void) extends IF;
   endfunction
 
 endclass
+

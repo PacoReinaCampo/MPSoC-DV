@@ -1,10 +1,8 @@
 //
 //------------------------------------------------------------------------------
-// Copyright 2007-2011 Mentor Graphics Corporation
-// Copyright 2014 Semifore
-// Copyright 2010-2018 Synopsys, Inc.
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2014-2018 NVIDIA Corporation
+//   Copyright 2007-2011 Mentor Graphics Corporation
+//   Copyright 2007-2010 Cadence Design Systems, Inc.
+//   Copyright 2010 Synopsys, Inc.
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -26,7 +24,7 @@ typedef class uvm_tlm_event;
 
 //------------------------------------------------------------------------------
 //
-// Title -- NODOCS -- UVM TLM FIFO Classes
+// Title: TLM FIFO Classes
 //
 // This section defines TLM-based FIFO classes. 
 //
@@ -34,7 +32,7 @@ typedef class uvm_tlm_event;
 
 //------------------------------------------------------------------------------
 //
-// Class -- NODOCS -- uvm_tlm_fifo#(T)
+// Class: uvm_tlm_fifo#(T)
 //
 // This class provides storage of transactions between two independently running
 // processes. Transactions are put into the FIFO via the ~put_export~. 
@@ -45,18 +43,16 @@ typedef class uvm_tlm_event;
 //
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 18.2.8.2
 class uvm_tlm_fifo #(type T=int) extends uvm_tlm_fifo_base #(T);
 
-  `uvm_component_param_utils(uvm_tlm_fifo#(T))
-  `uvm_type_name_decl("uvm_tlm_fifo #(T)")
+  const static string type_name = "uvm_tlm_fifo #(T)";
 
   local mailbox #( T ) m;
   local int m_size;
   protected int m_pending_blocked_gets;
 
 
-  // Function -- NODOCS -- new
+  // Function: new
   //
   // The ~name~ and ~parent~ are the normal uvm_component constructor arguments. 
   // The ~parent~ should be ~null~ if the <uvm_tlm_fifo#(T)> is going to be used in a
@@ -69,7 +65,12 @@ class uvm_tlm_fifo #(type T=int) extends uvm_tlm_fifo_base #(T);
     m_size = size;
   endfunction
 
-  // Function -- NODOCS -- size
+  virtual function string get_type_name();
+    return type_name;
+  endfunction
+
+
+  // Function: size
   //
   // Returns the capacity of the FIFO-- that is, the number of entries
   // the FIFO is capable of holding. A return value of 0 indicates the
@@ -80,7 +81,7 @@ class uvm_tlm_fifo #(type T=int) extends uvm_tlm_fifo_base #(T);
   endfunction
  
 
-  // Function -- NODOCS -- used
+  // Function: used
   //
   // Returns the number of entries put into the FIFO.
 
@@ -89,7 +90,7 @@ class uvm_tlm_fifo #(type T=int) extends uvm_tlm_fifo_base #(T);
   endfunction
 
 
-  // Function -- NODOCS -- is_empty
+  // Function: is_empty
   //
   // Returns 1 when there are no entries in the FIFO, 0 otherwise.
 
@@ -98,7 +99,7 @@ class uvm_tlm_fifo #(type T=int) extends uvm_tlm_fifo_base #(T);
   endfunction
  
 
-  // Function -- NODOCS -- is_full
+  // Function: is_full
   //
   // Returns 1 when the number of entries in the FIFO is equal to its <size>,
   // 0 otherwise.
@@ -163,7 +164,7 @@ class uvm_tlm_fifo #(type T=int) extends uvm_tlm_fifo_base #(T);
   endfunction
 
 
-  // Function -- NODOCS -- flush
+  // Function: flush
   //
   // Removes all entries from the FIFO, after which <used> returns 0
   // and <is_empty> returns 1.
@@ -187,7 +188,7 @@ endclass
 
 //------------------------------------------------------------------------------
 //
-// Class -- NODOCS -- uvm_tlm_analysis_fifo#(T)
+// Class: uvm_tlm_analysis_fifo#(T)
 //
 // An analysis_fifo is a <uvm_tlm_fifo#(T)> with an unbounded size and a write interface.
 // It can be used any place a <uvm_analysis_imp> is used. Typical usage is
@@ -197,10 +198,8 @@ endclass
 //------------------------------------------------------------------------------
 
 class uvm_tlm_analysis_fifo #(type T = int) extends uvm_tlm_fifo #(T);
-  `uvm_component_param_utils(uvm_tlm_analysis_fifo#(T))
-  `uvm_type_name_decl("uvm_tlm_analysis_fifo #(T)")
 
-  // Port -- NODOCS -- analysis_export #(T)
+  // Port: analysis_export #(T)
   //
   // The analysis_export provides the write method to all connected analysis
   // ports and parent exports:
@@ -214,7 +213,7 @@ class uvm_tlm_analysis_fifo #(type T = int) extends uvm_tlm_fifo #(T);
   uvm_analysis_imp #(T, uvm_tlm_analysis_fifo #(T)) analysis_export;
 
 
-  // Function -- NODOCS -- new
+  // Function: new
   //
   // This is the standard uvm_component constructor. ~name~ is the local name
   // of this component. The ~parent~ should be left unspecified when this
@@ -224,6 +223,12 @@ class uvm_tlm_analysis_fifo #(type T = int) extends uvm_tlm_fifo #(T);
   function new(string name ,  uvm_component parent = null);
     super.new(name, parent, 0); // analysis fifo must be unbounded
     analysis_export = new("analysis_export", this);
+  endfunction
+
+  const static string type_name = "uvm_tlm_analysis_fifo #(T)";
+
+  virtual function string get_type_name();
+    return type_name;
   endfunction
 
   function void write(input T t);

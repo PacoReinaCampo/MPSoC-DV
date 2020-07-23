@@ -1,9 +1,8 @@
 //
 //------------------------------------------------------------------------------
-// Copyright 2007-2011 Mentor Graphics Corporation
-// Copyright 2010-2018 Synopsys, Inc.
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2015-2018 NVIDIA Corporation
+//   Copyright 2007-2011 Mentor Graphics Corporation
+//   Copyright 2007-2010 Cadence Design Systems, Inc. 
+//   Copyright 2010 Synopsys, Inc.
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -22,15 +21,15 @@
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Title -- NODOCS -- UVM TLM Export Classes
+// Title: TLM Export Classes
 //------------------------------------------------------------------------------
-// The following classes define the UVM TLM export classes.
+// The following classes define the TLM export classes.
 //------------------------------------------------------------------------------
 
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_*_export #(T)
+// CLASS: uvm_*_export #(T)
 //
 // The unidirectional uvm_*_export is a port that ~forwards~ or ~promotes~
 // an interface implementation from a child component to its parent.
@@ -66,7 +65,7 @@
 //------------------------------------------------------------------------------
 
 
-// Function -- NODOCS -- new
+// Function: new
 // 
 // The ~name~ and ~parent~ are the standard <uvm_component> constructor arguments.
 // The ~min_size~ and ~max_size~ specify the minimum and maximum number of
@@ -152,7 +151,7 @@ endclass
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_*_export #(REQ,RSP)
+// CLASS: uvm_*_export #(REQ,RSP)
 //
 // The bidirectional uvm_*_export is a port that ~forwards~ or ~promotes~
 // an interface implementation from a child component to its parent.
@@ -186,7 +185,7 @@ endclass
 //
 //------------------------------------------------------------------------------
 
-// Function -- NODOCS -- new
+// Function: new
 // 
 // The ~name~ and ~parent~ are the standard <uvm_component> constructor arguments.
 // The ~min_size~ and ~max_size~ specify the minimum and maximum number of
@@ -257,3 +256,4 @@ class uvm_transport_export #(type REQ=int, type RSP=REQ)
   `UVM_EXPORT_COMMON(`UVM_TLM_TRANSPORT_MASK,"uvm_transport_export")
   `UVM_TRANSPORT_IMP (this.m_if, REQ, RSP, req, rsp)
 endclass
+

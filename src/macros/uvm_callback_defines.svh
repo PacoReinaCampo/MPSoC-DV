@@ -1,8 +1,7 @@
 //-----------------------------------------------------------------------------
-// Copyright 2007-2012 Mentor Graphics Corporation
-// Copyright 2010-2011 Synopsys, Inc.
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2015 NVIDIA Corporation
+//   Copyright 2007-2011 Mentor Graphics Corporation
+//   Copyright 2007-2011 Cadence Design Systems, Inc. 
+//   Copyright 2010 Synopsys, Inc.
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -25,14 +24,14 @@
 
 
 //-----------------------------------------------------------------------------
-// Title -- NODOCS -- Callback Macros
+// Title: Callback Macros
 //
 // These macros are used to register and execute callbacks extending
 // from ~uvm_callbacks~.
 //-----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
-// MACRO -- NODOCS -- `uvm_register_cb
+// MACRO: `uvm_register_cb
 //
 //| `uvm_register_cb(T,CB)
 //
@@ -57,13 +56,12 @@
 //| endclass
 //-----------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto B.4.1
 `define uvm_register_cb(T,CB) \
   static local bit m_register_cb_``CB = uvm_callbacks#(T,CB)::m_register_pair(`"T`",`"CB`");
 
 
 //-----------------------------------------------------------------------------
-// MACRO -- NODOCS -- `uvm_set_super_type
+// MACRO: `uvm_set_super_type
 //
 //| `uvm_set_super_type(T,ST)
 //
@@ -97,13 +95,12 @@
 //| endclass
 //-----------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto B.4.2
 `define uvm_set_super_type(T,ST) \
   static local bit m_register_``T``ST = uvm_derived_callbacks#(T,ST)::register_super_type(`"T`",`"ST`"); 
 
 
 //-----------------------------------------------------------------------------
-// MACRO -- NODOCS -- `uvm_do_callbacks
+// MACRO: `uvm_do_callbacks
 //
 //| `uvm_do_callbacks(T,CB,METHOD)
 //
@@ -139,13 +136,12 @@
 //-----------------------------------------------------------------------------
 
 
-// @uvm-ieee 1800.2-2017 auto B.4.3
 `define uvm_do_callbacks(T,CB,METHOD) \
   `uvm_do_obj_callbacks(T,CB,this,METHOD)
 
 
 //-----------------------------------------------------------------------------
-// MACRO -- NODOCS -- `uvm_do_obj_callbacks
+// MACRO: `uvm_do_obj_callbacks
 //
 //| `uvm_do_obj_callbacks(T,CB,OBJ,METHOD)
 //
@@ -163,7 +159,6 @@
 //|    ...
 //-----------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto B.4.4
 `define uvm_do_obj_callbacks(T,CB,OBJ,METHOD) \
    begin \
      uvm_callback_iter#(T,CB) iter = new(OBJ); \
@@ -179,7 +174,7 @@
 
 
 //-----------------------------------------------------------------------------
-// MACRO -- NODOCS -- `uvm_do_callbacks_exit_on
+// MACRO: `uvm_do_callbacks_exit_on
 //
 //| `uvm_do_callbacks_exit_on(T,CB,METHOD,VAL)
 //
@@ -232,13 +227,12 @@
 //-----------------------------------------------------------------------------
 
 
-// @uvm-ieee 1800.2-2017 auto B.4.5
 `define uvm_do_callbacks_exit_on(T,CB,METHOD,VAL) \
   `uvm_do_obj_callbacks_exit_on(T,CB,this,METHOD,VAL) \
 
 
 //-----------------------------------------------------------------------------
-// MACRO -- NODOCS -- `uvm_do_obj_callbacks_exit_on
+// MACRO: `uvm_do_obj_callbacks_exit_on
 //
 //| `uvm_do_obj_callbacks_exit_on(T,CB,OBJ,METHOD,VAL)
 //
@@ -258,7 +252,6 @@
 // of functions that return a ~bit~ value, as in the above example.
 //-----------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto B.4.6
 `define uvm_do_obj_callbacks_exit_on(T,CB,OBJ,METHOD,VAL) \
    begin \
      uvm_callback_iter#(T,CB) iter = new(OBJ); \

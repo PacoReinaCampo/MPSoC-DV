@@ -1,8 +1,7 @@
 //------------------------------------------------------------------------------
-// Copyright 2007-2011 Mentor Graphics Corporation
-// Copyright 2018 Synopsys, Inc.
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2014-2018 NVIDIA Corporation
+//   Copyright 2007-2011 Mentor Graphics Corporation
+//   Copyright 2007-2011 Cadence Design Systems, Inc. 
+//   Copyright 2010 Synopsys, Inc.
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -23,17 +22,16 @@
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_push_sequencer #(REQ,RSP)
+// CLASS: uvm_push_sequencer #(REQ,RSP)
 //
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 15.6.1
 class uvm_push_sequencer #(type REQ=uvm_sequence_item, RSP=REQ)
                                    extends uvm_sequencer_param_base #(REQ, RSP);
 
   typedef uvm_push_sequencer #( REQ , RSP) this_type;
 
-  // Port -- NODOCS -- req_port
+  // Port: req_port
   //
   // The push sequencer requires access to a blocking put interface.
   // A continuous stream of sequence items are sent out this port, based on
@@ -42,15 +40,18 @@ class uvm_push_sequencer #(type REQ=uvm_sequence_item, RSP=REQ)
   uvm_blocking_put_port #(REQ) req_port;
 
 
-
-  // @uvm-ieee 1800.2-2017 auto 15.6.3.2
+  // Function: new
+  //
+  // Standard component constructor that creates an instance of this class
+  // using the given ~name~ and ~parent~, if any.
+  //
   function new (string name, uvm_component parent=null);
     super.new(name, parent);
     req_port = new ("req_port", this);
   endfunction 
 
 
-  // Task -- NODOCS -- run_phase
+  // Task: run_phase
   //
   // The push sequencer continuously selects from its list of available
   // sequences and sends the next item from the selected sequence out its

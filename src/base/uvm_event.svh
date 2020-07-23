@@ -1,11 +1,9 @@
 //
 //------------------------------------------------------------------------------
-// Copyright 2007-2011 Mentor Graphics Corporation
-// Copyright 2011 Synopsys, Inc.
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2011 AMD
-// Copyright 2013-2018 NVIDIA Corporation
-// Copyright 2014 Cisco Systems, Inc.
+//   Copyright 2007-2010 Mentor Graphics Corporation
+//   Copyright 2007-2011 Cadence Design Systems, Inc.
+//   Copyright 2010 Synopsys, Inc.
+//   Copyright 2014 NVIDIA Corportation
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -25,7 +23,7 @@
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_event_base
+// CLASS: uvm_event_base
 //
 // The uvm_event_base class is an abstract wrapper class around the SystemVerilog event
 // construct.  It provides some additional services such as setting callbacks
@@ -33,21 +31,18 @@
 //
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 10.1.1.1
 virtual class uvm_event_base extends uvm_object;
-
-        `uvm_object_abstract_utils(uvm_event_base)
-
+	const static string type_name = "uvm_event_base";
 	protected event      m_event;
 	protected int        num_waiters;
 	protected bit        on;
 	protected time       trigger_time=0;
+	protected uvm_event_callback  callbacks[$];
 
-	// Function -- NODOCS -- new
+	// Function: new
 	//
 	// Creates a new event object.
 
-	// @uvm-ieee 1800.2-2017 auto 10.1.1.2.1
 	function new (string name="");
 		super.new(name);
 	endfunction  
@@ -56,7 +51,7 @@ virtual class uvm_event_base extends uvm_object;
 	// waiting //
 	//---------//
 
-	// Task -- NODOCS -- wait_on
+	// Task: wait_on
 	//
 	// Waits for the event to be activated for the first time.
 	//
@@ -68,7 +63,6 @@ virtual class uvm_event_base extends uvm_object;
 	// Once an event has been triggered, it will be remain "on" until the event
 	// is <reset>.
 
-	// @uvm-ieee 1800.2-2017 auto 10.1.1.2.2
 	virtual task wait_on (bit delta = 0);
 		if (on) begin
 			if (delta)
@@ -80,7 +74,7 @@ virtual class uvm_event_base extends uvm_object;
 	endtask
 
 
-	// Task -- NODOCS -- wait_off
+	// Task: wait_off
 	//
 	// If the event has already triggered and is "on", this task waits for the
 	// event to be turned "off" via a call to <reset>.
@@ -90,7 +84,6 @@ virtual class uvm_event_base extends uvm_object;
 	// before returning. This prevents the caller from returning before
 	// previously waiting processes have had a chance to resume.
 
-	// @uvm-ieee 1800.2-2017 auto 10.1.1.2.3
 	virtual task wait_off (bit delta = 0);
 		if (!on) begin
 			if (delta)
@@ -102,7 +95,7 @@ virtual class uvm_event_base extends uvm_object;
 	endtask
 
 
-	// Task -- NODOCS -- wait_trigger
+	// Task: wait_trigger
 	//
 	// Waits for the event to be triggered. 
 	//
@@ -112,21 +105,19 @@ virtual class uvm_event_base extends uvm_object;
 	// occurs after the trigger, this method will not return until the next
 	// trigger, which may never occur and thus cause deadlock.
 
-	// @uvm-ieee 1800.2-2017 auto 10.1.1.2.4
 	virtual task wait_trigger ();
 		num_waiters++;
 		@m_event;
 	endtask
 
 
-	// Task -- NODOCS -- wait_ptrigger
+	// Task: wait_ptrigger
 	//
 	// Waits for a persistent trigger of the event. Unlike <wait_trigger>, this
 	// views the trigger as persistent within a given time-slice and thus avoids
 	// certain race conditions. If this method is called after the trigger but
 	// within the same time-slice, the caller returns immediately.
 
-	// @uvm-ieee 1800.2-2017 auto 10.1.1.2.5
 	virtual task wait_ptrigger ();
 		if (m_event.triggered)
 			return;
@@ -135,12 +126,11 @@ virtual class uvm_event_base extends uvm_object;
 	endtask
 
 
-	// Function -- NODOCS -- get_trigger_time
+	// Function: get_trigger_time
 	//
 	// Gets the time that this event was last triggered. If the event has not been
 	// triggered, or the event has been reset, then the trigger time will be 0.
 
-	// @uvm-ieee 1800.2-2017 auto 10.1.1.2.6
 	virtual function time get_trigger_time ();
 		return trigger_time;
 	endfunction
@@ -150,19 +140,18 @@ virtual class uvm_event_base extends uvm_object;
 	// state //
 	//-------//
 
-	// Function -- NODOCS -- is_on
+	// Function: is_on
 	//
 	// Indicates whether the event has been triggered since it was last reset. 
 	//
 	// A return of 1 indicates that the event has triggered.
 
-	// @uvm-ieee 1800.2-2017 auto 10.1.1.2.7
 	virtual function bit is_on ();
 		return (on == 1);
 	endfunction
 
 
-	// Function -- NODOCS -- is_off
+	// Function: is_off
 	//
 	// Indicates whether the event has been triggered or been reset.
 	//
@@ -173,14 +162,13 @@ virtual class uvm_event_base extends uvm_object;
 	endfunction
 
 
-	// Function -- NODOCS -- reset
+	// Function: reset
 	//
 	// Resets the event to its off state. If ~wakeup~ is set, then all processes
 	// currently waiting for the event are activated before the reset.
 	//
 	// No callbacks are called during a reset.
 
-	// @uvm-ieee 1800.2-2017 auto 10.1.1.2.8
 	virtual function void reset (bit wakeup = 0);
 		event e;
 		if (wakeup)
@@ -197,27 +185,30 @@ virtual class uvm_event_base extends uvm_object;
 	// waiters list //
 	//--------------//
 
-	// Function -- NODOCS -- cancel
+	// Function: cancel
 	//
 	// Decrements the number of waiters on the event. 
 	//
 	// This is used if a process that is waiting on an event is disabled or
 	// activated by some other means.
 
-	// @uvm-ieee 1800.2-2017 auto 10.1.1.2.9
 	virtual function void cancel ();
 		if (num_waiters > 0)
 			num_waiters--;
 	endfunction
 
 
-	// Function -- NODOCS -- get_num_waiters
+	// Function: get_num_waiters
 	//
 	// Returns the number of processes waiting on the event.
 
-	// @uvm-ieee 1800.2-2017 auto 10.1.1.2.10
 	virtual function int get_num_waiters ();
 		return num_waiters;
+	endfunction
+
+
+	virtual function string get_type_name();
+		return type_name;
 	endfunction
 
 
@@ -225,6 +216,11 @@ virtual class uvm_event_base extends uvm_object;
 		printer.print_field_int("num_waiters", num_waiters, $bits(num_waiters), UVM_DEC, ".", "int");
 		printer.print_field_int("on", on, $bits(on), UVM_BIN, ".", "bit");
 		printer.print_time("trigger_time", trigger_time);
+		printer.m_scope.down("callbacks");
+		foreach(callbacks[e]) begin
+			printer.print_object($sformatf("[%0d]",e), callbacks[e], "[");
+		end
+		printer.m_scope.up();
 	endfunction
 
 
@@ -237,14 +233,17 @@ virtual class uvm_event_base extends uvm_object;
 		num_waiters = e.num_waiters;
 		on = e.on;
 		trigger_time = e.trigger_time;
+		callbacks.delete();
+		callbacks = e.callbacks;   
 
 	endfunction
 
 endclass
 
+
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_event#(T)
+// CLASS: uvm_event#(T)
 //
 // The uvm_event class is an extension of the abstract uvm_event_base class.  
 // 
@@ -252,59 +251,35 @@ endclass
 // can be passed during an event trigger.
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 10.1.2.1
 class uvm_event#(type T=uvm_object) extends uvm_event_base;
 
-        typedef uvm_event#(T) this_type;
-        typedef uvm_event_callback#(T) cb_type;
-        typedef uvm_callbacks#(this_type, cb_type) cbs_type;
-   
-        // Not using `uvm_register_cb(this_type, cb_type)
-        // so as to try and get ~slightly~ better debug
-        // output for names.
-        static local function bit m_register_cb();
-	   return uvm_callbacks#(this_type,cb_type)::m_register_pair(
-                                                "uvm_pkg::uvm_event#(T)",
-                                                "uvm_pkg::uvm_event_callback#(T)"
-				                                     );
-	endfunction : m_register_cb
-        static local bit m_cb_registered = m_register_cb();
-   
-        `uvm_object_param_utils(this_type)
-
-        // Better type name for debug
-        virtual function string get_type_name();
-	   return "uvm_pkg::uvm_event#(T)";
-	endfunction : get_type_name
+	const static string type_name = "uvm_event";
 
 	local T trigger_data;
-        local T default_data;
 
-	// Function -- NODOCS -- new
+	// Function: new
 	//
 	// Creates a new event object.
 
-	// @uvm-ieee 1800.2-2017 auto 10.1.2.2.1
 	function new (string name="");
 		super.new(name);
 	endfunction  
 
-	// Task -- NODOCS -- wait_trigger_data
+
+	// Task: wait_trigger_data
 	//
 	// This method calls <uvm_event_base::wait_trigger> followed by <get_trigger_data>.
 
-	// @uvm-ieee 1800.2-2017 auto 10.1.2.2.2
 	virtual task wait_trigger_data (output T data);
 		wait_trigger();
 		data = get_trigger_data();
 	endtask
 
 
-	// Task -- NODOCS -- wait_ptrigger_data
+	// Task: wait_ptrigger_data
 	//
 	// This method calls <uvm_event_base::wait_ptrigger> followed by <get_trigger_data>.
 
-	// @uvm-ieee 1800.2-2017 auto 10.1.2.2.3
 	virtual task wait_ptrigger_data (output T data);
 		wait_ptrigger();
 		data = get_trigger_data();
@@ -315,28 +290,30 @@ class uvm_event#(type T=uvm_object) extends uvm_event_base;
 	// triggering //
 	//------------//
 
-	// Function -- NODOCS -- trigger
+	// Function: trigger
 	//
 	// Triggers the event, resuming all waiting processes.
 	//
 	// An optional ~data~ argument can be supplied with the enable to provide
 	// trigger-specific information.
 
-	// @uvm-ieee 1800.2-2017 auto 10.1.2.2.4
-	virtual function void trigger (T data=get_default_data());
+	virtual function void trigger (T data=null);
 		int skip;
-	        cb_type cb_q[$];
 		skip=0;
-	        cbs_type::get_all(cb_q, this);
-
-	        // Call all pre_trigger, bail out after
-	        // if any return !0
-	        foreach (cb_q[i])
-		  skip += cb_q[i].pre_trigger(this, data);
+		if (callbacks.size()) begin
+			for (int i=0;i<callbacks.size();i++) begin
+				uvm_event_callback#(T) tmp=callbacks[i];
+				skip = skip + tmp.pre_trigger(this,data);
+			end
+		end
 		if (skip==0) begin
 			->m_event;
-		        foreach (cb_q[i])
-			  cb_q[i].post_trigger(this, data);
+			if (callbacks.size()) begin
+				for (int i=0;i<callbacks.size();i++) begin
+					uvm_event_callback#(T) tmp=callbacks[i];
+					tmp.post_trigger(this,data);
+				end
+			end
 			num_waiters = 0;
 			on = 1;
 			trigger_time = $realtime;
@@ -345,33 +322,23 @@ class uvm_event#(type T=uvm_object) extends uvm_event_base;
 	endfunction
 
 
-	// Function -- NODOCS -- get_trigger_data
+	// Function: get_trigger_data
 	//
 	// Gets the data, if any, provided by the last call to <trigger>.
 
-	// @uvm-ieee 1800.2-2017 auto 10.1.2.2.5
 	virtual function T get_trigger_data ();
 		return trigger_data;
 	endfunction
 
-        // Function -- NODOCS -- default data
-
-        // @uvm-ieee 1800.2-2017 auto 10.1.2.2.6
-        virtual function T get_default_data();
-	   return default_data;
-	endfunction : get_default_data
-
-        // @uvm-ieee 1800.2-2017 auto 10.1.2.2.6
-        virtual function void set_default_data(T data);
-	   default_data = data;
-	endfunction : set_default_data
-
-`ifdef UVM_ENABLE_DEPRECATED_API   
-        //-----------//
+	virtual function string get_type_name();
+		return type_name;
+	endfunction
+	
+		//-----------//
 	// callbacks //
 	//-----------//
 
-	// Function -- NODOCS -- add_callback
+	// Function: add_callback
 	//
 	// Registers a callback object, ~cb~, with this event. The callback object
 	// may include pre_trigger and post_trigger functionality. If ~append~ is set
@@ -379,73 +346,49 @@ class uvm_event#(type T=uvm_object) extends uvm_event_base;
 	// ~cb~ is placed at the front of the callback list.
 
 	virtual function void add_callback (uvm_event_callback#(T) cb, bit append=1);
-	   if (append)
-	     cbs_type::add(this, cb, UVM_APPEND);
-	   else
-	     cbs_type::add(this, cb, UVM_PREPEND);
-	endfunction 
+		for (int i=0;i<callbacks.size();i++) begin
+			if (cb == callbacks[i]) begin
+				uvm_report_warning("CBRGED","add_callback: Callback already registered. Ignoring.", UVM_NONE);
+				return;
+			end
+		end
+		if (append)
+			callbacks.push_back(cb);
+		else
+			callbacks.push_front(cb);
+	endfunction
 
 
-	// Function -- NODOCS -- delete_callback
+	// Function: delete_callback
 	//
 	// Unregisters the given callback, ~cb~, from this event. 
 
 	virtual function void delete_callback (uvm_event_callback#(T) cb);
-	   cbs_type::delete(this, cb);
-	endfunction // delete_callback
-`endif   
+		for (int i=0;i<callbacks.size();i++) begin
+			if (cb == callbacks[i]) begin
+				callbacks.delete(i);
+				return;
+			end
+		end
+		uvm_report_warning("CBNTFD", "delete_callback: Callback not found. Ignoring delete request.", UVM_NONE);
+	endfunction
 
 	virtual function void do_print (uvm_printer printer);
-	   uvm_event#(uvm_object) oe;
-	   cb_type cb_q[$];
-	   
-	   super.do_print(printer);
-
-	   // Printing the callbacks
-	   cbs_type::get_all(cb_q, this);
-           printer.print_array_header("callbacks", cb_q.size(), "queue");
-	   foreach(cb_q[e])
-	     printer.print_object($sformatf("[%0d]", e), cb_q[e], "[");
-           printer.print_array_footer(cb_q.size());
-	   
-	   if ($cast(oe, this)) begin
-	     printer.print_object("trigger_data", oe.get_trigger_data());
-	   end
-	   else begin
-	      uvm_event#(string) se;
-	      if ($cast(se, this))
-		printer.print_string("trigger_data", se.get_trigger_data());
-	   end
+		super.do_print(printer);
+		printer.print_object("trigger_data", trigger_data);
 	endfunction
 	
 	virtual function void do_copy (uvm_object rhs);
-	   this_type e;
-	   cb_type cb_q[$];
-	   super.do_copy(rhs);
-	   if(!$cast(e, rhs) || (e==null)) return;
-	   trigger_data = e.trigger_data;
+		uvm_event#(T) e;
+		super.do_copy(rhs);
+		if(!$cast(e, rhs) || (e==null)) return;
+		trigger_data = e.trigger_data;
+	endfunction // do_copy
 
-	   begin
-	      // Copying the callbacks is VERY ugly
-	      //
-
-	      // First we retrieve any existing callbacks for this
-	      // instance, and delete them.  Note that this can
-	      // bump into Mantis 6450, which would result in
-	      // incorrect behavior until that mantis is fixed.
-              // \todo Remove this note when 6450 is resolved.
-	      cbs_type::get_all(cb_q, this);
-	      foreach(cb_q[i])
-		cbs_type::delete(this, cb_q[i]);
-
-	      // We now have an empty instance queue, which we'll fill
-	      // using the rhs.
-	      cb_q.delete();
-	      cbs_type::get_all(cb_q, e);
-	      foreach(cb_q[i])
-		cbs_type::add(this, cb_q[i]);
-
-	   end
+   	virtual function uvm_object create(string name=""); 
+		uvm_event#(T) v;
+		v=new(name);
+		return v;
 	endfunction
 
 endclass

@@ -1,8 +1,8 @@
 //
 //------------------------------------------------------------------------------
-// Copyright 2007-2011 Mentor Graphics Corporation
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2013-2018 NVIDIA Corporation
+//   Copyright 2007-2010 Mentor Graphics Corporation
+//   Copyright 2007-2010 Cadence Design Systems, Inc.
+//   Copyright 2010 Synopsys, Inc.
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -22,12 +22,10 @@
 
 typedef class uvm_object;
 typedef class uvm_event;
-typedef class uvm_callback;
-typedef class uvm_callbacks;
-   
+
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_event_callback
+// CLASS: uvm_event_callback
 //
 // The uvm_event_callback class is an abstract class that is used to create
 // callback objects which may be attached to <uvm_event#(T)>s. To use, you
@@ -39,20 +37,18 @@ typedef class uvm_callbacks;
 //
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 10.2.1
-virtual class uvm_event_callback#(type T=uvm_object) extends uvm_callback;
+virtual class uvm_event_callback#(type T=uvm_object) extends uvm_object;
 
-  // Function -- NODOCS -- new
+  // Function: new
   //
   // Creates a new callback object.
 
-  // @uvm-ieee 1800.2-2017 auto 10.2.2.1
   function new (string name=""); 
     super.new(name);
   endfunction
 
 
-  // Function -- NODOCS -- pre_trigger
+  // Function: pre_trigger
   //
   // This callback is called just before triggering the associated event.
   // In a derived class, override this method to implement any pre-trigger
@@ -65,13 +61,12 @@ virtual class uvm_event_callback#(type T=uvm_object) extends uvm_callback;
   // In the function, ~e~ is the <uvm_event#(T)> that is being triggered, and ~data~
   // is the optional data associated with the event trigger.
 
-  // @uvm-ieee 1800.2-2017 auto 10.2.2.2
   virtual function bit pre_trigger (uvm_event#(T) e, T data);
     return 0;
   endfunction
 
 
-  // Function -- NODOCS -- post_trigger
+  // Function: post_trigger
   //
   // This callback is called after triggering the associated event.
   // In a derived class, override this method to implement any post-trigger
@@ -81,7 +76,6 @@ virtual class uvm_event_callback#(type T=uvm_object) extends uvm_callback;
   // In the function, ~e~ is the <uvm_event#(T)> that is being triggered, and ~data~
   // is the optional data associated with the event trigger.
 
-  // @uvm-ieee 1800.2-2017 auto 10.2.2.3
   virtual function void post_trigger (uvm_event#(T) e, T data);
     return;
   endfunction
@@ -92,3 +86,5 @@ virtual class uvm_event_callback#(type T=uvm_object) extends uvm_callback;
   endfunction
 
 endclass
+
+

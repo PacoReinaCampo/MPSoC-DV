@@ -1,11 +1,8 @@
 //----------------------------------------------------------------------
-// Copyright 2007-2011 Mentor Graphics Corporation
-// Copyright 2010-2014 Synopsys, Inc.
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2010-2011 AMD
-// Copyright 2014-2018 NVIDIA Corporation
-// Copyright 2014 Cisco Systems, Inc.
-// Copyright 2017 Verific
+//   Copyright 2007-2011 Mentor Graphics Corporation
+//   Copyright 2007-2011 Cadence Design Systems, Inc. 
+//   Copyright 2010 Synopsys, Inc.
+//   Copyright 2014 NVIDIA Corporation
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -26,11 +23,10 @@
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_sequencer #(REQ,RSP)
+// CLASS: uvm_sequencer #(REQ,RSP)
 //
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 15.5.1
 class uvm_sequencer #(type REQ=uvm_sequence_item, RSP=REQ)
                                    extends uvm_sequencer_param_base #(REQ, RSP);
 
@@ -43,12 +39,15 @@ class uvm_sequencer #(type REQ=uvm_sequence_item, RSP=REQ)
 
 
 
-
-  // @uvm-ieee 1800.2-2017 auto 15.5.2.2
+  // Function: new
+  //
+  // Standard component constructor that creates an instance of this class
+  // using the given ~name~ and ~parent~, if any.
+  //
   extern function new (string name, uvm_component parent=null);
   
 
-  // Function -- NODOCS -- stop_sequences
+  // Function: stop_sequences
   //
   // Tells the sequencer to kill all sequences and child sequences currently
   // operating on the sequencer, and remove all requests, locks and responses
@@ -59,7 +58,7 @@ class uvm_sequencer #(type REQ=uvm_sequence_item, RSP=REQ)
 
   extern virtual function string get_type_name();
 
-  // Group -- NODOCS -- Sequencer Interface
+  // Group: Sequencer Interface
   // This is an interface for communicating with sequencers.
   //
   // The interface is defined as:
@@ -77,7 +76,7 @@ class uvm_sequencer #(type REQ=uvm_sequence_item, RSP=REQ)
   //
   // See <uvm_sqr_if_base #(REQ,RSP)> for information about this interface.
    
-  // Variable -- NODOCS -- seq_item_export
+  // Variable: seq_item_export
   //
   // This export provides access to this sequencer's implementation of the
   // sequencer interface.
@@ -85,43 +84,43 @@ class uvm_sequencer #(type REQ=uvm_sequence_item, RSP=REQ)
 
   uvm_seq_item_pull_imp #(REQ, RSP, this_type) seq_item_export;
 
-  // Task -- NODOCS -- get_next_item
+  // Task: get_next_item
   // Retrieves the next available item from a sequence.
   //
   extern virtual task          get_next_item (output REQ t);
 
-  // Task -- NODOCS -- try_next_item
+  // Task: try_next_item
   // Retrieves the next available item from a sequence if one is available.
   //
   extern virtual task          try_next_item (output REQ t);
 
-  // Function -- NODOCS -- item_done
+  // Function: item_done
   // Indicates that the request is completed.
   //
   extern virtual function void item_done     (RSP item = null);
 
-  // Task -- NODOCS -- put
+  // Task: put
   // Sends a response back to the sequence that issued the request.
   //
   extern virtual task          put           (RSP t);
 
-  // Task -- NODOCS -- get
+  // Task: get
   // Retrieves the next available item from a sequence.
   //
   extern task                  get           (output REQ t);
 
-  // Task -- NODOCS -- peek
+  // Task: peek
   // Returns the current request item if one is in the FIFO.
   //
   extern task                  peek          (output REQ t);
 
   /// Documented here for clarity, implemented in uvm_sequencer_base
 
-  // Task -- NODOCS -- wait_for_sequences
+  // Task: wait_for_sequences
   // Waits for a sequence to have a new item available.
   //
 
-  // Function -- NODOCS -- has_do_available
+  // Function: has_do_available
   // Returns 1 if any sequence running on this sequencer is ready to supply
   // a transaction, 0 otherwise.
   //
@@ -169,7 +168,7 @@ function void uvm_sequencer::stop_sequences();
   // Empty the request fifo
   if (m_req_fifo.used()) begin
     uvm_report_info(get_full_name(), "Sequences stopped.  Removing request from sequencer fifo");
-    m_req_fifo.flush();
+    while (m_req_fifo.try_get(t));
   end
 endfunction
 
@@ -191,10 +190,12 @@ endfunction
 // have the correct value
 
 function int uvm_sequencer::m_find_number_driver_connections();
-  uvm_port_base #(uvm_sqr_if_base #(REQ, RSP)) provided_to_port_list[string];
+  uvm_port_component_base provided_to_port_list[string];
+  uvm_port_component_base seq_port_base;
   
   // Check that the seq_item_pull_port is connected
-  seq_item_export.get_provided_to(provided_to_port_list);
+  seq_port_base = seq_item_export.get_comp();
+  seq_port_base.get_provided_to(provided_to_port_list);
   return provided_to_port_list.num();
 endfunction
 
@@ -281,7 +282,7 @@ function void uvm_sequencer::item_done(RSP item = null);
   get_next_item_called = 0;
   
   if (m_req_fifo.try_get(t) == 0) begin
-    uvm_report_fatal("SQRBADITMDN", {"Item_done() called with no outstanding requests.",
+    uvm_report_fatal(get_full_name(), {"Item_done() called with no outstanding requests.",
       " Each call to item_done() must be paired with a previous call to get_next_item()."});
   end else begin
     m_wait_for_item_sequence_id = t.get_sequence_id();
@@ -340,3 +341,6 @@ endtask
 function void uvm_sequencer::item_done_trigger(RSP item = null);
   item_done(item);
 endfunction
+
+
+

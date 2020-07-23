@@ -1,15 +1,10 @@
 //
 //------------------------------------------------------------------------------
-// Copyright 2007-2014 Mentor Graphics Corporation
-// Copyright 2015 Analog Devices, Inc.
-// Copyright 2014 Semifore
-// Copyright 2017 Intel Corporation
-// Copyright 2018 Qualcomm, Inc.
-// Copyright 2011 Synopsys, Inc.
-// Copyright 2007-2018 Cadence Design Systems, Inc.
-// Copyright 2013 Verilab
-// Copyright 2013-2018 NVIDIA Corporation
-// Copyright 2017 Cisco Systems, Inc.
+//   Copyright 2007-2011 Mentor Graphics Corporation
+//   Copyright 2007-2011 Cadence Design Systems, Inc.
+//   Copyright 2010-2011 Synopsys, Inc.
+//   Copyright 2013      NVIDIA Corporation
+//   Copyright 2013      Verilab, Inc.
 //   All Rights Reserved Worldwide
 //
 //   Licensed under the Apache License, Version 2.0 (the
@@ -32,15 +27,14 @@ typedef class uvm_object;
 typedef class uvm_component;
 typedef class uvm_object_wrapper;
 typedef class uvm_factory_override;
-typedef struct {uvm_object_wrapper m_type;
-                string             m_type_name;} m_uvm_factory_type_pair_t;
+
 //Instance overrides by requested type lookup
 class uvm_factory_queue_class;
   uvm_factory_override queue[$];
 endclass
 
 //------------------------------------------------------------------------------
-// Title -- NODOCS -- UVM Factory
+// Title: UVM Factory
 //
 // This page covers the classes that define the UVM factory facility.
 //------------------------------------------------------------------------------
@@ -48,7 +42,7 @@ endclass
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_factory
+// CLASS: uvm_factory
 //
 //------------------------------------------------------------------------------
 //
@@ -78,30 +72,37 @@ endclass
 // See <uvm_default_factory::Usage> section for details on configuring and using the factory.
 //
   
-// @uvm-ieee 1800.2-2017 auto 8.3.1.1
 virtual class uvm_factory;
 
-  // Group -- NODOCS -- Retrieving the factory
+  // Group: Retrieving the factory
 
  
-         
-  // @uvm-ieee 1800.2-2017 auto 8.3.1.2.1
+  // Function: get
+  // Static accessor for <uvm_factory>
+  //
+  // The static accessor is provided as a convenience wrapper
+  // around retrieving the factory via the <uvm_coreservice_t::get_factory>
+  // method.
+  //
+  // | // Using the uvm_coreservice_t:
+  // | uvm_coreservice_t cs;
+  // | uvm_factory f;
+  // | cs = uvm_coreservice_t::get();
+  // | f = cs.get_factory();
+  //
+  // | // Not using the uvm_coreservice_t:
+  // | uvm_factory f;
+  // | f = uvm_factory::get();
+  //         
   static function uvm_factory get();
 	  	uvm_coreservice_t s;
 	  	s = uvm_coreservice_t::get();
 	  	return s.get_factory();
   endfunction	
   
-  // @uvm-ieee 1800.2-2017 auto 8.3.1.2.2
-  static function void set(uvm_factory f);
-	  	uvm_coreservice_t s;
-	  	s = uvm_coreservice_t::get();
-	  	s.set_factory(f);
-  endfunction	
+  // Group: Registering Types
 
-  // Group -- NODOCS -- Registering Types
-
-  // Function -- NODOCS -- register
+  // Function: register
   //
   // Registers the given proxy object, ~obj~, with the factory. The proxy object
   // is a lightweight substitute for the component or object it represents. When
@@ -114,21 +115,19 @@ virtual class uvm_factory;
   // If the proxy object's ~get_type_name~ method returns the empty string,
   // name-based lookup is effectively disabled.
 
-  // @uvm-ieee 1800.2-2017 auto 8.3.1.3
   pure virtual function void register (uvm_object_wrapper obj);
 
 
-  // Group -- NODOCS -- Type & Instance Overrides
+  // Group: Type & Instance Overrides
 
-  // Function -- NODOCS -- set_inst_override_by_type
+  // Function: set_inst_override_by_type
 
   pure virtual function
-      // @uvm-ieee 1800.2-2017 auto 8.3.1.4.1
       void set_inst_override_by_type (uvm_object_wrapper original_type,
                                       uvm_object_wrapper override_type,
                                       string full_inst_path);
 
-  // Function -- NODOCS -- set_inst_override_by_name
+  // Function: set_inst_override_by_name
   //
   // Configures the factory to create an object of the override's type whenever
   // a request is made to create an object of the original type using a context
@@ -156,21 +155,19 @@ virtual class uvm_factory;
   // first, followed by more general overrides.
 
   pure virtual function
-      // @uvm-ieee 1800.2-2017 auto 8.3.1.4.1
       void set_inst_override_by_name (string original_type_name,
                                       string override_type_name,
                                       string full_inst_path);
 
 
-  // Function -- NODOCS -- set_type_override_by_type
+  // Function: set_type_override_by_type
 
   pure virtual function
-      // @uvm-ieee 1800.2-2017 auto 8.3.1.4.2
       void set_type_override_by_type (uvm_object_wrapper original_type,
                                       uvm_object_wrapper override_type,
                                       bit replace=1);
 
-  // Function -- NODOCS -- set_type_override_by_name
+  // Function: set_type_override_by_name
   //
   // Configures the factory to create an object of the override's type whenever
   // a request is made to create an object of the original type, provided no
@@ -190,53 +187,36 @@ virtual class uvm_factory;
   // replaced, otherwise a previous override, if any, remains intact.
 
   pure virtual function
-      // @uvm-ieee 1800.2-2017 auto 8.3.1.4.2
       void set_type_override_by_name (string original_type_name,
                                       string override_type_name,
                                       bit replace=1);
 
 
-  // Group -- NODOCS -- Creation
+  // Group: Creation
 
-  // Function -- NODOCS -- create_object_by_type
+  // Function: create_object_by_type
 
   pure virtual function
-      // @uvm-ieee 1800.2-2017 auto 8.3.1.5
       uvm_object    create_object_by_type    (uvm_object_wrapper requested_type,  
                                               string parent_inst_path="",
                                               string name=""); 
 
-  // Function -- NODOCS -- create_component_by_type
+  // Function: create_component_by_type
 
   pure virtual function
-      // @uvm-ieee 1800.2-2017 auto 8.3.1.5
       uvm_component create_component_by_type (uvm_object_wrapper requested_type,  
                                               string parent_inst_path="",
                                               string name, 
                                               uvm_component parent);
 
-  // Function -- NODOCS -- create_object_by_name
+  // Function: create_object_by_name
 
   pure virtual function
-      // @uvm-ieee 1800.2-2017 auto 8.3.1.5
       uvm_object    create_object_by_name    (string requested_type_name,  
                                               string parent_inst_path="",
                                               string name=""); 
 
-   // Function -- NODOCS -- is_type_name_registered
-    
-     pure virtual
-        // @uvm-ieee 1800.2-2017 auto 8.3.1.7.3
-        function bit is_type_name_registered  (string type_name);
-
- 
-   // Function -- NODOCS -- is_type_registered 
-
-     pure virtual 
-        // @uvm-ieee 1800.2-2017 auto 8.3.1.7.4
-        function bit is_type_registered     (uvm_object_wrapper obj); 
-
-    
+  // Function: create_component_by_name
   //
   // Creates and returns a component or object of the requested type, which may
   // be specified by type or by name. A requested component must be derived
@@ -273,43 +253,21 @@ virtual class uvm_factory;
   // overrides ~xyz~, then ~bar~ is returned after the error is issued.
 
   pure virtual function
-      // @uvm-ieee 1800.2-2017 auto 8.3.1.5
       uvm_component create_component_by_name (string requested_type_name,  
                                               string parent_inst_path="",
                                               string name, 
                                               uvm_component parent);
 
-  // Group -- NODOCS -- Name Aliases
-  
-  // Function -- NODOCS -- set_type_alias
-  pure virtual function
-      // @uvm-ieee 1800.2-2017 auto 8.3.1.6.1
-      void set_type_alias(string alias_type_name, 
-                          uvm_object_wrapper original_type); 
-  
-  //Intended to allow overrides by type to use the alias_type_name as an additional name to refer to
-  //original_type  
-  
-  // Function -- NODOCS -- set_inst_alias
-  pure virtual function
-      // @uvm-ieee 1800.2-2017 auto 8.3.1.6.2
-      void set_inst_alias(string alias_type_name,
-                          uvm_object_wrapper original_type, string full_inst_path);
+  // Group: Debug
 
-  //Intended to allow overrides by name to use the alias_type_name as an additional name to refer to
-  //original_type in the context referred to by full_inst_path.  
-
-
-  // Group -- NODOCS -- Debug
-
-  // Function -- NODOCS -- debug_create_by_type
+  // Function: debug_create_by_type
 
   pure virtual function
       void debug_create_by_type (uvm_object_wrapper requested_type,
                                  string parent_inst_path="",
                                  string name="");
 
-  // Function -- NODOCS -- debug_create_by_name
+  // Function: debug_create_by_name
   //
   // These methods perform the same search algorithm as the ~create_*~ methods,
   // but they do not create new objects. Instead, they provide detailed
@@ -323,14 +281,13 @@ virtual class uvm_factory;
                                  string name="");
 
                    
-  // Function -- NODOCS -- find_override_by_type
+  // Function: find_override_by_type
 
   pure virtual function
-      // @uvm-ieee 1800.2-2017 auto 8.3.1.7.1
       uvm_object_wrapper find_override_by_type (uvm_object_wrapper requested_type,
                                                 string full_inst_path);
 
-  // Function -- NODOCS -- find_override_by_name
+  // Function: find_override_by_name
   //
   // These methods return the proxy to the object that would be created given
   // the arguments. The ~full_inst_path~ is typically derived from the parent's
@@ -338,19 +295,17 @@ virtual class uvm_factory;
   // { parent.get_full_name(), ".", name }.
 
   pure virtual function
-      // @uvm-ieee 1800.2-2017 auto 8.3.1.7.1
       uvm_object_wrapper find_override_by_name (string requested_type_name,
                                                 string full_inst_path);
 
-  // Function -- NODOCS -- find_wrapper_by_name
+  // Function: find_wrapper_by_name
   //
   // This method returns the <uvm_object_wrapper> associated with a given
   // ~type_name~.  
   pure virtual 
-    // @uvm-ieee 1800.2-2017 auto 8.3.1.7.2
     function uvm_object_wrapper find_wrapper_by_name            (string type_name);
 
-  // Function -- NODOCS -- print
+  // Function: print
   //
   // Prints the state of the uvm_factory, including registered types, instance
   // overrides, and type overrides.
@@ -361,7 +316,6 @@ virtual class uvm_factory;
   // the UVM types (prefixed with uvm_) are included in the list of registered
   // types.
 
-  // @uvm-ieee 1800.2-2017 auto 8.3.1.7.5
   pure  virtual function void print (int all_types=1);
 endclass 
     
@@ -371,95 +325,68 @@ endclass
 //
 //------------------------------------------------------------------------------
 //
-// Default implementation of the UVM factory.  The library implements the
-// following public API beyond what is documented in IEEE 1800.2.
+// Default implementation of the UVM factory.
    
-// @uvm-ieee 1800.2-2017 auto 8.3.3
 class uvm_default_factory extends uvm_factory;
 
-  // Group --NODOCS-- Registering Types
+  // Group: Registering Types
 
-  // Function --NODOCS-- register
+  // Function: register
   //
   // Registers the given proxy object, ~obj~, with the factory.
    
   extern virtual function void register (uvm_object_wrapper obj);
 
 
-  // Group --NODOCS-- Type & Instance Overrides
+  // Group: Type & Instance Overrides
 
-  // Function --NODOCS-- set_inst_override_by_type
+  // Function: set_inst_override_by_type
 
   extern virtual function
       void set_inst_override_by_type (uvm_object_wrapper original_type,
                                       uvm_object_wrapper override_type,
                                       string full_inst_path);
 
-  // Function --NODOCS-- set_inst_override_by_name
+  // Function: set_inst_override_by_name
   //
   // Configures the factory to create an object of the override's type whenever
   // a request is made to create an object of the original type using a context
   // that matches ~full_inst_path~. 
-  // 
-  // ~original_type_name~ may be the factory-registered type name or an aliased name
-  // specified with <set_inst_alias> in the context of ~full_inst_path~.
   extern virtual function
       void set_inst_override_by_name (string original_type_name,
                                       string override_type_name,
                                       string full_inst_path);
 
 
-  // Function --NODOCS-- set_type_override_by_type
+  // Function: set_type_override_by_type
 
   extern virtual function
       void set_type_override_by_type (uvm_object_wrapper original_type,
                                       uvm_object_wrapper override_type,
                                       bit replace=1);
 
-  // Function --NODOCS-- set_type_override_by_name
+  // Function: set_type_override_by_name
   //
   // Configures the factory to create an object of the override's type whenever
   // a request is made to create an object of the original type, provided no
   // instance override applies.
-  //
-  // ~original_type_name~ may be the factory-registered type name or an aliased name
-  // specified with <set_type_alias>.
    
   extern virtual function
       void set_type_override_by_name (string original_type_name,
                                       string override_type_name,
                                       bit replace=1);
 
-  // Function --NODOCS-- set_type_alias
-  //
-  // Intended to allow overrides by type to use the alias_type_name as an additional name to refer to
-  // original_type 
-  
-  extern virtual function
-      void set_type_alias(string alias_type_name, 
-                          uvm_object_wrapper original_type); 
-  
-  // Function --NODOCS-- set_inst_alias
-  //
-  // Intended to allow overrides by name to use the alias_type_name as an additional name to refer to
-  // original_type in the context referred to by full_inst_path.  
 
-  extern virtual function
-      void set_inst_alias(string alias_type_name,
-                          uvm_object_wrapper original_type, string full_inst_path);
+  // Group: Creation
 
-
-
-  // Group --NODOCS-- Creation
-
-  // Function --NODOCS-- create_object_by_type
+  // Function: create_object_by_type
 
   extern virtual function
       uvm_object    create_object_by_type    (uvm_object_wrapper requested_type,  
                                               string parent_inst_path="",
                                               string name=""); 
 
-  // Function --NODOCS-- create_component_by_type
+  // Function: create_component_by_type
 
   extern virtual function
       uvm_component create_component_by_type (uvm_object_wrapper requested_type,  
@@ -467,14 +394,14 @@ class uvm_default_factory extends uvm_factory;
                                               string name, 
                                               uvm_component parent);
 
-  // Function --NODOCS-- create_object_by_name
+  // Function: create_object_by_name
 
   extern virtual function
       uvm_object    create_object_by_name    (string requested_type_name,  
                                               string parent_inst_path="",
                                               string name=""); 
 
-  // Function --NODOCS-- create_component_by_name
+  // Function: create_component_by_name
   //
   // Creates and returns a component or object of the requested type, which may
   // be specified by type or by name.
@@ -485,58 +412,32 @@ class uvm_default_factory extends uvm_factory;
                                               string name, 
                                               uvm_component parent);
 
-  // Function --NODOCS-- is_type_name_registered
-  //
-  // silently check type with a given name was registered in the factory or not
- 
-  extern virtual
-      function bit is_type_name_registered    (string type_name);
-
-   
-  // Function --NODOCS-- is_type_registered
-  //
-  // silently check type is registered in the factory or not
- 
-  extern virtual
-      function bit is_type_registered    (uvm_object_wrapper obj);
-
+  // Group: Debug
 
   // Function: debug_create_by_type
-  // Debug traces for ~create_*_by_type~ methods.
-  //
-  // This method performs the same search algorithm as the <create_object_by_type> and
-  // <create_component_by_type> methods, however instead of creating the new object or component,
-  // the method shall generate a report message detailing how the object or component would
-  // have been constructed after all overrides are accounted for.
-  //
-  // @uvm-accellera The details of this API are specific to the Accellera implementation, and are not being considered for contribution to 1800.2
+
   extern virtual function
       void debug_create_by_type (uvm_object_wrapper requested_type,
                                  string parent_inst_path="",
                                  string name="");
 
   // Function: debug_create_by_name
-  // Debug traces for ~create_*_by_name~ methods.
   //
-  // This method performs the same search algorithm as the <create_object_by_name> and
-  // <create_component_by_name> methods, however instead of creating the new object or component,
-  // the method shall generate a report message detailing how the object or component would
-  // have been constructed after all overrides are accounted for.
-  //
-  // @uvm-accellera The details of this API are specific to the Accellera implementation, and are not being considered for contribution to 1800.2
+  // These methods perform the same search algorithm as the ~create_*~ methods,
+  // but they do not create new objects. 
   extern virtual function
       void debug_create_by_name (string requested_type_name,
                                  string parent_inst_path="",
                                  string name="");
 
                    
-  // Function --NODOCS-- find_override_by_type
+  // Function: find_override_by_type
 
   extern virtual function
       uvm_object_wrapper find_override_by_type (uvm_object_wrapper requested_type,
                                                 string full_inst_path);
 
-  // Function --NODOCS-- find_override_by_name
+  // Function: find_override_by_name
   //
   // These methods return the proxy to the object that would be created given
   // the arguments.
@@ -548,7 +449,7 @@ class uvm_default_factory extends uvm_factory;
   extern virtual 
     function uvm_object_wrapper find_wrapper_by_name            (string type_name);
 
-  // Function --NODOCS-- print
+  // Function: print
   //
   // Prints the state of the uvm_factory, including registered types, instance
   // overrides, and type overrides.
@@ -569,56 +470,25 @@ class uvm_default_factory extends uvm_factory;
       function void  m_debug_display(string requested_type_name,
                                      uvm_object_wrapper result,
                                      string full_inst_path);
-
-  extern  
-      function uvm_object_wrapper m_resolve_type_name(string requested_type_name);
-   
-  extern  
-      function uvm_object_wrapper m_resolve_type_name_by_inst(string requested_type_name,
-                                                              string full_inst_path);   
-
-  extern 
-      function bit m_matches_type_pair(m_uvm_factory_type_pair_t match_type_pair,
-                                       uvm_object_wrapper requested_type,
-                                       string requested_type_name);
-   
-  extern 
-      function bit m_matches_type_override(uvm_factory_override override,
-                                           uvm_object_wrapper requested_type,
-                                           string requested_type_name,
-                                           string full_inst_path="",
-                                           bit match_original_type = 1,
-                                           bit resolve_null_type_by_inst=0);
-  extern 
-      function bit m_matches_inst_override(uvm_factory_override override,
-                                           uvm_object_wrapper requested_type,
-                                           string requested_type_name,
-                                           string full_inst_path="");
-   
-  typedef struct  {
-    m_uvm_factory_type_pair_t orig;
-    string alias_type_name;
-    string full_inst_path;
-  } m_inst_typename_alias_t;
-    
-  protected bit                      m_types[uvm_object_wrapper];
-  protected bit                      m_lookup_strs[string];
-  protected uvm_object_wrapper       m_type_names[string];
-  protected m_inst_typename_alias_t  m_inst_aliases[$];
+                                     
+  protected bit                  m_types[uvm_object_wrapper];
+  protected bit                  m_lookup_strs[string];
+  protected uvm_object_wrapper   m_type_names[string];
 
   protected uvm_factory_override m_type_overrides[$];
-  protected uvm_factory_override m_inst_overrides[$];
 
+  protected uvm_factory_queue_class m_inst_override_queues[uvm_object_wrapper];
+  protected uvm_factory_queue_class m_inst_override_name_queues[string];
+  protected uvm_factory_override    m_wildcard_inst_overrides[$];
 
   local uvm_factory_override     m_override_info[$];
   local static bit m_debug_pass;
 
+  extern function bit m_has_wildcard(string nm);
 
   extern function bit check_inst_override_exists
                                       (uvm_object_wrapper original_type,
-                                       string original_type_name,
                                        uvm_object_wrapper override_type,
-                                       string override_type_name,
                                        string full_inst_path);
 
 endclass
@@ -626,7 +496,7 @@ endclass
 
 //------------------------------------------------------------------------------
 //
-// Group -- NODOCS -- Usage
+// Group: Usage
 //
 // Using the factory involves three basic operations
 //
@@ -722,11 +592,9 @@ endclass
 //|    endfunction
 //|
 //|    // get_type_name not implemented by macro for parameterized classes
-//|    static function string type_name();
-//|      return {"driverB #(",T::type_name(),")"};
-//|    endfunction : type_name
+//|    const static string type_name = {"driverB #(",T::type_name,")"};
 //|    virtual function string get_type_name();
-//|      return type_name();
+//|      return type_name;
 //|    endfunction
 //|
 //|    // using the factory allows pkt overrides from outside the class
@@ -754,11 +622,9 @@ endclass
 //|      super.new(name,parent);
 //|    endfunction
 //|
-//|    static function string type_name();
-//|      return {"driverD1 #(",T::type_name,")"};
-//|    endfunction : type_name
+//|    const static string type_name = {"driverD1 #(",T::type_name,")"};
 //|    virtual function string get_type_name();
-//|      return type_name();
+//|      ...return type_name;
 //|    endfunction
 //|
 //|  endclass
@@ -771,11 +637,9 @@ endclass
 //|      super.new(name,parent);
 //|    endfunction
 //|
-//|    static function string type_name();
-//|      return {"driverD2 #(",T::type_name,")"};
-//|    endfunction : type_name
+//|    const static string type_name = {"driverD2 #(",T::type_name,")"};
 //|    virtual function string get_type_name();
-//|      return type_name();
+//|      return type_name;
 //|    endfunction
 //|
 //|  endclass
@@ -932,7 +796,7 @@ endclass
 
 //------------------------------------------------------------------------------
 //
-// CLASS -- NODOCS -- uvm_object_wrapper
+// CLASS: uvm_object_wrapper
 //
 // The uvm_object_wrapper provides an abstract interface for creating object and
 // component proxies. Instances of these lightweight proxies, representing every
@@ -943,44 +807,39 @@ endclass
 //
 //------------------------------------------------------------------------------
 
-// @uvm-ieee 1800.2-2017 auto 8.3.2.1
 virtual class uvm_object_wrapper;
 
-  // Function -- NODOCS -- create_object
+  // Function: create_object
   //
   // Creates a new object with the optional ~name~.
   // An object proxy (e.g., <uvm_object_registry #(T,Tname)>) implements this
   // method to create an object of a specific type, T.
 
-  // @uvm-ieee 1800.2-2017 auto 8.3.2.2.1
   virtual function uvm_object create_object (string name="");
     return null;
   endfunction
 
 
-  // Function -- NODOCS -- create_component
+  // Function: create_component
   //
   // Creates a new component, passing to its constructor the given ~name~ and
   // ~parent~. A component proxy (e.g. <uvm_component_registry #(T,Tname)>)
   // implements this method to create a component of a specific type, T.
 
-  // @uvm-ieee 1800.2-2017 auto 8.3.2.2.2
   virtual function uvm_component create_component (string name, 
                                                    uvm_component parent); 
     return null;
   endfunction
 
 
-  // Function -- NODOCS -- get_type_name
+  // Function: get_type_name
   // 
   // Derived classes implement this method to return the type name of the object
   // created by <create_component> or <create_object>. The factory uses this
   // name when matching against the requested type in name-based lookups.
 
-  // @uvm-ieee 1800.2-2017 auto 8.3.2.2.3
   pure virtual function string get_type_name();
 
-  virtual function void initialize(); endfunction
 endclass
 
 
@@ -992,38 +851,26 @@ endclass
 //------------------------------------------------------------------------------
 
 class uvm_factory_override;
-   
   string full_inst_path;
-  m_uvm_factory_type_pair_t orig;
-  m_uvm_factory_type_pair_t ovrd;
-  bit replace;
+  string orig_type_name;
+  string ovrd_type_name;
   bit selected;
   int unsigned used;
-  bit has_wildcard;
-   
+  uvm_object_wrapper orig_type;
+  uvm_object_wrapper ovrd_type;
   function new (string full_inst_path="",
                 string orig_type_name="",
                 uvm_object_wrapper orig_type=null,
-                uvm_object_wrapper ovrd_type,
-                string ovrd_type_name="",
-                bit replace=0);
-      
+                uvm_object_wrapper ovrd_type);
+    if (ovrd_type == null) begin
+      uvm_report_fatal ("NULLWR", "Attempting to register a null override object with the factory", UVM_NONE);
+    end
     this.full_inst_path= full_inst_path;
-    this.orig.m_type_name = orig_type_name;
-    this.orig.m_type      = orig_type;
-    this.ovrd.m_type_name = ovrd_type_name;
-    this.ovrd.m_type      = ovrd_type;
-    this.replace          = replace;
-    this.has_wildcard     = m_has_wildcard(full_inst_path); 
+    this.orig_type_name = orig_type == null ? orig_type_name : orig_type.get_type_name();
+    this.orig_type      = orig_type;
+    this.ovrd_type_name = ovrd_type.get_type_name();
+    this.ovrd_type      = ovrd_type;
   endfunction
-  
-  function bit m_has_wildcard(string nm);
-    foreach (nm[i]) 
-      if(nm[i] == "*" || nm[i] == "?") return 1;
-    return 0;
-  endfunction
-  
-  
 endclass
 
 
@@ -1054,25 +901,25 @@ function void uvm_default_factory::register (uvm_object_wrapper obj);
                          "' already registered with factory. "}, UVM_NONE);
   end
   else begin
-    uvm_factory_override overrides[$];
     m_types[obj] = 1;
-    // If a named override happens before the type is registered, need to update
-    // the override type
+    // If a named override happens before the type is registered, need to copy
+    // the override queue.
     // Note:Registration occurs via static initialization, which occurs ahead of
     // procedural (e.g. initial) blocks. There should not be any preexisting overrides.
-    overrides = {m_type_overrides, m_inst_overrides};
-    foreach (overrides[index]) begin
-      if(m_matches_type_pair(.match_type_pair(overrides[index].orig),
-                             .requested_type(null),
-                             .requested_type_name(obj.get_type_name()))) begin
-        overrides[index].orig.m_type = obj; 
-      end
-      if(m_matches_type_pair(.match_type_pair(overrides[index].ovrd),
-                             .requested_type(null),
-                             .requested_type_name(obj.get_type_name()))) begin
-        overrides[index].ovrd.m_type = obj; 
-      end                              
+    if(m_inst_override_name_queues.exists(obj.get_type_name())) begin
+       m_inst_override_queues[obj] = new;
+       m_inst_override_queues[obj].queue = m_inst_override_name_queues[obj.get_type_name()].queue;
+       m_inst_override_name_queues.delete(obj.get_type_name());
     end
+    if(m_wildcard_inst_overrides.size()) begin
+       if(! m_inst_override_queues.exists(obj)) 
+            m_inst_override_queues[obj] = new;
+       foreach (m_wildcard_inst_overrides[i]) begin
+         if(uvm_is_match( m_wildcard_inst_overrides[i].orig_type_name, obj.get_type_name()))
+            m_inst_override_queues[obj].queue.push_back(m_wildcard_inst_overrides[i]);
+       end
+    end
+
   end
 
 endfunction
@@ -1107,13 +954,14 @@ function void uvm_default_factory::set_type_override_by_type (uvm_object_wrapper
 
   // check for existing type override
   foreach (m_type_overrides[index]) begin
-    if(m_matches_type_override(.override(m_type_overrides[index]),
-                               .requested_type(original_type),
-                               .requested_type_name(original_type.get_type_name()))) begin
+    if (m_type_overrides[index].orig_type == original_type ||
+        (m_type_overrides[index].orig_type_name != "<unknown>" &&
+         m_type_overrides[index].orig_type_name != "" &&
+         m_type_overrides[index].orig_type_name == original_type.get_type_name())) begin
       string msg;
       msg = {"Original object type '",original_type.get_type_name(),
              "' already registered to produce '",
-             m_type_overrides[index].ovrd.m_type_name,"'"};
+             m_type_overrides[index].ovrd_type_name,"'"};
       if (!replace) begin
         msg = {msg, ".  Set 'replace' argument to replace the existing entry."};
         uvm_report_info("TPREGD", msg, UVM_MEDIUM);
@@ -1123,17 +971,10 @@ function void uvm_default_factory::set_type_override_by_type (uvm_object_wrapper
                   override_type.get_type_name(),"'."};
       uvm_report_info("TPREGR", msg, UVM_MEDIUM);
       replaced = 1;
-      m_type_overrides[index].orig.m_type = original_type; 
-      m_type_overrides[index].orig.m_type_name = original_type.get_type_name(); 
-      m_type_overrides[index].ovrd.m_type = override_type; 
-      m_type_overrides[index].ovrd.m_type_name = override_type.get_type_name(); 
-      m_type_overrides[index].replace = replace;
-    end
-    else if (m_type_overrides[index].orig.m_type == null) begin
-       // due to aliasing, optimizing around type override when the type is unknown could
-       // end up causing the wrong override to be returned as the type for the alias may
-       // resolve to match this existing override
-       break;
+      m_type_overrides[index].orig_type = original_type; 
+      m_type_overrides[index].orig_type_name = original_type.get_type_name(); 
+      m_type_overrides[index].ovrd_type = override_type; 
+      m_type_overrides[index].ovrd_type_name = override_type.get_type_name(); 
     end
   end
 
@@ -1142,11 +983,10 @@ function void uvm_default_factory::set_type_override_by_type (uvm_object_wrapper
     uvm_factory_override override;
     override = new(.orig_type(original_type),
                    .orig_type_name(original_type.get_type_name()),
-                   .ovrd_type(override_type),
-                   .ovrd_type_name(override_type.get_type_name()),
-                   .replace(replace));
+                   .full_inst_path("*"),
+                   .ovrd_type(override_type));
 
-    m_type_overrides.push_front(override);
+    m_type_overrides.push_back(override);
   end
 
 endfunction
@@ -1164,22 +1004,18 @@ function void uvm_default_factory::set_type_override_by_name (string original_ty
   uvm_object_wrapper override_type;
 
   if(m_type_names.exists(original_type_name))
-     original_type = m_type_names[original_type_name];
+    original_type = m_type_names[original_type_name];
 
   if(m_type_names.exists(override_type_name))
-     override_type = m_type_names[override_type_name];
-
+    override_type = m_type_names[override_type_name];
 
   // check that type is registered with the factory
-//  aliasing feature makes this check invalid.  Aliases
-//  aren't resolved until find/creation time so the type
-//  may resolve differently depending on the instance. 
-//  if (override_type == null) begin
-//      uvm_report_error("TYPNTF", {"Cannot register override for original type '",
-//      original_type_name,"' because the override type '",
-//      override_type_name, "' is not registered with the factory."}, UVM_NONE);
-//    return;
-//  end
+  if (override_type == null) begin
+      uvm_report_error("TYPNTF", {"Cannot register override for original type '",
+      original_type_name,"' because the override type '",
+      override_type_name, "' is not registered with the factory."}, UVM_NONE);
+    return;
+  end
 
   // check that old and new are not the same
   if (original_type_name == override_type_name) begin
@@ -1189,28 +1025,19 @@ function void uvm_default_factory::set_type_override_by_name (string original_ty
   end
 
   foreach (m_type_overrides[index]) begin
-    if(m_matches_type_override(.override(m_type_overrides[index]),
-                               .requested_type(original_type),
-                               .requested_type_name(original_type_name))) begin
+    if (m_type_overrides[index].orig_type_name == original_type_name) begin
       if (!replace) begin
-        uvm_report_info("TPREGD", {"Original type '",original_type_name, "'/'",m_type_overrides[index].orig.m_type_name,
-          "' already registered to produce '",m_type_overrides[index].ovrd.m_type_name,
+        uvm_report_info("TPREGD", {"Original type '",original_type_name,
+          "' already registered to produce '",m_type_overrides[index].ovrd_type_name,
           "'.  Set 'replace' argument to replace the existing entry."}, UVM_MEDIUM);
         return;
       end
-      uvm_report_info("TPREGR", {"Original object type '",original_type_name, "'/'",m_type_overrides[index].orig.m_type_name,
-        "' already registered to produce '",m_type_overrides[index].ovrd.m_type_name,
+      uvm_report_info("TPREGR", {"Original object type '",original_type_name,
+        "' already registered to produce '",m_type_overrides[index].ovrd_type_name,
         "'.  Replacing with override to produce type '",override_type_name,"'."}, UVM_MEDIUM);
       replaced = 1;
-      m_type_overrides[index].ovrd.m_type = override_type; 
-      m_type_overrides[index].ovrd.m_type_name = override_type_name; 
-      m_type_overrides[index].replace = replace;
-    end
-    else if ((m_type_overrides[index].orig.m_type == null) || (original_type == null)) begin
-       // due to aliasing, optimizing around type override when the type is unknown could
-       // end up causing the wrong override to be returned as the type for the alias may
-       // resolve to match this existing override
-       break;
+      m_type_overrides[index].ovrd_type = override_type; 
+      m_type_overrides[index].ovrd_type_name = override_type_name; 
     end
   end
 
@@ -1221,12 +1048,10 @@ function void uvm_default_factory::set_type_override_by_name (string original_ty
     uvm_factory_override override;
     override = new(.orig_type(original_type),
                    .orig_type_name(original_type_name),
-                   .ovrd_type(override_type),
-                   .ovrd_type_name(override_type_name),
-                   .replace(replace)
-                   );
+                   .full_inst_path("*"),
+                   .ovrd_type(override_type));
 
-    m_type_overrides.push_front(override);
+    m_type_overrides.push_back(override);
 //    m_type_names[original_type_name] = override.ovrd_type;
   end
 
@@ -1236,24 +1061,26 @@ endfunction
 // check_inst_override_exists
 // --------------------------
 function bit uvm_default_factory::check_inst_override_exists (uvm_object_wrapper original_type,
-                                      string original_type_name,
                                       uvm_object_wrapper override_type,
-                                      string override_type_name,
                                       string full_inst_path);
   uvm_factory_override override;
+  uvm_factory_queue_class qc;
 
+  if (m_inst_override_queues.exists(original_type))
+    qc = m_inst_override_queues[original_type];
+  else
+    return 0;
 
-  foreach (m_inst_overrides[i]) begin
+  for (int index=0; index<qc.queue.size(); ++index) begin
 
-    override = m_inst_overrides[i]; 
+    override = qc.queue[index]; 
     if (override.full_inst_path == full_inst_path &&
-        override.orig.m_type == original_type &&
-        override.orig.m_type_name == original_type_name && 
-        override.ovrd.m_type == override_type &&
-        override.ovrd.m_type_name == override_type_name) begin
+        override.orig_type == original_type &&
+        override.ovrd_type == override_type &&
+        override.orig_type_name == original_type.get_type_name()) begin
     uvm_report_info("DUPOVRD",{"Instance override for '",
-       original_type_name,"' already exists: override type '",
-       override_type_name,"' with full_inst_path '",
+       original_type.get_type_name(),"' already exists: override type '",
+       override_type.get_type_name(),"' with full_inst_path '",
        full_inst_path,"'"},UVM_HIGH);
       return 1;
     end
@@ -1277,24 +1104,19 @@ function void uvm_default_factory::set_inst_override_by_type (uvm_object_wrapper
   if (!m_types.exists(override_type))
     register(override_type); 
 
-  if (check_inst_override_exists(original_type,
-                                 original_type.get_type_name(),
-                                 override_type,
-                                 override_type.get_type_name(),
-                                 full_inst_path))
+  if (check_inst_override_exists(original_type,override_type,full_inst_path))
     return;
 
-//  if(!m_inst_override_queues.exists(original_type))
-//    m_inst_override_queues[original_type] = new;
+  if(!m_inst_override_queues.exists(original_type))
+    m_inst_override_queues[original_type] = new;
 
   override = new(.full_inst_path(full_inst_path),
                  .orig_type(original_type),
                  .orig_type_name(original_type.get_type_name()),
-                 .ovrd_type(override_type),
-                 .ovrd_type_name(override_type.get_type_name()));
+                 .ovrd_type(override_type));
 
-  m_inst_overrides.push_back(override);
-//  m_inst_override_queues[original_type].queue.push_back(override);
+
+  m_inst_override_queues[original_type].queue.push_back(override);
 
 endfunction
 
@@ -1311,21 +1133,18 @@ function void uvm_default_factory::set_inst_override_by_name (string original_ty
   uvm_object_wrapper override_type;
 
   if(m_type_names.exists(original_type_name))
-     original_type = m_type_names[original_type_name];
+    original_type = m_type_names[original_type_name];
 
   if(m_type_names.exists(override_type_name))
-     override_type = m_type_names[override_type_name];
+    override_type = m_type_names[override_type_name];
 
   // check that type is registered with the factory
-//  aliasing feature makes this check invalid.  Aliases
-//  aren't resolved until find/creation time so the type
-//  may resolve differently depending on the instance. 
-//  if (override_type == null) begin
-//    uvm_report_error("TYPNTF", {"Cannot register instance override with type name '",
-//    original_type_name,"' and instance path '",full_inst_path,"' because the type it's supposed ",
-//    "to produce, '",override_type_name,"', is not registered with the factory."}, UVM_NONE);
-//    return;
-//  end
+  if (override_type == null) begin
+    uvm_report_error("TYPNTF", {"Cannot register instance override with type name '",
+    original_type_name,"' and instance path '",full_inst_path,"' because the type it's supposed ",
+    "to produce, '",override_type_name,"', is not registered with the factory."}, UVM_NONE);
+    return;
+  end
 
   if (original_type == null)
       m_lookup_strs[original_type_name] = 1;
@@ -1333,77 +1152,38 @@ function void uvm_default_factory::set_inst_override_by_name (string original_ty
   override = new(.full_inst_path(full_inst_path),
                  .orig_type(original_type),
                  .orig_type_name(original_type_name),
-                 .ovrd_type(override_type),
-                 .ovrd_type_name(override_type_name));
-  
-  if (check_inst_override_exists(original_type,
-                                 original_type_name,
-                                 override_type,
-                                 override_type_name,
-                                 full_inst_path))
-     return;
-  
-  m_inst_overrides.push_back(override);
-  
-endfunction
+                 .ovrd_type(override_type));
 
-//set_type_alias
-// ---------------------
-  
-function void uvm_default_factory::set_type_alias(string alias_type_name, 
-                          uvm_object_wrapper original_type); 
-    if (!is_type_registered(original_type))
-       uvm_report_warning("BDTYP",{"Cannot define alias of type '",
-       original_type.get_type_name(),"' because it is not registered with the factory."}, UVM_NONE);      
-    else begin
-       if (!m_type_names.exists(alias_type_name)) begin
-          uvm_factory_override overrides[$];
-          m_type_names[alias_type_name] = original_type;
-         // If a named override happens before the type alias is set, need to update
-         // the override type
-         overrides = {m_type_overrides, m_inst_overrides};
-         foreach (overrides[index]) begin
-           if(m_matches_type_pair(.match_type_pair(overrides[index].orig),
-                                  .requested_type(null),
-                                  .requested_type_name(alias_type_name))) begin
-             overrides[index].orig.m_type = original_type; 
-           end
-           if(m_matches_type_pair(.match_type_pair(overrides[index].ovrd),
-                                  .requested_type(null),
-                                  .requested_type_name(alias_type_name))) begin
-             overrides[index].ovrd.m_type = original_type; 
-           end                              
+  if(original_type != null) begin
+    if (check_inst_override_exists(original_type,override_type,full_inst_path))
+      return;
+    if(!m_inst_override_queues.exists(original_type))
+      m_inst_override_queues[original_type] = new;
+    m_inst_override_queues[original_type].queue.push_back(override);
+  end 
+  else begin
+    if(m_has_wildcard(original_type_name)) begin
+       foreach(m_type_names[i]) begin
+         if(uvm_is_match(original_type_name,i)) begin
+           this.set_inst_override_by_name(i, override_type_name, full_inst_path);
          end
        end
+       m_wildcard_inst_overrides.push_back(override);
     end
-endfunction
-
-// set_inst_alias
-// ---------------------
-
-function void uvm_default_factory::set_inst_alias(string alias_type_name,
-                          uvm_object_wrapper original_type, string full_inst_path);
-    
-    string original_type_name; 
-    m_inst_typename_alias_t  orig_type_alias_per_inst;
-    
-    original_type_name = original_type.get_type_name();
-    
-    if (!is_type_registered(original_type))
-       uvm_report_warning("BDTYP",{"Cannot define alias of type '",
-       original_type_name,"' because it is not registered with the factory."}, UVM_NONE);      
     else begin
-        orig_type_alias_per_inst.alias_type_name = alias_type_name;
-        orig_type_alias_per_inst.full_inst_path = full_inst_path;
-        orig_type_alias_per_inst.orig.m_type_name = original_type_name;
-        orig_type_alias_per_inst.orig.m_type = original_type;
-        m_inst_aliases.push_back(orig_type_alias_per_inst);
+      if(!m_inst_override_name_queues.exists(original_type_name))
+        m_inst_override_name_queues[original_type_name] = new;
+      m_inst_override_name_queues[original_type_name].queue.push_back(override);
     end
+  end
 
 endfunction
 
-
-
+function bit uvm_default_factory::m_has_wildcard(string nm);
+  foreach (nm[i]) 
+    if(nm[i] == "*" || nm[i] == "?") return 1;
+  return 0;
+endfunction
 
 // create_object_by_name
 // ---------------------
@@ -1428,12 +1208,12 @@ function uvm_object uvm_default_factory::create_object_by_name (string requested
 
   // if no override exists, try to use requested_type_name directly
   if (wrapper==null) begin
-    wrapper = m_resolve_type_name_by_inst(requested_type_name,inst_path);
-    if(wrapper == null) begin
+    if(!m_type_names.exists(requested_type_name)) begin
       uvm_report_warning("BDTYP",{"Cannot create an object of type '",
       requested_type_name,"' because it is not registered with the factory."}, UVM_NONE);
       return null;
     end
+    wrapper = m_type_names[requested_type_name];
   end
 
   return wrapper.create_object(name);
@@ -1464,20 +1244,6 @@ function uvm_object uvm_default_factory::create_object_by_type (uvm_object_wrapp
   return requested_type.create_object(name);
 
 endfunction
-
-// is_type_name_registered
-// ---------------------
-function bit uvm_default_factory::is_type_name_registered (string type_name);
-  return (m_type_names.exists(type_name));
-endfunction
-
-
-// is_type_registered
-// ---------------------
-function bit uvm_default_factory::is_type_registered (uvm_object_wrapper obj);
-  return (m_types.exists(obj));
-endfunction
-
 
 
 // create_component_by_name
@@ -1547,10 +1313,8 @@ endfunction
 
 function uvm_object_wrapper uvm_default_factory::find_wrapper_by_name(string type_name);
 
-  uvm_object_wrapper wrapper = m_resolve_type_name(type_name);
-
-  if (wrapper != null)
-    return wrapper;
+  if (m_type_names.exists(type_name))
+    return m_type_names[type_name];
 
   uvm_report_warning("UnknownTypeName", {"find_wrapper_by_name: Type name '",type_name,
       "' not registered with the factory."}, UVM_NONE);
@@ -1564,92 +1328,88 @@ endfunction
 function uvm_object_wrapper uvm_default_factory::find_override_by_name (string requested_type_name,
                                                                 string full_inst_path);
   uvm_object_wrapper rtype;
+  uvm_factory_queue_class qc;
   uvm_factory_override lindex;
-      
-  rtype = m_resolve_type_name_by_inst(requested_type_name,full_inst_path);
 
-  if(full_inst_path != "")
-  begin
-    foreach(m_inst_overrides[i]) begin
-      if(m_matches_inst_override(.override(m_inst_overrides[i]),
-                                 .requested_type(rtype),
-                                 .requested_type_name(requested_type_name),
-                                 .full_inst_path(full_inst_path))) begin
-        m_override_info.push_back(m_inst_overrides[i]);
-        if (lindex == null) begin
-          lindex = m_inst_overrides[i];
-          if (!m_debug_pass) begin
-            break;
-          end
-        end     
-      end
+  uvm_object_wrapper override;
+
+  if (m_type_names.exists(requested_type_name))
+    rtype = m_type_names[requested_type_name];
+
+/***
+  if(rtype == null) begin
+    if(requested_type_name != "") begin
+      uvm_report_warning("TYPNTF", {"Requested type name ",
+         requested_type_name, " is not registered with the factory. The instance override to ",
+         full_inst_path, " is ignored"}, UVM_NONE);
     end
+    m_lookup_strs[requested_type_name] = 1;
+    return null;
+  end
+***/
+
+  if (full_inst_path != "") begin
+    if(rtype == null) begin
+      if(m_inst_override_name_queues.exists(requested_type_name))
+        qc = m_inst_override_name_queues[requested_type_name];
+    end
+    else begin
+      if(m_inst_override_queues.exists(rtype))
+        qc = m_inst_override_queues[rtype];
+    end
+    if(qc != null)
+      for(int index = 0; index<qc.queue.size(); ++index) begin
+        if (uvm_is_match(qc.queue[index].orig_type_name, requested_type_name) &&
+            uvm_is_match(qc.queue[index].full_inst_path, full_inst_path)) begin
+          m_override_info.push_back(qc.queue[index]);
+          if (m_debug_pass) begin
+            if (override == null) begin
+              override = qc.queue[index].ovrd_type;
+              qc.queue[index].selected = 1;
+              lindex=qc.queue[index];
+            end
+          end
+          else begin
+	        qc.queue[index].used++;
+            if (qc.queue[index].ovrd_type.get_type_name() == requested_type_name)
+              return qc.queue[index].ovrd_type;
+            else 
+              return find_override_by_type(qc.queue[index].ovrd_type,full_inst_path);
+          end
+        end
+      end
   end
 
-  if ((lindex == null) || m_debug_pass) begin
-    uvm_factory_override matched_overrides[$]; 
-    // type override - exact match
-    foreach (m_type_overrides[index]) begin
-      if(m_matches_type_override(.override(m_type_overrides[index]),
-                                 .requested_type(rtype),
-                                 .requested_type_name(requested_type_name),
-                                 .full_inst_path(full_inst_path),
-                                 .resolve_null_type_by_inst(1))) begin
-        matched_overrides.push_back(m_type_overrides[index]);
-        if ((lindex == null) || (lindex.replace == 0)) begin
-          lindex = m_type_overrides[index];
-          // if override was done with replace == 1, then
-          // it has priority over overrides added before it.
-          // if override was done with replace == 0, then
-          // must continue to looked for an override added before
-          // it that would have higher priority
-          if (!m_debug_pass && lindex.replace) begin
-            break;
-          end
-        end 
-      end
-    end
-    if(matched_overrides.size() != 0) begin
+  if(rtype != null && !m_inst_override_queues.exists(rtype) && m_wildcard_inst_overrides.size()) begin
+     m_inst_override_queues[rtype] = new;
+     foreach (m_wildcard_inst_overrides[i]) begin
+       if(uvm_is_match(m_wildcard_inst_overrides[i].orig_type_name, requested_type_name))
+         m_inst_override_queues[rtype].queue.push_back(m_wildcard_inst_overrides[i]);
+     end
+  end
+
+  // type override - exact match
+  foreach (m_type_overrides[index])
+    if (m_type_overrides[index].orig_type_name == requested_type_name) begin
+      m_override_info.push_back(m_type_overrides[index]);
       if (m_debug_pass) begin
-        m_override_info = {m_override_info,matched_overrides};
+        if (override == null) begin
+          override = m_type_overrides[index].ovrd_type;
+          m_type_overrides[index].selected = 1;
+          lindex=m_type_overrides[index];
+        end
       end
       else begin
-        m_override_info.push_back(matched_overrides[$]);
+	    m_type_overrides[index].used++;
+        return find_override_by_type(m_type_overrides[index].ovrd_type,full_inst_path);
       end
     end
-  end
-  
-  if (lindex != null) begin
-    uvm_object_wrapper override = lindex.ovrd.m_type;
-    
-    lindex.used++;
-    if (m_debug_pass) begin
-      lindex.selected = 1;
-    end 
-    
-    if(!m_matches_type_override(.override(lindex),
-                                .requested_type(rtype),
-                                .requested_type_name(requested_type_name),
-                                .full_inst_path(full_inst_path),
-                                .match_original_type(0),
-                                .resolve_null_type_by_inst(1))) begin
-      if(override == null) begin
-         override = find_override_by_name(lindex.ovrd.m_type_name,full_inst_path);
-      end
-      else begin
-         override = find_override_by_type(override,full_inst_path);
-      end
-    end
-    else if(override == null) begin
-      override = m_resolve_type_name_by_inst(lindex.ovrd.m_type_name,full_inst_path);
-    end
-    if(override == null) begin
-      uvm_report_error("TYPNTF", {"Cannot resolve override for original type '",
-        lindex.orig.m_type_name,"' because the override type '",
-        lindex.ovrd.m_type_name, "' is not registered with the factory."}, UVM_NONE);
-    end
-    return override;
-  end
+
+
+  if (m_debug_pass && override != null) begin
+	lindex.used++;
+    return find_override_by_type(override, full_inst_path);
+  end	
 
   // No override found
   return null;
@@ -1668,102 +1428,87 @@ function uvm_object_wrapper uvm_default_factory::find_override_by_type(uvm_objec
   uvm_factory_override lindex;
   
   uvm_factory_queue_class qc;
+  qc = m_inst_override_queues.exists(requested_type) ?
+       m_inst_override_queues[requested_type] : null;
 
   foreach (m_override_info[index]) begin
     if ( //index != m_override_info.size()-1 &&
-       m_override_info[index].orig.m_type == requested_type) begin
+       m_override_info[index].orig_type == requested_type) begin
       uvm_report_error("OVRDLOOP", "Recursive loop detected while finding override.", UVM_NONE);
-      m_override_info[index].used++;
       if (!m_debug_pass)
         debug_create_by_type (requested_type, full_inst_path);
 
+	  m_override_info[index].used++;
       return requested_type;
     end
   end
-  if(full_inst_path != "")
-  begin
-    foreach(m_inst_overrides[i]) begin
-      if(m_matches_inst_override(.override(m_inst_overrides[i]),
-                                 .requested_type(requested_type),
-                                 .requested_type_name(requested_type.get_type_name()),
-                                 .full_inst_path(full_inst_path))) begin
-        m_override_info.push_back(m_inst_overrides[i]);
-        if (lindex == null) begin
-          lindex = m_inst_overrides[i];
-          if (!m_debug_pass) begin
-            break;
-          end
-        end     
-      end
-    end
-  end
 
-  if ((lindex == null) || m_debug_pass) begin
-    uvm_factory_override matched_overrides[$]; 
-    // type override - exact match
-    foreach (m_type_overrides[index]) begin
-      if(m_matches_type_override(.override(m_type_overrides[index]),
-                                 .requested_type(requested_type),
-                                 .requested_type_name(requested_type.get_type_name()),
-                                 .full_inst_path(full_inst_path),
-                                 .resolve_null_type_by_inst(1))) begin
-        matched_overrides.push_back(m_type_overrides[index]);
-        if ((lindex == null) || (lindex.replace == 0)) begin
-          lindex = m_type_overrides[index];
-          // if override was done with replace == 1, then
-          // it has priority over overrides added before it.
-          // if override was done with replace == 0, then
-          // must continue to looked for an override added before
-          // it that would have higher priority
-          if (!m_debug_pass && lindex.replace) begin
-            break;
+  // inst override; return first match; takes precedence over type overrides
+  if (full_inst_path != "" && qc != null)
+    for (int index = 0; index < qc.queue.size(); ++index) begin
+      if ((qc.queue[index].orig_type == requested_type ||
+           (qc.queue[index].orig_type_name != "<unknown>" &&
+            qc.queue[index].orig_type_name != "" &&
+            qc.queue[index].orig_type_name == requested_type.get_type_name())) &&
+          uvm_is_match(qc.queue[index].full_inst_path, full_inst_path)) begin
+        m_override_info.push_back(qc.queue[index]);
+        if (m_debug_pass) begin
+          if (override == null) begin
+            override = qc.queue[index].ovrd_type;
+            qc.queue[index].selected = 1;
+            lindex=qc.queue[index];
           end
-        end 
+        end
+        else begin
+	      qc.queue[index].used++;	        
+          if (qc.queue[index].ovrd_type == requested_type)
+            return requested_type;
+          else
+            return find_override_by_type(qc.queue[index].ovrd_type,full_inst_path);
+        end
       end
     end
-    if(matched_overrides.size() != 0) begin
+
+  // type override - exact match
+  foreach (m_type_overrides[index]) begin
+    if (m_type_overrides[index].orig_type == requested_type ||
+        (m_type_overrides[index].orig_type_name != "<unknown>" &&
+         m_type_overrides[index].orig_type_name != "" &&
+         requested_type != null &&
+         m_type_overrides[index].orig_type_name == requested_type.get_type_name())) begin
+      m_override_info.push_back(m_type_overrides[index]);
       if (m_debug_pass) begin
-        m_override_info = {m_override_info,matched_overrides};
+        if (override == null) begin
+          override = m_type_overrides[index].ovrd_type;
+          m_type_overrides[index].selected = 1;
+          lindex=m_type_overrides[index];
+        end
       end
       else begin
-        m_override_info.push_back(matched_overrides[$]);
+	    m_type_overrides[index].used++;	      
+        if (m_type_overrides[index].ovrd_type == requested_type)
+          return requested_type;
+        else
+          return find_override_by_type(m_type_overrides[index].ovrd_type,full_inst_path);
       end
     end
-  end
-  
-  if (lindex != null) begin
-    uvm_object_wrapper override = lindex.ovrd.m_type;
-    
-    lindex.used++;
-    if (m_debug_pass) begin
-      lindex.selected = 1;
-    end 
-    
-    if(!m_matches_type_override(.override(lindex),
-                                .requested_type(requested_type),
-                                .requested_type_name(requested_type.get_type_name()),
-                                .full_inst_path(full_inst_path),
-                                .match_original_type(0),
-                                .resolve_null_type_by_inst(1))) begin
-      if(override == null) begin
-         override = find_override_by_name(lindex.ovrd.m_type_name,full_inst_path);
-      end
-      else begin
-         override = find_override_by_type(override,full_inst_path);
-      end
-    end
-    else if(override == null) begin
-      override = m_resolve_type_name_by_inst(lindex.ovrd.m_type_name,full_inst_path);
-    end
-    if(override == null) begin
-      uvm_report_error("TYPNTF", {"Cannot resolve override for original type '",
-        lindex.orig.m_type_name,"' because the override type '",
-        lindex.ovrd.m_type_name, "' is not registered with the factory."}, UVM_NONE);
-    end
-    return override;
   end
 
-  // No override found
+  // type override with wildcard match
+  //foreach (m_type_overrides[index])
+  //  if (uvm_is_match(index,requested_type.get_type_name())) begin
+  //    m_override_info.push_back(m_inst_overrides[index]);
+  //    return find_override_by_type(m_type_overrides[index],full_inst_path);
+  //  end
+
+  if (m_debug_pass && override != null) begin
+    lindex.used++;	  
+    if (override == requested_type) begin
+      return requested_type;
+    end	
+    else
+      return find_override_by_type(override,full_inst_path);
+  end	
   
   return requested_type;
 
@@ -1776,12 +1521,29 @@ endfunction
 function void uvm_default_factory::print (int all_types=1);
 
   string key;
+  uvm_factory_queue_class sorted_override_queues[string];
   string qs[$];
+
+  string tmp;
+  int id;
+  uvm_object_wrapper obj;
+
+  //sort the override queues
+  foreach (m_inst_override_queues[i]) begin
+    obj = i;
+    tmp = obj.get_type_name();
+    if(tmp == "") $swrite(tmp, "__unnamed_id_%0d", id++);
+    sorted_override_queues[tmp] = m_inst_override_queues[i];
+
+  end
+  foreach (m_inst_override_name_queues[i]) begin
+    sorted_override_queues[i] = m_inst_override_name_queues[i];
+  end
 
   qs.push_back("\n#### Factory Configuration (*)\n\n");
 
   // print instance overrides
-  if(!m_type_overrides.size() && !m_inst_overrides.size())
+  if(!m_type_overrides.size() && !sorted_override_queues.num())
     qs.push_back("  No instance or type overrides are registered with this factory\n");
   else begin
     int max1,max2,max3;
@@ -1789,16 +1551,20 @@ function void uvm_default_factory::print (int all_types=1);
     string space= "                                                                                                   ";
 
     // print instance overrides
-    if(!m_inst_overrides.size())
+    if(!sorted_override_queues.num())
       qs.push_back("No instance overrides are registered with this factory\n");
     else begin
-      foreach(m_inst_overrides[j]) begin
-        if (m_inst_overrides[j].orig.m_type_name.len() > max1)
-          max1=m_inst_overrides[j].orig.m_type_name.len();
-        if (m_inst_overrides[j].full_inst_path.len() > max2)
-          max2=m_inst_overrides[j].full_inst_path.len();
-        if (m_inst_overrides[j].ovrd.m_type_name.len() > max3)
-          max3=m_inst_overrides[j].ovrd.m_type_name.len();
+      foreach(sorted_override_queues[j]) begin
+        uvm_factory_queue_class qc;
+        qc = sorted_override_queues[j];
+        for (int i=0; i<qc.queue.size(); ++i) begin
+          if (qc.queue[i].orig_type_name.len() > max1)
+            max1=qc.queue[i].orig_type_name.len();
+          if (qc.queue[i].full_inst_path.len() > max2)
+            max2=qc.queue[i].full_inst_path.len();
+          if (qc.queue[i].ovrd_type_name.len() > max3)
+            max3=qc.queue[i].ovrd_type_name.len();
+        end
       end
       if (max1 < 14) max1 = 14;
       if (max2 < 13) max2 = 13;
@@ -1812,12 +1578,16 @@ function void uvm_default_factory::print (int all_types=1);
                                  dash.substr(1,max2),
                                  dash.substr(1,max3)));
 
-      foreach(m_inst_overrides[j]) begin
-        qs.push_back($sformatf("  %0s%0s  %0s%0s",m_inst_overrides[j].orig.m_type_name,
-               space.substr(1,max1-m_inst_overrides[j].orig.m_type_name.len()),
-               m_inst_overrides[j].full_inst_path,
-               space.substr(1,max2-m_inst_overrides[j].full_inst_path.len())));
-        qs.push_back($sformatf("  %0s\n",     m_inst_overrides[j].ovrd.m_type_name));
+      foreach(sorted_override_queues[j]) begin
+        uvm_factory_queue_class qc;
+        qc = sorted_override_queues[j];
+        for (int i=0; i<qc.queue.size(); ++i) begin
+          qs.push_back($sformatf("  %0s%0s  %0s%0s",qc.queue[i].orig_type_name,
+                 space.substr(1,max1-qc.queue[i].orig_type_name.len()),
+                 qc.queue[i].full_inst_path,
+                 space.substr(1,max2-qc.queue[i].full_inst_path.len())));
+          qs.push_back($sformatf("  %0s\n",     qc.queue[i].ovrd_type_name));
+        end
       end
     end
 
@@ -1831,10 +1601,10 @@ function void uvm_default_factory::print (int all_types=1);
       if (max3 < 13) max3 = 13;
 
       foreach (m_type_overrides[i]) begin
-        if (m_type_overrides[i].orig.m_type_name.len() > max1)
-          max1=m_type_overrides[i].orig.m_type_name.len();
-        if (m_type_overrides[i].ovrd.m_type_name.len() > max2)
-          max2=m_type_overrides[i].ovrd.m_type_name.len();
+        if (m_type_overrides[i].orig_type_name.len() > max1)
+          max1=m_type_overrides[i].orig_type_name.len();
+        if (m_type_overrides[i].ovrd_type_name.len() > max2)
+          max2=m_type_overrides[i].ovrd_type_name.len();
       end
       if (max1 < 14) max1 = 14;
       if (max2 < 13) max2 = 13;
@@ -1843,11 +1613,11 @@ function void uvm_default_factory::print (int all_types=1);
                                   "Override Type", space.substr(1,max2-13)));
       qs.push_back($sformatf("  %0s  %0s\n",dash.substr(1,max1),
                             dash.substr(1,max2)));
-      for (int index=m_type_overrides.size()-1; index>=0; index--) 
+      foreach (m_type_overrides[index]) 
         qs.push_back($sformatf("  %0s%0s  %0s\n",
-                 m_type_overrides[index].orig.m_type_name,
-                 space.substr(1,max1-m_type_overrides[index].orig.m_type_name.len()),
-                 m_type_overrides[index].ovrd.m_type_name));
+                 m_type_overrides[index].orig_type_name,
+                 space.substr(1,max1-m_type_overrides[index].orig_type_name.len()),
+                 m_type_overrides[index].ovrd_type_name));
     end
   end
 
@@ -1873,6 +1643,7 @@ function void uvm_default_factory::print (int all_types=1);
   qs.push_back("(*) Types with no associated type name will be printed as <unknown>\n\n####\n\n");
 
   `uvm_info("UVM/FACTORY/PRINT",`UVM_STRING_QUEUE_STREAMING_PACK(qs),UVM_NONE)
+
 endfunction
 
 
@@ -1969,12 +1740,12 @@ function void  uvm_default_factory::m_debug_display (string requested_type_name,
     qs.push_back("the following relevant overrides. An 'x' next to a match indicates a\nmatch that was ignored.\n\n");
 
     foreach (m_override_info[i]) begin
-      if (m_override_info[i].orig.m_type_name.len() > max1)
-        max1=m_override_info[i].orig.m_type_name.len();
+      if (m_override_info[i].orig_type_name.len() > max1)
+        max1=m_override_info[i].orig_type_name.len();
       if (m_override_info[i].full_inst_path.len() > max2)
         max2=m_override_info[i].full_inst_path.len();
-      if (m_override_info[i].ovrd.m_type_name.len() > max3)
-        max3=m_override_info[i].ovrd.m_type_name.len();
+      if (m_override_info[i].ovrd_type_name.len() > max3)
+        max3=m_override_info[i].ovrd_type_name.len();
     end
 
     if (max1 < 13) max1 = 13;
@@ -1991,12 +1762,12 @@ function void  uvm_default_factory::m_debug_display (string requested_type_name,
     foreach (m_override_info[i]) begin
       qs.push_back($sformatf("%s%0s%0s\n",
              m_override_info[i].selected ? "  " : "x ",
-             m_override_info[i].orig.m_type_name,
-             space.substr(1,max1-m_override_info[i].orig.m_type_name.len())));
+             m_override_info[i].orig_type_name,
+             space.substr(1,max1-m_override_info[i].orig_type_name.len())));
       qs.push_back($sformatf("  %0s%0s", m_override_info[i].full_inst_path,
              space.substr(1,max2-m_override_info[i].full_inst_path.len())));
-      qs.push_back($sformatf("  %0s%0s", m_override_info[i].ovrd.m_type_name,
-             space.substr(1,max3-m_override_info[i].ovrd.m_type_name.len())));
+      qs.push_back($sformatf("  %0s%0s", m_override_info[i].ovrd_type_name,
+             space.substr(1,max3-m_override_info[i].ovrd_type_name.len())));
       if (m_override_info[i].full_inst_path == "*")
         qs.push_back("  <type override>");
       else
@@ -2016,92 +1787,3 @@ function void  uvm_default_factory::m_debug_display (string requested_type_name,
 endfunction
 
 
-// m_resolve_type_name
-// --------------------
-
-function uvm_object_wrapper uvm_default_factory::m_resolve_type_name(string requested_type_name);
-  uvm_object_wrapper wrapper=null;
-  if(m_type_names.exists(requested_type_name))
-      wrapper = m_type_names[requested_type_name];
-
-  return wrapper;
-endfunction
-
-// m_resolve_type_name_by_inst
-// --------------------
-
-function uvm_object_wrapper uvm_default_factory::m_resolve_type_name_by_inst(string requested_type_name,
-                                                                             string full_inst_path);
-  uvm_object_wrapper wrapper=null;
-  m_inst_typename_alias_t  type_alias_inst[$]; 
-  type_alias_inst = m_inst_aliases.find(i) with ((i.alias_type_name == requested_type_name) && uvm_is_match(i.full_inst_path,full_inst_path));
-  if (type_alias_inst.size() > 0) begin
-     wrapper = type_alias_inst[0].orig.m_type;
-  end
-  else begin
-     wrapper = m_resolve_type_name(requested_type_name);
-  end
-  
-  return wrapper;
-endfunction
-
-// m_matches_type_pair
-// --------------------
-
-function bit uvm_default_factory::m_matches_type_pair(m_uvm_factory_type_pair_t match_type_pair,
-                                                      uvm_object_wrapper requested_type,
-                                                      string requested_type_name);
-  return ((match_type_pair.m_type != null) &&
-          (match_type_pair.m_type == requested_type) ||
-          (match_type_pair.m_type_name != "<unknown>" &&
-           match_type_pair.m_type_name != "" &&
-           match_type_pair.m_type_name == requested_type_name));
-endfunction
-
-// m_matches_inst_override
-// --------------------
-
-function bit uvm_default_factory::m_matches_inst_override(uvm_factory_override override,
-                                                          uvm_object_wrapper requested_type,
-                                                          string requested_type_name,
-                                                          string full_inst_path="");
-  m_uvm_factory_type_pair_t match_type_pair = override.orig ;
-  if(match_type_pair.m_type == null) begin
-    match_type_pair.m_type = m_resolve_type_name_by_inst(match_type_pair.m_type_name, full_inst_path);
-  end
-  if (m_matches_type_pair(.match_type_pair(match_type_pair),
-                          .requested_type(requested_type),
-                          .requested_type_name(requested_type_name))) begin
-    if(override.has_wildcard) begin
-      return (override.full_inst_path == "*" || 
-              uvm_is_match(override.full_inst_path,full_inst_path)); 
-    end
-    else begin
-      return (override.full_inst_path == full_inst_path);
-    end
-  end
-  return 0;
-endfunction
-
-// m_matches_type_override
-// --------------------
-
-function bit uvm_default_factory::m_matches_type_override(uvm_factory_override override,
-                                                          uvm_object_wrapper requested_type,
-                                                          string requested_type_name,
-                                                          string full_inst_path="",
-                                                          bit match_original_type = 1,
-                                                          bit resolve_null_type_by_inst=0);
-  m_uvm_factory_type_pair_t match_type_pair = match_original_type ? override.orig : override.ovrd;
-  if(match_type_pair.m_type == null) begin
-    if(resolve_null_type_by_inst) begin
-      match_type_pair.m_type = m_resolve_type_name_by_inst(match_type_pair.m_type_name,full_inst_path);
-    end
-    else begin
-      match_type_pair.m_type = m_resolve_type_name(match_type_pair.m_type_name);
-    end
-  end
-  return m_matches_type_pair(.match_type_pair(match_type_pair),
-                             .requested_type(requested_type),
-                             .requested_type_name(requested_type_name));
-endfunction
