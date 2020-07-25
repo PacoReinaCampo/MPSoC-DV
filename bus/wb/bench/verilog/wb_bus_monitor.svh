@@ -67,11 +67,11 @@ class wb_bus_monitor extends uvm_monitor;
     super.run_phase(phase);
     forever begin
     @(posedge vintf.clk);
-    wb_trans.paddr = vintf.paddr;
-    wb_trans.pwdata = vintf.pwdata;
-    wb_trans.prdata = vintf.prdata;
+    wb_trans.adr_i = vintf.adr_i;
+    wb_trans.dat_i = vintf.dat_i;
+    wb_trans.dat_o = vintf.dat_o;
     bus_mon_port.write(wb_trans);
-    `uvm_info("",$sformatf("Bus MOnitor Paddr %x, pwdata %x, prdata %x", vintf.paddr, vintf.pwdata, vintf.prdata), UVM_LOW)
+    `uvm_info("",$sformatf("Bus MOnitor Paddr %x, dat_i %x, dat_o %x", vintf.adr_i, vintf.dat_i, vintf.dat_o), UVM_LOW)
     end
   endtask
 endclass

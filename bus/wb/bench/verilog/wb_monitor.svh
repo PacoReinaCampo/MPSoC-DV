@@ -68,11 +68,11 @@ class wb_monitor extends uvm_monitor;
     begin
       forever begin
       @(posedge vintf.clk);
-      wb_trans.paddr= vintf.paddr;
-      wb_trans.pwdata = vintf.pwdata;
-      wb_trans.prdata = vintf.prdata;
+      wb_trans.adr_i= vintf.adr_i;
+      wb_trans.dat_i = vintf.dat_i;
+      wb_trans.dat_o = vintf.dat_o;
       mon_port.write(wb_trans);
-      `uvm_info("",$sformatf("Agent monitor paddr is %x, pwdata is %x, prdata is %x ", vintf.paddr, vintf.pwdata, vintf.prdata), UVM_LOW);
+      `uvm_info("",$sformatf("Agent monitor adr_i is %x, dat_i is %x, dat_o is %x ", vintf.adr_i, vintf.dat_i, vintf.dat_o), UVM_LOW);
       end
     end
   endtask

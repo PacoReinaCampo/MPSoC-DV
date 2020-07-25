@@ -43,15 +43,16 @@
 
 class wb_transaction extends uvm_sequence_item;
   `uvm_object_utils(wb_transaction)
-  rand bit [7:0]paddr;
-  rand bit pwrite;
-  rand bit [31:0] pwdata;
-  rand bit [31:0] prdata;
-  rand bit psel;
-  rand bit penable;
-  constraint c1{paddr[1:0] ==2'b00;};
-  //constraint c2{$countones(pwdata) inside {15,25,16,21};};
-  constraint c3 {psel == 1'b1;};
+  rand bit [ 7:0] adr_i;
+  rand bit        we_i;
+  rand bit [31:0] dat_i;
+  rand bit [31:0] dat_o;
+  rand bit        sel_i;
+
+  constraint c1{adr_i[1:0] == 2'b00;};
+
+  //constraint c2{$countones(dat_i) inside {15,25,16,21};};
+  constraint c3 {sel_i == 1'b1;};
 
   function new(string name = "");
     super.new(name);

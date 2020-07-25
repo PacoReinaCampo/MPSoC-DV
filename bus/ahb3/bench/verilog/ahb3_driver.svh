@@ -63,17 +63,17 @@ class ahb3_driver extends uvm_driver#(ahb3_transaction);
     super.run_phase(phase);
     vintf.rst_n = 0;
     #5;
-    @(posedge vintf.clk);
+    @(posedge vintf.hclk);
     vintf.rst_n = 1;
     forever begin
     seq_item_port.get_next_item(req);
-    vintf.paddr = req.paddr;
-    vintf.pwrite = req.pwrite;
-    vintf.psel = req.psel;
-    vintf.pwdata = req.pwdata;
-    vintf.penable = req.penable;
-    //`uvm_info("",$sformatf("paddr is %x, pwdata is %x, psel is %x, penable is %x, pwrite is %x", vintf.paddr, vintf.pwdata, vintf.psel, vintf.penable, vintf.pwrite), UVM_LOW)
-    @(posedge vintf.clk);
+    vintf.haddr = req.haddr;
+    vintf.hwrite = req.hwrite;
+    vintf.hsel = req.hsel;
+    vintf.hwdata = req.hwdata;
+    vintf.hready = req.hready;
+    //`uvm_info("",$sformatf("haddr is %x, hwdata is %x, hsel is %x, hready is %x, hwrite is %x", vintf.haddr, vintf.hwdata, vintf.hsel, vintf.hready, vintf.hwrite), UVM_LOW)
+    @(posedge vintf.hclk);
     seq_item_port.item_done();
     end
   endtask

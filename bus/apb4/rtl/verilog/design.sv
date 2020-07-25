@@ -42,22 +42,24 @@
  */
 
 interface dutintf;
-  logic clk;
-  logic rst_n;
-  logic [7:0] paddr;
-  logic pwrite;
-  logic penable;
-  logic psel;
+  logic        clk;
+  logic        rst_n;
+  logic [ 7:0] paddr;
+  logic        pwrite;
+  logic        penable;
+  logic        psel;
   logic [31:0] prdata;
   logic [31:0] pwdata;
 endinterface
 
 module apb4_slave(dutintf dif);
   logic [31:0] mem [256];
-  logic [1:0] apb4_st;
+  logic [ 1:0] apb4_st;
+
   const logic [1:0] SETUP = 0;
   const logic [1:0] W_ENABLE = 1;
   const logic [1:0] R_ENABLE = 2;
+
   // SETUP -> ENABLE
   always @(negedge dif.rst_n or posedge dif.clk) begin
     if (dif.rst_n == 0) begin

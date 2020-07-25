@@ -43,15 +43,17 @@
 
 class ahb3_transaction extends uvm_sequence_item;
   `uvm_object_utils(ahb3_transaction)
-  rand bit [7:0]paddr;
-  rand bit pwrite;
-  rand bit [31:0] pwdata;
-  rand bit [31:0] prdata;
-  rand bit psel;
-  rand bit penable;
-  constraint c1{paddr[1:0] ==2'b00;};
-  //constraint c2{$countones(pwdata) inside {15,25,16,21};};
-  constraint c3 {psel == 1'b1;};
+  rand bit [ 7:0] haddr;
+  rand bit        hwrite;
+  rand bit [31:0] hwdata;
+  rand bit [31:0] hrdata;
+  rand bit        hsel;
+  rand bit        hready;
+
+  constraint c1{haddr[1:0] == 2'b00;};
+
+  //constraint c2{$countones(hwdata) inside {15,25,16,21};};
+  constraint c3 {hsel == 1'b1;};
 
   function new(string name = "");
     super.new(name);

@@ -62,7 +62,7 @@ class wb_scoreboard extends uvm_scoreboard;
 
   wb_transaction exp_queue[$];
 
-  function write_actdata(input wb_transaction tr);
+  function void write_actdata(input wb_transaction tr);
     wb_transaction expdata;
     if(exp_queue.size()) begin
       expdata =exp_queue.pop_front();
@@ -75,7 +75,7 @@ class wb_scoreboard extends uvm_scoreboard;
     end
   endfunction
 
-  function write_expdata(input wb_transaction tr);
+  function void write_expdata(input wb_transaction tr);
     exp_queue.push_back(tr);
   endfunction              
 endclass

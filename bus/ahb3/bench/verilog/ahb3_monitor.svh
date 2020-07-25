@@ -67,12 +67,12 @@ class ahb3_monitor extends uvm_monitor;
     super.run_phase(phase);
     begin
       forever begin
-      @(posedge vintf.clk);
-      ahb3_trans.paddr= vintf.paddr;
-      ahb3_trans.pwdata = vintf.pwdata;
-      ahb3_trans.prdata = vintf.prdata;
+      @(posedge vintf.hclk);
+      ahb3_trans.haddr = vintf.haddr;
+      ahb3_trans.hwdata = vintf.hwdata;
+      ahb3_trans.hrdata = vintf.hrdata;
       mon_port.write(ahb3_trans);
-      `uvm_info("",$sformatf("Agent monitor paddr is %x, pwdata is %x, prdata is %x ", vintf.paddr, vintf.pwdata, vintf.prdata), UVM_LOW);
+      `uvm_info("",$sformatf("Agent monitor haddr is %x, hwdata is %x, hrdata is %x ", vintf.haddr, vintf.hwdata, vintf.hrdata), UVM_LOW);
       end
     end
   endtask

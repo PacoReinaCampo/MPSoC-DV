@@ -63,9 +63,9 @@ module testbench;
   ahb3_slave dut(.dif(intf));
 
   initial begin
-    intf.clk = 0;
+    intf.hclk = 0;
     forever 
-      #5 intf.clk = ~intf.clk;
+      #5 intf.hclk = ~intf.hclk;
   end
 
   initial begin

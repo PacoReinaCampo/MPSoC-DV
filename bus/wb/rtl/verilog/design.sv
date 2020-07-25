@@ -42,36 +42,44 @@
  */
 
 interface dutintf;
-  logic clk;
-  logic rst_n;
-  logic [7:0] paddr;
-  logic pwrite;
-  logic penable;
-  logic psel;
-  logic [31:0] prdata;
-  logic [31:0] pwdata;
+  logic        clk;
+  logic        rst;
+  logic [31:0] adr_i;
+  logic        stb_i;
+  logic        cyc_i;
+  logic [ 3:0] sel_i;
+  logic        we_i;
+  logic [ 2:0] cti_i;
+  logic [ 1:0] bte_i;
+  logic [31:0] dat_i;
+  logic        err_o;
+  logic        ack_o;
+  logic [31:0] dat_o;
+  logic        rty_o;
 endinterface
 
 module wb_slave(dutintf dif);
   logic [31:0] mem [256];
-  logic [1:0] wb_st;
+  logic [ 1:0] wb_st;
+
   const logic [1:0] SETUP = 0;
   const logic [1:0] W_ENABLE = 1;
   const logic [1:0] R_ENABLE = 2;
+
   // SETUP -> ENABLE
-  always @(negedge dif.rst_n or posedge dif.clk) begin
-    if (dif.rst_n == 0) begin
+  always @(negedge dif.rst or posedge dif.clk) begin
+    if (dif.rst == 0) begin
       wb_st <= 0;
-      dif.prdata <= 0;
+      dif.dat_o <= 0;
     end
     else begin
       case (wb_st)
         SETUP : begin
-          // clear the prdata
-          dif.prdata <= 0;
-          // Move to ENABLE when the psel is asserted
-          if (dif.psel && !dif.penable) begin
-            if (dif.pwrite) begin
+          // clear the dat_o
+          dif.dat_o <= 0;
+          // Move to ENABLE when the sel_i is asserted
+          if (dif.sel_i &&) begin
+            if (dif.we_i) begin
               wb_st <= W_ENABLE;
             end
             else begin
@@ -80,17 +88,17 @@ module wb_slave(dutintf dif);
           end
         end
         W_ENABLE : begin
-          // write pwdata to memory
-          if (dif.psel && dif.penable && dif.pwrite) begin
-            mem[dif.paddr] <= dif.pwdata;
+          // write dat_i to memory
+          if (dif.sel_i && dif.we_i) begin
+            mem[dif.adr_i] <= dif.dat_i;
           end
           // return to SETUP
           wb_st <= SETUP;
         end
         R_ENABLE : begin
-          // read prdata from memory
-          if (dif.psel && dif.penable && !dif.pwrite) begin
-            dif.prdata <= mem[dif.paddr];
+          // read dat_o from memory
+          if (dif.sel_i && !dif.we_i) begin
+            dif.dat_o <= mem[dif.adr_i];
           end
           // return to SETUP
           wb_st <= SETUP;

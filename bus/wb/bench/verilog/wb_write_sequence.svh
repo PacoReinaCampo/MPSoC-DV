@@ -50,12 +50,12 @@ class wb_write_sequence extends uvm_sequence#(wb_transaction);
 
   task body();
     begin
-      `uvm_do_with(req,{req.penable == 1'b0;req.pwrite == 1'b1;})
-      `uvm_do_with(req,{req.paddr == 8'h00;req.pwdata == 32'hffffeeee;req.penable == 1'b1;req.pwrite == 1'b1;})
-      `uvm_do_with(req,{req.penable == 1'b0;req.pwrite == 1'b1;})
-      `uvm_do_with(req,{req.paddr == 8'h04;req.pwdata == 32'hffff1111;req.penable == 1'b1;req.pwrite == 1'b1;})
-      `uvm_do_with(req,{req.penable == 1'b0;req.pwrite == 1'b1;})
-      `uvm_do_with(req,{req.paddr == 8'h08;req.pwdata == 32'hffff2222;req.penable == 1'b1;req.pwrite == 1'b1;})
+      `uvm_do_with(req,{req.we_i == 1'b1;})
+      `uvm_do_with(req,{req.adr_i == 8'h00;req.dat_i == 32'hffffeeee;req.we_i == 1'b1;})
+      `uvm_do_with(req,{req.we_i == 1'b1;})
+      `uvm_do_with(req,{req.adr_i == 8'h04;req.dat_i == 32'hffff1111;req.we_i == 1'b1;})
+      `uvm_do_with(req,{req.we_i == 1'b1;})
+      `uvm_do_with(req,{req.adr_i == 8'h08;req.dat_i == 32'hffff2222;req.we_i == 1'b1;})
     end
   endtask
 endclass

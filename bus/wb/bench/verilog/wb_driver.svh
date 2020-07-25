@@ -67,12 +67,11 @@ class wb_driver extends uvm_driver#(wb_transaction);
     vintf.rst_n = 1;
     forever begin
     seq_item_port.get_next_item(req);
-    vintf.paddr = req.paddr;
-    vintf.pwrite = req.pwrite;
-    vintf.psel = req.psel;
-    vintf.pwdata = req.pwdata;
-    vintf.penable = req.penable;
-    //`uvm_info("",$sformatf("paddr is %x, pwdata is %x, psel is %x, penable is %x, pwrite is %x", vintf.paddr, vintf.pwdata, vintf.psel, vintf.penable, vintf.pwrite), UVM_LOW)
+    vintf.adr_i = req.adr_i;
+    vintf.we_i = req.we_i;
+    vintf.sel_i = req.sel_i;
+    vintf.dat_i = req.dat_i;
+    //`uvm_info("",$sformatf("adr_i is %x, dat_i is %x, sel_i is %x, we_i is %x", vintf.adr_i, vintf.dat_i, vintf.sel_i, vintf.we_i), UVM_LOW)
     @(posedge vintf.clk);
     seq_item_port.item_done();
     end

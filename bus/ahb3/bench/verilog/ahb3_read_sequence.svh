@@ -50,12 +50,12 @@ class ahb3_read_sequence extends uvm_sequence#(ahb3_transaction);
 
   task body();
     begin
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b0;})
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b1; req.paddr == 8'h00;})
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b0;})
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b1; req.paddr == 8'h04;})
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b0;})
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b1; req.paddr == 8'h08;})
+      `uvm_do_with(req,{req.hwrite == 1'b0; req.hready == 1'b0;})
+      `uvm_do_with(req,{req.hwrite == 1'b0; req.hready == 1'b1; req.haddr == 8'h00;})
+      `uvm_do_with(req,{req.hwrite == 1'b0; req.hready == 1'b0;})
+      `uvm_do_with(req,{req.hwrite == 1'b0; req.hready == 1'b1; req.haddr == 8'h04;})
+      `uvm_do_with(req,{req.hwrite == 1'b0; req.hready == 1'b0;})
+      `uvm_do_with(req,{req.hwrite == 1'b0; req.hready == 1'b1; req.haddr == 8'h08;})
     end
   endtask
 endclass

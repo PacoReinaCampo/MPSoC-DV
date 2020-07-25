@@ -66,12 +66,12 @@ class ahb3_bus_monitor extends uvm_monitor;
   virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
     forever begin
-    @(posedge vintf.clk);
-    ahb3_trans.paddr = vintf.paddr;
-    ahb3_trans.pwdata = vintf.pwdata;
-    ahb3_trans.prdata = vintf.prdata;
+    @(posedge vintf.hclk);
+    ahb3_trans.haddr = vintf.haddr;
+    ahb3_trans.hwdata = vintf.hwdata;
+    ahb3_trans.hrdata = vintf.hrdata;
     bus_mon_port.write(ahb3_trans);
-    `uvm_info("",$sformatf("Bus MOnitor Paddr %x, pwdata %x, prdata %x", vintf.paddr, vintf.pwdata, vintf.prdata), UVM_LOW)
+    `uvm_info("",$sformatf("Bus MOnitor Paddr %x, hwdata %x, hrdata %x", vintf.haddr, vintf.hwdata, vintf.hrdata), UVM_LOW)
     end
   endtask
 endclass

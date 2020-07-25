@@ -42,25 +42,70 @@
  */
 
 interface dutintf;
-  logic clk;
-  logic rst_n;
-  logic [7:0] paddr;
-  logic pwrite;
-  logic penable;
-  logic psel;
-  logic [31:0] prdata;
-  logic [31:0] pwdata;
+  logic        clk;
+  logic        rst;
+
+  logic [10:0] aw_id;
+  logic [31:0] aw_addr;
+  logic [ 7:0] aw_len;
+  logic [ 2:0] aw_size;
+  logic [ 1:0] aw_burst;
+  logic        aw_lock;
+  logic [ 3:0] aw_cache;
+  logic [ 2:0] aw_prot;
+  logic [ 3:0] aw_qos;
+  logic [ 3:0] aw_region;
+  logic [10:0] aw_user;
+  logic        aw_valid;
+  logic        aw_ready;
+
+  logic [10:0] ar_id;
+  logic [31:0] ar_addr;
+  logic [ 7:0] ar_len;
+  logic [ 2:0] ar_size;
+  logic [ 1:0] ar_burst;
+  logic        ar_lock;
+  logic [ 3:0] ar_cache;
+  logic [ 2:0] ar_prot;
+  logic [ 3:0] ar_qos;
+  logic [ 3:0] ar_region;
+  logic [10:0] ar_user;
+  logic        ar_valid;
+  logic        ar_ready;
+
+  logic [31:0] dw_data;
+  logic [10:0] dw_strb;
+  logic        dw_last;
+  logic [10:0] dw_user;
+  logic        dw_valid;
+  logic        dw_ready;
+
+  logic [10:0] dr_id;
+  logic [31:0] dr_data;
+  logic [ 1:0] dr_resp;
+  logic        dr_last;
+  logic [10:0] dr_user;
+  logic        dr_valid;
+  logic        dr_ready;
+
+  logic [10:0] b_id;
+  logic [ 1:0] b_resp;
+  logic [10:0] b_user;
+  logic        b_valid;
+  logic        b_ready;
 endinterface
 
 module axi4_slave(dutintf dif);
   logic [31:0] mem [256];
-  logic [1:0] axi4_st;
+  logic [ 1:0] axi4_st;
+
   const logic [1:0] SETUP = 0;
   const logic [1:0] W_ENABLE = 1;
   const logic [1:0] R_ENABLE = 2;
+
   // SETUP -> ENABLE
-  always @(negedge dif.rst_n or posedge dif.clk) begin
-    if (dif.rst_n == 0) begin
+  always @(negedge dif.rst or posedge dif.clk) begin
+    if (dif.rst == 0) begin
       axi4_st <= 0;
       dif.prdata <= 0;
     end

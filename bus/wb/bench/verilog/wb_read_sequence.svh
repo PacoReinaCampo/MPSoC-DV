@@ -50,12 +50,12 @@ class wb_read_sequence extends uvm_sequence#(wb_transaction);
 
   task body();
     begin
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b0;})
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b1; req.paddr == 8'h00;})
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b0;})
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b1; req.paddr == 8'h04;})
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b0;})
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b1; req.paddr == 8'h08;})
+      `uvm_do_with(req,{req.we_i == 1'b0;})
+      `uvm_do_with(req,{req.we_i == 1'b0; req.adr_i == 8'h00;})
+      `uvm_do_with(req,{req.we_i == 1'b0;})
+      `uvm_do_with(req,{req.we_i == 1'b0; req.adr_i == 8'h04;})
+      `uvm_do_with(req,{req.we_i == 1'b0;})
+      `uvm_do_with(req,{req.we_i == 1'b0; req.adr_i == 8'h08;})
     end
   endtask
 endclass

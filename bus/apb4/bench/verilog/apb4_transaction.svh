@@ -43,13 +43,15 @@
 
 class apb4_transaction extends uvm_sequence_item;
   `uvm_object_utils(apb4_transaction)
-  rand bit [7:0]paddr;
-  rand bit pwrite;
+  rand bit [ 7:0] paddr;
+  rand bit        pwrite;
   rand bit [31:0] pwdata;
   rand bit [31:0] prdata;
-  rand bit psel;
-  rand bit penable;
-  constraint c1{paddr[1:0] ==2'b00;};
+  rand bit        psel;
+  rand bit        penable;
+
+  constraint c1{paddr[1:0] == 2'b00;};
+
   //constraint c2{$countones(pwdata) inside {15,25,16,21};};
   constraint c3 {psel == 1'b1;};
 

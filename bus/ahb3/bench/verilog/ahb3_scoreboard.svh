@@ -62,7 +62,7 @@ class ahb3_scoreboard extends uvm_scoreboard;
 
   ahb3_transaction exp_queue[$];
 
-  function write_actdata(input ahb3_transaction tr);
+  function void write_actdata(input ahb3_transaction tr);
     ahb3_transaction expdata;
     if(exp_queue.size()) begin
       expdata =exp_queue.pop_front();
@@ -75,7 +75,7 @@ class ahb3_scoreboard extends uvm_scoreboard;
     end
   endfunction
 
-  function write_expdata(input ahb3_transaction tr);
+  function void write_expdata(input ahb3_transaction tr);
     exp_queue.push_back(tr);
   endfunction              
 endclass

@@ -42,36 +42,44 @@
  */
 
 interface dutintf;
-  logic clk;
-  logic rst_n;
-  logic [7:0] paddr;
-  logic pwrite;
-  logic penable;
-  logic psel;
-  logic [31:0] prdata;
-  logic [31:0] pwdata;
+  logic        rst_n;
+  logic        hclk;
+  logic        hsel;
+  logic [31:0] haddr;
+  logic [31:0] hwdata;
+  logic [31:0] hrdata;
+  logic        hwrite;
+  logic [ 2:0] hsize;
+  logic [ 2:0] hburst;
+  logic [ 3:0] hprot;
+  logic [ 1:0] htrans;
+  logic        hmastlock;
+  logic        hready;
+  logic        hresp;
 endinterface
 
 module ahb3_slave(dutintf dif);
   logic [31:0] mem [256];
-  logic [1:0] ahb3_st;
+  logic [ 1:0] ahb3_st;
+
   const logic [1:0] SETUP = 0;
   const logic [1:0] W_ENABLE = 1;
   const logic [1:0] R_ENABLE = 2;
+
   // SETUP -> ENABLE
-  always @(negedge dif.rst_n or posedge dif.clk) begin
+  always @(negedge dif.rst_n or posedge dif.hclk) begin
     if (dif.rst_n == 0) begin
       ahb3_st <= 0;
-      dif.prdata <= 0;
+      dif.hrdata <= 0;
     end
     else begin
       case (ahb3_st)
         SETUP : begin
-          // clear the prdata
-          dif.prdata <= 0;
-          // Move to ENABLE when the psel is asserted
-          if (dif.psel && !dif.penable) begin
-            if (dif.pwrite) begin
+          // clear the hrdata
+          dif.hrdata <= 0;
+          // Move to ENABLE when the hsel is asserted
+          if (dif.hsel && !dif.hready) begin
+            if (dif.hwrite) begin
               ahb3_st <= W_ENABLE;
             end
             else begin
@@ -80,17 +88,17 @@ module ahb3_slave(dutintf dif);
           end
         end
         W_ENABLE : begin
-          // write pwdata to memory
-          if (dif.psel && dif.penable && dif.pwrite) begin
-            mem[dif.paddr] <= dif.pwdata;
+          // write hwdata to memory
+          if (dif.hsel && dif.hready && dif.hwrite) begin
+            mem[dif.haddr] <= dif.hwdata;
           end
           // return to SETUP
           ahb3_st <= SETUP;
         end
         R_ENABLE : begin
-          // read prdata from memory
-          if (dif.psel && dif.penable && !dif.pwrite) begin
-            dif.prdata <= mem[dif.paddr];
+          // read hrdata from memory
+          if (dif.hsel && dif.hready && !dif.hwrite) begin
+            dif.hrdata <= mem[dif.haddr];
           end
           // return to SETUP
           ahb3_st <= SETUP;

@@ -62,7 +62,7 @@ class apb4_scoreboard extends uvm_scoreboard;
 
   apb4_transaction exp_queue[$];
 
-  function write_actdata(input apb4_transaction tr);
+  function void write_actdata(input apb4_transaction tr);
     apb4_transaction expdata;
     if(exp_queue.size()) begin
       expdata =exp_queue.pop_front();
@@ -75,7 +75,7 @@ class apb4_scoreboard extends uvm_scoreboard;
     end
   endfunction
 
-  function write_expdata(input apb4_transaction tr);
+  function void write_expdata(input apb4_transaction tr);
     exp_queue.push_back(tr);
   endfunction              
 endclass
