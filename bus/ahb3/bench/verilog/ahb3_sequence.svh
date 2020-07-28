@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
 //              AMBA3 AHB-Lite Bus Interface                                  //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,26 +41,21 @@
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-`include "ahb3_write_sequence.svh"
-`include "ahb3_read_sequence.svh"
-
 class ahb3_sequence extends uvm_sequence#(ahb3_transaction);
   `uvm_object_utils(ahb3_sequence)
 
-  function new(string name = "");
+  function new (string name = "");
     super.new(name);
   endfunction
 
   task body();
-    ahb3_write_sequence write;
-    ahb3_read_sequence read;
-    begin
-      repeat (8) begin
-      `uvm_do(write)
-      end
-      repeat (8) begin
-      `uvm_do(read)
-      end
+    ahb3_transaction rw_trans;
+    //create 10 random AHB3 read/write transaction and send to driver
+    repeat (80) begin
+      rw_trans=new();
+      start_item(rw_trans);
+      assert(rw_trans.randomize());
+      finish_item(rw_trans);
     end
   endtask
 endclass

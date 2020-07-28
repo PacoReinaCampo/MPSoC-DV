@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
 //              Wishbone Bus Interface                                        //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -42,26 +42,36 @@
  */
 
 class wb_env extends uvm_env;
-  `uvm_component_utils(wb_env)
+  `uvm_component_utils(wb_env);
 
-  wb_agent agent;
-  wb_scoreboard scoreboard;
-  wb_bus_monitor bus_monitor;
+  //ENV class will have agent as its sub component
+  wb_agent agt;
+  wb_scoreboard scb;
+  wb_subscriber wb_subscriber_h;
+
+  //virtual interface for WB interface
+  virtual dut_if vif;
 
   function new(string name, uvm_component parent);
     super.new(name, parent);
   endfunction
 
+  //Build phase
+  //Construct agent and get virtual interface handle from test and pass it down to agent
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    agent = wb_agent::type_id::create("agent",this);
-    scoreboard = wb_scoreboard::type_id::create("scoreboard",this);
-    bus_monitor = wb_bus_monitor::type_id::create("bus_monitor", this);
+    agt = wb_agent::type_id::create("agt", this);
+    scb = wb_scoreboard::type_id::create("scb", this);
+    wb_subscriber_h=wb_subscriber::type_id::create("apn_subscriber_h",this);
+    if (!uvm_config_db#(virtual dut_if)::get(this, "", "vif", vif)) begin
+      `uvm_fatal("build phase", "No virtual interface specified for this env instance")
+    end
+    uvm_config_db#(virtual dut_if)::set( this, "agt", "vif", vif);
   endfunction
 
   function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
-    agent.monitor.mon_port.connect(scoreboard.mon_export);
-    bus_monitor.bus_mon_port.connect(scoreboard.sb_export);
+    agt.mon.ap.connect(scb.mon_export);
+    agt.mon.ap.connect(wb_subscriber_h.analysis_export);
   endfunction
 endclass

@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
 //              AMBA3 AHB-Lite Bus Interface                                  //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -43,19 +43,23 @@
 
 class ahb3_transaction extends uvm_sequence_item;
   `uvm_object_utils(ahb3_transaction)
-  rand bit [ 7:0] haddr;
-  rand bit        hwrite;
-  rand bit [31:0] hwdata;
-  rand bit [31:0] hrdata;
-  rand bit        hsel;
-  rand bit        hready;
 
-  constraint c1{haddr[1:0] == 2'b00;};
+  //typedef for READ/WRITE transaction type
+  typedef enum {READ, WRITE} kind_e;
 
-  //constraint c2{$countones(hwdata) inside {15,25,16,21};};
-  constraint c3 {hsel == 1'b1;};
+  rand bit [31:0] addr;  //Address
+  rand bit [31:0] data;  //Data - For write or read response
 
-  function new(string name = "");
+  rand kind_e hwrite;  //command type
+
+  constraint c1{addr[31:0]>=32'd0; addr[31:0] <32'd256;};
+  constraint c2{data[31:0]>=32'd0; data[31:0] <32'd256;};
+
+  function new (string name = "ahb3_transaction");
     super.new(name);
+  endfunction
+
+  function string convert2string();
+    return $psprintf("hwrite=%s haddr=%0h data=%0h",hwrite,addr,data);
   endfunction
 endclass

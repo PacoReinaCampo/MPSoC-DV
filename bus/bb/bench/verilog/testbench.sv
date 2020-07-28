@@ -11,7 +11,7 @@
 //                                                                            //
 //              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
-//              Wishbone Bus Interface                                        //
+//              Blackbone Bus Interface                                       //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
@@ -47,55 +47,48 @@
 import uvm_pkg::*;
 
 //Include common files
-`include "wb_transaction.svh"
-`include "wb_sequence.svh"
-`include "wb_sequencer.svh"
-`include "wb_driver.svh"
-`include "wb_monitor.svh"
-`include "wb_agent.svh"
-`include "wb_scoreboard.svh"
-`include "wb_subscriber.svh"
-`include "wb_env.svh"
-`include "wb_test.svh"
+`include "bb_transaction.svh"
+`include "bb_sequence.svh"
+`include "bb_sequencer.svh"
+`include "bb_driver.svh"
+`include "bb_monitor.svh"
+`include "bb_agent.svh"
+`include "bb_scoreboard.svh"
+`include "bb_subscriber.svh"
+`include "bb_env.svh"
+`include "bb_test.svh"
 
 module test;
-  logic        clk;
-  logic        rst;
-  logic [31:0] adr_i;
-  logic        stb_i;
-  logic        cyc_i;
-  logic [ 3:0] sel_i;
-  logic        we_i;
-  logic [ 2:0] cti_i;
-  logic [ 1:0] bte_i;
-  logic [31:0] dat_i;
-  logic        err_o;
-  logic        ack_o;
-  logic [31:0] dat_o;
-  logic        rty_o;
+  logic        mclk;
+  logic        mrst;
+  logic [31:0] per_addr;
+  logic        per_en;
+  logic        per_we;
+  logic [31:0] per_dout;
+  logic [31:0] per_din;
 
-  dut_if wb_if();
+  dut_if bb_if();
 
-  wb_slave dut(.dif(wb_if));
+  bb_slave dut(.dif(bb_if));
 
   initial begin
-    wb_if.clk=0;
+    bb_if.mclk=0;
   end
 
   //Generate a clock
   always begin
-    #10 wb_if.clk = ~wb_if.clk;
+    #10 bb_if.mclk = ~bb_if.mclk;
   end
 
   initial begin
-    wb_if.prst=0;
-    repeat (1) @(posedge wb_if.clk);
-    wb_if.prst=1;
+    bb_if.mrst=0;
+    repeat (1) @(posedge bb_if.mclk);
+    bb_if.mrst=1;
   end
 
   initial begin
-    uvm_config_db#(virtual dut_if)::set( null, "uvm_test_top", "vif", wb_if);
-    run_test("wb_test");
+    uvm_config_db#(virtual dut_if)::set( null, "uvm_test_top", "vif", bb_if);
+    run_test("bb_test");
   end
 
   initial begin

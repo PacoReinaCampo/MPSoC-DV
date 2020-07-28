@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
 //              Wishbone Bus Interface                                        //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,7 +41,7 @@
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-interface dutintf;
+interface dut_if;
   logic        clk;
   logic        rst;
   logic [31:0] adr_i;
@@ -56,51 +56,96 @@ interface dutintf;
   logic        ack_o;
   logic [31:0] dat_o;
   logic        rty_o;
+  
+  //Master Clocking block - used for Drivers
+  clocking master_cb @(posedge clk);
+    output adr_i;
+    output stb_i;
+    output cyc_i;
+    output sel_i;
+    output we_i;
+    output cti_i;
+    output bte_i;
+    output dat_i;
+    input  err_o;
+    input  ack_o;
+    input  dat_o;
+    input  rty_o;
+  endclocking: master_cb
+
+  //Slave Clocking Block - used for any Slave BFMs
+  clocking slave_cb @(posedge clk);
+    input  adr_i;
+    input  stb_i;
+    input  cyc_i;
+    input  sel_i;
+    input  we_i;
+    input  cti_i;
+    input  bte_i;
+    input  dat_i;
+    output err_o;
+    output ack_o;
+    output dat_o;
+    output rty_o;
+  endclocking: slave_cb
+
+  //Monitor Clocking block - For sampling by monitor components
+  clocking monitor_cb @(posedge clk);
+    input adr_i;
+    input stb_i;
+    input cyc_i;
+    input sel_i;
+    input we_i;
+    input cti_i;
+    input bte_i;
+    input dat_i;
+    input err_o;
+    input ack_o;
+    input dat_o;
+    input rty_o;
+  endclocking: monitor_cb
+
+  modport master(clocking master_cb);
+  modport slave(clocking slave_cb);
+  modport passive(clocking monitor_cb);
 endinterface
 
-module wb_slave(dutintf dif);
-  logic [31:0] mem [256];
+module wb_slave(dut_if dif);
+  logic [31:0] mem [0:256];
   logic [ 1:0] wb_st;
 
-  const logic [1:0] SETUP = 0;
-  const logic [1:0] W_ENABLE = 1;
-  const logic [1:0] R_ENABLE = 2;
-
-  // SETUP -> ENABLE
-  always @(negedge dif.rst or posedge dif.clk) begin
-    if (dif.rst == 0) begin
-      wb_st <= 0;
-      dif.dat_o <= 0;
+  const logic [1:0] SETUP=0;
+  const logic [1:0] W_ENABLE=1;
+  const logic [1:0] R_ENABLE=2;
+  
+  always @(posedge dif.clk or negedge dif.rst) begin
+    if (dif.rst==0) begin
+      wb_st <=0;
+      dif.dat_o <=0;
+      dif.pready <=1;
+      for(int i=0;i<256;i++) mem[i]=i;
     end
     else begin
       case (wb_st)
-        SETUP : begin
-          // clear the dat_o
+        SETUP: begin
           dif.dat_o <= 0;
-          // Move to ENABLE when the sel_i is asserted
-          if (dif.sel_i &&) begin
+          if (dif.sel_i) begin
             if (dif.we_i) begin
               wb_st <= W_ENABLE;
             end
             else begin
               wb_st <= R_ENABLE;
+              dif.dat_o <= mem[dif.adr_i];
             end
           end
         end
-        W_ENABLE : begin
-          // write dat_i to memory
+        W_ENABLE: begin
           if (dif.sel_i && dif.we_i) begin
             mem[dif.adr_i] <= dif.dat_i;
           end
-          // return to SETUP
           wb_st <= SETUP;
         end
-        R_ENABLE : begin
-          // read dat_o from memory
-          if (dif.sel_i && !dif.we_i) begin
-            dif.dat_o <= mem[dif.adr_i];
-          end
-          // return to SETUP
+        R_ENABLE: begin
           wb_st <= SETUP;
         end
       endcase

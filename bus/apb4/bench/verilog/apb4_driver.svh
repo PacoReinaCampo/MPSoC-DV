@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
 //              AMBA4 APB-Lite Bus Interface                                  //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -43,38 +43,64 @@
 
 class apb4_driver extends uvm_driver#(apb4_transaction);
   `uvm_component_utils(apb4_driver)
-
-  virtual dutintf vintf;
-
-  apb4_transaction apb4_trans;
+  
+  virtual dut_if vif;
+  
   function new(string name, uvm_component parent);
-    super.new(name, parent);
-    apb4_trans = new();
+    super.new(name,parent);
   endfunction
-
+  
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if(!uvm_config_db#(virtual dutintf)::get(this, "*", "vintf", vintf)) begin
-      `uvm_error("","driver virtual interface failed")
+    if(!uvm_config_db#(virtual dut_if)::get(this,"","vif",vif)) begin
+      `uvm_error("build_phase","driver virtual interface failed")
     end
   endfunction
-
+  
   virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
-    vintf.rst_n = 0;
-    #5;
-    @(posedge vintf.clk);
-    vintf.rst_n = 1;
+    
+    this.vif.master_cb.psel    <= 0;
+    this.vif.master_cb.penable <= 0;
+
     forever begin
-    seq_item_port.get_next_item(req);
-    vintf.paddr = req.paddr;
-    vintf.pwrite = req.pwrite;
-    vintf.psel = req.psel;
-    vintf.pwdata = req.pwdata;
-    vintf.penable = req.penable;
-    //`uvm_info("",$sformatf("paddr is %x, pwdata is %x, psel is %x, penable is %x, pwrite is %x", vintf.paddr, vintf.pwdata, vintf.psel, vintf.penable, vintf.pwrite), UVM_LOW)
-    @(posedge vintf.clk);
-    seq_item_port.item_done();
+      apb4_transaction tr;
+      @ (this.vif.master_cb);
+      //First get an item from sequencer
+      seq_item_port.get_next_item(tr);
+      @ (this.vif.master_cb);
+      uvm_report_info("APB4_DRIVER ", $psprintf("Got Transaction %s",tr.convert2string()));
+      //Decode the APB4 Command and call either the read/write function
+      case (tr.pwrite)
+        apb4_transaction::READ:  drive_read(tr.addr, tr.data);  
+        apb4_transaction::WRITE: drive_write(tr.addr, tr.data);
+      endcase
+      //Handshake DONE back to sequencer
+      seq_item_port.item_done();
     end
+  endtask
+
+  virtual protected task drive_read(input bit [31:0] addr, output logic [31:0] data);
+    this.vif.master_cb.paddr   <= addr;
+    this.vif.master_cb.pwrite  <= 0;
+    this.vif.master_cb.psel    <= 1;
+    @ (this.vif.master_cb);
+    this.vif.master_cb.penable <= 1;
+    @ (this.vif.master_cb);
+    data = this.vif.master_cb.prdata;
+    this.vif.master_cb.psel    <= 0;
+    this.vif.master_cb.penable <= 0;
+  endtask
+
+  virtual protected task drive_write(input bit [31:0] addr, input bit [31:0] data);
+    this.vif.master_cb.paddr   <= addr;
+    this.vif.master_cb.pwdata  <= data;
+    this.vif.master_cb.pwrite  <= 1;
+    this.vif.master_cb.psel    <= 1;
+    @ (this.vif.master_cb);
+    this.vif.master_cb.penable <= 1;
+    @ (this.vif.master_cb);
+    this.vif.master_cb.psel    <= 0;
+    this.vif.master_cb.penable <= 0;
   endtask
 endclass

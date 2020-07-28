@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
-//              AMBA4 APB-Lite Bus Interface                                  //
+//              Blackbone Bus Interface                                       //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,37 +41,36 @@
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class apb4_bus_monitor extends uvm_monitor;
-  `uvm_component_utils(apb4_bus_monitor)
+class bb_test extends uvm_test;
+  //Register with factory
+  `uvm_component_utils(bb_test);
 
-   virtual dutintf vintf;
+  bb_env env;
+  virtual dut_if vif;
 
-   apb4_transaction apb4_trans;
-
-  uvm_analysis_port#(apb4_transaction) bus_mon_port;
-
-  function new(string name, uvm_component parent);
-    super.new(name,parent);
-    apb4_trans = new();
-    bus_mon_port=new("bus_mon_port",this);
+  function new(string name = "bb_test", uvm_component parent = null);
+    super.new(name, parent);
   endfunction
 
+  //Build phase - Construct the env class using factory
+  //Get the virtual interface handle from Test and then set it config db for the env component
   function void build_phase(uvm_phase phase);
-    super.build_phase(phase);
-    if(!uvm_config_db#(virtual dutintf)::get(this, "*", "vintf", vintf))begin
-      `uvm_error("","bus monitor interface failed")
-    end
+    env = bb_env::type_id::create("env", this);
+
+    if (!uvm_config_db#(virtual dut_if)::get(this, "", "vif", vif)) begin
+      `uvm_fatal("build_phase", "No virtual interface specified for this test instance")
+    end 
+    uvm_config_db#(virtual dut_if)::set( this, "env", "vif", vif);
   endfunction
 
-  virtual task run_phase(uvm_phase phase);
-    super.run_phase(phase);
-    forever begin
-    @(posedge vintf.clk);
-    apb4_trans.paddr = vintf.paddr;
-    apb4_trans.pwdata = vintf.pwdata;
-    apb4_trans.prdata = vintf.prdata;
-    bus_mon_port.write(apb4_trans);
-    `uvm_info("",$sformatf("Bus MOnitor Paddr %x, pwdata %x, prdata %x", vintf.paddr, vintf.pwdata, vintf.prdata), UVM_LOW)
-    end
+  //Run phase - Create an bb_sequence and start it on the bb_sequencer
+  task run_phase( uvm_phase phase );
+    bb_sequence bb_seq;
+    bb_seq = bb_sequence::type_id::create("bb_seq");
+    phase.raise_objection( this, "Starting bb_base_seqin main phase" );
+    $display("%t Starting sequence bb_seq run_phase",$time);
+    bb_seq.start(env.agt.sqr);
+    #100ns;
+    phase.drop_objection( this , "Finished bb_seq in main phase" );
   endtask
 endclass

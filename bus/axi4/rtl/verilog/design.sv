@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
 //              AMBA4 AXI-Lite Bus Interface                                  //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,7 +41,7 @@
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-interface dutintf;
+interface dut_if;
   logic        clk;
   logic        rst;
 
@@ -93,51 +93,204 @@ interface dutintf;
   logic [10:0] b_user;
   logic        b_valid;
   logic        b_ready;
+  
+  //Master Clocking block - used for Drivers
+  clocking master_cb @(posedge clk);
+    output aw_id;
+    output aw_addr;
+    output aw_len;
+    output aw_size;
+    output aw_burst;
+    output aw_lock;
+    output aw_cache;
+    output aw_prot;
+    output aw_qos;
+    output aw_region;
+    output aw_user;
+    output aw_valid;
+    input  aw_ready;
+
+    output ar_id;
+    output ar_addr;
+    output ar_len;
+    output ar_size;
+    output ar_burst;
+    output ar_lock;
+    output ar_cache;
+    output ar_prot;
+    output ar_qos;
+    output ar_region;
+    output ar_user;
+    output ar_valid;
+    input  ar_ready;
+
+    output dw_data;
+    output dw_strb;
+    output dw_last;
+    output dw_user;
+    output dw_valid;
+    input  dw_ready;
+
+    input  dr_id;
+    input  dr_data;
+    input  dr_resp;
+    input  dr_last;
+    input  dr_user;
+    input  dr_valid;
+    output dr_ready;
+
+    input  b_id;
+    input  b_resp;
+    input  b_user;
+    input  b_valid;
+    output b_ready;
+  endclocking: master_cb
+
+  //Slave Clocking Block - used for any Slave BFMs
+  clocking slave_cb @(posedge clk);
+    input  aw_id;
+    input  aw_addr;
+    input  aw_len;
+    input  aw_size;
+    input  aw_burst;
+    input  aw_lock;
+    input  aw_cache;
+    input  aw_prot;
+    input  aw_qos;
+    input  aw_region;
+    input  aw_user;
+    input  aw_valid;
+    output aw_ready;
+
+    input  ar_id;
+    input  ar_addr;
+    input  ar_len;
+    input  ar_size;
+    input  ar_burst;
+    input  ar_lock;
+    input  ar_cache;
+    input  ar_prot;
+    input  ar_qos;
+    input  ar_region;
+    input  ar_user;
+    input  ar_valid;
+    output ar_ready;
+
+    input  dw_data;
+    input  dw_strb;
+    input  dw_last;
+    input  dw_user;
+    input  dw_valid;
+    output dw_ready;
+
+    output dr_id;
+    output dr_data;
+    output dr_resp;
+    output dr_last;
+    output dr_user;
+    output dr_valid;
+    input  dr_ready;
+
+    output b_id;
+    output b_resp;
+    output b_user;
+    output b_valid;
+    input  b_ready;
+  endclocking: slave_cb
+
+  //Monitor Clocking block - For sampling by monitor components
+  clocking monitor_cb @(posedge clk);
+    input aw_id;
+    input aw_addr;
+    input aw_len;
+    input aw_size;
+    input aw_burst;
+    input aw_lock;
+    input aw_cache;
+    input aw_prot;
+    input aw_qos;
+    input aw_region;
+    input aw_user;
+    input aw_valid;
+    input aw_ready;
+
+    input ar_id;
+    input ar_addr;
+    input ar_len;
+    input ar_size;
+    input ar_burst;
+    input ar_lock;
+    input ar_cache;
+    input ar_prot;
+    input ar_qos;
+    input ar_region;
+    input ar_user;
+    input ar_valid;
+    input ar_ready;
+
+    input dw_data;
+    input dw_strb;
+    input dw_last;
+    input dw_user;
+    input dw_valid;
+    input dw_ready;
+
+    input dr_id;
+    input dr_data;
+    input dr_resp;
+    input dr_last;
+    input dr_user;
+    input dr_valid;
+    input dr_ready;
+
+    input b_id;
+    input b_resp;
+    input b_user;
+    input b_valid;
+    input b_ready;
+  endclocking: monitor_cb
+
+  modport master(clocking master_cb);
+  modport slave(clocking slave_cb);
+  modport passive(clocking monitor_cb);
 endinterface
 
-module axi4_slave(dutintf dif);
-  logic [31:0] mem [256];
+module axi4_slave(dut_if dif);
+  logic [31:0] mem [0:256];
   logic [ 1:0] axi4_st;
 
-  const logic [1:0] SETUP = 0;
-  const logic [1:0] W_ENABLE = 1;
-  const logic [1:0] R_ENABLE = 2;
-
-  // SETUP -> ENABLE
-  always @(negedge dif.rst or posedge dif.clk) begin
-    if (dif.rst == 0) begin
-      axi4_st <= 0;
-      dif.prdata <= 0;
+  const logic [1:0] SETUP=0;
+  const logic [1:0] W_ENABLE=1;
+  const logic [1:0] R_ENABLE=2;
+  
+  always @(posedge dif.clk or negedge dif.rst) begin
+    if (dif.rst==0) begin
+      axi4_st <=0;
+      dif.prdata <=0;
+      dif.pready <=1;
+      for(int i=0;i<256;i++) mem[i]=i;
     end
     else begin
       case (axi4_st)
-        SETUP : begin
-          // clear the prdata
+        SETUP: begin
           dif.prdata <= 0;
-          // Move to ENABLE when the psel is asserted
           if (dif.psel && !dif.penable) begin
             if (dif.pwrite) begin
               axi4_st <= W_ENABLE;
             end
             else begin
               axi4_st <= R_ENABLE;
+              dif.prdata <= mem[dif.paddr];
             end
           end
         end
-        W_ENABLE : begin
-          // write pwdata to memory
+        W_ENABLE: begin
           if (dif.psel && dif.penable && dif.pwrite) begin
             mem[dif.paddr] <= dif.pwdata;
           end
-          // return to SETUP
           axi4_st <= SETUP;
         end
-        R_ENABLE : begin
-          // read prdata from memory
-          if (dif.psel && dif.penable && !dif.pwrite) begin
-            dif.prdata <= mem[dif.paddr];
-          end
-          // return to SETUP
+        R_ENABLE: begin
           axi4_st <= SETUP;
         end
       endcase

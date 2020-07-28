@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
 //              Wishbone Bus Interface                                        //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -43,37 +43,59 @@
 
 class wb_driver extends uvm_driver#(wb_transaction);
   `uvm_component_utils(wb_driver)
-
-  virtual dutintf vintf;
-
-  wb_transaction wb_trans;
+  
+  virtual dut_if vif;
+  
   function new(string name, uvm_component parent);
-    super.new(name, parent);
-    wb_trans = new();
+    super.new(name,parent);
   endfunction
-
+  
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if(!uvm_config_db#(virtual dutintf)::get(this, "*", "vintf", vintf)) begin
-      `uvm_error("","driver virtual interface failed")
+    if(!uvm_config_db#(virtual dut_if)::get(this,"","vif",vif)) begin
+      `uvm_error("build_phase","driver virtual interface failed")
     end
   endfunction
-
+  
   virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
-    vintf.rst_n = 0;
-    #5;
-    @(posedge vintf.clk);
-    vintf.rst_n = 1;
+    
+    this.vif.master_cb.sel_i <= 0;
+
     forever begin
-    seq_item_port.get_next_item(req);
-    vintf.adr_i = req.adr_i;
-    vintf.we_i = req.we_i;
-    vintf.sel_i = req.sel_i;
-    vintf.dat_i = req.dat_i;
-    //`uvm_info("",$sformatf("adr_i is %x, dat_i is %x, sel_i is %x, we_i is %x", vintf.adr_i, vintf.dat_i, vintf.sel_i, vintf.we_i), UVM_LOW)
-    @(posedge vintf.clk);
-    seq_item_port.item_done();
+      wb_transaction tr;
+      @ (this.vif.master_cb);
+      //First get an item from sequencer
+      seq_item_port.get_next_item(tr);
+      @ (this.vif.master_cb);
+      uvm_report_info("WB_DRIVER ", $psprintf("Got Transaction %s",tr.convert2string()));
+      //Decode the WB Command and call either the read/write function
+      case (tr.we_i)
+        wb_transaction::READ:  drive_read(tr.addr, tr.data);  
+        wb_transaction::WRITE: drive_write(tr.addr, tr.data);
+      endcase
+      //Handshake DONE back to sequencer
+      seq_item_port.item_done();
     end
+  endtask
+
+  virtual protected task drive_read(input bit [31:0] addr, output logic [31:0] data);
+    this.vif.master_cb.adr_i <= addr;
+    this.vif.master_cb.we_i  <= 0;
+    this.vif.master_cb.sel_i <= 1;
+    @ (this.vif.master_cb);
+    @ (this.vif.master_cb);
+    data = this.vif.master_cb.dat_o;
+    this.vif.master_cb.sel_i <= 0;
+  endtask
+
+  virtual protected task drive_write(input bit [31:0] addr, input bit [31:0] data);
+    this.vif.master_cb.adr_i <= addr;
+    this.vif.master_cb.dat_i <= data;
+    this.vif.master_cb.we_i  <= 1;
+    this.vif.master_cb.sel_i <= 1;
+    @ (this.vif.master_cb);
+    @ (this.vif.master_cb);
+    this.vif.master_cb.sel_i <= 0;
   endtask
 endclass

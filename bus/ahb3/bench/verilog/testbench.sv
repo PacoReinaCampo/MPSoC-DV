@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
 //              AMBA3 AHB-Lite Bus Interface                                  //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,39 +41,66 @@
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
+//Include UVM files
 `include "uvm_macros.svh"
 `include "uvm_pkg.sv"
-
 import uvm_pkg::*;
 
+//Include common files
 `include "ahb3_transaction.svh"
 `include "ahb3_sequence.svh"
-`include "ahb3_monitor.svh"
+`include "ahb3_sequencer.svh"
 `include "ahb3_driver.svh"
+`include "ahb3_monitor.svh"
 `include "ahb3_agent.svh"
-`include "ahb3_bus_monitor.svh"  
 `include "ahb3_scoreboard.svh"
+`include "ahb3_subscriber.svh"
 `include "ahb3_env.svh"
 `include "ahb3_test.svh"
 
-module testbench;
+module test;
+  logic        hrst;
+  logic        hclk;
+  logic        hsel;
+  logic [31:0] haddr;
+  logic [31:0] hwdata;
+  logic [31:0] hrdata;
+  logic        hwrite;
+  logic [ 2:0] hsize;
+  logic [ 2:0] hburst;
+  logic [ 3:0] hprot;
+  logic [ 1:0] htrans;
+  logic        hmastlock;
+  logic        hreadyout;
+  logic        hready;
+  logic        hresp;
 
-  dutintf intf();
+  dut_if ahb3_if();
 
-  ahb3_slave dut(.dif(intf));
+  ahb3_slave dut(.dif(ahb3_if));
 
   initial begin
-    intf.hclk = 0;
-    forever 
-      #5 intf.hclk = ~intf.hclk;
+    ahb3_if.hclk=0;
+  end
+
+  //Generate a clock
+  always begin
+    #10 ahb3_if.hclk = ~ahb3_if.hclk;
   end
 
   initial begin
-    uvm_config_db#(virtual dutintf)::set(null,"*","vintf", intf);
+    ahb3_if.hrst=0;
+    repeat (1) @(posedge ahb3_if.hclk);
+    ahb3_if.hrst=1;
+  end
+
+  initial begin
+    uvm_config_db#(virtual dut_if)::set( null, "uvm_test_top", "vif", ahb3_if);
     run_test("ahb3_test");
   end
 
   initial begin
-     $dumpvars(0, top);
+    $dumpfile("dump.vcd");
+    $dumpvars;
   end
 endmodule

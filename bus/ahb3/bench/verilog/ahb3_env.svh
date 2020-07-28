@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
 //              AMBA3 AHB-Lite Bus Interface                                  //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -42,26 +42,36 @@
  */
 
 class ahb3_env extends uvm_env;
-  `uvm_component_utils(ahb3_env)
+  `uvm_component_utils(ahb3_env);
 
-  ahb3_agent agent;
-  ahb3_scoreboard scoreboard;
-  ahb3_bus_monitor bus_monitor;
+  //ENV class will have agent as its sub component
+  ahb3_agent agt;
+  ahb3_scoreboard scb;
+  ahb3_subscriber ahb3_subscriber_h;
+
+  //virtual interface for AHB3 interface
+  virtual dut_if vif;
 
   function new(string name, uvm_component parent);
     super.new(name, parent);
   endfunction
 
+  //Build phase
+  //Construct agent and get virtual interface handle from test and pass it down to agent
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    agent = ahb3_agent::type_id::create("agent",this);
-    scoreboard = ahb3_scoreboard::type_id::create("scoreboard",this);
-    bus_monitor = ahb3_bus_monitor::type_id::create("bus_monitor", this);
+    agt = ahb3_agent::type_id::create("agt", this);
+    scb = ahb3_scoreboard::type_id::create("scb", this);
+    ahb3_subscriber_h=ahb3_subscriber::type_id::create("apn_subscriber_h",this);
+    if (!uvm_config_db#(virtual dut_if)::get(this, "", "vif", vif)) begin
+      `uvm_fatal("build phase", "No virtual interface specified for this env instance")
+    end
+    uvm_config_db#(virtual dut_if)::set( this, "agt", "vif", vif);
   endfunction
 
   function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
-    agent.monitor.mon_port.connect(scoreboard.mon_export);
-    bus_monitor.bus_mon_port.connect(scoreboard.sb_export);
+    agt.mon.ap.connect(scb.mon_export);
+    agt.mon.ap.connect(ahb3_subscriber_h.analysis_export);
   endfunction
 endclass

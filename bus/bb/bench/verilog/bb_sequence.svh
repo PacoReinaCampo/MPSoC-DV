@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
-//              AMBA3 AHB-Lite Bus Interface                                  //
+//              Blackbone Bus Interface                                       //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,21 +41,21 @@
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class ahb3_write_sequence extends uvm_sequence#(ahb3_transaction);  
-  `uvm_object_utils(ahb3_write_sequence)
+class bb_sequence extends uvm_sequence#(bb_transaction);
+  `uvm_object_utils(bb_sequence)
 
-  function new(string name = "");
+  function new (string name = "");
     super.new(name);
   endfunction
 
   task body();
-    begin
-      `uvm_do_with(req,{req.hready == 1'b0;req.hwrite == 1'b1;})
-      `uvm_do_with(req,{req.haddr == 8'h00;req.hwdata == 32'hffffeeee;req.hready == 1'b1;req.hwrite == 1'b1;})
-      `uvm_do_with(req,{req.hready == 1'b0;req.hwrite == 1'b1;})
-      `uvm_do_with(req,{req.haddr == 8'h04;req.hwdata == 32'hffff1111;req.hready == 1'b1;req.hwrite == 1'b1;})
-      `uvm_do_with(req,{req.hready == 1'b0;req.hwrite == 1'b1;})
-      `uvm_do_with(req,{req.haddr == 8'h08;req.hwdata == 32'hffff2222;req.hready == 1'b1;req.hwrite == 1'b1;})
+    bb_transaction rw_trans;
+    //create 10 random BB read/write transaction and send to driver
+    repeat (80) begin
+      rw_trans=new();
+      start_item(rw_trans);
+      assert(rw_trans.randomize());
+      finish_item(rw_trans);
     end
   endtask
 endclass

@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
 //              AMBA4 APB-Lite Bus Interface                                  //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,41 +41,57 @@
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-`uvm_analysis_imp_decl(_expdata)
-`uvm_analysis_imp_decl(_actdata)
-
 class apb4_scoreboard extends uvm_scoreboard;
   `uvm_component_utils(apb4_scoreboard)
-
-  uvm_analysis_imp_expdata#(apb4_transaction, apb4_scoreboard) mon_export;
-  uvm_analysis_imp_actdata#(apb4_transaction, apb4_scoreboard) sb_export;
-
+  
+  uvm_analysis_imp#(apb4_transaction, apb4_scoreboard) mon_export;
+  
+  apb4_transaction exp_queue[$];
+  
+  bit [31:0] sc_mem [0:256];
+  
   function new(string name, uvm_component parent);
-    super.new(name, parent);
+    super.new(name,parent);
     mon_export = new("mon_export", this);
-    sb_export = new("sb_export", this);
   endfunction
-
+  
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
+    foreach(sc_mem[i]) sc_mem[i] = i;
   endfunction
-
-  apb4_transaction exp_queue[$];
-
-  function void write_actdata(input apb4_transaction tr);
+  
+  // write task - recives the pkt from monitor and pushes into queue
+  function void write(apb4_transaction tr);
+    //tr.print();
+    exp_queue.push_back(tr);
+  endfunction 
+  
+  virtual task run_phase(uvm_phase phase);
+    //super.run_phase(phase);
     apb4_transaction expdata;
-    if(exp_queue.size()) begin
-      expdata =exp_queue.pop_front();
-      if(tr.compare(expdata))begin
-        `uvm_info("",$sformatf("MATCHED"),UVM_LOW)
+    
+    forever begin
+      wait(exp_queue.size() > 0);
+      expdata = exp_queue.pop_front();
+      
+      if(expdata.pwrite == apb4_transaction::WRITE) begin
+        sc_mem[expdata.addr] = expdata.data;
+        `uvm_info("APB4_SCOREBOARD",$sformatf("------ :: WRITE DATA       :: ------"),UVM_LOW)
+        `uvm_info("",$sformatf("Addr: %0h",expdata.addr),UVM_LOW)
+        `uvm_info("",$sformatf("Data: %0h",expdata.data),UVM_LOW)        
       end
-      else begin
-        `uvm_info("",$sformatf("MISMATCHED"),UVM_LOW)
+      else if(expdata.pwrite == apb4_transaction::READ) begin
+        if(sc_mem[expdata.addr] == expdata.data) begin
+          `uvm_info("APB4_SCOREBOARD",$sformatf("------ :: READ DATA Match :: ------"),UVM_LOW)
+          `uvm_info("",$sformatf("Addr: %0h",expdata.addr),UVM_LOW)
+          `uvm_info("",$sformatf("Expected Data: %0h Actual Data: %0h",sc_mem[expdata.addr],expdata.data),UVM_LOW)
+        end
+        else begin
+          `uvm_error("APB4_SCOREBOARD","------ :: READ DATA MisMatch :: ------")
+          `uvm_info("",$sformatf("Addr: %0h",expdata.addr),UVM_LOW)
+          `uvm_info("",$sformatf("Expected Data: %0h Actual Data: %0h",sc_mem[expdata.addr],expdata.data),UVM_LOW)
+        end
       end
     end
-  endfunction
-
-  function void write_expdata(input apb4_transaction tr);
-    exp_queue.push_back(tr);
-  endfunction              
+  endtask 
 endclass

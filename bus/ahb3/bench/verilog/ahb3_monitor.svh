@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
 //              AMBA3 AHB-Lite Bus Interface                                  //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,39 +41,59 @@
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class ahb3_monitor extends uvm_monitor;  
+class ahb3_monitor extends uvm_monitor;
+  virtual dut_if vif;
+
+  //Analysis port -parameterized to ahb3_rw transaction
+  ///Monitor writes transaction objects to this port once detected on interface
+  uvm_analysis_port#(ahb3_transaction) ap;
+
   `uvm_component_utils(ahb3_monitor)
 
-  uvm_analysis_port#(ahb3_transaction) mon_port;
-
-  virtual dutintf vintf;
-
-  ahb3_transaction ahb3_trans;
-
   function new(string name, uvm_component parent);
-    super.new(name,parent);
-    ahb3_trans=new();
-    mon_port = new("mon_port", this);
+    super.new(name, parent);
+    ap = new("ap", this);
   endfunction
 
+  //Build Phase - Get handle to virtual if from agent/config_db
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if(!uvm_config_db#(virtual dutintf)::get(this, "*", "vintf", vintf)) begin
-      `uvm_error("","failed virtual interface")
+    if (!uvm_config_db#(virtual dut_if)::get(this, "", "vif", vif)) begin
+      `uvm_error("build_phase", "No virtual interface specified for this monitor instance")
     end
   endfunction
 
-  task run_phase(uvm_phase phase);
+  virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
-    begin
-      forever begin
-      @(posedge vintf.hclk);
-      ahb3_trans.haddr = vintf.haddr;
-      ahb3_trans.hwdata = vintf.hwdata;
-      ahb3_trans.hrdata = vintf.hrdata;
-      mon_port.write(ahb3_trans);
-      `uvm_info("",$sformatf("Agent monitor haddr is %x, hwdata is %x, hrdata is %x ", vintf.haddr, vintf.hwdata, vintf.hrdata), UVM_LOW);
+    forever begin
+      ahb3_transaction tr;
+      // Wait for a SETUP cycle
+      do begin
+        @ (this.vif.monitor_cb);
       end
+      while (this.vif.monitor_cb.hsel !== 1'b1 || this.vif.monitor_cb.penable !== 1'b0);
+      //create a transaction object
+      tr = ahb3_transaction::type_id::create("tr", this);
+
+      //populate fields based on values seen on interface
+      tr.hwrite = (this.vif.monitor_cb.hwrite) ? ahb3_transaction::WRITE : ahb3_transaction::READ;
+      tr.addr = this.vif.monitor_cb.haddr;
+
+      @ (this.vif.monitor_cb);
+      if (this.vif.monitor_cb.penable !== 1'b1) begin
+        `uvm_error("AHB3", "AHB3 protocol violation: SETUP cycle not followed by ENABLE cycle");
+      end
+
+      if (tr.hwrite == ahb3_transaction::READ) begin
+        tr.data = this.vif.monitor_cb.hrdata;
+      end
+      else if (tr.hwrite == ahb3_transaction::WRITE) begin
+        tr.data = this.vif.monitor_cb.hwdata;
+      end
+
+      uvm_report_info("AHB3_MONITOR", $psprintf("Got Transaction %s",tr.convert2string()));
+      //Write to analysis port
+      ap.write(tr);
     end
   endtask
 endclass

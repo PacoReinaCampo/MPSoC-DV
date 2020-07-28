@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
-//              Wishbone Bus Interface                                        //
+//              Blackbone Bus Interface                                       //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,21 +41,25 @@
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class wb_write_sequence extends uvm_sequence#(wb_transaction);  
-  `uvm_object_utils(wb_write_sequence)
+class bb_transaction extends uvm_sequence_item;
+  `uvm_object_utils(bb_transaction)
 
-  function new(string name = "");
+  //typedef for READ/WRITE transaction type
+  typedef enum {READ, WRITE} kind_e;
+
+  rand bit [31:0] addr;  //Address
+  rand bit [31:0] data;  //Data - For write or read response
+
+  rand kind_e per_we;  //command type
+
+  constraint c1{addr[31:0]>=32'd0; addr[31:0] <32'd256;};
+  constraint c2{data[31:0]>=32'd0; data[31:0] <32'd256;};
+
+  function new (string name = "bb_transaction");
     super.new(name);
   endfunction
 
-  task body();
-    begin
-      `uvm_do_with(req,{req.we_i == 1'b1;})
-      `uvm_do_with(req,{req.adr_i == 8'h00;req.dat_i == 32'hffffeeee;req.we_i == 1'b1;})
-      `uvm_do_with(req,{req.we_i == 1'b1;})
-      `uvm_do_with(req,{req.adr_i == 8'h04;req.dat_i == 32'hffff1111;req.we_i == 1'b1;})
-      `uvm_do_with(req,{req.we_i == 1'b1;})
-      `uvm_do_with(req,{req.adr_i == 8'h08;req.dat_i == 32'hffff2222;req.we_i == 1'b1;})
-    end
-  endtask
+  function string convert2string();
+    return $psprintf("per_we=%s per_addr=%0h data=%0h",per_we,addr,data);
+  endfunction
 endclass

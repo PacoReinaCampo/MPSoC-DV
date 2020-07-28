@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
 //              Wishbone Bus Interface                                        //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,39 +41,57 @@
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class wb_monitor extends uvm_monitor;  
+class wb_monitor extends uvm_monitor;
+  virtual dut_if vif;
+
+  //Analysis port -parameterized to wb_rw transaction
+  ///Monitor writes transaction objects to this port once detected on interface
+  uvm_analysis_port#(wb_transaction) ap;
+
   `uvm_component_utils(wb_monitor)
 
-  uvm_analysis_port#(wb_transaction) mon_port;
-
-  virtual dutintf vintf;
-
-  wb_transaction wb_trans;
-
   function new(string name, uvm_component parent);
-    super.new(name,parent);
-    wb_trans=new();
-    mon_port = new("mon_port", this);
+    super.new(name, parent);
+    ap = new("ap", this);
   endfunction
 
+  //Build Phase - Get handle to virtual if from agent/config_db
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if(!uvm_config_db#(virtual dutintf)::get(this, "*", "vintf", vintf)) begin
-      `uvm_error("","failed virtual interface")
+    if (!uvm_config_db#(virtual dut_if)::get(this, "", "vif", vif)) begin
+      `uvm_error("build_phase", "No virtual interface specified for this monitor instance")
     end
   endfunction
 
-  task run_phase(uvm_phase phase);
+  virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
-    begin
-      forever begin
-      @(posedge vintf.clk);
-      wb_trans.adr_i= vintf.adr_i;
-      wb_trans.dat_i = vintf.dat_i;
-      wb_trans.dat_o = vintf.dat_o;
-      mon_port.write(wb_trans);
-      `uvm_info("",$sformatf("Agent monitor adr_i is %x, dat_i is %x, dat_o is %x ", vintf.adr_i, vintf.dat_i, vintf.dat_o), UVM_LOW);
+    forever begin
+      wb_transaction tr;
+      // Wait for a SETUP cycle
+      do begin
+        @ (this.vif.monitor_cb);
       end
+      while (this.vif.monitor_cb.sel_i !== 1'b1);
+      //create a transaction object
+      tr = wb_transaction::type_id::create("tr", this);
+
+      //populate fields based on values seen on interface
+      tr.we_i = (this.vif.monitor_cb.we_i) ? wb_transaction::WRITE : wb_transaction::READ;
+      tr.addr = this.vif.monitor_cb.adr_i;
+
+      @ (this.vif.monitor_cb);
+      `uvm_error("WB", "WB protocol violation: SETUP cycle not followed by ENABLE cycle");
+
+      if (tr.we_i == wb_transaction::READ) begin
+        tr.data = this.vif.monitor_cb.dat_o;
+      end
+      else if (tr.we_i == wb_transaction::WRITE) begin
+        tr.data = this.vif.monitor_cb.dat_i;
+      end
+
+      uvm_report_info("WB_MONITOR", $psprintf("Got Transaction %s",tr.convert2string()));
+      //Write to analysis port
+      ap.write(tr);
     end
   endtask
 endclass

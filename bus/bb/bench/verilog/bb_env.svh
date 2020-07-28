@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
-//              Wishbone Bus Interface                                        //
+//              Blackbone Bus Interface                                       //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,21 +41,37 @@
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class wb_read_sequence extends uvm_sequence#(wb_transaction);
-  `uvm_object_utils(wb_read_sequence)
+class bb_env extends uvm_env;
+  `uvm_component_utils(bb_env);
 
-  function new(string name = "");
-    super.new(name);
+  //ENV class will have agent as its sub component
+  bb_agent agt;
+  bb_scoreboard scb;
+  bb_subscriber bb_subscriber_h;
+
+  //virtual interface for BB interface
+  virtual dut_if vif;
+
+  function new(string name, uvm_component parent);
+    super.new(name, parent);
   endfunction
 
-  task body();
-    begin
-      `uvm_do_with(req,{req.we_i == 1'b0;})
-      `uvm_do_with(req,{req.we_i == 1'b0; req.adr_i == 8'h00;})
-      `uvm_do_with(req,{req.we_i == 1'b0;})
-      `uvm_do_with(req,{req.we_i == 1'b0; req.adr_i == 8'h04;})
-      `uvm_do_with(req,{req.we_i == 1'b0;})
-      `uvm_do_with(req,{req.we_i == 1'b0; req.adr_i == 8'h08;})
+  //Build phase
+  //Construct agent and get virtual interface handle from test and pass it down to agent
+  function void build_phase(uvm_phase phase);
+    super.build_phase(phase);
+    agt = bb_agent::type_id::create("agt", this);
+    scb = bb_scoreboard::type_id::create("scb", this);
+    bb_subscriber_h=bb_subscriber::type_id::create("apn_subscriber_h",this);
+    if (!uvm_config_db#(virtual dut_if)::get(this, "", "vif", vif)) begin
+      `uvm_fatal("build phase", "No virtual interface specified for this env instance")
     end
-  endtask
+    uvm_config_db#(virtual dut_if)::set( this, "agt", "vif", vif);
+  endfunction
+
+  function void connect_phase(uvm_phase phase);
+    super.connect_phase(phase);
+    agt.mon.ap.connect(scb.mon_export);
+    agt.mon.ap.connect(bb_subscriber_h.analysis_export);
+  endfunction
 endclass

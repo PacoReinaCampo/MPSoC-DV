@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
-//              Wishbone Bus Interface                                        //
+//              Blackbone Bus Interface                                       //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,37 +41,59 @@
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class wb_bus_monitor extends uvm_monitor;
-  `uvm_component_utils(wb_bus_monitor)
+class bb_monitor extends uvm_monitor;
+  virtual dut_if vif;
 
-   virtual dutintf vintf;
+  //Analysis port -parameterized to bb_rw transaction
+  ///Monitor writes transaction objects to this port once detected on interface
+  uvm_analysis_port#(bb_transaction) ap;
 
-   wb_transaction wb_trans;
-
-  uvm_analysis_port#(wb_transaction) bus_mon_port;
+  `uvm_component_utils(bb_monitor)
 
   function new(string name, uvm_component parent);
-    super.new(name,parent);
-    wb_trans = new();
-    bus_mon_port=new("bus_mon_port",this);
+    super.new(name, parent);
+    ap = new("ap", this);
   endfunction
 
+  //Build Phase - Get handle to virtual if from agent/config_db
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if(!uvm_config_db#(virtual dutintf)::get(this, "*", "vintf", vintf))begin
-      `uvm_error("","bus monitor interface failed")
+    if (!uvm_config_db#(virtual dut_if)::get(this, "", "vif", vif)) begin
+      `uvm_error("build_phase", "No virtual interface specified for this monitor instance")
     end
   endfunction
 
   virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
     forever begin
-    @(posedge vintf.clk);
-    wb_trans.adr_i = vintf.adr_i;
-    wb_trans.dat_i = vintf.dat_i;
-    wb_trans.dat_o = vintf.dat_o;
-    bus_mon_port.write(wb_trans);
-    `uvm_info("",$sformatf("Bus MOnitor Paddr %x, dat_i %x, dat_o %x", vintf.adr_i, vintf.dat_i, vintf.dat_o), UVM_LOW)
+      bb_transaction tr;
+      // Wait for a SETUP cycle
+      do begin
+        @ (this.vif.monitor_cb);
+      end
+      while (this.vif.monitor_cb.per_en !== 1'b0);
+      //create a transaction object
+      tr = bb_transaction::type_id::create("tr", this);
+
+      //populate fields based on values seen on interface
+      tr.per_we = (this.vif.monitor_cb.per_we) ? bb_transaction::WRITE : bb_transaction::READ;
+      tr.addr = this.vif.monitor_cb.per_addr;
+
+      @ (this.vif.monitor_cb);
+      if (this.vif.monitor_cb.per_en !== 1'b1) begin
+        `uvm_error("BB", "BB protocol violation: SETUP cycle not followed by ENABLE cycle");
+      end
+
+      if (tr.per_we == bb_transaction::READ) begin
+        tr.data = this.vif.monitor_cb.per_din;
+      end
+      else if (tr.per_we == bb_transaction::WRITE) begin
+        tr.data = this.vif.monitor_cb.per_dout;
+      end
+
+      uvm_report_info("BB_MONITOR", $psprintf("Got Transaction %s",tr.convert2string()));
+      //Write to analysis port
+      ap.write(tr);
     end
   endtask
 endclass

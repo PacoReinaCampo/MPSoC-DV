@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
 //              Wishbone Bus Interface                                        //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -43,18 +43,23 @@
 
 class wb_transaction extends uvm_sequence_item;
   `uvm_object_utils(wb_transaction)
-  rand bit [ 7:0] adr_i;
-  rand bit        we_i;
-  rand bit [31:0] dat_i;
-  rand bit [31:0] dat_o;
-  rand bit        sel_i;
 
-  constraint c1{adr_i[1:0] == 2'b00;};
+  //typedef for READ/WRITE transaction type
+  typedef enum {READ, WRITE} kind_e;
 
-  //constraint c2{$countones(dat_i) inside {15,25,16,21};};
-  constraint c3 {sel_i == 1'b1;};
+  rand bit [31:0] addr;  //Address
+  rand bit [31:0] data;  //Data - For write or read response
 
-  function new(string name = "");
+  rand kind_e we_i;  //command type
+
+  constraint c1{addr[31:0]>=32'd0; addr[31:0] <32'd256;};
+  constraint c2{data[31:0]>=32'd0; data[31:0] <32'd256;};
+
+  function new (string name = "wb_transaction");
     super.new(name);
+  endfunction
+
+  function string convert2string();
+    return $psprintf("we_i=%s adr_i=%0h data=%0h",we_i,addr,data);
   endfunction
 endclass

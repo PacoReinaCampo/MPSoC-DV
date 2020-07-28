@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
-//              AMBA4 AXI-Lite Bus Interface                                  //
+//              Blackbone Bus Interface                                       //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,37 +41,57 @@
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class axi4_bus_monitor extends uvm_monitor;
-  `uvm_component_utils(axi4_bus_monitor)
-
-   virtual dutintf vintf;
-
-   axi4_transaction axi4_trans;
-
-  uvm_analysis_port#(axi4_transaction) bus_mon_port;
-
+class bb_scoreboard extends uvm_scoreboard;
+  `uvm_component_utils(bb_scoreboard)
+  
+  uvm_analysis_imp#(bb_transaction, bb_scoreboard) mon_export;
+  
+  bb_transaction exp_queue[$];
+  
+  bit [31:0] sc_mem [0:256];
+  
   function new(string name, uvm_component parent);
     super.new(name,parent);
-    axi4_trans = new();
-    bus_mon_port=new("bus_mon_port",this);
+    mon_export = new("mon_export", this);
   endfunction
-
+  
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if(!uvm_config_db#(virtual dutintf)::get(this, "*", "vintf", vintf))begin
-      `uvm_error("","bus monitor interface failed")
-    end
+    foreach(sc_mem[i]) sc_mem[i] = i;
   endfunction
-
+  
+  // write task - recives the pkt from monitor and pushes into queue
+  function void write(bb_transaction tr);
+    //tr.print();
+    exp_queue.push_back(tr);
+  endfunction 
+  
   virtual task run_phase(uvm_phase phase);
-    super.run_phase(phase);
+    //super.run_phase(phase);
+    bb_transaction expdata;
+    
     forever begin
-    @(posedge vintf.clk);
-    axi4_trans.paddr = vintf.paddr;
-    axi4_trans.pwdata = vintf.pwdata;
-    axi4_trans.prdata = vintf.prdata;
-    bus_mon_port.write(axi4_trans);
-    `uvm_info("",$sformatf("Bus MOnitor Paddr %x, pwdata %x, prdata %x", vintf.paddr, vintf.pwdata, vintf.prdata), UVM_LOW)
+      wait(exp_queue.size() > 0);
+      expdata = exp_queue.pop_front();
+      
+      if(expdata.per_we == bb_transaction::WRITE) begin
+        sc_mem[expdata.addr] = expdata.data;
+        `uvm_info("BB_SCOREBOARD",$sformatf("------ :: WRITE DATA       :: ------"),UVM_LOW)
+        `uvm_info("",$sformatf("Addr: %0h",expdata.addr),UVM_LOW)
+        `uvm_info("",$sformatf("Data: %0h",expdata.data),UVM_LOW)        
+      end
+      else if(expdata.per_we == bb_transaction::READ) begin
+        if(sc_mem[expdata.addr] == expdata.data) begin
+          `uvm_info("BB_SCOREBOARD",$sformatf("------ :: READ DATA Match :: ------"),UVM_LOW)
+          `uvm_info("",$sformatf("Addr: %0h",expdata.addr),UVM_LOW)
+          `uvm_info("",$sformatf("Expected Data: %0h Actual Data: %0h",sc_mem[expdata.addr],expdata.data),UVM_LOW)
+        end
+        else begin
+          `uvm_error("BB_SCOREBOARD","------ :: READ DATA MisMatch :: ------")
+          `uvm_info("",$sformatf("Addr: %0h",expdata.addr),UVM_LOW)
+          `uvm_info("",$sformatf("Expected Data: %0h Actual Data: %0h",sc_mem[expdata.addr],expdata.data),UVM_LOW)
+        end
+      end
     end
-  endtask
+  endtask 
 endclass

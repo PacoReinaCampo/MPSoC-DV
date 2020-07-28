@@ -11,7 +11,7 @@
 //                                                                            //
 //              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
-//              Wishbone Bus Interface                                        //
+//              Blackbone Bus Interface                                       //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
@@ -41,65 +41,85 @@
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-//Include UVM files
-`include "uvm_macros.svh"
-`include "uvm_pkg.sv"
-import uvm_pkg::*;
+interface dut_if;
+  logic        mrst;
+  logic        mclk;
+  logic [ 7:0] per_addr;
+  logic        per_we;
+  logic        per_en;
+  logic [31:0] per_dout;
+  logic [31:0] per_din;
+  
+  //Master Clocking block - used for Drivers
+  clocking master_cb @(posedge mclk);
+    output per_addr;
+    output per_we;
+    output per_en;
+    output per_dout;
+    input  per_din;
+  endclocking: master_cb
 
-//Include common files
-`include "wb_transaction.svh"
-`include "wb_sequence.svh"
-`include "wb_sequencer.svh"
-`include "wb_driver.svh"
-`include "wb_monitor.svh"
-`include "wb_agent.svh"
-`include "wb_scoreboard.svh"
-`include "wb_subscriber.svh"
-`include "wb_env.svh"
-`include "wb_test.svh"
+  //Slave Clocking Block - used for any Slave BFMs
+  clocking slave_cb @(posedge mclk);
+    input  per_addr;
+    input  per_we;
+    input  per_en;
+    input  per_dout;
+    output per_din;
+  endclocking: slave_cb
 
-module test;
-  logic        clk;
-  logic        rst;
-  logic [31:0] adr_i;
-  logic        stb_i;
-  logic        cyc_i;
-  logic [ 3:0] sel_i;
-  logic        we_i;
-  logic [ 2:0] cti_i;
-  logic [ 1:0] bte_i;
-  logic [31:0] dat_i;
-  logic        err_o;
-  logic        ack_o;
-  logic [31:0] dat_o;
-  logic        rty_o;
+  //Monitor Clocking block - For sampling by monitor components
+  clocking monitor_cb @(posedge mclk);
+    input per_addr;
+    input per_we;
+    input per_en;
+    input per_dout;
+    input per_din;
+  endclocking: monitor_cb
 
-  dut_if wb_if();
+  modport master(clocking master_cb);
+  modport slave(clocking slave_cb);
+  modport passive(clocking monitor_cb);
+endinterface
 
-  wb_slave dut(.dif(wb_if));
+module bb_slave(dut_if dif);
+  logic [31:0] mem [0:256];
+  logic [ 1:0] bb_st;
 
-  initial begin
-    wb_if.clk=0;
-  end
-
-  //Generate a clock
-  always begin
-    #10 wb_if.clk = ~wb_if.clk;
-  end
-
-  initial begin
-    wb_if.prst=0;
-    repeat (1) @(posedge wb_if.clk);
-    wb_if.prst=1;
-  end
-
-  initial begin
-    uvm_config_db#(virtual dut_if)::set( null, "uvm_test_top", "vif", wb_if);
-    run_test("wb_test");
-  end
-
-  initial begin
-    $dumpfile("dump.vcd");
-    $dumpvars;
+  const logic [1:0] SETUP=0;
+  const logic [1:0] W_ENABLE=1;
+  const logic [1:0] R_ENABLE=2;
+  
+  always @(posedge dif.mclk or negedge dif.mrst) begin
+    if (dif.mrst==0) begin
+      bb_st <=0;
+      dif.per_din <=0;
+      for(int i=0;i<256;i++) mem[i]=i;
+    end
+    else begin
+      case (bb_st)
+        SETUP: begin
+          dif.per_din <= 0;
+          if (!dif.per_en) begin
+            if (dif.per_we) begin
+              bb_st <= W_ENABLE;
+            end
+            else begin
+              bb_st <= R_ENABLE;
+              dif.per_din <= mem[dif.per_addr];
+            end
+          end
+        end
+        W_ENABLE: begin
+          if (dif.per_en && dif.per_we) begin
+            mem[dif.per_addr] <= dif.per_dout;
+          end
+          bb_st <= SETUP;
+        end
+        R_ENABLE: begin
+          bb_st <= SETUP;
+        end
+      endcase
+    end
   end
 endmodule

@@ -9,14 +9,14 @@
 //                  |_|                                                       //
 //                                                                            //
 //                                                                            //
-//              MPSoC-RISCV CPU                                               //
+//              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
 //              AMBA4 AXI-Lite Bus Interface                                  //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (c) 2018-2019 by the author(s)
+/* Copyright (c) 2020-2021 by the author(s)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,21 +41,32 @@
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class axi4_read_sequence extends uvm_sequence#(axi4_transaction);
-  `uvm_object_utils(axi4_read_sequence)
-
-  function new(string name = "");
-    super.new(name);
+class axi4_subscriber extends uvm_subscriber#(axi4_transaction);
+  `uvm_component_utils(axi4_subscriber)
+  
+  bit [31:0] addr;
+  bit [31:0] data;
+  
+  covergroup cover_bus;
+    coverpoint addr {
+      bins a[16] = {[0:255]};
+    }
+    coverpoint data {
+      bins d[16] = {[0:255]};
+    }
+  endgroup
+  
+  function new(string name, uvm_component parent);
+    super.new(name,parent);
+    cover_bus=new;
   endfunction
+  
+  function void write(axi4_transaction t);
+    `uvm_info("AXI4_SUBSCRIBER", $psprintf("Subscriber received tx %s", t.convert2string()), UVM_NONE);
+   
+    addr = t.addr;
+    data = t.data;
 
-  task body();
-    begin
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b0;})
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b1; req.paddr == 8'h00;})
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b0;})
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b1; req.paddr == 8'h04;})
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b0;})
-      `uvm_do_with(req,{req.pwrite == 1'b0; req.penable == 1'b1; req.paddr == 8'h08;})
-    end
-  endtask
+    cover_bus.sample();
+  endfunction
 endclass
