@@ -123,44 +123,44 @@ class or1k_scoreboard extends uvm_scoreboard;
           multiply=(exp_trans.instrn[15]&~exp_trans.instrn[14]&~exp_trans.instrn[13]&~exp_trans.instrn[12]);
           shift=(exp_trans.instrn[15]&exp_trans.instrn[14]&~exp_trans.instrn[13]&~exp_trans.instrn[12]&exp_trans.instrn[10]&exp_trans.instrn[9]);
 
-          if(out_trans.wb_ext_sel_i[1:0]==({{(exp_trans.instrn[10]|multiply|shift)&(~inter1)},{(exp_trans.instrn[9]|multiply|shift)&(~inter1)}})) begin  //Register write enable check
+          if(out_trans.debug_ring_in_ready[1:0]==({{(exp_trans.instrn[10]|multiply|shift)&(~inter1)},{(exp_trans.instrn[9]|multiply|shift)&(~inter1)}})) begin  //Register write enable check
             i1=({{8{exp_trans.instrn[10]}}& file[s1][15:8],{8{exp_trans.instrn[9]}}& file[s1][7:0]});
             i2=({{8{exp_trans.instrn[10]}}& file[s2][15:8],{8{exp_trans.instrn[9]}}& file[s2][7:0]});
             case(out_trans.wb_ext_dat_o[15:12])
               4'b0000:begin
                 h1=i1+i2;    
-                if((h1)==(out_trans.wb_ext_cti_i)) begin
-                  `uvm_info ("ADDITION_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1), UVM_LOW)
+                if((h1)==(out_trans.debug_ring_out_ready)) begin
+                  `uvm_info ("ADDITION_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1), UVM_LOW)
                 end
                 else begin
-                  `uvm_error("ADDITION_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1))
+                  `uvm_error("ADDITION_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1))
                 end
               end
               4'b0001:begin
                 h1=i1-i2;
-                if(h1==out_trans.wb_ext_cti_i) begin
-                  `uvm_info ("SUBTRACTION_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1), UVM_LOW)
+                if(h1==out_trans.debug_ring_out_ready) begin
+                  `uvm_info ("SUBTRACTION_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1), UVM_LOW)
                 end
                 else begin
-                  `uvm_error("SUBTRACTION_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1))
+                  `uvm_error("SUBTRACTION_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1))
                 end
               end
               4'b0011:begin
                 h1=i1+1'b1;
-                if(h1==out_trans.wb_ext_cti_i) begin
-                  `uvm_info ("INCREMENT_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1), UVM_LOW)
+                if(h1==out_trans.debug_ring_out_ready) begin
+                  `uvm_info ("INCREMENT_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1), UVM_LOW)
                 end
                 else begin
-                  `uvm_error("INCREMENT_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1))
+                  `uvm_error("INCREMENT_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1))
                 end
               end
               4'b0010:begin
                 h1=i1-1'b1;
-                if(h1==out_trans.wb_ext_cti_i) begin
-                  `uvm_info ("DECREMENT_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1), UVM_LOW)
+                if(h1==out_trans.debug_ring_out_ready) begin
+                  `uvm_info ("DECREMENT_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1), UVM_LOW)
                 end
                 else begin
-                  `uvm_error("DECREMENT_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1))
+                  `uvm_error("DECREMENT_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1))
                 end
               end
               4'b0100:begin
@@ -170,11 +170,11 @@ class or1k_scoreboard extends uvm_scoreboard;
                 else begin
                   h1=~(i1&i2);
                 end
-                if(h1==out_trans.wb_ext_cti_i) begin
-                  `uvm_info ("AND/NAND_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1), UVM_LOW)
+                if(h1==out_trans.debug_ring_out_ready) begin
+                  `uvm_info ("AND/NAND_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1), UVM_LOW)
                 end
                 else begin
-                  `uvm_error("AND/NAND_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1))
+                  `uvm_error("AND/NAND_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1))
                 end
               end
               4'b0101:begin
@@ -184,11 +184,11 @@ class or1k_scoreboard extends uvm_scoreboard;
                 else begin
                   h1=~(i1|i2);
                 end
-                if(h1==out_trans.wb_ext_cti_i) begin
-                  `uvm_info ("OR/NOR_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1), UVM_LOW)
+                if(h1==out_trans.debug_ring_out_ready) begin
+                  `uvm_info ("OR/NOR_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1), UVM_LOW)
                 end
                 else begin
-                  `uvm_error("OR/NOR_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1))
+                  `uvm_error("OR/NOR_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1))
                 end
               end 
               4'b0110:begin
@@ -198,11 +198,11 @@ class or1k_scoreboard extends uvm_scoreboard;
                 else begin
                   h1=~(i1^i2);
                 end
-                if(h1==out_trans.wb_ext_cti_i) begin
-                  `uvm_info ("EXOR/EXNOR_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1), UVM_LOW)
+                if(h1==out_trans.debug_ring_out_ready) begin
+                  `uvm_info ("EXOR/EXNOR_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1), UVM_LOW)
                 end
                 else begin
-                  `uvm_error("EXOR/EXNOR_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1))
+                  `uvm_error("EXOR/EXNOR_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1))
                 end
               end
               4'b0111:begin
@@ -212,11 +212,11 @@ class or1k_scoreboard extends uvm_scoreboard;
                 else begin
                   h1=~(i1);
                 end
-                if(h1==out_trans.wb_ext_cti_i) begin
-                  `uvm_info ("BUFF/INV_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1), UVM_LOW)
+                if(h1==out_trans.debug_ring_out_ready) begin
+                  `uvm_info ("BUFF/INV_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1), UVM_LOW)
                 end
                 else begin
-                  `uvm_error("BUFF/INV_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1))
+                  `uvm_error("BUFF/INV_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1))
                 end
               end 
               4'b1100:begin
@@ -226,11 +226,11 @@ class or1k_scoreboard extends uvm_scoreboard;
                 else begin
                   h1=i1>>s2;
                 end
-                if(h1==out_trans.wb_ext_cti_i) begin
-                  `uvm_info ("SHIFT_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1), UVM_LOW)
+                if(h1==out_trans.debug_ring_out_ready) begin
+                  `uvm_info ("SHIFT_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1), UVM_LOW)
                 end
                 else begin
-                  `uvm_error("SHIFT_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1))
+                  `uvm_error("SHIFT_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1))
                 end
               end
               4'b1000:begin
@@ -242,20 +242,20 @@ class or1k_scoreboard extends uvm_scoreboard;
                     h1=i1[15:8]*i2[15:8];
                   end 
                 end
-                if(h1==out_trans.wb_ext_cti_i) begin
-                  `uvm_info ("MULTIPLY_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1), UVM_LOW)
+                if(h1==out_trans.debug_ring_out_ready) begin
+                  `uvm_info ("MULTIPLY_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1), UVM_LOW)
                 end
                 else begin
-                  `uvm_error("MULTIPLY_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1))
+                  `uvm_error("MULTIPLY_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1))
                 end
               end
               4'b1010:begin
                 h1=0;   
-                if(h1==out_trans.wb_ext_cti_i) begin
-                  `uvm_info ("LOAD_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1), UVM_LOW)
+                if(h1==out_trans.debug_ring_out_ready) begin
+                  `uvm_info ("LOAD_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1), UVM_LOW)
                 end
                 else begin
-                  `uvm_error("LOAD_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1))
+                  `uvm_error("LOAD_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1))
                 end
               end
               4'b1011:begin
@@ -265,10 +265,10 @@ class or1k_scoreboard extends uvm_scoreboard;
                   if(out_trans.link_out_valid) begin
                     `uvm_info ("MEM_STORE_EN_PASS ", $sformatf("Actual Mem Addr=%d Expected Mem Addr=%d \n",out_trans.link_out_valid, 1'b1), UVM_LOW)
                     if(h1==out_trans.link_out_flit) begin
-                      `uvm_info ("STORE_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1), UVM_LOW)
+                      `uvm_info ("STORE_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1), UVM_LOW)
                     end
                     else begin
-                      `uvm_error("STORE_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1))
+                      `uvm_error("STORE_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1))
                     end
                   end
                   else begin
@@ -280,25 +280,25 @@ class or1k_scoreboard extends uvm_scoreboard;
                 end
               end 
               4'b1001:begin
-                $display("in1=%d, in2=%d, reconfig=%d reg scr1 and 2= %d %d",i1,i2,out_trans.wb_ext_sel_i,s1,s2);
+                $display("in1=%d, in2=%d, reconfig=%d reg scr1 and 2= %d %d",i1,i2,out_trans.debug_ring_in_ready,s1,s2);
                 if(!exp_trans.instrn[11]) begin  //For MOVE(0) and MOVE_IMMEDIATE(1)
                   h1=i1;
                 end
                 else begin
                   h1=({{8{exp_trans.instrn[10]}}& exp_trans.instrn[7:0],{8{exp_trans.instrn[9]}}& exp_trans.instrn[7:0]});
                 end
-                if(h1==out_trans.wb_ext_cti_i) begin
-                  `uvm_info ("MOVE_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1), UVM_LOW)
+                if(h1==out_trans.debug_ring_out_ready) begin
+                  `uvm_info ("MOVE_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1), UVM_LOW)
                 end
                 else begin
-                  `uvm_error("MOVE_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_cti_i, h1))
+                  `uvm_error("MOVE_FAIL", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.debug_ring_out_ready, h1))
                 end
               end
               default:`uvm_info ("JUMP/EOP_PASS ", $sformatf("Actual Calculation=%d Expected Calculation=%d \n",out_trans.wb_ext_dat_o, exp_trans.instrn[15:12]), UVM_LOW)
             endcase
           end
           else begin
-            `uvm_error("REG_EN_FAIL", $sformatf("Actual Reg Enable=%d Expected Reg Enable=%d \n",out_trans.wb_ext_sel_i, exp_trans.instrn[10:9]))
+            `uvm_error("REG_EN_FAIL", $sformatf("Actual Reg Enable=%d Expected Reg Enable=%d \n",out_trans.debug_ring_in_ready, exp_trans.instrn[10:9]))
           end
         end
         else begin

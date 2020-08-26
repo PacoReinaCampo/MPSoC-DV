@@ -9,3 +9,12 @@ rm -rf sim/verilog/bus/apb4/work
 rm -rf sim/verilog/bus/axi4/work
 rm -rf sim/verilog/bus/wb/work
 rm -rf sim/verilog/bus/bb/work
+
+rm -rf sim/verilog/soc/msp430/bb/msim/transcript
+rm -rf sim/verilog/soc/or1k/wb/msim/transcript
+rm -rf sim/verilog/soc/riscv/ahb3/msim/transcript
+
+rm -rf sim/verilog/soc/msp430/bb/msim/work
+rm -rf sim/verilog/soc/or1k/wb/msim/work
+rm -rf sim/verilog/soc/riscv/ahb3/msim/work
+
