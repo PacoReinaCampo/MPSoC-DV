@@ -14,5 +14,5 @@
  * limitations under the License.
  */
 
-// TODO: Add custom RV32X instruction. Example:
-`DEFINE_CUSTOM_INSTR(CUSTOM_1, R_FORMAT, ARITHMETIC, RV32X)
+// TODO: Add custom OMSP32X instruction. Example:
+`DEFINE_CUSTOM_INSTR(CUSTOM_1, R_FORMAT, ARITHMETIC, OMSP32X)

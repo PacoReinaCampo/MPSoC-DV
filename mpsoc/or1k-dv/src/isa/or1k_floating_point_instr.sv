@@ -236,7 +236,7 @@ class or1k_floating_point_instr extends or1k_instr;
 
     // for single precision sign bit is bit 31, upper 32 bits are all 1s
     // for double precision, it's 63
-    if (group inside {RV32F, RV64F}) begin
+    if (group inside {OR32F, OR64F}) begin
       fs1_sign = get_fp_operand_sign(fs1_value, 31);
       fs2_sign = get_fp_operand_sign(fs2_value, 31);
       fs3_sign = get_fp_operand_sign(fs2_value, 31);

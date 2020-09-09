@@ -474,7 +474,7 @@ class msp430_int_numeric_corner_stream extends msp430_directed_instr_stream;
     for (int i = 0; i < num_of_instr; i++) begin
       msp430_instr instr = msp430_instr::get_rand_instr(
         .include_category({ARITHMETIC}),
-        .exclude_group({RV32C, RV64C, RV32F, RV64F, RV32D, RV64D}));
+        .exclude_group({OMSP32C, OMSP64C, OMSP32F, OMSP64F, OMSP32D, OMSP64D}));
       randomize_gpr(instr);
       instr_list.push_back(instr);
     end

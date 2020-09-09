@@ -3,8 +3,8 @@ class msp430_pseudo_instr extends msp430_instr;
 
   rand msp430_pseudo_instr_name_t  pseudo_instr_name;
 
-  `add_pseudo_instr(LI, I_FORMAT, LOAD, RV32I)
-  `add_pseudo_instr(LA, I_FORMAT, LOAD, RV32I)
+  `add_pseudo_instr(LI, I_FORMAT, LOAD, OMSP32I)
+  `add_pseudo_instr(LA, I_FORMAT, LOAD, OMSP32I)
 
   `uvm_object_utils(msp430_pseudo_instr)
 

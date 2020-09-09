@@ -232,12 +232,12 @@ class msp430_pmp_cfg extends uvm_object;
     // For all ISAs, pmpaddr CSRs do not include the bottom two bits of the input address
     bit [XLEN - 1 : 0] shifted_addr;
     shifted_addr = addr >> 2; case (XLEN)
-      // RV32 - pmpaddr is bits [33:2] of the whole 34 bit address
+      // OMSP32 - pmpaddr is bits [33:2] of the whole 34 bit address
       // Return the input address right-shifted by 2 bits
       32: begin
         return shifted_addr;
       end
-      // RV64 - pmpaddr is bits [55:2] of the whole 56 bit address, prepended by 10'b0
+      // OMSP64 - pmpaddr is bits [55:2] of the whole 56 bit address, prepended by 10'b0
       // Return {10'b0, shifted_addr[53:0]}
       64: begin
         return {10'b0, shifted_addr[XLEN - 11 : 0]};

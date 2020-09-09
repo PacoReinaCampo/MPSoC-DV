@@ -175,12 +175,12 @@ class or1k_privil_reg extends or1k_reg#(privileged_reg_t);
         privil_level = M_LEVEL;
         add_field("MINSTRET", 64, WPRI);
       end
-      // Cycle Count Register - RV32I only
+      // Cycle Count Register - OR32I only
       MCYCLEH: begin
         privil_level = M_LEVEL;
         add_field("MCYCLEH", 32, WPRI);
       end
-      // Instruction Count Register - RV32I only
+      // Instruction Count Register - OR32I only
       MINSTRETH: begin
         privil_level = M_LEVEL;
         add_field("MINSTRETH", 32, WPRI);
@@ -195,10 +195,10 @@ class or1k_privil_reg extends or1k_reg#(privileged_reg_t);
         privil_level = M_LEVEL;
         add_field($sformatf("%s", reg_name.name()), XLEN, WARL);
       end
-      // Hardware Performance Monitor Counters - RV32I only
+      // Hardware Performance Monitor Counters - OR32I only
       [MHPMCOUNTER3H:MHPMCOUNTER31H]: begin
         if(XLEN != 32) begin
-          `uvm_fatal(get_full_name(), $sformatf("Register %s is only in RV32I", reg_name.name()))
+          `uvm_fatal(get_full_name(), $sformatf("Register %s is only in OR32I", reg_name.name()))
         end
         privil_level = M_LEVEL;
         add_field($sformatf("%s", reg_name.name()), 32, WARL);
@@ -282,7 +282,7 @@ class or1k_privil_reg extends or1k_reg#(privileged_reg_t);
       PMPCFG1: begin
         privil_level = M_LEVEL;
         if(XLEN!=32) begin
-          `uvm_fatal(`gfn, "CSR PMPCFG1 only exists in RV32.")
+          `uvm_fatal(`gfn, "CSR PMPCFG1 only exists in OR32.")
         end else begin
           add_field("PMP4CFG", 8, WARL);
           add_field("PMP5CFG", 8, WARL);
@@ -307,7 +307,7 @@ class or1k_privil_reg extends or1k_reg#(privileged_reg_t);
       // Physical Memory Protection Configuration Register
       PMPCFG3: begin
         if(XLEN!=32) begin
-          `uvm_fatal(get_full_name(), "CSR PMPCFG3 only exists in RV32.")
+          `uvm_fatal(get_full_name(), "CSR PMPCFG3 only exists in OR32.")
         end
         privil_level = M_LEVEL;
         add_field("PMP12CFG", 8, WARL);

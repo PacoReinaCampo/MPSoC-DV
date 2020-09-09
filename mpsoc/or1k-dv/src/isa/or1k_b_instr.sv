@@ -61,18 +61,18 @@ class or1k_b_instr extends or1k_instr;
 
     if (format inside {I_FORMAT}) begin
       if (category inside {SHIFT, LOGICAL}) begin
-        if (group == RV64B && !(instr_name inside {SLLIU_W})) begin
+        if (group == OR64B && !(instr_name inside {SLLIU_W})) begin
           imm_len = $clog2(XLEN) - 1;
         end else begin
           imm_len = $clog2(XLEN);
         end
       end
 
-      // ARITHMETIC RV32B
+      // ARITHMETIC OR32B
       if (instr_name inside {SHFLI, UNSHFLI}) begin
         imm_len = $clog2(XLEN) - 1;
       end
-      // ARITHMETIC RV64B
+      // ARITHMETIC OR64B
       if (instr_name inside {ADDIWU}) begin
         imm_len = 12;
       end
@@ -385,14 +385,14 @@ class or1k_b_instr extends or1k_instr;
     string binary = "";
     case (format)
       R_FORMAT: begin
-        if ((category inside {LOGICAL}) && (group == RV32B)) begin
+        if ((category inside {LOGICAL}) && (group == OR32B)) begin
           if (instr_name inside {SEXT_B, SEXT_H}) begin
             binary =
                 $sformatf("%8h", {get_func7(), get_func5(), rs1, get_func3(), rd, get_opcode()});
           end
         end
 
-        if ((category inside {ARITHMETIC}) && (group == RV32B)) begin
+        if ((category inside {ARITHMETIC}) && (group == OR32B)) begin
           if (instr_name inside {CRC32_B, CRC32_H, CRC32_W, CRC32C_B, CRC32C_H, CRC32C_W, CLZ, CTZ,
                                  PCNT}) begin
             binary =
@@ -400,7 +400,7 @@ class or1k_b_instr extends or1k_instr;
           end
         end
 
-        if ((category inside {ARITHMETIC}) && (group == RV64B)) begin
+        if ((category inside {ARITHMETIC}) && (group == OR64B)) begin
           if (instr_name inside {CLZW, CTZW, PCNTW, CRC32_D, CRC32C_D, BMATFLIP}) begin
             binary =
                 $sformatf("%8h", {get_func7(), get_func5(), rs1, get_func3(), rd, get_opcode()});
@@ -409,9 +409,9 @@ class or1k_b_instr extends or1k_instr;
       end
 
       I_FORMAT: begin
-        if ((category inside {SHIFT, LOGICAL}) && (group == RV32B)) begin
+        if ((category inside {SHIFT, LOGICAL}) && (group == OR32B)) begin
           binary = $sformatf("%8h", {get_func5(), imm[6:0], rs1, get_func3(), rd, get_opcode()});
-        end else if ((category inside {SHIFT, LOGICAL}) && (group == RV64B)) begin
+        end else if ((category inside {SHIFT, LOGICAL}) && (group == OR64B)) begin
           binary = $sformatf("%8h", {get_func7(), imm[4:0], rs1, get_func3(), rd, get_opcode()});
           if (instr_name == SLLIU_W)
             binary = $sformatf("%8h", {5'b0_0001, imm[6:0], rs1, get_func3(), rd, get_opcode()});
@@ -421,11 +421,11 @@ class or1k_b_instr extends or1k_instr;
           binary = $sformatf("%8h", {rs3, 1'b1, imm[5:0], rs1, get_func3(), rd, get_opcode()});
         end
 
-        if ((category inside {ARITHMETIC}) && (group == RV32B)) begin
+        if ((category inside {ARITHMETIC}) && (group == OR32B)) begin
           binary = $sformatf("%8h", {6'b00_0010, imm[5:0], rs1, get_func3(), rd, get_opcode()});
         end
 
-        if ((category inside {ARITHMETIC}) && (group == RV64B)) begin
+        if ((category inside {ARITHMETIC}) && (group == OR64B)) begin
           binary = $sformatf("%8h", {imm[11:0], rs1, get_func3(), rd, get_opcode()});
         end
       end

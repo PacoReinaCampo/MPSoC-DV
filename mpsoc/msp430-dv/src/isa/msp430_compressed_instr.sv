@@ -57,7 +57,7 @@ class msp430_compressed_instr extends msp430_instr;
     }
   }
 
-  // C_JAL is RV32C only instruction
+  // C_JAL is OMSP32C only instruction
   constraint jal_c {
     if (XLEN != 32) {
       instr_name != C_JAL;

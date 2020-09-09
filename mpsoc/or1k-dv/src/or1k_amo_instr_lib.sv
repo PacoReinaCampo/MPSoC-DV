@@ -114,11 +114,11 @@ class or1k_lr_sc_instr_stream extends or1k_amo_base_instr_stream;
   virtual function void gen_amo_instr();
     or1k_instr_name_t allowed_lr_instr[];
     or1k_instr_name_t allowed_sc_instr[];
-    if (RV32A inside {supported_isa}) begin
+    if (OR32A inside {supported_isa}) begin
       allowed_lr_instr = {LR_W};
       allowed_sc_instr = {SC_W};
     end
-    if (RV64A inside {supported_isa}) begin
+    if (OR64A inside {supported_isa}) begin
       allowed_lr_instr = {allowed_lr_instr, LR_D};
       allowed_sc_instr = {allowed_sc_instr, SC_D};
     end
@@ -161,7 +161,7 @@ class or1k_lr_sc_instr_stream extends or1k_amo_base_instr_stream;
     setup_allowed_instr(.no_branch(1), .no_load_store(1));
     while (i < instr_cnt) begin
       instr = or1k_instr::type_id::create("instr");
-      randomize_instr(instr, .include_group({RV32I, RV32C}));
+      randomize_instr(instr, .include_group({OR32I, OR32C}));
       if (!(instr.category inside {SYNCH, SYSTEM})) begin
         insert_instr(instr);
         i++;

@@ -3,8 +3,8 @@ class or1k_pseudo_instr extends or1k_instr;
 
   rand or1k_pseudo_instr_name_t  pseudo_instr_name;
 
-  `add_pseudo_instr(LI, I_FORMAT, LOAD, RV32I)
-  `add_pseudo_instr(LA, I_FORMAT, LOAD, RV32I)
+  `add_pseudo_instr(LI, I_FORMAT, LOAD, OR32I)
+  `add_pseudo_instr(LA, I_FORMAT, LOAD, OR32I)
 
   `uvm_object_utils(or1k_pseudo_instr)
 

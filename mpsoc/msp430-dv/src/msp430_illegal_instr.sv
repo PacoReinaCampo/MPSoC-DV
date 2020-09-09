@@ -50,7 +50,7 @@ class msp430_illegal_instr extends uvm_object;
     kReservedC2
   } reserved_c_instr_e;
 
-  // Default legal opcode for RV32I instructions
+  // Default legal opcode for OMSP32I instructions
   bit [6:0]  legal_opcode[$] = '{7'b0000011,
                                  7'b0001111,
                                  7'b0010011,
@@ -63,7 +63,7 @@ class msp430_illegal_instr extends uvm_object;
                                  7'b1110011,
                                  7'b1101111};
 
-   // Default legal opcode for RV32C instructions
+   // Default legal opcode for OMSP32C instructions
   bit [2:0]  legal_c00_opcode[$] = '{3'b000,
                                      3'b010,
                                      3'b110};
@@ -170,7 +170,7 @@ class msp430_illegal_instr extends uvm_object;
   //
   // TODO(udi): add support for generating illegal B-extension instructions
   constraint b_extension_c {
-    if (RV32B inside {supported_isa}) {
+    if (OMSP32B inside {supported_isa}) {
       if (exception inside {kIllegalFunc3, kIllegalFunc7}) {
         !(opcode inside {7'b0110011, 7'b0010011, 7'b0111011});
       }
@@ -200,7 +200,7 @@ class msp430_illegal_instr extends uvm_object;
     solve reserved_c before c_msb;
     solve reserved_c before c_op;
     if (XLEN == 32) {
-      //c.addiw is RV64/RV128 only instruction, the encoding is used for C.JAL for RV32C
+      //c.addiw is OMSP64/RV128 only instruction, the encoding is used for C.JAL for OMSP32C
       reserved_c != kReservedAddiw;
     }
     if (exception == kReservedCompressedInstr) {
@@ -347,22 +347,22 @@ class msp430_illegal_instr extends uvm_object;
   function void init(msp430_instr_gen_config cfg);
     privileged_reg_t csr;
     this.cfg = cfg;
-    if ((msp430_instr_pkg::RV32F inside {msp430_instr_pkg::supported_isa}) ||
-         msp430_instr_pkg::RV32D inside {msp430_instr_pkg::supported_isa}) begin
+    if ((msp430_instr_pkg::OMSP32F inside {msp430_instr_pkg::supported_isa}) ||
+         msp430_instr_pkg::OMSP32D inside {msp430_instr_pkg::supported_isa}) begin
       legal_opcode = {legal_opcode, 7'b0000111, 7'b0100111, 7'b1000011,
                                     7'b1000111, 7'b1001011, 7'b1001111,  7'b1010011};
     end
-    if (msp430_instr_pkg::RV64I inside {msp430_instr_pkg::supported_isa}) begin
+    if (msp430_instr_pkg::OMSP64I inside {msp430_instr_pkg::supported_isa}) begin
       legal_opcode = {legal_opcode, 7'b0011011};
     end
-    if (msp430_instr_pkg::RV32A inside {msp430_instr_pkg::supported_isa}) begin
+    if (msp430_instr_pkg::OMSP32A inside {msp430_instr_pkg::supported_isa}) begin
       legal_opcode = {legal_opcode, 7'b0101111};
     end
-    if (msp430_instr_pkg::RV64I inside {msp430_instr_pkg::supported_isa} ||
-        msp430_instr_pkg::RV64M inside {msp430_instr_pkg::supported_isa}) begin
+    if (msp430_instr_pkg::OMSP64I inside {msp430_instr_pkg::supported_isa} ||
+        msp430_instr_pkg::OMSP64M inside {msp430_instr_pkg::supported_isa}) begin
       legal_opcode = {legal_opcode, 7'b0111011};
     end
-    if (msp430_instr_pkg::RV64I inside {msp430_instr_pkg::supported_isa}) begin
+    if (msp430_instr_pkg::OMSP64I inside {msp430_instr_pkg::supported_isa}) begin
       legal_c00_opcode = {legal_c00_opcode, 3'b011, 3'b111};
       legal_c10_opcode = {legal_c10_opcode, 3'b011, 3'b111};
     end

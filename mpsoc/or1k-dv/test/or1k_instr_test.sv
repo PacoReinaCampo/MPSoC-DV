@@ -41,7 +41,7 @@ class or1k_instr_test extends or1k_instr_base_test;
     end
     repeat (10000) begin
       instr = or1k_instr::get_rand_instr(.exclude_category({LOAD, STORE , BRANCH}),
-                                          .include_group({RV32I, RV32M}));
+                                          .include_group({OR32I, OR32M}));
       `DV_CHECK_RANDOMIZE_FATAL(instr);
       $fwrite(fd, {instr.convert2asm(),"\n"});
     end

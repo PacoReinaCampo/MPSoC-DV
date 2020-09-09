@@ -593,11 +593,11 @@ class msp430_instr_gen_config extends uvm_object;
     `uvm_info(`gfn, $sformatf("msp430_instr_pkg::supported_privileged_mode = %0d",
                    msp430_instr_pkg::supported_privileged_mode.size()), UVM_LOW)
     void'(inst.get_arg_value("+asm_test_suffix=", asm_test_suffix));
-    // Directed march list from the runtime options, ex. RV32I, RV32M etc.
+    // Directed march list from the runtime options, ex. OMSP32I, OMSP32M etc.
     cmdline_enum_processor #(msp430_instr_group_t)::get_array_values("+march=", march_isa);
     if (march_isa.size != 0) msp430_instr_pkg::supported_isa = march_isa;
 
-    if (!(RV32C inside {supported_isa})) begin
+    if (!(OMSP32C inside {supported_isa})) begin
       disable_compressed_instr = 1;
     end
     vector_cfg = msp430_vector_cfg::type_id::create("vector_cfg");
@@ -680,8 +680,8 @@ class msp430_instr_gen_config extends uvm_object;
     bit support_64b;
     bit support_128b;
     foreach (msp430_instr_pkg::supported_isa[i]) begin
-      if (msp430_instr_pkg::supported_isa[i] inside {RV64I, RV64M, RV64A, RV64F, RV64D, RV64C,
-                                                    RV64B}) begin
+      if (msp430_instr_pkg::supported_isa[i] inside {OMSP64I, OMSP64M, OMSP64A, OMSP64F, OMSP64D, OMSP64C,
+                                                    OMSP64B}) begin
         support_64b = 1'b1;
       end else if (msp430_instr_pkg::supported_isa[i] inside {RV128I, RV128C}) begin
         support_128b = 1'b1;
@@ -697,7 +697,7 @@ class msp430_instr_gen_config extends uvm_object;
       `uvm_fatal(`gfn, "XLEN should be set to 32 based on msp430_instr_pkg::supported_isa setting")
     end
     if (!(support_128b || support_64b) && !(SATP_MODE inside {SV32, BARE})) begin
-      `uvm_fatal(`gfn, $sformatf("SATP mode %0s is not supported for RV32G ISA", SATP_MODE.name()))
+      `uvm_fatal(`gfn, $sformatf("SATP mode %0s is not supported for OMSP32G ISA", SATP_MODE.name()))
     end
   endfunction
 

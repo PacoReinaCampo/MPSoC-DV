@@ -148,7 +148,7 @@ class msp430_asm_program_gen extends uvm_object;
         // User data section
         gen_data_page(hart);
         // AMO memory region
-        if ((hart == 0) && (RV32A inside {supported_isa})) begin
+        if ((hart == 0) && (OMSP32A inside {supported_isa})) begin
           gen_data_page(hart, .amo(1));
         end
       end
@@ -441,15 +441,15 @@ class msp430_asm_program_gen extends uvm_object;
     end
     foreach (supported_isa[i]) begin
       case (supported_isa[i]) inside
-        RV32C, RV64C, RV128C : misa[MISA_EXT_C] = 1'b1;
-        RV32I, RV64I, RV128I : misa[MISA_EXT_I] = 1'b1;
-        RV32M, RV64M         : misa[MISA_EXT_M] = 1'b1;
-        RV32A, RV64A         : misa[MISA_EXT_A] = 1'b1;
-        RV32B, RV64B         : misa[MISA_EXT_B] = 1'b1;
-        RV32F, RV64F, RV32FC : misa[MISA_EXT_F] = 1'b1;
-        RV32D, RV64D, RV32DC : misa[MISA_EXT_D] = 1'b1;
+        OMSP32C, OMSP64C, RV128C : misa[MISA_EXT_C] = 1'b1;
+        OMSP32I, OMSP64I, RV128I : misa[MISA_EXT_I] = 1'b1;
+        OMSP32M, OMSP64M         : misa[MISA_EXT_M] = 1'b1;
+        OMSP32A, OMSP64A         : misa[MISA_EXT_A] = 1'b1;
+        OMSP32B, OMSP64B         : misa[MISA_EXT_B] = 1'b1;
+        OMSP32F, OMSP64F, OMSP32FC : misa[MISA_EXT_F] = 1'b1;
+        OMSP32D, OMSP64D, OMSP32DC : misa[MISA_EXT_D] = 1'b1;
         RVV                  : misa[MISA_EXT_V] = 1'b1;
-        RV32X, RV64X         : misa[MISA_EXT_X] = 1'b1;
+        OMSP32X, OMSP64X         : misa[MISA_EXT_X] = 1'b1;
         default : `uvm_fatal(`gfn, $sformatf("%0s is not yet supported",
                                    supported_isa[i].name()))
       endcase
@@ -595,7 +595,7 @@ class msp430_asm_program_gen extends uvm_object;
     for(int i = 0; i < NUM_FLOAT_GPR; i++) begin
       randcase
         1: init_floating_point_gpr_with_spf(i);
-        RV64D inside {supported_isa}: init_floating_point_gpr_with_dpf(i);
+        OMSP64D inside {supported_isa}: init_floating_point_gpr_with_dpf(i);
       endcase
     end
     // Initialize rounding mode of FCSR

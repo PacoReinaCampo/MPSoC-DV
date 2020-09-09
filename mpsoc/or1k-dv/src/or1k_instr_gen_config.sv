@@ -593,11 +593,11 @@ class or1k_instr_gen_config extends uvm_object;
     `uvm_info(`gfn, $sformatf("or1k_instr_pkg::supported_privileged_mode = %0d",
                    or1k_instr_pkg::supported_privileged_mode.size()), UVM_LOW)
     void'(inst.get_arg_value("+asm_test_suffix=", asm_test_suffix));
-    // Directed march list from the runtime options, ex. RV32I, RV32M etc.
+    // Directed march list from the runtime options, ex. OR32I, OR32M etc.
     cmdline_enum_processor #(or1k_instr_group_t)::get_array_values("+march=", march_isa);
     if (march_isa.size != 0) or1k_instr_pkg::supported_isa = march_isa;
 
-    if (!(RV32C inside {supported_isa})) begin
+    if (!(OR32C inside {supported_isa})) begin
       disable_compressed_instr = 1;
     end
     vector_cfg = or1k_vector_cfg::type_id::create("vector_cfg");
@@ -680,8 +680,8 @@ class or1k_instr_gen_config extends uvm_object;
     bit support_64b;
     bit support_128b;
     foreach (or1k_instr_pkg::supported_isa[i]) begin
-      if (or1k_instr_pkg::supported_isa[i] inside {RV64I, RV64M, RV64A, RV64F, RV64D, RV64C,
-                                                    RV64B}) begin
+      if (or1k_instr_pkg::supported_isa[i] inside {OR64I, OR64M, OR64A, OR64F, OR64D, OR64C,
+                                                    OR64B}) begin
         support_64b = 1'b1;
       end else if (or1k_instr_pkg::supported_isa[i] inside {RV128I, RV128C}) begin
         support_128b = 1'b1;
@@ -697,7 +697,7 @@ class or1k_instr_gen_config extends uvm_object;
       `uvm_fatal(`gfn, "XLEN should be set to 32 based on or1k_instr_pkg::supported_isa setting")
     end
     if (!(support_128b || support_64b) && !(SATP_MODE inside {SV32, BARE})) begin
-      `uvm_fatal(`gfn, $sformatf("SATP mode %0s is not supported for RV32G ISA", SATP_MODE.name()))
+      `uvm_fatal(`gfn, $sformatf("SATP mode %0s is not supported for OR32G ISA", SATP_MODE.name()))
     end
   endfunction
 

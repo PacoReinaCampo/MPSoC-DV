@@ -120,7 +120,7 @@ class or1k_instr_cov_test extends uvm_test;
     or1k_instr_name_t instr_name;
     bit [XLEN-1:0] binary;
     get_val(trace["binary"], binary, .hex(1));
-    if ((binary[1:0] != 2'b11) && (RV32C inside {supported_isa})) begin
+    if ((binary[1:0] != 2'b11) && (OR32C inside {supported_isa})) begin
       `SAMPLE(instr_cg.compressed_opcode_cg, binary[15:0])
       `SAMPLE(instr_cg.illegal_compressed_instr_cg, binary)
     end
@@ -131,9 +131,9 @@ class or1k_instr_cov_test extends uvm_test;
       if (or1k_instr::instr_template.exists(instr_name)) begin
         or1k_instr instr;
         instr = or1k_instr::get_instr(instr_name);
-        if (instr.group inside {RV32I, RV32M, RV32C, RV64I, RV64M, RV64C,
-                                RV32F, RV64F, RV32D, RV64D,
-                                RV32B, RV64B}) begin
+        if (instr.group inside {OR32I, OR32M, OR32C, OR64I, OR64M, OR64C,
+                                OR32F, OR64F, OR32D, OR64D,
+                                OR32B, OR64B}) begin
           assign_trace_info_to_instr(instr);
           instr.pre_sample();
           instr_cg.sample(instr);

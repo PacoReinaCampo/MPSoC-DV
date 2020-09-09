@@ -31,11 +31,11 @@ class msp430_amo_instr extends msp430_instr;
 
   virtual function string get_instr_name();
     get_instr_name = instr_name.name();
-    if (group == RV32A) begin
+    if (group == OMSP32A) begin
       get_instr_name = {get_instr_name.substr(0, get_instr_name.len() - 3), ".w"};
       get_instr_name = aq ? {get_instr_name, ".aq"} :
                        rl ? {get_instr_name, ".rl"} : get_instr_name;
-    end else if (group == RV64A) begin
+    end else if (group == OMSP64A) begin
       get_instr_name = {get_instr_name.substr(0, get_instr_name.len() - 3), ".d"};
       get_instr_name = aq ? {get_instr_name, ".aq"} :
                        rl ? {get_instr_name, ".rl"} : get_instr_name;
@@ -50,7 +50,7 @@ class msp430_amo_instr extends msp430_instr;
   virtual function string convert2asm(string prefix = "");
     string asm_str;
     asm_str = format_string(get_instr_name(), MAX_INSTR_STR_LEN);
-    if (group inside {RV32A, RV64A}) begin
+    if (group inside {OMSP32A, OMSP64A}) begin
       if (instr_name inside {LR_W, LR_D}) begin
         asm_str = $sformatf("%0s %0s, (%0s)", asm_str, rd.name(), rs1.name());
       end else begin

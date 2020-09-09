@@ -474,7 +474,7 @@ class or1k_int_numeric_corner_stream extends or1k_directed_instr_stream;
     for (int i = 0; i < num_of_instr; i++) begin
       or1k_instr instr = or1k_instr::get_rand_instr(
         .include_category({ARITHMETIC}),
-        .exclude_group({RV32C, RV64C, RV32F, RV64F, RV32D, RV64D}));
+        .exclude_group({OR32C, OR64C, OR32F, OR64F, OR32D, OR64D}));
       randomize_gpr(instr);
       instr_list.push_back(instr);
     end

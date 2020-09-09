@@ -139,14 +139,14 @@ class or1k_load_store_base_instr_stream extends or1k_mem_access_stream;
             allowed_instr = {FLW, FSW, allowed_instr};
           end
           if((offset[i] inside {[0:127]}) && (offset[i] % 4 == 0) &&
-             (RV32C inside {or1k_instr_pkg::supported_isa}) &&
+             (OR32C inside {or1k_instr_pkg::supported_isa}) &&
              enable_compressed_load_store) begin
             if (rs1_reg == SP) begin
               `uvm_info(`gfn, "Add LWSP/SWSP to allowed instr", UVM_LOW)
               allowed_instr = {C_LWSP, C_SWSP};
             end else begin
               allowed_instr = {C_LW, C_SW, allowed_instr};
-              if (cfg.enable_floating_point && (RV32FC inside {supported_isa})) begin
+              if (cfg.enable_floating_point && (OR32FC inside {supported_isa})) begin
                 allowed_instr = {C_FLW, C_FSW, allowed_instr};
               end
             end
@@ -154,17 +154,17 @@ class or1k_load_store_base_instr_stream extends or1k_mem_access_stream;
         end
         if ((XLEN >= 64) && (addr[i] % 8 == 0)) begin
           allowed_instr = {LWU, LD, SD, allowed_instr};
-          if (cfg.enable_floating_point && (RV32D inside {supported_isa})) begin
+          if (cfg.enable_floating_point && (OR32D inside {supported_isa})) begin
             allowed_instr = {FLD, FSD, allowed_instr};
           end
           if((offset[i] inside {[0:255]}) && (offset[i] % 8 == 0) &&
-             (RV64C inside {or1k_instr_pkg::supported_isa} &&
+             (OR64C inside {or1k_instr_pkg::supported_isa} &&
              enable_compressed_load_store)) begin
             if (rs1_reg == SP) begin
               allowed_instr = {C_LDSP, C_SDSP};
             end else begin
               allowed_instr = {C_LD, C_SD, allowed_instr};
-              if (cfg.enable_floating_point && (RV32DC inside {supported_isa})) begin
+              if (cfg.enable_floating_point && (OR32DC inside {supported_isa})) begin
                 allowed_instr = {C_FLD, C_FSD, allowed_instr};
               end
             end
@@ -174,7 +174,7 @@ class or1k_load_store_base_instr_stream extends or1k_mem_access_stream;
         allowed_instr = {LW, SW, LH, LHU, SH, allowed_instr};
         // Compressed load/store still needs to be aligned
         if ((offset[i] inside {[0:127]}) && (offset[i] % 4 == 0) &&
-            (RV32C inside {or1k_instr_pkg::supported_isa}) &&
+            (OR32C inside {or1k_instr_pkg::supported_isa}) &&
             enable_compressed_load_store) begin
             if (rs1_reg == SP) begin
               allowed_instr = {C_LWSP, C_SWSP};
@@ -185,7 +185,7 @@ class or1k_load_store_base_instr_stream extends or1k_mem_access_stream;
         if (XLEN >= 64) begin
           allowed_instr = {LWU, LD, SD, allowed_instr};
           if ((offset[i] inside {[0:255]}) && (offset[i] % 8 == 0) &&
-              (RV64C inside {or1k_instr_pkg::supported_isa}) &&
+              (OR64C inside {or1k_instr_pkg::supported_isa}) &&
               enable_compressed_load_store) begin
               if (rs1_reg == SP) begin
                 allowed_instr = {C_LWSP, C_SWSP};

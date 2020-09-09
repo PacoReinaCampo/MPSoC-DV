@@ -115,7 +115,7 @@ class or1k_instr extends uvm_object;
       instr_inst = create_instr(instr_name);
       instr_template[instr_name] = instr_inst;
       if (!instr_inst.is_supported(cfg)) continue;
-      // C_JAL is RV32C only instruction
+      // C_JAL is OR32C only instruction
       if ((XLEN != 32) && (instr_name == C_JAL)) continue;
       if ((SP inside {cfg.reserved_regs}) && (instr_name inside {C_ADDI16SP})) begin
         continue;
@@ -124,9 +124,9 @@ class or1k_instr extends uvm_object;
       if (cfg.no_fence && (instr_name inside {FENCE, FENCE_I, SFENCE_VMA})) continue;
       if ((instr_inst.group inside {supported_isa}) &&
           !(cfg.disable_compressed_instr &&
-            (instr_inst.group inside {RV32C, RV64C, RV32DC, RV32FC, RV128C})) &&
+            (instr_inst.group inside {OR32C, OR64C, OR32DC, OR32FC, RV128C})) &&
           !(!cfg.enable_floating_point &&
-            (instr_inst.group inside {RV32F, RV64F, RV32D, RV64D})) &&
+            (instr_inst.group inside {OR32F, OR64F, OR32D, OR64D})) &&
           !(!cfg.enable_vector_extension &&
             (instr_inst.group inside {RVV})) &&
           !(cfg.vector_instr_only &&
@@ -187,7 +187,7 @@ class or1k_instr extends uvm_object;
     if (!cfg.no_ebreak) begin
       basic_instr = {basic_instr, EBREAK};
       foreach (or1k_instr_pkg::supported_isa[i]) begin
-        if (RV32C inside {or1k_instr_pkg::supported_isa[i]} &&
+        if (OR32C inside {or1k_instr_pkg::supported_isa[i]} &&
             !cfg.disable_compressed_instr) begin
           basic_instr = {basic_instr, C_EBREAK};
           break;

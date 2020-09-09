@@ -451,7 +451,7 @@ class or1k_instr_cover_group;
 
   `VECTOR_INCLUDE("or1k_instr_cover_group_inc_cpu_declare.sv")
 
-  ///////////// RV32I instruction functional coverage //////////////
+  ///////////// OR32I instruction functional coverage //////////////
 
   // Arithmetic instructions
   `R_INSTR_CG_BEGIN(add)
@@ -1283,7 +1283,7 @@ class or1k_instr_cover_group;
     }
   endgroup
 
-  // RV32M
+  // OR32M
   `R_INSTR_CG_BEGIN(mul)
     cp_sign_cross: cross cp_rs1_sign, cp_rs2_sign;
   `CG_END
@@ -1324,7 +1324,7 @@ class or1k_instr_cover_group;
     cp_sign_cross: cross cp_rs1_sign, cp_rs2_sign;
   `CG_END
 
-  // RV64M
+  // OR64M
   // Below instructions only do calculation based on lower 32 bits, and extend the result to 64
   // bits. Add special covergroup for corner cases
 
@@ -1372,7 +1372,7 @@ class or1k_instr_cover_group;
     cp_sign_cross: cross cp_rs1_sign, cp_rs2_sign;
   `CG_END
 
-  // RV64I
+  // OR64I
   `LOAD_INSTR_CG_BEGIN(lwu)
     cp_align: coverpoint instr.unaligned_mem_access;
   `CG_END
@@ -1397,7 +1397,7 @@ class or1k_instr_cover_group;
     cp_sign_cross: cross cp_rs1_sign, cp_rs2_sign;
   `CG_END
 
-  // imm[5] could be 1 for RV64I SLLI/SRAI/SRLI
+  // imm[5] could be 1 for OR64I SLLI/SRAI/SRLI
   `INSTR_CG_BEGIN(srai64)
     cp_imm: coverpoint instr.imm[5];
   `CG_END
@@ -1446,7 +1446,7 @@ class or1k_instr_cover_group;
     cp_sign_cross: cross cp_rs1_sign, cp_imm_sign, cp_rd_sign;
   `CG_END
 
-  // RV32C
+  // OR32C
 
   `CL_INSTR_CG_BEGIN(c_lw)
   `CG_END
@@ -1564,7 +1564,7 @@ class or1k_instr_cover_group;
     cp_rd_align : coverpoint instr.rs1_value[1];
   `CG_END
 
-  // RV64C
+  // OR64C
 
   `CL_INSTR_CG_BEGIN(c_ld)
   `CG_END
@@ -1745,8 +1745,8 @@ class or1k_instr_cover_group;
 
    `VECTOR_INCLUDE("or1k_instr_cover_group_inc_cg_instantiation.sv")
 
-    // RV32I instruction functional coverage instantiation
-    `CG_SELECTOR_BEGIN(RV32I)
+    // OR32I instruction functional coverage instantiation
+    `CG_SELECTOR_BEGIN(OR32I)
         add_cg = new();
         sub_cg = new();
         addi_cg = new();
@@ -1786,8 +1786,8 @@ class or1k_instr_cover_group;
         sw_cg = new();
     `CG_SELECTOR_END
 
-    // TODO sort when there is a RV32ZICSR isa enum
-    if (RV32I inside {supported_isa}) begin
+    // TODO sort when there is a OR32ZICSR isa enum
+    if (OR32I inside {supported_isa}) begin
       if (!compliance_mode) begin
         csrrw_cg = new();
         csrrs_cg = new();
@@ -1810,7 +1810,7 @@ class or1k_instr_cover_group;
       end
     end
 
-    if (RV32C inside {supported_isa} || RV64C inside {supported_isa}) begin
+    if (OR32C inside {supported_isa} || OR64C inside {supported_isa}) begin
       if (!compliance_mode) begin
         compressed_opcode_cg = new();
         hint_cg = new();
@@ -1820,7 +1820,7 @@ class or1k_instr_cover_group;
       end
     end
 
-    `CG_SELECTOR_BEGIN(RV32M)
+    `CG_SELECTOR_BEGIN(OR32M)
       mul_cg = new();
       mulh_cg = new();
       mulhsu_cg = new();
@@ -1831,7 +1831,7 @@ class or1k_instr_cover_group;
       remu_cg = new();
     `CG_SELECTOR_END
 
-    `CG_SELECTOR_BEGIN(RV64M)
+    `CG_SELECTOR_BEGIN(OR64M)
       mulw_cg = new();
       divw_cg = new();
       divuw_cg = new();
@@ -1839,7 +1839,7 @@ class or1k_instr_cover_group;
       remuw_cg = new();
     `CG_SELECTOR_END
 
-    `CG_SELECTOR_BEGIN(RV64I)
+    `CG_SELECTOR_BEGIN(OR64I)
       lwu_cg = new();
       ld_cg = new();
       sd_cg = new();
@@ -1857,7 +1857,7 @@ class or1k_instr_cover_group;
       subw_cg = new();
     `CG_SELECTOR_END
 
-    `CG_SELECTOR_BEGIN(RV32C)
+    `CG_SELECTOR_BEGIN(OR32C)
       c_lw_cg = new();
       c_sw_cg = new();
       c_lwsp_cg = new();
@@ -1887,7 +1887,7 @@ class or1k_instr_cover_group;
       c_jalr_cg = new();
     `CG_SELECTOR_END
 
-    `CG_SELECTOR_BEGIN(RV64C)
+    `CG_SELECTOR_BEGIN(OR64C)
       c_ld_cg = new();
       c_sd_cg = new();
       c_ldsp_cg = new();
@@ -1897,7 +1897,7 @@ class or1k_instr_cover_group;
       c_addw_cg = new();
     `CG_SELECTOR_END
 
-    `CG_SELECTOR_BEGIN(RV32F)
+    `CG_SELECTOR_BEGIN(OR32F)
       flw_cg      = new();
       fsw_cg      = new();
       fadd_s_cg   = new();
@@ -1926,7 +1926,7 @@ class or1k_instr_cover_group;
       fclass_s_cg  = new();
     `CG_SELECTOR_END
 
-    `CG_SELECTOR_BEGIN(RV32D)
+    `CG_SELECTOR_BEGIN(OR32D)
       fld_cg      = new();
       fsd_cg      = new();
       fadd_d_cg   = new();
@@ -1953,14 +1953,14 @@ class or1k_instr_cover_group;
       fclass_d_cg  = new();
     `CG_SELECTOR_END
 
-    `CG_SELECTOR_BEGIN(RV64F)
+    `CG_SELECTOR_BEGIN(OR64F)
       fcvt_l_s_cg  = new();
       fcvt_lu_s_cg = new();
       fcvt_s_l_cg  = new();
       fcvt_s_lu_cg = new();
     `CG_SELECTOR_END
 
-    `CG_SELECTOR_BEGIN(RV64D)
+    `CG_SELECTOR_BEGIN(OR64D)
       fmv_x_d_cg   = new();
       fmv_d_x_cg   = new();
       fcvt_d_s_cg  = new();
@@ -1971,7 +1971,7 @@ class or1k_instr_cover_group;
       fcvt_d_lu_cg = new();
     `CG_SELECTOR_END
 
-    `CG_SELECTOR_BEGIN(RV32B)
+    `CG_SELECTOR_BEGIN(OR32B)
       clz_cg      = new();
       ctz_cg      = new();
       pcnt_cg     = new();
@@ -2028,7 +2028,7 @@ class or1k_instr_cover_group;
       fsri_cg     = new();
     `CG_SELECTOR_END
 
-    `CG_SELECTOR_BEGIN(RV64B)
+    `CG_SELECTOR_BEGIN(OR64B)
       clzw_cg     = new();
       ctzw_cg     = new();
       pcntw_cg    = new();
@@ -2103,7 +2103,7 @@ class or1k_instr_cover_group;
     if (instr_cnt > 1) begin
       instr.check_hazard_condition(pre_instr);
     end
-    if ((instr.binary[1:0] != 2'b11) && (RV32C inside {supported_isa})) begin
+    if ((instr.binary[1:0] != 2'b11) && (OR32C inside {supported_isa})) begin
       `SAMPLE(hint_cg, instr);
       `SAMPLE(compressed_opcode_cg, instr.binary[15:0]);
       `SAMPLE(illegal_compressed_instr_cg, instr.binary);
@@ -2284,7 +2284,7 @@ class or1k_instr_cover_group;
       FLE_D      : `SAMPLE_F(fle_d_cg, instr)
       FCLASS_S   : `SAMPLE_F(fclass_s_cg, instr)
       FCLASS_D   : `SAMPLE_F(fclass_d_cg, instr)
-      // RV32B
+      // OR32B
       CLZ        : `SAMPLE_B(clz_cg, instr)
       CTZ        : `SAMPLE_B(ctz_cg, instr)
       PCNT       : `SAMPLE_B(pcnt_cg, instr)
@@ -2339,7 +2339,7 @@ class or1k_instr_cover_group;
       FSL        : `SAMPLE_B(fsl_cg, instr)
       FSR        : `SAMPLE_B(fsr_cg, instr)
       FSRI       : `SAMPLE_B(fsri_cg, instr)
-      // RV64B
+      // OR64B
       CLZW       : `SAMPLE_B(clzw_cg, instr)
       CTZW       : `SAMPLE_B(ctzw_cg, instr)
       PCNTW      : `SAMPLE_B(pcntw_cg, instr)
@@ -2380,7 +2380,7 @@ class or1k_instr_cover_group;
       SLLIU_W    : `SAMPLE_B(slliu_w_cg, instr)
       `VECTOR_INCLUDE("or1k_instr_cover_group_inc_cg_sample.sv")
       default: begin
-        if (instr.group == RV32I) begin
+        if (instr.group == OR32I) begin
           `SAMPLE(or32i_misc_cg, instr);
         end
       end
@@ -2458,8 +2458,8 @@ class or1k_instr_cover_group;
           or1k_instr::instr_registry.exists(instr_name)) begin
         instr = or1k_instr::create_instr(instr_name);
         if ((instr.group inside {supported_isa}) &&
-            (instr.group inside {RV32I, RV32M, RV64M, RV64I, RV32C, RV64C,
-                                 RVV, RV64B, RV32B})) begin
+            (instr.group inside {OR32I, OR32M, OR64M, OR64I, OR32C, OR64C,
+                                 RVV, OR64B, OR32B})) begin
           if (((instr_name inside {URET}) && !support_umode_trap) ||
               ((instr_name inside {SRET, SFENCE_VMA}) &&
               !(SUPERVISOR_MODE inside {supported_privileged_mode})) ||

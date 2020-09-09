@@ -57,7 +57,7 @@ class or1k_compressed_instr extends or1k_instr;
     }
   }
 
-  // C_JAL is RV32C only instruction
+  // C_JAL is OR32C only instruction
   constraint jal_c {
     if (XLEN != 32) {
       instr_name != C_JAL;

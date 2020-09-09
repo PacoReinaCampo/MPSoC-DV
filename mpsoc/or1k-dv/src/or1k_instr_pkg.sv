@@ -81,31 +81,31 @@ package or1k_instr_pkg;
   } privileged_mode_t;
 
   typedef enum bit [4:0] {
-    RV32I,
-    RV64I,
-    RV32M,
-    RV64M,
-    RV32A,
-    RV64A,
-    RV32F,
-    RV32FC,
-    RV64F,
-    RV32D,
-    RV32DC,
-    RV64D,
-    RV32C,
-    RV64C,
+    OR32I,
+    OR64I,
+    OR32M,
+    OR64M,
+    OR32A,
+    OR64A,
+    OR32F,
+    OR32FC,
+    OR64F,
+    OR32D,
+    OR32DC,
+    OR64D,
+    OR32C,
+    OR64C,
     RV128I,
     RV128C,
     RVV,
-    RV32B,
-    RV64B,
-    RV32X,
-    RV64X
+    OR32B,
+    OR64B,
+    OR32X,
+    OR64X
   } or1k_instr_group_t;
 
   typedef enum {
-    // RV32I instructions
+    // OR32I instructions
     LUI,
     AUIPC,
     JAL,
@@ -154,7 +154,7 @@ package or1k_instr_pkg;
     CSRRWI,
     CSRRSI,
     CSRRCI,
-    // RV32B instructions
+    // OR32B instructions
     ANDN,
     ORN,
     XNOR,
@@ -212,7 +212,7 @@ package or1k_instr_pkg;
     BFP,
     SHFLI,
     UNSHFLI,
-    //RV64B instructions
+    //OR64B instructions
     ADDIWU,
     SLLIU_W,
     ADDWU,
@@ -256,7 +256,7 @@ package or1k_instr_pkg;
     PACKW,
     PACKUW,
     BFPW,
-    // RV32M instructions
+    // OR32M instructions
     MUL,
     MULH,
     MULHSU,
@@ -265,13 +265,13 @@ package or1k_instr_pkg;
     DIVU,
     REM,
     REMU,
-    // RV64M instructions
+    // OR64M instructions
     MULW,
     DIVW,
     DIVUW,
     REMW,
     REMUW,
-    // RV32F instructions
+    // OR32F instructions
     FLW,
     FSW,
     FMADD_S,
@@ -298,12 +298,12 @@ package or1k_instr_pkg;
     FCVT_S_W,
     FCVT_S_WU,
     FMV_W_X,
-    // RV64F instruction
+    // OR64F instruction
     FCVT_L_S,
     FCVT_LU_S,
     FCVT_S_L,
     FCVT_S_LU,
-    // RV32D instructions
+    // OR32D instructions
     FLD,
     FSD,
     FMADD_D,
@@ -330,14 +330,14 @@ package or1k_instr_pkg;
     FCVT_WU_D,
     FCVT_D_W,
     FCVT_D_WU,
-    // RV64D
+    // OR64D
     FCVT_L_D,
     FCVT_LU_D,
     FMV_X_D,
     FCVT_D_L,
     FCVT_D_LU,
     FMV_D_X,
-    // RV64I
+    // OR64I
     LWU,
     LD,
     SD,
@@ -350,7 +350,7 @@ package or1k_instr_pkg;
     SLLW,
     SRLW,
     SRAW,
-    // RV32C
+    // OR32C
     C_LW,
     C_SW,
     C_LWSP,
@@ -378,7 +378,7 @@ package or1k_instr_pkg;
     C_JAL,
     C_JR,
     C_JALR,
-    // RV64C
+    // OR64C
     C_ADDIW,
     C_SUBW,
     C_ADDW,
@@ -394,17 +394,17 @@ package or1k_instr_pkg;
     C_SQ,
     C_LQSP,
     C_SQSP,
-    // RV32FC
+    // OR32FC
     C_FLW,
     C_FSW,
     C_FLWSP,
     C_FSWSP,
-    // RV32DC
+    // OR32DC
     C_FLD,
     C_FSD,
     C_FLDSP,
     C_FSDSP,
-    // RV32A
+    // OR32A
     LR_W,
     SC_W,
     AMOSWAP_W,
@@ -416,7 +416,7 @@ package or1k_instr_pkg;
     AMOMAX_W,
     AMOMINU_W,
     AMOMAXU_W,
-    // RV64A
+    // OR64A
     LR_D,
     SC_D,
     AMOSWAP_D,
@@ -776,38 +776,38 @@ package or1k_instr_pkg;
     HPMCOUNTER29    = 'hC1D,  // Performance-monitoring counter
     HPMCOUNTER30    = 'hC1E,  // Performance-monitoring counter
     HPMCOUNTER31    = 'hC1F,  // Performance-monitoring counter
-    CYCLEH          = 'hC80,  // Upper 32 bits of CYCLE, RV32I only
-    TIMEH           = 'hC81,  // Upper 32 bits of TIME, RV32I only
-    INSTRETH        = 'hC82,  // Upper 32 bits of INSTRET, RV32I only
-    HPMCOUNTER3H    = 'hC83,  // Upper 32 bits of HPMCOUNTER3, RV32I only
-    HPMCOUNTER4H    = 'hC84,  // Upper 32 bits of HPMCOUNTER4, RV32I only
-    HPMCOUNTER5H    = 'hC85,  // Upper 32 bits of HPMCOUNTER5, RV32I only
-    HPMCOUNTER6H    = 'hC86,  // Upper 32 bits of HPMCOUNTER6, RV32I only
-    HPMCOUNTER7H    = 'hC87,  // Upper 32 bits of HPMCOUNTER7, RV32I only
-    HPMCOUNTER8H    = 'hC88,  // Upper 32 bits of HPMCOUNTER8, RV32I only
-    HPMCOUNTER9H    = 'hC89,  // Upper 32 bits of HPMCOUNTER9, RV32I only
-    HPMCOUNTER10H   = 'hC8A,  // Upper 32 bits of HPMCOUNTER10, RV32I only
-    HPMCOUNTER11H   = 'hC8B,  // Upper 32 bits of HPMCOUNTER11, RV32I only
-    HPMCOUNTER12H   = 'hC8C,  // Upper 32 bits of HPMCOUNTER12, RV32I only
-    HPMCOUNTER13H   = 'hC8D,  // Upper 32 bits of HPMCOUNTER13, RV32I only
-    HPMCOUNTER14H   = 'hC8E,  // Upper 32 bits of HPMCOUNTER14, RV32I only
-    HPMCOUNTER15H   = 'hC8F,  // Upper 32 bits of HPMCOUNTER15, RV32I only
-    HPMCOUNTER16H   = 'hC90,  // Upper 32 bits of HPMCOUNTER16, RV32I only
-    HPMCOUNTER17H   = 'hC91,  // Upper 32 bits of HPMCOUNTER17, RV32I only
-    HPMCOUNTER18H   = 'hC92,  // Upper 32 bits of HPMCOUNTER18, RV32I only
-    HPMCOUNTER19H   = 'hC93,  // Upper 32 bits of HPMCOUNTER19, RV32I only
-    HPMCOUNTER20H   = 'hC94,  // Upper 32 bits of HPMCOUNTER20, RV32I only
-    HPMCOUNTER21H   = 'hC95,  // Upper 32 bits of HPMCOUNTER21, RV32I only
-    HPMCOUNTER22H   = 'hC96,  // Upper 32 bits of HPMCOUNTER22, RV32I only
-    HPMCOUNTER23H   = 'hC97,  // Upper 32 bits of HPMCOUNTER23, RV32I only
-    HPMCOUNTER24H   = 'hC98,  // Upper 32 bits of HPMCOUNTER24, RV32I only
-    HPMCOUNTER25H   = 'hC99,  // Upper 32 bits of HPMCOUNTER25, RV32I only
-    HPMCOUNTER26H   = 'hC9A,  // Upper 32 bits of HPMCOUNTER26, RV32I only
-    HPMCOUNTER27H   = 'hC9B,  // Upper 32 bits of HPMCOUNTER27, RV32I only
-    HPMCOUNTER28H   = 'hC9C,  // Upper 32 bits of HPMCOUNTER28, RV32I only
-    HPMCOUNTER29H   = 'hC9D,  // Upper 32 bits of HPMCOUNTER29, RV32I only
-    HPMCOUNTER30H   = 'hC9E,  // Upper 32 bits of HPMCOUNTER30, RV32I only
-    HPMCOUNTER31H   = 'hC9F,  // Upper 32 bits of HPMCOUNTER31, RV32I only
+    CYCLEH          = 'hC80,  // Upper 32 bits of CYCLE, OR32I only
+    TIMEH           = 'hC81,  // Upper 32 bits of TIME, OR32I only
+    INSTRETH        = 'hC82,  // Upper 32 bits of INSTRET, OR32I only
+    HPMCOUNTER3H    = 'hC83,  // Upper 32 bits of HPMCOUNTER3, OR32I only
+    HPMCOUNTER4H    = 'hC84,  // Upper 32 bits of HPMCOUNTER4, OR32I only
+    HPMCOUNTER5H    = 'hC85,  // Upper 32 bits of HPMCOUNTER5, OR32I only
+    HPMCOUNTER6H    = 'hC86,  // Upper 32 bits of HPMCOUNTER6, OR32I only
+    HPMCOUNTER7H    = 'hC87,  // Upper 32 bits of HPMCOUNTER7, OR32I only
+    HPMCOUNTER8H    = 'hC88,  // Upper 32 bits of HPMCOUNTER8, OR32I only
+    HPMCOUNTER9H    = 'hC89,  // Upper 32 bits of HPMCOUNTER9, OR32I only
+    HPMCOUNTER10H   = 'hC8A,  // Upper 32 bits of HPMCOUNTER10, OR32I only
+    HPMCOUNTER11H   = 'hC8B,  // Upper 32 bits of HPMCOUNTER11, OR32I only
+    HPMCOUNTER12H   = 'hC8C,  // Upper 32 bits of HPMCOUNTER12, OR32I only
+    HPMCOUNTER13H   = 'hC8D,  // Upper 32 bits of HPMCOUNTER13, OR32I only
+    HPMCOUNTER14H   = 'hC8E,  // Upper 32 bits of HPMCOUNTER14, OR32I only
+    HPMCOUNTER15H   = 'hC8F,  // Upper 32 bits of HPMCOUNTER15, OR32I only
+    HPMCOUNTER16H   = 'hC90,  // Upper 32 bits of HPMCOUNTER16, OR32I only
+    HPMCOUNTER17H   = 'hC91,  // Upper 32 bits of HPMCOUNTER17, OR32I only
+    HPMCOUNTER18H   = 'hC92,  // Upper 32 bits of HPMCOUNTER18, OR32I only
+    HPMCOUNTER19H   = 'hC93,  // Upper 32 bits of HPMCOUNTER19, OR32I only
+    HPMCOUNTER20H   = 'hC94,  // Upper 32 bits of HPMCOUNTER20, OR32I only
+    HPMCOUNTER21H   = 'hC95,  // Upper 32 bits of HPMCOUNTER21, OR32I only
+    HPMCOUNTER22H   = 'hC96,  // Upper 32 bits of HPMCOUNTER22, OR32I only
+    HPMCOUNTER23H   = 'hC97,  // Upper 32 bits of HPMCOUNTER23, OR32I only
+    HPMCOUNTER24H   = 'hC98,  // Upper 32 bits of HPMCOUNTER24, OR32I only
+    HPMCOUNTER25H   = 'hC99,  // Upper 32 bits of HPMCOUNTER25, OR32I only
+    HPMCOUNTER26H   = 'hC9A,  // Upper 32 bits of HPMCOUNTER26, OR32I only
+    HPMCOUNTER27H   = 'hC9B,  // Upper 32 bits of HPMCOUNTER27, OR32I only
+    HPMCOUNTER28H   = 'hC9C,  // Upper 32 bits of HPMCOUNTER28, OR32I only
+    HPMCOUNTER29H   = 'hC9D,  // Upper 32 bits of HPMCOUNTER29, OR32I only
+    HPMCOUNTER30H   = 'hC9E,  // Upper 32 bits of HPMCOUNTER30, OR32I only
+    HPMCOUNTER31H   = 'hC9F,  // Upper 32 bits of HPMCOUNTER31, OR32I only
     // Supervisor mode register
     SSTATUS         = 'h100,  // Supervisor status
     SEDELEG         = 'h102,  // Supervisor exception delegation register
@@ -839,9 +839,9 @@ package or1k_instr_pkg;
     MTVAL           = 'h343,  // Machine bad address or instruction
     MIP             = 'h344,  // Machine interrupt pending
     PMPCFG0         = 'h3A0,  // Physical memory protection configuration
-    PMPCFG1         = 'h3A1,  // Physical memory protection configuration, RV32 only
+    PMPCFG1         = 'h3A1,  // Physical memory protection configuration, OR32 only
     PMPCFG2         = 'h3A2,  // Physical memory protection configuration
-    PMPCFG3         = 'h3A3,  // Physical memory protection configuration, RV32 only
+    PMPCFG3         = 'h3A3,  // Physical memory protection configuration, OR32 only
     PMPADDR0        = 'h3B0,  // Physical memory protection address register
     PMPADDR1        = 'h3B1,  // Physical memory protection address register
     PMPADDR2        = 'h3B2,  // Physical memory protection address register
@@ -889,37 +889,37 @@ package or1k_instr_pkg;
     MHPMCOUNTER29   = 'hB1D,  // Machine performance-monitoring counter
     MHPMCOUNTER30   = 'hB1E,  // Machine performance-monitoring counter
     MHPMCOUNTER31   = 'hB1F,  // Machine performance-monitoring counter
-    MCYCLEH         = 'hB80,  // Upper 32 bits of MCYCLE, RV32I only
-    MINSTRETH       = 'hB82,  // Upper 32 bits of MINSTRET, RV32I only
-    MHPMCOUNTER3H   = 'hB83,  // Upper 32 bits of HPMCOUNTER3, RV32I only
-    MHPMCOUNTER4H   = 'hB84,  // Upper 32 bits of HPMCOUNTER4, RV32I only
-    MHPMCOUNTER5H   = 'hB85,  // Upper 32 bits of HPMCOUNTER5, RV32I only
-    MHPMCOUNTER6H   = 'hB86,  // Upper 32 bits of HPMCOUNTER6, RV32I only
-    MHPMCOUNTER7H   = 'hB87,  // Upper 32 bits of HPMCOUNTER7, RV32I only
-    MHPMCOUNTER8H   = 'hB88,  // Upper 32 bits of HPMCOUNTER8, RV32I only
-    MHPMCOUNTER9H   = 'hB89,  // Upper 32 bits of HPMCOUNTER9, RV32I only
-    MHPMCOUNTER10H  = 'hB8A,  // Upper 32 bits of HPMCOUNTER10, RV32I only
-    MHPMCOUNTER11H  = 'hB8B,  // Upper 32 bits of HPMCOUNTER11, RV32I only
-    MHPMCOUNTER12H  = 'hB8C,  // Upper 32 bits of HPMCOUNTER12, RV32I only
-    MHPMCOUNTER13H  = 'hB8D,  // Upper 32 bits of HPMCOUNTER13, RV32I only
-    MHPMCOUNTER14H  = 'hB8E,  // Upper 32 bits of HPMCOUNTER14, RV32I only
-    MHPMCOUNTER15H  = 'hB8F,  // Upper 32 bits of HPMCOUNTER15, RV32I only
-    MHPMCOUNTER16H  = 'hB90,  // Upper 32 bits of HPMCOUNTER16, RV32I only
-    MHPMCOUNTER17H  = 'hB91,  // Upper 32 bits of HPMCOUNTER17, RV32I only
-    MHPMCOUNTER18H  = 'hB92,  // Upper 32 bits of HPMCOUNTER18, RV32I only
-    MHPMCOUNTER19H  = 'hB93,  // Upper 32 bits of HPMCOUNTER19, RV32I only
-    MHPMCOUNTER20H  = 'hB94,  // Upper 32 bits of HPMCOUNTER20, RV32I only
-    MHPMCOUNTER21H  = 'hB95,  // Upper 32 bits of HPMCOUNTER21, RV32I only
-    MHPMCOUNTER22H  = 'hB96,  // Upper 32 bits of HPMCOUNTER22, RV32I only
-    MHPMCOUNTER23H  = 'hB97,  // Upper 32 bits of HPMCOUNTER23, RV32I only
-    MHPMCOUNTER24H  = 'hB98,  // Upper 32 bits of HPMCOUNTER24, RV32I only
-    MHPMCOUNTER25H  = 'hB99,  // Upper 32 bits of HPMCOUNTER25, RV32I only
-    MHPMCOUNTER26H  = 'hB9A,  // Upper 32 bits of HPMCOUNTER26, RV32I only
-    MHPMCOUNTER27H  = 'hB9B,  // Upper 32 bits of HPMCOUNTER27, RV32I only
-    MHPMCOUNTER28H  = 'hB9C,  // Upper 32 bits of HPMCOUNTER28, RV32I only
-    MHPMCOUNTER29H  = 'hB9D,  // Upper 32 bits of HPMCOUNTER29, RV32I only
-    MHPMCOUNTER30H  = 'hB9E,  // Upper 32 bits of HPMCOUNTER30, RV32I only
-    MHPMCOUNTER31H  = 'hB9F,  // Upper 32 bits of HPMCOUNTER31, RV32I only
+    MCYCLEH         = 'hB80,  // Upper 32 bits of MCYCLE, OR32I only
+    MINSTRETH       = 'hB82,  // Upper 32 bits of MINSTRET, OR32I only
+    MHPMCOUNTER3H   = 'hB83,  // Upper 32 bits of HPMCOUNTER3, OR32I only
+    MHPMCOUNTER4H   = 'hB84,  // Upper 32 bits of HPMCOUNTER4, OR32I only
+    MHPMCOUNTER5H   = 'hB85,  // Upper 32 bits of HPMCOUNTER5, OR32I only
+    MHPMCOUNTER6H   = 'hB86,  // Upper 32 bits of HPMCOUNTER6, OR32I only
+    MHPMCOUNTER7H   = 'hB87,  // Upper 32 bits of HPMCOUNTER7, OR32I only
+    MHPMCOUNTER8H   = 'hB88,  // Upper 32 bits of HPMCOUNTER8, OR32I only
+    MHPMCOUNTER9H   = 'hB89,  // Upper 32 bits of HPMCOUNTER9, OR32I only
+    MHPMCOUNTER10H  = 'hB8A,  // Upper 32 bits of HPMCOUNTER10, OR32I only
+    MHPMCOUNTER11H  = 'hB8B,  // Upper 32 bits of HPMCOUNTER11, OR32I only
+    MHPMCOUNTER12H  = 'hB8C,  // Upper 32 bits of HPMCOUNTER12, OR32I only
+    MHPMCOUNTER13H  = 'hB8D,  // Upper 32 bits of HPMCOUNTER13, OR32I only
+    MHPMCOUNTER14H  = 'hB8E,  // Upper 32 bits of HPMCOUNTER14, OR32I only
+    MHPMCOUNTER15H  = 'hB8F,  // Upper 32 bits of HPMCOUNTER15, OR32I only
+    MHPMCOUNTER16H  = 'hB90,  // Upper 32 bits of HPMCOUNTER16, OR32I only
+    MHPMCOUNTER17H  = 'hB91,  // Upper 32 bits of HPMCOUNTER17, OR32I only
+    MHPMCOUNTER18H  = 'hB92,  // Upper 32 bits of HPMCOUNTER18, OR32I only
+    MHPMCOUNTER19H  = 'hB93,  // Upper 32 bits of HPMCOUNTER19, OR32I only
+    MHPMCOUNTER20H  = 'hB94,  // Upper 32 bits of HPMCOUNTER20, OR32I only
+    MHPMCOUNTER21H  = 'hB95,  // Upper 32 bits of HPMCOUNTER21, OR32I only
+    MHPMCOUNTER22H  = 'hB96,  // Upper 32 bits of HPMCOUNTER22, OR32I only
+    MHPMCOUNTER23H  = 'hB97,  // Upper 32 bits of HPMCOUNTER23, OR32I only
+    MHPMCOUNTER24H  = 'hB98,  // Upper 32 bits of HPMCOUNTER24, OR32I only
+    MHPMCOUNTER25H  = 'hB99,  // Upper 32 bits of HPMCOUNTER25, OR32I only
+    MHPMCOUNTER26H  = 'hB9A,  // Upper 32 bits of HPMCOUNTER26, OR32I only
+    MHPMCOUNTER27H  = 'hB9B,  // Upper 32 bits of HPMCOUNTER27, OR32I only
+    MHPMCOUNTER28H  = 'hB9C,  // Upper 32 bits of HPMCOUNTER28, OR32I only
+    MHPMCOUNTER29H  = 'hB9D,  // Upper 32 bits of HPMCOUNTER29, OR32I only
+    MHPMCOUNTER30H  = 'hB9E,  // Upper 32 bits of HPMCOUNTER30, OR32I only
+    MHPMCOUNTER31H  = 'hB9F,  // Upper 32 bits of HPMCOUNTER31, OR32I only
     MCOUNTINHIBIT   = 'h320,  // Machine counter-inhibit register
     MHPMEVENT3      = 'h323,  // Machine performance-monitoring event selector
     MHPMEVENT4      = 'h324,  // Machine performance-monitoring event selector
@@ -1099,8 +1099,8 @@ package or1k_instr_pkg;
     bit                   x;
     bit                   w;
     bit                   r;
-    // RV32: the pmpaddr is the top 32 bits of a 34 bit PMP address
-    // RV64: the pmpaddr is the top 54 bits of a 56 bit PMP address
+    // OR32: the pmpaddr is the top 32 bits of a 34 bit PMP address
+    // OR64: the pmpaddr is the top 54 bits of a 56 bit PMP address
     bit [XLEN - 1 : 0]    addr;
     // The offset from the address of <main> - automatically populated by the
     // PMP generation routine.
@@ -1113,8 +1113,8 @@ package or1k_instr_pkg;
     rand bit                   x;
     rand bit                   w;
     rand bit                   r;
-    // RV32: the pmpaddr is the top 32 bits of a 34 bit PMP address
-    // RV64: the pmpaddr is the top 54 bits of a 56 bit PMP address
+    // OR32: the pmpaddr is the top 32 bits of a 34 bit PMP address
+    // OR64: the pmpaddr is the top 54 bits of a 56 bit PMP address
     bit [XLEN - 1 : 0]    addr;
     // The offset from the address of <main> - automatically populated by the
     // PMP generation routine.
