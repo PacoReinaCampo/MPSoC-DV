@@ -7,3 +7,6 @@
 [submodule "mpsoc-msp430"]
 	path = mpsoc-msp430
 	url = https://github.com/PacoReinaCampo/MPSoC-MSP430.git
+[submodule "riscv-formal"]
+	path = riscv-formal
+	url = https://github.com/PacoReinaCampo/riscv-formal.git
