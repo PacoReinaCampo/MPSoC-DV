@@ -10,3 +10,6 @@
 [submodule "riscv-formal"]
 	path = riscv-formal
 	url = https://github.com/PacoReinaCampo/riscv-formal.git
+[submodule "migen"]
+	path = migen
+	url = https://github.com/PacoReinaCampo/migen.git
