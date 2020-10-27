@@ -13,9 +13,6 @@
 [submodule "migen"]
 	path = migen
 	url = https://github.com/PacoReinaCampo/migen.git
-[submodule "osvvm"]
-	path = osvvm
-	url = https://github.com/PacoReinaCampo/OSVVM.git
 [submodule "uvm"]
 	path = uvm
 	url = https://github.com/PacoReinaCampo/UVM.git
