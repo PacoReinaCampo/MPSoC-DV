@@ -54,8 +54,6 @@ import uvm_pkg::*;
 `include "riscv_env.svh"
 `include "riscv_test.svh"
 
-`include "riscv_mpsoc_pkg.sv"
-
 import dii_package::dii_flit;
 import opensocdebug::mriscv_trace_exec;
 import optimsoc_config::*;

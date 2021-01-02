@@ -54,8 +54,6 @@ import uvm_pkg::*;
 `include "or1k_env.svh"
 `include "or1k_test.svh"
 
-`include "or1k-defines.sv"
-
 import dii_package::dii_flit;
 import opensocdebug::mor1kx_trace_exec;
 import optimsoc_config::*;
