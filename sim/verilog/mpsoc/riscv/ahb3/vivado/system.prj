@@ -18,9 +18,9 @@ sv work ../../../../../../mpsoc-riscv/soc/dbg/rtl/verilog/soc/modules/ctm/common
 sv work ../../../../../../mpsoc-riscv/soc/dbg/rtl/verilog/soc/modules/ctm/riscv/mriscv/osd_ctm_mriscv.sv
 sv work ../../../../../../mpsoc-riscv/soc/dbg/rtl/verilog/soc/blocks/eventpacket/osd_event_packetization_fixedwidth.sv
 sv work ../../../../../../mpsoc-riscv/soc/dbg/rtl/verilog/soc/modules/him/osd_him.sv
-sv work ../../../../../../mpsoc-riscv/soc/dbg/rtl/verilog/soc/modules/mam/wishbone/mam_ahb3_adapter.sv
-sv work ../../../../../../mpsoc-riscv/soc/dbg/rtl/verilog/soc/modules/mam/wishbone/osd_mam_ahb3_if.sv
-sv work ../../../../../../mpsoc-riscv/soc/dbg/rtl/verilog/soc/modules/mam/wishbone/osd_mam_ahb3.sv
+sv work ../../../../../../mpsoc-riscv/soc/dbg/rtl/verilog/soc/modules/mam/ahb3/mam_ahb3_adapter.sv
+sv work ../../../../../../mpsoc-riscv/soc/dbg/rtl/verilog/soc/modules/mam/ahb3/osd_mam_ahb3_if.sv
+sv work ../../../../../../mpsoc-riscv/soc/dbg/rtl/verilog/soc/modules/mam/ahb3/osd_mam_ahb3.sv
 sv work ../../../../../../mpsoc-riscv/soc/dbg/rtl/verilog/soc/modules/mam/common/osd_mam.sv
 sv work ../../../../../../mpsoc-riscv/soc/dbg/rtl/verilog/soc/blocks/eventpacket/osd_event_packetization.sv
 sv work ../../../../../../mpsoc-riscv/soc/dbg/rtl/verilog/soc/blocks/regaccess/osd_regaccess_demux.sv
@@ -69,43 +69,48 @@ sv work ../../../../../../mpsoc-riscv/soc/noc/rtl/verilog/router/noc_router_look
 sv work ../../../../../../mpsoc-riscv/soc/noc/rtl/verilog/router/noc_router_output.sv
 sv work ../../../../../../mpsoc-riscv/soc/noc/rtl/verilog/topology/noc_mesh2d.sv
 
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/control/riscv_cfgrs.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/control/riscv_ctrl_cappuccino.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/control/riscv_pcu.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/control/riscv_pic.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/control/riscv_ticktimer.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/decode/riscv_decode.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/riscv_execute_alu.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/riscv_execute_ctrl_cappuccino.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/riscv_rf_cappuccino.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/riscv_ahb3_mux_cappuccino.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/pfpu32/pfpu32_addsub.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/pfpu32/pfpu32_cmp.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/pfpu32/pfpu32_f2i.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/pfpu32/pfpu32_i2f.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/pfpu32/pfpu32_muldiv.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/pfpu32/pfpu32_rnd.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/pfpu32/pfpu32_top.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/fetch/riscv_cache_lru.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/fetch/riscv_fetch_cappuccino.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/fetch/riscv_icache.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/fetch/riscv_immu.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/memory/riscv_dcache.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/memory/riscv_dmmu.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/memory/riscv_lsu_cappuccino.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/memory/riscv_store_buffer.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/riscv_branch_prediction.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/riscv_branch_predictor_gshare.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/riscv_branch_predictor_saturation_counter.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/riscv_branch_predictor_simple.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/riscv_bus_if_ahb332.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/cache/riscv_dcache_core.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/cache/riscv_dext.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/cache/riscv_icache_core.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/cache/riscv_noicache_core.sv
+
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/decode/riscv_id.sv
+
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/riscv_alu.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/riscv_bu.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/riscv_div.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/riscv_execution.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/riscv_lsu.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/execute/riscv_mul.sv
+
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/fetch/riscv_if.sv
+
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/memory/riscv_dmem_ctrl.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/memory/riscv_imem_ctrl.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/memory/riscv_membuf.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/memory/riscv_memmisaligned.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/memory/riscv_mmu.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/memory/riscv_mux.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/memory/riscv_pmachk.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/memory/riscv_pmpchk.sv
+
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/riscv_bp.sv
 sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/riscv_core.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/riscv_cpu_cappuccino.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/riscv_cpu.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/riscv_decode_execute_cappuccino.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/memory/riscv_simple_dpram_sclk.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/memory/riscv_true_dpram_sclk.sv
-sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/module/riscv_module.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/riscv_du.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/riscv_memory.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/riscv_rf.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/riscv_state.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/core/riscv_wb.sv
+
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/memory/riscv_ram_1r1w_generic.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/memory/riscv_ram_1r1w.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/memory/riscv_ram_1rw_generic.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/memory/riscv_ram_1rw.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/memory/riscv_ram_queue.sv
+
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/pu/riscv_biu2ahb3.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/pu/riscv_pu_ahb3.sv
+sv work ../../../../../../mpsoc-riscv/soc/pu/rtl/verilog/pu/riscv_module_ahb3.sv
 
 sv work ../../../../../../mpsoc-riscv/soc/rtl/verilog/soc/adapter/networkadapter_conf.sv
 sv work ../../../../../../mpsoc-riscv/soc/rtl/verilog/soc/adapter/networkadapter_ct.sv

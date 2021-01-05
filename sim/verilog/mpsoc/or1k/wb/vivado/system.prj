@@ -18,9 +18,9 @@ sv work ../../../../../../mpsoc-or1k/soc/dbg/rtl/verilog/soc/modules/ctm/common/
 sv work ../../../../../../mpsoc-or1k/soc/dbg/rtl/verilog/soc/modules/ctm/or1k/mor1kx/osd_ctm_mor1kx.sv
 sv work ../../../../../../mpsoc-or1k/soc/dbg/rtl/verilog/soc/blocks/eventpacket/osd_event_packetization_fixedwidth.sv
 sv work ../../../../../../mpsoc-or1k/soc/dbg/rtl/verilog/soc/modules/him/osd_him.sv
-sv work ../../../../../../mpsoc-or1k/soc/dbg/rtl/verilog/soc/modules/mam/wishbone/mam_wb_adapter.sv
-sv work ../../../../../../mpsoc-or1k/soc/dbg/rtl/verilog/soc/modules/mam/wishbone/osd_mam_wb_if.sv
-sv work ../../../../../../mpsoc-or1k/soc/dbg/rtl/verilog/soc/modules/mam/wishbone/osd_mam_wb.sv
+sv work ../../../../../../mpsoc-or1k/soc/dbg/rtl/verilog/soc/modules/mam/blackbone/mam_wb_adapter.sv
+sv work ../../../../../../mpsoc-or1k/soc/dbg/rtl/verilog/soc/modules/mam/blackbone/osd_mam_wb_if.sv
+sv work ../../../../../../mpsoc-or1k/soc/dbg/rtl/verilog/soc/modules/mam/blackbone/osd_mam_wb.sv
 sv work ../../../../../../mpsoc-or1k/soc/dbg/rtl/verilog/soc/modules/mam/common/osd_mam.sv
 sv work ../../../../../../mpsoc-or1k/soc/dbg/rtl/verilog/soc/blocks/eventpacket/osd_event_packetization.sv
 sv work ../../../../../../mpsoc-or1k/soc/dbg/rtl/verilog/soc/blocks/regaccess/osd_regaccess_demux.sv
