@@ -63,12 +63,12 @@ class or1k_env extends uvm_env;
     `uvm_info("", "Called env::connect_phase", UVM_NONE);
 
     // connect driver's analysis port to scoreboard's analysis implementation port
-    agent.driver.driver2scoreboard_port.connect(sb.driver2scoreboard_port);
+    agent.driver.driver2scoreboard_port.connect(scoreboard.driver2scoreboard_port);
 
     // connect monitor's analysis port to scoreboard's analysis implementation port
-    monitor.monitor2scoreboard_port.connect(sb.monitor2scoreboard_port);
+    monitor.monitor2scoreboard_port.connect(scoreboard.monitor2scoreboard_port);
 
     // connect monitor's analysis port to subscriber's analysis implementation port
-    monitor.aport.connect(sub.aport);
+    monitor.aport.connect(subscriber.aport);
   endfunction: connect_phase
 endclass

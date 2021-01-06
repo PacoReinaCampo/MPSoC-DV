@@ -95,12 +95,12 @@ class msp430_driver extends uvm_driver #(msp430_transaction);
     forever begin
       @(msp430_vif.driver_if_mp.driver_cb) begin 
         if(count < 19) begin
-          msp430_vif.driver_if_mp.driver_cb.inst_in <= mem[count];
+          msp430_vif.driver_if_mp.driver_cb.bb_ext_dout_o <= mem[count];
           count++;
         end
         else begin
           seq_item_port.get_next_item(req);
-          msp430_vif.driver_if_mp.driver_cb.inst_in <= req.instrn;
+          msp430_vif.driver_if_mp.driver_cb.bb_ext_dout_o <= req.instrn;
           driver2scoreboard_port.write(req);
           seq_item_port.item_done();
           count = 0;

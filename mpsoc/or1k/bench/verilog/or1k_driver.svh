@@ -95,12 +95,12 @@ class or1k_driver extends uvm_driver #(or1k_transaction);
     forever begin
       @(or1k_vif.driver_if_mp.driver_cb) begin 
         if(count < 19) begin
-          or1k_vif.driver_if_mp.driver_cb.inst_in <= mem[count];
+          or1k_vif.driver_if_mp.driver_cb.wb_ext_dat_o <= mem[count];
           count++;
         end
         else begin
           seq_item_port.get_next_item(req);
-          or1k_vif.driver_if_mp.driver_cb.inst_in <= req.instrn;
+          or1k_vif.driver_if_mp.driver_cb.wb_ext_dat_o <= req.instrn;
           driver2scoreboard_port.write(req);
           seq_item_port.item_done();
           count = 0;

@@ -74,42 +74,42 @@ class riscv_monitor extends uvm_monitor;
     count = 0;
     fork
       forever begin
-        @(riscv_vif.monitor_if_mp.monitor_cb.inst_out) begin
+        @(riscv_vif.monitor_if_mp.monitor_cb.ahb3_ext_hwdata_i) begin
           if(count<17) begin
             count++;
           end
           else begin
-            pu_transaction.debug_ring_in  = riscv_vif.monitor_if_mp.debug_ring_in;
-            pu_transaction.debug_ring_out = riscv_vif.monitor_if_mp.debug_ring_out;
+            pu_transaction.debug_ring_in  = riscv_vif.monitor_if_mp.monitor_cb.debug_ring_in;
+            pu_transaction.debug_ring_out = riscv_vif.monitor_if_mp.monitor_cb.debug_ring_out;
 
-            pu_transaction.debug_ring_in_ready  = riscv_vif.monitor_if_mp.debug_ring_in_ready;
-            pu_transaction.debug_ring_out_ready = riscv_vif.monitor_if_mp.debug_ring_out_ready;
+            pu_transaction.debug_ring_in_ready  = riscv_vif.monitor_if_mp.monitor_cb.debug_ring_in_ready;
+            pu_transaction.debug_ring_out_ready = riscv_vif.monitor_if_mp.monitor_cb.debug_ring_out_ready;
 
-            pu_transaction.ahb3_ext_hsel_i      = riscv_vif.monitor_if_mp.ahb3_ext_hsel_i;
-            pu_transaction.ahb3_ext_haddr_i     = riscv_vif.monitor_if_mp.ahb3_ext_haddr_i;
-            pu_transaction.ahb3_ext_hwdata_i    = riscv_vif.monitor_if_mp.ahb3_ext_hwdata_i;
-            pu_transaction.ahb3_ext_hwrite_i    = riscv_vif.monitor_if_mp.ahb3_ext_hwrite_i;
-            pu_transaction.ahb3_ext_hsize_i     = riscv_vif.monitor_if_mp.ahb3_ext_hsize_i;
-            pu_transaction.ahb3_ext_hburst_i    = riscv_vif.monitor_if_mp.ahb3_ext_hburst_i;
-            pu_transaction.ahb3_ext_hprot_i     = riscv_vif.monitor_if_mp.ahb3_ext_hprot_i;
-            pu_transaction.ahb3_ext_htrans_i    = riscv_vif.monitor_if_mp.ahb3_ext_htrans_i;
-            pu_transaction.ahb3_ext_hmastlock_i = riscv_vif.monitor_if_mp.ahb3_ext_hmastlock_i;
+            pu_transaction.ahb3_ext_hsel_i      = riscv_vif.monitor_if_mp.monitor_cb.ahb3_ext_hsel_i;
+            pu_transaction.ahb3_ext_haddr_i     = riscv_vif.monitor_if_mp.monitor_cb.ahb3_ext_haddr_i;
+            pu_transaction.ahb3_ext_hwdata_i    = riscv_vif.monitor_if_mp.monitor_cb.ahb3_ext_hwdata_i;
+            pu_transaction.ahb3_ext_hwrite_i    = riscv_vif.monitor_if_mp.monitor_cb.ahb3_ext_hwrite_i;
+            pu_transaction.ahb3_ext_hsize_i     = riscv_vif.monitor_if_mp.monitor_cb.ahb3_ext_hsize_i;
+            pu_transaction.ahb3_ext_hburst_i    = riscv_vif.monitor_if_mp.monitor_cb.ahb3_ext_hburst_i;
+            pu_transaction.ahb3_ext_hprot_i     = riscv_vif.monitor_if_mp.monitor_cb.ahb3_ext_hprot_i;
+            pu_transaction.ahb3_ext_htrans_i    = riscv_vif.monitor_if_mp.monitor_cb.ahb3_ext_htrans_i;
+            pu_transaction.ahb3_ext_hmastlock_i = riscv_vif.monitor_if_mp.monitor_cb.ahb3_ext_hmastlock_i;
 
-            pu_transaction.ahb3_ext_hrdata_o = riscv_vif.monitor_if_mp.ahb3_ext_hrdata_o;
-            pu_transaction.ahb3_ext_hready_o = riscv_vif.monitor_if_mp.ahb3_ext_hready_o;
-            pu_transaction.ahb3_ext_hresp_o  = riscv_vif.monitor_if_mp.ahb3_ext_hresp_o;
+            pu_transaction.ahb3_ext_hrdata_o = riscv_vif.monitor_if_mp.monitor_cb.ahb3_ext_hrdata_o;
+            pu_transaction.ahb3_ext_hready_o = riscv_vif.monitor_if_mp.monitor_cb.ahb3_ext_hready_o;
+            pu_transaction.ahb3_ext_hresp_o  = riscv_vif.monitor_if_mp.monitor_cb.ahb3_ext_hresp_o;
 
             // Flits from NoC->tiles
-            pu_transaction.link_in_flit  = riscv_vif.monitor_if_mp.link_in_flit;
-            pu_transaction.link_in_last  = riscv_vif.monitor_if_mp.link_in_last;
-            pu_transaction.link_in_valid = riscv_vif.monitor_if_mp.link_in_valid;
-            pu_transaction.link_in_ready = riscv_vif.monitor_if_mp.link_in_ready;
+            pu_transaction.link_in_flit  = riscv_vif.monitor_if_mp.monitor_cb.link_in_flit;
+            pu_transaction.link_in_last  = riscv_vif.monitor_if_mp.monitor_cb.link_in_last;
+            pu_transaction.link_in_valid = riscv_vif.monitor_if_mp.monitor_cb.link_in_valid;
+            pu_transaction.link_in_ready = riscv_vif.monitor_if_mp.monitor_cb.link_in_ready;
 
             // Flits from tiles->NoC
-            pu_transaction.link_out_flit  = riscv_vif.monitor_if_mp.link_out_flit;
-            pu_transaction.link_out_last  = riscv_vif.monitor_if_mp.link_out_last;
-            pu_transaction.link_out_valid = riscv_vif.monitor_if_mp.link_out_valid;
-            pu_transaction.link_out_ready = riscv_vif.monitor_if_mp.link_out_ready;
+            pu_transaction.link_out_flit  = riscv_vif.monitor_if_mp.monitor_cb.link_out_flit;
+            pu_transaction.link_out_last  = riscv_vif.monitor_if_mp.monitor_cb.link_out_last;
+            pu_transaction.link_out_valid = riscv_vif.monitor_if_mp.monitor_cb.link_out_valid;
+            pu_transaction.link_out_ready = riscv_vif.monitor_if_mp.monitor_cb.link_out_ready;
 
             // Send transaction to Scoreboard
             monitor2scoreboard_port.write(pu_transaction);

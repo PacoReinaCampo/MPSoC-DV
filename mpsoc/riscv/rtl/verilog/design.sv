@@ -129,7 +129,7 @@ interface riscv_interface;
   logic [CHANNELS-1:0]                 link_out_valid;
   logic [CHANNELS-1:0]                 link_out_ready;
   
-  clocking master_cb @(posedge clk);
+  clocking driver_cb @(posedge clk);
     output clk;
     output rst;
     output rst_cpu;
@@ -166,9 +166,9 @@ interface riscv_interface;
     input  link_out_last;
     input  link_out_valid;
     output link_out_ready;
-  endclocking : master_cb
+  endclocking : driver_cb
 
-  clocking slave_cb @(posedge clk);
+  clocking monitor_cb @(posedge clk);
     input  clk;
     input  rst;
     input  rst_cpu;
@@ -205,48 +205,8 @@ interface riscv_interface;
     output link_out_last;
     output link_out_valid;
     input  link_out_ready;
-  endclocking : slave_cb
-  
-  clocking monitor_cb @(posedge clk);
-    input clk;
-    input rst;
-    input rst_cpu;
-    input rst_sys;
-
-    input debug_ring_in;
-    input debug_ring_out;
-
-    input debug_ring_in_ready;
-    input debug_ring_out_ready;
-
-    input ahb3_ext_hsel_i;
-    input ahb3_ext_haddr_i;
-    input ahb3_ext_hwdata_i;
-    input ahb3_ext_hwrite_i;
-    input ahb3_ext_hsize_i;
-    input ahb3_ext_hburst_i;
-    input ahb3_ext_hprot_i;
-    input ahb3_ext_htrans_i;
-    input ahb3_ext_hmastlock_i;
-
-    input ahb3_ext_hrdata_o;
-    input ahb3_ext_hready_o;
-    input ahb3_ext_hresp_o;
-
-    // Flits from NoC->tiles
-    input link_in_flit;
-    input link_in_last;
-    input link_in_valid;
-    input link_in_ready;
-
-    // Flits from tiles->NoC
-    input link_out_flit;
-    input link_out_last;
-    input link_out_valid;
-    input link_out_ready;
   endclocking : monitor_cb
 
-  modport master(clocking master_cb);
-  modport slave(clocking slave_cb);
-  modport passive(clocking monitor_cb);
+  modport driver_if_mp(clocking driver_cb);
+  modport monitor_if_mp(clocking monitor_cb);
 endinterface

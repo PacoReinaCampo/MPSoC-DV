@@ -95,12 +95,12 @@ class riscv_driver extends uvm_driver #(riscv_transaction);
     forever begin
       @(riscv_vif.driver_if_mp.driver_cb) begin 
         if(count < 19) begin
-          riscv_vif.driver_if_mp.driver_cb.inst_in <= mem[count];
+          riscv_vif.driver_if_mp.driver_cb.ahb3_ext_hrdata_o <= mem[count];
           count++;
         end
         else begin
           seq_item_port.get_next_item(req);
-          riscv_vif.driver_if_mp.driver_cb.inst_in <= req.instrn;
+          riscv_vif.driver_if_mp.driver_cb.ahb3_ext_hrdata_o <= req.instrn;
           driver2scoreboard_port.write(req);
           seq_item_port.item_done();
           count = 0;

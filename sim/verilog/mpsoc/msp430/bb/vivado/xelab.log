@@ -1,0 +1,40 @@
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab test 
+Multi-threading is on. Using 6 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3529] modport 'driver_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_driver.svh:96]
+WARNING: [VRFC 10-3529] modport 'driver_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_driver.svh:98]
+WARNING: [VRFC 10-3529] modport 'driver_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_driver.svh:103]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:77]
+ERROR: [VRFC 10-3226] clocking block output signal 'bb_ext_din_i' cannot be read [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:77]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:82]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:83]
+ERROR: [VRFC 10-3226] clocking block output signal 'debug_ring_out' cannot be read [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:83]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:85]
+ERROR: [VRFC 10-3226] clocking block output signal 'debug_ring_in_ready' cannot be read [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:85]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:86]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:88]
+ERROR: [VRFC 10-3226] clocking block output signal 'bb_ext_addr_i' cannot be read [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:88]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:89]
+ERROR: [VRFC 10-3226] clocking block output signal 'bb_ext_din_i' cannot be read [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:89]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:90]
+ERROR: [VRFC 10-3226] clocking block output signal 'bb_ext_en_i' cannot be read [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:90]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:91]
+ERROR: [VRFC 10-3226] clocking block output signal 'bb_ext_we_i' cannot be read [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:91]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:93]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:96]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:97]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:98]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:99]
+ERROR: [VRFC 10-3226] clocking block output signal 'link_in_ready' cannot be read [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:99]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:102]
+ERROR: [VRFC 10-3226] clocking block output signal 'link_out_flit' cannot be read [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:102]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:103]
+ERROR: [VRFC 10-3226] clocking block output signal 'link_out_last' cannot be read [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:103]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:104]
+ERROR: [VRFC 10-3226] clocking block output signal 'link_out_valid' cannot be read [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:104]
+WARNING: [VRFC 10-3529] modport 'monitor_if_mp' should not be used in hierarchical reference [/home/us1/github/MPSoC-DV/mpsoc/msp430/bench/verilog/msp430_monitor.svh:105]
+ERROR: [VRFC 10-1219] part-select direction is opposite from prefix index direction [/home/us1/github/MPSoC-DV/mpsoc-msp430/soc/rtl/verilog/soc/msp430_tile.sv:521]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.

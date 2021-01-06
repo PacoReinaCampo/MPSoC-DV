@@ -142,10 +142,10 @@ module test;
   );
 
   //Clock generation
-  always #5 msp430_if.dbg_clk = ~msp430_if.dbg_clk;
+  always #5 msp430_if.clk = ~msp430_if.clk;
   
   initial begin
-    msp430_if.dbg_clk = 0;
+    msp430_if.clk = 0;
   end
 
   initial begin

@@ -129,7 +129,7 @@ interface or1k_interface;
   logic [CHANNELS-1:0]                 link_out_valid;
   logic [CHANNELS-1:0]                 link_out_ready;
   
-  clocking master_cb @(posedge clk);
+  clocking driver_cb @(posedge clk);
     output clk;
     output rst;
     output rst_cpu;
@@ -167,9 +167,9 @@ interface or1k_interface;
     input  link_out_last;
     input  link_out_valid;
     output link_out_ready;
-  endclocking : master_cb
+  endclocking : driver_cb
 
-  clocking slave_cb @(posedge clk);
+  clocking monitor_cb @(posedge clk);
     input  clk;
     input  rst;
     input  rst_cpu;
@@ -207,49 +207,8 @@ interface or1k_interface;
     output link_out_last;
     output link_out_valid;
     input  link_out_ready;
-  endclocking : slave_cb
-  
-  clocking monitor_cb @(posedge clk);
-    input clk;
-    input rst;
-    input rst_cpu;
-    input rst_sys;
-
-    input debug_ring_in;
-    input debug_ring_out;
-
-    input debug_ring_in_ready;
-    input debug_ring_out_ready;
-
-    input wb_ext_adr_i;
-    input wb_ext_cyc_i;
-    input wb_ext_dat_i;
-    input wb_ext_sel_i;
-    input wb_ext_stb_i;
-    input wb_ext_we_i;
-    input wb_ext_cab_i;
-    input wb_ext_cti_i;
-    input wb_ext_bte_i;
-
-    input wb_ext_ack_o;
-    input wb_ext_rty_o;
-    input wb_ext_err_o;
-    input wb_ext_dat_o;
-
-    // Flits from NoC->tiles
-    input link_in_flit;
-    input link_in_last;
-    input link_in_valid;
-    input link_in_ready;
-
-    // Flits from tiles->NoC
-    input link_out_flit;
-    input link_out_last;
-    input link_out_valid;
-    input link_out_ready;
   endclocking : monitor_cb
 
-  modport master(clocking master_cb);
-  modport slave(clocking slave_cb);
-  modport passive(clocking monitor_cb);
+  modport driver_if_mp(clocking driver_cb);
+  modport monitor_if_mp(clocking monitor_cb);
 endinterface

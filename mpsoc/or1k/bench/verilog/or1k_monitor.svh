@@ -74,43 +74,43 @@ class or1k_monitor extends uvm_monitor;
     count = 0;
     fork
       forever begin
-        @(or1k_vif.monitor_if_mp.monitor_cb.inst_out) begin
+        @(or1k_vif.monitor_if_mp.monitor_cb.wb_ext_dat_i) begin
           if(count<17) begin
             count++;
           end
           else begin
-            pu_transaction.debug_ring_in  = or1k_vif.monitor_if_mp.debug_ring_in;
-            pu_transaction.debug_ring_out = or1k_vif.monitor_if_mp.debug_ring_out;
+            pu_transaction.debug_ring_in  = or1k_vif.monitor_if_mp.monitor_cb.debug_ring_in;
+            pu_transaction.debug_ring_out = or1k_vif.monitor_if_mp.monitor_cb.debug_ring_out;
 
-            pu_transaction.debug_ring_in_ready  = or1k_vif.monitor_if_mp.debug_ring_in_ready;
-            pu_transaction.debug_ring_out_ready = or1k_vif.monitor_if_mp.debug_ring_out_ready;
+            pu_transaction.debug_ring_in_ready  = or1k_vif.monitor_if_mp.monitor_cb.debug_ring_in_ready;
+            pu_transaction.debug_ring_out_ready = or1k_vif.monitor_if_mp.monitor_cb.debug_ring_out_ready;
 
-            pu_transaction.wb_ext_adr_i = or1k_vif.monitor_if_mp.wb_ext_adr_i;
-            pu_transaction.wb_ext_cyc_i = or1k_vif.monitor_if_mp.wb_ext_cyc_i;
-            pu_transaction.wb_ext_dat_i = or1k_vif.monitor_if_mp.wb_ext_dat_i;
-            pu_transaction.wb_ext_sel_i = or1k_vif.monitor_if_mp.wb_ext_sel_i;
-            pu_transaction.wb_ext_stb_i = or1k_vif.monitor_if_mp.wb_ext_stb_i;
-            pu_transaction.wb_ext_we_i  = or1k_vif.monitor_if_mp.wb_ext_we_i;
-            pu_transaction.wb_ext_cab_i = or1k_vif.monitor_if_mp.wb_ext_cab_i;
-            pu_transaction.wb_ext_cti_i = or1k_vif.monitor_if_mp.wb_ext_cti_i;
-            pu_transaction.wb_ext_bte_i = or1k_vif.monitor_if_mp.wb_ext_bte_i;
+            pu_transaction.wb_ext_adr_i = or1k_vif.monitor_if_mp.monitor_cb.wb_ext_adr_i;
+            pu_transaction.wb_ext_cyc_i = or1k_vif.monitor_if_mp.monitor_cb.wb_ext_cyc_i;
+            pu_transaction.wb_ext_dat_i = or1k_vif.monitor_if_mp.monitor_cb.wb_ext_dat_i;
+            pu_transaction.wb_ext_sel_i = or1k_vif.monitor_if_mp.monitor_cb.wb_ext_sel_i;
+            pu_transaction.wb_ext_stb_i = or1k_vif.monitor_if_mp.monitor_cb.wb_ext_stb_i;
+            pu_transaction.wb_ext_we_i  = or1k_vif.monitor_if_mp.monitor_cb.wb_ext_we_i;
+            pu_transaction.wb_ext_cab_i = or1k_vif.monitor_if_mp.monitor_cb.wb_ext_cab_i;
+            pu_transaction.wb_ext_cti_i = or1k_vif.monitor_if_mp.monitor_cb.wb_ext_cti_i;
+            pu_transaction.wb_ext_bte_i = or1k_vif.monitor_if_mp.monitor_cb.wb_ext_bte_i;
 
-            pu_transaction.wb_ext_ack_o = or1k_vif.monitor_if_mp.wb_ext_ack_o;
-            pu_transaction.wb_ext_rty_o = or1k_vif.monitor_if_mp.wb_ext_rty_o;
-            pu_transaction.wb_ext_err_o = or1k_vif.monitor_if_mp.wb_ext_err_o;
-            pu_transaction.wb_ext_dat_o = or1k_vif.monitor_if_mp.wb_ext_dat_o;
+            pu_transaction.wb_ext_ack_o = or1k_vif.monitor_if_mp.monitor_cb.wb_ext_ack_o;
+            pu_transaction.wb_ext_rty_o = or1k_vif.monitor_if_mp.monitor_cb.wb_ext_rty_o;
+            pu_transaction.wb_ext_err_o = or1k_vif.monitor_if_mp.monitor_cb.wb_ext_err_o;
+            pu_transaction.wb_ext_dat_o = or1k_vif.monitor_if_mp.monitor_cb.wb_ext_dat_o;
 
             // Flits from NoC->tiles
-            pu_transaction.link_in_flit  = or1k_vif.monitor_if_mp.link_in_flit;
-            pu_transaction.link_in_last  = or1k_vif.monitor_if_mp.link_in_last;
-            pu_transaction.link_in_valid = or1k_vif.monitor_if_mp.link_in_valid;
-            pu_transaction.link_in_ready = or1k_vif.monitor_if_mp.link_in_ready;
+            pu_transaction.link_in_flit  = or1k_vif.monitor_if_mp.monitor_cb.link_in_flit;
+            pu_transaction.link_in_last  = or1k_vif.monitor_if_mp.monitor_cb.link_in_last;
+            pu_transaction.link_in_valid = or1k_vif.monitor_if_mp.monitor_cb.link_in_valid;
+            pu_transaction.link_in_ready = or1k_vif.monitor_if_mp.monitor_cb.link_in_ready;
 
             // Flits from tiles->NoC
-            pu_transaction.link_out_flit  = or1k_vif.monitor_if_mp.link_out_flit;
-            pu_transaction.link_out_last  = or1k_vif.monitor_if_mp.link_out_last;
-            pu_transaction.link_out_valid = or1k_vif.monitor_if_mp.link_out_valid;
-            pu_transaction.link_out_ready = or1k_vif.monitor_if_mp.link_out_ready;
+            pu_transaction.link_out_flit  = or1k_vif.monitor_if_mp.monitor_cb.link_out_flit;
+            pu_transaction.link_out_last  = or1k_vif.monitor_if_mp.monitor_cb.link_out_last;
+            pu_transaction.link_out_valid = or1k_vif.monitor_if_mp.monitor_cb.link_out_valid;
+            pu_transaction.link_out_ready = or1k_vif.monitor_if_mp.monitor_cb.link_out_ready;
 
             // Send transaction to Scoreboard
             monitor2scoreboard_port.write(pu_transaction);

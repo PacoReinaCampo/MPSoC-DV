@@ -74,35 +74,35 @@ class msp430_monitor extends uvm_monitor;
     count = 0;
     fork
       forever begin
-        @(msp430_vif.monitor_if_mp.monitor_cb.inst_out) begin
+        @(msp430_vif.monitor_if_mp.monitor_cb.bb_ext_din_i) begin
           if(count<17) begin
             count++;
           end
           else begin
-            pu_transaction.debug_ring_in  = msp430_vif.monitor_if_mp.debug_ring_in;
-            pu_transaction.debug_ring_out = msp430_vif.monitor_if_mp.debug_ring_out;
+            pu_transaction.debug_ring_in  = msp430_vif.monitor_if_mp.monitor_cb.debug_ring_in;
+            pu_transaction.debug_ring_out = msp430_vif.monitor_if_mp.monitor_cb.debug_ring_out;
 
-            pu_transaction.debug_ring_in_ready  = msp430_vif.monitor_if_mp.debug_ring_in_ready;
-            pu_transaction.debug_ring_out_ready = msp430_vif.monitor_if_mp.debug_ring_out_ready;
+            pu_transaction.debug_ring_in_ready  = msp430_vif.monitor_if_mp.monitor_cb.debug_ring_in_ready;
+            pu_transaction.debug_ring_out_ready = msp430_vif.monitor_if_mp.monitor_cb.debug_ring_out_ready;
 
-            pu_transaction.bb_ext_addr_i = msp430_vif.monitor_if_mp.bb_ext_addr_i;
-            pu_transaction.bb_ext_din_i  = msp430_vif.monitor_if_mp.bb_ext_din_i;
-            pu_transaction.bb_ext_en_i   = msp430_vif.monitor_if_mp.bb_ext_en_i;
-            pu_transaction.bb_ext_we_i   = msp430_vif.monitor_if_mp.bb_ext_we_i;
+            pu_transaction.bb_ext_addr_i = msp430_vif.monitor_if_mp.monitor_cb.bb_ext_addr_i;
+            pu_transaction.bb_ext_din_i  = msp430_vif.monitor_if_mp.monitor_cb.bb_ext_din_i;
+            pu_transaction.bb_ext_en_i   = msp430_vif.monitor_if_mp.monitor_cb.bb_ext_en_i;
+            pu_transaction.bb_ext_we_i   = msp430_vif.monitor_if_mp.monitor_cb.bb_ext_we_i;
 
-            pu_transaction.bb_ext_dout_o = msp430_vif.monitor_if_mp.bb_ext_dout_o;
+            pu_transaction.bb_ext_dout_o = msp430_vif.monitor_if_mp.monitor_cb.bb_ext_dout_o;
 
             // Flits from NoC->tiles
-            pu_transaction.link_in_flit  = msp430_vif.monitor_if_mp.link_in_flit;
-            pu_transaction.link_in_last  = msp430_vif.monitor_if_mp.link_in_last;
-            pu_transaction.link_in_valid = msp430_vif.monitor_if_mp.link_in_valid;
-            pu_transaction.link_in_ready = msp430_vif.monitor_if_mp.link_in_ready;
+            pu_transaction.link_in_flit  = msp430_vif.monitor_if_mp.monitor_cb.link_in_flit;
+            pu_transaction.link_in_last  = msp430_vif.monitor_if_mp.monitor_cb.link_in_last;
+            pu_transaction.link_in_valid = msp430_vif.monitor_if_mp.monitor_cb.link_in_valid;
+            pu_transaction.link_in_ready = msp430_vif.monitor_if_mp.monitor_cb.link_in_ready;
 
             // Flits from tiles->NoC
-            pu_transaction.link_out_flit  = msp430_vif.monitor_if_mp.link_out_flit;
-            pu_transaction.link_out_last  = msp430_vif.monitor_if_mp.link_out_last;
-            pu_transaction.link_out_valid = msp430_vif.monitor_if_mp.link_out_valid;
-            pu_transaction.link_out_ready = msp430_vif.monitor_if_mp.link_out_ready;
+            pu_transaction.link_out_flit  = msp430_vif.monitor_if_mp.monitor_cb.link_out_flit;
+            pu_transaction.link_out_last  = msp430_vif.monitor_if_mp.monitor_cb.link_out_last;
+            pu_transaction.link_out_valid = msp430_vif.monitor_if_mp.monitor_cb.link_out_valid;
+            pu_transaction.link_out_ready = msp430_vif.monitor_if_mp.monitor_cb.link_out_ready;
 
             // Send transaction to Scoreboard
             monitor2scoreboard_port.write(pu_transaction);
