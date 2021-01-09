@@ -16,6 +16,3 @@
 [submodule "mpsoc-riscv"]
 	path = mpsoc-riscv
 	url = https://github.com/PacoReinaCampo/MPSoC-RISCV.git
-[submodule "misoc"]
-	path = misoc
-	url = https://github.com/PacoReinaCampo/misoc.git
