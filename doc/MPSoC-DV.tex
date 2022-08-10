@@ -1,0 +1,2975 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={MPSoC-DV},
+  pdfauthor={QueenField},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[left = 3cm, right = 2cm, top = 3cm, bottom = 2cm]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{MPSoC-DV}
+\author{QueenField}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{figure}
+\centering
+\includegraphics{../icon.jpg}
+\caption{QueenField}
+\end{figure}
+
+\hypertarget{introduction}{%
+\section{0. INTRODUCTION}\label{introduction}}
+
+\hypertarget{best-practices}{%
+\subsection{0.1. BEST PRACTICES}\label{best-practices}}
+
+\hypertarget{hardware}{%
+\subsubsection{0.1.1. HARDWARE}\label{hardware}}
+
+\begin{verbatim}
+cd synthesis/yosys
+source SYNTHESIZE-IT
+\end{verbatim}
+
+\hypertarget{asic}{%
+\paragraph{0.1.1.1. ASIC}\label{asic}}
+
+type:
+
+\begin{verbatim}
+cd synthesis/qflow
+source FLOW-IT
+\end{verbatim}
+
+\hypertarget{fpga}{%
+\paragraph{0.1.1.2. FPGA}\label{fpga}}
+
+type:
+
+\begin{verbatim}
+cd synthesis/symbiflow
+source FLOW-IT
+\end{verbatim}
+
+\hypertarget{software}{%
+\subsubsection{0.1.2. SOFTWARE}\label{software}}
+
+\hypertarget{msp430}{%
+\paragraph{0.1.2.1. MSP430}\label{msp430}}
+
+\hypertarget{msp430-tests}{%
+\subparagraph{0.1.2.1.1. MSP430 Tests}\label{msp430-tests}}
+
+\hypertarget{msp430-bare-metal}{%
+\subparagraph{0.1.2.1.2. MSP430 Bare Metal}\label{msp430-bare-metal}}
+
+\hypertarget{msp430-operating-system}{%
+\subparagraph{0.1.2.1.3. MSP430 Operating
+System}\label{msp430-operating-system}}
+
+0.1.2.1.3.1. GNU Linux
+
+0.1.2.1.3.2. GNU Hurd
+
+\hypertarget{msp430-distribution}{%
+\subparagraph{0.1.2.1.4. MSP430
+Distribution}\label{msp430-distribution}}
+
+0.1.2.1.4.1. GNU Debian
+
+0.1.2.1.4.2. GNU Fedora
+
+\hypertarget{openrisc}{%
+\paragraph{0.1.2.2. OpenRISC}\label{openrisc}}
+
+\hypertarget{openrisc-tests}{%
+\subparagraph{0.1.2.2.1. OpenRISC Tests}\label{openrisc-tests}}
+
+\hypertarget{openrisc-bare-metal}{%
+\subparagraph{0.1.2.2.2. OpenRISC Bare
+Metal}\label{openrisc-bare-metal}}
+
+\hypertarget{openrisc-operating-system}{%
+\subparagraph{0.1.2.2.3. OpenRISC Operating
+System}\label{openrisc-operating-system}}
+
+0.1.2.2.3.1. GNU Linux
+
+0.1.2.2.3.2. GNU Hurd
+
+\hypertarget{openrisc-distribution}{%
+\subparagraph{0.1.2.2.4. OpenRISC
+Distribution}\label{openrisc-distribution}}
+
+0.1.2.2.4.1. GNU Debian
+
+0.1.2.2.4.2. GNU Fedora
+
+\hypertarget{risc-v}{%
+\paragraph{0.1.2.3. RISC-V}\label{risc-v}}
+
+\hypertarget{risc-v-tests}{%
+\subparagraph{0.1.2.3.1. RISC-V Tests}\label{risc-v-tests}}
+
+type:
+
+\begin{verbatim}
+export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+
+rm -rf tests
+rm -rf riscv-tests
+
+mkdir tests
+mkdir tests/dump
+mkdir tests/hex
+
+git clone --recursive https://github.com/riscv/riscv-tests
+cd riscv-tests
+
+autoconf
+./configure --prefix=/opt/riscv-elf-gcc/bin
+make
+
+cd isa
+
+source ../../elf2hex.sh
+
+mv *.dump ../../tests/dump
+mv *.hex ../../tests/hex
+
+cd ..
+
+make clean
+\end{verbatim}
+
+elf2hex.sh:
+
+\begin{verbatim}
+riscv64-unknown-elf-objcopy -O ihex rv32mi-p-breakpoint rv32mi-p-breakpoint.hex
+riscv64-unknown-elf-objcopy -O ihex rv32mi-p-csr rv32mi-p-csr.hex
+...
+riscv64-unknown-elf-objcopy -O ihex rv64um-v-remw rv64um-v-remw.hex
+\end{verbatim}
+
+type:
+
+\begin{verbatim}
+export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+
+spike rv32mi-p-breakpoint
+spike rv32mi-p-csr
+...
+spike rv64um-v-remw
+\end{verbatim}
+
+\hypertarget{risc-v-bare-metal}{%
+\subparagraph{0.1.2.3.2. RISC-V Bare Metal}\label{risc-v-bare-metal}}
+
+type:
+
+\begin{verbatim}
+rm -rf hello_c.elf
+rm -rf hello_c.hex
+
+export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+
+riscv64-unknown-elf-gcc -o hello_c.elf hello_c.c
+riscv64-unknown-elf-objcopy -O ihex hello_c.elf hello_c.hex
+\end{verbatim}
+
+C Language:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#include }\ImportTok{\textless{}stdio.h\textgreater{}}
+
+\DataTypeTok{int}\NormalTok{ main() \{}
+\NormalTok{  printf(}\StringTok{"Hello QueenField!}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{);}
+  \ControlFlowTok{return} \DecValTok{0}\NormalTok{;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+type:
+
+\begin{verbatim}
+export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+
+spike pk hello_c.elf
+\end{verbatim}
+
+type:
+
+\begin{verbatim}
+rm -rf hello_cpp.elf
+rm -rf hello_cpp.hex
+
+export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+
+riscv64-unknown-elf-g++ -o hello_cpp.elf hello_cpp.cpp
+riscv64-unknown-elf-objcopy -O ihex hello_cpp.elf hello_cpp.hex
+\end{verbatim}
+
+C++ Language:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{\#include }\ImportTok{\textless{}iostream\textgreater{}}
+
+\DataTypeTok{int}\NormalTok{ main() \{}
+  \BuiltInTok{std::}\NormalTok{cout \textless{}\textless{} }\StringTok{"Hello QueenField!}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{;}
+  \ControlFlowTok{return} \DecValTok{0}\NormalTok{;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+type:
+
+\begin{verbatim}
+export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+
+spike pk hello_cpp.elf
+\end{verbatim}
+
+type:
+
+\begin{verbatim}
+rm -rf hello_go.elf
+rm -rf hello_go.hex
+
+export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+export PATH=/opt/riscv-go/bin:${PATH}
+
+GOOS=linux GOARCH=riscv64 go build -o hello_go.elf hello_go.go
+riscv64-unknown-elf-objcopy -O ihex hello_go.elf hello_go.hex
+\end{verbatim}
+
+Go Language:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{package}\NormalTok{ main}
+
+\KeywordTok{import} \StringTok{"fmt"}
+\KeywordTok{func}\NormalTok{ main() \{}
+\NormalTok{  fmt.Println(}\StringTok{"Hello QueenField!"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{risc-v-operating-system}{%
+\subparagraph{0.1.2.3.3. RISC-V Operating
+System}\label{risc-v-operating-system}}
+
+0.1.2.3.3.1. GNU Linux
+
+\textbf{Building BusyBox}
+
+type:
+
+\begin{verbatim}
+export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+
+git clone --recursive https://git.busybox.net/busybox
+
+cd busybox
+make CROSS_COMPILE=riscv64-unknown-linux-gnu- defconfig
+make CROSS_COMPILE=riscv64-unknown-linux-gnu-
+\end{verbatim}
+
+\textbf{Building Linux}
+
+type:
+
+\begin{verbatim}
+export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+
+git clone --recursive https://github.com/torvalds/linux
+
+cd linux
+make ARCH=riscv CROSS_COMPILE=riscv64-unknown-linux-gnu- defconfig
+make ARCH=riscv CROSS_COMPILE=riscv64-unknown-linux-gnu-
+\end{verbatim}
+
+\textbf{Running Linux}
+
+type:
+
+\begin{verbatim}
+export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+
+qemu-system-riscv64 -nographic -machine virt \
+-kernel Image -append "root=/dev/vda ro console=ttyS0" \
+-drive file=busybox,format=raw,id=hd0 \
+-device virtio-blk-device,drive=hd0
+\end{verbatim}
+
+\textbf{Running Linux RISC-V 32 bit with Buildroot}
+
+type:
+
+\begin{verbatim}
+export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+
+git clone --recursive https://github.com/buildroot/buildroot
+
+cd buildroot
+make qemu_riscv32_virt_defconfig
+make
+
+qemu-system-riscv32 \
+-M virt \
+-nographic \
+-bios output/images/fw_jump.elf \
+-kernel output/images/Image \
+-append "root=/dev/vda ro" \
+-drive file=output/images/rootfs.ext2,format=raw,id=hd0 \
+-device virtio-blk-device,drive=hd0 \
+-netdev user,id=net0 \
+-device virtio-net-device,netdev=net0
+\end{verbatim}
+
+\textbf{Running Linux RISC-V 64 bit with Buildroot}
+
+type:
+
+\begin{verbatim}
+export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+
+git clone --recursive https://github.com/buildroot/buildroot
+
+cd buildroot
+make qemu_riscv64_virt_defconfig
+make
+
+qemu-system-riscv64 \
+-M virt \
+-nographic \
+-bios output/images/fw_jump.elf \
+-kernel output/images/Image \
+-append "root=/dev/vda ro" \
+-drive file=output/images/rootfs.ext2,format=raw,id=hd0 \
+-device virtio-blk-device,drive=hd0 \
+-netdev user,id=net0 \
+-device virtio-net-device,netdev=net0
+\end{verbatim}
+
+0.1.2.3.3.2. GNU Hurd
+
+\hypertarget{risc-v-distribution}{%
+\subparagraph{0.1.2.3.4. RISC-V
+Distribution}\label{risc-v-distribution}}
+
+0.1.2.3.4.1. GNU Debian
+
+0.1.2.3.4.2. GNU Fedora
+
+\textbf{Running Fedora}
+
+type:
+
+\begin{verbatim}
+export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+
+qemu-system-riscv64 \
+-nographic \
+-machine virt \
+-smp 4 \
+-m 2G \
+-kernel Fedora-RISCV.elf \
+-bios none \
+-object rng-random,filename=/dev/urandom,id=rng0 \
+-device virtio-rng-device,rng=rng0 \
+-device virtio-blk-device,drive=hd0 \
+-drive file=Fedora-RISCV.raw,format=raw,id=hd0 \
+-device virtio-net-device,netdev=usernet \
+-netdev user,id=usernet,hostfwd=tcp::10000-:22
+\end{verbatim}
+
+\hypertarget{open-source-philosophy}{%
+\subsection{0.2. OPEN SOURCE PHILOSOPHY}\label{open-source-philosophy}}
+
+\textbf{For Windows Users!}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Settings → Apps → Apps \& features → Related settings, Programs and
+  Features → Turn Windows features on or off → Windows Subsystem for
+  Linux
+\item
+  Microsoft Store → INSTALL UBUNTU
+\end{enumerate}
+
+type:
+
+\begin{verbatim}
+sudo apt update
+sudo apt upgrade
+\end{verbatim}
+
+\hypertarget{open-source-hardware}{%
+\subsubsection{0.2.1. Open Source Hardware}\label{open-source-hardware}}
+
+\hypertarget{msp430-processing-unit}{%
+\paragraph{0.2.1.1. MSP430 Processing
+Unit}\label{msp430-processing-unit}}
+
+\hypertarget{openrisc-processing-unit}{%
+\paragraph{0.2.1.2. OpenRISC Processing
+Unit}\label{openrisc-processing-unit}}
+
+\hypertarget{risc-v-processing-unit}{%
+\paragraph{0.2.1.3. RISC-V Processing
+Unit}\label{risc-v-processing-unit}}
+
+\hypertarget{open-source-software}{%
+\subsubsection{0.2.2. Open Source Software}\label{open-source-software}}
+
+\hypertarget{msp430-gnu-compiler-collection}{%
+\paragraph{0.2.2.1. MSP430 GNU Compiler
+Collection}\label{msp430-gnu-compiler-collection}}
+
+\hypertarget{openrisc-gnu-compiler-collection}{%
+\paragraph{0.2.2.2. OpenRISC GNU Compiler
+Collection}\label{openrisc-gnu-compiler-collection}}
+
+\hypertarget{risc-v-gnu-compiler-collection}{%
+\paragraph{0.2.2.3. RISC-V GNU Compiler
+Collection}\label{risc-v-gnu-compiler-collection}}
+
+\hypertarget{instruction-set-architecture}{%
+\subsection{0.3. INSTRUCTION SET
+ARCHITECTURE}\label{instruction-set-architecture}}
+
+\hypertarget{risc-v-isa}{%
+\subsubsection{0.3.1. RISC-V ISA}\label{risc-v-isa}}
+
+\hypertarget{isa-bases}{%
+\paragraph{0.3.1.1. ISA Bases}\label{isa-bases}}
+
+\hypertarget{risc-v-32}{%
+\subparagraph{0.3.1.1.1. RISC-V 32}\label{risc-v-32}}
+
+\hypertarget{risc-v-64}{%
+\subparagraph{0.3.1.1.2. RISC-V 64}\label{risc-v-64}}
+
+\hypertarget{risc-v-128}{%
+\subparagraph{0.3.1.1.3. RISC-V 128}\label{risc-v-128}}
+
+\hypertarget{isa-extensions}{%
+\paragraph{0.3.1.2. ISA Extensions}\label{isa-extensions}}
+
+\hypertarget{base-integer-instruction-set}{%
+\subparagraph{0.3.1.2.1. Base Integer Instruction
+Set}\label{base-integer-instruction-set}}
+
+\textbf{RV32I : Base Integer Instruction Set (32 bit)}
+
+\begin{longtable}[]{@{}lcccccc@{}}
+\toprule
+RV32I & 31:25 & 24:20 & 19:15 & 14:12 & 11:7 & 6:0\tabularnewline
+\midrule
+\endhead
+LUI RD, IMM & IIIIIII & IIIII & IIIII & III & RD4:0 &
+0110111\tabularnewline
+AUPIC RD, IMM & IIIIIII & IIIII & IIIII & III & RD4:0 &
+0010111\tabularnewline
+JAL RD, IMM & IIIIIII & IIIII & IIIII & III & RD4:0 &
+1101111\tabularnewline
+JALR RD,RS1,IMM & IIIIIII & IIIII & RS14:0 & 000 & RD4:0 &
+1101111\tabularnewline
+BEQ RS1,RS2,IMM & IIIIIII & RS24:0 & RS14:0 & 000 & IIIII &
+1100011\tabularnewline
+BNE RS1,RS2,IMM & IIIIIII & RS24:0 & RS14:0 & 001 & IIIII &
+1100011\tabularnewline
+BLT RS1,RS2,IMM & IIIIIII & RS24:0 & RS14:0 & 100 & IIIII &
+1100011\tabularnewline
+BGE RS1,RS2,IMM & IIIIIII & RS24:0 & RS14:0 & 101 & IIIII &
+1100011\tabularnewline
+BLTU RS1,RS2,IMM & IIIIIII & RS24:0 & RS14:0 & 110 & IIIII &
+1100011\tabularnewline
+BGEU RS1,RS2,IMM & IIIIIII & RS24:0 & RS14:0 & 111 & IIIII &
+1100011\tabularnewline
+LB RD, RS1 & IIIIIII & IIIII & RS14:0 & 000 & RD4:0 &
+0000011\tabularnewline
+LH RD, RS1 & IIIIIII & IIIII & RS14:0 & 001 & RD4:0 &
+0000011\tabularnewline
+LW RD, RS1 & IIIIIII & IIIII & RS14:0 & 010 & RD4:0 &
+0000011\tabularnewline
+LBU RD, RS1 & IIIIIII & IIIII & RS14:0 & 100 & RD4:0 &
+0000011\tabularnewline
+LHU RD, RS1 & IIIIIII & IIIII & RS14:0 & 101 & RD4:0 &
+0000011\tabularnewline
+SB RS2,RS1 & IIIIIII & RS24:0 & RS14:0 & 000 & IIIII &
+0100011\tabularnewline
+SH RS2,RS1 & IIIIIII & RS24:0 & RS14:0 & 001 & IIIII &
+0100011\tabularnewline
+SW RS2,RS1 & IIIIIII & RS24:0 & RS14:0 & 010 & IIIII &
+0100011\tabularnewline
+ADDI RD,RS1,IMM & IIIIIII & IIIII & RS14:0 & 000 & RD4:0 &
+0010011\tabularnewline
+SLTI RD,RS1,IMM & IIIIIII & IIIII & RS14:0 & 010 & RD4:0 &
+0010011\tabularnewline
+SLTIU RD,RS1,IMM & IIIIIII & IIIII & RS14:0 & 011 & RD4:0 &
+0010011\tabularnewline
+XORI RD,RS1,IMM & IIIIIII & IIIII & RS14:0 & 100 & RD4:0 &
+0010011\tabularnewline
+ORI RD,RS1,IMM & IIIIIII & IIIII & RS14:0 & 110 & RD4:0 &
+0010011\tabularnewline
+ANDI RD,RS1,IMM & IIIIIII & IIIII & RS14:0 & 111 & RD4:0 &
+0010011\tabularnewline
+SLLI RD,RS1,IMM & 0000000 & IIII & RS14:0 & 001 & RD4:0 &
+0010011\tabularnewline
+SRLI RD,RS1,IMM & 0000000 & IIII & RS14:0 & 101 & RD4:0 &
+0010011\tabularnewline
+SRAI RD,RS1,IMM & 0100000 & IIII & RS14:0 & 101 & RD4:0 &
+0010011\tabularnewline
+ADD RD,RS1,RS2 & 0000000 & RS24:0 & RS14:0 & 000 & RD4:0 &
+0110011\tabularnewline
+SUB RD,RS1,RS2 & 0100000 & RS24:0 & RS14:0 & 000 & RD4:0 &
+0110011\tabularnewline
+SLL RD,RS1,RS2 & 0000000 & RS24:0 & RS14:0 & 001 & RD4:0 &
+0110011\tabularnewline
+SLT RD,RS1,RS2 & 0000000 & RS24:0 & RS14:0 & 010 & RD4:0 &
+0110011\tabularnewline
+SLTU RD,RS1,RS2 & 0000000 & RS24:0 & RS14:0 & 011 & RD4:0 &
+0110011\tabularnewline
+XOR RD,RS1,RS2 & 0000000 & RS24:0 & RS14:0 & 100 & RD4:0 &
+0110011\tabularnewline
+SRL RD,RS1,RS2 & 0000000 & RS24:0 & RS14:0 & 101 & RD4:0 &
+0110011\tabularnewline
+SRA RD,RS1,RS2 & 0100000 & RS24:0 & RS14:0 & 101 & RD4:0 &
+0110011\tabularnewline
+OR RD,RS1,RS2 & 0000000 & RS24:0 & RS14:0 & 110 & RD4:0 &
+0110011\tabularnewline
+AND RD,RS1,RS2 & 0000000 & RS24:0 & RS14:0 & 111 & RD4:0 &
+0110011\tabularnewline
+FENCE PRED,SUCC & 0000PPP & PSSSS & 00000 & 000 & 00000 &
+0001111\tabularnewline
+FENCE.I & 0000P00 & 00000 & 00000 & 001 & 00000 & 0001111\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{RV64I : Base Integer Instruction Set (64 bit)}
+
+\begin{longtable}[]{@{}lcccccc@{}}
+\toprule
+RV64I & 31:25 & 24:20 & 19:15 & 14:12 & 11:7 & 6:0\tabularnewline
+\midrule
+\endhead
+LWU RD, RS1 & IIIIIII & IIIII & RS14:0 & 110 & RD4:0 &
+0000011\tabularnewline
+LD RD, RS1 & IIIIIII & IIIII & RS14:0 & 011 & RD4:0 &
+0000011\tabularnewline
+SD RD, RS1,RS2 & IIIIIII & RS24:0 & RS14:0 & 011 & IIIII &
+0000011\tabularnewline
+SLLI RD, RS1,IMM & 0000000 & IIIII & RS14:0 & 001 & RD4:0 &
+0010011\tabularnewline
+SRLI RD, RS1,IMM & 0000000 & IIIII & RS14:0 & 001 & RD4:0 &
+0010011\tabularnewline
+SRAI RD, RS1,IMM & 0100000 & IIIII & RS14:0 & 001 & RD4:0 &
+0010011\tabularnewline
+ADDIW RD, RS1 & IIIIIII & IIIII & RS14:0 & 000 & RD4:0 &
+0011011\tabularnewline
+SLLIW RD, RS1 & 0000000 & IIIII & RS14:0 & 001 & RD4:0 &
+0011011\tabularnewline
+SRLIW RD, RS1 & 0000000 & IIIII & RS14:0 & 101 & RD4:0 &
+0011011\tabularnewline
+SRAIW RD, RS1 & 0100000 & IIIII & RS14:0 & 101 & RD4:0 &
+0011011\tabularnewline
+ADDW RD, RS1,RS2 & 0000000 & RS24:0 & RS14:0 & 000 & RD4:0 &
+0111011\tabularnewline
+SUBW RD, RS1,RS2 & 0100000 & RS24:0 & RS14:0 & 000 & RD4:0 &
+0111011\tabularnewline
+SLIW RD, RS1,RS2 & 0000000 & RS24:0 & RS14:0 & 001 & RD4:0 &
+0111011\tabularnewline
+SRLW RD, RS1,RS2 & 0000000 & RS24:0 & RS14:0 & 101 & RD4:0 &
+0111011\tabularnewline
+SRAW RD, RS1,RS2 & 0100000 & RS24:0 & RS14:0 & 101 & RD4:0 &
+0111011\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{standard-extension-for-integer-multiply-and-divide}{%
+\subparagraph{0.3.1.2.2. Standard Extension for Integer Multiply and
+Divide}\label{standard-extension-for-integer-multiply-and-divide}}
+
+\textbf{RV32M : Standard Extension for Integer Multiply and Divide (32
+bit)}
+
+\begin{longtable}[]{@{}lcccccc@{}}
+\toprule
+RV32M & 31:25 & 24:20 & 19:15 & 14:12 & 11:7 & 6:0\tabularnewline
+\midrule
+\endhead
+MUL RD,RS1,RS2 & 0000001 & RS24:0 & RS14:0 & 000 & RD4:0 &
+0110011\tabularnewline
+MULH RD,RS1,RS2 & 0000001 & RS24:0 & RS14:0 & 001 & RD4:0 &
+0110011\tabularnewline
+MULHSU RD,RS1,RS2 & 0000001 & RS24:0 & RS14:0 & 010 & RD4:0 &
+0110011\tabularnewline
+MULHU RD,RS1,RS2 & 0000001 & RS24:0 & RS14:0 & 011 & RD4:0 &
+0110011\tabularnewline
+DIV RD,RS1,RS2 & 0000001 & RS24:0 & RS14:0 & 100 & RD4:0 &
+0110011\tabularnewline
+DIVU RD,RS1,RS2 & 0000001 & RS24:0 & RS14:0 & 101 & RD4:0 &
+0110011\tabularnewline
+REM RD,RS1,RS2 & 0000001 & RS24:0 & RS14:0 & 110 & RD4:0 &
+0110011\tabularnewline
+REMU RD,RS1,RS2 & 0000001 & RS24:0 & RS14:0 & 111 & RD4:0 &
+0110011\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{Standard Extension for Integer Multiply and Divide (64 bit)}
+
+\begin{longtable}[]{@{}lcccccc@{}}
+\toprule
+RV64M & 31:25 & 24:20 & 19:15 & 14:12 & 11:7 & 6:0\tabularnewline
+\midrule
+\endhead
+MULW RD,RS1,RS2 & 0000001 & RS24:0 & RS14:0 & 000 & RD4:0 &
+0111011\tabularnewline
+DIVW RD,RS1,RS2 & 0000001 & RS24:0 & RS14:0 & 100 & RD4:0 &
+0111011\tabularnewline
+DIVUW RD,RS1,RS2 & 0000001 & RS24:0 & RS14:0 & 101 & RD4:0 &
+0111011\tabularnewline
+REMW RD,RS1,RS2 & 0000001 & RS24:0 & RS14:0 & 110 & RD4:0 &
+0111011\tabularnewline
+REMUW RD,RS1,RS2 & 0000001 & RS24:0 & RS14:0 & 111 & RD4:0 &
+0111011\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{standard-extension-for-atomic-instructions}{%
+\subparagraph{0.3.1.2.3. Standard Extension for Atomic
+Instructions}\label{standard-extension-for-atomic-instructions}}
+
+\textbf{RV32A : Standard Extension for Atomic Instructions (32 bit)}
+
+\begin{longtable}[]{@{}lcccccc@{}}
+\toprule
+RV32A & 31:25 & 24:20 & 19:15 & 14:12 & 11:7 & 6:0\tabularnewline
+\midrule
+\endhead
+LR.W AQRL,RD,RS1 & 00010AQRL & 00000 & RS14:0 & 010 & RD4:0 &
+0101111\tabularnewline
+SC.W AQRL,RD,RS2,RS1 & 00011AQRL & RS24:0 & RS14:0 & 010 & RD4:0 &
+0101111\tabularnewline
+AMOSWAP.W AQRL,RD,RS2,RS1 & 00001AQRL & RS24:0 & RS14:0 & 010 & RD4:0 &
+0101111\tabularnewline
+AMOSADD.W AQRL,RD,RS2,RS1 & 00000AQRL & RS24:0 & RS14:0 & 010 & RD4:0 &
+0101111\tabularnewline
+AMOSXOR.W AQRL,RD,RS2,RS1 & 00100AQRL & RS24:0 & RS14:0 & 010 & RD4:0 &
+0101111\tabularnewline
+AMOOR.W AQRL,RD,RS2,RS1 & 01000AQRL & RS24:0 & RS14:0 & 010 & RD4:0 &
+0101111\tabularnewline
+AMOAMD.W AQRL,RD,RS2,RS1 & 01100AQRL & RS24:0 & RS14:0 & 010 & RD4:0 &
+0101111\tabularnewline
+AMOMIN.W AQRL,RD,RS2,RS1 & 10000AQRL & RS24:0 & RS14:0 & 010 & RD4:0 &
+0101111\tabularnewline
+AMOMAX.W AQRL,RD,RS2,RS1 & 10100AQRL & RS24:0 & RS14:0 & 010 & RD4:0 &
+0101111\tabularnewline
+AMOMINU.W AQRL,RD,RS2,RS1 & 11000AQRL & RS24:0 & RS14:0 & 010 & RD4:0 &
+0101111\tabularnewline
+AMOMAXU.W AQRL,RD,RS2,RS1 & 11100AQRL & RS24:0 & RS14:0 & 010 & RD4:0 &
+0101111\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{RV64A : Standard Extension for Atomic Instructions (64 bit)}
+
+\begin{longtable}[]{@{}lcccccc@{}}
+\toprule
+RV64A & 31:25 & 24:20 & 19:15 & 14:12 & 11:7 & 6:0\tabularnewline
+\midrule
+\endhead
+LR.D AQRL,RD,RS1 & 00010AQRL & 00000 & RS14:0 & 011 & RD4:0 &
+0101111\tabularnewline
+SC.D AQRL,RD,RS2,RS1 & 00011AQRL & RS24:0 & RS14:0 & 011 & RD4:0 &
+0101111\tabularnewline
+AMOSWAP.D AQRL,RD,RS2,RS1 & 00001AQRL & RS24:0 & RS14:0 & 011 & RD4:0 &
+0101111\tabularnewline
+AMOSADD.D AQRL,RD,RS2,RS1 & 00000AQRL & RS24:0 & RS14:0 & 011 & RD4:0 &
+0101111\tabularnewline
+AMOSXOR.D AQRL,RD,RS2,RS1 & 00100AQRL & RS24:0 & RS14:0 & 011 & RD4:0 &
+0101111\tabularnewline
+AMOOR.D AQRL,RD,RS2,RS1 & 01000AQRL & RS24:0 & RS14:0 & 011 & RD4:0 &
+0101111\tabularnewline
+AMOAMD.D AQRL,RD,RS2,RS1 & 01100AQRL & RS24:0 & RS14:0 & 011 & RD4:0 &
+0101111\tabularnewline
+AMOMIN.D AQRL,RD,RS2,RS1 & 10000AQRL & RS24:0 & RS14:0 & 011 & RD4:0 &
+0101111\tabularnewline
+AMOMAX.D AQRL,RD,RS2,RS1 & 10100AQRL & RS24:0 & RS14:0 & 011 & RD4:0 &
+0101111\tabularnewline
+AMOMINU.D AQRL,RD,RS2,RS1 & 11000AQRL & RS24:0 & RS14:0 & 011 & RD4:0 &
+0101111\tabularnewline
+AMOMAXU.D AQRL,RD,RS2,RS1 & 11100AQRL & RS24:0 & RS14:0 & 011 & RD4:0 &
+0101111\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{standard-extension-for-single-precision-floating-point}{%
+\subparagraph{0.3.1.2.4. Standard Extension for Single-Precision
+Floating-Point}\label{standard-extension-for-single-precision-floating-point}}
+
+\textbf{RV32F : Standard Extension for Single-Precision Floating-Point
+(32 bit)}
+
+\begin{longtable}[]{@{}lcccccc@{}}
+\toprule
+RV32F & 31:25 & 24:20 & 19:15 & 14:12 & 11:7 & 6:0\tabularnewline
+\midrule
+\endhead
+FLW FRD,RS1 & IIIIIII & IIIII & FRS1 & 010 & FRD &
+0000111\tabularnewline
+FSW FRS2,RS1 & IIIIIII & FRS2 & FRS1 & 010 & IIIII &
+0100111\tabularnewline
+FMADD.S RM,FRD,FRS1,FRS2,FRS3 & FRS3\_00 & FRS2 & FRS1 & RM & FRD &
+1000011\tabularnewline
+FMSUB.S RM,FRD,FRS1,FRS2,FRS3 & FRS3\_00 & FRS2 & FRS1 & RM & FRD &
+1000111\tabularnewline
+FNMSUB.S RM,FRD,FRS1,FRS2,FRS3 & FRS3\_00 & FRS2 & FRS1 & RM & FRD &
+1001011\tabularnewline
+FNMADD.S RM,FRD,FRS1,FRS2,FRS3 & FRS3\_00 & FRS2 & FRS1 & RM & FRD &
+1001111\tabularnewline
+FADD.S RM,FRD,FRS1,FRS2,FRS3 & 0000000 & FRS2 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FSUB.S RM,FRD,FRS1,FRS2,FRS3 & 0000100 & FRS2 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FMUL.S RM,FRD,FRS1,FRS2,FRS3 & 0001000 & FRS2 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FDIV.S RM,FRD,FRS1,FRS2,FRS3 & 0001100 & FRS2 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FSGNJ.S FRD,FRS1,FRS2 & 0010000 & FRS2 & FRS1 & 000 & FRD &
+1010011\tabularnewline
+FSGNJN.S FRD,FRS1,FRS2 & 0010000 & FRS2 & FRS1 & 001 & FRD &
+1010011\tabularnewline
+FSGNJX.S FRD,FRS1,FRS2 & 0010000 & FRS2 & FRS1 & 010 & FRD &
+1010011\tabularnewline
+FMIN.S FRD,FRS1,FRS2 & 0010100 & FRS2 & FRS1 & 000 & FRD &
+1010011\tabularnewline
+FMAX.S FRD,FRS1,FRS2 & 0010100 & FRS2 & FRS1 & 001 & FRD &
+1010011\tabularnewline
+FSQRT.S FRD,FRS1,FRS2 & 0101100 & 00000 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FLE.S FRD,FRS1,FRS2 & 1010000 & FRS2 & FRS1 & 000 & FRD &
+1010011\tabularnewline
+FLT.S FRD,FRS1,FRS2 & 1010000 & FRS2 & FRS1 & 001 & FRD &
+1010011\tabularnewline
+FEQ.S FRD,FRS1,FRS2 & 1010000 & FRS2 & FRS1 & 010 & FRD &
+1010011\tabularnewline
+FCVT.W.S RM,RD,FRS1 & 1100000 & 00000 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FCVT.WU.S RM,RD,FRS1 & 1100000 & 00010 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FCVT.S.W RM,RD,FRS1 & 1101000 & 00000 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FCVT.S.WU RM,RD,FRS1 & 1101000 & 00010 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FMV.X.S RD,FRS1 & 1110000 & 00000 & FRS1 & 000 & RD &
+1010011\tabularnewline
+FCLASS.S RD,FRS1 & 1110000 & 00000 & FRS1 & 001 & RD &
+1010011\tabularnewline
+FMV.S.X RD,FRS1 & 1111000 & 00000 & RS1 & 000 & FRD &
+1010011\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{RV64F : Standard Extension for Single-Precision Floating-Point
+(64 bit)}
+
+\begin{longtable}[]{@{}lcccccc@{}}
+\toprule
+RV64F & 31:25 & 24:20 & 19:15 & 14:12 & 11:7 & 6:0\tabularnewline
+\midrule
+\endhead
+FCVT.L.S RM,RD,FRS1 & 1100000 & 00010 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FCVT.LU.S RM,RD,FRS1 & 1100000 & 00011 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FCVT.S.L RM,RD,FRS1 & 1101000 & 00010 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FCVT.S.LU RM,RD,FRS1 & 1101000 & 00011 & FRS1 & RM & FRD &
+1010011\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{standard-extension-for-double-precision-floating-point}{%
+\subparagraph{0.3.1.2.5. Standard Extension for Double-Precision
+Floating-Point}\label{standard-extension-for-double-precision-floating-point}}
+
+\textbf{RV32D : Standard Extension for Double-Precision Floating-Point
+(32 bit)}
+
+\begin{longtable}[]{@{}lcccccc@{}}
+\toprule
+RV32F & 31:25 & 24:20 & 19:15 & 14:12 & 11:7 & 6:0\tabularnewline
+\midrule
+\endhead
+FLW FRD,RS1 & IIIIIII & IIIII & FRS1 & 011 & FRD &
+0000111\tabularnewline
+FSW FRS2,RS1 & IIIIIII & FRS2 & FRS1 & 011 & IIIII &
+0100111\tabularnewline
+FMADD.D RM,FRD,FRS1,FRS2,FRS3 & FRS3\_01 & FRS2 & FRS1 & RM & FRD &
+1000011\tabularnewline
+FMSUB.D RM,FRD,FRS1,FRS2,FRS3 & FRS3\_01 & FRS2 & FRS1 & RM & FRD &
+1000111\tabularnewline
+FNMSUB.D RM,FRD,FRS1,FRS2,FRS3 & FRS3\_01 & FRS2 & FRS1 & RM & FRD &
+1001011\tabularnewline
+FNMADD.D RM,FRD,FRS1,FRS2,FRS3 & FRS3\_01 & FRS2 & FRS1 & RM & FRD &
+1001111\tabularnewline
+FADD.D RM,FRD,FRS1,FRS2,FRS3 & 0000001 & FRS2 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FSUB.D RM,FRD,FRS1,FRS2,FRS3 & 0000101 & FRS2 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FMUL.D RM,FRD,FRS1,FRS2,FRS3 & 0001001 & FRS2 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FDIV.D RM,FRD,FRS1,FRS2,FRS3 & 0001101 & FRS2 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FSGNJ.D FRD,FRS1,FRS2 & 0010001 & FRS2 & FRS1 & 000 & FRD &
+1010011\tabularnewline
+FSGNJN.D FRD,FRS1,FRS2 & 0010001 & FRS2 & FRS1 & 001 & FRD &
+1010011\tabularnewline
+FSGNJX.D FRD,FRS1,FRS2 & 0010001 & FRS2 & FRS1 & 010 & FRD &
+1010011\tabularnewline
+FMIN.D FRD,FRS1,FRS2 & 0010101 & FRS2 & FRS1 & 000 & FRD &
+1010011\tabularnewline
+FMAX.D FRD,FRS1,FRS2 & 0010101 & FRS2 & FRS1 & 001 & FRD &
+1010011\tabularnewline
+FSQRT.D FRD,FRS1,FRS2 & 0101101 & 00000 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FLE.D FRD,FRS1,FRS2 & 1010001 & FRS2 & FRS1 & 000 & FRD &
+1010011\tabularnewline
+FLT.D FRD,FRS1,FRS2 & 1010001 & FRS2 & FRS1 & 001 & FRD &
+1010011\tabularnewline
+FEQ.D FRD,FRS1,FRS2 & 1010001 & FRS2 & FRS1 & 010 & FRD &
+1010011\tabularnewline
+FCVT.W.D RM,RD,FRS1 & 1100001 & 00000 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FCVT.WU.D RM,RD,FRS1 & 1100001 & 00010 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FCVT.D.W RM,RD,FRS1 & 1101001 & 00000 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FCVT.D.WU RM,RD,FRS1 & 1101001 & 00010 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FCLASS.D RD,FRS1 & 1110001 & 00000 & FRS1 & 001 & RD &
+1010011\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{RV64D : Standard Extension for Double-Precision Floating-Point
+(64 bit)}
+
+\begin{longtable}[]{@{}lcccccc@{}}
+\toprule
+RV64D & 31:25 & 24:20 & 19:15 & 14:12 & 11:7 & 6:0\tabularnewline
+\midrule
+\endhead
+FCVT.L.D RM,RD,FRS1 & 1100001 & 00010 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FCVT.LU.D RM,RD,FRS1 & 1100001 & 00011 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FCVT.D.L RM,RD,FRS1 & 1101001 & 00010 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FCVT.D.LU RM,RD,FRS1 & 1101001 & 00011 & FRS1 & RM & FRD &
+1010011\tabularnewline
+FMV.X.D RD,FRS1 & 1110001 & 00000 & FRS1 & 000 & RD &
+1010011\tabularnewline
+FMV.D.X RD,FRS1 & 1111001 & 00000 & RS1 & 000 & FRD &
+1010011\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{isa-modes}{%
+\paragraph{0.3.1.3. ISA Modes}\label{isa-modes}}
+
+\hypertarget{risc-v-user}{%
+\subparagraph{0.3.1.3.1. RISC-V User}\label{risc-v-user}}
+
+\hypertarget{risc-v-supervisor}{%
+\subparagraph{0.3.1.3.2. RISC-V Supervisor}\label{risc-v-supervisor}}
+
+\hypertarget{risc-v-hypervisor}{%
+\subparagraph{0.3.1.3.3. RISC-V Hypervisor}\label{risc-v-hypervisor}}
+
+\hypertarget{risc-v-machine}{%
+\subparagraph{0.3.1.3.4. RISC-V Machine}\label{risc-v-machine}}
+
+\hypertarget{openrisc-isa}{%
+\subsubsection{0.3.2. OpenRISC ISA}\label{openrisc-isa}}
+
+\hypertarget{isa-bases-1}{%
+\paragraph{0.3.2.1. ISA Bases}\label{isa-bases-1}}
+
+\hypertarget{openrisc-32}{%
+\subparagraph{0.3.2.2.1. OpenRISC 32}\label{openrisc-32}}
+
+\hypertarget{openrisc-64}{%
+\subparagraph{0.3.2.2.2. OpenRISC 64}\label{openrisc-64}}
+
+\hypertarget{openrisc-128}{%
+\subparagraph{0.3.2.2.3. OpenRISC 128}\label{openrisc-128}}
+
+\hypertarget{isa-extensions-1}{%
+\paragraph{0.3.2.2. ISA Extensions}\label{isa-extensions-1}}
+
+\hypertarget{isa-modes-1}{%
+\paragraph{0.3.2.3. ISA Modes}\label{isa-modes-1}}
+
+\hypertarget{openrisc-user}{%
+\subparagraph{0.3.2.3.1. OpenRISC User}\label{openrisc-user}}
+
+\hypertarget{openrisc-supervisor}{%
+\subparagraph{0.3.2.3.2. OpenRISC
+Supervisor}\label{openrisc-supervisor}}
+
+\hypertarget{openrisc-hypervisor}{%
+\subparagraph{0.3.2.3.3. OpenRISC
+Hypervisor}\label{openrisc-hypervisor}}
+
+\hypertarget{openrisc-machine}{%
+\subparagraph{0.3.2.3.4. OpenRISC Machine}\label{openrisc-machine}}
+
+\hypertarget{msp430-isa}{%
+\subsubsection{0.3.3. MSP430 ISA}\label{msp430-isa}}
+
+\hypertarget{isa-bases-2}{%
+\paragraph{0.3.3.1. ISA Bases}\label{isa-bases-2}}
+
+\hypertarget{msp430-32}{%
+\subparagraph{0.3.3.2.1. MSP430 32}\label{msp430-32}}
+
+\hypertarget{msp430-64}{%
+\subparagraph{0.3.3.2.2. MSP430 64}\label{msp430-64}}
+
+\hypertarget{msp430-128}{%
+\subparagraph{0.3.3.2.3. MSP430 128}\label{msp430-128}}
+
+\hypertarget{isa-extensions-2}{%
+\paragraph{0.3.3.2. ISA Extensions}\label{isa-extensions-2}}
+
+\hypertarget{isa-modes-2}{%
+\paragraph{0.3.3.3. ISA Modes}\label{isa-modes-2}}
+
+\hypertarget{msp430-user}{%
+\subparagraph{0.3.3.3.1. MSP430 User}\label{msp430-user}}
+
+\hypertarget{msp430-supervisor}{%
+\subparagraph{0.3.3.3.2. MSP430 Supervisor}\label{msp430-supervisor}}
+
+\hypertarget{msp430-hypervisor}{%
+\subparagraph{0.3.3.3.3. MSP430 Hypervisor}\label{msp430-hypervisor}}
+
+\hypertarget{msp430-machine}{%
+\subparagraph{0.3.3.3.4. MSP430 Machine}\label{msp430-machine}}
+
+\hypertarget{methodology}{%
+\section{1. METHODOLOGY}\label{methodology}}
+
+\begin{figure}
+\centering
+\includegraphics{../doc/project.svg}
+\caption{Project Workflow}
+\end{figure}
+
+\hypertarget{requirements}{%
+\subsection{1.1. Requirements}\label{requirements}}
+
+\begin{figure}
+\centering
+\includegraphics{../requirements/uml_diagrams_overview.svg}
+\caption{UML Diagrams Overview}
+\end{figure}
+
+\hypertarget{structural-uml-diagrams}{%
+\subsubsection{1.1.1. Structural UML
+diagrams}\label{structural-uml-diagrams}}
+
+\hypertarget{class-diagram}{%
+\paragraph{1.1.1.1. Class diagram}\label{class-diagram}}
+
+\hypertarget{component-diagram}{%
+\paragraph{1.1.1.2. Component diagram}\label{component-diagram}}
+
+\hypertarget{composite-diagram}{%
+\paragraph{1.1.1.3. Composite diagram}\label{composite-diagram}}
+
+\hypertarget{deployment-diagram}{%
+\paragraph{1.1.1.4. Deployment diagram}\label{deployment-diagram}}
+
+\hypertarget{object-diagram}{%
+\paragraph{1.1.1.5. Object diagram}\label{object-diagram}}
+
+\hypertarget{package-diagram}{%
+\paragraph{1.1.1.6. Package diagram}\label{package-diagram}}
+
+\hypertarget{profile-diagram}{%
+\paragraph{1.1.1.7. Profile diagram}\label{profile-diagram}}
+
+\hypertarget{behavioral-uml-diagrams}{%
+\subsubsection{1.1.2. Behavioral UML
+diagrams}\label{behavioral-uml-diagrams}}
+
+\hypertarget{activity-diagram}{%
+\paragraph{1.1.2.1. Activity diagram}\label{activity-diagram}}
+
+\hypertarget{communication-diagram}{%
+\paragraph{1.1.2.2. Communication diagram}\label{communication-diagram}}
+
+\hypertarget{interaction-diagram}{%
+\paragraph{1.1.2.3. Interaction diagram}\label{interaction-diagram}}
+
+\hypertarget{sequence-diagram}{%
+\paragraph{1.1.2.4. Sequence diagram}\label{sequence-diagram}}
+
+\hypertarget{state-diagram}{%
+\paragraph{1.1.2.5. State diagram}\label{state-diagram}}
+
+\hypertarget{timing-diagram}{%
+\paragraph{1.1.2.6. Timing diagram}\label{timing-diagram}}
+
+\hypertarget{use-diagram}{%
+\paragraph{1.1.2.7. Use diagram}\label{use-diagram}}
+
+\hypertarget{source}{%
+\subsection{1.2. Source}\label{source}}
+
+\hypertarget{ada-language}{%
+\subsubsection{1.2.1. Ada Language}\label{ada-language}}
+
+\hypertarget{c-language}{%
+\subsubsection{1.2.2. C Language}\label{c-language}}
+
+\hypertarget{model}{%
+\subsection{1.3. Model}\label{model}}
+
+\hypertarget{vhdl}{%
+\subsubsection{1.3.1. VHDL}\label{vhdl}}
+
+\hypertarget{verilog}{%
+\subsubsection{1.3.2. Verilog}\label{verilog}}
+
+\hypertarget{validation}{%
+\subsection{1.5. Validation}\label{validation}}
+
+\hypertarget{vhdl-1}{%
+\subsubsection{1.5.1. VHDL}\label{vhdl-1}}
+
+\hypertarget{verilog-1}{%
+\subsubsection{1.5.2. Verilog}\label{verilog-1}}
+
+\hypertarget{design}{%
+\subsection{1.5. Design}\label{design}}
+
+\hypertarget{vhdl-2}{%
+\subsubsection{1.5.1. VHDL}\label{vhdl-2}}
+
+\hypertarget{verilog-2}{%
+\subsubsection{1.5.2. Verilog}\label{verilog-2}}
+
+\hypertarget{verification}{%
+\subsection{1.6. Verification}\label{verification}}
+
+\hypertarget{osvvm-vhdl}{%
+\subsubsection{1.6.1. OSVVM-VHDL}\label{osvvm-vhdl}}
+
+\hypertarget{osvvm-checker}{%
+\paragraph{1.6.1.1. OSVVM Checker}\label{osvvm-checker}}
+
+\hypertarget{osvvm-stimulus}{%
+\paragraph{1.6.1.2. OSVVM Stimulus}\label{osvvm-stimulus}}
+
+\hypertarget{osvvm-testbench}{%
+\paragraph{1.6.1.3. OSVVM Testbench}\label{osvvm-testbench}}
+
+\hypertarget{uvm-verilog}{%
+\subsubsection{1.6.2. UVM-Verilog}\label{uvm-verilog}}
+
+\begin{figure}
+\centering
+\includegraphics{../mpsoc/uvm-testbench.png}
+\caption{UVM Diagram Overview}
+\end{figure}
+
+\hypertarget{uvm-agent}{%
+\paragraph{1.6.2.1. UVM Agent}\label{uvm-agent}}
+
+\hypertarget{uvm-driver}{%
+\paragraph{1.6.2.2. UVM Driver}\label{uvm-driver}}
+
+\hypertarget{uvm-enviroment}{%
+\paragraph{1.6.2.3. UVM Enviroment}\label{uvm-enviroment}}
+
+\hypertarget{uvm-monitor}{%
+\paragraph{1.6.2.4. UVM Monitor}\label{uvm-monitor}}
+
+\hypertarget{uvm-scoreboard}{%
+\paragraph{1.6.2.5. UVM Scoreboard}\label{uvm-scoreboard}}
+
+\hypertarget{uvm-sequence}{%
+\paragraph{1.6.2.6. UVM Sequence}\label{uvm-sequence}}
+
+\hypertarget{uvm-sequencer}{%
+\paragraph{1.6.2.7. UVM Sequencer}\label{uvm-sequencer}}
+
+\hypertarget{uvm-subscriber}{%
+\paragraph{1.6.2.8. UVM Subscriber}\label{uvm-subscriber}}
+
+\hypertarget{uvm-test}{%
+\paragraph{1.6.2.9. UVM Test}\label{uvm-test}}
+
+\hypertarget{uvm-testbench}{%
+\paragraph{1.6.2.10. UVM Testbench}\label{uvm-testbench}}
+
+\hypertarget{uvm-transaction}{%
+\paragraph{1.6.2.11. UVM Transaction}\label{uvm-transaction}}
+
+\hypertarget{projects}{%
+\section{2. PROJECTS}\label{projects}}
+
+\hypertarget{interface}{%
+\subsection{2.1. INTERFACE}\label{interface}}
+
+\hypertarget{instruction-cache}{%
+\subsubsection{2.1.1. INSTRUCTION CACHE}\label{instruction-cache}}
+
+\hypertarget{instruction-inputsoutputs-amba4-axi-lite-bus}{%
+\paragraph{2.1.1.1 Instruction INPUTS/OUTPUTS AMBA4 AXI-Lite
+Bus}\label{instruction-inputsoutputs-amba4-axi-lite-bus}}
+
+\hypertarget{signals-of-the-read-and-write-address-channels}{%
+\subparagraph{2.1.1.1.1. Signals of the Read and Write Address
+channels}\label{signals-of-the-read-and-write-address-channels}}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+Write Port & Read Port & Size & Direction & Description\tabularnewline
+\midrule
+\endhead
+\texttt{AWID} & \texttt{ARID} & \texttt{AXI\_ID\_WIDTH} & Output &
+Address ID, to identify multiple streams\tabularnewline
+\texttt{AWADDR} & \texttt{ARADDR} & \texttt{AXI\_ADDR\_WIDTH} & Output &
+Address of the first beat of the burst\tabularnewline
+\texttt{AWLEN} & \texttt{ARLEN} & 8 & Output & Number of beats inside
+the burst\tabularnewline
+\texttt{AWSIZE} & \texttt{ARSIZE} & 3 & Output & Size of each
+beat\tabularnewline
+\texttt{AWBURST} & \texttt{ARBURST} & 2 & Output & Type of the
+burst\tabularnewline
+\texttt{AWLOCK} & \texttt{ARLOCK} & 1 & Output & Lock type, to provide
+atomic operations\tabularnewline
+\texttt{AWCACHE} & \texttt{ARCACHE} & 4 & Output & Memory type, progress
+through the system\tabularnewline
+\texttt{AWPROT} & \texttt{ARPROT} & 3 & Output & Protection
+type\tabularnewline
+\texttt{AWQOS} & \texttt{ARQOS} & 4 & Output & Quality of Service of the
+transaction\tabularnewline
+\texttt{AWREGION} & \texttt{ARREGION} & 4 & Output & Region identifier,
+physical to logical\tabularnewline
+\texttt{AWUSER} & \texttt{ARUSER} & \texttt{AXI\_USER\_WIDTH} & Output &
+User-defined data\tabularnewline
+\texttt{AWVALID} & \texttt{ARVALID} & 1 & Output & xVALID handshake
+signal\tabularnewline
+\texttt{AWREADY} & \texttt{ARREADY} & 1 & Input & xREADY handshake
+signal\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{signals-of-the-read-and-write-data-channels}{%
+\subparagraph{2.1.1.1.2. Signals of the Read and Write Data
+channels}\label{signals-of-the-read-and-write-data-channels}}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+Write Port & Read Port & Size & Direction & Description\tabularnewline
+\midrule
+\endhead
+\texttt{WID} & \texttt{RID} & \texttt{AXI\_ID\_WIDTH} & Output & Data
+ID, to identify multiple streams\tabularnewline
+\texttt{WDATA} & \texttt{RDATA} & \texttt{AXI\_DATA\_WIDTH} & Output &
+Read/Write data\tabularnewline
+\texttt{-\/-} & \texttt{RRESP} & 2 & Output & Read response, current
+RDATA status\tabularnewline
+\texttt{WSTRB} & \texttt{-\/-} & \texttt{AXI\_STRB\_WIDTH} & Output &
+Byte strobe, WDATA signal\tabularnewline
+\texttt{WLAST} & \texttt{RLAST} & 1 & Output & Last beat
+identifier\tabularnewline
+\texttt{WUSER} & \texttt{RUSER} & \texttt{AXI\_USER\_WIDTH} & Output &
+User-defined data\tabularnewline
+\texttt{WVALID} & \texttt{RVALID} & 1 & Output & xVALID handshake
+signal\tabularnewline
+\texttt{WREADY} & \texttt{RREADY} & 1 & Input & xREADY handshake
+signal\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{signals-of-the-write-response-channel}{%
+\subparagraph{2.1.1.1.3. Signals of the Write Response
+channel}\label{signals-of-the-write-response-channel}}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Write Port & Size & Direction & Description\tabularnewline
+\midrule
+\endhead
+\texttt{BID} & \texttt{AXI\_ID\_WIDTH} & Input & Write response ID, to
+identify multiple streams\tabularnewline
+\texttt{BRESP} & 2 & Input & Write response, to specify the burst
+status\tabularnewline
+\texttt{BUSER} & \texttt{AXI\_USER\_WIDTH} & Input & User-defined
+data\tabularnewline
+\texttt{BVALID} & 1 & Input & xVALID handshake signal\tabularnewline
+\texttt{BREADY} & 1 & Output & xREADY handshake signal\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{instruction-inputsoutputs-amba3-ahb-lite-bus}{%
+\paragraph{2.1.1.2. Instruction INPUTS/OUTPUTS AMBA3 AHB-Lite
+Bus}\label{instruction-inputsoutputs-amba3-ahb-lite-bus}}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Port & Size & Direction & Description\tabularnewline
+\midrule
+\endhead
+\texttt{HRESETn} & 1 & Input & Asynchronous Active Low
+Reset\tabularnewline
+\texttt{HCLK} & 1 & Input & System Clock Input\tabularnewline
+& & &\tabularnewline
+\texttt{IHSEL} & 1 & Output & Instruction Bus Select\tabularnewline
+\texttt{IHADDR} & \texttt{PLEN} & Output & Instruction Address
+Bus\tabularnewline
+\texttt{IHRDATA} & \texttt{XLEN} & Input & Instruction Read Data
+Bus\tabularnewline
+\texttt{IHWDATA} & \texttt{XLEN} & Output & Instruction Write Data
+Bus\tabularnewline
+\texttt{IHWRITE} & 1 & Output & Instruction Write Select\tabularnewline
+\texttt{IHSIZE} & 3 & Output & Instruction Transfer Size\tabularnewline
+\texttt{IHBURST} & 3 & Output & Instruction Transfer Burst
+Size\tabularnewline
+\texttt{IHPROT} & 4 & Output & Instruction Transfer Protection
+Level\tabularnewline
+\texttt{IHTRANS} & 2 & Output & Instruction Transfer Type\tabularnewline
+\texttt{IHMASTLOCK} & 1 & Output & Instruction Transfer Master
+Lock\tabularnewline
+\texttt{IHREADY} & 1 & Input & Instruction Slave Ready
+Indicator\tabularnewline
+\texttt{IHRESP} & 1 & Input & Instruction Transfer
+Response\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{instruction-inputsoutputs-wishbone-bus}{%
+\paragraph{2.1.1.3. Instruction INPUTS/OUTPUTS Wishbone
+Bus}\label{instruction-inputsoutputs-wishbone-bus}}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Port & Size & Direction & Description\tabularnewline
+\midrule
+\endhead
+\texttt{rst} & 1 & Input & Synchronous Active High Reset\tabularnewline
+\texttt{clk} & 1 & Input & System Clock Input\tabularnewline
+& & &\tabularnewline
+\texttt{iadr} & \texttt{AW} & Input & Instruction Address
+Bus\tabularnewline
+\texttt{idati} & \texttt{DW} & Input & Instruction Input
+Bus\tabularnewline
+\texttt{idato} & \texttt{DW} & Output & Instruction Output
+Bus\tabularnewline
+\texttt{isel} & \texttt{DW/8} & Input & Byte Select
+Signals\tabularnewline
+\texttt{iwe} & 1 & Input & Write Enable Input\tabularnewline
+\texttt{istb} & 1 & Input & Strobe Signal/Core Select
+Input\tabularnewline
+\texttt{icyc} & 1 & Input & Valid Bus Cycle Input\tabularnewline
+\texttt{iack} & 1 & Output & Bus Cycle Acknowledge Output\tabularnewline
+\texttt{ierr} & 1 & Output & Bus Cycle Error Output\tabularnewline
+\texttt{iint} & 1 & Output & Interrupt Signal Output\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{data-cache}{%
+\subsubsection{2.1.2. DATA CACHE}\label{data-cache}}
+
+\hypertarget{data-inputsoutputs-amba4-axi-lite-bus}{%
+\paragraph{2.1.2.1. Data INPUTS/OUTPUTS AMBA4 AXI-Lite
+Bus}\label{data-inputsoutputs-amba4-axi-lite-bus}}
+
+\hypertarget{signals-of-the-read-and-write-address-channels-1}{%
+\subparagraph{2.1.2.1.1. Signals of the Read and Write Address
+channels}\label{signals-of-the-read-and-write-address-channels-1}}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+Write Port & Read Port & Size & Direction & Description\tabularnewline
+\midrule
+\endhead
+\texttt{AWID} & \texttt{ARID} & \texttt{AXI\_ID\_WIDTH} & Output &
+Address ID, to identify multiple streams\tabularnewline
+\texttt{AWADDR} & \texttt{ARADDR} & \texttt{AXI\_ADDR\_WIDTH} & Output &
+Address of the first beat of the burst\tabularnewline
+\texttt{AWLEN} & \texttt{ARLEN} & 8 & Output & Number of beats inside
+the burst\tabularnewline
+\texttt{AWSIZE} & \texttt{ARSIZE} & 3 & Output & Size of each
+beat\tabularnewline
+\texttt{AWBURST} & \texttt{ARBURST} & 2 & Output & Type of the
+burst\tabularnewline
+\texttt{AWLOCK} & \texttt{ARLOCK} & 1 & Output & Lock type, to provide
+atomic operations\tabularnewline
+\texttt{AWCACHE} & \texttt{ARCACHE} & 4 & Output & Memory type, progress
+through the system\tabularnewline
+\texttt{AWPROT} & \texttt{ARPROT} & 3 & Output & Protection
+type\tabularnewline
+\texttt{AWQOS} & \texttt{ARQOS} & 4 & Output & Quality of Service of the
+transaction\tabularnewline
+\texttt{AWREGION} & \texttt{ARREGION} & 4 & Output & Region identifier,
+physical to logical\tabularnewline
+\texttt{AWUSER} & \texttt{ARUSER} & \texttt{AXI\_USER\_WIDTH} & Output &
+User-defined data\tabularnewline
+\texttt{AWVALID} & \texttt{ARVALID} & 1 & Output & xVALID handshake
+signal\tabularnewline
+\texttt{AWREADY} & \texttt{ARREADY} & 1 & Input & xREADY handshake
+signal\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{signals-of-the-read-and-write-data-channels-1}{%
+\subparagraph{2.1.2.1.2. Signals of the Read and Write Data
+channels}\label{signals-of-the-read-and-write-data-channels-1}}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+Write Port & Read Port & Size & Direction & Description\tabularnewline
+\midrule
+\endhead
+\texttt{WID} & \texttt{RID} & \texttt{AXI\_ID\_WIDTH} & Output & Data
+ID, to identify multiple streams\tabularnewline
+\texttt{WDATA} & \texttt{RDATA} & \texttt{AXI\_DATA\_WIDTH} & Output &
+Read/Write data\tabularnewline
+\texttt{-\/-} & \texttt{RRESP} & 2 & Output & Read response, current
+RDATA status\tabularnewline
+\texttt{WSTRB} & \texttt{-\/-} & \texttt{AXI\_STRB\_WIDTH} & Output &
+Byte strobe, WDATA signal\tabularnewline
+\texttt{WLAST} & \texttt{RLAST} & 1 & Output & Last beat
+identifier\tabularnewline
+\texttt{WUSER} & \texttt{RUSER} & \texttt{AXI\_USER\_WIDTH} & Output &
+User-defined data\tabularnewline
+\texttt{WVALID} & \texttt{RVALID} & 1 & Output & xVALID handshake
+signal\tabularnewline
+\texttt{WREADY} & \texttt{RREADY} & 1 & Input & xREADY handshake
+signal\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{signals-of-the-write-response-channel-1}{%
+\subparagraph{2.1.2.1.3. Signals of the Write Response
+channel}\label{signals-of-the-write-response-channel-1}}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Write Port & Size & Direction & Description\tabularnewline
+\midrule
+\endhead
+\texttt{BID} & \texttt{AXI\_ID\_WIDTH} & Input & Write response ID, to
+identify multiple streams\tabularnewline
+\texttt{BRESP} & 2 & Input & Write response, to specify the burst
+status\tabularnewline
+\texttt{BUSER} & \texttt{AXI\_USER\_WIDTH} & Input & User-defined
+data\tabularnewline
+\texttt{BVALID} & 1 & Input & xVALID handshake signal\tabularnewline
+\texttt{BREADY} & 1 & Output & xREADY handshake signal\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{data-inputsoutputs-amba3-ahb-lite-bus}{%
+\paragraph{2.1.2.2. Data INPUTS/OUTPUTS AMBA3 AHB-Lite
+Bus}\label{data-inputsoutputs-amba3-ahb-lite-bus}}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Port & Size & Direction & Description\tabularnewline
+\midrule
+\endhead
+\texttt{HRESETn} & 1 & Input & Asynchronous Active Low
+Reset\tabularnewline
+\texttt{HCLK} & 1 & Input & System Clock Input\tabularnewline
+& & &\tabularnewline
+\texttt{DHSEL} & 1 & Output & Data Bus Select\tabularnewline
+\texttt{DHADDR} & \texttt{PLEN} & Output & Data Address
+Bus\tabularnewline
+\texttt{DHRDATA} & \texttt{XLEN} & Input & Data Read Data
+Bus\tabularnewline
+\texttt{DHWDATA} & \texttt{XLEN} & Output & Data Write Data
+Bus\tabularnewline
+\texttt{DHWRITE} & 1 & Output & Data Write Select\tabularnewline
+\texttt{DHSIZE} & 3 & Output & Data Transfer Size\tabularnewline
+\texttt{DHBURST} & 3 & Output & Data Transfer Burst Size\tabularnewline
+\texttt{DHPROT} & 4 & Output & Data Transfer Protection
+Level\tabularnewline
+\texttt{DHTRANS} & 2 & Output & Data Transfer Type\tabularnewline
+\texttt{DHMASTLOCK} & 1 & Output & Data Transfer Master
+Lock\tabularnewline
+\texttt{DHREADY} & 1 & Input & Data Slave Ready Indicator\tabularnewline
+\texttt{DHRESP} & 1 & Input & Data Transfer Response\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{data-inputsoutputs-wishbone-bus}{%
+\paragraph{2.1.2.3. Data INPUTS/OUTPUTS Wishbone
+Bus}\label{data-inputsoutputs-wishbone-bus}}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Port & Size & Direction & Description\tabularnewline
+\midrule
+\endhead
+\texttt{rst} & 1 & Input & Synchronous Active High Reset\tabularnewline
+\texttt{clk} & 1 & Input & System Clock Input\tabularnewline
+& & &\tabularnewline
+\texttt{dadr} & \texttt{AW} & Input & Data Address Bus\tabularnewline
+\texttt{ddati} & \texttt{DW} & Input & Data Input Bus\tabularnewline
+\texttt{ddato} & \texttt{DW} & Output & Data Output Bus\tabularnewline
+\texttt{dsel} & \texttt{DW/8} & Input & Byte Select
+Signals\tabularnewline
+\texttt{dwe} & 1 & Input & Write Enable Input\tabularnewline
+\texttt{dstb} & 1 & Input & Strobe Signal/Core Select
+Input\tabularnewline
+\texttt{dcyc} & 1 & Input & Valid Bus Cycle Input\tabularnewline
+\texttt{dack} & 1 & Output & Bus Cycle Acknowledge Output\tabularnewline
+\texttt{derr} & 1 & Output & Bus Cycle Error Output\tabularnewline
+\texttt{dint} & 1 & Output & Interrupt Signal Output\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{functionality}{%
+\subsection{2.2. FUNCTIONALITY}\label{functionality}}
+
+\hypertarget{structure}{%
+\subsubsection{2.2.1. Structure}\label{structure}}
+
+\hypertarget{behavior}{%
+\subsubsection{2.2.2. Behavior}\label{behavior}}
+
+\hypertarget{registers}{%
+\subsection{2.3. REGISTERS}\label{registers}}
+
+\hypertarget{interruptions}{%
+\subsection{2.4. INTERRUPTIONS}\label{interruptions}}
+
+\hypertarget{organization}{%
+\section{3. ORGANIZATION}\label{organization}}
+
+\hypertarget{mechanics}{%
+\subsection{3.1. Mechanics}\label{mechanics}}
+
+\hypertarget{information}{%
+\subsection{3.2. Information}\label{information}}
+
+\hypertarget{bit}{%
+\subsubsection{3.2.1. Bit}\label{bit}}
+
+\hypertarget{logic-gate}{%
+\subsubsection{3.2.2. Logic Gate}\label{logic-gate}}
+
+\hypertarget{yesnot-gate}{%
+\paragraph{3.2.2.1. YES/NOT Gate}\label{yesnot-gate}}
+
+\hypertarget{andnand-gate}{%
+\paragraph{3.2.2.2. AND/NAND Gate}\label{andnand-gate}}
+
+\hypertarget{ornor-gate}{%
+\paragraph{3.2.2.3. OR/NOR Gate}\label{ornor-gate}}
+
+\hypertarget{xorxnor-gate}{%
+\paragraph{3.2.2.4. XOR/XNOR Gate}\label{xorxnor-gate}}
+
+\hypertarget{combinational-logic}{%
+\subsubsection{3.2.3. Combinational Logic}\label{combinational-logic}}
+
+\hypertarget{arithmetic-circuits}{%
+\paragraph{3.2.3.1. Arithmetic Circuits}\label{arithmetic-circuits}}
+
+\hypertarget{logic-circuits}{%
+\paragraph{3.2.3.2. Logic Circuits}\label{logic-circuits}}
+
+\hypertarget{finite-state-machine}{%
+\subsubsection{3.2.4. Finite State Machine}\label{finite-state-machine}}
+
+\hypertarget{pushdown-automaton}{%
+\subsubsection{3.2.5. Pushdown Automaton}\label{pushdown-automaton}}
+
+\hypertarget{neural-network}{%
+\subsection{3.3. Neural Network}\label{neural-network}}
+
+\hypertarget{feedforward-neural-network}{%
+\subsubsection{3.3.1. Feedforward Neural
+Network}\label{feedforward-neural-network}}
+
+\hypertarget{long-short-term-memory-neural-network}{%
+\subsubsection{3.3.2. Long Short Term Memory Neural
+Network}\label{long-short-term-memory-neural-network}}
+
+\hypertarget{transformer-neural-network}{%
+\subsubsection{3.3.3. Transformer Neural
+Network}\label{transformer-neural-network}}
+
+\hypertarget{turing-machine}{%
+\subsection{3.4. Turing Machine}\label{turing-machine}}
+
+\hypertarget{neural-turing-machine}{%
+\subsubsection{3.4.1. Neural Turing
+Machine}\label{neural-turing-machine}}
+
+\hypertarget{feedforward-neural-turing-machine}{%
+\paragraph{3.4.1.1. Feedforward Neural Turing
+Machine}\label{feedforward-neural-turing-machine}}
+
+\hypertarget{lstm-neural-turing-machine}{%
+\paragraph{3.4.1.2. LSTM Neural Turing
+Machine}\label{lstm-neural-turing-machine}}
+
+\hypertarget{transformer-neural-turing-machine}{%
+\paragraph{3.4.1.3. Transformer Neural Turing
+Machine}\label{transformer-neural-turing-machine}}
+
+\hypertarget{differentiable-neural-computer}{%
+\subsubsection{3.4.2. Differentiable Neural
+Computer}\label{differentiable-neural-computer}}
+
+\hypertarget{feedforward-differentiable-neural-computer}{%
+\paragraph{3.4.2.1. Feedforward Differentiable Neural
+Computer}\label{feedforward-differentiable-neural-computer}}
+
+\hypertarget{lstm-differentiable-neural-computer}{%
+\paragraph{3.4.2.2. LSTM Differentiable Neural
+Computer}\label{lstm-differentiable-neural-computer}}
+
+\hypertarget{transformer-differentiable-neural-computer}{%
+\paragraph{3.4.2.3. Transformer Differentiable Neural
+Computer}\label{transformer-differentiable-neural-computer}}
+
+\hypertarget{computer-architecture}{%
+\subsection{3.5. Computer Architecture}\label{computer-architecture}}
+
+\hypertarget{von-neumann-architecture}{%
+\subsubsection{3.5.1. von Neumann
+Architecture}\label{von-neumann-architecture}}
+
+\hypertarget{control-unit}{%
+\paragraph{3.5.1.1. Control Unit}\label{control-unit}}
+
+\hypertarget{alu}{%
+\paragraph{3.5.1.2. ALU}\label{alu}}
+
+\hypertarget{memory-unit}{%
+\paragraph{3.5.1.3. Memory Unit}\label{memory-unit}}
+
+\hypertarget{io-unit}{%
+\paragraph{3.5.1.4. I/O Unit}\label{io-unit}}
+
+\hypertarget{harvard-architecture}{%
+\subsubsection{3.5.2. Harvard Architecture}\label{harvard-architecture}}
+
+\hypertarget{control-unit-1}{%
+\paragraph{3.5.2.1. Control Unit}\label{control-unit-1}}
+
+\hypertarget{alu-1}{%
+\paragraph{3.5.2.2. ALU}\label{alu-1}}
+
+\hypertarget{memory-unit-1}{%
+\paragraph{3.5.2.3.Memory Unit}\label{memory-unit-1}}
+
+\hypertarget{io-unit-1}{%
+\paragraph{3.5.2.4.I/O Unit}\label{io-unit-1}}
+
+\hypertarget{advanced-computer-architecture}{%
+\subsection{3.6. Advanced Computer
+Architecture}\label{advanced-computer-architecture}}
+
+\hypertarget{processing-unit}{%
+\subsubsection{3.6.1. Processing Unit}\label{processing-unit}}
+
+\hypertarget{sisd}{%
+\paragraph{3.6.1.1. SISD}\label{sisd}}
+
+\hypertarget{simd}{%
+\paragraph{3.6.1.2. SIMD}\label{simd}}
+
+\hypertarget{misd}{%
+\paragraph{3.6.1.3. MISD}\label{misd}}
+
+\hypertarget{mimd}{%
+\paragraph{3.6.1.4. MIMD}\label{mimd}}
+
+\hypertarget{system-on-chip}{%
+\subsubsection{3.6.2. System on Chip}\label{system-on-chip}}
+
+\hypertarget{bus-on-chip}{%
+\paragraph{3.6.2.1. Bus on Chip}\label{bus-on-chip}}
+
+\hypertarget{network-on-chip}{%
+\paragraph{3.6.2.2. Network on Chip}\label{network-on-chip}}
+
+\hypertarget{multi-processor-system-on-chip}{%
+\subsubsection{3.6.3. Multi Processor System on
+Chip}\label{multi-processor-system-on-chip}}
+
+\hypertarget{hardware-workflow}{%
+\section{4. HARDWARE WORKFLOW}\label{hardware-workflow}}
+
+\textbf{1. System Level (SystemC/SystemVerilog)}
+
+The System Level abstraction of a system only looks at its biggest
+building blocks like processing units or peripheral devices. At this
+level the circuit is usually described using traditional programming
+languages like SystemC or SystemVerilog. Sometimes special software
+libraries are used that are aimed at simulation circuits on the system
+level. The IEEE 1685-2009 standard defines the IP-XACT file format that
+can be used to represent designs on the system level and building blocks
+that can be used in such system level designs.
+
+\textbf{2. Behavioral \& Register Transfer Level (VHDL/Verilog)}
+
+At the Behavioural Level abstraction a language aimed at hardware
+description such as Verilog or VHDL is used to describe the circuit, but
+so-called behavioural modeling is used in at least part of the circuit
+description. In behavioural modeling there must be a language feature
+that allows for imperative programming to be used to describe data paths
+and registers. This is the always -block in Verilog and the process
+-block in VHDL.
+
+A design in Register Transfer Level representation is usually stored
+using HDLs like Verilog and VHDL. But only a very limited subset of
+features is used, namely minimalistic always blocks (Verilog) or process
+blocks (VHDL) that model the register type used and unconditional
+assignments for the datapath logic. The use of HDLs on this level
+simplifies simulation as no additional tools are required to simulate a
+design in Register Transfer Level representation.
+
+\textbf{3. Logical Gate}
+
+At the Logical Gate Level the design is represented by a netlist that
+uses only cells from a small number of single-bit cells, such as basic
+logic gates (AND, OR, NOT, XOR, etc.) and registers (usually D-Type
+Flip-flops). A number of netlist formats exists that can be used on this
+level such as the Electronic Design Interchange Format (EDIF), but for
+ease of simulation often a HDL netlist is used. The latter is a HDL file
+(Verilog or VHDL) that only uses the most basic language constructs for
+instantiation and connecting of cells.
+
+\textbf{4. Physical Gate}
+
+On the Physical Gate Level only gates are used that are physically
+available on the target architecture. In some cases this may only be
+NAND, NOR and NOT gates as well as D-Type registers. In the case of an
+FPGA-based design the Physical Gate Level representation is a netlist of
+LUTs with optional output registers, as these are the basic building
+blocks of FPGA logic cells.
+
+\textbf{5. Switch Level}
+
+A Switch Level representation of a circuit is a netlist utilizing single
+transistors as cells. Switch Level modeling is possible in Verilog and
+VHDL, but is seldom used in modern designs, as in modern digital ASIC or
+FPGA flows the physical gates are considered the atomic build blocks of
+the logic circuit.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Settings → Apps → Apps \& features → Related settings, Programs and
+  Features → Turn Windows features on or off → Windows Subsystem for
+  Linux
+\item
+  Microsoft Store → INSTALL UBUNTU
+\end{enumerate}
+
+Front-End and Back-End Library type:
+
+\begin{verbatim}
+sudo apt update
+sudo apt upgrade
+
+sudo apt install bison cmake flex freeglut3-dev libcairo2-dev libgsl-dev \
+libncurses-dev libx11-dev m4 python-tk python3-tk swig tcl tcl-dev tk-dev tcsh
+\end{verbatim}
+
+Synthesizer Library type:
+
+\begin{verbatim}
+sudo apt update
+sudo apt upgrade
+\end{verbatim}
+
+\begin{verbatim}
+sudo apt -y install build-essential clang bison flex \
+libreadline-dev gawk tcl-dev libffi-dev git make gnat \
+graphviz xdot pkg-config python3 libboost-system-dev \
+libboost-python-dev libboost-filesystem-dev zlib1g-dev
+\end{verbatim}
+
+\hypertarget{front-end-open-source-tools}{%
+\subsection{4.1. FRONT-END OPEN SOURCE
+TOOLS}\label{front-end-open-source-tools}}
+
+\begin{figure}
+\centering
+\includegraphics{../doc/front-end.svg}
+\caption{Front-End}
+\end{figure}
+
+\hypertarget{modeling-system-level-of-hardware}{%
+\subsubsection{4.1.1. Modeling System Level of
+Hardware}\label{modeling-system-level-of-hardware}}
+
+\emph{A System Description Language Editor is a computer tool that
+allows to generate software code. A System Description Language is a
+formal language, which comprises a Programming Language (input),
+producing a Hardware Description (output). Programming languages are
+used in computer programming to implement algorithms. The description of
+a programming language is split into the two components of syntax (form)
+and semantics (meaning).}
+
+\textbf{System Description Language Editor}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/emacs-mirror/emacs
+\end{verbatim}
+
+\hypertarget{simulating-system-level-of-hardware}{%
+\subsubsection{4.1.2. Simulating System Level of
+Hardware}\label{simulating-system-level-of-hardware}}
+
+\emph{A System Description Language Simulator (translator) is a computer
+program that translates computer code written in a Programming Language
+(the source language) into a Hardware Description Language (the target
+language). The compiler is primarily used for programs that translate
+source code from a high-level programming language to a low-level
+language to create an executable program.}
+
+\textbf{SystemVerilog System Description Language Simulator}
+
+type:
+
+\begin{verbatim}
+git clone http://git.veripool.org/git/verilator
+
+cd verilator
+autoconf
+./configure
+make
+sudo make install
+\end{verbatim}
+
+\begin{verbatim}
+cd sim/verilog/regression/wb/vtor
+source SIMULATE-IT
+\end{verbatim}
+
+\begin{verbatim}
+cd sim/verilog/regression/ahb3/vtor
+source SIMULATE-IT
+\end{verbatim}
+
+\begin{verbatim}
+cd sim/verilog/regression/axi4/vtor
+source SIMULATE-IT
+\end{verbatim}
+
+\hypertarget{verifying-system-level-of-hardware}{%
+\subsubsection{4.1.3. Verifying System Level of
+Hardware}\label{verifying-system-level-of-hardware}}
+
+\emph{A UVM standard improves interoperability and reduces the cost of
+repurchasing and rewriting IP for each new project or Electronic Design
+Automation tool. It also makes it easier to reuse verification
+components. The UVM Class Library provides generic utilities, such as
+component hierarchy, Transaction Library Model or configuration
+database, which enable the user to create virtually any structure wanted
+for the testbench.}
+
+\textbf{SystemVerilog System Description Language Verifier}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/QueenField/UVM
+\end{verbatim}
+
+\hypertarget{describing-register-transfer-level-of-hardware}{%
+\subsubsection{4.1.4. Describing Register Transfer Level of
+Hardware}\label{describing-register-transfer-level-of-hardware}}
+
+\emph{A Hardware Description Language Editor is any editor that allows
+to generate hardware code. Hardware Description Language is a
+specialized computer language used to describe the structure and
+behavior of digital logic circuits. It allows for the synthesis of a HDL
+into a netlist, which can then be synthesized, placed and routed to
+produce the set of masks used to create an integrated circuit.}
+
+\textbf{Hardware Description Language Editor}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/emacs-mirror/emacs
+\end{verbatim}
+
+\hypertarget{simulating-register-transfer-level-of-hardware}{%
+\subsubsection{4.1.5. Simulating Register Transfer Level of
+Hardware}\label{simulating-register-transfer-level-of-hardware}}
+
+\emph{A Hardware Description Language Simulator uses mathematical models
+to replicate the behavior of an actual hardware device. Simulation
+software allows for modeling of circuit operation and is an invaluable
+analysis tool. Simulating a circuit's behavior before actually building
+it can greatly improve design efficiency by making faulty designs known
+as such, and providing insight into the behavior of electronics circuit
+designs.}
+
+\textbf{VHDL Hardware Description Language Simulator}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/ghdl/ghdl
+
+cd ghdl
+./configure --prefix=/usr/local
+make
+sudo make install
+\end{verbatim}
+
+\begin{verbatim}
+cd sim/vhdl/regression/wb/ghdl
+source SIMULATE-IT
+\end{verbatim}
+
+\begin{verbatim}
+cd sim/vhdl/regression/ahb3/ghdl
+source SIMULATE-IT
+\end{verbatim}
+
+\begin{verbatim}
+cd sim/vhdl/regression/axi4/ghdl
+source SIMULATE-IT
+\end{verbatim}
+
+\textbf{Verilog Hardware Description Language Simulator}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/steveicarus/iverilog
+
+cd iverilog
+sh autoconf.sh
+./configure
+make
+sudo make install
+\end{verbatim}
+
+\begin{verbatim}
+cd sim/verilog/regression/wb/iverilog
+source SIMULATE-IT
+\end{verbatim}
+
+\begin{verbatim}
+cd sim/verilog/regression/ahb3/iverilog
+source SIMULATE-IT
+\end{verbatim}
+
+\begin{verbatim}
+cd sim/verilog/regression/axi4/iverilog
+source SIMULATE-IT
+\end{verbatim}
+
+\hypertarget{synthesizing-register-transfer-level-of-hardware}{%
+\subsubsection{4.1.6. Synthesizing Register Transfer Level of
+Hardware}\label{synthesizing-register-transfer-level-of-hardware}}
+
+\emph{A Hardware Description Language Synthesizer turns a RTL
+implementation into a Logical Gate Level implementation. Logical design
+is a step in the standard design cycle in which the functional design of
+an electronic circuit is converted into the representation which
+captures logic operations, arithmetic operations, control flow, etc. In
+EDA parts of the logical design is automated using synthesis tools based
+on the behavioral description of the circuit.}
+
+\textbf{Verilog Hardware Description Language Synthesizer}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/YosysHQ/yosys
+
+cd yosys
+make
+sudo make install
+\end{verbatim}
+
+\begin{verbatim}
+cd synthesis/yosys
+source SYNTHESIZE-IT
+\end{verbatim}
+
+\textbf{VHDL Hardware Description Language Synthesizer}
+
+type for Plugin:
+
+\begin{verbatim}
+git clone https://github.com/ghdl/ghdl-yosys-plugin
+
+cd ghdl-yosys-plugin
+make GHDL=/usr/local
+sudo yosys-config --exec mkdir -p --datdir/plugins
+sudo yosys-config --exec cp "ghdl.so" --datdir/plugins/ghdl.so
+\end{verbatim}
+
+\begin{verbatim}
+cd synthesis/yosys
+source SYNTHESIZE-IT
+\end{verbatim}
+
+\hypertarget{optimizing-register-transfer-level-of-hardware}{%
+\subsubsection{4.1.7. Optimizing Register Transfer Level of
+Hardware}\label{optimizing-register-transfer-level-of-hardware}}
+
+\emph{A Hardware Description Language Optimizer finds an equivalent
+representation of the specified logic circuit under specified
+constraints (minimum area, pre-specified delay). This tool combines
+scalable logic optimization based on And-Inverter Graphs (AIGs),
+optimal-delay DAG-based technology mapping for look-up tables and
+standard cells, and innovative algorithms for sequential synthesis and
+verification.}
+
+\textbf{Verilog Hardware Description Language Optimizer}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/YosysHQ/yosys
+
+cd yosys
+make
+sudo make install
+\end{verbatim}
+
+\begin{verbatim}
+cd synthesis/yosys
+source SYNTHESIZE-IT
+\end{verbatim}
+
+\hypertarget{verifying-register-transfer-level-of-hardware}{%
+\subsubsection{4.1.8. Verifying Register Transfer Level of
+Hardware}\label{verifying-register-transfer-level-of-hardware}}
+
+\emph{A Hardware Description Language Verifier proves or disproves the
+correctness of intended algorithms underlying a hardware system with
+respect to a certain formal specification or property, using formal
+methods of mathematics. Formal verification uses modern techniques
+(SAT/SMT solvers, BDDs, etc.) to prove correctness by essentially doing
+an exhaustive search through the entire possible input space (formal
+proof).}
+
+\textbf{Verilog Hardware Description Language Verifier}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/YosysHQ/SymbiYosys
+\end{verbatim}
+
+\hypertarget{back-end-open-source-tools}{%
+\subsection{4.2. BACK-END OPEN SOURCE
+TOOLS}\label{back-end-open-source-tools}}
+
+\begin{figure}
+\centering
+\includegraphics{../doc/back-end.svg}
+\caption{Back-End}
+\end{figure}
+
+\textbf{Library}
+
+type:
+
+\begin{verbatim}
+sudo apt update
+sudo apt upgrade
+
+sudo apt install bison cmake flex freeglut3-dev libcairo2-dev libgsl-dev \
+libncurses-dev libx11-dev m4 python-tk python3-tk swig tcl tcl-dev tk-dev tcsh
+\end{verbatim}
+
+\textbf{Back-End Workflow Qflow}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/RTimothyEdwards/qflow
+
+cd qflow
+./configure
+make
+sudo make install
+\end{verbatim}
+
+\begin{verbatim}
+mkdir qflow
+cd qflow
+\end{verbatim}
+
+\hypertarget{planning-switch-level-of-hardware}{%
+\subsubsection{4.2.1. Planning Switch Level of
+Hardware}\label{planning-switch-level-of-hardware}}
+
+\emph{A Floor-Planner of an Integrated Circuit (IC) is a schematic
+representation of tentative placement of its major functional blocks. In
+modern electronic design process floor-plans are created during the
+floor-planning design stage, an early stage in the hierarchical approach
+to Integrated Circuit design. Depending on the design methodology being
+followed, the actual definition of a floor-plan may differ.}
+
+\textbf{Floor-Planner}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/RTimothyEdwards/magic
+
+cd magic
+./configure
+make
+sudo make install
+\end{verbatim}
+
+\hypertarget{placing-switch-level-of-hardware}{%
+\subsubsection{4.2.2. Placing Switch Level of
+Hardware}\label{placing-switch-level-of-hardware}}
+
+\emph{A Standard Cell Placer takes a given synthesized circuit netlist
+together with a technology library and produces a valid placement
+layout. The layout is optimized according to the aforementioned
+objectives and ready for cell resizing and buffering, a step essential
+for timing and signal integrity satisfaction. Physical design flow are
+iterated a number of times until design closure is achieved.}
+
+\textbf{Standard Cell Placer}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/rubund/graywolf
+
+cd graywolf
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+\end{verbatim}
+
+\hypertarget{timing-switch-level-of-hardware}{%
+\subsubsection{4.2.3. Timing Switch Level of
+Hardware}\label{timing-switch-level-of-hardware}}
+
+\emph{A Standard Cell Timing-Analizer is a simulation method of
+computing the expected timing of a digital circuit without requiring a
+simulation of the full circuit. High-performance integrated circuits
+have traditionally been characterized by the clock frequency at which
+they operate. Measuring the ability of a circuit to operate at the
+specified speed requires an ability to measure, during the design
+process, its delay at numerous steps.}
+
+\textbf{Standard Cell Timing-Analizer}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/The-OpenROAD-Project/OpenSTA
+
+cd OpenSTA
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+\end{verbatim}
+
+\hypertarget{routing-switch-level-of-hardware}{%
+\subsubsection{4.2.4. Routing Switch Level of
+Hardware}\label{routing-switch-level-of-hardware}}
+
+\emph{A Standard Cell Router takes pre-existing polygons consisting of
+pins on cells, and pre-existing wiring called pre-routes. Each of these
+polygons are associated with a net. The primary task of the router is to
+create geometries such that all terminals assigned to the same net are
+connected, no terminals assigned to different nets are connected, and
+all design rules are obeyed.}
+
+\textbf{Standard Cell Router}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/RTimothyEdwards/qrouter
+
+cd qrouter
+./configure
+make
+sudo make install
+\end{verbatim}
+
+\hypertarget{simulating-switch-level-of-hardware}{%
+\subsubsection{4.2.5. Simulating Switch Level of
+Hardware}\label{simulating-switch-level-of-hardware}}
+
+\emph{A Standard Cell Simulator treats transistors as ideal switches.
+Extracted capacitance and lumped resistance values are used to make the
+switch a little bit more realistic than the ideal, using the RC time
+constants to predict the relative timing of events. This simulator
+represents a circuit in terms of its exact transistor structure but
+describes the electrical behavior in a highly idealized way.}
+
+\textbf{Standard Cell Simulator}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/RTimothyEdwards/irsim
+
+cd irsim
+./configure
+make
+sudo make install
+\end{verbatim}
+
+\hypertarget{verifying-switch-level-of-hardware-lvs}{%
+\subsubsection{4.2.6. Verifying Switch Level of Hardware
+LVS}\label{verifying-switch-level-of-hardware-lvs}}
+
+\emph{A Standard Cell Verifier compares netlists, a process known as LVS
+(Layout vs.~Schematic). This step ensures that the geometry that has
+been laid out matches the expected circuit. The greatest need for LVS is
+in large analog or mixed-signal circuits that cannot be simulated in
+reasonable time. LVS can be done faster than simulation, and provides
+feedback that makes it easier to find errors.}
+
+\textbf{Standard Cell Verifier}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/RTimothyEdwards/netgen
+
+cd netgen
+./configure
+make
+sudo make install
+\end{verbatim}
+
+\begin{verbatim}
+cd synthesis/qflow
+source FLOW-IT
+\end{verbatim}
+
+\hypertarget{checking-switch-level-of-hardware-drc}{%
+\subsubsection{4.2.7. Checking Switch Level of Hardware
+DRC}\label{checking-switch-level-of-hardware-drc}}
+
+\emph{A Standard Cell Checker is a geometric constraint imposed on
+Printed Circuit Board (PCB) and Integrated Circuit (IC) designers to
+ensure their designs function properly, reliably, and can be produced
+with acceptable yield. Design Rules for production are developed by
+hardware engineers based on the capability of their processes to realize
+design intent. Design Rule Checking (DRC) is used to ensure that
+designers do not violate design rules.}
+
+\textbf{Standard Cell Checker}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/RTimothyEdwards/magic
+
+cd magic
+./configure
+make
+sudo make install
+\end{verbatim}
+
+\hypertarget{printing-switch-level-of-hardware-gds}{%
+\subsubsection{4.2.8. Printing Switch Level of Hardware
+GDS}\label{printing-switch-level-of-hardware-gds}}
+
+\emph{A Standard Cell Editor allows to print a set of standard cells.
+The standard cell methodology is an abstraction, whereby a low-level
+VLSI layout is encapsulated into a logical representation. A standard
+cell is a group of transistor and interconnect structures that provides
+a boolean logic function (AND, OR, XOR, XNOR, inverters) or a storage
+function (flipflop or latch).}
+
+\textbf{Standard Cell Editor}
+
+type:
+
+\begin{verbatim}
+git clone https://github.com/RTimothyEdwards/magic
+
+cd magic
+./configure
+make
+sudo make install
+\end{verbatim}
+
+\hypertarget{software-workflow}{%
+\section{5. SOFTWARE WORKFLOW}\label{software-workflow}}
+
+\hypertarget{back-end-open-source-tools-1}{%
+\subsection{5.1. BACK-END OPEN SOURCE
+TOOLS}\label{back-end-open-source-tools-1}}
+
+type:
+
+\begin{verbatim}
+sudo apt install autoconf automake autotools-dev curl python3 libmpc-dev \
+libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf \
+libtool patchutils bc zlib1g-dev libexpat-dev
+\end{verbatim}
+
+\hypertarget{msp430-1}{%
+\subsubsection{5.1.1. MSP430}\label{msp430-1}}
+
+\hypertarget{msp430-gnu-cc}{%
+\paragraph{5.1.1.1. MSP430 GNU C/C++}\label{msp430-gnu-cc}}
+
+\hypertarget{msp430-gnu-go}{%
+\paragraph{5.1.1.2. MSP430 GNU Go}\label{msp430-gnu-go}}
+
+\hypertarget{openrisc-1}{%
+\subsubsection{5.1.2. OpenRISC}\label{openrisc-1}}
+
+\hypertarget{openrisc-gnu-cc}{%
+\paragraph{5.1.2.1. OpenRISC GNU C/C++}\label{openrisc-gnu-cc}}
+
+\hypertarget{openrisc-gnu-go}{%
+\paragraph{5.1.2.2. OpenRISC GNU Go}\label{openrisc-gnu-go}}
+
+\hypertarget{risc-v-1}{%
+\subsubsection{5.1.3. RISC-V}\label{risc-v-1}}
+
+\hypertarget{risc-v-gnu-cc}{%
+\paragraph{5.1.3.1. RISC-V GNU C/C++}\label{risc-v-gnu-cc}}
+
+type:
+
+\begin{verbatim}
+git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
+
+cd riscv-gnu-toolchain
+
+./configure --prefix=/opt/riscv-elf-gcc
+sudo make clean
+sudo make
+
+./configure --prefix=/opt/riscv-elf-gcc
+sudo make clean
+sudo make linux
+
+./configure --prefix=/opt/riscv-elf-gcc --enable-multilib
+sudo make clean
+sudo make linux
+\end{verbatim}
+
+\hypertarget{risc-v-gnu-go}{%
+\paragraph{5.1.3.2. RISC-V GNU Go}\label{risc-v-gnu-go}}
+
+type:
+
+\begin{verbatim}
+git clone --recursive https://go.googlesource.com/go riscv-go
+cd riscv-go/src
+./all.bash
+cd ../..
+sudo mv riscv-go /opt
+\end{verbatim}
+
+\hypertarget{front-end-open-source-tools-1}{%
+\subsection{5.2. FRONT-END OPEN SOURCE
+TOOLS}\label{front-end-open-source-tools-1}}
+
+\hypertarget{msp430-2}{%
+\subsubsection{5.2.1. MSP430}\label{msp430-2}}
+
+\hypertarget{openrisc-2}{%
+\subsubsection{5.2.2. OpenRISC}\label{openrisc-2}}
+
+\hypertarget{risc-v-2}{%
+\subsubsection{5.2.3. RISC-V}\label{risc-v-2}}
+
+type:
+
+\begin{verbatim}
+sudo apt install device-tree-compiler libglib2.0-dev libpixman-1-dev pkg-config
+\end{verbatim}
+
+\hypertarget{hardware-engineers-compiler-spike}{%
+\paragraph{5.2.3.1. Hardware Engineers Compiler:
+Spike}\label{hardware-engineers-compiler-spike}}
+
+\textbf{Building Proxy Kernel}
+
+type:
+
+\begin{verbatim}
+export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+
+git clone --recursive https://github.com/riscv/riscv-pk
+
+cd riscv-pk
+mkdir build
+cd build
+../configure --prefix=/opt/riscv-elf-gcc --host=riscv64-unknown-elf
+make
+sudo make install
+\end{verbatim}
+
+\textbf{Building Spike}
+
+type:
+
+\begin{verbatim}
+export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+
+git clone --recursive https://github.com/riscv/riscv-isa-sim
+
+cd riscv-isa-sim
+mkdir build
+cd build
+../configure --prefix=/opt/riscv-elf-gcc
+make
+sudo make install
+\end{verbatim}
+
+\hypertarget{software-engineers-compiler-qemu}{%
+\paragraph{5.2.3.2. Software Engineers Compiler:
+QEMU}\label{software-engineers-compiler-qemu}}
+
+type:
+
+\begin{verbatim}
+export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+
+git clone --recursive https://github.com/qemu/qemu
+
+cd qemu
+./configure --prefix=/opt/riscv-elf-gcc \
+--target-list=riscv64-softmmu,riscv32-softmmu,riscv64-linux-user,riscv32-linux-user
+make
+sudo make install
+\end{verbatim}
+
+\hypertarget{quality-assurance}{%
+\section{6. QUALITY ASSURANCE}\label{quality-assurance}}
+
+\hypertarget{scope}{%
+\subsection{6.1. SCOPE}\label{scope}}
+
+\hypertarget{normative-reference}{%
+\subsection{6.2. NORMATIVE REFERENCE}\label{normative-reference}}
+
+\hypertarget{terms-and-definitions}{%
+\subsection{6.3. TERMS AND DEFINITIONS}\label{terms-and-definitions}}
+
+\hypertarget{context-of-the-organization}{%
+\subsection{6.4. CONTEXT OF THE
+ORGANIZATION}\label{context-of-the-organization}}
+
+\hypertarget{understanding-the-organization-and-itsontext}{%
+\subsubsection{6.4.1. Understanding the organization and
+itsontext}\label{understanding-the-organization-and-itsontext}}
+
+\hypertarget{understanding-the-needs-and-expectations-of-interested-parties}{%
+\subsubsection{6.4.2. Understanding the needs and expectations of
+interested
+parties}\label{understanding-the-needs-and-expectations-of-interested-parties}}
+
+\hypertarget{determining-the-scope-of-the-quality-management-system}{%
+\subsubsection{6.4.3. Determining the scope of the quality management
+system}\label{determining-the-scope-of-the-quality-management-system}}
+
+\hypertarget{quality-management-system-and-its-processes}{%
+\subsubsection{6.4.4. Quality management system and its
+processes}\label{quality-management-system-and-its-processes}}
+
+\hypertarget{leadership}{%
+\subsection{6.5. LEADERSHIP}\label{leadership}}
+
+\hypertarget{leadership-and-commitment}{%
+\subsubsection{6.5.1. Leadership and
+commitment}\label{leadership-and-commitment}}
+
+\hypertarget{general}{%
+\paragraph{6.5.1.1. General}\label{general}}
+
+\hypertarget{customer-focus}{%
+\paragraph{6.5.1.2. Customer focus}\label{customer-focus}}
+
+\hypertarget{policy}{%
+\subsubsection{6.5.2. Policy}\label{policy}}
+
+\hypertarget{establishing-the-quality-policy}{%
+\paragraph{6.5.2.1. Establishing the quality
+policy}\label{establishing-the-quality-policy}}
+
+\hypertarget{communicating-the-quality-policy}{%
+\paragraph{6.5.2.2. Communicating the quality
+policy}\label{communicating-the-quality-policy}}
+
+\hypertarget{organizational-roles-responsibilities-and-authorities}{%
+\subsubsection{6.5.3. Organizational roles, responsibilities and
+authorities}\label{organizational-roles-responsibilities-and-authorities}}
+
+\hypertarget{planning}{%
+\subsection{6.6. PLANNING}\label{planning}}
+
+\hypertarget{actions-to-address-risks-and-opportunities}{%
+\subsubsection{6.6.1. Actions to address risks and
+opportunities}\label{actions-to-address-risks-and-opportunities}}
+
+\hypertarget{quality-objectives-and-planning-to-achieve-them}{%
+\subsubsection{6.6.2. Quality objectives and planning to achieve
+them}\label{quality-objectives-and-planning-to-achieve-them}}
+
+\hypertarget{planning-of-changes}{%
+\subsubsection{6.6.3. Planning of changes}\label{planning-of-changes}}
+
+\hypertarget{support}{%
+\subsection{6.7. SUPPORT}\label{support}}
+
+\hypertarget{resources}{%
+\subsubsection{6.7.1. Resources}\label{resources}}
+
+\hypertarget{general-1}{%
+\paragraph{6.7.1.1. General}\label{general-1}}
+
+\hypertarget{people}{%
+\paragraph{6.7.1.2. People}\label{people}}
+
+\hypertarget{infrastructure}{%
+\paragraph{6.7.1.3. Infrastructure}\label{infrastructure}}
+
+\hypertarget{environment-for-the-operation-of-process}{%
+\paragraph{6.7.1.4. Environment for the operation of
+process}\label{environment-for-the-operation-of-process}}
+
+\hypertarget{monitoring-and-measuring-resources}{%
+\paragraph{6.7.1.5. Monitoring and measuring
+resources}\label{monitoring-and-measuring-resources}}
+
+\hypertarget{general-2}{%
+\subparagraph{6.7.1.5.1. General}\label{general-2}}
+
+\hypertarget{measurement-traceability}{%
+\subparagraph{6.7.1.5.2. Measurement
+traceability}\label{measurement-traceability}}
+
+\hypertarget{organizational-knowledge}{%
+\paragraph{6.7.1.6. Organizational
+knowledge}\label{organizational-knowledge}}
+
+\hypertarget{competence}{%
+\subsubsection{6.7.2. Competence}\label{competence}}
+
+\hypertarget{awareness}{%
+\subsubsection{6.7.3. Awareness}\label{awareness}}
+
+\hypertarget{communication}{%
+\subsubsection{6.7.4. Communication}\label{communication}}
+
+\hypertarget{documented-information}{%
+\subsubsection{6.7.5. Documented
+information}\label{documented-information}}
+
+\hypertarget{general-3}{%
+\paragraph{6.7.5.1. General}\label{general-3}}
+
+\hypertarget{creating-and-updating}{%
+\paragraph{6.7.5.2. Creating and updating}\label{creating-and-updating}}
+
+\hypertarget{control-of-documented-information}{%
+\paragraph{6.7.5.3. Control of documented
+information}\label{control-of-documented-information}}
+
+\hypertarget{operation}{%
+\subsection{6.8. OPERATION}\label{operation}}
+
+\hypertarget{operational-planning-and-control}{%
+\subsubsection{6.8.1. Operational planning and
+control}\label{operational-planning-and-control}}
+
+\hypertarget{requirements-for-products-and-services}{%
+\subsubsection{6.8.2. Requirements for products and
+services}\label{requirements-for-products-and-services}}
+
+\hypertarget{customer-communication}{%
+\paragraph{6.8.2.1. Customer
+communication}\label{customer-communication}}
+
+\hypertarget{determining-the-requirements-for-products-and-services}{%
+\paragraph{6.8.2.2. Determining the requirements for products and
+services}\label{determining-the-requirements-for-products-and-services}}
+
+\hypertarget{review-of-the-requirements-for-products-and-services}{%
+\paragraph{6.8.2.3. Review of the requirements for products and
+services}\label{review-of-the-requirements-for-products-and-services}}
+
+\hypertarget{changes-to-requirements-for-products-and-services}{%
+\paragraph{6.8.2.4. Changes to requirements for products and
+services}\label{changes-to-requirements-for-products-and-services}}
+
+\hypertarget{design-and-development-of-products-and-services}{%
+\subsubsection{6.8.3. Design and development of products and
+services}\label{design-and-development-of-products-and-services}}
+
+\hypertarget{general-4}{%
+\paragraph{6.8.3.1. General}\label{general-4}}
+
+\hypertarget{design-and-development-planning}{%
+\paragraph{6.8.3.2. Design and development
+planning}\label{design-and-development-planning}}
+
+\hypertarget{design-and-development-inputs}{%
+\paragraph{6.8.3.3. Design and development
+inputs}\label{design-and-development-inputs}}
+
+\hypertarget{design-and-development-controls}{%
+\paragraph{6.8.3.4. Design and development
+controls}\label{design-and-development-controls}}
+
+\hypertarget{design-and-development-outputs}{%
+\paragraph{6.8.3.5. Design and development
+outputs}\label{design-and-development-outputs}}
+
+\hypertarget{control-of-externally-provided-processes-products-and-services}{%
+\subsubsection{6.8.4. Control of externally provided processes, products
+and
+services}\label{control-of-externally-provided-processes-products-and-services}}
+
+\hypertarget{general-5}{%
+\paragraph{6.8.4.1. General}\label{general-5}}
+
+\hypertarget{type-and-extent-of-control}{%
+\paragraph{6.8.4.2. Type and extent of
+control}\label{type-and-extent-of-control}}
+
+\hypertarget{information-for-external-providers}{%
+\paragraph{6.8.4.3. Information for external
+providers}\label{information-for-external-providers}}
+
+\hypertarget{production-and-service-provision}{%
+\subsubsection{6.8.5. Production and service
+provision}\label{production-and-service-provision}}
+
+\hypertarget{control-of-production-and-service-provision}{%
+\paragraph{6.8.5.1. Control of production and service
+provision}\label{control-of-production-and-service-provision}}
+
+\hypertarget{identification-and-traceability}{%
+\paragraph{6.8.5.2. Identification and
+traceability}\label{identification-and-traceability}}
+
+\hypertarget{property-belonging-to-customers-or-external-providers}{%
+\paragraph{6.8.5.3. Property belonging to customers or external
+providers}\label{property-belonging-to-customers-or-external-providers}}
+
+\hypertarget{preservation}{%
+\paragraph{6.8.5.4. Preservation}\label{preservation}}
+
+\hypertarget{post-delivery-activities}{%
+\paragraph{6.8.5.5. Post-delivery
+activities}\label{post-delivery-activities}}
+
+\hypertarget{control-of-changes}{%
+\paragraph{6.8.5.6. Control of changes}\label{control-of-changes}}
+
+\hypertarget{release-of-products-and-services}{%
+\subsubsection{6.8.6. Release of products and
+services}\label{release-of-products-and-services}}
+
+\hypertarget{control-of-nonconforming-outputs}{%
+\subsubsection{6.8.7. Control of nonconforming
+outputs}\label{control-of-nonconforming-outputs}}
+
+\hypertarget{performance-evaluation}{%
+\subsection{6.9. PERFORMANCE EVALUATION}\label{performance-evaluation}}
+
+\hypertarget{monitoring-measurement-analysis-and-evaluation}{%
+\subsubsection{6.9.1. Monitoring, measurement, analysis and
+evaluation}\label{monitoring-measurement-analysis-and-evaluation}}
+
+\hypertarget{general-6}{%
+\paragraph{6.9.1.1. General}\label{general-6}}
+
+\hypertarget{customer-satisfaction}{%
+\paragraph{6.9.1.2. Customer satisfaction}\label{customer-satisfaction}}
+
+\hypertarget{analysis-and-evaluation}{%
+\paragraph{6.9.1.3. Analysis and
+evaluation}\label{analysis-and-evaluation}}
+
+\hypertarget{internal-audit}{%
+\subsubsection{6.9.2. Internal audit}\label{internal-audit}}
+
+\hypertarget{management-review}{%
+\subsubsection{6.9.3. Management review}\label{management-review}}
+
+\hypertarget{general-7}{%
+\paragraph{6.9.3.1. General}\label{general-7}}
+
+\hypertarget{management-review-inputs}{%
+\paragraph{6.9.3.2. Management review
+inputs}\label{management-review-inputs}}
+
+\hypertarget{management-review-outputs}{%
+\paragraph{6.9.3.3. Management review
+outputs}\label{management-review-outputs}}
+
+\hypertarget{improvement}{%
+\subsection{6.10. IMPROVEMENT}\label{improvement}}
+
+\hypertarget{general-8}{%
+\subsubsection{6.10.1. General}\label{general-8}}
+
+\hypertarget{nonconformity-and-corrective-action}{%
+\subsubsection{6.10.2. Nonconformity and corrective
+action}\label{nonconformity-and-corrective-action}}
+
+\hypertarget{continual-improvement}{%
+\subsubsection{6.10.3. Continual
+improvement}\label{continual-improvement}}
+
+\hypertarget{certification}{%
+\section{7. CERTIFICATION}\label{certification}}
+
+\hypertarget{planning-process}{%
+\subsection{7.1. PLANNING PROCESS}\label{planning-process}}
+
+\hypertarget{planning-process-objectives}{%
+\subsubsection{7.1.1. Planning Process
+Objectives}\label{planning-process-objectives}}
+
+\hypertarget{planning-process-activities}{%
+\subsubsection{7.1.2. Planning Process
+Activities}\label{planning-process-activities}}
+
+\hypertarget{hardware-design-process}{%
+\subsection{7.2. HARDWARE DESIGN
+PROCESS}\label{hardware-design-process}}
+
+\hypertarget{requirements-capture-process}{%
+\subsubsection{7.2.1. Requirements Capture
+Process}\label{requirements-capture-process}}
+
+\hypertarget{conceptual-design-process}{%
+\subsubsection{7.2.2. Conceptual Design
+Process}\label{conceptual-design-process}}
+
+\hypertarget{detailed-design-process}{%
+\subsubsection{7.2.3. Detailed Design
+Process}\label{detailed-design-process}}
+
+\hypertarget{implementation-process}{%
+\subsubsection{7.2.4. Implementation
+Process}\label{implementation-process}}
+
+\hypertarget{production-transition}{%
+\subsubsection{7.2.5. Production
+Transition}\label{production-transition}}
+
+\hypertarget{acceptance-test}{%
+\subsubsection{7.2.6. Acceptance Test}\label{acceptance-test}}
+
+\hypertarget{series-production}{%
+\subsubsection{7.2.7. Series Production}\label{series-production}}
+
+\hypertarget{validation-and-verification-process}{%
+\subsection{7.3. VALIDATION AND VERIFICATION
+PROCESS}\label{validation-and-verification-process}}
+
+\hypertarget{validation-process}{%
+\subsubsection{7.3.1. Validation Process}\label{validation-process}}
+
+\hypertarget{verification-process}{%
+\subsubsection{7.3.2. Verification Process}\label{verification-process}}
+
+\hypertarget{validation-and-verification-methods}{%
+\subsubsection{7.3.3. Validation and Verification
+Methods}\label{validation-and-verification-methods}}
+
+\hypertarget{configuration-management-process}{%
+\subsection{7.4. CONFIGURATION MANAGEMENT
+PROCESS}\label{configuration-management-process}}
+
+\hypertarget{configuration-management-objectives}{%
+\subsubsection{7.4.1. Configuration Management
+Objectives}\label{configuration-management-objectives}}
+
+\hypertarget{configuration-management-activities}{%
+\subsubsection{7.4.2. Configuration Management
+Activities}\label{configuration-management-activities}}
+
+\hypertarget{data-control-categories}{%
+\subsubsection{7.4.3. Data Control
+Categories}\label{data-control-categories}}
+
+\hypertarget{process-assurance}{%
+\subsection{7.5. PROCESS ASSURANCE}\label{process-assurance}}
+
+\hypertarget{process-assurance-objectives}{%
+\subsubsection{7.5.1. Process Assurance
+Objectives}\label{process-assurance-objectives}}
+
+\hypertarget{process-assurance-activities}{%
+\subsubsection{7.5.2. Process Assurance
+Activities}\label{process-assurance-activities}}
+
+\hypertarget{certification-liaison-process}{%
+\subsection{7.6. CERTIFICATION LIAISON
+PROCESS}\label{certification-liaison-process}}
+
+\hypertarget{means-of-compliance-and-planning}{%
+\subsubsection{7.6.1. Means of Compliance and
+Planning}\label{means-of-compliance-and-planning}}
+
+\hypertarget{compliance-substantiation}{%
+\subsubsection{7.6.2. Compliance
+Substantiation}\label{compliance-substantiation}}
+
+\hypertarget{hardware-design-lifecycle-data}{%
+\subsection{7.7. HARDWARE DESIGN LIFECYCLE
+DATA}\label{hardware-design-lifecycle-data}}
+
+\hypertarget{hardware-plans}{%
+\subsubsection{7.7.1. Hardware Plans}\label{hardware-plans}}
+
+\hypertarget{plan-for-hardware-aspects-of-certification}{%
+\paragraph{7.7.1.1. Plan for Hardware Aspects of
+Certification}\label{plan-for-hardware-aspects-of-certification}}
+
+\hypertarget{hardware-design-plan}{%
+\paragraph{7.7.1.2. Hardware Design Plan}\label{hardware-design-plan}}
+
+\hypertarget{hardware-validation-plan}{%
+\paragraph{7.7.1.3. Hardware Validation
+Plan}\label{hardware-validation-plan}}
+
+\hypertarget{hardware-verification-plan}{%
+\paragraph{7.7.1.4. Hardware Verification
+Plan}\label{hardware-verification-plan}}
+
+\hypertarget{hardware-configuration-management-plan}{%
+\paragraph{7.7.1.5. Hardware Configuration Management
+Plan}\label{hardware-configuration-management-plan}}
+
+\hypertarget{hardware-process-assurance-plan}{%
+\paragraph{7.7.1.6. Hardware Process Assurance
+Plan}\label{hardware-process-assurance-plan}}
+
+\hypertarget{hardware-design-standards-and-guidance}{%
+\subsubsection{7.7.2. Hardware Design Standards and
+Guidance}\label{hardware-design-standards-and-guidance}}
+
+\hypertarget{requirements-standards}{%
+\paragraph{7.7.2.1. Requirements
+Standards}\label{requirements-standards}}
+
+\hypertarget{hardware-design-standards}{%
+\paragraph{7.7.2.2. Hardware Design
+Standards}\label{hardware-design-standards}}
+
+\hypertarget{validation-and-verification-standards}{%
+\paragraph{7.7.2.3. Validation and Verification
+Standards}\label{validation-and-verification-standards}}
+
+\hypertarget{hardware-archive-standards}{%
+\paragraph{7.7.2.4. Hardware Archive
+Standards}\label{hardware-archive-standards}}
+
+\hypertarget{hardware-design-data}{%
+\subsubsection{7.7.3. Hardware Design Data}\label{hardware-design-data}}
+
+\hypertarget{hardware-requirements}{%
+\paragraph{7.7.3.1. Hardware Requirements}\label{hardware-requirements}}
+
+\hypertarget{hardware-design-representation-data}{%
+\paragraph{7.7.3.2. Hardware Design Representation
+Data}\label{hardware-design-representation-data}}
+
+\hypertarget{conceptual-design-data}{%
+\subparagraph{7.7.3.2.1. Conceptual Design
+Data}\label{conceptual-design-data}}
+
+\hypertarget{detailed-design-data}{%
+\subparagraph{7.7.3.2.2. Detailed Design
+Data}\label{detailed-design-data}}
+
+7.7.3.2.2.1. Top-Level Drawing
+
+7.7.3.2.2.2. Assembly Drawings
+
+7.7.3.2.2.3. Installation Control Drawings
+
+7.7.3.2.2.4. Hardware/Software Interface Data
+
+\hypertarget{validation-and-verification-data}{%
+\subsubsection{7.7.4. Validation and Verification
+Data}\label{validation-and-verification-data}}
+
+\hypertarget{traceability-data}{%
+\paragraph{7.7.4.1. Traceability Data}\label{traceability-data}}
+
+\hypertarget{review-and-analysis-procedures}{%
+\paragraph{7.7.4.2. Review and Analysis
+Procedures}\label{review-and-analysis-procedures}}
+
+\hypertarget{review-and-analysis-results}{%
+\paragraph{7.7.4.3. Review and Analysis
+Results}\label{review-and-analysis-results}}
+
+\hypertarget{test-procedures}{%
+\paragraph{7.7.4.4. Test Procedures}\label{test-procedures}}
+
+\hypertarget{test-results}{%
+\paragraph{7.7.4.5. Test Results}\label{test-results}}
+
+\hypertarget{additional-considerations}{%
+\subsection{7.8. ADDITIONAL
+CONSIDERATIONS}\label{additional-considerations}}
+
+\hypertarget{use-of-previously-developed-hardware}{%
+\subsubsection{7.8.1. Use of Previously Developed
+Hardware}\label{use-of-previously-developed-hardware}}
+
+\hypertarget{commercial-components-usage}{%
+\subsubsection{7.8.2. Commercial Components
+Usage}\label{commercial-components-usage}}
+
+\hypertarget{product-service-experience}{%
+\subsubsection{7.8.3. Product Service
+Experience}\label{product-service-experience}}
+
+\hypertarget{tool-assessment-and-qualification}{%
+\subsubsection{7.8.4. Tool Assessment and
+Qualification}\label{tool-assessment-and-qualification}}
+
+\end{document}

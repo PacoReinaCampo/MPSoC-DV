@@ -1,0 +1,27 @@
+digraph FrontEnd {
+  // Introduction
+  node[shape=record];
+
+  // Blocks
+  Modeling_SLH[label="Modeling System Level of Hardware \n(Emacs)"];
+  Simulating_SLH[label="Simulating System Level of Hardware \n(Verilator)"];
+  Verifying_SLH[label="Verifying System Level of Hardware \n(OSVVM / UVM)"];
+  Describing_RTL[label="Describing Register Transfer Level of Hardware \n(Emacs)"];
+  Simulating_RTL[label="Simulating Register Transfer Level of Hardware \n(GHDL / Icarus Verilog)"];
+  Synthesizing_RTL[label="Synthesizing Register Transfer Level of Hardware \n(Yosys)"];
+  Optimizing_RTL[label="Optimizing Register Transfer Level of Hardware \n(ABC)"];
+  Verifying_RTL[label="Verifying Register Transfer Level of Hardware \n(SymbiYosys)"];
+
+  // Sequence
+  Modeling_SLH -> Simulating_SLH;
+  Simulating_SLH -> Verifying_SLH;
+  Verifying_SLH -> Describing_RTL;
+  Describing_RTL -> Simulating_RTL;
+  Simulating_RTL -> Synthesizing_RTL;
+  Synthesizing_RTL -> Optimizing_RTL;
+  Optimizing_RTL -> Verifying_RTL;
+
+  // Feedback
+  Verifying_SLH -> Modeling_SLH;
+  Verifying_RTL -> Modeling_SLH;
+}
