@@ -120,22 +120,1664 @@
 \caption{QueenField}
 \end{figure}
 
+\textbf{Table of Contents}
+
 \hypertarget{introduction}{%
-\section{0. INTRODUCTION}\label{introduction}}
+\section{\texorpdfstring{\protect\hyperlink{introduction-1}{0.
+INTRODUCTION}}{0. INTRODUCTION}}\label{introduction}}
 
 \hypertarget{best-practices}{%
-\subsection{0.1. BEST PRACTICES}\label{best-practices}}
+\subsection{\texorpdfstring{\protect\hyperlink{best-practices-1}{0.1.
+BEST PRACTICES}}{0.1. BEST PRACTICES}}\label{best-practices}}
 
 \hypertarget{hardware}{%
-\subsubsection{0.1.1. HARDWARE}\label{hardware}}
+\subsubsection{\texorpdfstring{\protect\hyperlink{hardware-1}{0.1.1.
+HARDWARE}}{0.1.1. HARDWARE}}\label{hardware}}
+
+\hypertarget{asic}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{asic-1}{0.1.1.1.
+ASIC}}{0.1.1.1. ASIC}}\label{asic}}
+
+\hypertarget{fpga}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{fpga-1}{0.1.1.2.
+FPGA}}{0.1.1.2. FPGA}}\label{fpga}}
+
+\hypertarget{software}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{software-1}{0.1.2.
+SOFTWARE}}{0.1.2. SOFTWARE}}\label{software}}
+
+\hypertarget{msp430}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{msp430-3}{0.1.2.1.
+MSP430}}{0.1.2.1. MSP430}}\label{msp430}}
+
+\hypertarget{msp430-tests}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{msp430-tests-1}{0.1.2.1.1.
+MSP430 Tests}}{0.1.2.1.1. MSP430 Tests}}\label{msp430-tests}}
+
+\hypertarget{msp430-bare-metal}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{msp430-bare-metal-1}{0.1.2.1.2.
+MSP430 Bare
+Metal}}{0.1.2.1.2. MSP430 Bare Metal}}\label{msp430-bare-metal}}
+
+\hypertarget{msp430-operating-system}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{msp430-operating-system-1}{0.1.2.1.3.
+MSP430 Operating
+System}}{0.1.2.1.3. MSP430 Operating System}}\label{msp430-operating-system}}
+
+\protect\hyperlink{gnu-linux-3}{0.1.2.1.3.1. GNU Linux}
+
+\protect\hyperlink{gnu-hurd-3}{0.1.2.1.3.2. GNU Hurd}
+
+\hypertarget{msp430-distribution}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{msp430-distribution-1}{0.1.2.1.4.
+MSP430
+Distribution}}{0.1.2.1.4. MSP430 Distribution}}\label{msp430-distribution}}
+
+\protect\hyperlink{gnu-debian-3}{0.1.2.1.4.1. GNU Debian}
+
+\protect\hyperlink{gnu-fedora-3}{0.1.2.1.4.2. GNU Fedora}
+
+\hypertarget{openrisc}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{openrisc-3}{0.1.2.2.
+OpenRISC}}{0.1.2.2. OpenRISC}}\label{openrisc}}
+
+\hypertarget{openrisc-tests}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{openrisc-tests-1}{0.1.2.2.1.
+OpenRISC Tests}}{0.1.2.2.1. OpenRISC Tests}}\label{openrisc-tests}}
+
+\hypertarget{openrisc-bare-metal}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{openrisc-bare-metal-1}{0.1.2.2.2.
+OpenRISC Bare
+Metal}}{0.1.2.2.2. OpenRISC Bare Metal}}\label{openrisc-bare-metal}}
+
+\hypertarget{openrisc-operating-system}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{openrisc-operating-system-1}{0.1.2.2.3.
+OpenRISC Operating
+System}}{0.1.2.2.3. OpenRISC Operating System}}\label{openrisc-operating-system}}
+
+\protect\hyperlink{gnu-linux-4}{0.1.2.2.3.1. GNU Linux}
+
+\protect\hyperlink{gnu-hurd-4}{0.1.2.2.3.2. GNU Hurd}
+
+\hypertarget{openrisc-distribution}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{openrisc-distribution-1}{0.1.2.2.4.
+OpenRISC
+Distribution}}{0.1.2.2.4. OpenRISC Distribution}}\label{openrisc-distribution}}
+
+\protect\hyperlink{gnu-debian-4}{0.1.2.2.4.1. GNU Debian}
+
+\protect\hyperlink{gnu-fedora-4}{0.1.2.2.4.2. GNU Fedora}
+
+\hypertarget{risc-v}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{risc-v-3}{0.1.2.3.
+RISC-V}}{0.1.2.3. RISC-V}}\label{risc-v}}
+
+\hypertarget{risc-v-tests}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{risc-v-tests-1}{0.1.2.3.1.
+RISC-V Tests}}{0.1.2.3.1. RISC-V Tests}}\label{risc-v-tests}}
+
+\hypertarget{risc-v-bare-metal}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{risc-v-bare-metal-1}{0.1.2.3.2.
+RISC-V Bare
+Metal}}{0.1.2.3.2. RISC-V Bare Metal}}\label{risc-v-bare-metal}}
+
+\hypertarget{risc-v-operating-system}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{risc-v-operating-system-1}{0.1.2.3.3.
+RISC-V Operating
+System}}{0.1.2.3.3. RISC-V Operating System}}\label{risc-v-operating-system}}
+
+\protect\hyperlink{gnu-linux-5}{0.1.2.3.3.1. GNU Linux}
+
+\protect\hyperlink{gnu-hurd-5}{0.1.2.3.3.2. GNU Hurd}
+
+\hypertarget{risc-v-distribution}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{risc-v-distribution-1}{0.1.2.3.4.
+RISC-V
+Distribution}}{0.1.2.3.4. RISC-V Distribution}}\label{risc-v-distribution}}
+
+\protect\hyperlink{gnu-debian-5}{0.1.2.3.4.1. GNU Debian}
+
+\protect\hyperlink{gnu-fedora-5}{0.1.2.3.4.2. GNU Fedora}
+
+\hypertarget{open-source-philosophy}{%
+\subsection{\texorpdfstring{\protect\hyperlink{open-source-philosophy-1}{0.2.
+OPEN SOURCE
+PHILOSOPHY}}{0.2. OPEN SOURCE PHILOSOPHY}}\label{open-source-philosophy}}
+
+\hypertarget{open-source-hardware}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{open-source-hardware-1}{0.2.1.
+Open Source
+Hardware}}{0.2.1. Open Source Hardware}}\label{open-source-hardware}}
+
+\hypertarget{msp430-processing-unit}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{msp430-processing-unit-1}{0.2.1.1.
+MSP430 Processing
+Unit}}{0.2.1.1. MSP430 Processing Unit}}\label{msp430-processing-unit}}
+
+\hypertarget{openrisc-processing-unit}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{openrisc-processing-unit-1}{0.2.1.2.
+OpenRISC Processing
+Unit}}{0.2.1.2. OpenRISC Processing Unit}}\label{openrisc-processing-unit}}
+
+\hypertarget{risc-v-processing-unit}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{risc-v-processing-unit-1}{0.2.1.3.
+RISC-V Processing
+Unit}}{0.2.1.3. RISC-V Processing Unit}}\label{risc-v-processing-unit}}
+
+\hypertarget{open-source-software}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{open-source-software-1}{0.2.2.
+Open Source
+Software}}{0.2.2. Open Source Software}}\label{open-source-software}}
+
+\hypertarget{msp430-gnu-compiler-collection}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{msp430-gnu-compiler-collection-1}{0.2.2.1.
+MSP430 GNU Compiler
+Collection}}{0.2.2.1. MSP430 GNU Compiler Collection}}\label{msp430-gnu-compiler-collection}}
+
+\hypertarget{openrisc-gnu-compiler-collection}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{openrisc-gnu-compiler-collection-1}{0.2.2.2.
+OpenRISC GNU Compiler
+Collection}}{0.2.2.2. OpenRISC GNU Compiler Collection}}\label{openrisc-gnu-compiler-collection}}
+
+\hypertarget{risc-v-gnu-compiler-collection}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{risc-v-gnu-compiler-collection-1}{0.2.2.3.
+RISC-V GNU Compiler
+Collection}}{0.2.2.3. RISC-V GNU Compiler Collection}}\label{risc-v-gnu-compiler-collection}}
+
+\hypertarget{instruction-set-architecture}{%
+\subsection{\texorpdfstring{\protect\hyperlink{instruction-set-architecture-1}{0.3.
+INSTRUCTION SET
+ARCHITECTURE}}{0.3. INSTRUCTION SET ARCHITECTURE}}\label{instruction-set-architecture}}
+
+\hypertarget{risc-v-isa}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{risc-v-isa-1}{0.3.1.
+RISC-V ISA}}{0.3.1. RISC-V ISA}}\label{risc-v-isa}}
+
+\hypertarget{isa-bases}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{isa-bases-3}{0.3.1.1. ISA
+Bases}}{0.3.1.1. ISA Bases}}\label{isa-bases}}
+
+\hypertarget{risc-v-32}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{risc-v-32-1}{0.3.1.1.1.
+RISC-V 32}}{0.3.1.1.1. RISC-V 32}}\label{risc-v-32}}
+
+\hypertarget{risc-v-64}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{risc-v-64-1}{0.3.1.1.2.
+RISC-V 64}}{0.3.1.1.2. RISC-V 64}}\label{risc-v-64}}
+
+\hypertarget{risc-v-128}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{risc-v-128-1}{0.3.1.1.3.
+RISC-V 128}}{0.3.1.1.3. RISC-V 128}}\label{risc-v-128}}
+
+\hypertarget{isa-extensions}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{isa-extensions-3}{0.3.1.2.
+ISA Extensions}}{0.3.1.2. ISA Extensions}}\label{isa-extensions}}
+
+\hypertarget{base-integer-instruction-set}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{base-integer-instruction-set-1}{0.3.1.2.1.
+Base Integer Instruction
+Set}}{0.3.1.2.1. Base Integer Instruction Set}}\label{base-integer-instruction-set}}
+
+\hypertarget{standard-extension-for-integer-multiply-and-divide}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{standard-extension-for-integer-multiply-and-divide-1}{0.3.1.2.2.
+Standard Extension for Integer Multiply and
+Divide}}{0.3.1.2.2. Standard Extension for Integer Multiply and Divide}}\label{standard-extension-for-integer-multiply-and-divide}}
+
+\hypertarget{standard-extension-for-atomic-instructions}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{standard-extension-for-atomic-instructions-1}{0.3.1.2.3.
+Standard Extension for Atomic
+Instructions}}{0.3.1.2.3. Standard Extension for Atomic Instructions}}\label{standard-extension-for-atomic-instructions}}
+
+\hypertarget{standard-extension-for-single-precision-floating-point}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{standard-extension-for-single-precision-floating-point-1}{0.3.1.2.4.
+Standard Extension for Single-Precision
+Floating-Point}}{0.3.1.2.4. Standard Extension for Single-Precision Floating-Point}}\label{standard-extension-for-single-precision-floating-point}}
+
+\hypertarget{standard-extension-for-double-precision-floating-point}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{standard-extension-for-double-precision-floating-point-1}{0.3.1.2.5.
+Standard Extension for Double-Precision
+Floating-Point}}{0.3.1.2.5. Standard Extension for Double-Precision Floating-Point}}\label{standard-extension-for-double-precision-floating-point}}
+
+\hypertarget{isa-modes}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{isa-modes-3}{0.3.1.3. ISA
+Modes}}{0.3.1.3. ISA Modes}}\label{isa-modes}}
+
+\hypertarget{risc-v-user}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{risc-v-user-1}{0.3.1.3.1.
+RISC-V User}}{0.3.1.3.1. RISC-V User}}\label{risc-v-user}}
+
+\hypertarget{risc-v-supervisor}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{risc-v-supervisor-1}{0.3.1.3.2.
+RISC-V
+Supervisor}}{0.3.1.3.2. RISC-V Supervisor}}\label{risc-v-supervisor}}
+
+\hypertarget{risc-v-hypervisor}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{risc-v-hypervisor-1}{0.3.1.3.3.
+RISC-V
+Hypervisor}}{0.3.1.3.3. RISC-V Hypervisor}}\label{risc-v-hypervisor}}
+
+\hypertarget{risc-v-machine}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{risc-v-machine-1}{0.3.1.3.4.
+RISC-V Machine}}{0.3.1.3.4. RISC-V Machine}}\label{risc-v-machine}}
+
+\hypertarget{openrisc-isa}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{openrisc-isa-1}{0.3.2.
+OpenRISC ISA}}{0.3.2. OpenRISC ISA}}\label{openrisc-isa}}
+
+\hypertarget{isa-bases-1}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{isa-bases-4}{0.3.2.1. ISA
+Bases}}{0.3.2.1. ISA Bases}}\label{isa-bases-1}}
+
+\hypertarget{openrisc-32}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{openrisc-32-1}{0.3.2.2.1.
+OpenRISC 32}}{0.3.2.2.1. OpenRISC 32}}\label{openrisc-32}}
+
+\hypertarget{openrisc-64}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{openrisc-64-1}{0.3.2.2.2.
+OpenRISC 64}}{0.3.2.2.2. OpenRISC 64}}\label{openrisc-64}}
+
+\hypertarget{openrisc-128}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{openrisc-128-1}{0.3.2.2.3.
+OpenRISC 128}}{0.3.2.2.3. OpenRISC 128}}\label{openrisc-128}}
+
+\hypertarget{isa-extensions-1}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{isa-extensions-4}{0.3.2.2.
+ISA Extensions}}{0.3.2.2. ISA Extensions}}\label{isa-extensions-1}}
+
+\hypertarget{isa-modes-1}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{isa-modes-4}{0.3.2.3. ISA
+Modes}}{0.3.2.3. ISA Modes}}\label{isa-modes-1}}
+
+\hypertarget{openrisc-user}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{openrisc-user-1}{0.3.2.3.1.
+OpenRISC User}}{0.3.2.3.1. OpenRISC User}}\label{openrisc-user}}
+
+\hypertarget{openrisc-supervisor}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{openrisc-supervisor-1}{0.3.2.3.2.
+OpenRISC
+Supervisor}}{0.3.2.3.2. OpenRISC Supervisor}}\label{openrisc-supervisor}}
+
+\hypertarget{openrisc-hypervisor}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{openrisc-hypervisor-1}{0.3.2.3.3.
+OpenRISC
+Hypervisor}}{0.3.2.3.3. OpenRISC Hypervisor}}\label{openrisc-hypervisor}}
+
+\hypertarget{openrisc-machine}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{openrisc-machine-1}{0.3.2.3.4.
+OpenRISC
+Machine}}{0.3.2.3.4. OpenRISC Machine}}\label{openrisc-machine}}
+
+\hypertarget{msp430-isa}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{msp430-isa-1}{0.3.3.
+MSP430 ISA}}{0.3.3. MSP430 ISA}}\label{msp430-isa}}
+
+\hypertarget{isa-bases-2}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{isa-bases-5}{0.3.3.1. ISA
+Bases}}{0.3.3.1. ISA Bases}}\label{isa-bases-2}}
+
+\hypertarget{msp430-32}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{msp430-32-1}{0.3.3.2.1.
+MSP430 32}}{0.3.3.2.1. MSP430 32}}\label{msp430-32}}
+
+\hypertarget{msp430-64}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{msp430-64-1}{0.3.3.2.2.
+MSP430 64}}{0.3.3.2.2. MSP430 64}}\label{msp430-64}}
+
+\hypertarget{msp430-128}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{msp430-128-1}{0.3.3.2.3.
+MSP430 128}}{0.3.3.2.3. MSP430 128}}\label{msp430-128}}
+
+\hypertarget{isa-extensions-2}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{isa-extensions-5}{0.3.3.2.
+ISA Extensions}}{0.3.3.2. ISA Extensions}}\label{isa-extensions-2}}
+
+\hypertarget{isa-modes-2}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{isa-modes-5}{0.3.3.3. ISA
+Modes}}{0.3.3.3. ISA Modes}}\label{isa-modes-2}}
+
+\hypertarget{msp430-user}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{msp430-user-1}{0.3.3.3.1.
+MSP430 User}}{0.3.3.3.1. MSP430 User}}\label{msp430-user}}
+
+\hypertarget{msp430-supervisor}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{msp430-supervisor-1}{0.3.3.3.2.
+MSP430
+Supervisor}}{0.3.3.3.2. MSP430 Supervisor}}\label{msp430-supervisor}}
+
+\hypertarget{msp430-hypervisor}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{msp430-hypervisor-1}{0.3.3.3.3.
+MSP430
+Hypervisor}}{0.3.3.3.3. MSP430 Hypervisor}}\label{msp430-hypervisor}}
+
+\hypertarget{msp430-machine}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{msp430-machine-1}{0.3.3.3.4.
+MSP430 Machine}}{0.3.3.3.4. MSP430 Machine}}\label{msp430-machine}}
+
+\hypertarget{methodology}{%
+\section{\texorpdfstring{\protect\hyperlink{methodology-1}{1.
+METHODOLOGY}}{1. METHODOLOGY}}\label{methodology}}
+
+\hypertarget{requirements}{%
+\subsection{\texorpdfstring{\protect\hyperlink{requirements-1}{1.1.
+Requirements}}{1.1. Requirements}}\label{requirements}}
+
+\hypertarget{structural-uml-diagrams}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{structural-uml-diagrams-1}{1.1.1.
+Structural UML
+diagrams}}{1.1.1. Structural UML diagrams}}\label{structural-uml-diagrams}}
+
+\hypertarget{class-diagram}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{class-diagram-1}{1.1.1.1.
+Class diagram}}{1.1.1.1. Class diagram}}\label{class-diagram}}
+
+\hypertarget{component-diagram}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{component-diagram-1}{1.1.1.2.
+Component
+diagram}}{1.1.1.2. Component diagram}}\label{component-diagram}}
+
+\hypertarget{composite-diagram}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{composite-diagram-1}{1.1.1.3.
+Composite
+diagram}}{1.1.1.3. Composite diagram}}\label{composite-diagram}}
+
+\hypertarget{deployment-diagram}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{deployment-diagram-1}{1.1.1.4.
+Deployment
+diagram}}{1.1.1.4. Deployment diagram}}\label{deployment-diagram}}
+
+\hypertarget{object-diagram}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{object-diagram-1}{1.1.1.5.
+Object diagram}}{1.1.1.5. Object diagram}}\label{object-diagram}}
+
+\hypertarget{package-diagram}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{package-diagram-1}{1.1.1.6.
+Package diagram}}{1.1.1.6. Package diagram}}\label{package-diagram}}
+
+\hypertarget{profile-diagram}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{profile-diagram-1}{1.1.1.7.
+Profile diagram}}{1.1.1.7. Profile diagram}}\label{profile-diagram}}
+
+\hypertarget{behavioral-uml-diagrams}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{behavioral-uml-diagrams-1}{1.1.2.
+Behavioral UML
+diagrams}}{1.1.2. Behavioral UML diagrams}}\label{behavioral-uml-diagrams}}
+
+\hypertarget{activity-diagram}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{activity-diagram-1}{1.1.2.1.
+Activity diagram}}{1.1.2.1. Activity diagram}}\label{activity-diagram}}
+
+\hypertarget{communication-diagram}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{communication-diagram-1}{1.1.2.2.
+Communication
+diagram}}{1.1.2.2. Communication diagram}}\label{communication-diagram}}
+
+\hypertarget{interaction-diagram}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{interaction-diagram-1}{1.1.2.3.
+Interaction
+diagram}}{1.1.2.3. Interaction diagram}}\label{interaction-diagram}}
+
+\hypertarget{sequence-diagram}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{sequence-diagram-1}{1.1.2.4.
+Sequence diagram}}{1.1.2.4. Sequence diagram}}\label{sequence-diagram}}
+
+\hypertarget{state-diagram}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{state-diagram-1}{1.1.2.5.
+State diagram}}{1.1.2.5. State diagram}}\label{state-diagram}}
+
+\hypertarget{timing-diagram}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{timing-diagram-1}{1.1.2.6.
+Timing diagram}}{1.1.2.6. Timing diagram}}\label{timing-diagram}}
+
+\hypertarget{use-diagram}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{use-diagram-1}{1.1.2.7.
+Use diagram}}{1.1.2.7. Use diagram}}\label{use-diagram}}
+
+\hypertarget{source}{%
+\subsection{\texorpdfstring{\protect\hyperlink{source-1}{1.2.
+Source}}{1.2. Source}}\label{source}}
+
+\hypertarget{ada-language}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{ada-language-1}{1.2.1.
+Ada Language}}{1.2.1. Ada Language}}\label{ada-language}}
+
+\hypertarget{c-language}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{c-language-1}{1.2.2. C
+Language}}{1.2.2. C Language}}\label{c-language}}
+
+\hypertarget{model}{%
+\subsection{\texorpdfstring{\protect\hyperlink{model-1}{1.3.
+Model}}{1.3. Model}}\label{model}}
+
+\hypertarget{vhdl}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{vhdl-3}{1.3.1.
+VHDL}}{1.3.1. VHDL}}\label{vhdl}}
+
+\hypertarget{verilog}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{verilog-3}{1.3.2.
+Verilog}}{1.3.2. Verilog}}\label{verilog}}
+
+\hypertarget{validation}{%
+\subsection{\texorpdfstring{\protect\hyperlink{validation-1}{1.5.
+Validation}}{1.5. Validation}}\label{validation}}
+
+\hypertarget{vhdl-1}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{vhdl-5}{1.5.1.
+VHDL}}{1.5.1. VHDL}}\label{vhdl-1}}
+
+\hypertarget{verilog-1}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{verilog-5}{1.5.2.
+Verilog}}{1.5.2. Verilog}}\label{verilog-1}}
+
+\hypertarget{design}{%
+\subsection{\texorpdfstring{\protect\hyperlink{design-1}{1.5.
+Design}}{1.5. Design}}\label{design}}
+
+\hypertarget{vhdl-2}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{vhdl-5}{1.5.1.
+VHDL}}{1.5.1. VHDL}}\label{vhdl-2}}
+
+\hypertarget{verilog-2}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{verilog-5}{1.5.2.
+Verilog}}{1.5.2. Verilog}}\label{verilog-2}}
+
+\hypertarget{verification}{%
+\subsection{\texorpdfstring{\protect\hyperlink{verification-1}{1.6.
+Verification}}{1.6. Verification}}\label{verification}}
+
+\hypertarget{osvvm-vhdl}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{osvvm-vhdl-1}{1.6.1.
+OSVVM-VHDL}}{1.6.1. OSVVM-VHDL}}\label{osvvm-vhdl}}
+
+\hypertarget{osvvm-checker}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{osvvm-checker-1}{1.6.1.1.
+OSVVM Checker}}{1.6.1.1. OSVVM Checker}}\label{osvvm-checker}}
+
+\hypertarget{osvvm-stimulus}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{osvvm-stimulus-1}{1.6.1.2.
+OSVVM Stimulus}}{1.6.1.2. OSVVM Stimulus}}\label{osvvm-stimulus}}
+
+\hypertarget{osvvm-testbench}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{osvvm-testbench-1}{1.6.1.3.
+OSVVM Testbench}}{1.6.1.3. OSVVM Testbench}}\label{osvvm-testbench}}
+
+\hypertarget{uvm-verilog}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{uvm-verilog-1}{1.6.2.
+UVM-Verilog}}{1.6.2. UVM-Verilog}}\label{uvm-verilog}}
+
+\hypertarget{uvm-agent}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{uvm-agent-1}{1.6.2.1. UVM
+Agent}}{1.6.2.1. UVM Agent}}\label{uvm-agent}}
+
+\hypertarget{uvm-driver}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{uvm-driver-1}{1.6.2.2. UVM
+Driver}}{1.6.2.2. UVM Driver}}\label{uvm-driver}}
+
+\hypertarget{uvm-enviroment}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{uvm-enviroment-1}{1.6.2.3.
+UVM Enviroment}}{1.6.2.3. UVM Enviroment}}\label{uvm-enviroment}}
+
+\hypertarget{uvm-monitor}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{uvm-monitor-1}{1.6.2.4.
+UVM Monitor}}{1.6.2.4. UVM Monitor}}\label{uvm-monitor}}
+
+\hypertarget{uvm-scoreboard}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{uvm-scoreboard-1}{1.6.2.5.
+UVM Scoreboard}}{1.6.2.5. UVM Scoreboard}}\label{uvm-scoreboard}}
+
+\hypertarget{uvm-sequence}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{uvm-sequence-1}{1.6.2.6.
+UVM Sequence}}{1.6.2.6. UVM Sequence}}\label{uvm-sequence}}
+
+\hypertarget{uvm-sequencer}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{uvm-sequencer-1}{1.6.2.7.
+UVM Sequencer}}{1.6.2.7. UVM Sequencer}}\label{uvm-sequencer}}
+
+\hypertarget{uvm-subscriber}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{uvm-subscriber-1}{1.6.2.8.
+UVM Subscriber}}{1.6.2.8. UVM Subscriber}}\label{uvm-subscriber}}
+
+\hypertarget{uvm-test}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{uvm-test-1}{1.6.2.9. UVM
+Test}}{1.6.2.9. UVM Test}}\label{uvm-test}}
+
+\hypertarget{uvm-testbench}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{uvm-testbench-1}{1.6.2.10.
+UVM Testbench}}{1.6.2.10. UVM Testbench}}\label{uvm-testbench}}
+
+\hypertarget{uvm-transaction}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{uvm-transaction-1}{1.6.2.11.
+UVM Transaction}}{1.6.2.11. UVM Transaction}}\label{uvm-transaction}}
+
+\hypertarget{projects}{%
+\section{\texorpdfstring{\protect\hyperlink{projects-1}{2.
+PROJECTS}}{2. PROJECTS}}\label{projects}}
+
+\hypertarget{interface}{%
+\subsection{\texorpdfstring{\protect\hyperlink{interface-1}{2.1.
+INTERFACE}}{2.1. INTERFACE}}\label{interface}}
+
+\hypertarget{instruction-cache}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{instruction-cache-1}{2.1.1.
+INSTRUCTION CACHE}}{2.1.1. INSTRUCTION CACHE}}\label{instruction-cache}}
+
+\hypertarget{instruction-inputsoutputs-amba4-axi-lite-bus}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{instruction-inputsoutputs-amba4-axi-lite-bus-1}{2.1.1.1
+Instruction INPUTS/OUTPUTS AMBA4 AXI-Lite
+Bus}}{2.1.1.1 Instruction INPUTS/OUTPUTS AMBA4 AXI-Lite Bus}}\label{instruction-inputsoutputs-amba4-axi-lite-bus}}
+
+\hypertarget{signals-of-the-read-and-write-address-channels}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{signals-of-the-read-and-write-address-channels-2}{2.1.1.1.1.
+Signals of the Read and Write Address
+channels}}{2.1.1.1.1. Signals of the Read and Write Address channels}}\label{signals-of-the-read-and-write-address-channels}}
+
+\hypertarget{signals-of-the-read-and-write-data-channels}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{signals-of-the-read-and-write-data-channels-2}{2.1.1.1.2.
+Signals of the Read and Write Data
+channels}}{2.1.1.1.2. Signals of the Read and Write Data channels}}\label{signals-of-the-read-and-write-data-channels}}
+
+\hypertarget{signals-of-the-write-response-channel}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{signals-of-the-write-response-channel-2}{2.1.1.1.3.
+Signals of the Write Response
+channel}}{2.1.1.1.3. Signals of the Write Response channel}}\label{signals-of-the-write-response-channel}}
+
+\hypertarget{instruction-inputsoutputs-amba3-ahb-lite-bus}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{instruction-inputsoutputs-amba3-ahb-lite-bus-1}{2.1.1.2.
+Instruction INPUTS/OUTPUTS AMBA3 AHB-Lite
+Bus}}{2.1.1.2. Instruction INPUTS/OUTPUTS AMBA3 AHB-Lite Bus}}\label{instruction-inputsoutputs-amba3-ahb-lite-bus}}
+
+\hypertarget{instruction-inputsoutputs-wishbone-bus}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{instruction-inputsoutputs-wishbone-bus-1}{2.1.1.3.
+Instruction INPUTS/OUTPUTS Wishbone
+Bus}}{2.1.1.3. Instruction INPUTS/OUTPUTS Wishbone Bus}}\label{instruction-inputsoutputs-wishbone-bus}}
+
+\hypertarget{data-cache}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{data-cache-1}{2.1.2.
+DATA CACHE}}{2.1.2. DATA CACHE}}\label{data-cache}}
+
+\hypertarget{data-inputsoutputs-amba4-axi-lite-bus}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{data-inputsoutputs-amba4-axi-lite-bus-1}{2.1.2.1.
+Data INPUTS/OUTPUTS AMBA4 AXI-Lite
+Bus}}{2.1.2.1. Data INPUTS/OUTPUTS AMBA4 AXI-Lite Bus}}\label{data-inputsoutputs-amba4-axi-lite-bus}}
+
+\hypertarget{signals-of-the-read-and-write-address-channels-1}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{signals-of-the-read-and-write-address-channels-3}{2.1.2.1.1.
+Signals of the Read and Write Address
+channels}}{2.1.2.1.1. Signals of the Read and Write Address channels}}\label{signals-of-the-read-and-write-address-channels-1}}
+
+\hypertarget{signals-of-the-read-and-write-data-channels-1}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{signals-of-the-read-and-write-data-channels-3}{2.1.2.1.2.
+Signals of the Read and Write Data
+channels}}{2.1.2.1.2. Signals of the Read and Write Data channels}}\label{signals-of-the-read-and-write-data-channels-1}}
+
+\hypertarget{signals-of-the-write-response-channel-1}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{signals-of-the-write-response-channel-3}{2.1.2.1.3.
+Signals of the Write Response
+channel}}{2.1.2.1.3. Signals of the Write Response channel}}\label{signals-of-the-write-response-channel-1}}
+
+\hypertarget{data-inputsoutputs-amba3-ahb-lite-bus}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{data-inputsoutputs-amba3-ahb-lite-bus-1}{2.1.2.2.
+Data INPUTS/OUTPUTS AMBA3 AHB-Lite
+Bus}}{2.1.2.2. Data INPUTS/OUTPUTS AMBA3 AHB-Lite Bus}}\label{data-inputsoutputs-amba3-ahb-lite-bus}}
+
+\hypertarget{data-inputsoutputs-wishbone-bus}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{data-inputsoutputs-wishbone-bus-1}{2.1.2.3.
+Data INPUTS/OUTPUTS Wishbone
+Bus}}{2.1.2.3. Data INPUTS/OUTPUTS Wishbone Bus}}\label{data-inputsoutputs-wishbone-bus}}
+
+\hypertarget{functionality}{%
+\subsection{\texorpdfstring{\protect\hyperlink{functionality-1}{2.2.
+FUNCTIONALITY}}{2.2. FUNCTIONALITY}}\label{functionality}}
+
+\hypertarget{structure}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{structure-1}{2.2.1.
+Structure}}{2.2.1. Structure}}\label{structure}}
+
+\hypertarget{behavior}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{behavior-1}{2.2.2.
+Behavior}}{2.2.2. Behavior}}\label{behavior}}
+
+\hypertarget{registers}{%
+\subsection{\texorpdfstring{\protect\hyperlink{registers-1}{2.3.
+REGISTERS}}{2.3. REGISTERS}}\label{registers}}
+
+\hypertarget{interruptions}{%
+\subsection{\texorpdfstring{\protect\hyperlink{interruptions-1}{2.4.
+INTERRUPTIONS}}{2.4. INTERRUPTIONS}}\label{interruptions}}
+
+\hypertarget{organization}{%
+\section{\texorpdfstring{\protect\hyperlink{organization-1}{3.
+ORGANIZATION}}{3. ORGANIZATION}}\label{organization}}
+
+\hypertarget{mechanics}{%
+\subsection{\texorpdfstring{\protect\hyperlink{mechanics-1}{3.1.
+Mechanics}}{3.1. Mechanics}}\label{mechanics}}
+
+\hypertarget{information}{%
+\subsection{\texorpdfstring{\protect\hyperlink{information-1}{3.2.
+Information}}{3.2. Information}}\label{information}}
+
+\hypertarget{bit}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{bit-1}{3.2.1.
+Bit}}{3.2.1. Bit}}\label{bit}}
+
+\hypertarget{logic-gate}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{logic-gate-1}{3.2.2.
+Logic Gate}}{3.2.2. Logic Gate}}\label{logic-gate}}
+
+\hypertarget{yesnot-gate}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{yesnot-gate-1}{3.2.2.1.
+YES/NOT Gate}}{3.2.2.1. YES/NOT Gate}}\label{yesnot-gate}}
+
+\hypertarget{andnand-gate}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{andnand-gate-1}{3.2.2.2.
+AND/NAND Gate}}{3.2.2.2. AND/NAND Gate}}\label{andnand-gate}}
+
+\hypertarget{ornor-gate}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{ornor-gate-1}{3.2.2.3.
+OR/NOR Gate}}{3.2.2.3. OR/NOR Gate}}\label{ornor-gate}}
+
+\hypertarget{xorxnor-gate}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{xorxnor-gate-1}{3.2.2.4.
+XOR/XNOR Gate}}{3.2.2.4. XOR/XNOR Gate}}\label{xorxnor-gate}}
+
+\hypertarget{combinational-logic}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{combinational-logic-1}{3.2.3.
+Combinational
+Logic}}{3.2.3. Combinational Logic}}\label{combinational-logic}}
+
+\hypertarget{arithmetic-circuits}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{arithmetic-circuits-1}{3.2.3.1.
+Arithmetic
+Circuits}}{3.2.3.1. Arithmetic Circuits}}\label{arithmetic-circuits}}
+
+\hypertarget{logic-circuits}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{logic-circuits-1}{3.2.3.2.
+Logic Circuits}}{3.2.3.2. Logic Circuits}}\label{logic-circuits}}
+
+\hypertarget{finite-state-machine}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{finite-state-machine-1}{3.2.4.
+Finite State
+Machine}}{3.2.4. Finite State Machine}}\label{finite-state-machine}}
+
+\hypertarget{pushdown-automaton}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{pushdown-automaton-1}{3.2.5.
+Pushdown
+Automaton}}{3.2.5. Pushdown Automaton}}\label{pushdown-automaton}}
+
+\hypertarget{neural-network}{%
+\subsection{\texorpdfstring{\protect\hyperlink{neural-network-1}{3.3.
+Neural Network}}{3.3. Neural Network}}\label{neural-network}}
+
+\hypertarget{feedforward-neural-network}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{feedforward-neural-network-1}{3.3.1.
+Feedforward Neural
+Network}}{3.3.1. Feedforward Neural Network}}\label{feedforward-neural-network}}
+
+\hypertarget{long-short-term-memory-neural-network}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{long-short-term-memory-neural-network-1}{3.3.2.
+Long Short Term Memory Neural
+Network}}{3.3.2. Long Short Term Memory Neural Network}}\label{long-short-term-memory-neural-network}}
+
+\hypertarget{transformer-neural-network}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{transformer-neural-network-1}{3.3.3.
+Transformer Neural
+Network}}{3.3.3. Transformer Neural Network}}\label{transformer-neural-network}}
+
+\hypertarget{turing-machine}{%
+\subsection{\texorpdfstring{\protect\hyperlink{turing-machine-1}{3.4.
+Turing Machine}}{3.4. Turing Machine}}\label{turing-machine}}
+
+\hypertarget{neural-turing-machine}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{neural-turing-machine-1}{3.4.1.
+Neural Turing
+Machine}}{3.4.1. Neural Turing Machine}}\label{neural-turing-machine}}
+
+\hypertarget{feedforward-neural-turing-machine}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{feedforward-neural-turing-machine-1}{3.4.1.1.
+Feedforward Neural Turing
+Machine}}{3.4.1.1. Feedforward Neural Turing Machine}}\label{feedforward-neural-turing-machine}}
+
+\hypertarget{lstm-neural-turing-machine}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{lstm-neural-turing-machine-1}{3.4.1.2.
+LSTM Neural Turing
+Machine}}{3.4.1.2. LSTM Neural Turing Machine}}\label{lstm-neural-turing-machine}}
+
+\hypertarget{transformer-neural-turing-machine}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{transformer-neural-turing-machine-1}{3.4.1.3.
+Transformer Neural Turing
+Machine}}{3.4.1.3. Transformer Neural Turing Machine}}\label{transformer-neural-turing-machine}}
+
+\hypertarget{differentiable-neural-computer}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{differentiable-neural-computer-1}{3.4.2.
+Differentiable Neural
+Computer}}{3.4.2. Differentiable Neural Computer}}\label{differentiable-neural-computer}}
+
+\hypertarget{feedforward-differentiable-neural-computer}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{feedforward-differentiable-neural-computer-1}{3.4.2.1.
+Feedforward Differentiable Neural
+Computer}}{3.4.2.1. Feedforward Differentiable Neural Computer}}\label{feedforward-differentiable-neural-computer}}
+
+\hypertarget{lstm-differentiable-neural-computer}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{lstm-differentiable-neural-computer-1}{3.4.2.2.
+LSTM Differentiable Neural
+Computer}}{3.4.2.2. LSTM Differentiable Neural Computer}}\label{lstm-differentiable-neural-computer}}
+
+\hypertarget{transformer-differentiable-neural-computer}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{transformer-differentiable-neural-computer-1}{3.4.2.3.
+Transformer Differentiable Neural
+Computer}}{3.4.2.3. Transformer Differentiable Neural Computer}}\label{transformer-differentiable-neural-computer}}
+
+\hypertarget{computer-architecture}{%
+\subsection{\texorpdfstring{\protect\hyperlink{computer-architecture-1}{3.5.
+Computer
+Architecture}}{3.5. Computer Architecture}}\label{computer-architecture}}
+
+\hypertarget{von-neumann-architecture}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{von-neumann-architecture-1}{3.5.1.
+von Neumann
+Architecture}}{3.5.1. von Neumann Architecture}}\label{von-neumann-architecture}}
+
+\hypertarget{control-unit}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{control-unit-2}{3.5.1.1.
+Control Unit}}{3.5.1.1. Control Unit}}\label{control-unit}}
+
+\hypertarget{alu}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{alu-2}{3.5.1.2.
+ALU}}{3.5.1.2. ALU}}\label{alu}}
+
+\hypertarget{memory-unit}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{memory-unit-2}{3.5.1.3.
+Memory Unit}}{3.5.1.3. Memory Unit}}\label{memory-unit}}
+
+\hypertarget{io-unit}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{io-unit-2}{3.5.1.4. I/O
+Unit}}{3.5.1.4. I/O Unit}}\label{io-unit}}
+
+\hypertarget{harvard-architecture}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{harvard-architecture-1}{3.5.2.
+Harvard
+Architecture}}{3.5.2. Harvard Architecture}}\label{harvard-architecture}}
+
+\hypertarget{control-unit-1}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{control-unit-3}{3.5.2.1.
+Control Unit}}{3.5.2.1. Control Unit}}\label{control-unit-1}}
+
+\hypertarget{alu-1}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{alu-3}{3.5.2.2.
+ALU}}{3.5.2.2. ALU}}\label{alu-1}}
+
+\hypertarget{memory-unit-1}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{memory-unit-3}{3.5.2.3.Memory
+Unit}}{3.5.2.3.Memory Unit}}\label{memory-unit-1}}
+
+\hypertarget{io-unit-1}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{io-unit-3}{3.5.2.4.I/O
+Unit}}{3.5.2.4.I/O Unit}}\label{io-unit-1}}
+
+\hypertarget{advanced-computer-architecture}{%
+\subsection{\texorpdfstring{\protect\hyperlink{advanced-computer-architecture-1}{3.6.
+Advanced Computer
+Architecture}}{3.6. Advanced Computer Architecture}}\label{advanced-computer-architecture}}
+
+\hypertarget{processing-unit}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{processing-unit-1}{3.6.1.
+Processing Unit}}{3.6.1. Processing Unit}}\label{processing-unit}}
+
+\hypertarget{sisd}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{sisd-1}{3.6.1.1.
+SISD}}{3.6.1.1. SISD}}\label{sisd}}
+
+\hypertarget{simd}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{simd-1}{3.6.1.2.
+SIMD}}{3.6.1.2. SIMD}}\label{simd}}
+
+\hypertarget{misd}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{misd-1}{3.6.1.3.
+MISD}}{3.6.1.3. MISD}}\label{misd}}
+
+\hypertarget{mimd}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{mimd-1}{3.6.1.4.
+MIMD}}{3.6.1.4. MIMD}}\label{mimd}}
+
+\hypertarget{system-on-chip}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{system-on-chip-1}{3.6.2.
+System on Chip}}{3.6.2. System on Chip}}\label{system-on-chip}}
+
+\hypertarget{bus-on-chip}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{bus-on-chip-1}{3.6.2.1.
+Bus on Chip}}{3.6.2.1. Bus on Chip}}\label{bus-on-chip}}
+
+\hypertarget{network-on-chip}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{network-on-chip-1}{3.6.2.2.
+Network on Chip}}{3.6.2.2. Network on Chip}}\label{network-on-chip}}
+
+\hypertarget{multi-processor-system-on-chip}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{multi-processor-system-on-chip-1}{3.6.3.
+Multi-Processor System on
+Chip}}{3.6.3. Multi-Processor System on Chip}}\label{multi-processor-system-on-chip}}
+
+\hypertarget{hardware-workflow}{%
+\section{\texorpdfstring{\protect\hyperlink{hardware-workflow-1}{4.
+HARDWARE WORKFLOW}}{4. HARDWARE WORKFLOW}}\label{hardware-workflow}}
+
+\hypertarget{front-end-open-source-tools}{%
+\subsection{\texorpdfstring{\protect\hyperlink{front-end-open-source-tools-2}{4.1.
+FRONT-END OPEN SOURCE
+TOOLS}}{4.1. FRONT-END OPEN SOURCE TOOLS}}\label{front-end-open-source-tools}}
+
+\hypertarget{modeling-system-level-of-hardware}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{modeling-system-level-of-hardware-1}{4.1.1.
+Modeling System Level of
+Hardware}}{4.1.1. Modeling System Level of Hardware}}\label{modeling-system-level-of-hardware}}
+
+\hypertarget{simulating-system-level-of-hardware}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{simulating-system-level-of-hardware-1}{4.1.2.
+Simulating System Level of
+Hardware}}{4.1.2. Simulating System Level of Hardware}}\label{simulating-system-level-of-hardware}}
+
+\hypertarget{verifying-system-level-of-hardware}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{verifying-system-level-of-hardware-1}{4.1.3.
+Verifying System Level of
+Hardware}}{4.1.3. Verifying System Level of Hardware}}\label{verifying-system-level-of-hardware}}
+
+\hypertarget{describing-register-transfer-level-of-hardware}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{describing-register-transfer-level-of-hardware-1}{4.1.4.
+Describing Register Transfer Level of
+Hardware}}{4.1.4. Describing Register Transfer Level of Hardware}}\label{describing-register-transfer-level-of-hardware}}
+
+\hypertarget{simulating-register-transfer-level-of-hardware}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{simulating-register-transfer-level-of-hardware-1}{4.1.5.
+Simulating Register Transfer Level of
+Hardware}}{4.1.5. Simulating Register Transfer Level of Hardware}}\label{simulating-register-transfer-level-of-hardware}}
+
+\hypertarget{synthesizing-register-transfer-level-of-hardware}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{synthesizing-register-transfer-level-of-hardware-1}{4.1.6.
+Synthesizing Register Transfer Level of
+Hardware}}{4.1.6. Synthesizing Register Transfer Level of Hardware}}\label{synthesizing-register-transfer-level-of-hardware}}
+
+\hypertarget{optimizing-register-transfer-level-of-hardware}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{optimizing-register-transfer-level-of-hardware-1}{4.1.7.
+Optimizing Register Transfer Level of
+Hardware}}{4.1.7. Optimizing Register Transfer Level of Hardware}}\label{optimizing-register-transfer-level-of-hardware}}
+
+\hypertarget{verifying-register-transfer-level-of-hardware}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{verifying-register-transfer-level-of-hardware-1}{4.1.8.
+Verifying Register Transfer Level of
+Hardware}}{4.1.8. Verifying Register Transfer Level of Hardware}}\label{verifying-register-transfer-level-of-hardware}}
+
+\hypertarget{back-end-open-source-tools}{%
+\subsection{\texorpdfstring{\protect\hyperlink{back-end-open-source-tools-2}{4.2.
+BACK-END OPEN SOURCE
+TOOLS}}{4.2. BACK-END OPEN SOURCE TOOLS}}\label{back-end-open-source-tools}}
+
+\hypertarget{planning-switch-level-of-hardware}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{planning-switch-level-of-hardware-1}{4.2.1.
+Planning Switch Level of
+Hardware}}{4.2.1. Planning Switch Level of Hardware}}\label{planning-switch-level-of-hardware}}
+
+\hypertarget{placing-switch-level-of-hardware}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{placing-switch-level-of-hardware-1}{4.2.2.
+Placing Switch Level of
+Hardware}}{4.2.2. Placing Switch Level of Hardware}}\label{placing-switch-level-of-hardware}}
+
+\hypertarget{timing-switch-level-of-hardware}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{timing-switch-level-of-hardware-1}{4.2.3.
+Timing Switch Level of
+Hardware}}{4.2.3. Timing Switch Level of Hardware}}\label{timing-switch-level-of-hardware}}
+
+\hypertarget{routing-switch-level-of-hardware}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{routing-switch-level-of-hardware-1}{4.2.4.
+Routing Switch Level of
+Hardware}}{4.2.4. Routing Switch Level of Hardware}}\label{routing-switch-level-of-hardware}}
+
+\hypertarget{simulating-switch-level-of-hardware}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{simulating-switch-level-of-hardware-1}{4.2.5.
+Simulating Switch Level of
+Hardware}}{4.2.5. Simulating Switch Level of Hardware}}\label{simulating-switch-level-of-hardware}}
+
+\hypertarget{verifying-switch-level-of-hardware-lvs}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{verifying-switch-level-of-hardware-lvs-1}{4.2.6.
+Verifying Switch Level of Hardware
+LVS}}{4.2.6. Verifying Switch Level of Hardware LVS}}\label{verifying-switch-level-of-hardware-lvs}}
+
+\hypertarget{checking-switch-level-of-hardware-drc}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{checking-switch-level-of-hardware-drc-1}{4.2.7.
+Checking Switch Level of Hardware
+DRC}}{4.2.7. Checking Switch Level of Hardware DRC}}\label{checking-switch-level-of-hardware-drc}}
+
+\hypertarget{printing-switch-level-of-hardware-gds}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{printing-switch-level-of-hardware-gds-1}{4.2.8.
+Printing Switch Level of Hardware
+GDS}}{4.2.8. Printing Switch Level of Hardware GDS}}\label{printing-switch-level-of-hardware-gds}}
+
+\hypertarget{software-workflow}{%
+\section{\texorpdfstring{\protect\hyperlink{software-workflow-1}{5.
+SOFTWARE WORKFLOW}}{5. SOFTWARE WORKFLOW}}\label{software-workflow}}
+
+\hypertarget{back-end-open-source-tools-1}{%
+\subsection{\texorpdfstring{\protect\hyperlink{back-end-open-source-tools-3}{5.1.
+BACK-END OPEN SOURCE
+TOOLS}}{5.1. BACK-END OPEN SOURCE TOOLS}}\label{back-end-open-source-tools-1}}
+
+\hypertarget{msp430-1}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{msp430-4}{5.1.1.
+MSP430}}{5.1.1. MSP430}}\label{msp430-1}}
+
+\hypertarget{msp430-gnu-cc}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{msp430-gnu-cc-1}{5.1.1.1.
+MSP430 GNU C/C++}}{5.1.1.1. MSP430 GNU C/C++}}\label{msp430-gnu-cc}}
+
+\hypertarget{msp430-gnu-go}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{msp430-gnu-go-1}{5.1.1.2.
+MSP430 GNU Go}}{5.1.1.2. MSP430 GNU Go}}\label{msp430-gnu-go}}
+
+\hypertarget{openrisc-1}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{openrisc-4}{5.1.2.
+OpenRISC}}{5.1.2. OpenRISC}}\label{openrisc-1}}
+
+\hypertarget{openrisc-gnu-cc}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{openrisc-gnu-cc-1}{5.1.2.1.
+OpenRISC GNU
+C/C++}}{5.1.2.1. OpenRISC GNU C/C++}}\label{openrisc-gnu-cc}}
+
+\hypertarget{openrisc-gnu-go}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{openrisc-gnu-go-1}{5.1.2.2.
+OpenRISC GNU Go}}{5.1.2.2. OpenRISC GNU Go}}\label{openrisc-gnu-go}}
+
+\hypertarget{risc-v-1}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{risc-v-4}{5.1.3.
+RISC-V}}{5.1.3. RISC-V}}\label{risc-v-1}}
+
+\hypertarget{risc-v-gnu-cc}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{risc-v-gnu-cc-1}{5.1.3.1.
+RISC-V GNU C/C++}}{5.1.3.1. RISC-V GNU C/C++}}\label{risc-v-gnu-cc}}
+
+\hypertarget{risc-v-gnu-go}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{risc-v-gnu-go-1}{5.1.3.2.
+RISC-V GNU Go}}{5.1.3.2. RISC-V GNU Go}}\label{risc-v-gnu-go}}
+
+\hypertarget{front-end-open-source-tools-1}{%
+\subsection{\texorpdfstring{\protect\hyperlink{front-end-open-source-tools-3}{5.2.
+FRONT-END OPEN SOURCE
+TOOLS}}{5.2. FRONT-END OPEN SOURCE TOOLS}}\label{front-end-open-source-tools-1}}
+
+\hypertarget{msp430-2}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{msp430-5}{5.2.1.
+MSP430}}{5.2.1. MSP430}}\label{msp430-2}}
+
+\hypertarget{openrisc-2}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{openrisc-5}{5.2.2.
+OpenRISC}}{5.2.2. OpenRISC}}\label{openrisc-2}}
+
+\hypertarget{risc-v-2}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{risc-v-5}{5.2.3.
+RISC-V}}{5.2.3. RISC-V}}\label{risc-v-2}}
+
+\hypertarget{hardware-engineers-compiler-spike}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{hardware-engineers-compiler-spike-1}{5.2.3.1.
+Hardware Engineers Compiler:
+Spike}}{5.2.3.1. Hardware Engineers Compiler: Spike}}\label{hardware-engineers-compiler-spike}}
+
+\hypertarget{software-engineers-compiler-qemu}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{software-engineers-compiler-qemu-1}{5.2.3.2.
+Software Engineers Compiler:
+QEMU}}{5.2.3.2. Software Engineers Compiler: QEMU}}\label{software-engineers-compiler-qemu}}
+
+\hypertarget{quality-assurance}{%
+\section{\texorpdfstring{\protect\hyperlink{quality-assurance-1}{6.
+QUALITY ASSURANCE}}{6. QUALITY ASSURANCE}}\label{quality-assurance}}
+
+\hypertarget{scope}{%
+\subsection{\texorpdfstring{\protect\hyperlink{scope-1}{6.1.
+SCOPE}}{6.1. SCOPE}}\label{scope}}
+
+\hypertarget{normative-reference}{%
+\subsection{\texorpdfstring{\protect\hyperlink{normative-reference-1}{6.2.
+NORMATIVE
+REFERENCE}}{6.2. NORMATIVE REFERENCE}}\label{normative-reference}}
+
+\hypertarget{terms-and-definitions}{%
+\subsection{\texorpdfstring{\protect\hyperlink{terms-and-definitions-1}{6.3.
+TERMS AND
+DEFINITIONS}}{6.3. TERMS AND DEFINITIONS}}\label{terms-and-definitions}}
+
+\hypertarget{context-of-the-organization}{%
+\subsection{\texorpdfstring{\protect\hyperlink{context-of-the-organization-1}{6.4.
+CONTEXT OF THE
+ORGANIZATION}}{6.4. CONTEXT OF THE ORGANIZATION}}\label{context-of-the-organization}}
+
+\hypertarget{understanding-the-organization-and-itsontext}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{understanding-the-organization-and-itsontext-1}{6.4.1.
+Understanding the organization and
+itsontext}}{6.4.1. Understanding the organization and itsontext}}\label{understanding-the-organization-and-itsontext}}
+
+\hypertarget{understanding-the-needs-and-expectations-of-interested-parties}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{understanding-the-needs-and-expectations-of-interested-parties-1}{6.4.2.
+Understanding the needs and expectations of interested
+parties}}{6.4.2. Understanding the needs and expectations of interested parties}}\label{understanding-the-needs-and-expectations-of-interested-parties}}
+
+\hypertarget{determining-the-scope-of-the-quality-management-system}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{determining-the-scope-of-the-quality-management-system-1}{6.4.3.
+Determining the scope of the quality management
+system}}{6.4.3. Determining the scope of the quality management system}}\label{determining-the-scope-of-the-quality-management-system}}
+
+\hypertarget{quality-management-system-and-its-processes}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{quality-management-system-and-its-processes-1}{6.4.4.
+Quality management system and its
+processes}}{6.4.4. Quality management system and its processes}}\label{quality-management-system-and-its-processes}}
+
+\hypertarget{leadership}{%
+\subsection{\texorpdfstring{\protect\hyperlink{leadership-1}{6.5.
+LEADERSHIP}}{6.5. LEADERSHIP}}\label{leadership}}
+
+\hypertarget{leadership-and-commitment}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{leadership-and-commitment-1}{6.5.1.
+Leadership and
+commitment}}{6.5.1. Leadership and commitment}}\label{leadership-and-commitment}}
+
+\hypertarget{general}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{general-9}{6.5.1.1.
+General}}{6.5.1.1. General}}\label{general}}
+
+\hypertarget{customer-focus}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{customer-focus-1}{6.5.1.2.
+Customer focus}}{6.5.1.2. Customer focus}}\label{customer-focus}}
+
+\hypertarget{policy}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{policy-1}{6.5.2.
+Policy}}{6.5.2. Policy}}\label{policy}}
+
+\hypertarget{establishing-the-quality-policy}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{establishing-the-quality-policy-1}{6.5.2.1.
+Establishing the quality
+policy}}{6.5.2.1. Establishing the quality policy}}\label{establishing-the-quality-policy}}
+
+\hypertarget{communicating-the-quality-policy}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{communicating-the-quality-policy-1}{6.5.2.2.
+Communicating the quality
+policy}}{6.5.2.2. Communicating the quality policy}}\label{communicating-the-quality-policy}}
+
+\hypertarget{organizational-roles-responsibilities-and-authorities}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{organizational-roles-responsibilities-and-authorities-1}{6.5.3.
+Organizational roles, responsibilities and
+authorities}}{6.5.3. Organizational roles, responsibilities and authorities}}\label{organizational-roles-responsibilities-and-authorities}}
+
+\hypertarget{planning}{%
+\subsection{\texorpdfstring{\protect\hyperlink{planning-1}{6.6.
+PLANNING}}{6.6. PLANNING}}\label{planning}}
+
+\hypertarget{actions-to-address-risks-and-opportunities}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{actions-to-address-risks-and-opportunities-1}{6.6.1.
+Actions to address risks and
+opportunities}}{6.6.1. Actions to address risks and opportunities}}\label{actions-to-address-risks-and-opportunities}}
+
+\hypertarget{quality-objectives-and-planning-to-achieve-them}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{quality-objectives-and-planning-to-achieve-them-1}{6.6.2.
+Quality objectives and planning to achieve
+them}}{6.6.2. Quality objectives and planning to achieve them}}\label{quality-objectives-and-planning-to-achieve-them}}
+
+\hypertarget{planning-of-changes}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{planning-of-changes-1}{6.6.3.
+Planning of
+changes}}{6.6.3. Planning of changes}}\label{planning-of-changes}}
+
+\hypertarget{support}{%
+\subsection{\texorpdfstring{\protect\hyperlink{support-1}{6.7.
+SUPPORT}}{6.7. SUPPORT}}\label{support}}
+
+\hypertarget{resources}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{resources-1}{6.7.1.
+Resources}}{6.7.1. Resources}}\label{resources}}
+
+\hypertarget{general-1}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{general-10}{6.7.1.1.
+General}}{6.7.1.1. General}}\label{general-1}}
+
+\hypertarget{people}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{people-1}{6.7.1.2.
+People}}{6.7.1.2. People}}\label{people}}
+
+\hypertarget{infrastructure}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{infrastructure-1}{6.7.1.3.
+Infrastructure}}{6.7.1.3. Infrastructure}}\label{infrastructure}}
+
+\hypertarget{environment-for-the-operation-of-process}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{environment-for-the-operation-of-process-1}{6.7.1.4.
+Environment for the operation of
+process}}{6.7.1.4. Environment for the operation of process}}\label{environment-for-the-operation-of-process}}
+
+\hypertarget{monitoring-and-measuring-resources}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{monitoring-and-measuring-resources-1}{6.7.1.5.
+Monitoring and measuring
+resources}}{6.7.1.5. Monitoring and measuring resources}}\label{monitoring-and-measuring-resources}}
+
+\hypertarget{general-2}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{general-11}{6.7.1.5.1.
+General}}{6.7.1.5.1. General}}\label{general-2}}
+
+\hypertarget{measurement-traceability}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{measurement-traceability-1}{6.7.1.5.2.
+Measurement
+traceability}}{6.7.1.5.2. Measurement traceability}}\label{measurement-traceability}}
+
+\hypertarget{organizational-knowledge}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{organizational-knowledge-1}{6.7.1.6.
+Organizational
+knowledge}}{6.7.1.6. Organizational knowledge}}\label{organizational-knowledge}}
+
+\hypertarget{competence}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{competence-1}{6.7.2.
+Competence}}{6.7.2. Competence}}\label{competence}}
+
+\hypertarget{awareness}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{awareness-1}{6.7.3.
+Awareness}}{6.7.3. Awareness}}\label{awareness}}
+
+\hypertarget{communication}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{communication-1}{6.7.4.
+Communication}}{6.7.4. Communication}}\label{communication}}
+
+\hypertarget{documented-information}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{documented-information-1}{6.7.5.
+Documented
+information}}{6.7.5. Documented information}}\label{documented-information}}
+
+\hypertarget{general-3}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{general-12}{6.7.5.1.
+General}}{6.7.5.1. General}}\label{general-3}}
+
+\hypertarget{creating-and-updating}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{creating-and-updating-1}{6.7.5.2.
+Creating and
+updating}}{6.7.5.2. Creating and updating}}\label{creating-and-updating}}
+
+\hypertarget{control-of-documented-information}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{control-of-documented-information-1}{6.7.5.3.
+Control of documented
+information}}{6.7.5.3. Control of documented information}}\label{control-of-documented-information}}
+
+\hypertarget{operation}{%
+\subsection{\texorpdfstring{\protect\hyperlink{operation-1}{6.8.
+OPERATION}}{6.8. OPERATION}}\label{operation}}
+
+\hypertarget{operational-planning-and-control}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{operational-planning-and-control-1}{6.8.1.
+Operational planning and
+control}}{6.8.1. Operational planning and control}}\label{operational-planning-and-control}}
+
+\hypertarget{requirements-for-products-and-services}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{requirements-for-products-and-services-1}{6.8.2.
+Requirements for products and
+services}}{6.8.2. Requirements for products and services}}\label{requirements-for-products-and-services}}
+
+\hypertarget{customer-communication}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{customer-communication-1}{6.8.2.1.
+Customer
+communication}}{6.8.2.1. Customer communication}}\label{customer-communication}}
+
+\hypertarget{determining-the-requirements-for-products-and-services}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{determining-the-requirements-for-products-and-services-1}{6.8.2.2.
+Determining the requirements for products and
+services}}{6.8.2.2. Determining the requirements for products and services}}\label{determining-the-requirements-for-products-and-services}}
+
+\hypertarget{review-of-the-requirements-for-products-and-services}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{review-of-the-requirements-for-products-and-services-1}{6.8.2.3.
+Review of the requirements for products and
+services}}{6.8.2.3. Review of the requirements for products and services}}\label{review-of-the-requirements-for-products-and-services}}
+
+\hypertarget{changes-to-requirements-for-products-and-services}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{changes-to-requirements-for-products-and-services-1}{6.8.2.4.
+Changes to requirements for products and
+services}}{6.8.2.4. Changes to requirements for products and services}}\label{changes-to-requirements-for-products-and-services}}
+
+\hypertarget{design-and-development-of-products-and-services}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{design-and-development-of-products-and-services-1}{6.8.3.
+Design and development of products and
+services}}{6.8.3. Design and development of products and services}}\label{design-and-development-of-products-and-services}}
+
+\hypertarget{general-4}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{general-13}{6.8.3.1.
+General}}{6.8.3.1. General}}\label{general-4}}
+
+\hypertarget{design-and-development-planning}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{design-and-development-planning-1}{6.8.3.2.
+Design and development
+planning}}{6.8.3.2. Design and development planning}}\label{design-and-development-planning}}
+
+\hypertarget{design-and-development-inputs}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{design-and-development-inputs-1}{6.8.3.3.
+Design and development
+inputs}}{6.8.3.3. Design and development inputs}}\label{design-and-development-inputs}}
+
+\hypertarget{design-and-development-controls}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{design-and-development-controls-1}{6.8.3.4.
+Design and development
+controls}}{6.8.3.4. Design and development controls}}\label{design-and-development-controls}}
+
+\hypertarget{design-and-development-outputs}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{design-and-development-outputs-1}{6.8.3.5.
+Design and development
+outputs}}{6.8.3.5. Design and development outputs}}\label{design-and-development-outputs}}
+
+\hypertarget{control-of-externally-provided-processes-products-and-services}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{control-of-externally-provided-processes-products-and-services-1}{6.8.4.
+Control of externally provided processes, products and
+services}}{6.8.4. Control of externally provided processes, products and services}}\label{control-of-externally-provided-processes-products-and-services}}
+
+\hypertarget{general-5}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{general-14}{6.8.4.1.
+General}}{6.8.4.1. General}}\label{general-5}}
+
+\hypertarget{type-and-extent-of-control}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{type-and-extent-of-control-1}{6.8.4.2.
+Type and extent of
+control}}{6.8.4.2. Type and extent of control}}\label{type-and-extent-of-control}}
+
+\hypertarget{information-for-external-providers}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{information-for-external-providers-1}{6.8.4.3.
+Information for external
+providers}}{6.8.4.3. Information for external providers}}\label{information-for-external-providers}}
+
+\hypertarget{production-and-service-provision}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{production-and-service-provision-1}{6.8.5.
+Production and service
+provision}}{6.8.5. Production and service provision}}\label{production-and-service-provision}}
+
+\hypertarget{control-of-production-and-service-provision}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{control-of-production-and-service-provision-1}{6.8.5.1.
+Control of production and service
+provision}}{6.8.5.1. Control of production and service provision}}\label{control-of-production-and-service-provision}}
+
+\hypertarget{identification-and-traceability}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{identification-and-traceability-1}{6.8.5.2.
+Identification and
+traceability}}{6.8.5.2. Identification and traceability}}\label{identification-and-traceability}}
+
+\hypertarget{property-belonging-to-customers-or-external-providers}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{property-belonging-to-customers-or-external-providers-1}{6.8.5.3.
+Property belonging to customers or external
+providers}}{6.8.5.3. Property belonging to customers or external providers}}\label{property-belonging-to-customers-or-external-providers}}
+
+\hypertarget{preservation}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{preservation-1}{6.8.5.4.
+Preservation}}{6.8.5.4. Preservation}}\label{preservation}}
+
+\hypertarget{post-delivery-activities}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{post-delivery-activities-1}{6.8.5.5.
+Post-delivery
+activities}}{6.8.5.5. Post-delivery activities}}\label{post-delivery-activities}}
+
+\hypertarget{control-of-changes}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{control-of-changes-1}{6.8.5.6.
+Control of
+changes}}{6.8.5.6. Control of changes}}\label{control-of-changes}}
+
+\hypertarget{release-of-products-and-services}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{release-of-products-and-services-1}{6.8.6.
+Release of products and
+services}}{6.8.6. Release of products and services}}\label{release-of-products-and-services}}
+
+\hypertarget{control-of-nonconforming-outputs}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{control-of-nonconforming-outputs-1}{6.8.7.
+Control of nonconforming
+outputs}}{6.8.7. Control of nonconforming outputs}}\label{control-of-nonconforming-outputs}}
+
+\hypertarget{performance-evaluation}{%
+\subsection{\texorpdfstring{\protect\hyperlink{performance-evaluation-1}{6.9.
+PERFORMANCE
+EVALUATION}}{6.9. PERFORMANCE EVALUATION}}\label{performance-evaluation}}
+
+\hypertarget{monitoring-measurement-analysis-and-evaluation}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{monitoring-measurement-analysis-and-evaluation-1}{6.9.1.
+Monitoring, measurement, analysis and
+evaluation}}{6.9.1. Monitoring, measurement, analysis and evaluation}}\label{monitoring-measurement-analysis-and-evaluation}}
+
+\hypertarget{general-6}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{general-15}{6.9.1.1.
+General}}{6.9.1.1. General}}\label{general-6}}
+
+\hypertarget{customer-satisfaction}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{customer-satisfaction-1}{6.9.1.2.
+Customer
+satisfaction}}{6.9.1.2. Customer satisfaction}}\label{customer-satisfaction}}
+
+\hypertarget{analysis-and-evaluation}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{analysis-and-evaluation-1}{6.9.1.3.
+Analysis and
+evaluation}}{6.9.1.3. Analysis and evaluation}}\label{analysis-and-evaluation}}
+
+\hypertarget{internal-audit}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{internal-audit-1}{6.9.2.
+Internal audit}}{6.9.2. Internal audit}}\label{internal-audit}}
+
+\hypertarget{management-review}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{management-review-1}{6.9.3.
+Management review}}{6.9.3. Management review}}\label{management-review}}
+
+\hypertarget{general-7}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{general-16}{6.9.3.1.
+General}}{6.9.3.1. General}}\label{general-7}}
+
+\hypertarget{management-review-inputs}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{management-review-inputs-1}{6.9.3.2.
+Management review
+inputs}}{6.9.3.2. Management review inputs}}\label{management-review-inputs}}
+
+\hypertarget{management-review-outputs}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{management-review-outputs-1}{6.9.3.3.
+Management review
+outputs}}{6.9.3.3. Management review outputs}}\label{management-review-outputs}}
+
+\hypertarget{improvement}{%
+\subsection{\texorpdfstring{\protect\hyperlink{improvement-1}{6.10.
+IMPROVEMENT}}{6.10. IMPROVEMENT}}\label{improvement}}
+
+\hypertarget{general-8}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{general-17}{6.10.1.
+General}}{6.10.1. General}}\label{general-8}}
+
+\hypertarget{nonconformity-and-corrective-action}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{nonconformity-and-corrective-action-1}{6.10.2.
+Nonconformity and corrective
+action}}{6.10.2. Nonconformity and corrective action}}\label{nonconformity-and-corrective-action}}
+
+\hypertarget{continual-improvement}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{continual-improvement-1}{6.10.3.
+Continual
+improvement}}{6.10.3. Continual improvement}}\label{continual-improvement}}
+
+\hypertarget{certification}{%
+\section{\texorpdfstring{\protect\hyperlink{certification-1}{7.
+CERTIFICATION}}{7. CERTIFICATION}}\label{certification}}
+
+\hypertarget{planning-process}{%
+\subsection{\texorpdfstring{\protect\hyperlink{planning-process-1}{7.1.
+PLANNING PROCESS}}{7.1. PLANNING PROCESS}}\label{planning-process}}
+
+\hypertarget{planning-process-objectives}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{planning-process-objectives-1}{7.1.1.
+Planning Process
+Objectives}}{7.1.1. Planning Process Objectives}}\label{planning-process-objectives}}
+
+\hypertarget{planning-process-activities}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{planning-process-activities-1}{7.1.2.
+Planning Process
+Activities}}{7.1.2. Planning Process Activities}}\label{planning-process-activities}}
+
+\hypertarget{hardware-design-process}{%
+\subsection{\texorpdfstring{\protect\hyperlink{hardware-design-process-1}{7.2.
+HARDWARE DESIGN
+PROCESS}}{7.2. HARDWARE DESIGN PROCESS}}\label{hardware-design-process}}
+
+\hypertarget{requirements-capture-process}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{requirements-capture-process-1}{7.2.1.
+Requirements Capture
+Process}}{7.2.1. Requirements Capture Process}}\label{requirements-capture-process}}
+
+\hypertarget{conceptual-design-process}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{conceptual-design-process-1}{7.2.2.
+Conceptual Design
+Process}}{7.2.2. Conceptual Design Process}}\label{conceptual-design-process}}
+
+\hypertarget{detailed-design-process}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{detailed-design-process-1}{7.2.3.
+Detailed Design
+Process}}{7.2.3. Detailed Design Process}}\label{detailed-design-process}}
+
+\hypertarget{implementation-process}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{implementation-process-1}{7.2.4.
+Implementation
+Process}}{7.2.4. Implementation Process}}\label{implementation-process}}
+
+\hypertarget{production-transition}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{production-transition-1}{7.2.5.
+Production
+Transition}}{7.2.5. Production Transition}}\label{production-transition}}
+
+\hypertarget{acceptance-test}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{acceptance-test-1}{7.2.6.
+Acceptance Test}}{7.2.6. Acceptance Test}}\label{acceptance-test}}
+
+\hypertarget{series-production}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{series-production-1}{7.2.7.
+Series Production}}{7.2.7. Series Production}}\label{series-production}}
+
+\hypertarget{validation-and-verification-process}{%
+\subsection{\texorpdfstring{\protect\hyperlink{validation-and-verification-process-1}{7.3.
+VALIDATION AND VERIFICATION
+PROCESS}}{7.3. VALIDATION AND VERIFICATION PROCESS}}\label{validation-and-verification-process}}
+
+\hypertarget{validation-process}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{validation-process-1}{7.3.1.
+Validation
+Process}}{7.3.1. Validation Process}}\label{validation-process}}
+
+\hypertarget{verification-process}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{verification-process-1}{7.3.2.
+Verification
+Process}}{7.3.2. Verification Process}}\label{verification-process}}
+
+\hypertarget{validation-and-verification-methods}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{validation-and-verification-methods-1}{7.3.3.
+Validation and Verification
+Methods}}{7.3.3. Validation and Verification Methods}}\label{validation-and-verification-methods}}
+
+\hypertarget{configuration-management-process}{%
+\subsection{\texorpdfstring{\protect\hyperlink{configuration-management-process-1}{7.4.
+CONFIGURATION MANAGEMENT
+PROCESS}}{7.4. CONFIGURATION MANAGEMENT PROCESS}}\label{configuration-management-process}}
+
+\hypertarget{configuration-management-objectives}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{configuration-management-objectives-1}{7.4.1.
+Configuration Management
+Objectives}}{7.4.1. Configuration Management Objectives}}\label{configuration-management-objectives}}
+
+\hypertarget{configuration-management-activities}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{configuration-management-activities-1}{7.4.2.
+Configuration Management
+Activities}}{7.4.2. Configuration Management Activities}}\label{configuration-management-activities}}
+
+\hypertarget{data-control-categories}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{data-control-categories-1}{7.4.3.
+Data Control
+Categories}}{7.4.3. Data Control Categories}}\label{data-control-categories}}
+
+\hypertarget{process-assurance}{%
+\subsection{\texorpdfstring{\protect\hyperlink{process-assurance-1}{7.5.
+PROCESS ASSURANCE}}{7.5. PROCESS ASSURANCE}}\label{process-assurance}}
+
+\hypertarget{process-assurance-objectives}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{process-assurance-objectives-1}{7.5.1.
+Process Assurance
+Objectives}}{7.5.1. Process Assurance Objectives}}\label{process-assurance-objectives}}
+
+\hypertarget{process-assurance-activities}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{process-assurance-activities-1}{7.5.2.
+Process Assurance
+Activities}}{7.5.2. Process Assurance Activities}}\label{process-assurance-activities}}
+
+\hypertarget{certification-liaison-process}{%
+\subsection{\texorpdfstring{\protect\hyperlink{certification-liaison-process-1}{7.6.
+CERTIFICATION LIAISON
+PROCESS}}{7.6. CERTIFICATION LIAISON PROCESS}}\label{certification-liaison-process}}
+
+\hypertarget{means-of-compliance-and-planning}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{means-of-compliance-and-planning-1}{7.6.1.
+Means of Compliance and
+Planning}}{7.6.1. Means of Compliance and Planning}}\label{means-of-compliance-and-planning}}
+
+\hypertarget{compliance-substantiation}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{compliance-substantiation-1}{7.6.2.
+Compliance
+Substantiation}}{7.6.2. Compliance Substantiation}}\label{compliance-substantiation}}
+
+\hypertarget{hardware-design-lifecycle-data}{%
+\subsection{\texorpdfstring{\protect\hyperlink{hardware-design-lifecycle-data-1}{7.7.
+HARDWARE DESIGN LIFECYCLE
+DATA}}{7.7. HARDWARE DESIGN LIFECYCLE DATA}}\label{hardware-design-lifecycle-data}}
+
+\hypertarget{hardware-plans}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{hardware-plans-1}{7.7.1.
+Hardware Plans}}{7.7.1. Hardware Plans}}\label{hardware-plans}}
+
+\hypertarget{plan-for-hardware-aspects-of-certification}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{plan-for-hardware-aspects-of-certification-1}{7.7.1.1.
+Plan for Hardware Aspects of
+Certification}}{7.7.1.1. Plan for Hardware Aspects of Certification}}\label{plan-for-hardware-aspects-of-certification}}
+
+\hypertarget{hardware-design-plan}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{hardware-design-plan-1}{7.7.1.2.
+Hardware Design
+Plan}}{7.7.1.2. Hardware Design Plan}}\label{hardware-design-plan}}
+
+\hypertarget{hardware-validation-plan}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{hardware-validation-plan-1}{7.7.1.3.
+Hardware Validation
+Plan}}{7.7.1.3. Hardware Validation Plan}}\label{hardware-validation-plan}}
+
+\hypertarget{hardware-verification-plan}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{hardware-verification-plan-1}{7.7.1.4.
+Hardware Verification
+Plan}}{7.7.1.4. Hardware Verification Plan}}\label{hardware-verification-plan}}
+
+\hypertarget{hardware-configuration-management-plan}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{hardware-configuration-management-plan-1}{7.7.1.5.
+Hardware Configuration Management
+Plan}}{7.7.1.5. Hardware Configuration Management Plan}}\label{hardware-configuration-management-plan}}
+
+\hypertarget{hardware-process-assurance-plan}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{hardware-process-assurance-plan-1}{7.7.1.6.
+Hardware Process Assurance
+Plan}}{7.7.1.6. Hardware Process Assurance Plan}}\label{hardware-process-assurance-plan}}
+
+\hypertarget{hardware-design-standards-and-guidance}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{hardware-design-standards-and-guidance-1}{7.7.2.
+Hardware Design Standards and
+Guidance}}{7.7.2. Hardware Design Standards and Guidance}}\label{hardware-design-standards-and-guidance}}
+
+\hypertarget{requirements-standards}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{requirements-standards-1}{7.7.2.1.
+Requirements
+Standards}}{7.7.2.1. Requirements Standards}}\label{requirements-standards}}
+
+\hypertarget{hardware-design-standards}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{hardware-design-standards-1}{7.7.2.2.
+Hardware Design
+Standards}}{7.7.2.2. Hardware Design Standards}}\label{hardware-design-standards}}
+
+\hypertarget{validation-and-verification-standards}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{validation-and-verification-standards-1}{7.7.2.3.
+Validation and Verification
+Standards}}{7.7.2.3. Validation and Verification Standards}}\label{validation-and-verification-standards}}
+
+\hypertarget{hardware-archive-standards}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{hardware-archive-standards-1}{7.7.2.4.
+Hardware Archive
+Standards}}{7.7.2.4. Hardware Archive Standards}}\label{hardware-archive-standards}}
+
+\hypertarget{hardware-design-data}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{hardware-design-data-1}{7.7.3.
+Hardware Design
+Data}}{7.7.3. Hardware Design Data}}\label{hardware-design-data}}
+
+\hypertarget{hardware-requirements}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{hardware-requirements-1}{7.7.3.1.
+Hardware
+Requirements}}{7.7.3.1. Hardware Requirements}}\label{hardware-requirements}}
+
+\hypertarget{hardware-design-representation-data}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{hardware-design-representation-data-1}{7.7.3.2.
+Hardware Design Representation
+Data}}{7.7.3.2. Hardware Design Representation Data}}\label{hardware-design-representation-data}}
+
+\hypertarget{conceptual-design-data}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{conceptual-design-data-1}{7.7.3.2.1.
+Conceptual Design
+Data}}{7.7.3.2.1. Conceptual Design Data}}\label{conceptual-design-data}}
+
+\hypertarget{detailed-design-data}{%
+\subparagraph{\texorpdfstring{\protect\hyperlink{detailed-design-data-1}{7.7.3.2.2.
+Detailed Design
+Data}}{7.7.3.2.2. Detailed Design Data}}\label{detailed-design-data}}
+
+\protect\hyperlink{top-level-drawing-1}{7.7.3.2.2.1. Top-Level Drawing}
+
+\protect\hyperlink{assembly-drawings-1}{7.7.3.2.2.2. Assembly Drawings}
+
+\protect\hyperlink{installation-control-drawings-1}{7.7.3.2.2.3.
+Installation Control Drawings}
+
+\protect\hyperlink{hardwaresoftware-interface-data-1}{7.7.3.2.2.4.
+Hardware/Software Interface Data}
+
+\hypertarget{validation-and-verification-data}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{validation-and-verification-data-1}{7.7.4.
+Validation and Verification
+Data}}{7.7.4. Validation and Verification Data}}\label{validation-and-verification-data}}
+
+\hypertarget{traceability-data}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{traceability-data-1}{7.7.4.1.
+Traceability
+Data}}{7.7.4.1. Traceability Data}}\label{traceability-data}}
+
+\hypertarget{review-and-analysis-procedures}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{review-and-analysis-procedures-1}{7.7.4.2.
+Review and Analysis
+Procedures}}{7.7.4.2. Review and Analysis Procedures}}\label{review-and-analysis-procedures}}
+
+\hypertarget{review-and-analysis-results}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{review-and-analysis-results-1}{7.7.4.3.
+Review and Analysis
+Results}}{7.7.4.3. Review and Analysis Results}}\label{review-and-analysis-results}}
+
+\hypertarget{test-procedures}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{test-procedures-1}{7.7.4.4.
+Test Procedures}}{7.7.4.4. Test Procedures}}\label{test-procedures}}
+
+\hypertarget{test-results}{%
+\paragraph{\texorpdfstring{\protect\hyperlink{test-results-1}{7.7.4.5.
+Test Results}}{7.7.4.5. Test Results}}\label{test-results}}
+
+\hypertarget{additional-considerations}{%
+\subsection{\texorpdfstring{\protect\hyperlink{additional-considerations-1}{7.8.
+ADDITIONAL
+CONSIDERATIONS}}{7.8. ADDITIONAL CONSIDERATIONS}}\label{additional-considerations}}
+
+\hypertarget{use-of-previously-developed-hardware}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{use-of-previously-developed-hardware-1}{7.8.1.
+Use of Previously Developed
+Hardware}}{7.8.1. Use of Previously Developed Hardware}}\label{use-of-previously-developed-hardware}}
+
+\hypertarget{commercial-components-usage}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{commercial-components-usage-1}{7.8.2.
+Commercial Components
+Usage}}{7.8.2. Commercial Components Usage}}\label{commercial-components-usage}}
+
+\hypertarget{product-service-experience}{%
+\subsubsection{\texorpdfstring{\protect\hyperlink{product-service-experience-1}{7.8.3.
+Product Service
+Experience}}{7.8.3. Product Service Experience}}\label{product-service-experience}}
+
+\hypertarget{tool-assessment-and-qualification}{%
+\subsubsection{{[}7.8.4. Tool Assessment and
+Qualification}\label{tool-assessment-and-qualification}}
+
+\hypertarget{introduction-1}{%
+\section{0. INTRODUCTION}\label{introduction-1}}
+
+\hypertarget{best-practices-1}{%
+\subsection{0.1. BEST PRACTICES}\label{best-practices-1}}
+
+\hypertarget{hardware-1}{%
+\subsubsection{0.1.1. HARDWARE}\label{hardware-1}}
 
 \begin{verbatim}
 cd synthesis/yosys
 source SYNTHESIZE-IT
 \end{verbatim}
 
-\hypertarget{asic}{%
-\paragraph{0.1.1.1. ASIC}\label{asic}}
+\hypertarget{asic-1}{%
+\paragraph{0.1.1.1. ASIC}\label{asic-1}}
 
 type:
 
@@ -144,8 +1786,8 @@ cd synthesis/qflow
 source FLOW-IT
 \end{verbatim}
 
-\hypertarget{fpga}{%
-\paragraph{0.1.1.2. FPGA}\label{fpga}}
+\hypertarget{fpga-1}{%
+\paragraph{0.1.1.2. FPGA}\label{fpga-1}}
 
 type:
 
@@ -154,65 +1796,65 @@ cd synthesis/symbiflow
 source FLOW-IT
 \end{verbatim}
 
-\hypertarget{software}{%
-\subsubsection{0.1.2. SOFTWARE}\label{software}}
+\hypertarget{software-1}{%
+\subsubsection{0.1.2. SOFTWARE}\label{software-1}}
 
-\hypertarget{msp430}{%
-\paragraph{0.1.2.1. MSP430}\label{msp430}}
+\hypertarget{msp430-3}{%
+\paragraph{0.1.2.1. MSP430}\label{msp430-3}}
 
-\hypertarget{msp430-tests}{%
-\subparagraph{0.1.2.1.1. MSP430 Tests}\label{msp430-tests}}
+\hypertarget{msp430-tests-1}{%
+\subparagraph{0.1.2.1.1. MSP430 Tests}\label{msp430-tests-1}}
 
-\hypertarget{msp430-bare-metal}{%
-\subparagraph{0.1.2.1.2. MSP430 Bare Metal}\label{msp430-bare-metal}}
+\hypertarget{msp430-bare-metal-1}{%
+\subparagraph{0.1.2.1.2. MSP430 Bare Metal}\label{msp430-bare-metal-1}}
 
-\hypertarget{msp430-operating-system}{%
+\hypertarget{msp430-operating-system-1}{%
 \subparagraph{0.1.2.1.3. MSP430 Operating
-System}\label{msp430-operating-system}}
+System}\label{msp430-operating-system-1}}
 
 0.1.2.1.3.1. GNU Linux
 
 0.1.2.1.3.2. GNU Hurd
 
-\hypertarget{msp430-distribution}{%
+\hypertarget{msp430-distribution-1}{%
 \subparagraph{0.1.2.1.4. MSP430
-Distribution}\label{msp430-distribution}}
+Distribution}\label{msp430-distribution-1}}
 
 0.1.2.1.4.1. GNU Debian
 
 0.1.2.1.4.2. GNU Fedora
 
-\hypertarget{openrisc}{%
-\paragraph{0.1.2.2. OpenRISC}\label{openrisc}}
+\hypertarget{openrisc-3}{%
+\paragraph{0.1.2.2. OpenRISC}\label{openrisc-3}}
 
-\hypertarget{openrisc-tests}{%
-\subparagraph{0.1.2.2.1. OpenRISC Tests}\label{openrisc-tests}}
+\hypertarget{openrisc-tests-1}{%
+\subparagraph{0.1.2.2.1. OpenRISC Tests}\label{openrisc-tests-1}}
 
-\hypertarget{openrisc-bare-metal}{%
+\hypertarget{openrisc-bare-metal-1}{%
 \subparagraph{0.1.2.2.2. OpenRISC Bare
-Metal}\label{openrisc-bare-metal}}
+Metal}\label{openrisc-bare-metal-1}}
 
-\hypertarget{openrisc-operating-system}{%
+\hypertarget{openrisc-operating-system-1}{%
 \subparagraph{0.1.2.2.3. OpenRISC Operating
-System}\label{openrisc-operating-system}}
+System}\label{openrisc-operating-system-1}}
 
 0.1.2.2.3.1. GNU Linux
 
 0.1.2.2.3.2. GNU Hurd
 
-\hypertarget{openrisc-distribution}{%
+\hypertarget{openrisc-distribution-1}{%
 \subparagraph{0.1.2.2.4. OpenRISC
-Distribution}\label{openrisc-distribution}}
+Distribution}\label{openrisc-distribution-1}}
 
 0.1.2.2.4.1. GNU Debian
 
 0.1.2.2.4.2. GNU Fedora
 
-\hypertarget{risc-v}{%
-\paragraph{0.1.2.3. RISC-V}\label{risc-v}}
+\hypertarget{risc-v-3}{%
+\paragraph{0.1.2.3. RISC-V}\label{risc-v-3}}
 
-\hypertarget{risc-v-tests}{%
-\subparagraph{0.1.2.3.1. RISC-V Tests}\label{risc-v-tests}}
+\hypertarget{risc-v-tests-1}{%
+\subparagraph{0.1.2.3.1. RISC-V Tests}\label{risc-v-tests-1}}
 
 type:
 
@@ -265,8 +1907,8 @@ spike rv32mi-p-csr
 spike rv64um-v-remw
 \end{verbatim}
 
-\hypertarget{risc-v-bare-metal}{%
-\subparagraph{0.1.2.3.2. RISC-V Bare Metal}\label{risc-v-bare-metal}}
+\hypertarget{risc-v-bare-metal-1}{%
+\subparagraph{0.1.2.3.2. RISC-V Bare Metal}\label{risc-v-bare-metal-1}}
 
 type:
 
@@ -360,9 +2002,9 @@ Go Language:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{risc-v-operating-system}{%
+\hypertarget{risc-v-operating-system-1}{%
 \subparagraph{0.1.2.3.3. RISC-V Operating
-System}\label{risc-v-operating-system}}
+System}\label{risc-v-operating-system-1}}
 
 0.1.2.3.3.1. GNU Linux
 
@@ -459,9 +2101,9 @@ qemu-system-riscv64 \
 
 0.1.2.3.3.2. GNU Hurd
 
-\hypertarget{risc-v-distribution}{%
+\hypertarget{risc-v-distribution-1}{%
 \subparagraph{0.1.2.3.4. RISC-V
-Distribution}\label{risc-v-distribution}}
+Distribution}\label{risc-v-distribution-1}}
 
 0.1.2.3.4.1. GNU Debian
 
@@ -489,8 +2131,9 @@ qemu-system-riscv64 \
 -netdev user,id=usernet,hostfwd=tcp::10000-:22
 \end{verbatim}
 
-\hypertarget{open-source-philosophy}{%
-\subsection{0.2. OPEN SOURCE PHILOSOPHY}\label{open-source-philosophy}}
+\hypertarget{open-source-philosophy-1}{%
+\subsection{0.2. OPEN SOURCE
+PHILOSOPHY}\label{open-source-philosophy-1}}
 
 \textbf{For Windows Users!}
 
@@ -511,61 +2154,63 @@ sudo apt update
 sudo apt upgrade
 \end{verbatim}
 
-\hypertarget{open-source-hardware}{%
-\subsubsection{0.2.1. Open Source Hardware}\label{open-source-hardware}}
+\hypertarget{open-source-hardware-1}{%
+\subsubsection{0.2.1. Open Source
+Hardware}\label{open-source-hardware-1}}
 
-\hypertarget{msp430-processing-unit}{%
+\hypertarget{msp430-processing-unit-1}{%
 \paragraph{0.2.1.1. MSP430 Processing
-Unit}\label{msp430-processing-unit}}
+Unit}\label{msp430-processing-unit-1}}
 
-\hypertarget{openrisc-processing-unit}{%
+\hypertarget{openrisc-processing-unit-1}{%
 \paragraph{0.2.1.2. OpenRISC Processing
-Unit}\label{openrisc-processing-unit}}
+Unit}\label{openrisc-processing-unit-1}}
 
-\hypertarget{risc-v-processing-unit}{%
+\hypertarget{risc-v-processing-unit-1}{%
 \paragraph{0.2.1.3. RISC-V Processing
-Unit}\label{risc-v-processing-unit}}
+Unit}\label{risc-v-processing-unit-1}}
 
-\hypertarget{open-source-software}{%
-\subsubsection{0.2.2. Open Source Software}\label{open-source-software}}
+\hypertarget{open-source-software-1}{%
+\subsubsection{0.2.2. Open Source
+Software}\label{open-source-software-1}}
 
-\hypertarget{msp430-gnu-compiler-collection}{%
+\hypertarget{msp430-gnu-compiler-collection-1}{%
 \paragraph{0.2.2.1. MSP430 GNU Compiler
-Collection}\label{msp430-gnu-compiler-collection}}
+Collection}\label{msp430-gnu-compiler-collection-1}}
 
-\hypertarget{openrisc-gnu-compiler-collection}{%
+\hypertarget{openrisc-gnu-compiler-collection-1}{%
 \paragraph{0.2.2.2. OpenRISC GNU Compiler
-Collection}\label{openrisc-gnu-compiler-collection}}
+Collection}\label{openrisc-gnu-compiler-collection-1}}
 
-\hypertarget{risc-v-gnu-compiler-collection}{%
+\hypertarget{risc-v-gnu-compiler-collection-1}{%
 \paragraph{0.2.2.3. RISC-V GNU Compiler
-Collection}\label{risc-v-gnu-compiler-collection}}
+Collection}\label{risc-v-gnu-compiler-collection-1}}
 
-\hypertarget{instruction-set-architecture}{%
+\hypertarget{instruction-set-architecture-1}{%
 \subsection{0.3. INSTRUCTION SET
-ARCHITECTURE}\label{instruction-set-architecture}}
+ARCHITECTURE}\label{instruction-set-architecture-1}}
 
-\hypertarget{risc-v-isa}{%
-\subsubsection{0.3.1. RISC-V ISA}\label{risc-v-isa}}
+\hypertarget{risc-v-isa-1}{%
+\subsubsection{0.3.1. RISC-V ISA}\label{risc-v-isa-1}}
 
-\hypertarget{isa-bases}{%
-\paragraph{0.3.1.1. ISA Bases}\label{isa-bases}}
+\hypertarget{isa-bases-3}{%
+\paragraph{0.3.1.1. ISA Bases}\label{isa-bases-3}}
 
-\hypertarget{risc-v-32}{%
-\subparagraph{0.3.1.1.1. RISC-V 32}\label{risc-v-32}}
+\hypertarget{risc-v-32-1}{%
+\subparagraph{0.3.1.1.1. RISC-V 32}\label{risc-v-32-1}}
 
-\hypertarget{risc-v-64}{%
-\subparagraph{0.3.1.1.2. RISC-V 64}\label{risc-v-64}}
+\hypertarget{risc-v-64-1}{%
+\subparagraph{0.3.1.1.2. RISC-V 64}\label{risc-v-64-1}}
 
-\hypertarget{risc-v-128}{%
-\subparagraph{0.3.1.1.3. RISC-V 128}\label{risc-v-128}}
+\hypertarget{risc-v-128-1}{%
+\subparagraph{0.3.1.1.3. RISC-V 128}\label{risc-v-128-1}}
 
-\hypertarget{isa-extensions}{%
-\paragraph{0.3.1.2. ISA Extensions}\label{isa-extensions}}
+\hypertarget{isa-extensions-3}{%
+\paragraph{0.3.1.2. ISA Extensions}\label{isa-extensions-3}}
 
-\hypertarget{base-integer-instruction-set}{%
+\hypertarget{base-integer-instruction-set-1}{%
 \subparagraph{0.3.1.2.1. Base Integer Instruction
-Set}\label{base-integer-instruction-set}}
+Set}\label{base-integer-instruction-set-1}}
 
 \textbf{RV32I : Base Integer Instruction Set (32 bit)}
 
@@ -694,9 +2339,9 @@ SRAW RD, RS1,RS2 & 0100000 & RS24:0 & RS14:0 & 101 & RD4:0 &
 \bottomrule
 \end{longtable}
 
-\hypertarget{standard-extension-for-integer-multiply-and-divide}{%
+\hypertarget{standard-extension-for-integer-multiply-and-divide-1}{%
 \subparagraph{0.3.1.2.2. Standard Extension for Integer Multiply and
-Divide}\label{standard-extension-for-integer-multiply-and-divide}}
+Divide}\label{standard-extension-for-integer-multiply-and-divide-1}}
 
 \textbf{RV32M : Standard Extension for Integer Multiply and Divide (32
 bit)}
@@ -745,9 +2390,9 @@ REMUW RD,RS1,RS2 & 0000001 & RS24:0 & RS14:0 & 111 & RD4:0 &
 \bottomrule
 \end{longtable}
 
-\hypertarget{standard-extension-for-atomic-instructions}{%
+\hypertarget{standard-extension-for-atomic-instructions-1}{%
 \subparagraph{0.3.1.2.3. Standard Extension for Atomic
-Instructions}\label{standard-extension-for-atomic-instructions}}
+Instructions}\label{standard-extension-for-atomic-instructions-1}}
 
 \textbf{RV32A : Standard Extension for Atomic Instructions (32 bit)}
 
@@ -813,9 +2458,9 @@ AMOMAXU.D AQRL,RD,RS2,RS1 & 11100AQRL & RS24:0 & RS14:0 & 011 & RD4:0 &
 \bottomrule
 \end{longtable}
 
-\hypertarget{standard-extension-for-single-precision-floating-point}{%
+\hypertarget{standard-extension-for-single-precision-floating-point-1}{%
 \subparagraph{0.3.1.2.4. Standard Extension for Single-Precision
-Floating-Point}\label{standard-extension-for-single-precision-floating-point}}
+Floating-Point}\label{standard-extension-for-single-precision-floating-point-1}}
 
 \textbf{RV32F : Standard Extension for Single-Precision Floating-Point
 (32 bit)}
@@ -899,9 +2544,9 @@ FCVT.S.LU RM,RD,FRS1 & 1101000 & 00011 & FRS1 & RM & FRD &
 \bottomrule
 \end{longtable}
 
-\hypertarget{standard-extension-for-double-precision-floating-point}{%
+\hypertarget{standard-extension-for-double-precision-floating-point-1}{%
 \subparagraph{0.3.1.2.5. Standard Extension for Double-Precision
-Floating-Point}\label{standard-extension-for-double-precision-floating-point}}
+Floating-Point}\label{standard-extension-for-double-precision-floating-point-1}}
 
 \textbf{RV32D : Standard Extension for Double-Precision Floating-Point
 (32 bit)}
@@ -985,91 +2630,91 @@ FMV.D.X RD,FRS1 & 1111001 & 00000 & RS1 & 000 & FRD &
 \bottomrule
 \end{longtable}
 
-\hypertarget{isa-modes}{%
-\paragraph{0.3.1.3. ISA Modes}\label{isa-modes}}
+\hypertarget{isa-modes-3}{%
+\paragraph{0.3.1.3. ISA Modes}\label{isa-modes-3}}
 
-\hypertarget{risc-v-user}{%
-\subparagraph{0.3.1.3.1. RISC-V User}\label{risc-v-user}}
+\hypertarget{risc-v-user-1}{%
+\subparagraph{0.3.1.3.1. RISC-V User}\label{risc-v-user-1}}
 
-\hypertarget{risc-v-supervisor}{%
-\subparagraph{0.3.1.3.2. RISC-V Supervisor}\label{risc-v-supervisor}}
+\hypertarget{risc-v-supervisor-1}{%
+\subparagraph{0.3.1.3.2. RISC-V Supervisor}\label{risc-v-supervisor-1}}
 
-\hypertarget{risc-v-hypervisor}{%
-\subparagraph{0.3.1.3.3. RISC-V Hypervisor}\label{risc-v-hypervisor}}
+\hypertarget{risc-v-hypervisor-1}{%
+\subparagraph{0.3.1.3.3. RISC-V Hypervisor}\label{risc-v-hypervisor-1}}
 
-\hypertarget{risc-v-machine}{%
-\subparagraph{0.3.1.3.4. RISC-V Machine}\label{risc-v-machine}}
+\hypertarget{risc-v-machine-1}{%
+\subparagraph{0.3.1.3.4. RISC-V Machine}\label{risc-v-machine-1}}
 
-\hypertarget{openrisc-isa}{%
-\subsubsection{0.3.2. OpenRISC ISA}\label{openrisc-isa}}
+\hypertarget{openrisc-isa-1}{%
+\subsubsection{0.3.2. OpenRISC ISA}\label{openrisc-isa-1}}
 
-\hypertarget{isa-bases-1}{%
-\paragraph{0.3.2.1. ISA Bases}\label{isa-bases-1}}
+\hypertarget{isa-bases-4}{%
+\paragraph{0.3.2.1. ISA Bases}\label{isa-bases-4}}
 
-\hypertarget{openrisc-32}{%
-\subparagraph{0.3.2.2.1. OpenRISC 32}\label{openrisc-32}}
+\hypertarget{openrisc-32-1}{%
+\subparagraph{0.3.2.2.1. OpenRISC 32}\label{openrisc-32-1}}
 
-\hypertarget{openrisc-64}{%
-\subparagraph{0.3.2.2.2. OpenRISC 64}\label{openrisc-64}}
+\hypertarget{openrisc-64-1}{%
+\subparagraph{0.3.2.2.2. OpenRISC 64}\label{openrisc-64-1}}
 
-\hypertarget{openrisc-128}{%
-\subparagraph{0.3.2.2.3. OpenRISC 128}\label{openrisc-128}}
+\hypertarget{openrisc-128-1}{%
+\subparagraph{0.3.2.2.3. OpenRISC 128}\label{openrisc-128-1}}
 
-\hypertarget{isa-extensions-1}{%
-\paragraph{0.3.2.2. ISA Extensions}\label{isa-extensions-1}}
+\hypertarget{isa-extensions-4}{%
+\paragraph{0.3.2.2. ISA Extensions}\label{isa-extensions-4}}
 
-\hypertarget{isa-modes-1}{%
-\paragraph{0.3.2.3. ISA Modes}\label{isa-modes-1}}
+\hypertarget{isa-modes-4}{%
+\paragraph{0.3.2.3. ISA Modes}\label{isa-modes-4}}
 
-\hypertarget{openrisc-user}{%
-\subparagraph{0.3.2.3.1. OpenRISC User}\label{openrisc-user}}
+\hypertarget{openrisc-user-1}{%
+\subparagraph{0.3.2.3.1. OpenRISC User}\label{openrisc-user-1}}
 
-\hypertarget{openrisc-supervisor}{%
+\hypertarget{openrisc-supervisor-1}{%
 \subparagraph{0.3.2.3.2. OpenRISC
-Supervisor}\label{openrisc-supervisor}}
+Supervisor}\label{openrisc-supervisor-1}}
 
-\hypertarget{openrisc-hypervisor}{%
+\hypertarget{openrisc-hypervisor-1}{%
 \subparagraph{0.3.2.3.3. OpenRISC
-Hypervisor}\label{openrisc-hypervisor}}
+Hypervisor}\label{openrisc-hypervisor-1}}
 
-\hypertarget{openrisc-machine}{%
-\subparagraph{0.3.2.3.4. OpenRISC Machine}\label{openrisc-machine}}
+\hypertarget{openrisc-machine-1}{%
+\subparagraph{0.3.2.3.4. OpenRISC Machine}\label{openrisc-machine-1}}
 
-\hypertarget{msp430-isa}{%
-\subsubsection{0.3.3. MSP430 ISA}\label{msp430-isa}}
+\hypertarget{msp430-isa-1}{%
+\subsubsection{0.3.3. MSP430 ISA}\label{msp430-isa-1}}
 
-\hypertarget{isa-bases-2}{%
-\paragraph{0.3.3.1. ISA Bases}\label{isa-bases-2}}
+\hypertarget{isa-bases-5}{%
+\paragraph{0.3.3.1. ISA Bases}\label{isa-bases-5}}
 
-\hypertarget{msp430-32}{%
-\subparagraph{0.3.3.2.1. MSP430 32}\label{msp430-32}}
+\hypertarget{msp430-32-1}{%
+\subparagraph{0.3.3.2.1. MSP430 32}\label{msp430-32-1}}
 
-\hypertarget{msp430-64}{%
-\subparagraph{0.3.3.2.2. MSP430 64}\label{msp430-64}}
+\hypertarget{msp430-64-1}{%
+\subparagraph{0.3.3.2.2. MSP430 64}\label{msp430-64-1}}
 
-\hypertarget{msp430-128}{%
-\subparagraph{0.3.3.2.3. MSP430 128}\label{msp430-128}}
+\hypertarget{msp430-128-1}{%
+\subparagraph{0.3.3.2.3. MSP430 128}\label{msp430-128-1}}
 
-\hypertarget{isa-extensions-2}{%
-\paragraph{0.3.3.2. ISA Extensions}\label{isa-extensions-2}}
+\hypertarget{isa-extensions-5}{%
+\paragraph{0.3.3.2. ISA Extensions}\label{isa-extensions-5}}
 
-\hypertarget{isa-modes-2}{%
-\paragraph{0.3.3.3. ISA Modes}\label{isa-modes-2}}
+\hypertarget{isa-modes-5}{%
+\paragraph{0.3.3.3. ISA Modes}\label{isa-modes-5}}
 
-\hypertarget{msp430-user}{%
-\subparagraph{0.3.3.3.1. MSP430 User}\label{msp430-user}}
+\hypertarget{msp430-user-1}{%
+\subparagraph{0.3.3.3.1. MSP430 User}\label{msp430-user-1}}
 
-\hypertarget{msp430-supervisor}{%
-\subparagraph{0.3.3.3.2. MSP430 Supervisor}\label{msp430-supervisor}}
+\hypertarget{msp430-supervisor-1}{%
+\subparagraph{0.3.3.3.2. MSP430 Supervisor}\label{msp430-supervisor-1}}
 
-\hypertarget{msp430-hypervisor}{%
-\subparagraph{0.3.3.3.3. MSP430 Hypervisor}\label{msp430-hypervisor}}
+\hypertarget{msp430-hypervisor-1}{%
+\subparagraph{0.3.3.3.3. MSP430 Hypervisor}\label{msp430-hypervisor-1}}
 
-\hypertarget{msp430-machine}{%
-\subparagraph{0.3.3.3.4. MSP430 Machine}\label{msp430-machine}}
+\hypertarget{msp430-machine-1}{%
+\subparagraph{0.3.3.3.4. MSP430 Machine}\label{msp430-machine-1}}
 
-\hypertarget{methodology}{%
-\section{1. METHODOLOGY}\label{methodology}}
+\hypertarget{methodology-1}{%
+\section{1. METHODOLOGY}\label{methodology-1}}
 
 \begin{figure}
 \centering
@@ -1077,8 +2722,8 @@ Hypervisor}\label{openrisc-hypervisor}}
 \caption{Project Workflow}
 \end{figure}
 
-\hypertarget{requirements}{%
-\subsection{1.1. Requirements}\label{requirements}}
+\hypertarget{requirements-1}{%
+\subsection{1.1. Requirements}\label{requirements-1}}
 
 \begin{figure}
 \centering
@@ -1086,109 +2731,110 @@ Hypervisor}\label{openrisc-hypervisor}}
 \caption{UML Diagrams Overview}
 \end{figure}
 
-\hypertarget{structural-uml-diagrams}{%
+\hypertarget{structural-uml-diagrams-1}{%
 \subsubsection{1.1.1. Structural UML
-diagrams}\label{structural-uml-diagrams}}
+diagrams}\label{structural-uml-diagrams-1}}
 
-\hypertarget{class-diagram}{%
-\paragraph{1.1.1.1. Class diagram}\label{class-diagram}}
+\hypertarget{class-diagram-1}{%
+\paragraph{1.1.1.1. Class diagram}\label{class-diagram-1}}
 
-\hypertarget{component-diagram}{%
-\paragraph{1.1.1.2. Component diagram}\label{component-diagram}}
+\hypertarget{component-diagram-1}{%
+\paragraph{1.1.1.2. Component diagram}\label{component-diagram-1}}
 
-\hypertarget{composite-diagram}{%
-\paragraph{1.1.1.3. Composite diagram}\label{composite-diagram}}
+\hypertarget{composite-diagram-1}{%
+\paragraph{1.1.1.3. Composite diagram}\label{composite-diagram-1}}
 
-\hypertarget{deployment-diagram}{%
-\paragraph{1.1.1.4. Deployment diagram}\label{deployment-diagram}}
+\hypertarget{deployment-diagram-1}{%
+\paragraph{1.1.1.4. Deployment diagram}\label{deployment-diagram-1}}
 
-\hypertarget{object-diagram}{%
-\paragraph{1.1.1.5. Object diagram}\label{object-diagram}}
+\hypertarget{object-diagram-1}{%
+\paragraph{1.1.1.5. Object diagram}\label{object-diagram-1}}
 
-\hypertarget{package-diagram}{%
-\paragraph{1.1.1.6. Package diagram}\label{package-diagram}}
+\hypertarget{package-diagram-1}{%
+\paragraph{1.1.1.6. Package diagram}\label{package-diagram-1}}
 
-\hypertarget{profile-diagram}{%
-\paragraph{1.1.1.7. Profile diagram}\label{profile-diagram}}
+\hypertarget{profile-diagram-1}{%
+\paragraph{1.1.1.7. Profile diagram}\label{profile-diagram-1}}
 
-\hypertarget{behavioral-uml-diagrams}{%
+\hypertarget{behavioral-uml-diagrams-1}{%
 \subsubsection{1.1.2. Behavioral UML
-diagrams}\label{behavioral-uml-diagrams}}
+diagrams}\label{behavioral-uml-diagrams-1}}
 
-\hypertarget{activity-diagram}{%
-\paragraph{1.1.2.1. Activity diagram}\label{activity-diagram}}
+\hypertarget{activity-diagram-1}{%
+\paragraph{1.1.2.1. Activity diagram}\label{activity-diagram-1}}
 
-\hypertarget{communication-diagram}{%
-\paragraph{1.1.2.2. Communication diagram}\label{communication-diagram}}
+\hypertarget{communication-diagram-1}{%
+\paragraph{1.1.2.2. Communication
+diagram}\label{communication-diagram-1}}
 
-\hypertarget{interaction-diagram}{%
-\paragraph{1.1.2.3. Interaction diagram}\label{interaction-diagram}}
+\hypertarget{interaction-diagram-1}{%
+\paragraph{1.1.2.3. Interaction diagram}\label{interaction-diagram-1}}
 
-\hypertarget{sequence-diagram}{%
-\paragraph{1.1.2.4. Sequence diagram}\label{sequence-diagram}}
+\hypertarget{sequence-diagram-1}{%
+\paragraph{1.1.2.4. Sequence diagram}\label{sequence-diagram-1}}
 
-\hypertarget{state-diagram}{%
-\paragraph{1.1.2.5. State diagram}\label{state-diagram}}
+\hypertarget{state-diagram-1}{%
+\paragraph{1.1.2.5. State diagram}\label{state-diagram-1}}
 
-\hypertarget{timing-diagram}{%
-\paragraph{1.1.2.6. Timing diagram}\label{timing-diagram}}
+\hypertarget{timing-diagram-1}{%
+\paragraph{1.1.2.6. Timing diagram}\label{timing-diagram-1}}
 
-\hypertarget{use-diagram}{%
-\paragraph{1.1.2.7. Use diagram}\label{use-diagram}}
+\hypertarget{use-diagram-1}{%
+\paragraph{1.1.2.7. Use diagram}\label{use-diagram-1}}
 
-\hypertarget{source}{%
-\subsection{1.2. Source}\label{source}}
+\hypertarget{source-1}{%
+\subsection{1.2. Source}\label{source-1}}
 
-\hypertarget{ada-language}{%
-\subsubsection{1.2.1. Ada Language}\label{ada-language}}
+\hypertarget{ada-language-1}{%
+\subsubsection{1.2.1. Ada Language}\label{ada-language-1}}
 
-\hypertarget{c-language}{%
-\subsubsection{1.2.2. C Language}\label{c-language}}
+\hypertarget{c-language-1}{%
+\subsubsection{1.2.2. C Language}\label{c-language-1}}
 
-\hypertarget{model}{%
-\subsection{1.3. Model}\label{model}}
+\hypertarget{model-1}{%
+\subsection{1.3. Model}\label{model-1}}
 
-\hypertarget{vhdl}{%
-\subsubsection{1.3.1. VHDL}\label{vhdl}}
+\hypertarget{vhdl-3}{%
+\subsubsection{1.3.1. VHDL}\label{vhdl-3}}
 
-\hypertarget{verilog}{%
-\subsubsection{1.3.2. Verilog}\label{verilog}}
+\hypertarget{verilog-3}{%
+\subsubsection{1.3.2. Verilog}\label{verilog-3}}
 
-\hypertarget{validation}{%
-\subsection{1.5. Validation}\label{validation}}
+\hypertarget{validation-1}{%
+\subsection{1.5. Validation}\label{validation-1}}
 
-\hypertarget{vhdl-1}{%
-\subsubsection{1.5.1. VHDL}\label{vhdl-1}}
+\hypertarget{vhdl-4}{%
+\subsubsection{1.5.1. VHDL}\label{vhdl-4}}
 
-\hypertarget{verilog-1}{%
-\subsubsection{1.5.2. Verilog}\label{verilog-1}}
+\hypertarget{verilog-4}{%
+\subsubsection{1.5.2. Verilog}\label{verilog-4}}
 
-\hypertarget{design}{%
-\subsection{1.5. Design}\label{design}}
+\hypertarget{design-1}{%
+\subsection{1.5. Design}\label{design-1}}
 
-\hypertarget{vhdl-2}{%
-\subsubsection{1.5.1. VHDL}\label{vhdl-2}}
+\hypertarget{vhdl-5}{%
+\subsubsection{1.5.1. VHDL}\label{vhdl-5}}
 
-\hypertarget{verilog-2}{%
-\subsubsection{1.5.2. Verilog}\label{verilog-2}}
+\hypertarget{verilog-5}{%
+\subsubsection{1.5.2. Verilog}\label{verilog-5}}
 
-\hypertarget{verification}{%
-\subsection{1.6. Verification}\label{verification}}
+\hypertarget{verification-1}{%
+\subsection{1.6. Verification}\label{verification-1}}
 
-\hypertarget{osvvm-vhdl}{%
-\subsubsection{1.6.1. OSVVM-VHDL}\label{osvvm-vhdl}}
+\hypertarget{osvvm-vhdl-1}{%
+\subsubsection{1.6.1. OSVVM-VHDL}\label{osvvm-vhdl-1}}
 
-\hypertarget{osvvm-checker}{%
-\paragraph{1.6.1.1. OSVVM Checker}\label{osvvm-checker}}
+\hypertarget{osvvm-checker-1}{%
+\paragraph{1.6.1.1. OSVVM Checker}\label{osvvm-checker-1}}
 
-\hypertarget{osvvm-stimulus}{%
-\paragraph{1.6.1.2. OSVVM Stimulus}\label{osvvm-stimulus}}
+\hypertarget{osvvm-stimulus-1}{%
+\paragraph{1.6.1.2. OSVVM Stimulus}\label{osvvm-stimulus-1}}
 
-\hypertarget{osvvm-testbench}{%
-\paragraph{1.6.1.3. OSVVM Testbench}\label{osvvm-testbench}}
+\hypertarget{osvvm-testbench-1}{%
+\paragraph{1.6.1.3. OSVVM Testbench}\label{osvvm-testbench-1}}
 
-\hypertarget{uvm-verilog}{%
-\subsubsection{1.6.2. UVM-Verilog}\label{uvm-verilog}}
+\hypertarget{uvm-verilog-1}{%
+\subsubsection{1.6.2. UVM-Verilog}\label{uvm-verilog-1}}
 
 \begin{figure}
 \centering
@@ -1196,55 +2842,55 @@ diagrams}\label{behavioral-uml-diagrams}}
 \caption{UVM Diagram Overview}
 \end{figure}
 
-\hypertarget{uvm-agent}{%
-\paragraph{1.6.2.1. UVM Agent}\label{uvm-agent}}
+\hypertarget{uvm-agent-1}{%
+\paragraph{1.6.2.1. UVM Agent}\label{uvm-agent-1}}
 
-\hypertarget{uvm-driver}{%
-\paragraph{1.6.2.2. UVM Driver}\label{uvm-driver}}
+\hypertarget{uvm-driver-1}{%
+\paragraph{1.6.2.2. UVM Driver}\label{uvm-driver-1}}
 
-\hypertarget{uvm-enviroment}{%
-\paragraph{1.6.2.3. UVM Enviroment}\label{uvm-enviroment}}
+\hypertarget{uvm-enviroment-1}{%
+\paragraph{1.6.2.3. UVM Enviroment}\label{uvm-enviroment-1}}
 
-\hypertarget{uvm-monitor}{%
-\paragraph{1.6.2.4. UVM Monitor}\label{uvm-monitor}}
+\hypertarget{uvm-monitor-1}{%
+\paragraph{1.6.2.4. UVM Monitor}\label{uvm-monitor-1}}
 
-\hypertarget{uvm-scoreboard}{%
-\paragraph{1.6.2.5. UVM Scoreboard}\label{uvm-scoreboard}}
+\hypertarget{uvm-scoreboard-1}{%
+\paragraph{1.6.2.5. UVM Scoreboard}\label{uvm-scoreboard-1}}
 
-\hypertarget{uvm-sequence}{%
-\paragraph{1.6.2.6. UVM Sequence}\label{uvm-sequence}}
+\hypertarget{uvm-sequence-1}{%
+\paragraph{1.6.2.6. UVM Sequence}\label{uvm-sequence-1}}
 
-\hypertarget{uvm-sequencer}{%
-\paragraph{1.6.2.7. UVM Sequencer}\label{uvm-sequencer}}
+\hypertarget{uvm-sequencer-1}{%
+\paragraph{1.6.2.7. UVM Sequencer}\label{uvm-sequencer-1}}
 
-\hypertarget{uvm-subscriber}{%
-\paragraph{1.6.2.8. UVM Subscriber}\label{uvm-subscriber}}
+\hypertarget{uvm-subscriber-1}{%
+\paragraph{1.6.2.8. UVM Subscriber}\label{uvm-subscriber-1}}
 
-\hypertarget{uvm-test}{%
-\paragraph{1.6.2.9. UVM Test}\label{uvm-test}}
+\hypertarget{uvm-test-1}{%
+\paragraph{1.6.2.9. UVM Test}\label{uvm-test-1}}
 
-\hypertarget{uvm-testbench}{%
-\paragraph{1.6.2.10. UVM Testbench}\label{uvm-testbench}}
+\hypertarget{uvm-testbench-1}{%
+\paragraph{1.6.2.10. UVM Testbench}\label{uvm-testbench-1}}
 
-\hypertarget{uvm-transaction}{%
-\paragraph{1.6.2.11. UVM Transaction}\label{uvm-transaction}}
+\hypertarget{uvm-transaction-1}{%
+\paragraph{1.6.2.11. UVM Transaction}\label{uvm-transaction-1}}
 
-\hypertarget{projects}{%
-\section{2. PROJECTS}\label{projects}}
+\hypertarget{projects-1}{%
+\section{2. PROJECTS}\label{projects-1}}
 
-\hypertarget{interface}{%
-\subsection{2.1. INTERFACE}\label{interface}}
+\hypertarget{interface-1}{%
+\subsection{2.1. INTERFACE}\label{interface-1}}
 
-\hypertarget{instruction-cache}{%
-\subsubsection{2.1.1. INSTRUCTION CACHE}\label{instruction-cache}}
+\hypertarget{instruction-cache-1}{%
+\subsubsection{2.1.1. INSTRUCTION CACHE}\label{instruction-cache-1}}
 
-\hypertarget{instruction-inputsoutputs-amba4-axi-lite-bus}{%
+\hypertarget{instruction-inputsoutputs-amba4-axi-lite-bus-1}{%
 \paragraph{2.1.1.1 Instruction INPUTS/OUTPUTS AMBA4 AXI-Lite
-Bus}\label{instruction-inputsoutputs-amba4-axi-lite-bus}}
+Bus}\label{instruction-inputsoutputs-amba4-axi-lite-bus-1}}
 
-\hypertarget{signals-of-the-read-and-write-address-channels}{%
+\hypertarget{signals-of-the-read-and-write-address-channels-2}{%
 \subparagraph{2.1.1.1.1. Signals of the Read and Write Address
-channels}\label{signals-of-the-read-and-write-address-channels}}
+channels}\label{signals-of-the-read-and-write-address-channels-2}}
 
 \begin{longtable}[]{@{}lllll@{}}
 \toprule
@@ -1280,9 +2926,9 @@ signal\tabularnewline
 \bottomrule
 \end{longtable}
 
-\hypertarget{signals-of-the-read-and-write-data-channels}{%
+\hypertarget{signals-of-the-read-and-write-data-channels-2}{%
 \subparagraph{2.1.1.1.2. Signals of the Read and Write Data
-channels}\label{signals-of-the-read-and-write-data-channels}}
+channels}\label{signals-of-the-read-and-write-data-channels-2}}
 
 \begin{longtable}[]{@{}lllll@{}}
 \toprule
@@ -1308,9 +2954,9 @@ signal\tabularnewline
 \bottomrule
 \end{longtable}
 
-\hypertarget{signals-of-the-write-response-channel}{%
+\hypertarget{signals-of-the-write-response-channel-2}{%
 \subparagraph{2.1.1.1.3. Signals of the Write Response
-channel}\label{signals-of-the-write-response-channel}}
+channel}\label{signals-of-the-write-response-channel-2}}
 
 \begin{longtable}[]{@{}llll@{}}
 \toprule
@@ -1328,9 +2974,9 @@ data\tabularnewline
 \bottomrule
 \end{longtable}
 
-\hypertarget{instruction-inputsoutputs-amba3-ahb-lite-bus}{%
+\hypertarget{instruction-inputsoutputs-amba3-ahb-lite-bus-1}{%
 \paragraph{2.1.1.2. Instruction INPUTS/OUTPUTS AMBA3 AHB-Lite
-Bus}\label{instruction-inputsoutputs-amba3-ahb-lite-bus}}
+Bus}\label{instruction-inputsoutputs-amba3-ahb-lite-bus-1}}
 
 \begin{longtable}[]{@{}llll@{}}
 \toprule
@@ -1364,9 +3010,9 @@ Response\tabularnewline
 \bottomrule
 \end{longtable}
 
-\hypertarget{instruction-inputsoutputs-wishbone-bus}{%
+\hypertarget{instruction-inputsoutputs-wishbone-bus-1}{%
 \paragraph{2.1.1.3. Instruction INPUTS/OUTPUTS Wishbone
-Bus}\label{instruction-inputsoutputs-wishbone-bus}}
+Bus}\label{instruction-inputsoutputs-wishbone-bus-1}}
 
 \begin{longtable}[]{@{}llll@{}}
 \toprule
@@ -1394,16 +3040,16 @@ Input\tabularnewline
 \bottomrule
 \end{longtable}
 
-\hypertarget{data-cache}{%
-\subsubsection{2.1.2. DATA CACHE}\label{data-cache}}
+\hypertarget{data-cache-1}{%
+\subsubsection{2.1.2. DATA CACHE}\label{data-cache-1}}
 
-\hypertarget{data-inputsoutputs-amba4-axi-lite-bus}{%
+\hypertarget{data-inputsoutputs-amba4-axi-lite-bus-1}{%
 \paragraph{2.1.2.1. Data INPUTS/OUTPUTS AMBA4 AXI-Lite
-Bus}\label{data-inputsoutputs-amba4-axi-lite-bus}}
+Bus}\label{data-inputsoutputs-amba4-axi-lite-bus-1}}
 
-\hypertarget{signals-of-the-read-and-write-address-channels-1}{%
+\hypertarget{signals-of-the-read-and-write-address-channels-3}{%
 \subparagraph{2.1.2.1.1. Signals of the Read and Write Address
-channels}\label{signals-of-the-read-and-write-address-channels-1}}
+channels}\label{signals-of-the-read-and-write-address-channels-3}}
 
 \begin{longtable}[]{@{}lllll@{}}
 \toprule
@@ -1439,9 +3085,9 @@ signal\tabularnewline
 \bottomrule
 \end{longtable}
 
-\hypertarget{signals-of-the-read-and-write-data-channels-1}{%
+\hypertarget{signals-of-the-read-and-write-data-channels-3}{%
 \subparagraph{2.1.2.1.2. Signals of the Read and Write Data
-channels}\label{signals-of-the-read-and-write-data-channels-1}}
+channels}\label{signals-of-the-read-and-write-data-channels-3}}
 
 \begin{longtable}[]{@{}lllll@{}}
 \toprule
@@ -1467,9 +3113,9 @@ signal\tabularnewline
 \bottomrule
 \end{longtable}
 
-\hypertarget{signals-of-the-write-response-channel-1}{%
+\hypertarget{signals-of-the-write-response-channel-3}{%
 \subparagraph{2.1.2.1.3. Signals of the Write Response
-channel}\label{signals-of-the-write-response-channel-1}}
+channel}\label{signals-of-the-write-response-channel-3}}
 
 \begin{longtable}[]{@{}llll@{}}
 \toprule
@@ -1487,9 +3133,9 @@ data\tabularnewline
 \bottomrule
 \end{longtable}
 
-\hypertarget{data-inputsoutputs-amba3-ahb-lite-bus}{%
+\hypertarget{data-inputsoutputs-amba3-ahb-lite-bus-1}{%
 \paragraph{2.1.2.2. Data INPUTS/OUTPUTS AMBA3 AHB-Lite
-Bus}\label{data-inputsoutputs-amba3-ahb-lite-bus}}
+Bus}\label{data-inputsoutputs-amba3-ahb-lite-bus-1}}
 
 \begin{longtable}[]{@{}llll@{}}
 \toprule
@@ -1520,9 +3166,9 @@ Lock\tabularnewline
 \bottomrule
 \end{longtable}
 
-\hypertarget{data-inputsoutputs-wishbone-bus}{%
+\hypertarget{data-inputsoutputs-wishbone-bus-1}{%
 \paragraph{2.1.2.3. Data INPUTS/OUTPUTS Wishbone
-Bus}\label{data-inputsoutputs-wishbone-bus}}
+Bus}\label{data-inputsoutputs-wishbone-bus-1}}
 
 \begin{longtable}[]{@{}llll@{}}
 \toprule
@@ -1547,181 +3193,183 @@ Input\tabularnewline
 \bottomrule
 \end{longtable}
 
-\hypertarget{functionality}{%
-\subsection{2.2. FUNCTIONALITY}\label{functionality}}
+\hypertarget{functionality-1}{%
+\subsection{2.2. FUNCTIONALITY}\label{functionality-1}}
 
-\hypertarget{structure}{%
-\subsubsection{2.2.1. Structure}\label{structure}}
+\hypertarget{structure-1}{%
+\subsubsection{2.2.1. Structure}\label{structure-1}}
 
-\hypertarget{behavior}{%
-\subsubsection{2.2.2. Behavior}\label{behavior}}
+\hypertarget{behavior-1}{%
+\subsubsection{2.2.2. Behavior}\label{behavior-1}}
 
-\hypertarget{registers}{%
-\subsection{2.3. REGISTERS}\label{registers}}
+\hypertarget{registers-1}{%
+\subsection{2.3. REGISTERS}\label{registers-1}}
 
-\hypertarget{interruptions}{%
-\subsection{2.4. INTERRUPTIONS}\label{interruptions}}
+\hypertarget{interruptions-1}{%
+\subsection{2.4. INTERRUPTIONS}\label{interruptions-1}}
 
-\hypertarget{organization}{%
-\section{3. ORGANIZATION}\label{organization}}
+\hypertarget{organization-1}{%
+\section{3. ORGANIZATION}\label{organization-1}}
 
-\hypertarget{mechanics}{%
-\subsection{3.1. Mechanics}\label{mechanics}}
+\hypertarget{mechanics-1}{%
+\subsection{3.1. Mechanics}\label{mechanics-1}}
 
-\hypertarget{information}{%
-\subsection{3.2. Information}\label{information}}
+\hypertarget{information-1}{%
+\subsection{3.2. Information}\label{information-1}}
 
-\hypertarget{bit}{%
-\subsubsection{3.2.1. Bit}\label{bit}}
+\hypertarget{bit-1}{%
+\subsubsection{3.2.1. Bit}\label{bit-1}}
 
-\hypertarget{logic-gate}{%
-\subsubsection{3.2.2. Logic Gate}\label{logic-gate}}
+\hypertarget{logic-gate-1}{%
+\subsubsection{3.2.2. Logic Gate}\label{logic-gate-1}}
 
-\hypertarget{yesnot-gate}{%
-\paragraph{3.2.2.1. YES/NOT Gate}\label{yesnot-gate}}
+\hypertarget{yesnot-gate-1}{%
+\paragraph{3.2.2.1. YES/NOT Gate}\label{yesnot-gate-1}}
 
-\hypertarget{andnand-gate}{%
-\paragraph{3.2.2.2. AND/NAND Gate}\label{andnand-gate}}
+\hypertarget{andnand-gate-1}{%
+\paragraph{3.2.2.2. AND/NAND Gate}\label{andnand-gate-1}}
 
-\hypertarget{ornor-gate}{%
-\paragraph{3.2.2.3. OR/NOR Gate}\label{ornor-gate}}
+\hypertarget{ornor-gate-1}{%
+\paragraph{3.2.2.3. OR/NOR Gate}\label{ornor-gate-1}}
 
-\hypertarget{xorxnor-gate}{%
-\paragraph{3.2.2.4. XOR/XNOR Gate}\label{xorxnor-gate}}
+\hypertarget{xorxnor-gate-1}{%
+\paragraph{3.2.2.4. XOR/XNOR Gate}\label{xorxnor-gate-1}}
 
-\hypertarget{combinational-logic}{%
-\subsubsection{3.2.3. Combinational Logic}\label{combinational-logic}}
+\hypertarget{combinational-logic-1}{%
+\subsubsection{3.2.3. Combinational Logic}\label{combinational-logic-1}}
 
-\hypertarget{arithmetic-circuits}{%
-\paragraph{3.2.3.1. Arithmetic Circuits}\label{arithmetic-circuits}}
+\hypertarget{arithmetic-circuits-1}{%
+\paragraph{3.2.3.1. Arithmetic Circuits}\label{arithmetic-circuits-1}}
 
-\hypertarget{logic-circuits}{%
-\paragraph{3.2.3.2. Logic Circuits}\label{logic-circuits}}
+\hypertarget{logic-circuits-1}{%
+\paragraph{3.2.3.2. Logic Circuits}\label{logic-circuits-1}}
 
-\hypertarget{finite-state-machine}{%
-\subsubsection{3.2.4. Finite State Machine}\label{finite-state-machine}}
+\hypertarget{finite-state-machine-1}{%
+\subsubsection{3.2.4. Finite State
+Machine}\label{finite-state-machine-1}}
 
-\hypertarget{pushdown-automaton}{%
-\subsubsection{3.2.5. Pushdown Automaton}\label{pushdown-automaton}}
+\hypertarget{pushdown-automaton-1}{%
+\subsubsection{3.2.5. Pushdown Automaton}\label{pushdown-automaton-1}}
 
-\hypertarget{neural-network}{%
-\subsection{3.3. Neural Network}\label{neural-network}}
+\hypertarget{neural-network-1}{%
+\subsection{3.3. Neural Network}\label{neural-network-1}}
 
-\hypertarget{feedforward-neural-network}{%
+\hypertarget{feedforward-neural-network-1}{%
 \subsubsection{3.3.1. Feedforward Neural
-Network}\label{feedforward-neural-network}}
+Network}\label{feedforward-neural-network-1}}
 
-\hypertarget{long-short-term-memory-neural-network}{%
+\hypertarget{long-short-term-memory-neural-network-1}{%
 \subsubsection{3.3.2. Long Short Term Memory Neural
-Network}\label{long-short-term-memory-neural-network}}
+Network}\label{long-short-term-memory-neural-network-1}}
 
-\hypertarget{transformer-neural-network}{%
+\hypertarget{transformer-neural-network-1}{%
 \subsubsection{3.3.3. Transformer Neural
-Network}\label{transformer-neural-network}}
+Network}\label{transformer-neural-network-1}}
 
-\hypertarget{turing-machine}{%
-\subsection{3.4. Turing Machine}\label{turing-machine}}
+\hypertarget{turing-machine-1}{%
+\subsection{3.4. Turing Machine}\label{turing-machine-1}}
 
-\hypertarget{neural-turing-machine}{%
+\hypertarget{neural-turing-machine-1}{%
 \subsubsection{3.4.1. Neural Turing
-Machine}\label{neural-turing-machine}}
+Machine}\label{neural-turing-machine-1}}
 
-\hypertarget{feedforward-neural-turing-machine}{%
+\hypertarget{feedforward-neural-turing-machine-1}{%
 \paragraph{3.4.1.1. Feedforward Neural Turing
-Machine}\label{feedforward-neural-turing-machine}}
+Machine}\label{feedforward-neural-turing-machine-1}}
 
-\hypertarget{lstm-neural-turing-machine}{%
+\hypertarget{lstm-neural-turing-machine-1}{%
 \paragraph{3.4.1.2. LSTM Neural Turing
-Machine}\label{lstm-neural-turing-machine}}
+Machine}\label{lstm-neural-turing-machine-1}}
 
-\hypertarget{transformer-neural-turing-machine}{%
+\hypertarget{transformer-neural-turing-machine-1}{%
 \paragraph{3.4.1.3. Transformer Neural Turing
-Machine}\label{transformer-neural-turing-machine}}
+Machine}\label{transformer-neural-turing-machine-1}}
 
-\hypertarget{differentiable-neural-computer}{%
+\hypertarget{differentiable-neural-computer-1}{%
 \subsubsection{3.4.2. Differentiable Neural
-Computer}\label{differentiable-neural-computer}}
+Computer}\label{differentiable-neural-computer-1}}
 
-\hypertarget{feedforward-differentiable-neural-computer}{%
+\hypertarget{feedforward-differentiable-neural-computer-1}{%
 \paragraph{3.4.2.1. Feedforward Differentiable Neural
-Computer}\label{feedforward-differentiable-neural-computer}}
+Computer}\label{feedforward-differentiable-neural-computer-1}}
 
-\hypertarget{lstm-differentiable-neural-computer}{%
+\hypertarget{lstm-differentiable-neural-computer-1}{%
 \paragraph{3.4.2.2. LSTM Differentiable Neural
-Computer}\label{lstm-differentiable-neural-computer}}
+Computer}\label{lstm-differentiable-neural-computer-1}}
 
-\hypertarget{transformer-differentiable-neural-computer}{%
+\hypertarget{transformer-differentiable-neural-computer-1}{%
 \paragraph{3.4.2.3. Transformer Differentiable Neural
-Computer}\label{transformer-differentiable-neural-computer}}
+Computer}\label{transformer-differentiable-neural-computer-1}}
 
-\hypertarget{computer-architecture}{%
-\subsection{3.5. Computer Architecture}\label{computer-architecture}}
+\hypertarget{computer-architecture-1}{%
+\subsection{3.5. Computer Architecture}\label{computer-architecture-1}}
 
-\hypertarget{von-neumann-architecture}{%
+\hypertarget{von-neumann-architecture-1}{%
 \subsubsection{3.5.1. von Neumann
-Architecture}\label{von-neumann-architecture}}
+Architecture}\label{von-neumann-architecture-1}}
 
-\hypertarget{control-unit}{%
-\paragraph{3.5.1.1. Control Unit}\label{control-unit}}
+\hypertarget{control-unit-2}{%
+\paragraph{3.5.1.1. Control Unit}\label{control-unit-2}}
 
-\hypertarget{alu}{%
-\paragraph{3.5.1.2. ALU}\label{alu}}
+\hypertarget{alu-2}{%
+\paragraph{3.5.1.2. ALU}\label{alu-2}}
 
-\hypertarget{memory-unit}{%
-\paragraph{3.5.1.3. Memory Unit}\label{memory-unit}}
+\hypertarget{memory-unit-2}{%
+\paragraph{3.5.1.3. Memory Unit}\label{memory-unit-2}}
 
-\hypertarget{io-unit}{%
-\paragraph{3.5.1.4. I/O Unit}\label{io-unit}}
+\hypertarget{io-unit-2}{%
+\paragraph{3.5.1.4. I/O Unit}\label{io-unit-2}}
 
-\hypertarget{harvard-architecture}{%
-\subsubsection{3.5.2. Harvard Architecture}\label{harvard-architecture}}
+\hypertarget{harvard-architecture-1}{%
+\subsubsection{3.5.2. Harvard
+Architecture}\label{harvard-architecture-1}}
 
-\hypertarget{control-unit-1}{%
-\paragraph{3.5.2.1. Control Unit}\label{control-unit-1}}
+\hypertarget{control-unit-3}{%
+\paragraph{3.5.2.1. Control Unit}\label{control-unit-3}}
 
-\hypertarget{alu-1}{%
-\paragraph{3.5.2.2. ALU}\label{alu-1}}
+\hypertarget{alu-3}{%
+\paragraph{3.5.2.2. ALU}\label{alu-3}}
 
-\hypertarget{memory-unit-1}{%
-\paragraph{3.5.2.3.Memory Unit}\label{memory-unit-1}}
+\hypertarget{memory-unit-3}{%
+\paragraph{3.5.2.3.Memory Unit}\label{memory-unit-3}}
 
-\hypertarget{io-unit-1}{%
-\paragraph{3.5.2.4.I/O Unit}\label{io-unit-1}}
+\hypertarget{io-unit-3}{%
+\paragraph{3.5.2.4.I/O Unit}\label{io-unit-3}}
 
-\hypertarget{advanced-computer-architecture}{%
+\hypertarget{advanced-computer-architecture-1}{%
 \subsection{3.6. Advanced Computer
-Architecture}\label{advanced-computer-architecture}}
+Architecture}\label{advanced-computer-architecture-1}}
 
-\hypertarget{processing-unit}{%
-\subsubsection{3.6.1. Processing Unit}\label{processing-unit}}
+\hypertarget{processing-unit-1}{%
+\subsubsection{3.6.1. Processing Unit}\label{processing-unit-1}}
 
-\hypertarget{sisd}{%
-\paragraph{3.6.1.1. SISD}\label{sisd}}
+\hypertarget{sisd-1}{%
+\paragraph{3.6.1.1. SISD}\label{sisd-1}}
 
-\hypertarget{simd}{%
-\paragraph{3.6.1.2. SIMD}\label{simd}}
+\hypertarget{simd-1}{%
+\paragraph{3.6.1.2. SIMD}\label{simd-1}}
 
-\hypertarget{misd}{%
-\paragraph{3.6.1.3. MISD}\label{misd}}
+\hypertarget{misd-1}{%
+\paragraph{3.6.1.3. MISD}\label{misd-1}}
 
-\hypertarget{mimd}{%
-\paragraph{3.6.1.4. MIMD}\label{mimd}}
+\hypertarget{mimd-1}{%
+\paragraph{3.6.1.4. MIMD}\label{mimd-1}}
 
-\hypertarget{system-on-chip}{%
-\subsubsection{3.6.2. System on Chip}\label{system-on-chip}}
+\hypertarget{system-on-chip-1}{%
+\subsubsection{3.6.2. System on Chip}\label{system-on-chip-1}}
 
-\hypertarget{bus-on-chip}{%
-\paragraph{3.6.2.1. Bus on Chip}\label{bus-on-chip}}
+\hypertarget{bus-on-chip-1}{%
+\paragraph{3.6.2.1. Bus on Chip}\label{bus-on-chip-1}}
 
-\hypertarget{network-on-chip}{%
-\paragraph{3.6.2.2. Network on Chip}\label{network-on-chip}}
+\hypertarget{network-on-chip-1}{%
+\paragraph{3.6.2.2. Network on Chip}\label{network-on-chip-1}}
 
-\hypertarget{multi-processor-system-on-chip}{%
-\subsubsection{3.6.3. Multi Processor System on
-Chip}\label{multi-processor-system-on-chip}}
+\hypertarget{multi-processor-system-on-chip-1}{%
+\subsubsection{3.6.3. Multi-Processor System on
+Chip}\label{multi-processor-system-on-chip-1}}
 
-\hypertarget{hardware-workflow}{%
-\section{4. HARDWARE WORKFLOW}\label{hardware-workflow}}
+\hypertarget{hardware-workflow-1}{%
+\section{4. HARDWARE WORKFLOW}\label{hardware-workflow-1}}
 
 \textbf{1. System Level (SystemC/SystemVerilog)}
 
@@ -1814,9 +3462,9 @@ graphviz xdot pkg-config python3 libboost-system-dev \
 libboost-python-dev libboost-filesystem-dev zlib1g-dev
 \end{verbatim}
 
-\hypertarget{front-end-open-source-tools}{%
+\hypertarget{front-end-open-source-tools-2}{%
 \subsection{4.1. FRONT-END OPEN SOURCE
-TOOLS}\label{front-end-open-source-tools}}
+TOOLS}\label{front-end-open-source-tools-2}}
 
 \begin{figure}
 \centering
@@ -1824,9 +3472,9 @@ TOOLS}\label{front-end-open-source-tools}}
 \caption{Front-End}
 \end{figure}
 
-\hypertarget{modeling-system-level-of-hardware}{%
+\hypertarget{modeling-system-level-of-hardware-1}{%
 \subsubsection{4.1.1. Modeling System Level of
-Hardware}\label{modeling-system-level-of-hardware}}
+Hardware}\label{modeling-system-level-of-hardware-1}}
 
 \emph{A System Description Language Editor is a computer tool that
 allows to generate software code. A System Description Language is a
@@ -1844,9 +3492,9 @@ type:
 git clone https://github.com/emacs-mirror/emacs
 \end{verbatim}
 
-\hypertarget{simulating-system-level-of-hardware}{%
+\hypertarget{simulating-system-level-of-hardware-1}{%
 \subsubsection{4.1.2. Simulating System Level of
-Hardware}\label{simulating-system-level-of-hardware}}
+Hardware}\label{simulating-system-level-of-hardware-1}}
 
 \emph{A System Description Language Simulator (translator) is a computer
 program that translates computer code written in a Programming Language
@@ -1884,9 +3532,9 @@ cd sim/verilog/regression/axi4/vtor
 source SIMULATE-IT
 \end{verbatim}
 
-\hypertarget{verifying-system-level-of-hardware}{%
+\hypertarget{verifying-system-level-of-hardware-1}{%
 \subsubsection{4.1.3. Verifying System Level of
-Hardware}\label{verifying-system-level-of-hardware}}
+Hardware}\label{verifying-system-level-of-hardware-1}}
 
 \emph{A UVM standard improves interoperability and reduces the cost of
 repurchasing and rewriting IP for each new project or Electronic Design
@@ -1904,9 +3552,9 @@ type:
 git clone https://github.com/QueenField/UVM
 \end{verbatim}
 
-\hypertarget{describing-register-transfer-level-of-hardware}{%
+\hypertarget{describing-register-transfer-level-of-hardware-1}{%
 \subsubsection{4.1.4. Describing Register Transfer Level of
-Hardware}\label{describing-register-transfer-level-of-hardware}}
+Hardware}\label{describing-register-transfer-level-of-hardware-1}}
 
 \emph{A Hardware Description Language Editor is any editor that allows
 to generate hardware code. Hardware Description Language is a
@@ -1923,9 +3571,9 @@ type:
 git clone https://github.com/emacs-mirror/emacs
 \end{verbatim}
 
-\hypertarget{simulating-register-transfer-level-of-hardware}{%
+\hypertarget{simulating-register-transfer-level-of-hardware-1}{%
 \subsubsection{4.1.5. Simulating Register Transfer Level of
-Hardware}\label{simulating-register-transfer-level-of-hardware}}
+Hardware}\label{simulating-register-transfer-level-of-hardware-1}}
 
 \emph{A Hardware Description Language Simulator uses mathematical models
 to replicate the behavior of an actual hardware device. Simulation
@@ -1992,9 +3640,9 @@ cd sim/verilog/regression/axi4/iverilog
 source SIMULATE-IT
 \end{verbatim}
 
-\hypertarget{synthesizing-register-transfer-level-of-hardware}{%
+\hypertarget{synthesizing-register-transfer-level-of-hardware-1}{%
 \subsubsection{4.1.6. Synthesizing Register Transfer Level of
-Hardware}\label{synthesizing-register-transfer-level-of-hardware}}
+Hardware}\label{synthesizing-register-transfer-level-of-hardware-1}}
 
 \emph{A Hardware Description Language Synthesizer turns a RTL
 implementation into a Logical Gate Level implementation. Logical design
@@ -2039,9 +3687,9 @@ cd synthesis/yosys
 source SYNTHESIZE-IT
 \end{verbatim}
 
-\hypertarget{optimizing-register-transfer-level-of-hardware}{%
+\hypertarget{optimizing-register-transfer-level-of-hardware-1}{%
 \subsubsection{4.1.7. Optimizing Register Transfer Level of
-Hardware}\label{optimizing-register-transfer-level-of-hardware}}
+Hardware}\label{optimizing-register-transfer-level-of-hardware-1}}
 
 \emph{A Hardware Description Language Optimizer finds an equivalent
 representation of the specified logic circuit under specified
@@ -2068,9 +3716,9 @@ cd synthesis/yosys
 source SYNTHESIZE-IT
 \end{verbatim}
 
-\hypertarget{verifying-register-transfer-level-of-hardware}{%
+\hypertarget{verifying-register-transfer-level-of-hardware-1}{%
 \subsubsection{4.1.8. Verifying Register Transfer Level of
-Hardware}\label{verifying-register-transfer-level-of-hardware}}
+Hardware}\label{verifying-register-transfer-level-of-hardware-1}}
 
 \emph{A Hardware Description Language Verifier proves or disproves the
 correctness of intended algorithms underlying a hardware system with
@@ -2088,9 +3736,9 @@ type:
 git clone https://github.com/YosysHQ/SymbiYosys
 \end{verbatim}
 
-\hypertarget{back-end-open-source-tools}{%
+\hypertarget{back-end-open-source-tools-2}{%
 \subsection{4.2. BACK-END OPEN SOURCE
-TOOLS}\label{back-end-open-source-tools}}
+TOOLS}\label{back-end-open-source-tools-2}}
 
 \begin{figure}
 \centering
@@ -2128,9 +3776,9 @@ mkdir qflow
 cd qflow
 \end{verbatim}
 
-\hypertarget{planning-switch-level-of-hardware}{%
+\hypertarget{planning-switch-level-of-hardware-1}{%
 \subsubsection{4.2.1. Planning Switch Level of
-Hardware}\label{planning-switch-level-of-hardware}}
+Hardware}\label{planning-switch-level-of-hardware-1}}
 
 \emph{A Floor-Planner of an Integrated Circuit (IC) is a schematic
 representation of tentative placement of its major functional blocks. In
@@ -2152,9 +3800,9 @@ make
 sudo make install
 \end{verbatim}
 
-\hypertarget{placing-switch-level-of-hardware}{%
+\hypertarget{placing-switch-level-of-hardware-1}{%
 \subsubsection{4.2.2. Placing Switch Level of
-Hardware}\label{placing-switch-level-of-hardware}}
+Hardware}\label{placing-switch-level-of-hardware-1}}
 
 \emph{A Standard Cell Placer takes a given synthesized circuit netlist
 together with a technology library and produces a valid placement
@@ -2178,9 +3826,9 @@ make
 sudo make install
 \end{verbatim}
 
-\hypertarget{timing-switch-level-of-hardware}{%
+\hypertarget{timing-switch-level-of-hardware-1}{%
 \subsubsection{4.2.3. Timing Switch Level of
-Hardware}\label{timing-switch-level-of-hardware}}
+Hardware}\label{timing-switch-level-of-hardware-1}}
 
 \emph{A Standard Cell Timing-Analizer is a simulation method of
 computing the expected timing of a digital circuit without requiring a
@@ -2205,9 +3853,9 @@ make
 sudo make install
 \end{verbatim}
 
-\hypertarget{routing-switch-level-of-hardware}{%
+\hypertarget{routing-switch-level-of-hardware-1}{%
 \subsubsection{4.2.4. Routing Switch Level of
-Hardware}\label{routing-switch-level-of-hardware}}
+Hardware}\label{routing-switch-level-of-hardware-1}}
 
 \emph{A Standard Cell Router takes pre-existing polygons consisting of
 pins on cells, and pre-existing wiring called pre-routes. Each of these
@@ -2229,9 +3877,9 @@ make
 sudo make install
 \end{verbatim}
 
-\hypertarget{simulating-switch-level-of-hardware}{%
+\hypertarget{simulating-switch-level-of-hardware-1}{%
 \subsubsection{4.2.5. Simulating Switch Level of
-Hardware}\label{simulating-switch-level-of-hardware}}
+Hardware}\label{simulating-switch-level-of-hardware-1}}
 
 \emph{A Standard Cell Simulator treats transistors as ideal switches.
 Extracted capacitance and lumped resistance values are used to make the
@@ -2253,9 +3901,9 @@ make
 sudo make install
 \end{verbatim}
 
-\hypertarget{verifying-switch-level-of-hardware-lvs}{%
+\hypertarget{verifying-switch-level-of-hardware-lvs-1}{%
 \subsubsection{4.2.6. Verifying Switch Level of Hardware
-LVS}\label{verifying-switch-level-of-hardware-lvs}}
+LVS}\label{verifying-switch-level-of-hardware-lvs-1}}
 
 \emph{A Standard Cell Verifier compares netlists, a process known as LVS
 (Layout vs.~Schematic). This step ensures that the geometry that has
@@ -2282,9 +3930,9 @@ cd synthesis/qflow
 source FLOW-IT
 \end{verbatim}
 
-\hypertarget{checking-switch-level-of-hardware-drc}{%
+\hypertarget{checking-switch-level-of-hardware-drc-1}{%
 \subsubsection{4.2.7. Checking Switch Level of Hardware
-DRC}\label{checking-switch-level-of-hardware-drc}}
+DRC}\label{checking-switch-level-of-hardware-drc-1}}
 
 \emph{A Standard Cell Checker is a geometric constraint imposed on
 Printed Circuit Board (PCB) and Integrated Circuit (IC) designers to
@@ -2307,9 +3955,9 @@ make
 sudo make install
 \end{verbatim}
 
-\hypertarget{printing-switch-level-of-hardware-gds}{%
+\hypertarget{printing-switch-level-of-hardware-gds-1}{%
 \subsubsection{4.2.8. Printing Switch Level of Hardware
-GDS}\label{printing-switch-level-of-hardware-gds}}
+GDS}\label{printing-switch-level-of-hardware-gds-1}}
 
 \emph{A Standard Cell Editor allows to print a set of standard cells.
 The standard cell methodology is an abstraction, whereby a low-level
@@ -2331,12 +3979,12 @@ make
 sudo make install
 \end{verbatim}
 
-\hypertarget{software-workflow}{%
-\section{5. SOFTWARE WORKFLOW}\label{software-workflow}}
+\hypertarget{software-workflow-1}{%
+\section{5. SOFTWARE WORKFLOW}\label{software-workflow-1}}
 
-\hypertarget{back-end-open-source-tools-1}{%
+\hypertarget{back-end-open-source-tools-3}{%
 \subsection{5.1. BACK-END OPEN SOURCE
-TOOLS}\label{back-end-open-source-tools-1}}
+TOOLS}\label{back-end-open-source-tools-3}}
 
 type:
 
@@ -2346,29 +3994,29 @@ libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf \
 libtool patchutils bc zlib1g-dev libexpat-dev
 \end{verbatim}
 
-\hypertarget{msp430-1}{%
-\subsubsection{5.1.1. MSP430}\label{msp430-1}}
+\hypertarget{msp430-4}{%
+\subsubsection{5.1.1. MSP430}\label{msp430-4}}
 
-\hypertarget{msp430-gnu-cc}{%
-\paragraph{5.1.1.1. MSP430 GNU C/C++}\label{msp430-gnu-cc}}
+\hypertarget{msp430-gnu-cc-1}{%
+\paragraph{5.1.1.1. MSP430 GNU C/C++}\label{msp430-gnu-cc-1}}
 
-\hypertarget{msp430-gnu-go}{%
-\paragraph{5.1.1.2. MSP430 GNU Go}\label{msp430-gnu-go}}
+\hypertarget{msp430-gnu-go-1}{%
+\paragraph{5.1.1.2. MSP430 GNU Go}\label{msp430-gnu-go-1}}
 
-\hypertarget{openrisc-1}{%
-\subsubsection{5.1.2. OpenRISC}\label{openrisc-1}}
+\hypertarget{openrisc-4}{%
+\subsubsection{5.1.2. OpenRISC}\label{openrisc-4}}
 
-\hypertarget{openrisc-gnu-cc}{%
-\paragraph{5.1.2.1. OpenRISC GNU C/C++}\label{openrisc-gnu-cc}}
+\hypertarget{openrisc-gnu-cc-1}{%
+\paragraph{5.1.2.1. OpenRISC GNU C/C++}\label{openrisc-gnu-cc-1}}
 
-\hypertarget{openrisc-gnu-go}{%
-\paragraph{5.1.2.2. OpenRISC GNU Go}\label{openrisc-gnu-go}}
+\hypertarget{openrisc-gnu-go-1}{%
+\paragraph{5.1.2.2. OpenRISC GNU Go}\label{openrisc-gnu-go-1}}
 
-\hypertarget{risc-v-1}{%
-\subsubsection{5.1.3. RISC-V}\label{risc-v-1}}
+\hypertarget{risc-v-4}{%
+\subsubsection{5.1.3. RISC-V}\label{risc-v-4}}
 
-\hypertarget{risc-v-gnu-cc}{%
-\paragraph{5.1.3.1. RISC-V GNU C/C++}\label{risc-v-gnu-cc}}
+\hypertarget{risc-v-gnu-cc-1}{%
+\paragraph{5.1.3.1. RISC-V GNU C/C++}\label{risc-v-gnu-cc-1}}
 
 type:
 
@@ -2390,8 +4038,8 @@ sudo make clean
 sudo make linux
 \end{verbatim}
 
-\hypertarget{risc-v-gnu-go}{%
-\paragraph{5.1.3.2. RISC-V GNU Go}\label{risc-v-gnu-go}}
+\hypertarget{risc-v-gnu-go-1}{%
+\paragraph{5.1.3.2. RISC-V GNU Go}\label{risc-v-gnu-go-1}}
 
 type:
 
@@ -2403,18 +4051,18 @@ cd ../..
 sudo mv riscv-go /opt
 \end{verbatim}
 
-\hypertarget{front-end-open-source-tools-1}{%
+\hypertarget{front-end-open-source-tools-3}{%
 \subsection{5.2. FRONT-END OPEN SOURCE
-TOOLS}\label{front-end-open-source-tools-1}}
+TOOLS}\label{front-end-open-source-tools-3}}
 
-\hypertarget{msp430-2}{%
-\subsubsection{5.2.1. MSP430}\label{msp430-2}}
+\hypertarget{msp430-5}{%
+\subsubsection{5.2.1. MSP430}\label{msp430-5}}
 
-\hypertarget{openrisc-2}{%
-\subsubsection{5.2.2. OpenRISC}\label{openrisc-2}}
+\hypertarget{openrisc-5}{%
+\subsubsection{5.2.2. OpenRISC}\label{openrisc-5}}
 
-\hypertarget{risc-v-2}{%
-\subsubsection{5.2.3. RISC-V}\label{risc-v-2}}
+\hypertarget{risc-v-5}{%
+\subsubsection{5.2.3. RISC-V}\label{risc-v-5}}
 
 type:
 
@@ -2422,9 +4070,9 @@ type:
 sudo apt install device-tree-compiler libglib2.0-dev libpixman-1-dev pkg-config
 \end{verbatim}
 
-\hypertarget{hardware-engineers-compiler-spike}{%
+\hypertarget{hardware-engineers-compiler-spike-1}{%
 \paragraph{5.2.3.1. Hardware Engineers Compiler:
-Spike}\label{hardware-engineers-compiler-spike}}
+Spike}\label{hardware-engineers-compiler-spike-1}}
 
 \textbf{Building Proxy Kernel}
 
@@ -2460,9 +4108,9 @@ make
 sudo make install
 \end{verbatim}
 
-\hypertarget{software-engineers-compiler-qemu}{%
+\hypertarget{software-engineers-compiler-qemu-1}{%
 \paragraph{5.2.3.2. Software Engineers Compiler:
-QEMU}\label{software-engineers-compiler-qemu}}
+QEMU}\label{software-engineers-compiler-qemu-1}}
 
 type:
 
@@ -2478,450 +4126,456 @@ make
 sudo make install
 \end{verbatim}
 
-\hypertarget{quality-assurance}{%
-\section{6. QUALITY ASSURANCE}\label{quality-assurance}}
+\hypertarget{quality-assurance-1}{%
+\section{6. QUALITY ASSURANCE}\label{quality-assurance-1}}
 
-\hypertarget{scope}{%
-\subsection{6.1. SCOPE}\label{scope}}
+\hypertarget{scope-1}{%
+\subsection{6.1. SCOPE}\label{scope-1}}
 
-\hypertarget{normative-reference}{%
-\subsection{6.2. NORMATIVE REFERENCE}\label{normative-reference}}
+\hypertarget{normative-reference-1}{%
+\subsection{6.2. NORMATIVE REFERENCE}\label{normative-reference-1}}
 
-\hypertarget{terms-and-definitions}{%
-\subsection{6.3. TERMS AND DEFINITIONS}\label{terms-and-definitions}}
+\hypertarget{terms-and-definitions-1}{%
+\subsection{6.3. TERMS AND DEFINITIONS}\label{terms-and-definitions-1}}
 
-\hypertarget{context-of-the-organization}{%
+\hypertarget{context-of-the-organization-1}{%
 \subsection{6.4. CONTEXT OF THE
-ORGANIZATION}\label{context-of-the-organization}}
+ORGANIZATION}\label{context-of-the-organization-1}}
 
-\hypertarget{understanding-the-organization-and-itsontext}{%
+\hypertarget{understanding-the-organization-and-itsontext-1}{%
 \subsubsection{6.4.1. Understanding the organization and
-itsontext}\label{understanding-the-organization-and-itsontext}}
+itsontext}\label{understanding-the-organization-and-itsontext-1}}
 
-\hypertarget{understanding-the-needs-and-expectations-of-interested-parties}{%
+\hypertarget{understanding-the-needs-and-expectations-of-interested-parties-1}{%
 \subsubsection{6.4.2. Understanding the needs and expectations of
 interested
-parties}\label{understanding-the-needs-and-expectations-of-interested-parties}}
+parties}\label{understanding-the-needs-and-expectations-of-interested-parties-1}}
 
-\hypertarget{determining-the-scope-of-the-quality-management-system}{%
+\hypertarget{determining-the-scope-of-the-quality-management-system-1}{%
 \subsubsection{6.4.3. Determining the scope of the quality management
-system}\label{determining-the-scope-of-the-quality-management-system}}
+system}\label{determining-the-scope-of-the-quality-management-system-1}}
 
-\hypertarget{quality-management-system-and-its-processes}{%
+\hypertarget{quality-management-system-and-its-processes-1}{%
 \subsubsection{6.4.4. Quality management system and its
-processes}\label{quality-management-system-and-its-processes}}
+processes}\label{quality-management-system-and-its-processes-1}}
 
-\hypertarget{leadership}{%
-\subsection{6.5. LEADERSHIP}\label{leadership}}
+\hypertarget{leadership-1}{%
+\subsection{6.5. LEADERSHIP}\label{leadership-1}}
 
-\hypertarget{leadership-and-commitment}{%
+\hypertarget{leadership-and-commitment-1}{%
 \subsubsection{6.5.1. Leadership and
-commitment}\label{leadership-and-commitment}}
+commitment}\label{leadership-and-commitment-1}}
 
-\hypertarget{general}{%
-\paragraph{6.5.1.1. General}\label{general}}
+\hypertarget{general-9}{%
+\paragraph{6.5.1.1. General}\label{general-9}}
 
-\hypertarget{customer-focus}{%
-\paragraph{6.5.1.2. Customer focus}\label{customer-focus}}
+\hypertarget{customer-focus-1}{%
+\paragraph{6.5.1.2. Customer focus}\label{customer-focus-1}}
 
-\hypertarget{policy}{%
-\subsubsection{6.5.2. Policy}\label{policy}}
+\hypertarget{policy-1}{%
+\subsubsection{6.5.2. Policy}\label{policy-1}}
 
-\hypertarget{establishing-the-quality-policy}{%
+\hypertarget{establishing-the-quality-policy-1}{%
 \paragraph{6.5.2.1. Establishing the quality
-policy}\label{establishing-the-quality-policy}}
+policy}\label{establishing-the-quality-policy-1}}
 
-\hypertarget{communicating-the-quality-policy}{%
+\hypertarget{communicating-the-quality-policy-1}{%
 \paragraph{6.5.2.2. Communicating the quality
-policy}\label{communicating-the-quality-policy}}
+policy}\label{communicating-the-quality-policy-1}}
 
-\hypertarget{organizational-roles-responsibilities-and-authorities}{%
+\hypertarget{organizational-roles-responsibilities-and-authorities-1}{%
 \subsubsection{6.5.3. Organizational roles, responsibilities and
-authorities}\label{organizational-roles-responsibilities-and-authorities}}
+authorities}\label{organizational-roles-responsibilities-and-authorities-1}}
 
-\hypertarget{planning}{%
-\subsection{6.6. PLANNING}\label{planning}}
+\hypertarget{planning-1}{%
+\subsection{6.6. PLANNING}\label{planning-1}}
 
-\hypertarget{actions-to-address-risks-and-opportunities}{%
+\hypertarget{actions-to-address-risks-and-opportunities-1}{%
 \subsubsection{6.6.1. Actions to address risks and
-opportunities}\label{actions-to-address-risks-and-opportunities}}
+opportunities}\label{actions-to-address-risks-and-opportunities-1}}
 
-\hypertarget{quality-objectives-and-planning-to-achieve-them}{%
+\hypertarget{quality-objectives-and-planning-to-achieve-them-1}{%
 \subsubsection{6.6.2. Quality objectives and planning to achieve
-them}\label{quality-objectives-and-planning-to-achieve-them}}
+them}\label{quality-objectives-and-planning-to-achieve-them-1}}
 
-\hypertarget{planning-of-changes}{%
-\subsubsection{6.6.3. Planning of changes}\label{planning-of-changes}}
+\hypertarget{planning-of-changes-1}{%
+\subsubsection{6.6.3. Planning of changes}\label{planning-of-changes-1}}
 
-\hypertarget{support}{%
-\subsection{6.7. SUPPORT}\label{support}}
+\hypertarget{support-1}{%
+\subsection{6.7. SUPPORT}\label{support-1}}
 
-\hypertarget{resources}{%
-\subsubsection{6.7.1. Resources}\label{resources}}
+\hypertarget{resources-1}{%
+\subsubsection{6.7.1. Resources}\label{resources-1}}
 
-\hypertarget{general-1}{%
-\paragraph{6.7.1.1. General}\label{general-1}}
+\hypertarget{general-10}{%
+\paragraph{6.7.1.1. General}\label{general-10}}
 
-\hypertarget{people}{%
-\paragraph{6.7.1.2. People}\label{people}}
+\hypertarget{people-1}{%
+\paragraph{6.7.1.2. People}\label{people-1}}
 
-\hypertarget{infrastructure}{%
-\paragraph{6.7.1.3. Infrastructure}\label{infrastructure}}
+\hypertarget{infrastructure-1}{%
+\paragraph{6.7.1.3. Infrastructure}\label{infrastructure-1}}
 
-\hypertarget{environment-for-the-operation-of-process}{%
+\hypertarget{environment-for-the-operation-of-process-1}{%
 \paragraph{6.7.1.4. Environment for the operation of
-process}\label{environment-for-the-operation-of-process}}
+process}\label{environment-for-the-operation-of-process-1}}
 
-\hypertarget{monitoring-and-measuring-resources}{%
+\hypertarget{monitoring-and-measuring-resources-1}{%
 \paragraph{6.7.1.5. Monitoring and measuring
-resources}\label{monitoring-and-measuring-resources}}
+resources}\label{monitoring-and-measuring-resources-1}}
 
-\hypertarget{general-2}{%
-\subparagraph{6.7.1.5.1. General}\label{general-2}}
+\hypertarget{general-11}{%
+\subparagraph{6.7.1.5.1. General}\label{general-11}}
 
-\hypertarget{measurement-traceability}{%
+\hypertarget{measurement-traceability-1}{%
 \subparagraph{6.7.1.5.2. Measurement
-traceability}\label{measurement-traceability}}
+traceability}\label{measurement-traceability-1}}
 
-\hypertarget{organizational-knowledge}{%
+\hypertarget{organizational-knowledge-1}{%
 \paragraph{6.7.1.6. Organizational
-knowledge}\label{organizational-knowledge}}
+knowledge}\label{organizational-knowledge-1}}
 
-\hypertarget{competence}{%
-\subsubsection{6.7.2. Competence}\label{competence}}
+\hypertarget{competence-1}{%
+\subsubsection{6.7.2. Competence}\label{competence-1}}
 
-\hypertarget{awareness}{%
-\subsubsection{6.7.3. Awareness}\label{awareness}}
+\hypertarget{awareness-1}{%
+\subsubsection{6.7.3. Awareness}\label{awareness-1}}
 
-\hypertarget{communication}{%
-\subsubsection{6.7.4. Communication}\label{communication}}
+\hypertarget{communication-1}{%
+\subsubsection{6.7.4. Communication}\label{communication-1}}
 
-\hypertarget{documented-information}{%
+\hypertarget{documented-information-1}{%
 \subsubsection{6.7.5. Documented
-information}\label{documented-information}}
+information}\label{documented-information-1}}
 
-\hypertarget{general-3}{%
-\paragraph{6.7.5.1. General}\label{general-3}}
+\hypertarget{general-12}{%
+\paragraph{6.7.5.1. General}\label{general-12}}
 
-\hypertarget{creating-and-updating}{%
-\paragraph{6.7.5.2. Creating and updating}\label{creating-and-updating}}
+\hypertarget{creating-and-updating-1}{%
+\paragraph{6.7.5.2. Creating and
+updating}\label{creating-and-updating-1}}
 
-\hypertarget{control-of-documented-information}{%
+\hypertarget{control-of-documented-information-1}{%
 \paragraph{6.7.5.3. Control of documented
-information}\label{control-of-documented-information}}
+information}\label{control-of-documented-information-1}}
 
-\hypertarget{operation}{%
-\subsection{6.8. OPERATION}\label{operation}}
+\hypertarget{operation-1}{%
+\subsection{6.8. OPERATION}\label{operation-1}}
 
-\hypertarget{operational-planning-and-control}{%
+\hypertarget{operational-planning-and-control-1}{%
 \subsubsection{6.8.1. Operational planning and
-control}\label{operational-planning-and-control}}
+control}\label{operational-planning-and-control-1}}
 
-\hypertarget{requirements-for-products-and-services}{%
+\hypertarget{requirements-for-products-and-services-1}{%
 \subsubsection{6.8.2. Requirements for products and
-services}\label{requirements-for-products-and-services}}
+services}\label{requirements-for-products-and-services-1}}
 
-\hypertarget{customer-communication}{%
+\hypertarget{customer-communication-1}{%
 \paragraph{6.8.2.1. Customer
-communication}\label{customer-communication}}
+communication}\label{customer-communication-1}}
 
-\hypertarget{determining-the-requirements-for-products-and-services}{%
+\hypertarget{determining-the-requirements-for-products-and-services-1}{%
 \paragraph{6.8.2.2. Determining the requirements for products and
-services}\label{determining-the-requirements-for-products-and-services}}
+services}\label{determining-the-requirements-for-products-and-services-1}}
 
-\hypertarget{review-of-the-requirements-for-products-and-services}{%
+\hypertarget{review-of-the-requirements-for-products-and-services-1}{%
 \paragraph{6.8.2.3. Review of the requirements for products and
-services}\label{review-of-the-requirements-for-products-and-services}}
+services}\label{review-of-the-requirements-for-products-and-services-1}}
 
-\hypertarget{changes-to-requirements-for-products-and-services}{%
+\hypertarget{changes-to-requirements-for-products-and-services-1}{%
 \paragraph{6.8.2.4. Changes to requirements for products and
-services}\label{changes-to-requirements-for-products-and-services}}
+services}\label{changes-to-requirements-for-products-and-services-1}}
 
-\hypertarget{design-and-development-of-products-and-services}{%
+\hypertarget{design-and-development-of-products-and-services-1}{%
 \subsubsection{6.8.3. Design and development of products and
-services}\label{design-and-development-of-products-and-services}}
+services}\label{design-and-development-of-products-and-services-1}}
 
-\hypertarget{general-4}{%
-\paragraph{6.8.3.1. General}\label{general-4}}
+\hypertarget{general-13}{%
+\paragraph{6.8.3.1. General}\label{general-13}}
 
-\hypertarget{design-and-development-planning}{%
+\hypertarget{design-and-development-planning-1}{%
 \paragraph{6.8.3.2. Design and development
-planning}\label{design-and-development-planning}}
+planning}\label{design-and-development-planning-1}}
 
-\hypertarget{design-and-development-inputs}{%
+\hypertarget{design-and-development-inputs-1}{%
 \paragraph{6.8.3.3. Design and development
-inputs}\label{design-and-development-inputs}}
+inputs}\label{design-and-development-inputs-1}}
 
-\hypertarget{design-and-development-controls}{%
+\hypertarget{design-and-development-controls-1}{%
 \paragraph{6.8.3.4. Design and development
-controls}\label{design-and-development-controls}}
+controls}\label{design-and-development-controls-1}}
 
-\hypertarget{design-and-development-outputs}{%
+\hypertarget{design-and-development-outputs-1}{%
 \paragraph{6.8.3.5. Design and development
-outputs}\label{design-and-development-outputs}}
+outputs}\label{design-and-development-outputs-1}}
 
-\hypertarget{control-of-externally-provided-processes-products-and-services}{%
+\hypertarget{control-of-externally-provided-processes-products-and-services-1}{%
 \subsubsection{6.8.4. Control of externally provided processes, products
 and
-services}\label{control-of-externally-provided-processes-products-and-services}}
+services}\label{control-of-externally-provided-processes-products-and-services-1}}
 
-\hypertarget{general-5}{%
-\paragraph{6.8.4.1. General}\label{general-5}}
+\hypertarget{general-14}{%
+\paragraph{6.8.4.1. General}\label{general-14}}
 
-\hypertarget{type-and-extent-of-control}{%
+\hypertarget{type-and-extent-of-control-1}{%
 \paragraph{6.8.4.2. Type and extent of
-control}\label{type-and-extent-of-control}}
+control}\label{type-and-extent-of-control-1}}
 
-\hypertarget{information-for-external-providers}{%
+\hypertarget{information-for-external-providers-1}{%
 \paragraph{6.8.4.3. Information for external
-providers}\label{information-for-external-providers}}
+providers}\label{information-for-external-providers-1}}
 
-\hypertarget{production-and-service-provision}{%
+\hypertarget{production-and-service-provision-1}{%
 \subsubsection{6.8.5. Production and service
-provision}\label{production-and-service-provision}}
+provision}\label{production-and-service-provision-1}}
 
-\hypertarget{control-of-production-and-service-provision}{%
+\hypertarget{control-of-production-and-service-provision-1}{%
 \paragraph{6.8.5.1. Control of production and service
-provision}\label{control-of-production-and-service-provision}}
+provision}\label{control-of-production-and-service-provision-1}}
 
-\hypertarget{identification-and-traceability}{%
+\hypertarget{identification-and-traceability-1}{%
 \paragraph{6.8.5.2. Identification and
-traceability}\label{identification-and-traceability}}
+traceability}\label{identification-and-traceability-1}}
 
-\hypertarget{property-belonging-to-customers-or-external-providers}{%
+\hypertarget{property-belonging-to-customers-or-external-providers-1}{%
 \paragraph{6.8.5.3. Property belonging to customers or external
-providers}\label{property-belonging-to-customers-or-external-providers}}
+providers}\label{property-belonging-to-customers-or-external-providers-1}}
 
-\hypertarget{preservation}{%
-\paragraph{6.8.5.4. Preservation}\label{preservation}}
+\hypertarget{preservation-1}{%
+\paragraph{6.8.5.4. Preservation}\label{preservation-1}}
 
-\hypertarget{post-delivery-activities}{%
+\hypertarget{post-delivery-activities-1}{%
 \paragraph{6.8.5.5. Post-delivery
-activities}\label{post-delivery-activities}}
+activities}\label{post-delivery-activities-1}}
 
-\hypertarget{control-of-changes}{%
-\paragraph{6.8.5.6. Control of changes}\label{control-of-changes}}
+\hypertarget{control-of-changes-1}{%
+\paragraph{6.8.5.6. Control of changes}\label{control-of-changes-1}}
 
-\hypertarget{release-of-products-and-services}{%
+\hypertarget{release-of-products-and-services-1}{%
 \subsubsection{6.8.6. Release of products and
-services}\label{release-of-products-and-services}}
+services}\label{release-of-products-and-services-1}}
 
-\hypertarget{control-of-nonconforming-outputs}{%
+\hypertarget{control-of-nonconforming-outputs-1}{%
 \subsubsection{6.8.7. Control of nonconforming
-outputs}\label{control-of-nonconforming-outputs}}
+outputs}\label{control-of-nonconforming-outputs-1}}
 
-\hypertarget{performance-evaluation}{%
-\subsection{6.9. PERFORMANCE EVALUATION}\label{performance-evaluation}}
+\hypertarget{performance-evaluation-1}{%
+\subsection{6.9. PERFORMANCE
+EVALUATION}\label{performance-evaluation-1}}
 
-\hypertarget{monitoring-measurement-analysis-and-evaluation}{%
+\hypertarget{monitoring-measurement-analysis-and-evaluation-1}{%
 \subsubsection{6.9.1. Monitoring, measurement, analysis and
-evaluation}\label{monitoring-measurement-analysis-and-evaluation}}
+evaluation}\label{monitoring-measurement-analysis-and-evaluation-1}}
 
-\hypertarget{general-6}{%
-\paragraph{6.9.1.1. General}\label{general-6}}
+\hypertarget{general-15}{%
+\paragraph{6.9.1.1. General}\label{general-15}}
 
-\hypertarget{customer-satisfaction}{%
-\paragraph{6.9.1.2. Customer satisfaction}\label{customer-satisfaction}}
+\hypertarget{customer-satisfaction-1}{%
+\paragraph{6.9.1.2. Customer
+satisfaction}\label{customer-satisfaction-1}}
 
-\hypertarget{analysis-and-evaluation}{%
+\hypertarget{analysis-and-evaluation-1}{%
 \paragraph{6.9.1.3. Analysis and
-evaluation}\label{analysis-and-evaluation}}
+evaluation}\label{analysis-and-evaluation-1}}
 
-\hypertarget{internal-audit}{%
-\subsubsection{6.9.2. Internal audit}\label{internal-audit}}
+\hypertarget{internal-audit-1}{%
+\subsubsection{6.9.2. Internal audit}\label{internal-audit-1}}
 
-\hypertarget{management-review}{%
-\subsubsection{6.9.3. Management review}\label{management-review}}
+\hypertarget{management-review-1}{%
+\subsubsection{6.9.3. Management review}\label{management-review-1}}
 
-\hypertarget{general-7}{%
-\paragraph{6.9.3.1. General}\label{general-7}}
+\hypertarget{general-16}{%
+\paragraph{6.9.3.1. General}\label{general-16}}
 
-\hypertarget{management-review-inputs}{%
+\hypertarget{management-review-inputs-1}{%
 \paragraph{6.9.3.2. Management review
-inputs}\label{management-review-inputs}}
+inputs}\label{management-review-inputs-1}}
 
-\hypertarget{management-review-outputs}{%
+\hypertarget{management-review-outputs-1}{%
 \paragraph{6.9.3.3. Management review
-outputs}\label{management-review-outputs}}
+outputs}\label{management-review-outputs-1}}
 
-\hypertarget{improvement}{%
-\subsection{6.10. IMPROVEMENT}\label{improvement}}
+\hypertarget{improvement-1}{%
+\subsection{6.10. IMPROVEMENT}\label{improvement-1}}
 
-\hypertarget{general-8}{%
-\subsubsection{6.10.1. General}\label{general-8}}
+\hypertarget{general-17}{%
+\subsubsection{6.10.1. General}\label{general-17}}
 
-\hypertarget{nonconformity-and-corrective-action}{%
+\hypertarget{nonconformity-and-corrective-action-1}{%
 \subsubsection{6.10.2. Nonconformity and corrective
-action}\label{nonconformity-and-corrective-action}}
+action}\label{nonconformity-and-corrective-action-1}}
 
-\hypertarget{continual-improvement}{%
+\hypertarget{continual-improvement-1}{%
 \subsubsection{6.10.3. Continual
-improvement}\label{continual-improvement}}
+improvement}\label{continual-improvement-1}}
 
-\hypertarget{certification}{%
-\section{7. CERTIFICATION}\label{certification}}
+\hypertarget{certification-1}{%
+\section{7. CERTIFICATION}\label{certification-1}}
 
-\hypertarget{planning-process}{%
-\subsection{7.1. PLANNING PROCESS}\label{planning-process}}
+\hypertarget{planning-process-1}{%
+\subsection{7.1. PLANNING PROCESS}\label{planning-process-1}}
 
-\hypertarget{planning-process-objectives}{%
+\hypertarget{planning-process-objectives-1}{%
 \subsubsection{7.1.1. Planning Process
-Objectives}\label{planning-process-objectives}}
+Objectives}\label{planning-process-objectives-1}}
 
-\hypertarget{planning-process-activities}{%
+\hypertarget{planning-process-activities-1}{%
 \subsubsection{7.1.2. Planning Process
-Activities}\label{planning-process-activities}}
+Activities}\label{planning-process-activities-1}}
 
-\hypertarget{hardware-design-process}{%
+\hypertarget{hardware-design-process-1}{%
 \subsection{7.2. HARDWARE DESIGN
-PROCESS}\label{hardware-design-process}}
+PROCESS}\label{hardware-design-process-1}}
 
-\hypertarget{requirements-capture-process}{%
+\hypertarget{requirements-capture-process-1}{%
 \subsubsection{7.2.1. Requirements Capture
-Process}\label{requirements-capture-process}}
+Process}\label{requirements-capture-process-1}}
 
-\hypertarget{conceptual-design-process}{%
+\hypertarget{conceptual-design-process-1}{%
 \subsubsection{7.2.2. Conceptual Design
-Process}\label{conceptual-design-process}}
+Process}\label{conceptual-design-process-1}}
 
-\hypertarget{detailed-design-process}{%
+\hypertarget{detailed-design-process-1}{%
 \subsubsection{7.2.3. Detailed Design
-Process}\label{detailed-design-process}}
+Process}\label{detailed-design-process-1}}
 
-\hypertarget{implementation-process}{%
+\hypertarget{implementation-process-1}{%
 \subsubsection{7.2.4. Implementation
-Process}\label{implementation-process}}
+Process}\label{implementation-process-1}}
 
-\hypertarget{production-transition}{%
+\hypertarget{production-transition-1}{%
 \subsubsection{7.2.5. Production
-Transition}\label{production-transition}}
+Transition}\label{production-transition-1}}
 
-\hypertarget{acceptance-test}{%
-\subsubsection{7.2.6. Acceptance Test}\label{acceptance-test}}
+\hypertarget{acceptance-test-1}{%
+\subsubsection{7.2.6. Acceptance Test}\label{acceptance-test-1}}
 
-\hypertarget{series-production}{%
-\subsubsection{7.2.7. Series Production}\label{series-production}}
+\hypertarget{series-production-1}{%
+\subsubsection{7.2.7. Series Production}\label{series-production-1}}
 
-\hypertarget{validation-and-verification-process}{%
+\hypertarget{validation-and-verification-process-1}{%
 \subsection{7.3. VALIDATION AND VERIFICATION
-PROCESS}\label{validation-and-verification-process}}
+PROCESS}\label{validation-and-verification-process-1}}
 
-\hypertarget{validation-process}{%
-\subsubsection{7.3.1. Validation Process}\label{validation-process}}
+\hypertarget{validation-process-1}{%
+\subsubsection{7.3.1. Validation Process}\label{validation-process-1}}
 
-\hypertarget{verification-process}{%
-\subsubsection{7.3.2. Verification Process}\label{verification-process}}
+\hypertarget{verification-process-1}{%
+\subsubsection{7.3.2. Verification
+Process}\label{verification-process-1}}
 
-\hypertarget{validation-and-verification-methods}{%
+\hypertarget{validation-and-verification-methods-1}{%
 \subsubsection{7.3.3. Validation and Verification
-Methods}\label{validation-and-verification-methods}}
+Methods}\label{validation-and-verification-methods-1}}
 
-\hypertarget{configuration-management-process}{%
+\hypertarget{configuration-management-process-1}{%
 \subsection{7.4. CONFIGURATION MANAGEMENT
-PROCESS}\label{configuration-management-process}}
+PROCESS}\label{configuration-management-process-1}}
 
-\hypertarget{configuration-management-objectives}{%
+\hypertarget{configuration-management-objectives-1}{%
 \subsubsection{7.4.1. Configuration Management
-Objectives}\label{configuration-management-objectives}}
+Objectives}\label{configuration-management-objectives-1}}
 
-\hypertarget{configuration-management-activities}{%
+\hypertarget{configuration-management-activities-1}{%
 \subsubsection{7.4.2. Configuration Management
-Activities}\label{configuration-management-activities}}
+Activities}\label{configuration-management-activities-1}}
 
-\hypertarget{data-control-categories}{%
+\hypertarget{data-control-categories-1}{%
 \subsubsection{7.4.3. Data Control
-Categories}\label{data-control-categories}}
+Categories}\label{data-control-categories-1}}
 
-\hypertarget{process-assurance}{%
-\subsection{7.5. PROCESS ASSURANCE}\label{process-assurance}}
+\hypertarget{process-assurance-1}{%
+\subsection{7.5. PROCESS ASSURANCE}\label{process-assurance-1}}
 
-\hypertarget{process-assurance-objectives}{%
+\hypertarget{process-assurance-objectives-1}{%
 \subsubsection{7.5.1. Process Assurance
-Objectives}\label{process-assurance-objectives}}
+Objectives}\label{process-assurance-objectives-1}}
 
-\hypertarget{process-assurance-activities}{%
+\hypertarget{process-assurance-activities-1}{%
 \subsubsection{7.5.2. Process Assurance
-Activities}\label{process-assurance-activities}}
+Activities}\label{process-assurance-activities-1}}
 
-\hypertarget{certification-liaison-process}{%
+\hypertarget{certification-liaison-process-1}{%
 \subsection{7.6. CERTIFICATION LIAISON
-PROCESS}\label{certification-liaison-process}}
+PROCESS}\label{certification-liaison-process-1}}
 
-\hypertarget{means-of-compliance-and-planning}{%
+\hypertarget{means-of-compliance-and-planning-1}{%
 \subsubsection{7.6.1. Means of Compliance and
-Planning}\label{means-of-compliance-and-planning}}
+Planning}\label{means-of-compliance-and-planning-1}}
 
-\hypertarget{compliance-substantiation}{%
+\hypertarget{compliance-substantiation-1}{%
 \subsubsection{7.6.2. Compliance
-Substantiation}\label{compliance-substantiation}}
+Substantiation}\label{compliance-substantiation-1}}
 
-\hypertarget{hardware-design-lifecycle-data}{%
+\hypertarget{hardware-design-lifecycle-data-1}{%
 \subsection{7.7. HARDWARE DESIGN LIFECYCLE
-DATA}\label{hardware-design-lifecycle-data}}
+DATA}\label{hardware-design-lifecycle-data-1}}
 
-\hypertarget{hardware-plans}{%
-\subsubsection{7.7.1. Hardware Plans}\label{hardware-plans}}
+\hypertarget{hardware-plans-1}{%
+\subsubsection{7.7.1. Hardware Plans}\label{hardware-plans-1}}
 
-\hypertarget{plan-for-hardware-aspects-of-certification}{%
+\hypertarget{plan-for-hardware-aspects-of-certification-1}{%
 \paragraph{7.7.1.1. Plan for Hardware Aspects of
-Certification}\label{plan-for-hardware-aspects-of-certification}}
+Certification}\label{plan-for-hardware-aspects-of-certification-1}}
 
-\hypertarget{hardware-design-plan}{%
-\paragraph{7.7.1.2. Hardware Design Plan}\label{hardware-design-plan}}
+\hypertarget{hardware-design-plan-1}{%
+\paragraph{7.7.1.2. Hardware Design Plan}\label{hardware-design-plan-1}}
 
-\hypertarget{hardware-validation-plan}{%
+\hypertarget{hardware-validation-plan-1}{%
 \paragraph{7.7.1.3. Hardware Validation
-Plan}\label{hardware-validation-plan}}
+Plan}\label{hardware-validation-plan-1}}
 
-\hypertarget{hardware-verification-plan}{%
+\hypertarget{hardware-verification-plan-1}{%
 \paragraph{7.7.1.4. Hardware Verification
-Plan}\label{hardware-verification-plan}}
+Plan}\label{hardware-verification-plan-1}}
 
-\hypertarget{hardware-configuration-management-plan}{%
+\hypertarget{hardware-configuration-management-plan-1}{%
 \paragraph{7.7.1.5. Hardware Configuration Management
-Plan}\label{hardware-configuration-management-plan}}
+Plan}\label{hardware-configuration-management-plan-1}}
 
-\hypertarget{hardware-process-assurance-plan}{%
+\hypertarget{hardware-process-assurance-plan-1}{%
 \paragraph{7.7.1.6. Hardware Process Assurance
-Plan}\label{hardware-process-assurance-plan}}
+Plan}\label{hardware-process-assurance-plan-1}}
 
-\hypertarget{hardware-design-standards-and-guidance}{%
+\hypertarget{hardware-design-standards-and-guidance-1}{%
 \subsubsection{7.7.2. Hardware Design Standards and
-Guidance}\label{hardware-design-standards-and-guidance}}
+Guidance}\label{hardware-design-standards-and-guidance-1}}
 
-\hypertarget{requirements-standards}{%
+\hypertarget{requirements-standards-1}{%
 \paragraph{7.7.2.1. Requirements
-Standards}\label{requirements-standards}}
+Standards}\label{requirements-standards-1}}
 
-\hypertarget{hardware-design-standards}{%
+\hypertarget{hardware-design-standards-1}{%
 \paragraph{7.7.2.2. Hardware Design
-Standards}\label{hardware-design-standards}}
+Standards}\label{hardware-design-standards-1}}
 
-\hypertarget{validation-and-verification-standards}{%
+\hypertarget{validation-and-verification-standards-1}{%
 \paragraph{7.7.2.3. Validation and Verification
-Standards}\label{validation-and-verification-standards}}
+Standards}\label{validation-and-verification-standards-1}}
 
-\hypertarget{hardware-archive-standards}{%
+\hypertarget{hardware-archive-standards-1}{%
 \paragraph{7.7.2.4. Hardware Archive
-Standards}\label{hardware-archive-standards}}
+Standards}\label{hardware-archive-standards-1}}
 
-\hypertarget{hardware-design-data}{%
-\subsubsection{7.7.3. Hardware Design Data}\label{hardware-design-data}}
+\hypertarget{hardware-design-data-1}{%
+\subsubsection{7.7.3. Hardware Design
+Data}\label{hardware-design-data-1}}
 
-\hypertarget{hardware-requirements}{%
-\paragraph{7.7.3.1. Hardware Requirements}\label{hardware-requirements}}
+\hypertarget{hardware-requirements-1}{%
+\paragraph{7.7.3.1. Hardware
+Requirements}\label{hardware-requirements-1}}
 
-\hypertarget{hardware-design-representation-data}{%
+\hypertarget{hardware-design-representation-data-1}{%
 \paragraph{7.7.3.2. Hardware Design Representation
-Data}\label{hardware-design-representation-data}}
+Data}\label{hardware-design-representation-data-1}}
 
-\hypertarget{conceptual-design-data}{%
+\hypertarget{conceptual-design-data-1}{%
 \subparagraph{7.7.3.2.1. Conceptual Design
-Data}\label{conceptual-design-data}}
+Data}\label{conceptual-design-data-1}}
 
-\hypertarget{detailed-design-data}{%
+\hypertarget{detailed-design-data-1}{%
 \subparagraph{7.7.3.2.2. Detailed Design
-Data}\label{detailed-design-data}}
+Data}\label{detailed-design-data-1}}
 
 7.7.3.2.2.1. Top-Level Drawing
 
@@ -2931,45 +4585,45 @@ Data}\label{detailed-design-data}}
 
 7.7.3.2.2.4. Hardware/Software Interface Data
 
-\hypertarget{validation-and-verification-data}{%
+\hypertarget{validation-and-verification-data-1}{%
 \subsubsection{7.7.4. Validation and Verification
-Data}\label{validation-and-verification-data}}
+Data}\label{validation-and-verification-data-1}}
 
-\hypertarget{traceability-data}{%
-\paragraph{7.7.4.1. Traceability Data}\label{traceability-data}}
+\hypertarget{traceability-data-1}{%
+\paragraph{7.7.4.1. Traceability Data}\label{traceability-data-1}}
 
-\hypertarget{review-and-analysis-procedures}{%
+\hypertarget{review-and-analysis-procedures-1}{%
 \paragraph{7.7.4.2. Review and Analysis
-Procedures}\label{review-and-analysis-procedures}}
+Procedures}\label{review-and-analysis-procedures-1}}
 
-\hypertarget{review-and-analysis-results}{%
+\hypertarget{review-and-analysis-results-1}{%
 \paragraph{7.7.4.3. Review and Analysis
-Results}\label{review-and-analysis-results}}
+Results}\label{review-and-analysis-results-1}}
 
-\hypertarget{test-procedures}{%
-\paragraph{7.7.4.4. Test Procedures}\label{test-procedures}}
+\hypertarget{test-procedures-1}{%
+\paragraph{7.7.4.4. Test Procedures}\label{test-procedures-1}}
 
-\hypertarget{test-results}{%
-\paragraph{7.7.4.5. Test Results}\label{test-results}}
+\hypertarget{test-results-1}{%
+\paragraph{7.7.4.5. Test Results}\label{test-results-1}}
 
-\hypertarget{additional-considerations}{%
+\hypertarget{additional-considerations-1}{%
 \subsection{7.8. ADDITIONAL
-CONSIDERATIONS}\label{additional-considerations}}
+CONSIDERATIONS}\label{additional-considerations-1}}
 
-\hypertarget{use-of-previously-developed-hardware}{%
+\hypertarget{use-of-previously-developed-hardware-1}{%
 \subsubsection{7.8.1. Use of Previously Developed
-Hardware}\label{use-of-previously-developed-hardware}}
+Hardware}\label{use-of-previously-developed-hardware-1}}
 
-\hypertarget{commercial-components-usage}{%
+\hypertarget{commercial-components-usage-1}{%
 \subsubsection{7.8.2. Commercial Components
-Usage}\label{commercial-components-usage}}
+Usage}\label{commercial-components-usage-1}}
 
-\hypertarget{product-service-experience}{%
+\hypertarget{product-service-experience-1}{%
 \subsubsection{7.8.3. Product Service
-Experience}\label{product-service-experience}}
+Experience}\label{product-service-experience-1}}
 
-\hypertarget{tool-assessment-and-qualification}{%
+\hypertarget{tool-assessment-and-qualification-1}{%
 \subsubsection{7.8.4. Tool Assessment and
-Qualification}\label{tool-assessment-and-qualification}}
+Qualification}\label{tool-assessment-and-qualification-1}}
 
 \end{document}
