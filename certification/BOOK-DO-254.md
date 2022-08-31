@@ -99,8 +99,7 @@ that is an input to the testing activity.*
 
 # 7. HARDWARE DESIGN LIFECYCLE DATA
 
-*This section describes the hardware design life cycle data items that may be produced during the hardware design life cycle for providing evidence of design assurance and compliance with certification requirements. The scope, amount and detail of the life cycle data needed by the certification authorities as design assurance evidence will vary depending on a number of factors. These factors include the applicable certification authority requirements for the airborne system, the assigned design assurance levels, the complexity and the service experience of the hardware. Details of the design assurance evidence should be identified, recorded in the PHAC and agreed to with the certification 
-authorities.*
+*This section describes the hardware design life cycle data items that may be produced during the hardware design life cycle for providing evidence of design assurance and compliance with certification requirements. The scope, amount and detail of the life cycle data needed by the certification authorities as design assurance evidence will vary depending on a number of factors. These factors include the applicable certification authority requirements for the airborne system, the assigned design assurance levels, the complexity and the service experience of the hardware. Details of the design assurance evidence should be identified, recorded in the PHAC and agreed to with the certification authorities.*
 
 ## 7.1. Hardware Plans
 
@@ -135,21 +134,21 @@ authorities.*
 ### 7.2.2. Hardware Design Standards
 ### 7.2.3. Validation and Verification Standards
 ### 7.2.4. Hardware Archive Standards
-## 7.3. Hardware Design Data 
-### 7.3.1. Hardware Requirements 
+## 7.3. Hardware Design Data
+### 7.3.1. Hardware Requirements
 ### 7.3.2. Hardware Design Representation Data
-#### 7.3.2.1. Conceptual Design Data 
-#### 7.3.2.2. Detailed Design Data 
-##### 7.3.2.2.1. Top-Level Drawing 
+#### 7.3.2.1. Conceptual Design Data
+#### 7.3.2.2. Detailed Design Data
+##### 7.3.2.2.1. Top-Level Drawing
 ##### 7.3.2.2.2. Assembly Drawings
-##### 7.3.2.2.3. Installation Control Drawings 
+##### 7.3.2.2.3. Installation Control Drawings
 ##### 7.3.2.2.4. Hardware/Software Interface Data
 ## 7.4. Validation and Verification Data
 ### 7.4.1. Traceability Data
 ### 7.4.2. Review and Analysis Procedures
 ### 7.4.3. Review and Analysis Results
-### 7.4.4. Test Procedures 
-### 7.4.5. Test Results 
+### 7.4.4. Test Procedures
+### 7.4.5. Test Results
 ## 7.5. Hardware Acceptance Test Criteria
 ## 7.6. Problem Reports
 ## 7.7. Hardware Configuration Management Records

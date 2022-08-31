@@ -18,29 +18,17 @@ geometry: "left = 3cm, right = 2cm, top = 3cm, bottom = 2cm"
 ##### [0.1.2.1.1. MSP430 Tests]
 ##### [0.1.2.1.2. MSP430 Bare Metal]
 ##### [0.1.2.1.3. MSP430 Operating System]
-###### [0.1.2.1.3.1. GNU Linux]
-###### [0.1.2.1.3.2. GNU Hurd]
 ##### [0.1.2.1.4. MSP430 Distribution]
-###### [0.1.2.1.4.1. GNU Debian]
-###### [0.1.2.1.4.2. GNU Fedora]
 #### [0.1.2.2. OpenRISC]
 ##### [0.1.2.2.1. OpenRISC Tests]
 ##### [0.1.2.2.2. OpenRISC Bare Metal]
 ##### [0.1.2.2.3. OpenRISC Operating System]
-###### [0.1.2.2.3.1. GNU Linux]
-###### [0.1.2.2.3.2. GNU Hurd]
 ##### [0.1.2.2.4. OpenRISC Distribution]
-###### [0.1.2.2.4.1. GNU Debian]
-###### [0.1.2.2.4.2. GNU Fedora]
 #### [0.1.2.3. RISC-V]
 ##### [0.1.2.3.1. RISC-V Tests]
 ##### [0.1.2.3.2. RISC-V Bare Metal]
 ##### [0.1.2.3.3. RISC-V Operating System]
-###### [0.1.2.3.3.1. GNU Linux]
-###### [0.1.2.3.3.2. GNU Hurd]
 ##### [0.1.2.3.4. RISC-V Distribution]
-###### [0.1.2.3.4.1. GNU Debian]
-###### [0.1.2.3.4.2. GNU Fedora]
 ## [0.2. OPEN SOURCE PHILOSOPHY]
 ### [0.2.1. Open Source Hardware]
 #### [0.2.1.1. MSP430 Processing Unit]
@@ -363,10 +351,6 @@ geometry: "left = 3cm, right = 2cm, top = 3cm, bottom = 2cm"
 #### [7.7.3.2. Hardware Design Representation Data]
 ##### [7.7.3.2.1. Conceptual Design Data]
 ##### [7.7.3.2.2. Detailed Design Data]
-###### [7.7.3.2.2.1. Top-Level Drawing]
-###### [7.7.3.2.2.2. Assembly Drawings]
-###### [7.7.3.2.2.3. Installation Control Drawings]
-###### [7.7.3.2.2.4. Hardware/Software Interface Data]
 ### [7.7.4. Validation and Verification Data]
 #### [7.7.4.1. Traceability Data]
 #### [7.7.4.2. Review and Analysis Procedures]
@@ -416,15 +400,15 @@ source FLOW-IT
 
 ##### 0.1.2.1.3. MSP430 Operating System
 
-###### 0.1.2.1.3.1. GNU Linux
+* GNU Linux
 
-###### 0.1.2.1.3.2. GNU Hurd
+* GNU Hurd
 
 ##### 0.1.2.1.4. MSP430 Distribution
 
-###### 0.1.2.1.4.1. GNU Debian
+* GNU Debian
 
-###### 0.1.2.1.4.2. GNU Fedora
+* GNU Fedora
 
 #### 0.1.2.2. OpenRISC
 
@@ -434,15 +418,15 @@ source FLOW-IT
 
 ##### 0.1.2.2.3. OpenRISC Operating System
 
-###### 0.1.2.2.3.1. GNU Linux
+* GNU Linux
 
-###### 0.1.2.2.3.2. GNU Hurd
+* GNU Hurd
 
 ##### 0.1.2.2.4. OpenRISC Distribution
 
-###### 0.1.2.2.4.1. GNU Debian
+* GNU Debian
 
-###### 0.1.2.2.4.2. GNU Fedora
+* GNU Fedora
 
 #### 0.1.2.3. RISC-V
 
@@ -578,7 +562,7 @@ func main() {
 
 ##### 0.1.2.3.3. RISC-V Operating System
 
-###### 0.1.2.3.3.1. GNU Linux
+* GNU Linux
 
 **Building BusyBox**
 
@@ -666,13 +650,13 @@ qemu-system-riscv64 \
 -device virtio-net-device,netdev=net0
 ```
 
-###### 0.1.2.3.3.2. GNU Hurd
+* GNU Hurd
 
 ##### 0.1.2.3.4. RISC-V Distribution
 
-###### 0.1.2.3.4.1. GNU Debian
+* GNU Debian
 
-###### 0.1.2.3.4.2. GNU Fedora
+* GNU Fedora
 
 **Running Fedora**
 
@@ -2005,20 +1989,22 @@ sudo make install
 #### 7.7.2.2. Hardware Design Standards
 #### 7.7.2.3. Validation and Verification Standards
 #### 7.7.2.4. Hardware Archive Standards
-### 7.7.3. Hardware Design Data 
-#### 7.7.3.1. Hardware Requirements 
+### 7.7.3. Hardware Design Data
+#### 7.7.3.1. Hardware Requirements
 #### 7.7.3.2. Hardware Design Representation Data
-##### 7.7.3.2.1. Conceptual Design Data 
-##### 7.7.3.2.2. Detailed Design Data 
-###### 7.7.3.2.2.1. Top-Level Drawing 
-###### 7.7.3.2.2.2. Assembly Drawings
-###### 7.7.3.2.2.3. Installation Control Drawings 
-###### 7.7.3.2.2.4. Hardware/Software Interface Data
+##### 7.7.3.2.1. Conceptual Design Data
+##### 7.7.3.2.2. Detailed Design Data
+
+* Top-Level Drawing
+* Assembly Drawings
+* Installation Control Drawings
+* Hardware/Software Interface Data
+
 ### 7.7.4. Validation and Verification Data
 #### 7.7.4.1. Traceability Data
 #### 7.7.4.2. Review and Analysis Procedures
 #### 7.7.4.3. Review and Analysis Results
-#### 7.7.4.4. Test Procedures 
+#### 7.7.4.4. Test Procedures
 #### 7.7.4.5. Test Results
 ## 7.8. ADDITIONAL CONSIDERATIONS
 ### 7.8.1. Use of Previously Developed Hardware
