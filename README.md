@@ -661,18 +661,18 @@ sudo apt upgrade
 
 ## 1.3. Model
 
-### 1.3.1. VHDL
-### 1.3.2. Verilog
+### 1.3.1. VHDL Language
+### 1.3.2. Verilog Language
 
 ## 1.5. Validation
 
-### 1.5.1. VHDL
-### 1.5.2. Verilog
+### 1.5.1. VHDL Language
+### 1.5.2. Verilog Language
 
 ## 1.5. Design
 
-### 1.5.1. VHDL
-### 1.5.2. Verilog
+### 1.5.1. VHDL Language
+### 1.5.2. Verilog Language
 
 ## 1.6. Verification
 
