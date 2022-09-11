@@ -1,0 +1,265 @@
+# PROJECTS
+
+## INTERFACE
+
+### INSTRUCTION CACHE
+
+#### Instruction Inputs/Outputs AMBA4 AXI-Lite Bus
+
+##### Signals of the Read and Write Address channels
+
+| Write Port | Read Port  |  Size            | Direction | Description                              |
+| ---------- | ---------- | ---------------- | --------- | ---------------------------------------- |
+| `AWID`     | `ARID`     | `AXI_ID_WIDTH`   | Output    | Address ID, to identify multiple streams |
+| `AWADDR`   | `ARADDR`   | `AXI_ADDR_WIDTH` | Output    | Address of the first beat of the burst   |
+| `AWLEN`    | `ARLEN`    |         8        | Output    | Number of beats inside the burst         |
+| `AWSIZE`   | `ARSIZE`   |         3        | Output    | Size of each beat                        |
+| `AWBURST`  | `ARBURST`  |         2        | Output    | Type of the burst                        |
+| `AWLOCK`   | `ARLOCK`   |         1        | Output    | Lock type, to provide atomic operations  |
+| `AWCACHE`  | `ARCACHE`  |         4        | Output    | Memory type, progress through the system |
+| `AWPROT`   | `ARPROT`   |         3        | Output    | Protection type                          |
+| `AWQOS`    | `ARQOS`    |         4        | Output    | Quality of Service of the transaction    |
+| `AWREGION` | `ARREGION` |         4        | Output    | Region identifier, physical to logical   |
+| `AWUSER`   | `ARUSER`   | `AXI_USER_WIDTH` | Output    | User-defined data                        |
+| `AWVALID`  | `ARVALID`  |         1        | Output    | xVALID handshake signal                  |
+| `AWREADY`  | `ARREADY`  |         1        | Input     | xREADY handshake signal                  |
+
+##### Signals of the Read and Write Data channels
+
+| Write Port | Read Port  |  Size            | Direction | Description                              |
+| ---------- | ---------- | ---------------- | --------- | ---------------------------------------- |
+| `WID`      | `RID`      | `AXI_ID_WIDTH`   | Output    | Data ID, to identify multiple streams    |
+| `WDATA`    | `RDATA`    | `AXI_DATA_WIDTH` | Output    | Read/Write data                          |
+|    `--`    | `RRESP`    |        2         | Output    | Read response, current RDATA status      |
+| `WSTRB`    |    `--`    | `AXI_STRB_WIDTH` | Output    | Byte strobe, WDATA signal                |
+| `WLAST`    | `RLAST`    |        1         | Output    | Last beat identifier                     |
+| `WUSER`    | `RUSER`    | `AXI_USER_WIDTH` | Output    | User-defined data                        |
+| `WVALID`   | `RVALID`   |        1         | Output    | xVALID handshake signal                  |
+| `WREADY`   | `RREADY`   |        1         | Input     | xREADY handshake signal                  |
+
+##### Signals of the Write Response channel
+
+| Write Port | Size             | Direction | Description                                     |
+| ---------- | ---------------- | --------- | ----------------------------------------------- |
+| `BID`      | `AXI_ID_WIDTH`   |   Input   | Write response ID, to identify multiple streams |
+| `BRESP`    |         2        |   Input   | Write response, to specify the burst status     |
+| `BUSER`    | `AXI_USER_WIDTH` |   Input   | User-defined data                               |
+| `BVALID`   |         1        |   Input   | xVALID handshake signal                         |
+| `BREADY`   |         1        |   Output  | xREADY handshake signal                         |
+
+#### Instruction Inputs/Outputs AMBA3 AHB-Lite Bus
+
+| Port         |  Size  | Direction | Description                           |
+| ------------ | ------ | --------- | ------------------------------------- |
+| `HRESETn`    |    1   |   Input   | Asynchronous Active Low Reset         |
+| `HCLK`       |    1   |   Input   | System Clock Input                    |
+|              |        |           |                                       |
+| `IHSEL`      |    1   |   Output  | Instruction Bus Select                |
+| `IHADDR`     | `PLEN` |   Output  | Instruction Address Bus               |
+| `IHRDATA`    | `XLEN` |   Input   | Instruction Read Data Bus             |
+| `IHWDATA`    | `XLEN` |   Output  | Instruction Write Data Bus            |
+| `IHWRITE`    |    1   |   Output  | Instruction Write Select              |
+| `IHSIZE`     |    3   |   Output  | Instruction Transfer Size             |
+| `IHBURST`    |    3   |   Output  | Instruction Transfer Burst Size       |
+| `IHPROT`     |    4   |   Output  | Instruction Transfer Protection Level |
+| `IHTRANS`    |    2   |   Output  | Instruction Transfer Type             |
+| `IHMASTLOCK` |    1   |   Output  | Instruction Transfer Master Lock      |
+| `IHREADY`    |    1   |   Input   | Instruction Slave Ready Indicator     |
+| `IHRESP`     |    1   |   Input   | Instruction Transfer Response         |
+
+#### Instruction Inputs/Outputs Wishbone Bus
+
+| Port    |  Size  | Direction | Description                     |
+| ------- | ------ | --------- | ------------------------------- |
+| `rst`   |    1   |   Input   | Synchronous Active High Reset   |
+| `clk`   |    1   |   Input   | System Clock Input              |
+|         |        |           |                                 |
+| `iadr`  |  `AW`  |   Input   | Instruction Address Bus         |
+| `idati` |  `DW`  |   Input   | Instruction Input Bus           |
+| `idato` |  `DW`  |   Output  | Instruction Output Bus          |
+| `isel`  | `DW/8` |   Input   | Byte Select Signals             |
+| `iwe`   |    1   |   Input   | Write Enable Input              |
+| `istb`  |    1   |   Input   | Strobe Signal/Core Select Input |
+| `icyc`  |    1   |   Input   | Valid Bus Cycle Input           |
+| `iack`  |    1   |   Output  | Bus Cycle Acknowledge Output    |
+| `ierr`  |    1   |   Output  | Bus Cycle Error Output          |
+| `iint`  |    1   |   Output  | Interrupt Signal Output         |
+
+### DATA CACHE
+
+#### Data Inputs/Outputs AMBA4 AXI-Lite Bus
+
+##### Signals of the Read and Write Address channels
+
+| Write Port | Read Port  |  Size            | Direction | Description                              |
+| ---------- | ---------- | ---------------- | --------- | ---------------------------------------- |
+| `AWID`     | `ARID`     | `AXI_ID_WIDTH`   | Output    | Address ID, to identify multiple streams |
+| `AWADDR`   | `ARADDR`   | `AXI_ADDR_WIDTH` | Output    | Address of the first beat of the burst   |
+| `AWLEN`    | `ARLEN`    |         8        | Output    | Number of beats inside the burst         |
+| `AWSIZE`   | `ARSIZE`   |         3        | Output    | Size of each beat                        |
+| `AWBURST`  | `ARBURST`  |         2        | Output    | Type of the burst                        |
+| `AWLOCK`   | `ARLOCK`   |         1        | Output    | Lock type, to provide atomic operations  |
+| `AWCACHE`  | `ARCACHE`  |         4        | Output    | Memory type, progress through the system |
+| `AWPROT`   | `ARPROT`   |         3        | Output    | Protection type                          |
+| `AWQOS`    | `ARQOS`    |         4        | Output    | Quality of Service of the transaction    |
+| `AWREGION` | `ARREGION` |         4        | Output    | Region identifier, physical to logical   |
+| `AWUSER`   | `ARUSER`   | `AXI_USER_WIDTH` | Output    | User-defined data                        |
+| `AWVALID`  | `ARVALID`  |         1        | Output    | xVALID handshake signal                  |
+| `AWREADY`  | `ARREADY`  |         1        | Input     | xREADY handshake signal                  |
+
+##### Signals of the Read and Write Data channels
+
+| Write Port | Read Port  |  Size            | Direction | Description                              |
+| ---------- | ---------- | ---------------- | --------- | ---------------------------------------- |
+| `WID`      | `RID`      | `AXI_ID_WIDTH`   | Output    | Data ID, to identify multiple streams    |
+| `WDATA`    | `RDATA`    | `AXI_DATA_WIDTH` | Output    | Read/Write data                          |
+|    `--`    | `RRESP`    |        2         | Output    | Read response, current RDATA status      |
+| `WSTRB`    |    `--`    | `AXI_STRB_WIDTH` | Output    | Byte strobe, WDATA signal                |
+| `WLAST`    | `RLAST`    |        1         | Output    | Last beat identifier                     |
+| `WUSER`    | `RUSER`    | `AXI_USER_WIDTH` | Output    | User-defined data                        |
+| `WVALID`   | `RVALID`   |        1         | Output    | xVALID handshake signal                  |
+| `WREADY`   | `RREADY`   |        1         | Input     | xREADY handshake signal                  |
+
+##### Signals of the Write Response channel
+
+| Write Port | Size             | Direction | Description                                     |
+| ---------- | ---------------- | --------- | ----------------------------------------------- |
+| `BID`      | `AXI_ID_WIDTH`   |   Input   | Write response ID, to identify multiple streams |
+| `BRESP`    |         2        |   Input   | Write response, to specify the burst status     |
+| `BUSER`    | `AXI_USER_WIDTH` |   Input   | User-defined data                               |
+| `BVALID`   |         1        |   Input   | xVALID handshake signal                         |
+| `BREADY`   |         1        |   Output  | xREADY handshake signal                         |
+
+#### Data Inputs/Outputs AMBA3 AHB-Lite Bus
+
+| Port         |  Size  | Direction | Description                    |
+| ------------ | ------ | --------- | ------------------------------ |
+| `HRESETn`    |    1   |   Input   | Asynchronous Active Low Reset  |
+| `HCLK`       |    1   |   Input   | System Clock Input             |
+|              |        |           |                                |
+| `DHSEL`      |    1   |   Output  | Data Bus Select                |
+| `DHADDR`     | `PLEN` |   Output  | Data Address Bus               |
+| `DHRDATA`    | `XLEN` |   Input   | Data Read Data Bus             |
+| `DHWDATA`    | `XLEN` |   Output  | Data Write Data Bus            |
+| `DHWRITE`    |    1   |   Output  | Data Write Select              |
+| `DHSIZE`     |    3   |   Output  | Data Transfer Size             |
+| `DHBURST`    |    3   |   Output  | Data Transfer Burst Size       |
+| `DHPROT`     |    4   |   Output  | Data Transfer Protection Level |
+| `DHTRANS`    |    2   |   Output  | Data Transfer Type             |
+| `DHMASTLOCK` |    1   |   Output  | Data Transfer Master Lock      |
+| `DHREADY`    |    1   |   Input   | Data Slave Ready Indicator     |
+| `DHRESP`     |    1   |   Input   | Data Transfer Response         |
+
+#### Data Inputs/Outputs Wishbone Bus
+
+| Port    |  Size  | Direction | Description                     |
+| ------- | ------ | --------- | ------------------------------- |
+| `rst`   |    1   |   Input   | Synchronous Active High Reset   |
+| `clk`   |    1   |   Input   | System Clock Input              |
+|         |        |           |                                 |
+| `dadr`  |  `AW`  |   Input   | Data Address Bus                |
+| `ddati` |  `DW`  |   Input   | Data Input Bus                  |
+| `ddato` |  `DW`  |   Output  | Data Output Bus                 |
+| `dsel`  | `DW/8` |   Input   | Byte Select Signals             |
+| `dwe`   |    1   |   Input   | Write Enable Input              |
+| `dstb`  |    1   |   Input   | Strobe Signal/Core Select Input |
+| `dcyc`  |    1   |   Input   | Valid Bus Cycle Input           |
+| `dack`  |    1   |   Output  | Bus Cycle Acknowledge Output    |
+| `derr`  |    1   |   Output  | Bus Cycle Error Output          |
+| `dint`  |    1   |   Output  | Interrupt Signal Output         |
+
+## FUNCTIONALITY
+
+### Structure
+
+#### Traditional Computing Classes
+
+```cpp
+class traditional_classes {
+   private:
+      int number_pu;
+      int number_soc;
+      int number_mpsoc;
+
+   public:
+      void traditional_method_0();  // method 0
+      void traditional_method_1();  // method 1
+      void traditional_method_2();  // method 2
+      void traditional_method_3();  // method 3
+};
+```
+
+##### Philosophers Traditional T-DNC/NTM-MPSoC
+
+```cpp
+class traditional_philosophers : private traditional_classes {
+   private:
+      int number_p_pu;
+      int number_p_soc;
+      int number_p_mpsoc;
+
+   public:
+      void traditional_method_p0();  // method 0
+      void traditional_method_p1();  // method 1
+      void traditional_method_p2();  // method 2
+      void traditional_method_p3();  // method 3
+};
+```
+
+* PU-NTM
+
+* SoC-NTM
+
+* MPSoC-NTM
+
+##### Soldiers Traditional T-DNC/NTM-MPSoC
+
+```cpp
+class traditional_soldiers : private traditional_classes {
+   private:
+      int number_s_pu;
+      int number_s_soc;
+      int number_s_mpsoc;
+
+   public:
+      void traditional_method_s0();  // method 0
+      void traditional_method_s1();  // method 1
+      void traditional_method_s2();  // method 2
+      void traditional_method_s3();  // method 3
+};
+```
+
+* PU-NTM
+
+* SoC-NTM
+
+* MPSoC-NTM
+
+##### Workers Traditional T-DNC/NTM-MPSoC
+
+```cpp
+class traditional_workers : private traditional_classes {
+   private:
+      int number_w_pu;
+      int number_w_soc;
+      int number_w_mpsoc;
+
+   public:
+      void traditional_method_w0();  // method 0
+      void traditional_method_w1();  // method 1
+      void traditional_method_w2();  // method 2
+      void traditional_method_w3();  // method 3
+};
+```
+
+* PU-NTM
+
+* SoC-NTM
+
+* MPSoC-NTM
+
+### Behavior
+
+## REGISTERS
+
+## INTERRUPTIONS

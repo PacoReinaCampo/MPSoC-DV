@@ -1,0 +1,111 @@
+# ORGANIZATION
+
+## TRADITIONAL COMPUTING
+
+### Traditional Mechanics
+
+#### Postulate I
+
+#### Postulate II
+
+#### Postulate III
+
+#### Postulate IV
+
+#### Postulate V
+
+#### Postulate VI
+
+### Traditional Information
+
+#### Traditional Bit
+
+#### Traditional Logic Gate
+
+##### Traditional YES/NOT Gate
+
+##### Traditional AND/NAND Gate
+
+##### Traditional OR/NOR Gate
+
+##### Traditional XOR/XNOR Gate
+
+#### Traditional Combinational Logic
+
+##### Traditional Arithmetic Circuits
+
+##### Traditional Logic Circuits
+
+#### Traditional Finite State Machine
+
+#### Traditional Pushdown Automaton
+
+### Traditional Neural Network
+
+#### Traditional Feedforward Neural Network
+
+#### Traditional Long Short Term Memory Neural Network
+
+#### Traditional Transformer Neural Network
+
+### Traditional Turing Machine
+
+#### Traditional Neural Turing Machine
+
+##### Traditional Feedforward Neural Turing Machine
+
+##### Traditional LSTM Neural Turing Machine
+
+##### Traditional Transformer Neural Turing Machine
+
+#### Traditional Differentiable Neural Computer
+
+##### Traditional Feedforward Differentiable Neural Computer
+
+##### Traditional LSTM Differentiable Neural Computer
+
+##### Traditional Transformer Differentiable Neural Computer
+
+### Traditional Computer Architecture
+
+#### Traditional von Neumann Architecture
+
+##### Traditional Control Unit
+
+##### Traditional ALU
+
+##### Traditional Memory Unit
+
+##### Traditional I/O Unit
+
+#### Traditional Harvard Architecture
+
+##### Traditional Control Unit
+
+##### Traditional ALU
+
+##### Traditional Memory Unit
+
+##### Traditional I/O Unit
+
+### Traditional Advanced Computer Architecture
+
+#### Traditional Processing Unit
+
+##### Traditional SISD
+
+##### Traditional SIMD
+
+##### Traditional MISD
+
+##### Traditional MIMD
+
+#### Traditional System on Chip
+
+##### Traditional Bus on Chip
+
+##### Traditional Network on Chip
+
+#### Traditional Multi-Processor System on Chip
+
+## CLASSES

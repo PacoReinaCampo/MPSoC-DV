@@ -1,9 +1,11 @@
-# MPSoC-DV
+# MPSoC-NTM (T-DNC/NTM-MPSoC)
 ## QueenField
 
 ![QueenField](../master/icon.jpg)
 
 # 0. INTRODUCTION
+
+A Multi-Processor System on Chip (MPSoC) is a System on Chip (SoC) which includes multiple Processing Units (PU). As such, it is a Multi-Core System-on-Chip. All PUs are linked to each other by a Network on Chip (NoC). These technologies meet the performance needs of multimedia applications, telecommunication architectures or network security.
 
 ## 0.1. BEST PRACTICES
 
@@ -628,7 +630,25 @@ sudo apt upgrade
 
 # 1. METHODOLOGY
 
-![Project Workflow](doc/project.svg)
+![Project Workflow](doc/book/assets/project.svg)
+
+* CONTROL
+  - certification
+  - doc
+  - quality
+  - requirements
+
+* DEVELOP
+  - bench
+  - model
+  - osvvm/uvm
+  - rtl
+  - software
+  - src
+
+* OPERATION
+  - sim
+  - compilation/synthesis
 
 ## 1.1. Requirements
 
@@ -654,49 +674,58 @@ sudo apt upgrade
 #### 1.1.2.6. Timing diagram
 #### 1.1.2.7. Use diagram
 
-## 1.2. Source
+## 1.2. Software
 
-### 1.2.1. Ada Language
-### 1.2.2. C Language
+### 1.2.1. Matlab Language
+### 1.2.1. Rust Language
 
-## 1.3. Model
+## 1.3. Source
 
-### 1.3.1. VHDL Language
-### 1.3.2. Verilog Language
+### 1.3.1. Ada Language
+### 1.3.2. C Language
+
+## 1.4. Model
+
+### 1.4.1. VHDL Language
+### 1.4.2. Verilog Language
 
 ## 1.5. Validation
 
 ### 1.5.1. VHDL Language
 ### 1.5.2. Verilog Language
 
-## 1.5. Design
+## 1.6. Design
 
-### 1.5.1. VHDL Language
-### 1.5.2. Verilog Language
+### 1.6.1. VHDL Language
+### 1.6.2. Verilog Language
 
-## 1.6. Verification
+## 1.7. Verification
 
-### 1.6.1. OSVVM-VHDL
+### 1.7.1. OSVVM-VHDL
 
-#### 1.6.1.1. OSVVM Checker
-#### 1.6.1.2. OSVVM Stimulus
-#### 1.6.1.3. OSVVM Testbench
+#### 1.7.1.1. OSVVM Checker
+#### 1.7.1.2. OSVVM Stimulus
+#### 1.7.1.3. OSVVM Testbench
 
-### 1.6.2. UVM-Verilog
+### 1.7.2. UVM-Verilog
 
-![UVM Diagram Overview](mpsoc/uvm-testbench.png)
+![UVM Diagram Overview](bench/uvm-testbench.png)
 
-#### 1.6.2.1. UVM Agent
-#### 1.6.2.2. UVM Driver
-#### 1.6.2.3. UVM Enviroment
-#### 1.6.2.4. UVM Monitor
-#### 1.6.2.5. UVM Scoreboard
-#### 1.6.2.6. UVM Sequence
-#### 1.6.2.7. UVM Sequencer
-#### 1.6.2.8. UVM Subscriber
-#### 1.6.2.9. UVM Test
-#### 1.6.2.10. UVM Testbench
-#### 1.6.2.11. UVM Transaction
+#### 1.7.2.1. UVM Agent
+#### 1.7.2.2. UVM Driver
+#### 1.7.2.3. UVM Enviroment
+#### 1.7.2.4. UVM Monitor
+#### 1.7.2.5. UVM Scoreboard
+#### 1.7.2.6. UVM Sequence
+#### 1.7.2.7. UVM Sequencer
+#### 1.7.2.8. UVM Subscriber
+#### 1.7.2.9. UVM Test
+#### 1.7.2.10. UVM Testbench
+#### 1.7.2.11. UVM Transaction
+
+## 1.8. Quality
+## 1.9. Certification
+## 1.10. Documentation
 
 # 2. PROJECTS
 
@@ -704,7 +733,7 @@ sudo apt upgrade
 
 ### 2.1.1. INSTRUCTION CACHE
 
-#### 2.1.1.1 Instruction INPUTS/OUTPUTS AMBA4 AXI-Lite Bus
+#### 2.1.1.1 Instruction Inputs/Outputs AMBA4 AXI-Lite Bus
 
 ##### 2.1.1.1.1. Signals of the Read and Write Address channels
 
@@ -747,7 +776,7 @@ sudo apt upgrade
 | `BVALID`   |         1        |   Input   | xVALID handshake signal                         |
 | `BREADY`   |         1        |   Output  | xREADY handshake signal                         |
 
-#### 2.1.1.2. Instruction INPUTS/OUTPUTS AMBA3 AHB-Lite Bus
+#### 2.1.1.2. Instruction Inputs/Outputs AMBA3 AHB-Lite Bus
 
 | Port         |  Size  | Direction | Description                           |
 | ------------ | ------ | --------- | ------------------------------------- |
@@ -767,7 +796,7 @@ sudo apt upgrade
 | `IHREADY`    |    1   |   Input   | Instruction Slave Ready Indicator     |
 | `IHRESP`     |    1   |   Input   | Instruction Transfer Response         |
 
-#### 2.1.1.3. Instruction INPUTS/OUTPUTS Wishbone Bus
+#### 2.1.1.3. Instruction Inputs/Outputs Wishbone Bus
 
 | Port    |  Size  | Direction | Description                     |
 | ------- | ------ | --------- | ------------------------------- |
@@ -787,7 +816,7 @@ sudo apt upgrade
 
 ### 2.1.2. DATA CACHE
 
-#### 2.1.2.1. Data INPUTS/OUTPUTS AMBA4 AXI-Lite Bus
+#### 2.1.2.1. Data Inputs/Outputs AMBA4 AXI-Lite Bus
 
 ##### 2.1.2.1.1. Signals of the Read and Write Address channels
 
@@ -830,7 +859,7 @@ sudo apt upgrade
 | `BVALID`   |         1        |   Input   | xVALID handshake signal                         |
 | `BREADY`   |         1        |   Output  | xREADY handshake signal                         |
 
-#### 2.1.2.2. Data INPUTS/OUTPUTS AMBA3 AHB-Lite Bus
+#### 2.1.2.2. Data Inputs/Outputs AMBA3 AHB-Lite Bus
 
 | Port         |  Size  | Direction | Description                    |
 | ------------ | ------ | --------- | ------------------------------ |
@@ -850,7 +879,7 @@ sudo apt upgrade
 | `DHREADY`    |    1   |   Input   | Data Slave Ready Indicator     |
 | `DHRESP`     |    1   |   Input   | Data Transfer Response         |
 
-#### 2.1.2.3. Data INPUTS/OUTPUTS Wishbone Bus
+#### 2.1.2.3. Data Inputs/Outputs Wishbone Bus
 
 | Port    |  Size  | Direction | Description                     |
 | ------- | ------ | --------- | ------------------------------- |
@@ -871,6 +900,93 @@ sudo apt upgrade
 ## 2.2. FUNCTIONALITY
 
 ### 2.2.1. Structure
+
+#### 2.2.1.1. Traditional Computing Classes
+
+```cpp
+class traditional_classes {
+   private:
+      int number_pu;
+      int number_soc;
+      int number_mpsoc;
+
+   public:
+      void traditional_method_0();  // method 0
+      void traditional_method_1();  // method 1
+      void traditional_method_2();  // method 2
+      void traditional_method_3();  // method 3
+};
+```
+
+##### 2.2.1.1.1. Philosophers Traditional T-DNC/NTM-MPSoC
+
+```cpp
+class traditional_philosophers : private traditional_classes {
+   private:
+      int number_p_pu;
+      int number_p_soc;
+      int number_p_mpsoc;
+
+   public:
+      void traditional_method_p0();  // method 0
+      void traditional_method_p1();  // method 1
+      void traditional_method_p2();  // method 2
+      void traditional_method_p3();  // method 3
+};
+```
+
+###### 2.2.1.1.1.1. PU-NTM
+
+###### 2.2.1.1.1.2. SoC-NTM
+
+###### 2.2.1.1.1.3. MPSoC-NTM
+
+##### 2.2.1.1.2. Soldiers Traditional T-DNC/NTM-MPSoC
+
+```cpp
+class traditional_soldiers : private traditional_classes {
+   private:
+      int number_s_pu;
+      int number_s_soc;
+      int number_s_mpsoc;
+
+   public:
+      void traditional_method_s0();  // method 0
+      void traditional_method_s1();  // method 1
+      void traditional_method_s2();  // method 2
+      void traditional_method_s3();  // method 3
+};
+```
+
+###### 2.2.1.1.2.1. PU-NTM
+
+###### 2.2.1.1.2.2. SoC-NTM
+
+###### 2.2.1.1.2.3. MPSoC-NTM
+
+##### 2.2.1.1.3. Workers Traditional T-DNC/NTM-MPSoC
+
+```cpp
+class traditional_workers : private traditional_classes {
+   private:
+      int number_w_pu;
+      int number_w_soc;
+      int number_w_mpsoc;
+
+   public:
+      void traditional_method_w0();  // method 0
+      void traditional_method_w1();  // method 1
+      void traditional_method_w2();  // method 2
+      void traditional_method_w3();  // method 3
+};
+```
+
+###### 2.2.1.1.3.1. PU-NTM
+
+###### 2.2.1.1.3.2. SoC-NTM
+
+###### 2.2.1.1.3.3. MPSoC-NTM
+
 ### 2.2.2. Behavior
 
 ## 2.3. REGISTERS
@@ -879,99 +995,113 @@ sudo apt upgrade
 
 # 3. ORGANIZATION
 
-## 3.1. Mechanics
+## 3.1. TRADITIONAL COMPUTING
 
-## 3.2. Information
+### 3.1.1. Traditional Mechanics
 
-### 3.2.1. Bit
+#### 3.1.1.1. Postulate I
 
-### 3.2.2. Logic Gate
+#### 3.1.1.2. Postulate II
 
-#### 3.2.2.1. YES/NOT Gate
+#### 3.1.1.3. Postulate III
 
-#### 3.2.2.2. AND/NAND Gate
+#### 3.1.1.4. Postulate IV
 
-#### 3.2.2.3. OR/NOR Gate
+#### 3.1.1.5. Postulate V
 
-#### 3.2.2.4. XOR/XNOR Gate
+#### 3.1.1.6. Postulate VI
 
-### 3.2.3. Combinational Logic
+### 3.1.2. Traditional Information
 
-#### 3.2.3.1. Arithmetic Circuits
+#### 3.1.2.1. Traditional Bit
 
-#### 3.2.3.2. Logic Circuits
+#### 3.1.2.2. Traditional Logic Gate
 
-### 3.2.4. Finite State Machine
+##### 3.1.2.2.1. Traditional YES/NOT Gate
 
-### 3.2.5. Pushdown Automaton
+##### 3.1.2.2.2. Traditional AND/NAND Gate
 
-## 3.3. Neural Network
+##### 3.1.2.2.3. Traditional OR/NOR Gate
 
-### 3.3.1. Feedforward Neural Network
+##### 3.1.2.2.4. Traditional XOR/XNOR Gate
 
-### 3.3.2. Long Short Term Memory Neural Network
+#### 3.1.2.3. Traditional Combinational Logic
 
-### 3.3.3. Transformer Neural Network
+##### 3.1.2.3.1. Traditional Arithmetic Circuits
 
-## 3.4. Turing Machine
+##### 3.1.2.3.2. Traditional Logic Circuits
 
-### 3.4.1. Neural Turing Machine
+#### 3.1.2.4. Traditional Finite State Machine
 
-#### 3.4.1.1. Feedforward Neural Turing Machine
+#### 3.1.2.5. Traditional Pushdown Automaton
 
-#### 3.4.1.2. LSTM Neural Turing Machine
+### 3.1.3. Traditional Neural Network
 
-#### 3.4.1.3. Transformer Neural Turing Machine
+#### 3.1.3.1. Traditional Feedforward Neural Network
 
-### 3.4.2. Differentiable Neural Computer
+#### 3.1.3.2. Traditional Long Short Term Memory Neural Network
 
-#### 3.4.2.1. Feedforward Differentiable Neural Computer
+#### 3.1.3.3. Traditional Transformer Neural Network
 
-#### 3.4.2.2. LSTM Differentiable Neural Computer
+### 3.1.4. Traditional Turing Machine
 
-#### 3.4.2.3. Transformer Differentiable Neural Computer
+#### 3.1.4.1. Traditional Neural Turing Machine
 
-## 3.5. Computer Architecture
+##### 3.1.4.1.1. Traditional Feedforward Neural Turing Machine
 
-### 3.5.1. von Neumann Architecture
+##### 3.1.4.1.2. Traditional LSTM Neural Turing Machine
 
-#### 3.5.1.1. Control Unit
+##### 3.1.4.1.3. Traditional Transformer Neural Turing Machine
 
-#### 3.5.1.2. ALU
+#### 3.1.4.2. Traditional Differentiable Neural Computer
 
-#### 3.5.1.3. Memory Unit
+##### 3.1.4.2.1. Traditional Feedforward Differentiable Neural Computer
 
-#### 3.5.1.4. I/O Unit
+##### 3.1.4.2.2. Traditional LSTM Differentiable Neural Computer
 
-### 3.5.2. Harvard Architecture
+##### 3.1.4.2.3. Traditional Transformer Differentiable Neural Computer
 
-#### 3.5.2.1. Control Unit
+### 3.1.5. Traditional Computer Architecture
 
-#### 3.5.2.2. ALU
+#### 3.1.5.1. Traditional von Neumann Architecture
 
-#### 3.5.2.3.Memory Unit
+##### 3.1.5.1.1. Traditional Control Unit
 
-#### 3.5.2.4.I/O Unit
+##### 3.1.5.1.2. Traditional ALU
 
-## 3.6. Advanced Computer Architecture
+##### 3.1.5.1.3. Traditional Memory Unit
 
-### 3.6.1. Processing Unit
+##### 3.1.5.1.4. Traditional I/O Unit
 
-#### 3.6.1.1. SISD
+#### 3.1.5.2. Traditional Harvard Architecture
 
-#### 3.6.1.2. SIMD
+##### 3.1.5.2.1. Traditional Control Unit
 
-#### 3.6.1.3. MISD
+##### 3.1.5.2.2. Traditional ALU
 
-#### 3.6.1.4. MIMD
+##### 3.1.5.2.3.Traditional Memory Unit
 
-### 3.6.2. System on Chip
+##### 3.1.5.2.4.Traditional I/O Unit
 
-#### 3.6.2.1. Bus on Chip
+### 3.1.6. Traditional Advanced Computer Architecture
 
-#### 3.6.2.2. Network on Chip
+#### 3.1.6.1. Traditional Processing Unit
 
-### 3.6.3. Multi-Processor System on Chip
+##### 3.1.6.1.1. Traditional SISD
+
+##### 3.1.6.1.2. Traditional SIMD
+
+##### 3.1.6.1.3. Traditional MISD
+
+##### 3.1.6.1.4. Traditional MIMD
+
+#### 3.1.6.2. Traditional System on Chip
+
+##### 3.1.6.2.1. Traditional Bus on Chip
+
+##### 3.1.6.2.2. Traditional Network on Chip
+
+#### 3.1.6.3. Traditional Multi-Processor System on Chip
 
 # 4. HARDWARE WORKFLOW
 
@@ -1029,7 +1159,7 @@ libboost-python-dev libboost-filesystem-dev zlib1g-dev
 
 ## 4.1. FRONT-END OPEN SOURCE TOOLS
 
-![Front-End](doc/front-end.svg)
+![Front-End](doc/book/assets/front-end.svg)
 
 ### 4.1.1. Modeling System Level of Hardware
 
@@ -1225,7 +1355,7 @@ git clone https://github.com/YosysHQ/SymbiYosys
 
 ## 4.2. BACK-END OPEN SOURCE TOOLS
 
-![Back-End](doc/back-end.svg)
+![Back-End](doc/book/assets/back-end.svg)
 
 **Library**
 
