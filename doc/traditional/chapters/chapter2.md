@@ -20,12 +20,12 @@
 
 ## Finite State Machine
 
-$${\displaystyle T = (Q, \Sigma, \delta, q_{0}, F)}$$
-$${\displaystyle Q \subseteq H}$$
-$${\displaystyle \delta : Q \times \Sigma \otimes Q \rightarrow Q}$$
+$${T = (Q, \Sigma, \delta, q_{0}, F)}$$
+$${Q \subseteq H}$$
+$${\delta : Q \times \Sigma \otimes Q \rightarrow Q}$$
 
 ## Pushdown Automaton
 
-$${\displaystyle T = (Q, \Sigma, b, \Gamma, \delta, q_{0}, F)}$$
-$${\displaystyle Q \subseteq H}$$
-$${\displaystyle \delta : \Sigma \times Q \otimes \Gamma \to \Sigma \times Q \otimes \Gamma \times \{L, R\}}$$
+$${T = (Q, \Sigma, b, \Gamma, \delta, q_{0}, F)}$$
+$${Q \subseteq H}$$
+$${\delta : \Sigma \times Q \otimes \Gamma \to \Sigma \times Q \otimes \Gamma \times \{L, R\}}$$

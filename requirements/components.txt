@@ -10,3 +10,24 @@ bench.         VHDL: IEEE 1076-2019; SystemVerilog: IEEE 1800-2017.
 model.         VHDL: IEEE 1076-2019; SystemVerilog: IEEE 1800-2017; PSL: IEEE 1850-2010.
 osvvm/uvm.     UVM: IEEE 1800.2-2020.
 rtl.           VHDL: IEEE 1076-2019; SystemVerilog: IEEE 1800-2017; PSL: IEEE 1850-2010.
+
+CONTROL
+-------
+· certification
+· doc
+· quality
+· requirements
+
+DEVELOP
+-------
+· bench
+· model
+· osvvm/uvm
+· rtl
+· software
+· src
+
+OPERATION
+---------
+· sim
+· compilation/synthesis

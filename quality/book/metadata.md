@@ -1,8 +1,8 @@
 ---
-title: 'Certification'
+title: 'Quality Assurance'
 subtitle: 'QueenField ![](../../icon.jpg)'
 
 author: Paco Reina Campo
 
-abstract: Certification. DO-254.
+abstract: Quality Assurance. ISO 9001:2015.
 ---

@@ -1,8 +1,8 @@
 ---
-title: 'Certification'
+title: 'Requirements'
 subtitle: 'QueenField ![](../../icon.jpg)'
 
 author: Paco Reina Campo
 
-abstract: Certification. DO-254.
+abstract: Requirements. ISO 9001:2015.
 ---

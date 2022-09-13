@@ -46,7 +46,6 @@ SOURCE_DOCS := $(wildcard *.md)
 SOURCE_DOCS := $(filter-out metadata.md, $(SOURCE_DOCS))
 
 EXPORTED_DOCS=\
- $(SOURCE_DOCS:.md=.html) \
  $(SOURCE_DOCS:.md=.pdf)  \
  $(SOURCE_DOCS:.md=.docx) \
  $(SOURCE_DOCS:.md=.odt)  \
@@ -65,16 +64,12 @@ PANDOC_OPTIONS=-f markdown       \
     -V links-as-notes=true       \
     --metadata-file=metadata.md
 
-PANDOC_HTML_OPTIONS=--to html5
 PANDOC_PDF_OPTIONS=
 PANDOC_DOCX_OPTIONS=
 PANDOC_ODT_OPTIONS=
 PANDOC_EPUB_OPTIONS=--to epub3
 
 # Pattern-Matching Rules
-
-%.html : %.md
-	pandoc -s $(shell cat $<) $(PANDOC_OPTIONS) $(PANDOC_HTML_OPTIONS) -o $@
 
 %.pdf : %.md
 	pandoc -s $(shell cat $<) $(PANDOC_OPTIONS) $(PANDOC_PDF_OPTIONS) -o $@
