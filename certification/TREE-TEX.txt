@@ -22,87 +22,23 @@ tex
 │       └── data_control_categories.md
 ├── hardware_design_lifecycle_data
 │   ├── hardware_acceptance_test_criteria
-│   │   ├── hardware_acceptance_test_criteria.md
-│   │   ├── hardware_acceptance_test_criteria_object.md
-│   │   └── hardware_acceptance_test_criteria_review.md
+│   │   └── hardware_acceptance_test_criteria.md
 │   ├── hardware_accomplishment_summary
-│   │   ├── hardware_accomplishment_summary.md
-│   │   ├── hardware_accomplishment_summary_object.md
-│   │   └── hardware_accomplishment_summary_review.md
+│   │   └── hardware_accomplishment_summary.md
 │   ├── hardware_configuration_management_records
-│   │   ├── hardware_configuration_management_records.md
-│   │   ├── hardware_configuration_management_records_object.md
-│   │   └── hardware_configuration_management_records_review.md
+│   │   └── hardware_configuration_management_records.md
 │   ├── hardware_design_data
-│   │   ├── conceptual_design_data.md
-│   │   ├── conceptual_design_data_object.md
-│   │   ├── conceptual_design_data_review.md
-│   │   ├── detailed_design_data.md
-│   │   ├── detailed_design_data_object.md
-│   │   ├── detailed_design_data_review.md
-│   │   ├── hardware_design_representation_data.md
-│   │   ├── hardware_design_representation_data_object.md
-│   │   ├── hardware_design_representation_data_review.md
-│   │   ├── hardware_requirements.md
-│   │   ├── hardware_requirements_object.md
-│   │   └── hardware_requirements_review.md
-│   ├── hardware_design_lifecycle_data.md
+│   │   └── hardware_design_data.md
 │   ├── hardware_design_standards_and_guidance
-│   │   ├── hardware_archive_standards.md
-│   │   ├── hardware_archive_standards_object.md
-│   │   ├── hardware_archive_standards_review.md
-│   │   ├── hardware_design_standards.md
-│   │   ├── hardware_design_standards_object.md
-│   │   ├── hardware_design_standards_review.md
-│   │   ├── requirements_standards.md
-│   │   ├── requirements_standards_object.md
-│   │   ├── requirements_standards_review.md
-│   │   ├── validation_and_verification_standards.md
-│   │   ├── validation_and_verification_standards_object.md
-│   │   └── validation_and_verification_standards_review.md
+│   │   └── hardware_design_standards_and_guidance.md
 │   ├── hardware_plans
-│   │   ├── hardware_configuration_management_plan.md
-│   │   ├── hardware_configuration_management_plan_object.md
-│   │   ├── hardware_configuration_management_plan_review.md
-│   │   ├── hardware_design_plan.md
-│   │   ├── hardware_design_plan_object.md
-│   │   ├── hardware_design_plan_review.md
-│   │   ├── hardware_process_assurance_plan.md
-│   │   ├── hardware_process_assurance_plan_object.md
-│   │   ├── hardware_process_assurance_plan_review.md
-│   │   ├── hardware_validation_plan.md
-│   │   ├── hardware_validation_plan_object.md
-│   │   ├── hardware_validation_plan_review.md
-│   │   ├── hardware_verification_plan.md
-│   │   ├── hardware_verification_plan_object.md
-│   │   ├── hardware_verification_plan_review.md
-│   │   ├── plan_for_hardware_aspects_of_certification.md
-│   │   ├── plan_for_hardware_aspects_of_certification_object.md
-│   │   └── plan_for_hardware_aspects_of_certification_review.md
+│   │   └── hardware_plans.md
 │   ├── hardware_process_assurance_records
-│   │   ├── hardware_process_assurance_records.md
-│   │   ├── hardware_process_assurance_records_object.md
-│   │   └── hardware_process_assurance_records_review.md
-│   ├── hvalidation_and_verification_data
-│   │   ├── review_and_analysis_procedures.md
-│   │   ├── review_and_analysis_procedures_object.md
-│   │   ├── review_and_analysis_procedures_review.md
-│   │   ├── review_and_analysis_results.md
-│   │   ├── review_and_analysis_results_object.md
-│   │   ├── review_and_analysis_results_review.md
-│   │   ├── test_procedures.md
-│   │   ├── test_procedures_object.md
-│   │   ├── test_procedures_review.md
-│   │   ├── test_results.md
-│   │   ├── test_results_object.md
-│   │   ├── test_results_review.md
-│   │   ├── traceability_data.md
-│   │   ├── traceability_data_object.md
-│   │   └── traceability_data_review.md
-│   └── problem_reports
-│       ├── problem_reports.md
-│       ├── problem_reports_object.md
-│       └── problem_reports_review.md
+│   │   └── hardware_process_assurance_records.md
+│   ├── problem_reports
+│   │   └── problem_reports.md
+│   └── validation_and_verification_data
+│       └── validation_and_verification_data.md
 ├── hardware_design_process
 │   ├── acceptance_test
 │   │   └── acceptance_test.md
@@ -136,4 +72,4 @@ tex
     └── verification_process
         └── verification_process.md
 
-40 directories, 96 files
+40 directories, 32 files
