@@ -60,7 +60,7 @@ tex
 │   ├── hardware_process_assurance_records.md
 │   ├── hardware_process_assurance_records_object.md
 │   └── hardware_process_assurance_records_review.md
-├── hvalidation_and_verification_data
+├── validation_and_verification_data
 │   ├── review_and_analysis_procedures.md
 │   ├── review_and_analysis_procedures_object.md
 │   ├── review_and_analysis_procedures_review.md
