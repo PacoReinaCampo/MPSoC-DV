@@ -9,7 +9,7 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              SoC-NTM (T-DNC/NTM-SoC)                                          ##
+##              MPSoC-DV                                                         ##
 ##              QueenField                                                       ##
 ##                                                                               ##
 ###################################################################################
@@ -54,9 +54,11 @@ EXPORTED_DOCS=\
 
 PANDOC_OPTIONS=-f markdown       \
     --table-of-contents          \
+    --toc-depth=6                \
     --number-sections            \
     --pdf-engine=xelatex         \
-    --highlight-style=monochrome \
+    -V lof=yes                   \
+    -V lot=yes                   \
     -V fontsize="10pt"           \
     -V documentclass=report      \
     -V papersize=A4              \
