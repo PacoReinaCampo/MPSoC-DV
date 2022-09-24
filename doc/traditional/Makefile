@@ -9,7 +9,7 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              MPSoC-NTM (T-DNC/NTM-MPSoC)                                      ##
+##              Traditional Computing Theory                                     ##
 ##              QueenField                                                       ##
 ##                                                                               ##
 ###################################################################################
@@ -55,7 +55,8 @@ PANDOC_OPTIONS=-f markdown       \
     --table-of-contents          \
     --number-sections            \
     --pdf-engine=xelatex         \
-    --highlight-style=monochrome \
+    -V lof=yes                   \
+    -V lot=yes                   \
     -V fontsize="10pt"           \
     -V documentclass=report      \
     -V papersize=A4              \
@@ -82,7 +83,6 @@ PANDOC_EPUB_OPTIONS=--to epub3
 
 %.epub : %.md
 	pandoc -s $(shell cat $<) $(PANDOC_OPTIONS) $(PANDOC_EPUB_OPTIONS) -o $@
-
 
 all : $(EXPORTED_DOCS)
 

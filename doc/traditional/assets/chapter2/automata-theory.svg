@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="800" height="600">
+  <g stroke="#00a" stroke-width="3">
+    <rect fill="#ddff55" width="760" x="20"  y="130" height="450" ry="50"/>
+    <rect fill="#e5ff80" width="650" x="100" y="150" height="350" ry="50"/>
+    <rect fill="#eeffaa" width="540" x="180" y="170" height="250" ry="50"/>
+    <rect fill="#f6ffd5" width="430" x="260" y="190" height="150" ry="50"/>
+  </g>
+  <g font-family="Times New Roman" font-size="36px">
+    <switch transform="translate(400,70)" text-anchor="middle">
+      <text systemLanguage="ca">Teoria d'autòmats</text>
+      <text systemLanguage="bn">স্বয়ংক্রিয় তত্ত্ব</text>
+      <text>Automata theory</text>
+    </switch>
+    <switch transform="translate(310,310)">
+      <text systemLanguage="ca">Lògica combinacional</text>
+      <text systemLanguage="bn">বৈন্যাসিক যুক্তি</text>
+      <text>Combinational logic</text>
+    </switch>
+    <switch transform="translate(230,390)">
+      <text systemLanguage="ca">Autòmat finit</text>
+      <text systemLanguage="bn">সীমিত-অবস্থা যন্ত্র</text>
+      <text>Finite-state machine</text>
+    </switch>
+    <switch transform="translate(150,470)">
+      <text systemLanguage="ca">Autòmat amb pila</text>
+      <text systemLanguage="bn">পুশডাউন অটোমেটন</text>
+      <text>Pushdown automaton</text>
+    </switch>
+    <switch transform="translate(70,550)">
+      <text systemLanguage="ca">Màquina de Turing</text>
+      <text systemLanguage="bn">টিউরিং যন্ত্র</text>
+      <text>Turing Machine</text>
+    </switch>
+  </g>
+</svg>

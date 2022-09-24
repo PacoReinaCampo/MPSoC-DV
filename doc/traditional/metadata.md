@@ -1,5 +1,5 @@
 ---
-title: 'MPSoC-NTM (T-DNC/NTM-MPSoC)'
+title: 'Traditional Computing Theory'
 subtitle: 'QueenField ![](../../icon.jpg)'
 
 author: Paco Reina Campo
