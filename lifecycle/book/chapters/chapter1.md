@@ -2,6 +2,22 @@
 
 *The hardware plans describe the processes, procedures, methods, and standards to be used for the hardware certification, design, validation, verification, process assurance and configuration control.*
 
+| Data Required for the Hardware Planning Review                                            |
+|:------------------------------------------------------------------------------------------|
+| Plan for Hardware Aspects of Certification                                                |
+| Hardware Design Plan                                                                      |
+| Hardware Validation Plan                                                                  |
+| Hardware Verification Plan                                                                |
+| Hardware Configuration Management Plan                                                    |
+| Hardware Process Assurance Plan                                                           |
+| Hardware Process Assurance Records                           |                            |
+| Hardware Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
+| Tool Qualification Plans                                                                  |
+| Supplier Management Plan                                                                  |
+:Data Required for the Hardware Planning Review
+
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+
 ## Plan for Hardware Aspects of Certification
 
 *The PHAC defines the processes, procedures, methods and standards to be used to achieve the objectives of this document and obtain certification authority approval for certification of the system containing hardware items. The PHAC, once approved, represents an agreement between the certification applicant and the certification authority on the processes and activities to be conducted and the resultant evidence to be produced to satisfy the hardware aspects of certification. The PHAC may be part of another plan, such as the airborne system certification plan.*

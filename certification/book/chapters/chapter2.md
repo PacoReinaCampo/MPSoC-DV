@@ -2,6 +2,22 @@
 
 *The hardware design processes produce a hardware item that fulfills the requirements allocated to hardware from the system requirements. These are Requirements Capture, Conceptual Design, Detailed Design, Implementation and Production Transition. These design processes may be applied at any hierarchical level of the hardware item, such as LRUs, circuit board assemblies and ASICs/PLDs. The following sections describe each process, its objectives and the related activities that should be addressed to reduce the probability of design and implementation errors that affect safety. It is important that each of these processes is planned and the details recorded in a hardware design plan.*
 
+| Data Required for the Hardware Planning Review                                            |
+|:------------------------------------------------------------------------------------------|
+| Plan for Hardware Aspects of Certification                                                |
+| Hardware Design Plan                                                                      |
+| Hardware Validation Plan                                                                  |
+| Hardware Verification Plan                                                                |
+| Hardware Configuration Management Plan                                                    |
+| Hardware Process Assurance Plan                                                           |
+| Hardware Process Assurance Records                           |                            |
+| Hardware Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
+| Tool Qualification Plans                                                                  |
+| Supplier Management Plan                                                                  |
+:Data Required for the Hardware Planning Review
+
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+
 ## Requirements Capture Process
 
 *The requirements capture process identifies and records the hardware item requirements. This includes those derived requirements imposed by the proposed hardware item architecture, choice of technology, the basic and optional functionality, environmental, and performance requirements as well as the requirements imposed by the system safety assessment. This process may be iterative since additional requirements may become known during design.*
