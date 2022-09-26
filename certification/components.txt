@@ -15,6 +15,7 @@ CONTROL
 -------
 · certification
 · doc
+· lifecycle
 · quality
 · requirements
 
