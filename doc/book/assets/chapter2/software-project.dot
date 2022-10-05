@@ -1,0 +1,34 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = LR, splines=ortho];
+  node[shape=record];
+
+  // Blocks
+  Requirements[label="Requirements \n(UML) [Dot]"];
+  Software[label="Software \n(Matlab/Rust) [Emacs]"];
+  Source[label="Source \n(ADA/C) [Emacs]"];
+  Model[label="Model \n(C/C++/Go) [Emacs]"];
+  Validation[label="Validation \n(C/C++/Go) [GCC]"];
+  Design[label="Design \n(C/C++/Go) [Emacs]"];
+  Verification[label="Verification \n(C/C++/Go) [GCC]"];
+  Quality[label="Quality \n(Tex) [Emacs]"];
+  Certification[label="Certification \n(Tex) [Emacs]"];
+  Documentation[label="Documentation \n(Tex) [Emacs]"];
+
+  // Sequence
+  Requirements -> Software;
+  Software -> Source;
+  Source -> Model;
+  Model -> Validation;
+  Validation -> Design;
+  Design -> Verification;
+  Verification -> Quality;
+  Quality -> Certification;
+  Certification -> Documentation;
+
+  // Feedback
+  Validation -> Requirements;
+  Verification -> Requirements;
+  Quality -> Requirements;
+}
+
