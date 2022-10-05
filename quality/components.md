@@ -75,3 +75,22 @@ git checkout master
 git rebase upstream/master
 git push -f origin master
 ```
+
+
+# LIST OF ADVANCED ACTIONS IN SVN
+
+* Save credentials
+```
+svn checkout --username USER --password PASSWORD https://github.com/USER/REPOSITORY
+```
+
+* Remove submodule "repository"
+```
+svn delete repository
+```
+
+* Save work "WORK"
+```
+git add *
+svn commit -m "WORK"
+```
