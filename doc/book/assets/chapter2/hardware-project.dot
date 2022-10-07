@@ -11,9 +11,9 @@ digraph Project {
   Validation[label="Validation \n(VHDL/Verilog) [GHDL / Icarus Verilog]"];
   Design[label="Design \n(VHDL/Verilog) [Emacs]"];
   Verification[label="Verification \n(VHDL/Verilog) [GHDL / Icarus Verilog]"];
-  Quality[label="Quality \n(Tex) [Emacs]"];
-  Certification[label="Certification \n(Tex) [Emacs]"];
-  Documentation[label="Documentation \n(Tex) [Emacs]"];
+  Quality[label="Quality \n(TeX) [Emacs]"];
+  Certification[label="Certification \n(TeX) [Emacs]"];
+  Documentation[label="Documentation \n(TeX) [Emacs]"];
 
   // Sequence
   Requirements -> Software;
