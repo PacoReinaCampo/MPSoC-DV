@@ -103,17 +103,17 @@ sudo make install
 ```
 
 ```
-cd sim/verilog/regression/wb/vtor
+cd sim/verilog/regression/wb/verilator
 source simulate.sh
 ```
 
 ```
-cd sim/verilog/regression/ahb3/vtor
+cd sim/verilog/regression/ahb3/verilator
 source simulate.sh
 ```
 
 ```
-cd sim/verilog/regression/axi4/vtor
+cd sim/verilog/regression/axi4/verilator
 source simulate.sh
 ```
 
