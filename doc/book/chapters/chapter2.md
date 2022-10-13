@@ -19,7 +19,7 @@
 | certification | bench    | sim         |
 | doc           | model    | compilation |
 | quality       | osvvm    | synthesis   |
-| requirements  | rtl      |             |
+| requirements  | rtl/src  |             |
 |               | source   |             |
 |               | uvm      |             |
 : Hardware DevOps

@@ -16,7 +16,7 @@
 |              | IEEE 1800-2017              | SystemVerilog |
 |              | IEEE 1850-2010              | PSL           |
 |osvvm         | IEEE 1076-2019              | VHDL          |
-|rtl           | IEEE 1076-2019              | VHDL          |
+|rtl/src       | IEEE 1076-2019              | VHDL          |
 |              | IEEE 1800-2017              | SystemVerilog |
 |              | IEEE 1850-2010              | PSL           |
 |uvm           | IEEE 1800.2-2020            | UVM           |

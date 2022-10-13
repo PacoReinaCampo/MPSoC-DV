@@ -1,6 +1,3 @@
-[submodule "riscv-formal"]
-	path = riscv-formal
-	url = https://github.com/PacoReinaCampo/riscv-formal.git
 [submodule "uvm"]
 	path = uvm
 	url = https://github.com/PacoReinaCampo/UVM.git
