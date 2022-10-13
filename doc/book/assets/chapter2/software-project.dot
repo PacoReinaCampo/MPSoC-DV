@@ -5,8 +5,7 @@ digraph Project {
 
   // Blocks
   Requirements[label="Requirements \n(UML) [Dot]"];
-  Software[label="Software \n(Matlab/Rust) [Emacs]"];
-  Source[label="Source \n(ADA/C) [Emacs]"];
+  Source[label="Source \n(Matlab/Rust/ADA/C) [Emacs]"];
   Model[label="Model \n(C/C++/Go) [Emacs]"];
   Validation[label="Validation \n(C/C++/Go) [GCC]"];
   Design[label="Design \n(C/C++/Go) [Emacs]"];
@@ -16,8 +15,7 @@ digraph Project {
   Documentation[label="Documentation \n(TeX) [Emacs]"];
 
   // Sequence
-  Requirements -> Software;
-  Software -> Source;
+  Requirements -> Source;
   Source -> Model;
   Model -> Validation;
   Validation -> Design;
@@ -31,4 +29,3 @@ digraph Project {
   Verification -> Requirements;
   Quality -> Requirements;
 }
-

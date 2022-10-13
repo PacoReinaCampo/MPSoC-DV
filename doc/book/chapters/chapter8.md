@@ -9,8 +9,7 @@
 |              | IEEE 1735-2014              |               |
 |quality       | ISO 9001-2015               |               |
 |doc           | IEEE 1685-2014              | IP-XACT       |
-|software      | RTCA DO-178C                |               |
-|src           | RTCA DO-178C                |               |
+|source        | RTCA DO-178C                |               |
 |bench         | IEEE 1076-2019              | VHDL          |
 |              | IEEE 1800-2017              | SystemVerilog |
 |model         | IEEE 1076-2019              | VHDL          |
