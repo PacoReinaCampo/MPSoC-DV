@@ -6,10 +6,12 @@
 |-------------:|:----------------------------|:--------------|
 |requirements  | OMG-2.5.1.                  | UML           |
 |certification | RTCA DO-254                 |               |
+|              | RTCA DO-178C                |               |
 |quality       | ISO 9001-2015               |               |
 |doc           | IEEE 1685-2014              | IP-XACT       |
 |              | IEEE 1735-2014              |               |
-|source        | RTCA DO-178C                |               |
+|source        | RTCA DO-254                 |               |
+|              | RTCA DO-178C                |               |
 |bench         | IEEE 1076-2019              | VHDL          |
 |              | IEEE 1800-2017              | SystemVerilog |
 |model         | IEEE 1076-2019              | VHDL          |
@@ -17,7 +19,7 @@
 |              | IEEE 1850-2010              | PSL           |
 |osvvm         | IEEE 1076-2019              | VHDL          |
 |rtl/src       | IEEE 1076-2019              | VHDL          |
-|              | IEEE 1800-2017              | SystemVerilog |
+|              | IEEE 1364-2005              | Verilog       |
 |              | IEEE 1850-2010              | PSL           |
 |uvm           | IEEE 1800.2-2020            | UVM           |
 : Project Folder
