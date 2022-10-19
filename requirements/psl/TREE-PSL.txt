@@ -1,0 +1,381 @@
+code
+├── controller
+│   ├── FNN
+│   │   ├── convolutional
+│   │   │   ├── ntm_controller.psl
+│   │   │   └── ntm_controller_testbench.psl
+│   │   └── standard
+│   │       ├── ntm_controller.psl
+│   │       └── ntm_controller_testbench.psl
+│   ├── LSTM
+│   │   ├── convolutional
+│   │   │   ├── ntm_activation_gate_vector.psl
+│   │   │   ├── ntm_activation_gate_vector_testbench.psl
+│   │   │   ├── ntm_controller.psl
+│   │   │   ├── ntm_controller_testbench.psl
+│   │   │   ├── ntm_forget_gate_vector.psl
+│   │   │   ├── ntm_forget_gate_vector_testbench.psl
+│   │   │   ├── ntm_hidden_gate_vector.psl
+│   │   │   ├── ntm_hidden_gate_vector_testbench.psl
+│   │   │   ├── ntm_input_gate_vector.psl
+│   │   │   ├── ntm_input_gate_vector_testbench.psl
+│   │   │   ├── ntm_output_gate_vector.psl
+│   │   │   ├── ntm_output_gate_vector_testbench.psl
+│   │   │   ├── ntm_state_gate_vector.psl
+│   │   │   └── ntm_state_gate_vector_testbench.psl
+│   │   └── standard
+│   │       ├── ntm_activation_gate_vector.psl
+│   │       ├── ntm_activation_gate_vector_testbench.psl
+│   │       ├── ntm_controller.psl
+│   │       ├── ntm_controller_testbench.psl
+│   │       ├── ntm_forget_gate_vector.psl
+│   │       ├── ntm_forget_gate_vector_testbench.psl
+│   │       ├── ntm_hidden_gate_vector.psl
+│   │       ├── ntm_hidden_gate_vector_testbench.psl
+│   │       ├── ntm_input_gate_vector.psl
+│   │       ├── ntm_input_gate_vector_testbench.psl
+│   │       ├── ntm_output_gate_vector.psl
+│   │       ├── ntm_output_gate_vector_testbench.psl
+│   │       ├── ntm_state_gate_vector.psl
+│   │       └── ntm_state_gate_vector_testbench.psl
+│   └── transformer
+│       ├── components
+│       │   ├── ntm_masked_multi_head_attention.psl
+│       │   ├── ntm_masked_multi_head_attention_testbench.psl
+│       │   ├── ntm_masked_scaled_dot_product_attention.psl
+│       │   ├── ntm_masked_scaled_dot_product_attention_testbench.psl
+│       │   ├── ntm_multi_head_attention.psl
+│       │   ├── ntm_multi_head_attention_testbench.psl
+│       │   ├── ntm_scaled_dot_product_attention.psl
+│       │   └── ntm_scaled_dot_product_attention_testbench.psl
+│       ├── fnn
+│       │   ├── ntm_fnn.psl
+│       │   └── ntm_fnn_testbench.psl
+│       ├── functions
+│       │   ├── ntm_layer_norm.psl
+│       │   ├── ntm_layer_norm_testbench.psl
+│       │   ├── ntm_positional_encoding.psl
+│       │   └── ntm_positional_encoding_testbench.psl
+│       ├── inputs
+│       │   ├── ntm_inputs_vector.psl
+│       │   ├── ntm_inputs_vector_testbench.psl
+│       │   ├── ntm_keys_vector.psl
+│       │   ├── ntm_keys_vector_testbench.psl
+│       │   ├── ntm_queries_vector.psl
+│       │   ├── ntm_queries_vector_testbench.psl
+│       │   ├── ntm_values_vector.psl
+│       │   └── ntm_values_vector_testbench.psl
+│       ├── lstm
+│       │   ├── ntm_activation_gate_vector.psl
+│       │   ├── ntm_activation_gate_vector_testbench.psl
+│       │   ├── ntm_forget_gate_vector.psl
+│       │   ├── ntm_forget_gate_vector_testbench.psl
+│       │   ├── ntm_hidden_gate_vector.psl
+│       │   ├── ntm_hidden_gate_vector_testbench.psl
+│       │   ├── ntm_input_gate_vector.psl
+│       │   ├── ntm_input_gate_vector_testbench.psl
+│       │   ├── ntm_lstm.psl
+│       │   ├── ntm_lstm_testbench.psl
+│       │   ├── ntm_output_gate_vector.psl
+│       │   ├── ntm_output_gate_vector_testbench.psl
+│       │   ├── ntm_state_gate_vector.psl
+│       │   └── ntm_state_gate_vector_testbench.psl
+│       └── top
+│           ├── ntm_controller.psl
+│           ├── ntm_controller_testbench.psl
+│           ├── ntm_decoder.psl
+│           ├── ntm_decoder_testbench.psl
+│           ├── ntm_encoder.psl
+│           └── ntm_encoder_testbench.psl
+├── dnc
+│   ├── memory
+│   │   ├── dnc_addressing.psl
+│   │   ├── dnc_addressing_testbench.psl
+│   │   ├── dnc_allocation_weighting.psl
+│   │   ├── dnc_allocation_weighting_testbench.psl
+│   │   ├── dnc_backward_weighting.psl
+│   │   ├── dnc_backward_weighting_testbench.psl
+│   │   ├── dnc_forward_weighting.psl
+│   │   ├── dnc_forward_weighting_testbench.psl
+│   │   ├── dnc_matrix_content_based_addressing.psl
+│   │   ├── dnc_matrix_content_based_addressing_testbench.psl
+│   │   ├── dnc_memory_matrix.psl
+│   │   ├── dnc_memory_matrix_testbench.psl
+│   │   ├── dnc_memory_retention_vector.psl
+│   │   ├── dnc_memory_retention_vector_testbench.psl
+│   │   ├── dnc_precedence_weighting.psl
+│   │   ├── dnc_precedence_weighting_testbench.psl
+│   │   ├── dnc_read_content_weighting.psl
+│   │   ├── dnc_read_content_weighting_testbench.psl
+│   │   ├── dnc_read_vectors.psl
+│   │   ├── dnc_read_vectors_testbench.psl
+│   │   ├── dnc_read_weighting.psl
+│   │   ├── dnc_read_weighting_testbench.psl
+│   │   ├── dnc_sort_vector.psl
+│   │   ├── dnc_sort_vector_testbench.psl
+│   │   ├── dnc_temporal_link_matrix.psl
+│   │   ├── dnc_temporal_link_matrix_testbench.psl
+│   │   ├── dnc_usage_vector.psl
+│   │   ├── dnc_usage_vector_testbench.psl
+│   │   ├── dnc_vector_content_based_addressing.psl
+│   │   ├── dnc_vector_content_based_addressing_testbench.psl
+│   │   ├── dnc_write_content_weighting.psl
+│   │   ├── dnc_write_content_weighting_testbench.psl
+│   │   ├── dnc_write_weighting.psl
+│   │   └── dnc_write_weighting_testbench.psl
+│   ├── top
+│   │   ├── dnc_interface_matrix.psl
+│   │   ├── dnc_interface_matrix_testbench.psl
+│   │   ├── dnc_interface_top.psl
+│   │   ├── dnc_interface_top_testbench.psl
+│   │   ├── dnc_interface_vector.psl
+│   │   ├── dnc_interface_vector_testbench.psl
+│   │   ├── dnc_output_vector.psl
+│   │   ├── dnc_output_vector_testbench.psl
+│   │   ├── dnc_top.psl
+│   │   └── dnc_top_testbench.psl
+│   └── trained
+│       ├── dnc_trained_top.psl
+│       └── dnc_trained_top_testbench.psl
+├── math
+│   ├── algebra
+│   │   ├── matrix
+│   │   │   ├── ntm_matrix_convolution.psl
+│   │   │   ├── ntm_matrix_convolution_testbench.psl
+│   │   │   ├── ntm_matrix_inverse.psl
+│   │   │   ├── ntm_matrix_inverse_testbench.psl
+│   │   │   ├── ntm_matrix_multiplication.psl
+│   │   │   ├── ntm_matrix_multiplication_testbench.psl
+│   │   │   ├── ntm_matrix_product.psl
+│   │   │   ├── ntm_matrix_product_testbench.psl
+│   │   │   ├── ntm_matrix_summation.psl
+│   │   │   ├── ntm_matrix_summation_testbench.psl
+│   │   │   ├── ntm_matrix_transpose.psl
+│   │   │   ├── ntm_matrix_transpose_testbench.psl
+│   │   │   ├── ntm_matrix_vector_convolution.psl
+│   │   │   ├── ntm_matrix_vector_convolution_testbench.psl
+│   │   │   ├── ntm_matrix_vector_product.psl
+│   │   │   ├── ntm_matrix_vector_product_testbench.psl
+│   │   │   ├── ntm_transpose_vector_product.psl
+│   │   │   └── ntm_transpose_vector_product_testbench.psl
+│   │   ├── scalar
+│   │   │   ├── ntm_scalar_multiplication.psl
+│   │   │   ├── ntm_scalar_multiplication_testbench.psl
+│   │   │   ├── ntm_scalar_summation.psl
+│   │   │   └── ntm_scalar_summation_testbench.psl
+│   │   ├── tensor
+│   │   │   ├── ntm_tensor_convolution.psl
+│   │   │   ├── ntm_tensor_convolution_testbench.psl
+│   │   │   ├── ntm_tensor_inverse.psl
+│   │   │   ├── ntm_tensor_inverse_testbench.psl
+│   │   │   ├── ntm_tensor_matrix_convolution.psl
+│   │   │   ├── ntm_tensor_matrix_convolution_testbench.psl
+│   │   │   ├── ntm_tensor_matrix_product.psl
+│   │   │   ├── ntm_tensor_matrix_product_testbench.psl
+│   │   │   ├── ntm_tensor_multiplication.psl
+│   │   │   ├── ntm_tensor_multiplication_testbench.psl
+│   │   │   ├── ntm_tensor_product.psl
+│   │   │   ├── ntm_tensor_product_testbench.psl
+│   │   │   ├── ntm_tensor_summation.psl
+│   │   │   ├── ntm_tensor_summation_testbench.psl
+│   │   │   ├── ntm_tensor_transpose.psl
+│   │   │   └── ntm_tensor_transpose_testbench.psl
+│   │   └── vector
+│   │       ├── ntm_dot_product.psl
+│   │       ├── ntm_dot_product_testbench.psl
+│   │       ├── ntm_vector_convolution.psl
+│   │       ├── ntm_vector_convolution_testbench.psl
+│   │       ├── ntm_vector_cosine_similarity.psl
+│   │       ├── ntm_vector_cosine_similarity_testbench.psl
+│   │       ├── ntm_vector_module.psl
+│   │       ├── ntm_vector_module_testbench.psl
+│   │       ├── ntm_vector_multiplication.psl
+│   │       ├── ntm_vector_multiplication_testbench.psl
+│   │       ├── ntm_vector_summation.psl
+│   │       └── ntm_vector_summation_testbench.psl
+│   ├── calculus
+│   │   ├── matrix
+│   │   │   ├── ntm_matrix_differentiation.psl
+│   │   │   ├── ntm_matrix_differentiation_testbench.psl
+│   │   │   ├── ntm_matrix_integration.psl
+│   │   │   ├── ntm_matrix_integration_testbench.psl
+│   │   │   ├── ntm_matrix_softmax.psl
+│   │   │   └── ntm_matrix_softmax_testbench.psl
+│   │   ├── tensor
+│   │   │   ├── ntm_tensor_differentiation.psl
+│   │   │   ├── ntm_tensor_differentiation_testbench.psl
+│   │   │   ├── ntm_tensor_integration.psl
+│   │   │   ├── ntm_tensor_integration_testbench.psl
+│   │   │   ├── ntm_tensor_softmax.psl
+│   │   │   └── ntm_tensor_softmax_testbench.psl
+│   │   └── vector
+│   │       ├── ntm_vector_differentiation.psl
+│   │       ├── ntm_vector_differentiation_testbench.psl
+│   │       ├── ntm_vector_integration.psl
+│   │       ├── ntm_vector_integration_testbench.psl
+│   │       ├── ntm_vector_softmax.psl
+│   │       └── ntm_vector_softmax_testbench.psl
+│   ├── function
+│   │   ├── matrix
+│   │   │   ├── ntm_matrix_logistic_function.psl
+│   │   │   ├── ntm_matrix_logistic_function_testbench.psl
+│   │   │   ├── ntm_matrix_oneplus_function.psl
+│   │   │   └── ntm_matrix_oneplus_function_testbench.psl
+│   │   ├── scalar
+│   │   │   ├── ntm_scalar_logistic_function.psl
+│   │   │   ├── ntm_scalar_logistic_function_testbench.psl
+│   │   │   ├── ntm_scalar_oneplus_function.psl
+│   │   │   └── ntm_scalar_oneplus_function_testbench.psl
+│   │   └── vector
+│   │       ├── ntm_vector_logistic_function.psl
+│   │       ├── ntm_vector_logistic_function_testbench.psl
+│   │       ├── ntm_vector_oneplus_function.psl
+│   │       └── ntm_vector_oneplus_function_testbench.psl
+│   └── statitics
+│       ├── matrix
+│       │   ├── ntm_matrix_deviation.psl
+│       │   ├── ntm_matrix_deviation_testbench.psl
+│       │   ├── ntm_matrix_mean.psl
+│       │   └── ntm_matrix_mean_testbench.psl
+│       ├── scalar
+│       │   ├── ntm_scalar_deviation.psl
+│       │   ├── ntm_scalar_deviation_testbench.psl
+│       │   ├── ntm_scalar_mean.psl
+│       │   └── ntm_scalar_mean_testbench.psl
+│       └── vector
+│           ├── ntm_vector_deviation.psl
+│           ├── ntm_vector_deviation_testbench.psl
+│           ├── ntm_vector_mean.psl
+│           └── ntm_vector_mean_testbench.psl
+├── ntm
+│   ├── memory
+│   │   ├── ntm_addressing.psl
+│   │   ├── ntm_addressing_testbench.psl
+│   │   ├── ntm_matrix_content_based_addressing.psl
+│   │   ├── ntm_matrix_content_based_addressing_testbench.psl
+│   │   ├── ntm_vector_content_based_addressing.psl
+│   │   └── ntm_vector_content_based_addressing_testbench.psl
+│   ├── read_heads
+│   │   ├── ntm_reading.psl
+│   │   └── ntm_reading_testbench.psl
+│   ├── top
+│   │   ├── ntm_interface_matrix.psl
+│   │   ├── ntm_interface_matrix_testbench.psl
+│   │   ├── ntm_interface_top.psl
+│   │   ├── ntm_interface_top_testbench.psl
+│   │   ├── ntm_interface_vector.psl
+│   │   ├── ntm_interface_vector_testbench.psl
+│   │   ├── ntm_output_vector.psl
+│   │   ├── ntm_output_vector_testbench.psl
+│   │   ├── ntm_top.psl
+│   │   └── ntm_top_testbench.psl
+│   ├── trained
+│   │   ├── ntm_trained_top.psl
+│   │   └── ntm_trained_top_testbench.psl
+│   └── write_heads
+│       ├── ntm_erasing.psl
+│       ├── ntm_erasing_testbench.psl
+│       ├── ntm_writing.psl
+│       └── ntm_writing_testbench.psl
+├── state
+│   ├── feedback
+│   │   ├── ntm_state_matrix_feedforward.psl
+│   │   ├── ntm_state_matrix_feedforward_testbench.psl
+│   │   ├── ntm_state_matrix_input.psl
+│   │   ├── ntm_state_matrix_input_testbench.psl
+│   │   ├── ntm_state_matrix_output.psl
+│   │   ├── ntm_state_matrix_output_testbench.psl
+│   │   ├── ntm_state_matrix_state.psl
+│   │   └── ntm_state_matrix_state_testbench.psl
+│   ├── outputs
+│   │   ├── ntm_state_vector_output.psl
+│   │   ├── ntm_state_vector_output_testbench.psl
+│   │   ├── ntm_state_vector_state.psl
+│   │   └── ntm_state_vector_state_testbench.psl
+│   └── top
+│       ├── ntm_state_top.psl
+│       └── ntm_state_top_testbench.psl
+└── trainer
+    ├── differentiation
+    │   ├── ntm_matrix_controller_differentiation.psl
+    │   ├── ntm_matrix_controller_differentiation_testbench.psl
+    │   ├── ntm_vector_controller_differentiation.psl
+    │   └── ntm_vector_controller_differentiation_testbench.psl
+    ├── FNN
+    │   ├── ntm_fnn_b_trainer.psl
+    │   ├── ntm_fnn_b_trainer_testbench.psl
+    │   ├── ntm_fnn_d_trainer.psl
+    │   ├── ntm_fnn_d_trainer_testbench.psl
+    │   ├── ntm_fnn_k_trainer.psl
+    │   ├── ntm_fnn_k_trainer_testbench.psl
+    │   ├── ntm_fnn_trainer.psl
+    │   ├── ntm_fnn_trainer_testbench.psl
+    │   ├── ntm_fnn_u_trainer.psl
+    │   ├── ntm_fnn_u_trainer_testbench.psl
+    │   ├── ntm_fnn_v_trainer.psl
+    │   ├── ntm_fnn_v_trainer_testbench.psl
+    │   ├── ntm_fnn_w_trainer.psl
+    │   └── ntm_fnn_w_trainer_testbench.psl
+    └── LSTM
+        ├── activation
+        │   ├── ntm_lstm_activation_b_trainer.psl
+        │   ├── ntm_lstm_activation_b_trainer_testbench.psl
+        │   ├── ntm_lstm_activation_d_trainer.psl
+        │   ├── ntm_lstm_activation_d_trainer_testbench.psl
+        │   ├── ntm_lstm_activation_k_trainer.psl
+        │   ├── ntm_lstm_activation_k_trainer_testbench.psl
+        │   ├── ntm_lstm_activation_trainer.psl
+        │   ├── ntm_lstm_activation_trainer_testbench.psl
+        │   ├── ntm_lstm_activation_u_trainer.psl
+        │   ├── ntm_lstm_activation_u_trainer_testbench.psl
+        │   ├── ntm_lstm_activation_v_trainer.psl
+        │   ├── ntm_lstm_activation_v_trainer_testbench.psl
+        │   ├── ntm_lstm_activation_w_trainer.psl
+        │   └── ntm_lstm_activation_w_trainer_testbench.psl
+        ├── forget
+        │   ├── ntm_lstm_forget_b_trainer.psl
+        │   ├── ntm_lstm_forget_b_trainer_testbench.psl
+        │   ├── ntm_lstm_forget_d_trainer.psl
+        │   ├── ntm_lstm_forget_d_trainer_testbench.psl
+        │   ├── ntm_lstm_forget_k_trainer.psl
+        │   ├── ntm_lstm_forget_k_trainer_testbench.psl
+        │   ├── ntm_lstm_forget_trainer.psl
+        │   ├── ntm_lstm_forget_trainer_testbench.psl
+        │   ├── ntm_lstm_forget_u_trainer.psl
+        │   ├── ntm_lstm_forget_u_trainer_testbench.psl
+        │   ├── ntm_lstm_forget_v_trainer.psl
+        │   ├── ntm_lstm_forget_v_trainer_testbench.psl
+        │   ├── ntm_lstm_forget_w_trainer.psl
+        │   └── ntm_lstm_forget_w_trainer_testbench.psl
+        ├── input
+        │   ├── ntm_lstm_input_b_trainer.psl
+        │   ├── ntm_lstm_input_b_trainer_testbench.psl
+        │   ├── ntm_lstm_input_d_trainer.psl
+        │   ├── ntm_lstm_input_d_trainer_testbench.psl
+        │   ├── ntm_lstm_input_k_trainer.psl
+        │   ├── ntm_lstm_input_k_trainer_testbench.psl
+        │   ├── ntm_lstm_input_trainer.psl
+        │   ├── ntm_lstm_input_trainer_testbench.psl
+        │   ├── ntm_lstm_input_u_trainer.psl
+        │   ├── ntm_lstm_input_u_trainer_testbench.psl
+        │   ├── ntm_lstm_input_v_trainer.psl
+        │   ├── ntm_lstm_input_v_trainer_testbench.psl
+        │   ├── ntm_lstm_input_w_trainer.psl
+        │   └── ntm_lstm_input_w_trainer_testbench.psl
+        └── output
+            ├── ntm_lstm_output_b_trainer.psl
+            ├── ntm_lstm_output_b_trainer_testbench.psl
+            ├── ntm_lstm_output_d_trainer.psl
+            ├── ntm_lstm_output_d_trainer_testbench.psl
+            ├── ntm_lstm_output_k_trainer.psl
+            ├── ntm_lstm_output_k_trainer_testbench.psl
+            ├── ntm_lstm_output_trainer.psl
+            ├── ntm_lstm_output_trainer_testbench.psl
+            ├── ntm_lstm_output_u_trainer.psl
+            ├── ntm_lstm_output_u_trainer_testbench.psl
+            ├── ntm_lstm_output_v_trainer.psl
+            ├── ntm_lstm_output_v_trainer_testbench.psl
+            ├── ntm_lstm_output_w_trainer.psl
+            └── ntm_lstm_output_w_trainer_testbench.psl
+
+54 directories, 324 files
