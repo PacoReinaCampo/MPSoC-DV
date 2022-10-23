@@ -1,0 +1,3 @@
+# Commercial Components Usage
+
+*COTS components are used extensively in hardware designs and typically the COTS components design data is not available for review. The certification process does not specifically address individual components, modules, or subassemblies, as these are covered as part of the specific aircraft function being certified. As such, the use of COTS components will be verified through the overall design process, including the supporting processes, as defined in this document. The use of an electronic component management process, in conjunction with the design process, provides the basis for COTS components usage.*

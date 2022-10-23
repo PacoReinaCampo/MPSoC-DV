@@ -1,0 +1,1 @@
+# Hardware Configuration Management Records

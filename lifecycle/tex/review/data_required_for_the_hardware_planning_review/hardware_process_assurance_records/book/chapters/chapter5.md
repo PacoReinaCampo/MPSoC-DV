@@ -1,0 +1,1 @@
+# Hardware Acceptance Test Criteria

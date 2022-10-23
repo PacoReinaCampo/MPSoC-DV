@@ -1,0 +1,3 @@
+# Tool Assessment and Qualification
+
+*Tools, both hardware and software, will normally be used during hardware design and verification. When design tools are used to generate the hardware item or the hardware design, an error in the tool could introduce an error in the hardware item. When verification tools are used to verify the hardware item, an error in the tool may cause the tool to fail to detect an error in the hardware item or hardware design. Prior to the use of a tool, a tool assessment should be performed. The results of this assessment and, if necessary, tool qualification should be recorded and maintained.*
