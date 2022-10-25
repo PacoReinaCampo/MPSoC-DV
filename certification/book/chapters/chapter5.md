@@ -7,7 +7,8 @@
 | Hardware Requirements, Design and HDL Code Standards |
 | Hardware Requirements                                |
 | Hardware Design Data                                 |
-| HDL or Hardware Design Schematics                    |
+| Hardware Description Language                        |
+| Hardware Design Schematics                           |
 | Hardware Traceability Data                           |
 | Hardware Review and Analysis Procedures              |
 | Hardware Review and Analysis Results                 |

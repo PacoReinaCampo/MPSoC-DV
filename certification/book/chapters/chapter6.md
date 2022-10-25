@@ -6,7 +6,8 @@
 |:----------------------------------------------------|
 | Hardware Requirements Data                          |
 | Hardware Design Representation Data                 |
-| HDL or Hardware Design Schematics                   |
+| Hardware Description Language                       |
+| Hardware Design Schematics                          |
 | Hardware Verification Procedures                    |
 | Hardware Verification Results                       |
 | Hardware Life Cycle Environment Configuration Index |

@@ -42,11 +42,11 @@ cd object/data_required_for_the_hardware_development/hardware_life_cycle_environ
 make clean
 cd ../../../..
 
-cd object/data_required_for_the_hardware_development/hardware_object_and_analysis_procedures/book
+cd object/data_required_for_the_hardware_development/hardware_review_and_analysis_procedures/book
 make clean
 cd ../../../..
 
-cd object/data_required_for_the_hardware_development/hardware_object_and_analysis_results/book
+cd object/data_required_for_the_hardware_development/hardware_review_and_analysis_results/book
 make clean
 cd ../../../..
 
@@ -206,11 +206,11 @@ cd review/data_required_for_the_hardware_development/hardware_life_cycle_environ
 make clean
 cd ../../../..
 
-cd review/data_required_for_the_hardware_development/hardware_object_and_analysis_procedures/book
+cd review/data_required_for_the_hardware_development/hardware_review_and_analysis_procedures/book
 make clean
 cd ../../../..
 
-cd review/data_required_for_the_hardware_development/hardware_object_and_analysis_results/book
+cd review/data_required_for_the_hardware_development/hardware_review_and_analysis_results/book
 make clean
 cd ../../../..
 
