@@ -4,12 +4,12 @@ digraph Project {
   node[shape=record];
 
   // Blocks
-  Requirements[label="Requirements \n(PSL/UML) [Emacs]"];
-  Source[label="Source \n(Matlab/Rust/ADA/C) [Emacs]"];
-  Model[label="Hardware Model \n(VHDL/Verilog) [Emacs]"];
-  Validation[label="Hardware Validation \n(VHDL/Verilog) [GHDL / Icarus Verilog]"];
+  Requirements[label="Requirements \n(Matlab/PSL/UML) [Emacs]"];
+  Source[label="Source \n(C/C++/Go/Rust) [Emacs]"];
+  Model[label="Hardware Model \n(VHDL/SystemVerilog) [Emacs]"];
+  Validation[label="Hardware Validation \n(VHDL/SystemVerilog) [GHDL / Icarus Verilog]"];
   Design[label="Hardware Design \n(VHDL/Verilog) [Emacs]"];
-  Verification[label="Hardware Verification \n(VHDL/Verilog) [GHDL / Icarus Verilog]"];
+  Verification[label="Hardware Verification \n(VHDL/SystemVerilog) [GHDL / Icarus Verilog]"];
   Quality[label="Quality Assurance \n(TeX) [Emacs]"];
   Certification[label="Certification \n(TeX) [Emacs]"];
   Lifecycle[label="Design Lifecycle Data \n(TeX) [Emacs]"];
@@ -26,7 +26,7 @@ digraph Project {
   Lifecycle -> Requirements;
 
   // Feedback
-  Validation -> Requirements;
-  Verification -> Requirements;
+  Validation -> Model;
+  Verification -> Design;
   Quality -> Requirements;
 }
