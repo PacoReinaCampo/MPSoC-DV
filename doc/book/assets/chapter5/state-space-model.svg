@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="472px" height="177px" viewBox="0 0 800 300"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+ <style type="text/css">
+    .block_text {
+        font-size:30px;
+        font-family:serif;
+        font-style:italic;
+        fill:#000;
+        text-anchor:middle;}
+    .signal_text {
+        font-size:20px;
+        font-style:italic;
+	font-family:serif;
+        fill:#000;}
+    .stroke {
+        stroke:#000;
+        stroke-width:2;
+        stroke-linecap:butt;}
+    .block {
+        fill:#fff}
+    .path {
+        fill:none;
+        marker-end:url(#arrow);}
+    .connector {
+	marker-start:url(#connect);}
+  </style>
+  <defs>
+    <rect id="block" width="60" height="60" class="stroke block"/>
+    <circle id="sum" cx="0" cy="0" r="20" class="stroke block"/>
+    <text id="sum_plus_center" text-anchor="middle" font-size="18" font-weight="bold">+</text>
+    <marker id="connect" viewBox="0 0 10 10" refX="5" refY="5"
+	    markerWidth="3" markerHeight="3">
+      <circle cx="5" cy="5" r="5" fill="#000"/>
+    </marker>
+    <marker id="arrow" viewBox="0 0 10 10" refX="0" refY="5"
+        markerWidth="5" markerHeight="5"
+        orient="auto" fill="#000">
+      <path d="M 0 0 L 10 5 L 0 10 z" />
+    </marker>
+  </defs>
+  <text x="15" y="155" class="signal_text">u</text>
+  <text x="770" y="155" class="signal_text">y</text>
+  <g transform="translate(420,150)">
+    <path id="int_to_c" d="M 0 0 L 120 0" class="stroke path"/>
+    <text x="27" y="-6" class="signal_text">x</text>
+  </g>
+  <path id="u_to_b" d="M 40 150 L 140 150" class="stroke path"/>
+  <path id="u_to_d" d="M 90 150 L  90  40 L 350 40" class="stroke path connector"/>
+  <path id="d_to_plus" d="M 420  40 L 685  40 L 685 120" class="stroke path"/>
+  <path id="int_to_a" d="M 485 150 L 485 260 L 430 260" class="stroke path connector"/>
+  <path id="a_to_plus" d="M 375 260 L 285 260 L 285 180" class="stroke path"/>
+  <path id="b_to_plus" d="M 210 150 L 255 150" class="stroke path"/>
+  <g transform="translate(300,150)">
+    <path id="plus_to_int" d="M 0 0 L 50 0" class="stroke path"/>
+    <text x="20" y="-6" class="signal_text">ẋ</text>
+  </g>
+  <path id="c_to_plus" d="M 610 150 L 655 150" class="stroke path"/>
+  <path id="plus_to_end" d="M 700 150 L 750 150" class="stroke path"/>
+  <g transform="translate(360,10)">
+    <use xlink:href="#block"/>
+    <text x="30" y="40" class="block_text">D</text>
+  </g>
+  <g transform="translate(360,120)">
+    <use xlink:href="#block"/>
+    <text x="30" y="40" class="block_text">∫</text>
+  </g>
+  <g transform="translate(360,230)">
+    <use xlink:href="#block"/>
+    <text x="30" y="40" class="block_text">A</text>
+  </g>
+  <g id="b" transform="translate(150, 120)">
+    <use xlink:href="#block"/>
+    <text x="30" y="40" class="block_text">B</text>
+  </g>
+  <g transform="translate(550, 120)">
+    <use xlink:href="#block"/>
+    <text x="30" y="40" class="block_text">C</text>
+  </g>
+  <g transform="translate(685, 150)">
+    <use xlink:href="#sum"/>
+    <use xlink:href="#sum_plus_center" x="0" y="-5"/>
+    <use xlink:href="#sum_plus_center" x="-11" y="5"/>
+  </g>
+  <g transform="translate(285, 150)">
+    <use xlink:href="#sum"/>
+    <use xlink:href="#sum_plus_center" x="0" y="15"/>
+    <use xlink:href="#sum_plus_center" x="-11" y="5"/>
+  </g>
+</svg>
