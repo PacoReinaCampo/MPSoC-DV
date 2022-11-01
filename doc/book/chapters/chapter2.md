@@ -34,7 +34,7 @@
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-* Structural UML diagrams
+* **Structural UML diagrams** (for Architecture and Interface)
   * Class diagram
   * Component diagram
   * Composite diagram
@@ -42,7 +42,7 @@
   * Object diagram
   * Package diagram
   * Profile diagram
-* Behavioral UML diagrams
+* **Behavioral UML diagrams** (for Functionality and Registers and Interrptions)
   * Activity diagram
   * Communication diagram
   * Interaction diagram
