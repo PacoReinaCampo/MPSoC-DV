@@ -353,16 +353,16 @@ spike pk MPSoC-riscv.elf
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-| Write Port | Read Port  |  Size            | Direction | Description                              |
-| ---------- | ---------- | ---------------- | --------- | ---------------------------------------- |
-| `WID`      | `RID`      | `AXI_ID_WIDTH`   | Output    | Data ID, to identify multiple streams    |
-| `WDATA`    | `RDATA`    | `AXI_DATA_WIDTH` | Output    | Read/Write data                          |
-|    `--`    | `RRESP`    |        2         | Output    | Read response, current RDATA status      |
-| `WSTRB`    |    `--`    | `AXI_STRB_WIDTH` | Output    | Byte strobe, WDATA signal                |
-| `WLAST`    | `RLAST`    |        1         | Output    | Last beat identifier                     |
-| `WUSER`    | `RUSER`    | `AXI_USER_WIDTH` | Output    | User-defined data                        |
-| `WVALID`   | `RVALID`   |        1         | Output    | xVALID handshake signal                  |
-| `WREADY`   | `RREADY`   |        1         | Input     | xREADY handshake signal                  |
+| Write Port | Read Port  |  Size            | Direction | Description                           |
+| ---------- | ---------- | ---------------- | --------- | ------------------------------------- |
+| `WID`      | `RID`      | `AXI_ID_WIDTH`   | Output    | Data ID, to identify multiple streams |
+| `WDATA`    | `RDATA`    | `AXI_DATA_WIDTH` | Output    | Read/Write data                       |
+|    `--`    | `RRESP`    |        2         | Output    | Read response, current RDATA status   |
+| `WSTRB`    |    `--`    | `AXI_STRB_WIDTH` | Output    | Byte strobe, WDATA signal             |
+| `WLAST`    | `RLAST`    |        1         | Output    | Last beat identifier                  |
+| `WUSER`    | `RUSER`    | `AXI_USER_WIDTH` | Output    | User-defined data                     |
+| `WVALID`   | `RVALID`   |        1         | Output    | xVALID handshake signal               |
+| `WREADY`   | `RREADY`   |        1         | Input     | xREADY handshake signal               |
 :Signals of the Read and Write Data channels
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
@@ -465,16 +465,16 @@ spike pk MPSoC-riscv.elf
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-| Write Port | Read Port  |  Size            | Direction | Description                              |
-| ---------- | ---------- | ---------------- | --------- | ---------------------------------------- |
-| `WID`      | `RID`      | `AXI_ID_WIDTH`   | Output    | Data ID, to identify multiple streams    |
-| `WDATA`    | `RDATA`    | `AXI_DATA_WIDTH` | Output    | Read/Write data                          |
-|    `--`    | `RRESP`    |        2         | Output    | Read response, current RDATA status      |
-| `WSTRB`    |    `--`    | `AXI_STRB_WIDTH` | Output    | Byte strobe, WDATA signal                |
-| `WLAST`    | `RLAST`    |        1         | Output    | Last beat identifier                     |
-| `WUSER`    | `RUSER`    | `AXI_USER_WIDTH` | Output    | User-defined data                        |
-| `WVALID`   | `RVALID`   |        1         | Output    | xVALID handshake signal                  |
-| `WREADY`   | `RREADY`   |        1         | Input     | xREADY handshake signal                  |
+| Write Port | Read Port  |  Size            | Direction | Description                           |
+| ---------- | ---------- | ---------------- | --------- | ------------------------------------- |
+| `WID`      | `RID`      | `AXI_ID_WIDTH`   | Output    | Data ID, to identify multiple streams |
+| `WDATA`    | `RDATA`    | `AXI_DATA_WIDTH` | Output    | Read/Write data                       |
+|    `--`    | `RRESP`    |        2         | Output    | Read response, current RDATA status   |
+| `WSTRB`    |    `--`    | `AXI_STRB_WIDTH` | Output    | Byte strobe, WDATA signal             |
+| `WLAST`    | `RLAST`    |        1         | Output    | Last beat identifier                  |
+| `WUSER`    | `RUSER`    | `AXI_USER_WIDTH` | Output    | User-defined data                     |
+| `WVALID`   | `RVALID`   |        1         | Output    | xVALID handshake signal               |
+| `WREADY`   | `RREADY`   |        1         | Input     | xREADY handshake signal               |
 :Signals of the Read and Write Data channels
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
