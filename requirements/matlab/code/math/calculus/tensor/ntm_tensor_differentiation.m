@@ -44,7 +44,7 @@
 ###################################################################################
 %}
 
-function DATA_OUT = ntm_matrix_differentiation(DATA_IN, LENGTH_I_IN, LENGTH_J_IN, LENGTH_K_IN, CONTROL)
+function DATA_OUT = ntm_tensor_differentiation(DATA_IN, LENGTH_I_IN, LENGTH_J_IN, LENGTH_K_IN, CONTROL)
   % Constants
   [SIZE_I_IN, SIZE_J_IN, SIZE_K_IN] = size(DATA_IN);
 

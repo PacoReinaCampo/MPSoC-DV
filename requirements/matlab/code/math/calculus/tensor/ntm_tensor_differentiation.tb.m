@@ -59,4 +59,4 @@ LENGTH_K_IN = 3;
 CONTROL = 1;
 
 % DUT
-DATA_OUT = ntm_matrix_differentiation(DATA_IN, LENGTH_I_IN, LENGTH_J_IN, LENGTH_K_IN, CONTROL);
+DATA_OUT = ntm_tensor_differentiation(DATA_IN, LENGTH_I_IN, LENGTH_J_IN, LENGTH_K_IN, CONTROL);
