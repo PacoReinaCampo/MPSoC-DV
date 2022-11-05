@@ -72,7 +72,7 @@ cd math/algebra/matrix; octave ntm_transpose_vector_product.tb.m; cd ../../..
 cd math/algebra/scalar; octave ntm_scalar_multiplication.tb.m; cd ../../..
 cd math/algebra/scalar; octave ntm_scalar_summation.tb.m; cd ../../..
 cd math/algebra/tensor; octave ntm_tensor_convolution.tb.m; cd ../../..
-#cd math/algebra/tensor; octave ntm_tensor_inverse.tb.m; cd ../../..
+cd math/algebra/tensor; octave ntm_tensor_inverse.tb.m; cd ../../..
 cd math/algebra/tensor; octave ntm_tensor_matrix_convolution.tb.m; cd ../../..
 cd math/algebra/tensor; octave ntm_tensor_matrix_product.tb.m; cd ../../..
 cd math/algebra/tensor; octave ntm_tensor_multiplication.tb.m; cd ../../..

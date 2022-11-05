@@ -49,7 +49,37 @@ function DATA_OUT = ntm_tensor_inverse(DATA_IN)
   [SIZE_I_IN, SIZE_J_IN, SIZE_K_IN] = size(DATA_IN);
 
   % Body
-  data_int = [DATA_IN eye(SIZE_I_IN, SIZE_J_IN, SIZE_K_IN)];
+  eye_3d = zeros(SIZE_I_IN, SIZE_J_IN, SIZE_K_IN);
+
+  for i = 1:SIZE_I_IN
+    for j = 1:SIZE_J_IN
+      for k = 1:SIZE_K_IN
+        if (i == j) && (j == k) && (k == i)
+          eye_3d(i, j, k) = 1;
+        else
+          eye_3d(i, j, k) = 0;
+        end
+      end
+    end
+  end
+
+  data_int = zeros(SIZE_I_IN, SIZE_J_IN, 2*SIZE_K_IN);
+
+  for i = 1:SIZE_I_IN
+    for j = 1:SIZE_J_IN
+      for k = 1:SIZE_K_IN
+        data_int(i, j, k) = DATA_IN(i, j, k);
+      end
+    end
+  end
+
+  for i = 1:SIZE_I_IN
+    for j = 1:SIZE_J_IN
+      for k = SIZE_K_IN + 1:2*SIZE_K_IN
+        data_int(i, j, k) = eye_3d(i, j, k-SIZE_K_IN);
+      end
+    end
+  end
 
   for i = 1:SIZE_I_IN
     data_int(i, :, :) = data_int(i, :, :)/data_int(i, i, i);
@@ -65,5 +95,5 @@ function DATA_OUT = ntm_tensor_inverse(DATA_IN)
     end
   end
 
-  DATA_OUT = data_int(:, SIZE_J_IN + 1:2*SIZE_J_IN, SIZE_K_IN + 1:2*SIZE_K_IN);
+  DATA_OUT = data_int(:, :, SIZE_K_IN + 1:2*SIZE_K_IN);
 end
