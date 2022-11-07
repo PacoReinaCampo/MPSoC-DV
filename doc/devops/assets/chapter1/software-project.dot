@@ -4,12 +4,12 @@ digraph Project {
   node[shape=record];
 
   // Blocks
-  Requirements[label="Requirements \n(PSL/UML) [Emacs]"];
-  Source[label="Source \n(Matlab/Rust/ADA/C) [Emacs]"];
-  Model[label="Software Model \n(C/C++/Go) [Emacs]"];
-  Validation[label="Software Validation \n(C/C++/Go) [GCC]"];
-  Design[label="Software Design \n(C/C++/Go) [Emacs]"];
-  Verification[label="Software Verification \n(C/C++/Go) [GCC]"];
+  Requirements[label="Requirements \n(Matlab/PSL/UML) [Emacs]"];
+  Source[label="Source \n(C/C++/Go/Rust) [Emacs]"];
+  Model[label="Software Model \n(C/C++/Go/Rust) [Emacs]"];
+  Validation[label="Software Validation \n(C/C++/Go/Rust) [GCC]"];
+  Design[label="Software Design \n(C/C++/Go/Rust) [Emacs]"];
+  Verification[label="Software Verification \n(C/C++/Go/Rust) [GCC]"];
   Quality[label="Quality Assurance \n(TeX) [Emacs]"];
   Certification[label="Certification \n(TeX) [Emacs]"];
   Lifecycle[label="Design Lifecycle Data \n(TeX) [Emacs]"];
@@ -26,7 +26,7 @@ digraph Project {
   Lifecycle -> Requirements;
 
   // Feedback
-  Validation -> Requirements;
-  Verification -> Requirements;
+  Validation -> Model;
+  Verification -> Design;
   Quality -> Requirements;
 }
