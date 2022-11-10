@@ -45,7 +45,7 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-procedure Hello is
+procedure ntm_scalar_logistic_function is
 begin
   Put_Line ("Hello QueenField!");
 end Hello;

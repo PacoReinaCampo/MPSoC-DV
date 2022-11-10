@@ -45,7 +45,7 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-procedure Hello is
+procedure ntm_lstm_forget_d_trainer is
 begin
   Put_Line ("Hello QueenField!");
 end Hello;

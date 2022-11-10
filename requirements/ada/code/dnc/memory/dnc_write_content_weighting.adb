@@ -45,7 +45,7 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-procedure Hello is
+procedure dnc_write_content_weighting is
 begin
   Put_Line ("Hello QueenField!");
 end Hello;
