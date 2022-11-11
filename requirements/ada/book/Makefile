@@ -9,7 +9,7 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              The UML Programming Language                                     ##
+##              The Ada Programming Language                                     ##
 ##              QueenField                                                       ##
 ##                                                                               ##
 ###################################################################################
@@ -49,14 +49,15 @@ EXPORTED_DOCS=\
  $(SOURCE_DOCS:.md=.html) \
  $(SOURCE_DOCS:.md=.pdf)  \
  $(SOURCE_DOCS:.md=.docx) \
- $(SOURCE_DOCS:.md=.odt)  \
  $(SOURCE_DOCS:.md=.epub)
 
 PANDOC_OPTIONS=-f markdown       \
     --table-of-contents          \
+    --toc-depth=6                \
     --number-sections            \
     --pdf-engine=xelatex         \
-    --highlight-style=monochrome \
+    -V lof=yes                   \
+    -V lot=yes                   \
     -V fontsize="10pt"           \
     -V documentclass=report      \
     -V papersize=A4              \
@@ -68,7 +69,6 @@ PANDOC_OPTIONS=-f markdown       \
 PANDOC_HTML_OPTIONS=--to html5
 PANDOC_PDF_OPTIONS=
 PANDOC_DOCX_OPTIONS=
-PANDOC_ODT_OPTIONS=
 PANDOC_EPUB_OPTIONS=--to epub3
 
 # Pattern-Matching Rules
@@ -82,12 +82,8 @@ PANDOC_EPUB_OPTIONS=--to epub3
 %.docx : %.md
 	pandoc -s $(shell cat $<) $(PANDOC_OPTIONS) $(PANDOC_DOCX_OPTIONS) -o $@
 
-%.odt : %.md
-	pandoc -s $(shell cat $<) $(PANDOC_OPTIONS) $(PANDOC_ODT_OPTIONS) -o $@
-
 %.epub : %.md
 	pandoc -s $(shell cat $<) $(PANDOC_OPTIONS) $(PANDOC_EPUB_OPTIONS) -o $@
-
 
 all : $(EXPORTED_DOCS)
 
