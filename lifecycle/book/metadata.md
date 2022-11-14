@@ -4,5 +4,5 @@ subtitle: 'QueenField ![](assets/front/open-source-hardware.svg){width=17cm}'
 
 author: Paco Reina Campo
 
-abstract: Certification. DO-254.
+abstract: Hardware Certification. DO-254.
 ---
