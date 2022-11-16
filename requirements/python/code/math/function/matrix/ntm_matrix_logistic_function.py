@@ -42,4 +42,19 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np 
+
+def ntm_matrix_logistic_function(data_in):
+
+  data_input = np.array(data_in)
+
+  ones = np.ones(data_input.shape)
+
+  # calculating result
+  return (ones/(ones + ones/np.exp(data_input)))
+
+data_in = [[6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [4.3132651822261687, 5.3132616875182226, 6.6931471805599454], [9.9982079678583020, 7.9581688450893644, 2.9997639589554603]]
+
+data_out = [[0.9982079678583020, 0.9581688450893644, 0.9997639589554603], [0.9867871586112067, 0.9950983109503272, 0.9987621580633643], [0.9999545207076224, 0.9996503292557579, 0.9525634621372647]]
+
+np.testing.assert_array_equal(ntm_matrix_logistic_function(data_in), data_out)

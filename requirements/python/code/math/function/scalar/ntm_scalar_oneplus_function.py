@@ -42,4 +42,17 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import math
+
+def ntm_scalar_oneplus_function(data_in):
+  # calculating result
+  return (1 + math.log(1 + math.exp(data_in)))
+  
+data_in_0 = 0.8909031788043871
+data_in_1 = 3.2155195231797550
+
+data_out_0 = 2.2346950078883427
+data_out_1 = 4.2548695333728740
+
+assert ntm_scalar_oneplus_function(data_in_0) == data_out_0
+assert ntm_scalar_oneplus_function(data_in_1) == data_out_1

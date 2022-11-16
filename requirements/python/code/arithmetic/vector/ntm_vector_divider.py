@@ -42,4 +42,19 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np 
+
+def ntm_vector_divider(data_a_in, data_b_in):
+
+  a_in = np.array(data_a_in) 
+  b_in = np.array(data_b_in) 
+
+  # calculating division
+  return (a_in / b_in)
+  
+data_a_in = [2.0, 0.0, 4.0]
+data_b_in = [1.0, 1.0, 2.0]
+
+data_out = [2.0, 0.0, 2.0]
+
+np.testing.assert_array_equal(ntm_vector_divider(data_a_in, data_b_in), data_out)
