@@ -179,15 +179,15 @@ code
 │       └── ntm_writing.py
 ├── state
 │   ├── feedback
-│   │   ├── ntm_state_matrix_feedforward.py
-│   │   ├── ntm_state_matrix_input.py
-│   │   ├── ntm_state_matrix_output.py
-│   │   └── ntm_state_matrix_state.py
+│   │   ├── *ntm_state_matrix_feedforward.py*
+│   │   ├── *ntm_state_matrix_input.py*
+│   │   ├── *ntm_state_matrix_output.py*
+│   │   └── *ntm_state_matrix_state.py*
 │   ├── outputs
-│   │   ├── ntm_state_vector_output.py
-│   │   └── ntm_state_vector_state.py
+│   │   ├── *ntm_state_vector_output.py*
+│   │   └── *ntm_state_vector_state.py*
 │   └── top
-│       └── ntm_state_top.py
+│       └── *ntm_state_top.py*
 └── trainer
     ├── differentiation
     │   ├── ntm_matrix_controller_differentiation.py

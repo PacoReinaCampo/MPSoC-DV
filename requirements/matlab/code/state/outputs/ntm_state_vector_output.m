@@ -44,7 +44,6 @@
 ###################################################################################
 %}
 
-
 function DATA_Y_OUT = ntm_state_vector_output(DATA_K_IN, DATA_A_IN, DATA_B_IN, DATA_C_IN, DATA_D_IN, DATA_U_IN, INITIAL_X, k)
   % Package
   addpath(genpath('../feedback'));

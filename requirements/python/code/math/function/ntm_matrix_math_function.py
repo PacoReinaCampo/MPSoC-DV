@@ -16,7 +16,7 @@
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2020-2024 by the author(s)                                      ##
+## Copyright (c) 2022-2023 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,19 +42,46 @@
 ##                                                                               ##
 ###################################################################################
 
-def data_x_out = ntm_state_vector_state(data_k_in, data_a_in, data_b_in, data_c_in, data_d_in, data_u_in, initial_x, k)
-  # Package
+import numpy as np 
 
-  # Body
-  # x(k) = exp(A,k)·x(0) + summation(exp(A,k-j-1)·B·u(j))[j in 0 to k-1]
-  data_a_out = ntm_state_matrix_state(data_k_in, data_a_in, data_b_in, data_c_in, data_d_in);
-  data_b_out = ntm_state_matrix_input(data_k_in, data_b_in, data_d_in);
-  data_c_out = ntm_state_matrix_output(data_k_in, data_c_in, data_d_in);
+class MatrixMathFunction:
+  def __init__(self, data_in):
+    self.data_in = data_in
 
-  data_x_out = (data_a_out^k)*initial_x;
+  def ntm_matrix_logistic_function(self):
+    inputs = np.array(self.data_in)
 
-  for j = 1:k
-    data_x_out = data_x_out + data_c_out*(data_a_out^(k-j-1))*data_b_out*data_u_in(:, k);
-  end
+    ones = np.ones(inputs.shape)
 
-  return data_x_out;
+    # calculating logistic
+    return (ones/(ones + ones/np.exp(inputs)))
+
+  def ntm_matrix_oneplus_function(self):
+    inputs = np.array(self.data_in)
+
+    ones = np.ones(inputs.shape)
+
+    # calculating oneplus
+    return (ones + np.log(ones + np.exp(inputs)))
+
+
+data_in_0 = [[6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [4.3132651822261687, 5.3132616875182226, 6.6931471805599454], [9.9982079678583020, 7.9581688450893644, 2.9997639589554603]]
+data_in_1 = [[6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [4.3132651822261687, 5.3132616875182226, 6.6931471805599454], [9.9982079678583020, 7.9581688450893644, 2.9997639589554603]]
+
+
+math_function_0 = MatrixMathFunction(data_in_0)
+math_function_1 = MatrixMathFunction(data_in_1)
+
+
+logistic_data_out_0 = [[0.9982079678583020, 0.9581688450893644, 0.9997639589554603], [0.9867871586112067, 0.9950983109503272, 0.9987621580633643], [0.9999545207076224, 0.9996503292557579, 0.9525634621372647]]
+logistic_data_out_1 = [[0.9982079678583020, 0.9581688450893644, 0.9997639589554603], [0.9867871586112067, 0.9950983109503272, 0.9987621580633643], [0.9999545207076224, 0.9996503292557579, 0.9525634621372647]]
+
+oneplus_data_out_0 = [[7.324405028374851, 4.174113884283648, 9.351504850519834], [5.326566089800315, 6.318175429247454, 7.694385789255728], [10.998253448184894, 8.958518576982677, 4.048362506240452]]
+oneplus_data_out_1 = [[7.324405028374851, 4.174113884283648, 9.351504850519834], [5.326566089800315, 6.318175429247454, 7.694385789255728], [10.998253448184894, 8.958518576982677, 4.048362506240452]]
+
+
+np.testing.assert_array_equal(math_function_0.ntm_matrix_logistic_function(), logistic_data_out_0)
+np.testing.assert_array_equal(math_function_1.ntm_matrix_logistic_function(), logistic_data_out_1)
+
+np.testing.assert_array_equal(math_function_0.ntm_matrix_oneplus_function(), oneplus_data_out_0)
+np.testing.assert_array_equal(math_function_1.ntm_matrix_oneplus_function(), oneplus_data_out_1)

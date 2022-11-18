@@ -16,7 +16,7 @@
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2020-2024 by the author(s)                                      ##
+## Copyright (c) 2022-2023 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,19 +42,38 @@
 ##                                                                               ##
 ###################################################################################
 
-def data_x_out = ntm_state_vector_state(data_k_in, data_a_in, data_b_in, data_c_in, data_d_in, data_u_in, initial_x, k)
-  # Package
+import math
 
-  # Body
-  # x(k) = exp(A,k)·x(0) + summation(exp(A,k-j-1)·B·u(j))[j in 0 to k-1]
-  data_a_out = ntm_state_matrix_state(data_k_in, data_a_in, data_b_in, data_c_in, data_d_in);
-  data_b_out = ntm_state_matrix_input(data_k_in, data_b_in, data_d_in);
-  data_c_out = ntm_state_matrix_output(data_k_in, data_c_in, data_d_in);
+class ScalarMathFunction:
+  def __init__(self, data_in):
+    self.data_in = data_in
 
-  data_x_out = (data_a_out^k)*initial_x;
+  def ntm_scalar_logistic_function(self):
+    # calculating addition
+    return (1/(1 + 1/math.exp(self.data_in)))
 
-  for j = 1:k
-    data_x_out = data_x_out + data_c_out*(data_a_out^(k-j-1))*data_b_out*data_u_in(:, k);
-  end
+  def ntm_scalar_oneplus_function(self):
+    # calculating oneplus
+    return (1 + math.log(1 + math.exp(self.data_in)))
 
-  return data_x_out;
+
+data_in_0 = 0.8909031788043871
+data_in_1 = 3.2155195231797550
+
+
+math_function_0 = ScalarMathFunction(data_in_0)
+math_function_1 = ScalarMathFunction(data_in_1)
+
+
+logistic_data_out_0 = 0.7090765217957029
+logistic_data_out_1 = 0.9614141454987156
+
+oneplus_data_out_0 = 0.8909031788043871
+oneplus_data_out_0 = 3.2155195231797550
+
+
+assert math_function_0.ntm_scalar_logistic_function() == logistic_data_out_0
+assert math_function_1.ntm_scalar_logistic_function() == logistic_data_out_1
+
+assert math_function_0.ntm_scalar_oneplus_function() == oneplus_data_out_0
+assert math_function_1.ntm_scalar_oneplus_function() == oneplus_data_out_1

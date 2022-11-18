@@ -1,0 +1,4 @@
+python3 arithmetic/ntm_matrix_arithmetic.py
+python3 arithmetic/ntm_scalar_arithmetic.py
+python3 arithmetic/ntm_tensor_arithmetic.py
+python3 arithmetic/ntm_vector_arithmetic.py

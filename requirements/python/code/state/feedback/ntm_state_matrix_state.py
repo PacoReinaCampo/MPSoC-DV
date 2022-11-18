@@ -16,7 +16,7 @@
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2023 by the author(s)                                      ##
+## Copyright (c) 2020-2024 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,4 +42,29 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+def data_a_out = ntm_state_matrix_state(data_k_in, data_a_in, data_b_in, data_c_in, data_d_in)
+  # Package
+
+  # Constants
+  # SIZE: A[N,N]; B[N,P]; C[Q,N]; D[Q,P];
+  # SIZE: K[P,P]; x[N,1]; y[Q,1]; u[P,1];
+
+  [SIZE_D_I_IN, SIZE_D_J_IN] = size(data_d_in);
+
+  # Body
+  # a = A-B·K·inv(I + D·K)·C
+  matrix_operation_int = ntm_matrix_product(data_d_in, data_k_in);
+
+  matrix_operation_int = ntm_matrix_adder(ntm_matrix_eye(SIZE_D_I_IN, SIZE_D_J_IN), matrix_operation_int);
+
+  matrix_operation_int = ntm_matrix_inverse(matrix_operation_int);
+
+  matrix_operation_int = ntm_matrix_product(matrix_operation_int, data_c_in);
+
+  matrix_operation_int = ntm_matrix_product(data_k_in, matrix_operation_int);
+
+  matrix_operation_int = ntm_matrix_product(data_b_in, matrix_operation_int);
+
+  data_a_out = ntm_matrix_adder(data_a_in, matrix_operation_int);
+
+  return data_a_out;

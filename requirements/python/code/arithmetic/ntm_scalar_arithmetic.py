@@ -16,7 +16,7 @@
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2020-2024 by the author(s)                                      ##
+## Copyright (c) 2022-2023 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,19 +42,40 @@
 ##                                                                               ##
 ###################################################################################
 
-def data_x_out = ntm_state_vector_state(data_k_in, data_a_in, data_b_in, data_c_in, data_d_in, data_u_in, initial_x, k)
-  # Package
+class ScalarArithmetic:
+  def __init__(self, data_a_in, data_b_in):
+    self.data_a_in = data_a_in
+    self.data_b_in = data_b_in
 
-  # Body
-  # x(k) = exp(A,k)·x(0) + summation(exp(A,k-j-1)·B·u(j))[j in 0 to k-1]
-  data_a_out = ntm_state_matrix_state(data_k_in, data_a_in, data_b_in, data_c_in, data_d_in);
-  data_b_out = ntm_state_matrix_input(data_k_in, data_b_in, data_d_in);
-  data_c_out = ntm_state_matrix_output(data_k_in, data_c_in, data_d_in);
+  def ntm_scalar_adder(self):
+    # calculating addition
+    return (self.data_a_in + self.data_b_in)
 
-  data_x_out = (data_a_out^k)*initial_x;
+  def ntm_scalar_multiplier(self):
+    # calculating multiplication
+    return (self.data_a_in * self.data_b_in)
 
-  for j = 1:k
-    data_x_out = data_x_out + data_c_out*(data_a_out^(k-j-1))*data_b_out*data_u_in(:, k);
-  end
+  def ntm_scalar_divider(self):
+    # calculating division
+    return (self.data_a_in / self.data_b_in)
 
-  return data_x_out;
+
+data_a_in = 48.0
+data_b_in = 16.0
+
+
+arithmetic = ScalarArithmetic(data_a_in, data_b_in)
+
+
+addition_data_out = 64.0
+
+multiplication_data_out = 768.0
+
+division_data_out = 3.0
+
+
+assert arithmetic.ntm_scalar_adder() == addition_data_out
+
+assert arithmetic.ntm_scalar_multiplier() == multiplication_data_out
+
+assert arithmetic.ntm_scalar_divider() == division_data_out
