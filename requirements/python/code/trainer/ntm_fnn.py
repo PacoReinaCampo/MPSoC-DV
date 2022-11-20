@@ -44,17 +44,49 @@
 
 import numpy as np 
 
-def ntm_matrix_oneplus_function(data_in):
+class MatrixArithmetic:
+  def __init__(self, data_a_in, data_b_in):
+    self.data_a_in = data_a_in
+    self.data_b_in = data_b_in
 
-  data_input = np.array(data_in)
+  def ntm_matrix_adder(self):
+    a_in = np.array(self.data_a_in)
+    b_in = np.array(self.data_b_in)
 
-  ones = np.ones(data_input.shape)
+    # calculating addition
+    return (a_in + b_in)
 
-  # calculating result
-  return (ones + np.log(ones + np.exp(data_input)))
+  def ntm_matrix_multiplier(self):
+    a_in = np.array(self.data_a_in)
+    b_in = np.array(self.data_b_in)
 
-data_in = [[6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [6.3226113886226751, 3.1313826152262876, 8.3512687816132226]]
+    # calculating multiplication
+    return (a_in * b_in)
 
-data_out = [[7.324405028374851, 4.174113884283648, 9.351504850519834], [7.324405028374851, 4.174113884283648, 9.351504850519834], [7.324405028374851, 4.174113884283648, 9.351504850519834]]
+  def ntm_matrix_divider(self):
+    a_in = np.array(self.data_a_in)
+    b_in = np.array(self.data_b_in)
 
-np.testing.assert_array_equal(ntm_matrix_oneplus_function(data_in), data_out)
+    # calculating division
+    return (a_in / b_in)
+
+
+data_a_in = [[2.0, 0.0, 4.0], [2.0, 0.0, 4.0], [2.0, 0.0, 4.0]]
+data_b_in = [[1.0, 1.0, 2.0], [1.0, 1.0, 2.0], [1.0, 1.0, 2.0]]
+
+
+arithmetic = MatrixArithmetic(data_a_in, data_b_in)
+
+
+addition_data_out = [[3.0, 1.0, 6.0], [3.0, 1.0, 6.0], [3.0, 1.0, 6.0]]
+
+multiplication_data_out = [[2.0, 0.0, 8.0], [2.0, 0.0, 8.0], [2.0, 0.0, 8.0]]
+
+division_data_out = [[2.0, 0.0, 2.0], [2.0, 0.0, 2.0], [2.0, 0.0, 2.0]]
+
+
+np.testing.assert_array_equal(arithmetic.ntm_matrix_adder(), addition_data_out)
+
+np.testing.assert_array_equal(arithmetic.ntm_matrix_multiplier(), multiplication_data_out)
+
+np.testing.assert_array_equal(arithmetic.ntm_matrix_divider(), division_data_out)

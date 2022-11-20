@@ -42,19 +42,4 @@
 ##                                                                               ##
 ###################################################################################
 
-import numpy as np 
-
-def ntm_matrix_oneplus_function(data_in):
-
-  data_input = np.array(data_in)
-
-  ones = np.ones(data_input.shape)
-
-  # calculating result
-  return (ones + np.log(ones + np.exp(data_input)))
-
-data_in = [[6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [6.3226113886226751, 3.1313826152262876, 8.3512687816132226]]
-
-data_out = [[7.324405028374851, 4.174113884283648, 9.351504850519834], [7.324405028374851, 4.174113884283648, 9.351504850519834], [7.324405028374851, 4.174113884283648, 9.351504850519834]]
-
-np.testing.assert_array_equal(ntm_matrix_oneplus_function(data_in), data_out)
+print('Hello, world!')

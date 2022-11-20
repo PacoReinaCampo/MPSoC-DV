@@ -42,19 +42,40 @@
 ##                                                                               ##
 ###################################################################################
 
-import numpy as np 
+class ScalarArithmetic:
+  def __init__(self, data_a_in, data_b_in):
+    self.data_a_in = data_a_in
+    self.data_b_in = data_b_in
 
-def ntm_matrix_oneplus_function(data_in):
+  def ntm_scalar_adder(self):
+    # calculating addition
+    return (self.data_a_in + self.data_b_in)
 
-  data_input = np.array(data_in)
+  def ntm_scalar_multiplier(self):
+    # calculating multiplication
+    return (self.data_a_in * self.data_b_in)
 
-  ones = np.ones(data_input.shape)
+  def ntm_scalar_divider(self):
+    # calculating division
+    return (self.data_a_in / self.data_b_in)
 
-  # calculating result
-  return (ones + np.log(ones + np.exp(data_input)))
 
-data_in = [[6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [6.3226113886226751, 3.1313826152262876, 8.3512687816132226]]
+data_a_in = 48.0
+data_b_in = 16.0
 
-data_out = [[7.324405028374851, 4.174113884283648, 9.351504850519834], [7.324405028374851, 4.174113884283648, 9.351504850519834], [7.324405028374851, 4.174113884283648, 9.351504850519834]]
 
-np.testing.assert_array_equal(ntm_matrix_oneplus_function(data_in), data_out)
+arithmetic = ScalarArithmetic(data_a_in, data_b_in)
+
+
+addition_data_out = 64.0
+
+multiplication_data_out = 768.0
+
+division_data_out = 3.0
+
+
+assert arithmetic.ntm_scalar_adder() == addition_data_out
+
+assert arithmetic.ntm_scalar_multiplier() == multiplication_data_out
+
+assert arithmetic.ntm_scalar_divider() == division_data_out

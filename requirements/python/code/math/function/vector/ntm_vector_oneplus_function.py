@@ -53,11 +53,8 @@ def ntm_vector_oneplus_function(data_in):
   # calculating result
   return (ones + np.log(ones + np.exp(data_input)))
 
-data_in_0 = [6.3226113886226751, 3.1313826152262876, 8.3512687816132226]
-data_in_1 = [4.3132651822261687, 5.3132616875182226, 6.6931471805599454]
+data_in = [6.3226113886226751, 3.1313826152262876, 8.3512687816132226]
 
-data_out_0 = [7.324405028374851, 4.174113884283648, 9.351504850519834]
-data_out_1 = [5.326566089800315, 6.318175429247454, 7.694385789255728]
+data_out = [7.324405028374851, 4.174113884283648, 9.351504850519834]
 
-np.testing.assert_array_equal(ntm_vector_oneplus_function(data_in_0), data_out_0)
-np.testing.assert_array_equal(ntm_vector_oneplus_function(data_in_1), data_out_1)
+np.testing.assert_array_equal(ntm_vector_oneplus_function(data_in), data_out)

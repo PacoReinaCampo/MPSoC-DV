@@ -68,8 +68,8 @@ math_function_1 = ScalarMathFunction(data_in_1)
 logistic_data_out_0 = 0.7090765217957029
 logistic_data_out_1 = 0.9614141454987156
 
-oneplus_data_out_0 = 0.8909031788043871
-oneplus_data_out_0 = 3.2155195231797550
+oneplus_data_out_0 = 2.2346950078883427
+oneplus_data_out_1 = 4.2548695333728740
 
 
 assert math_function_0.ntm_scalar_logistic_function() == logistic_data_out_0
