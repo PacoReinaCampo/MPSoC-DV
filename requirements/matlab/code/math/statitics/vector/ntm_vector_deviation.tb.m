@@ -49,9 +49,15 @@ SIZE_IN = 3;
 LENGTH_IN = 3;
 
 % Signals
-MEAN_IN = rand(SIZE_IN, 1);
+DATA_IN_0 = [3.0, 2.0, 2.0; 0.0, 2.0, 0.0; 5.0, 4.0, 1.0];
+DATA_IN_1 = [1.0, 0.0, 0.0; 0.0, 1.0, 0.0; 0.0, 0.0, 1.0];
 
-DATA_IN = rand(SIZE_IN, LENGTH_IN);
+MEAN_0 = [11.0; 12.0; 10.0];
+MEAN_1 = [10.0; 11.0; 12.0];
+
+DATA_OUT_0 = [8.679477710861024; 11.372481406154654; 6.879922480183431];
+DATA_OUT_1 = [9.678154093971983; 10.677078252031311; 11.67618659209133];
 
 % DUT
-DATA_OUT = ntm_vector_deviation(DATA_IN, MEAN_IN);
+assert(ntm_vector_deviation(DATA_IN_0, MEAN_0), DATA_OUT_0);
+assert(ntm_vector_deviation(DATA_IN_1, MEAN_1), DATA_OUT_1);

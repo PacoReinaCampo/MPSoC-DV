@@ -49,7 +49,12 @@ SIZE_IN = 3;
 LENGTH_IN = 3;
 
 % Signals
-DATA_IN = rand(SIZE_IN, LENGTH_IN);
+DATA_IN_0 = [3.0, 1.0, 2.0; 1.0, 2.0, 0.0; 5.0, 3.0, 4.0];
+DATA_IN_1 = [1.0, 1.0, 1.0; 1.0, 1.0, 1.0; 1.0, 1.0, 1.0];
+
+DATA_OUT_0 = [2.0; 1.0; 4.0];
+DATA_OUT_1 = [1.0; 1.0; 1.0];
 
 % DUT
-DATA_OUT = ntm_vector_mean(DATA_IN);
+assert(ntm_vector_mean(DATA_IN_0), DATA_OUT_0);
+assert(ntm_vector_mean(DATA_IN_1), DATA_OUT_1);

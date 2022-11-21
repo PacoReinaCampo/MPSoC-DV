@@ -50,9 +50,20 @@ SIZE_J_IN = 3;
 LENGTH_IN = 3;
 
 % Signals
-MEAN_IN = rand(SIZE_I_IN, SIZE_J_IN);
+DATA_IN_0(:,:,1) = [3.0, 2.0, 2.0; 0.0, 2.0, 0.0; 5.0, 4.0, 1.0];
+DATA_IN_0(:,:,2) = [3.0, 2.0, 2.0; 0.0, 2.0, 0.0; 5.0, 4.0, 1.0];
+DATA_IN_0(:,:,3) = [3.0, 2.0, 2.0; 0.0, 2.0, 0.0; 5.0, 4.0, 1.0];
 
-DATA_IN = rand(SIZE_I_IN, SIZE_J_IN, LENGTH_IN);
+DATA_IN_1(:,:,1) = [0.0, 2.0, 0.0; 3.0, 2.0, 2.0; 5.0, 4.0, 1.0];
+DATA_IN_1(:,:,2) = [0.0, 2.0, 0.0; 3.0, 2.0, 2.0; 5.0, 4.0, 1.0];
+DATA_IN_1(:,:,3) = [0.0, 2.0, 0.0; 3.0, 2.0, 2.0; 5.0, 4.0, 1.0];
+
+MEAN_0 = [11.0, 12.0, 10.0; 11.0, 12.0, 10.0; 11.0, 12.0, 10.0];
+MEAN_1 = [12.0, 10.0, 11.0; 12.0, 10.0, 11.0; 12.0, 10.0, 11.0];
+
+DATA_OUT_0 = [ 8.0, 10.0,  8.0; 11.0, 10.0, 10.0; 6.0, 8.0,  9.0];
+DATA_OUT_1 = [12.0,  8.0, 11.0;  9.0,  8.0,  9.0; 7.0, 6.0, 10.0];
 
 % DUT
-DATA_OUT = ntm_matrix_deviation(DATA_IN, MEAN_IN);
+assert(ntm_matrix_deviation(DATA_IN_0, MEAN_0), DATA_OUT_0);
+assert(ntm_matrix_deviation(DATA_IN_1, MEAN_1), DATA_OUT_1);

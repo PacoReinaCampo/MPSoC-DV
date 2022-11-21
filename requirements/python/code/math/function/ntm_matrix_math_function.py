@@ -71,6 +71,7 @@ oneplus_data_in = [[6.3226113886226751, 3.1313826152262876, 8.3512687816132226],
 
 
 math_logistic_function = MatrixMathFunction(logistic_data_in);
+
 math_oneplus_function = MatrixMathFunction(oneplus_data_in);
 
 
