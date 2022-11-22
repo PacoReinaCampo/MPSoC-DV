@@ -42,4 +42,40 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np 
+
+class VectorMathStatitics:
+  def __init__(self, data_in):
+    self.data_in = data_in
+
+  def ntm_vector_mean(self):
+    inputs = np.array(self.data_in)
+
+    ones = np.ones(inputs.shape)
+
+    # calculating mean
+    return (ones/(ones + ones/np.exp(inputs)))
+
+  def ntm_vector_deviation(self):
+    inputs = np.array(self.data_in)
+
+    ones = np.ones(inputs.shape)
+
+    # calculating deviation
+    return (ones + np.log(ones + np.exp(inputs)))
+
+
+data_in = [6.3226113886226751, 3.1313826152262876, 8.3512687816132226]
+
+
+math_function = VectorMathStatitics(data_in)
+
+
+mean_data_out = [0.9982079678583020, 0.9581688450893644, 0.9997639589554603]
+
+deviation_data_out = [7.324405028374851, 4.174113884283648, 9.351504850519834]
+
+
+np.testing.assert_array_equal(math_function.ntm_vector_mean(), mean_data_out)
+
+np.testing.assert_array_equal(math_function.ntm_vector_deviation(), deviation_data_out)

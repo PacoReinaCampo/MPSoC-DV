@@ -48,12 +48,12 @@
 LENGTH_IN = 3;
 
 % Signals
-DATA_IN_0 = [ 3.0, 2.0, 2.0 ];
-DATA_IN_1 = [ 1.0, 2.0, 1.0 ];
+DATA_IN_0 = [ 3.0, 3.0, 3.0 ];
+DATA_IN_1 = [ 2.0, 2.0, 2.0 ];
 
 % DUT
-DATA_OUT_0 = 7.681145747868608;
-DATA_OUT_1 = 8.679477710861024;
+DATA_OUT_0 =  8.0;
+DATA_OUT_1 = 10.0;
 
-assert(ntm_scalar_deviation(DATA_IN_0, 10.0), DATA_OUT_0);
-assert(ntm_scalar_deviation(DATA_IN_1, 10.0), DATA_OUT_1);
+assert(ntm_scalar_deviation(DATA_IN_0, 11.0), DATA_OUT_0);
+assert(ntm_scalar_deviation(DATA_IN_1, 12.0), DATA_OUT_1);

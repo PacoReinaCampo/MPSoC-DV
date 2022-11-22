@@ -42,4 +42,44 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np 
+
+class MatrixMathStatitics:
+  def __init__(self, data_in):
+    self.data_in = data_in
+
+  def ntm_matrix_mean(self):
+    inputs = np.array(self.data_in)
+
+    ones = np.ones(inputs.shape)
+
+    # calculating mean
+    return (ones/(ones + ones/np.exp(inputs)))
+
+  def ntm_matrix_deviation(self):
+    inputs = np.array(self.data_in)
+
+    ones = np.ones(inputs.shape)
+
+    # calculating deviation
+    return (ones + np.log(ones + np.exp(inputs)))
+
+
+mean_data_in = [[6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [4.3132651822261687, 5.3132616875182226, 6.6931471805599454], [9.9982079678583020, 7.9581688450893644, 2.9997639589554603]]
+
+deviation_data_in = [[6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [6.3226113886226751, 3.1313826152262876, 8.3512687816132226]]
+
+
+math_mean = MatrixMathStatitics(mean_data_in);
+
+math_deviation = MatrixMathStatitics(deviation_data_in);
+
+
+mean_data_out = [[0.9982079678583020, 0.9581688450893644, 0.9997639589554603], [0.9867871586112067, 0.9950983109503272, 0.9987621580633643], [0.9999545207076224, 0.9996503292557579, 0.9525634621372647]]
+
+deviation_data_out = [[7.324405028374851, 4.174113884283648, 9.351504850519834], [7.324405028374851, 4.174113884283648, 9.351504850519834], [7.324405028374851, 4.174113884283648, 9.351504850519834]]
+
+
+np.testing.assert_array_equal(math_mean.ntm_matrix_mean(), mean_data_out)
+
+np.testing.assert_array_equal(math_deviation.ntm_matrix_deviation(), deviation_data_out)

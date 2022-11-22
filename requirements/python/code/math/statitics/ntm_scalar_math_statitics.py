@@ -42,4 +42,38 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import math
+
+class ScalarMathStatitics:
+  def __init__(self, data_in):
+    self.data_in = data_in
+
+  def ntm_scalar_mean(self):
+    # calculating addition
+    return (1/(1 + 1/math.exp(self.data_in)))
+
+  def ntm_scalar_deviation(self):
+    # calculating deviation
+    return (1 + math.log(1 + math.exp(self.data_in)))
+
+
+data_in_0 = 0.8909031788043871
+data_in_1 = 3.2155195231797550
+
+
+math_function_0 = ScalarMathStatitics(data_in_0)
+math_function_1 = ScalarMathStatitics(data_in_1)
+
+
+mean_data_out_0 = 0.7090765217957029
+mean_data_out_1 = 0.9614141454987156
+
+deviation_data_out_0 = 2.2346950078883427
+deviation_data_out_1 = 4.2548695333728740
+
+
+assert math_function_0.ntm_scalar_mean() == mean_data_out_0
+assert math_function_1.ntm_scalar_mean() == mean_data_out_1
+
+assert math_function_0.ntm_scalar_deviation() == deviation_data_out_0
+assert math_function_1.ntm_scalar_deviation() == deviation_data_out_1
