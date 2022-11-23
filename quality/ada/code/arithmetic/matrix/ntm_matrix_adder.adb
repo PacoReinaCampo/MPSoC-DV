@@ -46,6 +46,43 @@ with Ada.Text_IO;
 use Ada.Text_IO;
 
 procedure ntm_matrix_adder is
+
+  SIZE_I_IN : constant integer := 3;
+  SIZE_J_IN : constant integer := 3;
+
+  type i_Index is range 1 .. SIZE_I_IN;
+  type j_Index is range 1 .. SIZE_J_IN;
+
+  type matrix is array (i_Index, j_Index) of float;
+
+  data_a_in : matrix := ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0));
+  data_b_in : matrix := ((1.0, 1.0, 2.0), (1.0, 1.0, 2.0), (1.0, 1.0, 2.0));
+
+  data_out : matrix;
+
+  procedure matrix_adder (
+    data_a_in : matrix;
+    data_b_in : matrix
+  ) is
+  begin
+    for i in i_index loop
+      for j in j_index loop
+        data_out(i, j) := data_a_in(i, j) + data_b_in(i, j);
+      end loop;
+    end loop;
+
+  end matrix_adder;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  matrix_adder(data_a_in, data_b_in);
+
+  for i in i_index loop
+    for j in j_index loop
+      Put(float'Image(data_out(i, j)));
+    end loop;
+
+    New_Line;
+  end loop;
+
+end ntm_matrix_adder;

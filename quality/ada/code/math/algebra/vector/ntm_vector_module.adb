@@ -45,7 +45,45 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
+with Ada.Numerics;
+use Ada.Numerics;
+
+with Ada.Numerics.Elementary_Functions;
+use Ada.Numerics.Elementary_Functions;
+
 procedure ntm_vector_module is
+
+  SIZE_IN : constant integer := 3;
+
+  type index is range 1 .. SIZE_IN;
+ 
+  type vector is array (index) of float;
+
+  data_in : vector := (4.0, 0.0, 3.0);
+ 
+  data_out : float;
+
+  procedure vector_module (
+    data_in : vector
+  ) is
+  begin
+
+    data_out := 0.0;
+
+    for i in index loop
+      data_out := data_out + data_in(i) * data_in(i);
+    end loop;
+
+    data_out := sqrt(data_out);
+
+  end vector_module;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  vector_module(data_in);
+
+  Put(float'Image(data_out));
+
+  New_Line;
+
+end ntm_vector_module;

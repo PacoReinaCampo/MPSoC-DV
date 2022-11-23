@@ -1,3 +1,5 @@
+rm -rf *.ali *.o
+
 rm -rf arithmetic/matrix/ntm_matrix_adder.run
 rm -rf arithmetic/matrix/ntm_matrix_divider.run
 rm -rf arithmetic/matrix/ntm_matrix_multiplier.run

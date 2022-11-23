@@ -48,4 +48,4 @@ use Ada.Text_IO;
 procedure ntm_matrix_multiplication is
 begin
   Put_Line ("Hello QueenField!");
-end Hello;
+end ntm_matrix_multiplication;

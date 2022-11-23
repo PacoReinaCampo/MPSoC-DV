@@ -46,6 +46,26 @@ with Ada.Text_IO;
 use Ada.Text_IO;
 
 procedure ntm_scalar_multiplier is
+
+  data_a_in : float := 48.0;
+  data_b_in : float := 16.0;
+ 
+  data_out : float;
+
+  procedure scalar_multiplier (
+    data_a_in : float;
+    data_b_in : float
+  ) is
+  begin
+      data_out := data_a_in * data_b_in;
+  end scalar_multiplier;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  scalar_multiplier(data_a_in, data_b_in);
+
+  Put(float'Image(data_out));
+
+  New_Line;
+
+end ntm_scalar_multiplier;

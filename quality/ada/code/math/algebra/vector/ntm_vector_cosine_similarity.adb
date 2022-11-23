@@ -45,7 +45,57 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
+with Ada.Numerics;
+use Ada.Numerics;
+
+with Ada.Numerics.Elementary_Functions;
+use Ada.Numerics.Elementary_Functions;
+
 procedure ntm_vector_cosine_similarity is
+
+  SIZE_IN : constant integer := 3;
+
+  type index is range 1 .. SIZE_IN;
+ 
+  type vector is array (index) of float;
+
+  data_a_in : vector := (4.0, 0.0, 3.0);
+  data_b_in : vector := (4.0, 0.0, 3.0);
+ 
+  data_out : float;
+
+  procedure vector_cosine_similarity (
+    data_a_in : vector;
+    data_b_in : vector
+  ) is
+    dot_result : float := 0.0;
+
+    input_a_result : float := 0.0;
+    input_b_result : float := 0.0;
+  begin
+
+    for i in index loop
+      dot_result := dot_result + data_a_in(i) * data_b_in(i);
+    end loop;
+
+    for i in index loop
+      input_a_result := input_a_result + data_a_in(i) * data_a_in(i);
+    end loop;
+
+    for i in index loop
+      input_b_result := input_b_result + data_b_in(i) * data_b_in(i);
+    end loop;
+
+    data_out := dot_result/(sqrt(input_a_result)*sqrt(input_b_result));
+
+  end vector_cosine_similarity;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  vector_cosine_similarity(data_a_in, data_b_in);
+
+  Put(float'Image(data_out));
+
+  New_Line;
+
+end ntm_vector_cosine_similarity;

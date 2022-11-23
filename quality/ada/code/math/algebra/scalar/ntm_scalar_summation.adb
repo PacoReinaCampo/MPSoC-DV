@@ -46,6 +46,36 @@ with Ada.Text_IO;
 use Ada.Text_IO;
 
 procedure ntm_scalar_summation is
+
+  SIZE_IN : constant integer := 3;
+
+  type index is range 1 .. SIZE_IN;
+ 
+  type vector is array (index) of float;
+
+  data_in : vector := (3.0, 2.0, 2.0);
+ 
+  data_out : float;
+
+  procedure scalar_summation (
+    data_in : vector
+  ) is
+  begin
+
+    data_out := 0.0;
+
+    for i in index loop
+      data_out := data_out + data_in(i);
+    end loop;
+
+  end scalar_summation;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  scalar_summation(data_in);
+
+  Put(float'Image(data_out));
+
+  New_Line;
+
+end ntm_scalar_summation;

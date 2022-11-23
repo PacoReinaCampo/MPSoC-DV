@@ -46,6 +46,58 @@ with Ada.Text_IO;
 use Ada.Text_IO;
 
 procedure ntm_matrix_product is
+
+  SIZE_I_A_IN : constant integer := 4;
+  SIZE_J_A_IN : constant integer := 3;
+
+  SIZE_I_B_IN : constant integer := 3;
+  SIZE_J_B_IN : constant integer := 4;
+
+  type i_a_index is range 1 .. SIZE_I_A_IN;
+  type j_b_index is range 1 .. SIZE_J_B_IN;
+
+  type m_index is range 1 .. SIZE_J_A_IN;
+
+  type a_matrix is array (i_a_index, m_index) of float;
+  type b_matrix is array (m_index, j_b_index) of float;
+
+  type out_matrix is array (i_a_index, j_b_index) of float;
+
+  data_a_in : a_matrix := ((1.0, 2.0, 3.0), (4.0, 2.0, 6.0), (3.0, 4.0, 1.0), (2.0, 4.0, 8.0));
+  data_b_in : b_matrix := ((1.0, 3.0, 3.0, 2.0), (7.0, 6.0, 2.0, 1.0), (3.0, 4.0, 2.0, 1.0));
+
+  data_out : out_matrix;
+
+  procedure matrix_product (
+    data_a_in : a_matrix;
+    data_b_in : b_matrix
+  ) is
+    temporal : float;
+  begin
+    for i in i_a_index loop
+      for j in j_b_index loop
+        temporal := 0.0;
+
+        for m in m_index loop
+          temporal := temporal + data_a_in(i, m) * data_b_in(m, j);
+
+          data_out(i, j) := temporal;
+        end loop;
+      end loop;
+    end loop;
+
+  end matrix_product;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  matrix_product(data_a_in, data_b_in);
+
+  for i in i_a_index loop
+    for j in j_b_index loop
+      Put(float'Image(data_out(i, j)));
+    end loop;
+
+    New_Line;
+  end loop;
+
+end ntm_matrix_product;

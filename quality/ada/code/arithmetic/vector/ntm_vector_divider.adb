@@ -46,6 +46,37 @@ with Ada.Text_IO;
 use Ada.Text_IO;
 
 procedure ntm_vector_divider is
+
+  SIZE_IN : constant integer := 3;
+
+  type index is range 1 .. SIZE_IN;
+ 
+  type vector is array (index) of float;
+
+  data_a_in : vector := (2.0, 0.0, 4.0);
+  data_b_in : vector := (1.0, 1.0, 2.0);
+ 
+  data_out : vector;
+
+  procedure vector_divider (
+    data_a_in : vector;
+    data_b_in : vector
+  ) is
+  begin
+    for i in index loop
+      data_out(i) := data_a_in(i) / data_b_in(i);
+    end loop;
+
+  end vector_divider;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  vector_divider(data_a_in, data_b_in);
+
+  for i in index loop
+    Put(float'Image(data_out(i)));
+  end loop;
+
+  New_Line;
+
+end ntm_vector_divider;

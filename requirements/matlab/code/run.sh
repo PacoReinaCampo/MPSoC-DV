@@ -1,3 +1,16 @@
+cd arithmetic/matrix; octave ntm_matrix_adder.tb.m; cd ../..
+cd arithmetic/matrix; octave ntm_matrix_divider.tb.m; cd ../..
+cd arithmetic/matrix; octave ntm_matrix_multiplier.tb.m; cd ../..
+cd arithmetic/scalar; octave ntm_scalar_adder.tb.m; cd ../..
+cd arithmetic/scalar; octave ntm_scalar_divider.tb.m; cd ../..
+cd arithmetic/scalar; octave ntm_scalar_multiplier.tb.m; cd ../..
+#cd arithmetic/tensor; octave ntm_tensor_adder.tb.m; cd ../..
+#cd arithmetic/tensor; octave ntm_tensor_divider.tb.m; cd ../..
+#cd arithmetic/tensor; octave ntm_tensor_multiplier.tb.m; cd ../..
+cd arithmetic/vector; octave ntm_vector_adder.tb.m; cd ../..
+cd arithmetic/vector; octave ntm_vector_divider.tb.m; cd ../..
+cd arithmetic/vector; octave ntm_vector_multiplier.tb.m; cd ../..
+
 cd controller/FNN/convolutional; octave ntm_controller.tb.m; cd ../../..
 cd controller/FNN/standard; octave ntm_controller.tb.m; cd ../../..
 cd controller/LSTM/convolutional; octave ntm_activation_gate_vector.tb.m; cd ../../..
