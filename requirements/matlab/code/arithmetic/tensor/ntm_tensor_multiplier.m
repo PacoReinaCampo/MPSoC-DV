@@ -55,7 +55,7 @@ function DATA_OUT = ntm_tensor_multiplier(DATA_A_IN, DATA_B_IN)
   % Body
   for i = 1:SIZE_A_I_IN
     for j = 1:SIZE_A_J_IN
-      for j = 1:SIZE_A_J_IN
+      for k = 1:SIZE_A_K_IN
         DATA_OUT(i, j, k) = DATA_A_IN(i, j, k) * DATA_B_IN(i, j, k);
       end
     end

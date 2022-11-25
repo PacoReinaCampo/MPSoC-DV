@@ -43,3 +43,15 @@
 ##                                                                               ##
 ###################################################################################
 %}
+
+% Constants
+SIZE_I_IN = 3;
+SIZE_J_IN = 3;
+SIZE_K_IN = 3;
+
+% Signals
+DATA_A_IN = rand(SIZE_I_IN, SIZE_J_IN, SIZE_K_IN);
+DATA_B_IN = rand(SIZE_I_IN, SIZE_J_IN, SIZE_K_IN);
+
+% DUT
+assert(ntm_tensor_multiplier(DATA_A_IN, DATA_B_IN), DATA_A_IN .* DATA_B_IN);

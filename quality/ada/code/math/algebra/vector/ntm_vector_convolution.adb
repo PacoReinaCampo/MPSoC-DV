@@ -46,6 +46,44 @@ with Ada.Text_IO;
 use Ada.Text_IO;
 
 procedure ntm_vector_convolution is
+
+  SIZE_IN : constant integer := 3;
+
+  type index is range 1 .. SIZE_IN;
+ 
+  type vector is array (index) of float;
+
+  data_a_in : vector := (1.0, 2.0, 3.0);
+  data_b_in : vector := (1.0, 3.0, 3.0);
+ 
+  data_out : vector;
+
+  procedure vector_convolution (
+    data_a_in : vector;
+    data_b_in : vector
+  ) is
+    temporal : float;
+  begin
+    for i in index loop
+      temporal := 0.0;
+
+      for m in 1 .. i loop
+        temporal := temporal + data_a_in(m) * data_b_in(i-m);
+        
+        data_out(i) := temporal;
+      end loop;
+    end loop;
+
+  end vector_convolution;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  vector_convolution(data_a_in, data_b_in);
+
+  for i in index loop
+    Put(float'Image(data_out(i)));
+  end loop;
+
+  New_Line;
+
+end ntm_vector_convolution;

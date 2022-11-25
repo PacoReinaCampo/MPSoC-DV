@@ -42,6 +42,8 @@
 ##                                                                               ##
 ###################################################################################
 
+import random
+
 class ScalarArithmetic:
   def __init__(self, data_a_in, data_b_in):
     self.data_a_in = data_a_in
@@ -60,22 +62,15 @@ class ScalarArithmetic:
     return (self.data_a_in / self.data_b_in)
 
 
-data_a_in = 48.0
-data_b_in = 16.0
+data_a_in = random.random()
+data_b_in = random.random()
 
 
 arithmetic = ScalarArithmetic(data_a_in, data_b_in)
 
 
-addition_data_out = 64.0
+assert arithmetic.ntm_scalar_adder() == data_a_in + data_b_in
 
-multiplication_data_out = 768.0
+assert arithmetic.ntm_scalar_multiplier() == data_a_in * data_b_in
 
-division_data_out = 3.0
-
-
-assert arithmetic.ntm_scalar_adder() == addition_data_out
-
-assert arithmetic.ntm_scalar_multiplier() == multiplication_data_out
-
-assert arithmetic.ntm_scalar_divider() == division_data_out
+assert arithmetic.ntm_scalar_divider() == data_a_in / data_b_in

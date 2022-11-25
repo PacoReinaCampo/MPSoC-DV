@@ -42,13 +42,13 @@
 ##                                                                               ##
 ###################################################################################
 
+import random
+
 def ntm_scalar_multiplier(data_a_in, data_b_in):
   # calculating multiplication
   return (data_a_in * data_b_in)
   
-data_a_in = 48.0
-data_b_in = 16.0
+data_a_in = random.random()
+data_b_in = random.random()
 
-data_out = 768.0
-
-assert ntm_scalar_multiplier(data_a_in, data_b_in) == data_out
+assert ntm_scalar_multiplier(data_a_in, data_b_in) == data_a_in * data_b_in

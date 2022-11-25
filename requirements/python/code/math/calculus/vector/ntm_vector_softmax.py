@@ -42,4 +42,55 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import math
+import numpy as np
+
+def ntm_vector_softmax(data_in):
+  temporal0 = 0.0
+  temporal1 = 0.0
+
+  inputs = np.array(data_in)
+
+  data_int = []
+
+  data_out = []
+
+  # calculating softmax
+  for i in range(len(data_in)):
+    temporal0 += math.exp(data_in[i])
+
+    temporal1 = math.exp(data_in[i])
+
+    data_int.append(temporal1)
+
+  for i in range(len(data_in)):
+    data_out.append(data_int[i]/temporal0)
+
+  return data_out
+
+def test_vector_softmax(data_in):
+  temporal0 = 0.0
+  temporal1 = 0.0
+
+  inputs = np.array(data_in)
+
+  data_int = []
+
+  data_out = []
+
+  # calculating softmax
+  for i in range(len(data_in)):
+    temporal0 += math.exp(data_in[i])
+
+    temporal1 = math.exp(data_in[i])
+
+    data_int.append(temporal1)
+
+  for i in range(len(data_in)):
+    data_out.append(data_int[i]/temporal0)
+
+  return data_out
+
+data_in = np.random.rand(3,1)
+
+np.testing.assert_array_equal(ntm_vector_softmax(data_in), test_vector_softmax(data_in))

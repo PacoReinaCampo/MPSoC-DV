@@ -54,11 +54,9 @@ function DATA_OUT = ntm_vector_deviation(DATA_IN, MEAN_IN)
   % Body
   for i = 1:SIZE_IN
     for m = 1:LENGTH_IN
-      DATA_OUT(i) = DATA_OUT(i) + (DATA_IN(i, m) - MEAN_IN(i))^2;
+      DATA_OUT(i) = DATA_OUT(i) + (DATA_IN(i, m) - MEAN_IN(i))^2/(LENGTH_IN-1);
     end
   end
-
-  DATA_OUT = DATA_OUT/LENGTH_IN;
 
   DATA_OUT = sqrt(DATA_OUT);
 end

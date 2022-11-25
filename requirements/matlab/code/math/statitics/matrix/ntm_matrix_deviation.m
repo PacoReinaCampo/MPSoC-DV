@@ -55,12 +55,10 @@ function DATA_OUT = ntm_matrix_deviation(DATA_IN, MEAN_IN)
   for i = 1:SIZE_I_IN
     for j = 1:SIZE_J_IN
       for m = 1:LENGTH_IN
-        DATA_OUT(i, j) = DATA_OUT(i, j) + (DATA_IN(i, j, m) - MEAN_IN(i, j))^2;
+        DATA_OUT(i, j) = DATA_OUT(i, j) + (DATA_IN(i, j, m) - MEAN_IN(i, j))^2/(LENGTH_IN-1);
       end
     end
   end
-
-  DATA_OUT = DATA_OUT/LENGTH_IN;
 
   DATA_OUT = sqrt(DATA_OUT);
 end

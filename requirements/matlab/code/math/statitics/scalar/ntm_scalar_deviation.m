@@ -53,10 +53,8 @@ function DATA_OUT = ntm_scalar_deviation(DATA_IN, MEAN_IN)
 
   % Body
   for m = 1:LENGTH_IN
-    DATA_OUT = DATA_OUT + (DATA_IN(m) - MEAN_IN)^2;
+    DATA_OUT = DATA_OUT + (DATA_IN(m) - MEAN_IN)^2/(LENGTH_IN-1);
   end
-
-  DATA_OUT = DATA_OUT/LENGTH_IN;
 
   DATA_OUT = sqrt(DATA_OUT);
 end

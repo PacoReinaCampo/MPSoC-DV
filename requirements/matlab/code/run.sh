@@ -4,9 +4,9 @@ cd arithmetic/matrix; octave ntm_matrix_multiplier.tb.m; cd ../..
 cd arithmetic/scalar; octave ntm_scalar_adder.tb.m; cd ../..
 cd arithmetic/scalar; octave ntm_scalar_divider.tb.m; cd ../..
 cd arithmetic/scalar; octave ntm_scalar_multiplier.tb.m; cd ../..
-#cd arithmetic/tensor; octave ntm_tensor_adder.tb.m; cd ../..
-#cd arithmetic/tensor; octave ntm_tensor_divider.tb.m; cd ../..
-#cd arithmetic/tensor; octave ntm_tensor_multiplier.tb.m; cd ../..
+cd arithmetic/tensor; octave ntm_tensor_adder.tb.m; cd ../..
+cd arithmetic/tensor; octave ntm_tensor_divider.tb.m; cd ../..
+cd arithmetic/tensor; octave ntm_tensor_multiplier.tb.m; cd ../..
 cd arithmetic/vector; octave ntm_vector_adder.tb.m; cd ../..
 cd arithmetic/vector; octave ntm_vector_divider.tb.m; cd ../..
 cd arithmetic/vector; octave ntm_vector_multiplier.tb.m; cd ../..

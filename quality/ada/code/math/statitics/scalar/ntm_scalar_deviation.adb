@@ -45,7 +45,47 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
+with Ada.Numerics;
+use Ada.Numerics;
+
+with Ada.Numerics.Elementary_Functions;
+use Ada.Numerics.Elementary_Functions;
+
 procedure ntm_scalar_deviation is
+
+  SIZE_IN : constant integer := 3;
+
+  type index is range 1 .. SIZE_IN;
+
+  type vector is array (index) of float;
+
+  mean : float := 3.5;
+
+  data_in : vector := (3.0, 2.0, 2.0);
+
+  data_out : float;
+
+  procedure scalar_deviation (
+    data_in : vector;
+
+    mean : float
+  ) is
+  begin
+
+    data_out := 0.0;
+
+    for i in index loop
+      data_out := data_out + (data_in(i) - mean) * (data_in(i) - mean) / float(SIZE_IN-1);
+    end loop;
+
+  end scalar_deviation;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  scalar_deviation(data_in, mean);
+
+  Put(float'Image(data_out));
+
+  New_Line;
+
+end ntm_scalar_deviation;

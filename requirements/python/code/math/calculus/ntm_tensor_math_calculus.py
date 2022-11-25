@@ -42,51 +42,107 @@
 ##                                                                               ##
 ###################################################################################
 
+import math
 import numpy as np 
 
-class TensorArithmetic:
-  def __init__(self, data_a_in, data_b_in):
-    self.data_a_in = data_a_in
-    self.data_b_in = data_b_in
+class TensorMathCalculus:
+  def __init__(self, data_in, length_in, length_i_in, length_j_in, length_k_in, control):
+    self.data_in = data_in
 
-  def ntm_tensor_adder(self):
-    a_in = np.array(self.data_a_in)
-    b_in = np.array(self.data_b_in)
+    self.length_in = length_in
 
-    # calculating addition
-    return (a_in + b_in)
+    self.length_i_in = length_i_in
+    self.length_j_in = length_j_in
+    self.length_k_in = length_k_in
 
-  def ntm_tensor_multiplier(self):
-    a_in = np.array(self.data_a_in)
-    b_in = np.array(self.data_b_in)
+    self.control = control
 
-    # calculating multiplication
-    return (a_in * b_in)
+  def ntm_tensor_differentiation(self):
+    temporal = 0.0
 
-  def ntm_tensor_divider(self):
-    a_in = np.array(self.data_a_in)
-    b_in = np.array(self.data_b_in)
+    data_out = []
 
-    # calculating division
-    return (a_in / b_in)
+    # calculating differentiation
+    for i in range(len(data_in)):
+      data_out.append([])
+      for j in range(len(data_in[i])):
+        data_out[i].append([])
+        for k in range(len(data_in[i][j])):
+          if control == 0:
+            temporal = (data_in[i][j][k] - data_in[i-1][j][k])/length_i_in
+          elif control == 1:
+            temporal = (data_in[i][j][k] - data_in[i][j-1][k])/length_j_in
+        else:
+            temporal = (data_in[i][j][k] - data_in[i][j][k-1])/length_k_in
+
+            data_out[i][j].append(temporal)
+
+    return data_out
+
+  def ntm_tensor_integration(self):
+    temporal = 0.0
+
+    data_out = []
+
+    # calculating integration
+    for i in range(len(data_in)):
+      data_out.append([])
+      for j in range(len(data_in[i])):
+        data_out[i].append([])
+        for k in range(len(data_in[i][j])):
+          temporal += data_in[i][j][k]
+
+          data_out[i][j].append(temporal*length_in)
+
+    return data_out
+
+  def ntm_tensor_softmax(self):
+    temporal0 = 0.0
+    temporal1 = 0.0
+
+    inputs = np.array(data_in)
+
+    data_int = []
+
+    data_out = []
+
+    # calculating softmax
+    for i in range(len(data_in)):
+      data_int.append([])
+      data_out.append([])
+      for j in range(len(data_in[i])):
+        data_int[i].append([])
+        data_out[i].append([])
+        for k in range(len(data_in[i][j])):
+          temporal0 += math.exp(data_in[i][j][k])
+
+          temporal1 = math.exp(data_in[i][j][k])
+
+          data_int[i][j].append(temporal1)
+
+        for k in range(len(data_in[i][j])):
+          data_out[i][j].append(data_int[i][j][k]/temporal0)
+
+    return data_out
 
 
-data_a_in = [[[2.0, 0.0, 4.0], [2.0, 0.0, 4.0], [2.0, 0.0, 4.0]], [[2.0, 0.0, 4.0], [2.0, 0.0, 4.0], [2.0, 0.0, 4.0]], [[2.0, 0.0, 4.0], [2.0, 0.0, 4.0], [2.0, 0.0, 4.0]]]
-data_b_in = [[[1.0, 1.0, 2.0], [1.0, 1.0, 2.0], [1.0, 1.0, 2.0]], [[1.0, 1.0, 2.0], [1.0, 1.0, 2.0], [1.0, 1.0, 2.0]], [[1.0, 1.0, 2.0], [1.0, 1.0, 2.0], [1.0, 1.0, 2.0]]]
+control = 0
+
+length_in = 1.0
+
+length_i_in = 1.0
+length_j_in = 1.0
+length_k_in = 1.0
+
+data_in = np.random.rand(3,3,3)
 
 
-arithmetic = TensorArithmetic(data_a_in, data_b_in)
+math_calculus = TensorMathCalculus(data_in, length_in, length_i_in, length_j_in, length_k_in, control)
+test_calculus = TensorMathCalculus(data_in, length_in, length_i_in, length_j_in, length_k_in, control)
 
 
-addition_data_out = [[[3.0, 1.0, 6.0], [3.0, 1.0, 6.0], [3.0, 1.0, 6.0]], [[3.0, 1.0, 6.0], [3.0, 1.0, 6.0], [3.0, 1.0, 6.0]], [[3.0, 1.0, 6.0], [3.0, 1.0, 6.0], [3.0, 1.0, 6.0]]]
+np.testing.assert_array_equal(math_calculus.ntm_tensor_differentiation(), test_calculus.ntm_tensor_differentiation())
 
-multiplication_data_out = [[[2.0, 0.0, 8.0], [2.0, 0.0, 8.0], [2.0, 0.0, 8.0]], [[2.0, 0.0, 8.0], [2.0, 0.0, 8.0], [2.0, 0.0, 8.0]], [[2.0, 0.0, 8.0], [2.0, 0.0, 8.0], [2.0, 0.0, 8.0]]]
+np.testing.assert_array_equal(math_calculus.ntm_tensor_integration(), test_calculus.ntm_tensor_integration())
 
-division_data_out = [[[2.0, 0.0, 2.0], [2.0, 0.0, 2.0], [2.0, 0.0, 2.0]], [[2.0, 0.0, 2.0], [2.0, 0.0, 2.0], [2.0, 0.0, 2.0]], [[2.0, 0.0, 2.0], [2.0, 0.0, 2.0], [2.0, 0.0, 2.0]]]
-
-
-np.testing.assert_array_equal(arithmetic.ntm_tensor_adder(), addition_data_out)
-
-np.testing.assert_array_equal(arithmetic.ntm_tensor_multiplier(), multiplication_data_out)
-
-np.testing.assert_array_equal(arithmetic.ntm_tensor_divider(), division_data_out)
+np.testing.assert_array_equal(math_calculus.ntm_tensor_softmax(), test_calculus.ntm_tensor_softmax())

@@ -42,4 +42,61 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import math
+import numpy as np
+
+def ntm_matrix_softmax(data_in):
+  temporal0 = 0.0
+  temporal1 = 0.0
+
+  inputs = np.array(data_in)
+
+  data_int = []
+
+  data_out = []
+
+  # calculating softmax
+  for i in range(len(data_in)):
+    data_int.append([])
+    data_out.append([])
+    for j in range(len(data_in[i])):
+      temporal0 += math.exp(data_in[i][j])
+
+      temporal1 = math.exp(data_in[i][j])
+
+      data_int[i].append(temporal1)
+
+    for j in range(len(data_in[i])):
+      data_out[i].append(data_int[i][j]/temporal0)
+
+  return data_out
+
+def test_matrix_softmax(data_in):
+  temporal0 = 0.0
+  temporal1 = 0.0
+
+  inputs = np.array(data_in)
+
+  data_int = []
+
+  data_out = []
+
+  # calculating softmax
+  for i in range(len(data_in)):
+    data_int.append([])
+    data_out.append([])
+    for j in range(len(data_in[i])):
+      temporal0 += math.exp(data_in[i][j])
+
+      temporal1 = math.exp(data_in[i][j])
+
+      data_int[i].append(temporal1)
+
+    for j in range(len(data_in[i])):
+      data_out[i].append(data_int[i][j]/temporal0)
+
+  return data_out
+
+data_in = np.random.rand(3,3)
+
+np.testing.assert_array_equal(ntm_matrix_softmax(data_in), test_matrix_softmax(data_in))

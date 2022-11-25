@@ -268,7 +268,7 @@ gnatmake math/algebra/scalar/ntm_scalar_summation.adb -o math/algebra/scalar/ntm
 #gnatmake math/algebra/tensor/ntm_tensor_summation.adb -o math/algebra/tensor/ntm_tensor_summation.run
 #gnatmake math/algebra/tensor/ntm_tensor_transpose.adb -o math/algebra/tensor/ntm_tensor_transpose.run
 gnatmake math/algebra/vector/ntm_dot_product.adb -o math/algebra/vector/ntm_dot_product.run
-#gnatmake math/algebra/vector/ntm_vector_convolution.adb -o math/algebra/vector/ntm_vector_convolution.run
+gnatmake math/algebra/vector/ntm_vector_convolution.adb -o math/algebra/vector/ntm_vector_convolution.run
 gnatmake math/algebra/vector/ntm_vector_cosine_similarity.adb -o math/algebra/vector/ntm_vector_cosine_similarity.run
 gnatmake math/algebra/vector/ntm_vector_module.adb -o math/algebra/vector/ntm_vector_module.run
 #gnatmake math/algebra/vector/ntm_vector_multiplication.adb -o math/algebra/vector/ntm_vector_multiplication.run
@@ -290,8 +290,8 @@ gnatmake math/algebra/vector/ntm_vector_module.adb -o math/algebra/vector/ntm_ve
 #gnatmake math/function/vector/ntm_vector_oneplus_function.adb -o math/function/vector/ntm_vector_oneplus_function.run
 #gnatmake math/statitics/matrix/ntm_matrix_deviation.adb -o math/statitics/matrix/ntm_matrix_deviation.run
 #gnatmake math/statitics/matrix/ntm_matrix_mean.adb -o math/statitics/matrix/ntm_matrix_mean.run
-#gnatmake math/statitics/scalar/ntm_scalar_deviation.adb -o math/statitics/scalar/ntm_scalar_deviation.run
-#gnatmake math/statitics/scalar/ntm_scalar_mean.adb -o math/statitics/scalar/ntm_scalar_mean.run
+gnatmake math/statitics/scalar/ntm_scalar_deviation.adb -o math/statitics/scalar/ntm_scalar_deviation.run
+gnatmake math/statitics/scalar/ntm_scalar_mean.adb -o math/statitics/scalar/ntm_scalar_mean.run
 #gnatmake math/statitics/vector/ntm_vector_deviation.adb -o math/statitics/vector/ntm_vector_deviation.run
 #gnatmake math/statitics/vector/ntm_vector_mean.adb -o math/statitics/vector/ntm_vector_mean.run
 #gnatmake ntm/memory/ntm_addressing.adb -o ntm/memory/ntm_addressing.run

@@ -42,51 +42,76 @@
 ##                                                                               ##
 ###################################################################################
 
+import math
 import numpy as np 
 
-class VectorArithmetic:
-  def __init__(self, data_a_in, data_b_in):
-    self.data_a_in = data_a_in
-    self.data_b_in = data_b_in
+class VectorMathCalculus:
+  def __init__(self, data_in, length_in):
+    self.data_in = data_in
 
-  def ntm_vector_adder(self):
-    a_in = np.array(self.data_a_in)
-    b_in = np.array(self.data_b_in)
+    self.length_in = length_in
 
-    # calculating addition
-    return (a_in + b_in)
+  def ntm_vector_differentiation(self):
+    temporal = 0.0
 
-  def ntm_vector_multiplier(self):
-    a_in = np.array(self.data_a_in)
-    b_in = np.array(self.data_b_in)
+    data_out = []
 
-    # calculating multiplication
-    return (a_in * b_in)
+    # calculating differentiation
+    for i in range(len(data_in)):
+      temporal = (data_in[i] - data_in[i-1])/length_in
 
-  def ntm_vector_divider(self):
-    a_in = np.array(self.data_a_in)
-    b_in = np.array(self.data_b_in)
+      data_out.append(temporal)
 
-    # calculating division
-    return (a_in / b_in)
+    return data_out
+
+  def ntm_vector_integration(self):
+    temporal = 0.0
+
+    data_out = []
+
+    # calculating integration
+    for i in range(len(data_in)):
+      temporal += data_in[i]
+
+      data_out.append(temporal*length_in)
+
+    return data_out
+
+  def ntm_vector_softmax(self):
+    temporal0 = 0.0
+    temporal1 = 0.0
+
+    inputs = np.array(data_in)
+
+    data_int = []
+
+    data_out = []
+
+    # calculating softmax
+    for i in range(len(data_in)):
+      temporal0 += math.exp(data_in[i])
+
+      temporal1 = math.exp(data_in[i])
+
+      data_int.append(temporal1)
+
+    for i in range(len(data_in)):
+      data_out.append(data_int[i]/temporal0)
+
+    return data_out
 
 
-data_a_in = [2.0, 0.0, 4.0]
-data_b_in = [1.0, 1.0, 2.0]
+length_in = 1.0
+
+data_in = np.random.rand(3,1)
 
 
-arithmetic = VectorArithmetic(data_a_in, data_b_in)
+math_calculus = VectorMathCalculus(data_in, length_in)
+test_calculus = VectorMathCalculus(data_in, length_in)
 
 
-addition_data_out = [3.0, 1.0, 6.0]
+np.testing.assert_array_equal(math_calculus.ntm_vector_differentiation(), test_calculus.ntm_vector_differentiation())
 
-multiplication_data_out = [2.0, 0.0, 8.0]
+np.testing.assert_array_equal(math_calculus.ntm_vector_integration(), test_calculus.ntm_vector_integration())
 
-division_data_out = [2.0, 0.0, 2.0]
-
-
-np.testing.assert_array_equal(arithmetic.ntm_vector_adder(), addition_data_out)
-
-np.testing.assert_array_equal(arithmetic.ntm_vector_multiplier(), multiplication_data_out)
-
-np.testing.assert_array_equal(arithmetic.ntm_vector_divider(), division_data_out)
+np.testing.assert_array_equal(math_calculus.ntm_vector_softmax(), test_calculus.ntm_vector_softmax())

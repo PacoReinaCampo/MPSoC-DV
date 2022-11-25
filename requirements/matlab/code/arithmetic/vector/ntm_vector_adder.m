@@ -46,8 +46,8 @@
 
 function DATA_OUT = ntm_vector_adder(DATA_A_IN, DATA_B_IN)
   % Constants
-  SIZE_A_IN = size(DATA_A_IN);
-  SIZE_B_IN = size(DATA_B_IN);
+  SIZE_A_IN = length(DATA_A_IN);
+  SIZE_B_IN = length(DATA_B_IN);
 
   % Signals
   DATA_OUT = zeros(SIZE_A_IN, 1);

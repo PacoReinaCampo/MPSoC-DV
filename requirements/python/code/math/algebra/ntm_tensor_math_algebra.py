@@ -53,40 +53,60 @@ class TensorArithmetic:
     a_in = np.array(self.data_a_in)
     b_in = np.array(self.data_b_in)
 
+    data_out = []
+
     # calculating addition
-    return (a_in + b_in)
+    for i in range(len(data_a_in)):
+      data_out.append([])
+      for j in range(len(data_a_in[i])):
+        data_out[i].append([])
+        for k in range(len(data_a_in[i][j])):
+          data_out[i][j].append(a_in[i][j][k] + b_in[i][j][k])
+
+    return data_out
 
   def ntm_tensor_multiplier(self):
     a_in = np.array(self.data_a_in)
     b_in = np.array(self.data_b_in)
 
+    data_out = []
+
     # calculating multiplication
-    return (a_in * b_in)
+    for i in range(len(data_a_in)):
+      data_out.append([])
+      for j in range(len(data_a_in[i])):
+        data_out[i].append([])
+        for k in range(len(data_a_in[i][j])):
+          data_out[i][j].append(a_in[i][j][k] * b_in[i][j][k])
+
+    return data_out
 
   def ntm_tensor_divider(self):
     a_in = np.array(self.data_a_in)
     b_in = np.array(self.data_b_in)
 
+    data_out = []
+
     # calculating division
-    return (a_in / b_in)
+    for i in range(len(data_a_in)):
+      data_out.append([])
+      for j in range(len(data_a_in[i])):
+        data_out[i].append([])
+        for k in range(len(data_a_in[i][j])):
+          data_out[i][j].append(a_in[i][j][k] / b_in[i][j][k])
+
+    return data_out
 
 
-data_a_in = [[[2.0, 0.0, 4.0], [2.0, 0.0, 4.0], [2.0, 0.0, 4.0]], [[2.0, 0.0, 4.0], [2.0, 0.0, 4.0], [2.0, 0.0, 4.0]], [[2.0, 0.0, 4.0], [2.0, 0.0, 4.0], [2.0, 0.0, 4.0]]]
-data_b_in = [[[1.0, 1.0, 2.0], [1.0, 1.0, 2.0], [1.0, 1.0, 2.0]], [[1.0, 1.0, 2.0], [1.0, 1.0, 2.0], [1.0, 1.0, 2.0]], [[1.0, 1.0, 2.0], [1.0, 1.0, 2.0], [1.0, 1.0, 2.0]]]
+data_a_in = np.random.rand(3,3,3)
+data_b_in = np.random.rand(3,3,3)
 
 
 arithmetic = TensorArithmetic(data_a_in, data_b_in)
 
 
-addition_data_out = [[[3.0, 1.0, 6.0], [3.0, 1.0, 6.0], [3.0, 1.0, 6.0]], [[3.0, 1.0, 6.0], [3.0, 1.0, 6.0], [3.0, 1.0, 6.0]], [[3.0, 1.0, 6.0], [3.0, 1.0, 6.0], [3.0, 1.0, 6.0]]]
+np.testing.assert_array_equal(arithmetic.ntm_tensor_adder(), data_a_in + data_b_in)
 
-multiplication_data_out = [[[2.0, 0.0, 8.0], [2.0, 0.0, 8.0], [2.0, 0.0, 8.0]], [[2.0, 0.0, 8.0], [2.0, 0.0, 8.0], [2.0, 0.0, 8.0]], [[2.0, 0.0, 8.0], [2.0, 0.0, 8.0], [2.0, 0.0, 8.0]]]
+np.testing.assert_array_equal(arithmetic.ntm_tensor_multiplier(), data_a_in * data_b_in)
 
-division_data_out = [[[2.0, 0.0, 2.0], [2.0, 0.0, 2.0], [2.0, 0.0, 2.0]], [[2.0, 0.0, 2.0], [2.0, 0.0, 2.0], [2.0, 0.0, 2.0]], [[2.0, 0.0, 2.0], [2.0, 0.0, 2.0], [2.0, 0.0, 2.0]]]
-
-
-np.testing.assert_array_equal(arithmetic.ntm_tensor_adder(), addition_data_out)
-
-np.testing.assert_array_equal(arithmetic.ntm_tensor_multiplier(), multiplication_data_out)
-
-np.testing.assert_array_equal(arithmetic.ntm_tensor_divider(), division_data_out)
+np.testing.assert_array_equal(arithmetic.ntm_tensor_divider(), data_a_in / data_b_in)

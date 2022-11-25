@@ -42,4 +42,49 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def ntm_matrix_differentiation(data_in, length_i_in, length_j_in, control):
+  temporal = 0.0
+
+  data_out = []
+
+  # calculating differentiation
+  for i in range(len(data_in)):
+    data_out.append([])
+    for j in range(len(data_in[i])):
+      if control == 0:
+        temporal = (data_in[i][j] - data_in[i-1][j])/length_i_in
+      else:
+        temporal = (data_in[i][j] - data_in[i][j-1])/length_j_in
+
+      data_out[i].append(temporal)
+
+  return data_out
+
+def test_matrix_differentiation(data_in, length_i_in, length_j_in, control):
+  temporal = 0.0
+
+  data_out = []
+
+  # calculating differentiation
+  for i in range(len(data_in)):
+    data_out.append([])
+    for j in range(len(data_in[i])):
+      if control == 0:
+        temporal = (data_in[i][j] - data_in[i-1][j])/length_i_in
+      else:
+        temporal = (data_in[i][j] - data_in[i][j-1])/length_j_in
+
+      data_out[i].append(temporal)
+
+  return data_out
+
+control = 0
+
+length_i_in = 1.0
+length_j_in = 1.0
+
+data_in = np.random.rand(3,3)
+
+np.testing.assert_array_equal(ntm_matrix_differentiation(data_in, length_i_in, length_j_in, control), test_matrix_differentiation(data_in, length_i_in, length_j_in, control))

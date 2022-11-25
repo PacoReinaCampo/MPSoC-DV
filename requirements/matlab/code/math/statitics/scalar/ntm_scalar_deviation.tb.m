@@ -48,12 +48,7 @@
 LENGTH_IN = 3;
 
 % Signals
-DATA_IN_0 = [ 3.0, 3.0, 3.0 ];
-DATA_IN_1 = [ 2.0, 2.0, 2.0 ];
+DATA_IN = rand(LENGTH_IN, 1);
 
 % DUT
-DATA_OUT_0 =  8.0;
-DATA_OUT_1 = 10.0;
-
-assert(ntm_scalar_deviation(DATA_IN_0, 11.0), DATA_OUT_0);
-assert(ntm_scalar_deviation(DATA_IN_1, 12.0), DATA_OUT_1);
+assert(ntm_scalar_deviation(DATA_IN, mean(DATA_IN)), std(DATA_IN));

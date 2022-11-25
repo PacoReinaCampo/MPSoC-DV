@@ -1,5 +1,22 @@
 ```
 code
+├── arithmetic
+│   ├── matrix
+│   │   ├── ntm_matrix_adder.tb.m
+│   │   ├── ntm_matrix_divider.tb.m
+│   │   └── ntm_matrix_multiplier.tb.m
+│   ├── scalar
+│   │   ├── ntm_scalar_adder.tb.m
+│   │   ├── ntm_scalar_divider.tb.m
+│   │   └── ntm_scalar_multiplier.tb.m
+│   ├── tensor
+│   │   ├── ntm_tensor_adder.tb.m
+│   │   ├── ntm_tensor_divider.tb.m
+│   │   └── ntm_tensor_multiplier.tb.m
+│   └── vector
+│       ├── ntm_vector_adder.tb.m
+│       ├── ntm_vector_divider.tb.m
+│       └── ntm_vector_multiplier.tb.m
 ├── controller
 │   ├── FNN
 │   │   ├── convolutional

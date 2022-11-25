@@ -42,51 +42,97 @@
 ##                                                                               ##
 ###################################################################################
 
+import math
 import numpy as np 
 
-class MatrixArithmetic:
-  def __init__(self, data_a_in, data_b_in):
-    self.data_a_in = data_a_in
-    self.data_b_in = data_b_in
+class MatrixMathCalculus:
+  def __init__(self, data_in, length_in, length_i_in, length_j_in, control):
+    self.data_in = data_in
 
-  def ntm_matrix_adder(self):
-    a_in = np.array(self.data_a_in)
-    b_in = np.array(self.data_b_in)
+    self.length_in = length_in
 
-    # calculating addition
-    return (a_in + b_in)
+    self.length_i_in = length_i_in
+    self.length_j_in = length_j_in
 
-  def ntm_matrix_multiplier(self):
-    a_in = np.array(self.data_a_in)
-    b_in = np.array(self.data_b_in)
-
-    # calculating multiplication
-    return (a_in * b_in)
-
-  def ntm_matrix_divider(self):
-    a_in = np.array(self.data_a_in)
-    b_in = np.array(self.data_b_in)
-
-    # calculating division
-    return (a_in / b_in)
+    self.control = control
 
 
-data_a_in = [[2.0, 0.0, 4.0], [2.0, 0.0, 4.0], [2.0, 0.0, 4.0]]
-data_b_in = [[1.0, 1.0, 2.0], [1.0, 1.0, 2.0], [1.0, 1.0, 2.0]]
+  def ntm_matrix_differentiation(self):
+    temporal = 0.0
+
+    data_out = []
+
+    # calculating differentiation
+    for i in range(len(data_in)):
+      data_out.append([])
+      for j in range(len(data_in[i])):
+        if control == 0:
+          temporal = (data_in[i][j] - data_in[i-1][j])/length_i_in
+        else:
+          temporal = (data_in[i][j] - data_in[i][j-1])/length_j_in
+
+        data_out[i].append(temporal)
+
+    return data_out
+
+  def ntm_matrix_integration(self):
+    temporal = 0.0
+
+    data_out = []
+
+    # calculating integration
+    for i in range(len(data_in)):
+      data_out.append([])
+      for j in range(len(data_in[i])):
+        temporal += data_in[i][j]
+
+        data_out[i].append(temporal*length_in)
+
+    return data_out
+
+  def ntm_matrix_softmax(self):
+    temporal0 = 0.0
+    temporal1 = 0.0
+
+    inputs = np.array(data_in)
+
+    data_int = []
+
+    data_out = []
+
+    # calculating softmax
+    for i in range(len(data_in)):
+      data_int.append([])
+      data_out.append([])
+      for j in range(len(data_in[i])):
+        temporal0 += math.exp(data_in[i][j])
+
+        temporal1 = math.exp(data_in[i][j])
+
+        data_int[i].append(temporal1)
+
+      for j in range(len(data_in[i])):
+        data_out[i].append(data_int[i][j]/temporal0)
+
+    return data_out
 
 
-arithmetic = MatrixArithmetic(data_a_in, data_b_in)
+control = 0
+
+length_in = 1.0
+
+length_i_in = 1.0
+length_j_in = 1.0
+
+data_in = np.random.rand(3,3)
 
 
-addition_data_out = [[3.0, 1.0, 6.0], [3.0, 1.0, 6.0], [3.0, 1.0, 6.0]]
-
-multiplication_data_out = [[2.0, 0.0, 8.0], [2.0, 0.0, 8.0], [2.0, 0.0, 8.0]]
-
-division_data_out = [[2.0, 0.0, 2.0], [2.0, 0.0, 2.0], [2.0, 0.0, 2.0]]
+math_calculus = MatrixMathCalculus(data_in, length_in, length_i_in, length_j_in, control)
+test_calculus = MatrixMathCalculus(data_in, length_in, length_i_in, length_j_in, control)
 
 
-np.testing.assert_array_equal(arithmetic.ntm_matrix_adder(), addition_data_out)
+np.testing.assert_array_equal(math_calculus.ntm_matrix_differentiation(), test_calculus.ntm_matrix_differentiation())
 
-np.testing.assert_array_equal(arithmetic.ntm_matrix_multiplier(), multiplication_data_out)
+np.testing.assert_array_equal(math_calculus.ntm_matrix_integration(), test_calculus.ntm_matrix_integration())
 
-np.testing.assert_array_equal(arithmetic.ntm_matrix_divider(), division_data_out)
+np.testing.assert_array_equal(math_calculus.ntm_matrix_softmax(), test_calculus.ntm_matrix_softmax())

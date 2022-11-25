@@ -53,40 +53,48 @@ class VectorArithmetic:
     a_in = np.array(self.data_a_in)
     b_in = np.array(self.data_b_in)
 
+    data_out = []
+
     # calculating addition
-    return (a_in + b_in)
+    for i in range(len(data_a_in)):
+      data_out.append(a_in[i] + b_in[i])
+
+    return data_out
 
   def ntm_vector_multiplier(self):
     a_in = np.array(self.data_a_in)
     b_in = np.array(self.data_b_in)
 
+    data_out = []
+
     # calculating multiplication
-    return (a_in * b_in)
+    for i in range(len(data_a_in)):
+      data_out.append(a_in[i] * b_in[i])
+
+    return data_out
 
   def ntm_vector_divider(self):
     a_in = np.array(self.data_a_in)
     b_in = np.array(self.data_b_in)
 
+    data_out = []
+
     # calculating division
-    return (a_in / b_in)
+    for i in range(len(data_a_in)):
+      data_out.append(a_in[i] / b_in[i])
+
+    return data_out
 
 
-data_a_in = [2.0, 0.0, 4.0]
-data_b_in = [1.0, 1.0, 2.0]
+data_a_in = np.random.rand(3,1)
+data_b_in = np.random.rand(3,1)
 
 
 arithmetic = VectorArithmetic(data_a_in, data_b_in)
 
 
-addition_data_out = [3.0, 1.0, 6.0]
+np.testing.assert_array_equal(arithmetic.ntm_vector_adder(), data_a_in + data_b_in)
 
-multiplication_data_out = [2.0, 0.0, 8.0]
+np.testing.assert_array_equal(arithmetic.ntm_vector_multiplier(), data_a_in * data_b_in)
 
-division_data_out = [2.0, 0.0, 2.0]
-
-
-np.testing.assert_array_equal(arithmetic.ntm_vector_adder(), addition_data_out)
-
-np.testing.assert_array_equal(arithmetic.ntm_vector_multiplier(), multiplication_data_out)
-
-np.testing.assert_array_equal(arithmetic.ntm_vector_divider(), division_data_out)
+np.testing.assert_array_equal(arithmetic.ntm_vector_divider(), data_a_in / data_b_in)

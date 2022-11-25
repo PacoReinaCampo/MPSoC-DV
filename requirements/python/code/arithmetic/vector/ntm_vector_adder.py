@@ -46,15 +46,18 @@ import numpy as np
 
 def ntm_vector_adder(data_a_in, data_b_in):
 
-  a_in = np.array(data_a_in) 
-  b_in = np.array(data_b_in) 
+  a_in = np.array(data_a_in)
+  b_in = np.array(data_b_in)
+
+  data_out = []
 
   # calculating addition
-  return (a_in + b_in)
+  for i in range(len(data_a_in)):
+    data_out.append(a_in[i] + b_in[i])
+
+  return data_out
   
-data_a_in = [2.0, 0.0, 4.0]
-data_b_in = [1.0, 1.0, 2.0]
+data_a_in = np.random.rand(3,1)
+data_b_in = np.random.rand(3,1)
 
-data_out = [3.0, 1.0, 6.0]
-
-np.testing.assert_array_equal(ntm_vector_adder(data_a_in, data_b_in), data_out)
+np.testing.assert_array_equal(ntm_vector_adder(data_a_in, data_b_in), data_a_in + data_b_in)
