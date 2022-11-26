@@ -46,6 +46,42 @@ with Ada.Text_IO;
 use Ada.Text_IO;
 
 procedure ntm_vector_integration is
+
+  SIZE_IN : constant integer := 3;
+
+  type index is range 1 .. SIZE_IN;
+ 
+  type vector is array (index) of float;
+
+  length_in : float := 1.0;
+
+  data_in : vector := (6.0, 3.0, 8.0);
+ 
+  data_out : vector;
+
+  procedure vector_integration (
+    data_in : vector;
+
+    length_in : float
+  ) is
+    temporal : float := 0.0;
+  begin
+    for i in index loop
+      temporal := temporal + data_in(i)*length_in;
+
+      data_out(i) := temporal*length_in;
+    end loop;
+
+  end vector_integration;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  vector_integration(data_in, length_in);
+
+  for i in index loop
+    Put(float'Image(data_out(i)));
+  end loop;
+
+  New_Line;
+
+end ntm_vector_integration;

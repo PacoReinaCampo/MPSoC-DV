@@ -63,17 +63,17 @@ class TensorMathCalculus:
     data_out = []
 
     # calculating differentiation
-    for i in range(len(data_in)):
+    for i in range(len(self.data_in)):
       data_out.append([])
-      for j in range(len(data_in[i])):
+      for j in range(len(self.data_in[i])):
         data_out[i].append([])
-        for k in range(len(data_in[i][j])):
-          if control == 0:
-            temporal = (data_in[i][j][k] - data_in[i-1][j][k])/length_i_in
-          elif control == 1:
-            temporal = (data_in[i][j][k] - data_in[i][j-1][k])/length_j_in
+        for k in range(len(self.data_in[i][j])):
+          if self.control == 0:
+            temporal = (self.data_in[i][j][k] - self.data_in[i-1][j][k])/self.length_i_in
+          elif self.control == 1:
+            temporal = (self.data_in[i][j][k] - self.data_in[i][j-1][k])/self.length_j_in
         else:
-            temporal = (data_in[i][j][k] - data_in[i][j][k-1])/length_k_in
+            temporal = (self.data_in[i][j][k] - self.data_in[i][j][k-1])/self.length_k_in
 
             data_out[i][j].append(temporal)
 
@@ -85,14 +85,14 @@ class TensorMathCalculus:
     data_out = []
 
     # calculating integration
-    for i in range(len(data_in)):
+    for i in range(len(self.data_in)):
       data_out.append([])
-      for j in range(len(data_in[i])):
+      for j in range(len(self.data_in[i])):
         data_out[i].append([])
-        for k in range(len(data_in[i][j])):
-          temporal += data_in[i][j][k]
+        for k in range(len(self.data_in[i][j])):
+          temporal += self.data_in[i][j][k]
 
-          data_out[i][j].append(temporal*length_in)
+          data_out[i][j].append(temporal*self.length_in)
 
     return data_out
 
@@ -100,27 +100,27 @@ class TensorMathCalculus:
     temporal0 = 0.0
     temporal1 = 0.0
 
-    inputs = np.array(data_in)
+    inputs = np.array(self.data_in)
 
     data_int = []
 
     data_out = []
 
     # calculating softmax
-    for i in range(len(data_in)):
+    for i in range(len(self.data_in)):
       data_int.append([])
       data_out.append([])
-      for j in range(len(data_in[i])):
+      for j in range(len(self.data_in[i])):
         data_int[i].append([])
         data_out[i].append([])
-        for k in range(len(data_in[i][j])):
-          temporal0 += math.exp(data_in[i][j][k])
+        for k in range(len(self.data_in[i][j])):
+          temporal0 += math.exp(self.data_in[i][j][k])
 
-          temporal1 = math.exp(data_in[i][j][k])
+          temporal1 = math.exp(self.data_in[i][j][k])
 
           data_int[i][j].append(temporal1)
 
-        for k in range(len(data_in[i][j])):
+        for k in range(len(self.data_in[i][j])):
           data_out[i][j].append(data_int[i][j][k]/temporal0)
 
     return data_out

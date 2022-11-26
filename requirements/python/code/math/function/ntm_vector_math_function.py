@@ -65,17 +65,13 @@ class VectorMathFunction:
     return (ones + np.log(ones + np.exp(inputs)))
 
 
-data_in = [6.3226113886226751, 3.1313826152262876, 8.3512687816132226]
+data_in = np.random.rand(3,1)
 
 
 math_function = VectorMathFunction(data_in)
+test_function = VectorMathFunction(data_in)
 
 
-logistic_data_out = [0.9982079678583020, 0.9581688450893644, 0.9997639589554603]
+np.testing.assert_array_equal(math_function.ntm_vector_logistic_function(), test_function.ntm_vector_logistic_function())
 
-oneplus_data_out = [7.324405028374851, 4.174113884283648, 9.351504850519834]
-
-
-np.testing.assert_array_equal(math_function.ntm_vector_logistic_function(), logistic_data_out)
-
-np.testing.assert_array_equal(math_function.ntm_vector_oneplus_function(), oneplus_data_out)
+np.testing.assert_array_equal(math_function.ntm_vector_oneplus_function(), test_function.ntm_vector_oneplus_function())

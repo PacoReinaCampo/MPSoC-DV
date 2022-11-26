@@ -65,21 +65,13 @@ class MatrixMathFunction:
     return (ones + np.log(ones + np.exp(inputs)))
 
 
-logistic_data_in = [[6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [4.3132651822261687, 5.3132616875182226, 6.6931471805599454], [9.9982079678583020, 7.9581688450893644, 2.9997639589554603]]
-
-oneplus_data_in = [[6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [6.3226113886226751, 3.1313826152262876, 8.3512687816132226]]
+data_in = np.random.rand(3,3)
 
 
-math_logistic_function = MatrixMathFunction(logistic_data_in);
-
-math_oneplus_function = MatrixMathFunction(oneplus_data_in);
-
-
-logistic_data_out = [[0.9982079678583020, 0.9581688450893644, 0.9997639589554603], [0.9867871586112067, 0.9950983109503272, 0.9987621580633643], [0.9999545207076224, 0.9996503292557579, 0.9525634621372647]]
-
-oneplus_data_out = [[7.324405028374851, 4.174113884283648, 9.351504850519834], [7.324405028374851, 4.174113884283648, 9.351504850519834], [7.324405028374851, 4.174113884283648, 9.351504850519834]]
+math_function = MatrixMathFunction(data_in);
+test_function = MatrixMathFunction(data_in);
 
 
-np.testing.assert_array_equal(math_logistic_function.ntm_matrix_logistic_function(), logistic_data_out)
+np.testing.assert_array_equal(math_function.ntm_matrix_logistic_function(), test_function.ntm_matrix_logistic_function())
 
-np.testing.assert_array_equal(math_oneplus_function.ntm_matrix_oneplus_function(), oneplus_data_out)
+np.testing.assert_array_equal(math_function.ntm_matrix_oneplus_function(), test_function.ntm_matrix_oneplus_function())

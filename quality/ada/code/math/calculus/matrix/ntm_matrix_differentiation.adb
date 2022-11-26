@@ -46,6 +46,63 @@ with Ada.Text_IO;
 use Ada.Text_IO;
 
 procedure ntm_matrix_differentiation is
+
+  SIZE_I_IN : constant integer := 3;
+  SIZE_J_IN : constant integer := 3;
+
+  type i_Index is range 1 .. SIZE_I_IN;
+  type j_Index is range 1 .. SIZE_J_IN;
+
+  type matrix is array (i_Index, j_Index) of float;
+
+  control : integer := 0;
+
+  length_i_in : float := 1.0;
+  length_j_in : float := 1.0;
+
+  data_in : matrix := ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0));
+
+  data_out : matrix;
+
+  procedure matrix_differentiation (
+    data_in : matrix;
+
+    length_i_in : float;
+    length_j_in : float;
+
+    control : integer
+  ) is
+  begin
+    for i in i_index loop
+      for j in j_index loop
+        if control = 0 then
+          if i = 1 then
+            data_out(i, j) := 0.0;
+          else
+            data_out(i, j) := (data_in(i, j) - data_in(i-1, j))/length_i_in;
+          end if;
+        else
+          if i = 1 then
+            data_out(i, j) := 0.0;
+          else
+            data_out(i, j) := (data_in(i, j) - data_in(i, j-1))/length_j_in;
+          end if;
+        end if;
+      end loop;
+    end loop;
+
+  end matrix_differentiation;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  matrix_differentiation(data_in, length_i_in, length_j_in, control);
+
+  for i in i_index loop
+    for j in j_index loop
+      Put(float'Image(data_out(i, j)));
+    end loop;
+
+    New_Line;
+  end loop;
+
+end ntm_matrix_differentiation;

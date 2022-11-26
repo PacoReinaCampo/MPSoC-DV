@@ -45,7 +45,70 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
+with Ada.Numerics;
+use Ada.Numerics;
+
+with Ada.Numerics.Elementary_Functions;
+use Ada.Numerics.Elementary_Functions;
+
 procedure ntm_tensor_softmax is
+
+  SIZE_I_IN : constant integer := 3;
+  SIZE_J_IN : constant integer := 3;
+  SIZE_K_IN : constant integer := 3;
+
+  type i_Index is range 1 .. SIZE_I_IN;
+  type j_Index is range 1 .. SIZE_J_IN;
+  type k_Index is range 1 .. SIZE_K_IN;
+
+  type tensor is array (i_Index, j_Index, k_Index) of float;
+
+  data_in : tensor := ( ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
+                        ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
+                        ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)) );
+
+  data_out : tensor;
+
+  procedure tensor_softmax (
+    data_in : tensor
+  ) is
+    temporal0 : float := 0.0;
+    temporal1 : float := 0.0;
+ 
+    data_int : tensor;
+  begin
+    for i in i_index loop
+      for j in j_index loop
+        for k in k_index loop
+          temporal0 := temporal0 + exp(data_in(i, j, k));
+
+          temporal1 := exp(data_in(i, j, k));
+
+          data_int(i, j, k) := temporal1;
+        end loop;
+
+        for k in k_index loop
+          data_out(i, j, k) := data_int(i, j, k)/temporal0;
+        end loop;
+      end loop;
+    end loop;
+
+  end tensor_softmax;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  tensor_softmax(data_in);
+
+  for i in i_index loop
+    for j in j_index loop
+      for k in k_index loop
+        Put(float'Image(data_out(i, j, k)));
+      end loop;
+
+      New_Line;
+    end loop;
+
+    New_Line;
+  end loop;
+
+end ntm_tensor_softmax;

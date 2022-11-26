@@ -128,17 +128,17 @@ code
 │   │       └── ntm_vector_summation.py
 │   ├── calculus
 │   │   ├── matrix
-│   │   │   ├── ntm_matrix_differentiation.py
-│   │   │   ├── ntm_matrix_integration.py
-│   │   │   └── ntm_matrix_softmax.py
+│   │   │   ├── **ntm_matrix_differentiation.py**
+│   │   │   ├── **ntm_matrix_integration.py**
+│   │   │   └── **ntm_matrix_softmax.py**
 │   │   ├── tensor
-│   │   │   ├── ntm_tensor_differentiation.py
-│   │   │   ├── ntm_tensor_integration.py
-│   │   │   └── ntm_tensor_softmax.py
+│   │   │   ├── **ntm_tensor_differentiation.py**
+│   │   │   ├── **ntm_tensor_integration.py**
+│   │   │   └── **ntm_tensor_softmax.py**
 │   │   └── vector
-│   │       ├── ntm_vector_differentiation.py
-│   │       ├── ntm_vector_integration.py
-│   │       └── ntm_vector_softmax.py
+│   │       ├── **ntm_vector_differentiation.py**
+│   │       ├── **ntm_vector_integration.py**
+│   │       └── **ntm_vector_softmax.py**
 │   ├── function
 │   │   ├── matrix
 │   │   │   ├── **ntm_matrix_logistic_function.py**

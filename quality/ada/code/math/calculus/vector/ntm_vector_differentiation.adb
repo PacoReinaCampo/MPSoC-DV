@@ -46,6 +46,43 @@ with Ada.Text_IO;
 use Ada.Text_IO;
 
 procedure ntm_vector_differentiation is
+
+  SIZE_IN : constant integer := 3;
+
+  type index is range 1 .. SIZE_IN;
+ 
+  type vector is array (index) of float;
+
+  length_in : float := 1.0;
+
+  data_in : vector := (6.0, 3.0, 8.0);
+ 
+  data_out : vector;
+
+  procedure vector_differentiation (
+    data_in : vector;
+
+    length_in : float
+  ) is
+  begin
+    for i in index loop
+      if i = 1 then
+        data_out(i) := 0.0;
+      else
+        data_out(i) := (data_in(i) - data_in(i-1))/length_in;
+      end if;
+    end loop;
+
+  end vector_differentiation;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  vector_differentiation(data_in, length_in);
+
+  for i in index loop
+    Put(float'Image(data_out(i)));
+  end loop;
+
+  New_Line;
+
+end ntm_vector_differentiation;

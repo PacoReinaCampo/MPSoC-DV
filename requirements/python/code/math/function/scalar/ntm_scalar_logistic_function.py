@@ -43,16 +43,12 @@
 ###################################################################################
 
 import math
+import random
 
 def ntm_scalar_logistic_function(data_in):
   # calculating result
   return (1/(1 + 1/math.exp(data_in)))
   
-data_in_0 = 0.8909031788043871
-data_in_1 = 3.2155195231797550
+data_in = random.random()
 
-data_out_0 = 0.7090765217957029
-data_out_1 = 0.9614141454987156
-
-assert ntm_scalar_logistic_function(data_in_0) == data_out_0
-assert ntm_scalar_logistic_function(data_in_1) == data_out_1
+assert ntm_scalar_logistic_function(data_in) == 1/(1 + 1/math.exp(data_in))

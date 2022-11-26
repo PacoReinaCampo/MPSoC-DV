@@ -53,8 +53,8 @@ def ntm_matrix_oneplus_function(data_in):
   # calculating result
   return (ones + np.log(ones + np.exp(data_input)))
 
-data_in = [[6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [6.3226113886226751, 3.1313826152262876, 8.3512687816132226], [6.3226113886226751, 3.1313826152262876, 8.3512687816132226]]
+data_in = np.random.rand(3,3)
 
-data_out = [[7.324405028374851, 4.174113884283648, 9.351504850519834], [7.324405028374851, 4.174113884283648, 9.351504850519834], [7.324405028374851, 4.174113884283648, 9.351504850519834]]
+ones = np.ones(data_in.shape)
 
-np.testing.assert_array_equal(ntm_matrix_oneplus_function(data_in), data_out)
+np.testing.assert_array_equal(ntm_matrix_oneplus_function(data_in), ones + np.log(ones + np.exp(data_in)))

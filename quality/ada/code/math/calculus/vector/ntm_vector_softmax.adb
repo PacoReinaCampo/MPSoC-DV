@@ -45,7 +45,54 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
+with Ada.Numerics;
+use Ada.Numerics;
+
+with Ada.Numerics.Elementary_Functions;
+use Ada.Numerics.Elementary_Functions;
+
 procedure ntm_vector_softmax is
+
+  SIZE_IN : constant integer := 3;
+
+  type index is range 1 .. SIZE_IN;
+ 
+  type vector is array (index) of float;
+
+  data_in : vector := (6.0, 3.0, 8.0);
+ 
+  data_out : vector;
+
+  procedure vector_softmax (
+    data_in : vector
+  ) is
+    temporal0 : float := 0.0;
+    temporal1 : float := 0.0;
+ 
+    data_int : vector;
+  begin
+    for i in index loop
+      temporal0 := temporal0 + exp(data_in(i));
+
+      temporal1 := exp(data_in(i));
+
+      data_int(i) := temporal1;
+    end loop;
+
+    for i in index loop
+      data_out(i) := data_int(i)/temporal0;
+    end loop;
+
+  end vector_softmax;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  vector_softmax(data_in);
+
+  for i in index loop
+    Put(float'Image(data_out(i)));
+  end loop;
+
+  New_Line;
+
+end ntm_vector_softmax;

@@ -45,12 +45,6 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-with Ada.Numerics;
-use Ada.Numerics;
-
-with Ada.Numerics.Elementary_Functions;
-use Ada.Numerics.Elementary_Functions;
-
 procedure ntm_scalar_deviation is
 
   SIZE_IN : constant integer := 3;

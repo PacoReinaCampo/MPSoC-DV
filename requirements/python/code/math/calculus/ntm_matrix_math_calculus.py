@@ -63,13 +63,13 @@ class MatrixMathCalculus:
     data_out = []
 
     # calculating differentiation
-    for i in range(len(data_in)):
+    for i in range(len(self.data_in)):
       data_out.append([])
-      for j in range(len(data_in[i])):
-        if control == 0:
-          temporal = (data_in[i][j] - data_in[i-1][j])/length_i_in
+      for j in range(len(self.data_in[i])):
+        if self.control == 0:
+          temporal = (self.data_in[i][j] - self.data_in[i-1][j])/self.length_i_in
         else:
-          temporal = (data_in[i][j] - data_in[i][j-1])/length_j_in
+          temporal = (self.data_in[i][j] - self.data_in[i][j-1])/self.length_j_in
 
         data_out[i].append(temporal)
 
@@ -81,12 +81,12 @@ class MatrixMathCalculus:
     data_out = []
 
     # calculating integration
-    for i in range(len(data_in)):
+    for i in range(len(self.data_in)):
       data_out.append([])
-      for j in range(len(data_in[i])):
-        temporal += data_in[i][j]
+      for j in range(len(self.data_in[i])):
+        temporal += self.data_in[i][j]
 
-        data_out[i].append(temporal*length_in)
+        data_out[i].append(temporal*self.length_in)
 
     return data_out
 
@@ -94,24 +94,24 @@ class MatrixMathCalculus:
     temporal0 = 0.0
     temporal1 = 0.0
 
-    inputs = np.array(data_in)
+    inputs = np.array(self.data_in)
 
     data_int = []
 
     data_out = []
 
     # calculating softmax
-    for i in range(len(data_in)):
+    for i in range(len(self.data_in)):
       data_int.append([])
       data_out.append([])
-      for j in range(len(data_in[i])):
-        temporal0 += math.exp(data_in[i][j])
+      for j in range(len(self.data_in[i])):
+        temporal0 += math.exp(self.data_in[i][j])
 
-        temporal1 = math.exp(data_in[i][j])
+        temporal1 = math.exp(self.data_in[i][j])
 
         data_int[i].append(temporal1)
 
-      for j in range(len(data_in[i])):
+      for j in range(len(self.data_in[i])):
         data_out[i].append(data_int[i][j]/temporal0)
 
     return data_out
