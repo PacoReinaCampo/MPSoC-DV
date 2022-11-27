@@ -42,38 +42,41 @@
 ##                                                                               ##
 ###################################################################################
 
-import math
+import numpy as np 
 
 class ScalarMathStatitics:
-  def __init__(self, data_in):
+  def __init__(self, data_in, mean):
     self.data_in = data_in
+    self.mean = mean
 
   def ntm_scalar_mean(self):
-    # calculating addition
-    return (1/(1 + 1/math.exp(self.data_in)))
+    data_out = 0.0
+
+    # calculating mean
+    for i in range(len(data_in)):
+      data_out += data_in[i]/len(data_in)
+
+    return data_out
 
   def ntm_scalar_deviation(self):
+    data_out = 0.0
+
     # calculating deviation
-    return (1 + math.log(1 + math.exp(self.data_in)))
+    for i in range(len(data_in)):
+      data_out += (data_in[i] - mean) * (data_in[i] - mean) / len(data_in)
+
+    return data_out
 
 
-data_in_0 = 0.8909031788043871
-data_in_1 = 3.2155195231797550
+data_in = np.random.rand(3,1)
+
+mean = np.mean(data_in)
 
 
-math_function_0 = ScalarMathStatitics(data_in_0)
-math_function_1 = ScalarMathStatitics(data_in_1)
+math_statitics = ScalarMathStatitics(data_in, mean)
+test_statitics = ScalarMathStatitics(data_in, mean)
 
 
-mean_data_out_0 = 0.7090765217957029
-mean_data_out_1 = 0.9614141454987156
+np.testing.assert_array_equal(math_statitics.ntm_scalar_mean(), test_statitics.ntm_scalar_mean())
 
-deviation_data_out_0 = 2.2346950078883427
-deviation_data_out_1 = 4.2548695333728740
-
-
-assert math_function_0.ntm_scalar_mean() == mean_data_out_0
-assert math_function_1.ntm_scalar_mean() == mean_data_out_1
-
-assert math_function_0.ntm_scalar_deviation() == deviation_data_out_0
-assert math_function_1.ntm_scalar_deviation() == deviation_data_out_1
+np.testing.assert_array_equal(math_statitics.ntm_scalar_deviation(), math_statitics.ntm_scalar_deviation())

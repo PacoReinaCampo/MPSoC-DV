@@ -46,6 +46,51 @@ with Ada.Text_IO;
 use Ada.Text_IO;
 
 procedure ntm_matrix_multiplication is
+
+  SIZE_I_IN : constant integer := 3;
+  SIZE_J_IN : constant integer := 3;
+  SIZE_K_IN : constant integer := 3;
+
+  type i_Index is range 1 .. SIZE_I_IN;
+  type j_Index is range 1 .. SIZE_J_IN;
+  type k_Index is range 1 .. SIZE_K_IN;
+
+  type matrix is array (i_Index, j_Index) of float;
+
+  type tensor is array (i_Index, j_Index, k_Index) of float;
+
+  data_in : tensor := ( ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
+                        ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
+                        ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)) );
+
+  data_out : matrix;
+
+  procedure matrix_multiplication (
+    data_in : tensor
+  ) is
+  begin
+    for i in i_index loop
+      for j in j_index loop
+        data_out(i, j) := 1.0;
+
+        for k in k_index loop
+          data_out(i, j) := data_out(i, j) * data_in(i, j, k);
+        end loop;
+      end loop;
+    end loop;
+
+  end matrix_multiplication;
+
 begin
-  Put_Line ("Hello QueenField!");
+
+  matrix_multiplication(data_in);
+
+  for i in i_index loop
+    for j in j_index loop
+      Put(float'Image(data_out(i, j)));
+    end loop;
+
+    New_Line;
+  end loop;
+
 end ntm_matrix_multiplication;

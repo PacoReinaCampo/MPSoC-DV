@@ -42,4 +42,28 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def ntm_scalar_deviation(data_in, mean):
+  data_out = 0.0
+
+  # calculating deviation
+  for i in range(len(data_in)):
+    data_out += (data_in[i] - mean) * (data_in[i] - mean) / len(data_in)
+
+  return data_out
+
+def test_scalar_deviation(data_in, mean):
+  data_out = 0.0
+
+  # calculating deviation
+  for i in range(len(data_in)):
+    data_out += (data_in[i] - mean) * (data_in[i] - mean) / len(data_in)
+
+  return data_out
+
+data_in = np.random.rand(3,1)
+
+mean = np.mean(data_in)
+
+np.testing.assert_array_equal(ntm_scalar_deviation(data_in, mean), test_scalar_deviation(data_in, mean))

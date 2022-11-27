@@ -151,14 +151,14 @@ code
 │   │       └── **ntm_vector_oneplus_function.py**
 │   └── statitics
 │       ├── matrix
-│       │   ├── ntm_matrix_deviation.py
-│       │   └── ntm_matrix_mean.py
+│       │   ├── **ntm_matrix_deviation.py**
+│       │   └── **ntm_matrix_mean.py**
 │       ├── scalar
-│       │   ├── ntm_scalar_deviation.py
-│       │   └── ntm_scalar_mean.py
+│       │   ├── **ntm_scalar_deviation.py**
+│       │   └── **ntm_scalar_mean.py**
 │       └── vector
-│           ├── ntm_vector_deviation.py
-│           └── ntm_vector_mean.py
+│           ├── **ntm_vector_deviation.py**
+│           └── **ntm_vector_mean.py**
 ├── ntm
 │   ├── memory
 │   │   ├── ntm_addressing.py

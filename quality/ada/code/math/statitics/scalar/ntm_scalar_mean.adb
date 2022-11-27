@@ -65,7 +65,7 @@ procedure ntm_scalar_mean is
     data_out := 0.0;
 
     for i in index loop
-      data_out := data_out + data_in(i) * data_in(i);
+      data_out := data_out + data_in(i) / float(SIZE_IN);
     end loop;
 
   end scalar_mean;

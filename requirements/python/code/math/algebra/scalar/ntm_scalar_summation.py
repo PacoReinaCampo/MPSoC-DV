@@ -42,4 +42,26 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def ntm_scalar_summation(data_in):
+  data_out = 0.0
+
+  # calculating summation
+  for i in range(len(data_in)):
+    data_out += data_in[i]
+
+  return data_out
+
+def test_scalar_summation(data_in):
+  data_out = 0.0
+
+  # calculating summation
+  for i in range(len(data_in)):
+    data_out += data_in[i]
+
+  return data_out
+
+data_in = np.random.rand(3,1)
+
+np.testing.assert_array_equal(ntm_scalar_summation(data_in), test_scalar_summation(data_in))

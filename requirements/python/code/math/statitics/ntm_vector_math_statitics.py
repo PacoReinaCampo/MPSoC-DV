@@ -45,37 +45,48 @@
 import numpy as np 
 
 class VectorMathStatitics:
-  def __init__(self, data_in):
+  def __init__(self, data_in, mean):
     self.data_in = data_in
+    self.mean = mean
 
   def ntm_vector_mean(self):
-    inputs = np.array(self.data_in)
-
-    ones = np.ones(inputs.shape)
+    data_out = []
 
     # calculating mean
-    return (ones/(ones + ones/np.exp(inputs)))
+    for i in range(len(data_in)):
+      temporal = 0.0
+
+      for j in range(len(data_in[i])):
+        temporal += data_in[i][j]/len(data_in[i])
+
+      data_out.append(temporal)
+
+    return data_out
 
   def ntm_vector_deviation(self):
-    inputs = np.array(self.data_in)
+    data_out = []
 
-    ones = np.ones(inputs.shape)
+    # calculating mean
+    for i in range(len(data_in)):
+      temporal = 0.0
 
-    # calculating deviation
-    return (ones + np.log(ones + np.exp(inputs)))
+      for j in range(len(data_in[i])):
+        temporal += data_in[i][j]/len(data_in[i])
 
+      data_out.append(temporal)
 
-data_in = [6.3226113886226751, 3.1313826152262876, 8.3512687816132226]
-
-
-math_function = VectorMathStatitics(data_in)
-
-
-mean_data_out = [0.9982079678583020, 0.9581688450893644, 0.9997639589554603]
-
-deviation_data_out = [7.324405028374851, 4.174113884283648, 9.351504850519834]
+    return data_out
 
 
-np.testing.assert_array_equal(math_function.ntm_vector_mean(), mean_data_out)
+data_in = np.random.rand(3,3)
 
-np.testing.assert_array_equal(math_function.ntm_vector_deviation(), deviation_data_out)
+mean = np.random.rand(3,1)
+
+
+math_statitics = VectorMathStatitics(data_in, mean)
+test_statitics = VectorMathStatitics(data_in, mean)
+
+
+np.testing.assert_array_equal(math_statitics.ntm_vector_mean(), test_statitics.ntm_vector_mean())
+
+np.testing.assert_array_equal(math_statitics.ntm_vector_deviation(), test_statitics.ntm_vector_deviation())

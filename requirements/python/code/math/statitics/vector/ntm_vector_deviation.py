@@ -42,4 +42,39 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def ntm_vector_mean(data_in, mean):
+  data_out = []
+
+  # calculating deviation
+  for i in range(len(data_in)):
+    temporal = 0.0
+
+    for j in range(len(data_in[i])):
+      temporal += (data_in[i][j] - mean[i]) * (data_in[i][j] - mean[i]) / len(data_in[i])
+
+    data_out.append(temporal)
+
+  return data_out
+
+def test_vector_mean(data_in, mean):
+  data_out = []
+
+  # calculating deviation
+  for i in range(len(data_in)):
+    temporal = 0.0
+
+    for j in range(len(data_in[i])):
+      temporal += (data_in[i][j] - mean[i]) * (data_in[i][j] - mean[i]) / len(data_in[i])
+
+    data_out.append(temporal)
+
+  return data_out
+
+
+data_in = np.random.rand(3,3)
+
+mean = np.random.rand(3,1)
+
+np.testing.assert_array_equal(ntm_vector_mean(data_in, mean), test_vector_mean(data_in, mean))
