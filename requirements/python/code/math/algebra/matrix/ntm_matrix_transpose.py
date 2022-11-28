@@ -42,4 +42,32 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def ntm_matrix_transpose(data_in):
+
+  data_out = []
+
+  # calculating addition
+  for i in range(len(data_in)):
+    data_out.append([])
+    for j in range(len(data_in[i])):
+      data_out[i].append(data_in[j][i])
+
+  return data_out
+
+def test_matrix_transpose(data_in):
+
+  data_out = []
+
+  # calculating addition
+  for i in range(len(data_in)):
+    data_out.append([])
+    for j in range(len(data_in[i])):
+      data_out[i].append(data_in[j][i])
+
+  return data_out
+
+data_in = np.random.rand(3,3)
+
+np.testing.assert_array_equal(ntm_matrix_transpose(data_in), test_matrix_transpose(data_in))

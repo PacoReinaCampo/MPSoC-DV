@@ -45,7 +45,43 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
+with Ada.Numerics;
+use Ada.Numerics;
+
+with Ada.Numerics.Elementary_Functions;
+use Ada.Numerics.Elementary_Functions;
+
 procedure ntm_vector_logistic_function is
+
+  SIZE_IN : constant integer := 3;
+
+  type index is range 1 .. SIZE_IN;
+ 
+  type vector is array (index) of float;
+
+  data_in : vector := (6.3226113886226751, 3.1313826152262876, 8.3512687816132226);
+ 
+  data_out : vector;
+
+  procedure vector_logistic_function (
+    data_in : vector
+  ) is
+    ONE : constant float := 1.0;
+  begin
+    for i in index loop
+      data_out(i) := ONE/(ONE + ONE/exp(data_in(i)));
+    end loop;
+
+  end vector_logistic_function;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  vector_logistic_function(data_in);
+
+  for i in index loop
+    Put(float'Image(data_out(i)));
+  end loop;
+
+  New_Line;
+
+end ntm_vector_logistic_function;

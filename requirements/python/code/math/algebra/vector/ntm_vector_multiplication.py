@@ -42,4 +42,37 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def ntm_vector_multiplication(data_in):
+  data_out = []
+
+  # calculating multiplication
+  for i in range(len(data_in)):
+    temporal = 0.0
+
+    for j in range(len(data_in[i])):
+      temporal *= data_in[i][j]
+
+    data_out.append(temporal)
+
+  return data_out
+
+def test_vector_multiplication(data_in):
+  data_out = []
+
+  # calculating multiplication
+  for i in range(len(data_in)):
+    temporal = 0.0
+
+    for j in range(len(data_in[i])):
+      temporal *= data_in[i][j]
+
+    data_out.append(temporal)
+
+  return data_out
+
+
+data_in = np.random.rand(3,3)
+
+np.testing.assert_array_equal(ntm_vector_multiplication(data_in), test_vector_multiplication(data_in))

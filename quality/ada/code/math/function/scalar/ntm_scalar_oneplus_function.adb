@@ -45,7 +45,32 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
+with Ada.Numerics;
+use Ada.Numerics;
+
+with Ada.Numerics.Elementary_Functions;
+use Ada.Numerics.Elementary_Functions;
+
 procedure ntm_scalar_oneplus_function is
+
+  data_in : float := 3.2155195231797550;
+ 
+  data_out : float;
+
+  procedure scalar_oneplus_function (
+    data_in : float
+  ) is
+    ONE : constant float := 1.0;
+  begin
+      data_out := ONE + log(ONE + exp(data_in));
+  end scalar_oneplus_function;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  scalar_oneplus_function(data_in);
+
+  Put(float'Image(data_out));
+
+  New_Line;
+
+end ntm_scalar_oneplus_function;

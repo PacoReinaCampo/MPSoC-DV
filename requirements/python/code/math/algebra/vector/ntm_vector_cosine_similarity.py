@@ -42,4 +42,50 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import math
+import numpy as np
+
+def ntm_vector_cosine_similarity(data_a_in, data_b_in):
+  dot_result = 0.0
+
+  input_a_result = 0.0
+  input_b_result = 0.0
+
+  # calculating vector_cosine_similarity
+  for i in range(len(data_a_in)):
+    dot_result += data_a_in[i] * data_b_in[i]
+
+  # calculating vector_cosine_similarity a
+  for i in range(len(data_a_in)):
+    input_a_result += data_a_in[i] * data_a_in[i]
+
+  # calculating vector_cosine_similarity b
+  for i in range(len(data_b_in)):
+    input_b_result += data_b_in[i] * data_b_in[i]
+
+  return dot_result/(math.sqrt(input_a_result)*math.sqrt(input_b_result));
+
+def test_vector_cosine_similarity(data_a_in, data_b_in):
+  dot_result = 0.0
+
+  input_a_result = 0.0
+  input_b_result = 0.0
+
+  # calculating vector_cosine_similarity
+  for i in range(len(data_a_in)):
+    dot_result += data_a_in[i] * data_b_in[i]
+
+  # calculating vector_cosine_similarity a
+  for i in range(len(data_a_in)):
+    input_a_result += data_a_in[i] * data_a_in[i]
+
+  # calculating vector_cosine_similarity b
+  for i in range(len(data_b_in)):
+    input_b_result += data_b_in[i] * data_b_in[i]
+
+  return dot_result/(math.sqrt(input_a_result)*math.sqrt(input_b_result));
+
+data_a_in = np.random.rand(3,1)
+data_b_in = np.random.rand(3,1)
+
+np.testing.assert_array_equal(ntm_vector_cosine_similarity(data_a_in, data_b_in), test_vector_cosine_similarity(data_a_in, data_b_in))

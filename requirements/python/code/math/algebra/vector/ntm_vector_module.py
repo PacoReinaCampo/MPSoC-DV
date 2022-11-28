@@ -42,4 +42,27 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import math
+import numpy as np
+
+def ntm_vector_module(data_in):
+  data_out = 0.0
+
+  # calculating vector_module
+  for i in range(len(data_in)):
+    data_out += data_in[i] * data_in[i]
+
+  return math.sqrt(data_out)
+
+def test_vector_module(data_in):
+  data_out = 0.0
+
+  # calculating vector_module
+  for i in range(len(data_in)):
+    data_out += data_in[i] * data_in[i]
+
+  return math.sqrt(data_out)
+
+data_in = np.random.rand(3,1)
+
+np.testing.assert_array_equal(ntm_vector_module(data_in), test_vector_module(data_in))

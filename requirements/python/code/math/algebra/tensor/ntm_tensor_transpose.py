@@ -42,4 +42,36 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def ntm_tensor_transpose(data_in):
+
+  data_out = []
+
+  # calculating addition
+  for i in range(len(data_in)):
+    data_out.append([])
+    for j in range(len(data_in[i])):
+      data_out[i].append([])
+      for k in range(len(data_in[i][j])):
+        data_out[i][j].append(data_in[i][k][j])
+
+  return data_out
+
+def test_tensor_transpose(data_in):
+
+  data_out = []
+
+  # calculating addition
+  for i in range(len(data_in)):
+    data_out.append([])
+    for j in range(len(data_in[i])):
+      data_out[i].append([])
+      for k in range(len(data_in[i][j])):
+        data_out[i][j].append(data_in[i][k][j])
+
+  return data_out
+
+data_in = np.random.rand(3,3,3)
+
+np.testing.assert_array_equal(ntm_tensor_transpose(data_in), test_tensor_transpose(data_in))
