@@ -50,10 +50,10 @@ procedure ntm_matrix_integration is
   SIZE_I_IN : constant integer := 3;
   SIZE_J_IN : constant integer := 3;
 
-  type i_Index is range 1 .. SIZE_I_IN;
-  type j_Index is range 1 .. SIZE_J_IN;
+  type i_index is range 1 .. SIZE_I_IN;
+  type j_index is range 1 .. SIZE_J_IN;
 
-  type matrix is array (i_Index, j_Index) of float;
+  type matrix is array (i_index, j_index) of float;
 
   length_in : float := 1.0;
 

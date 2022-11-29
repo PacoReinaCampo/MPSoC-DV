@@ -51,13 +51,13 @@ procedure ntm_matrix_multiplication is
   SIZE_J_IN : constant integer := 3;
   SIZE_K_IN : constant integer := 3;
 
-  type i_Index is range 1 .. SIZE_I_IN;
-  type j_Index is range 1 .. SIZE_J_IN;
-  type k_Index is range 1 .. SIZE_K_IN;
+  type i_index is range 1 .. SIZE_I_IN;
+  type j_index is range 1 .. SIZE_J_IN;
+  type k_index is range 1 .. SIZE_K_IN;
 
-  type matrix is array (i_Index, j_Index) of float;
+  type matrix is array (i_index, j_index) of float;
 
-  type tensor is array (i_Index, j_Index, k_Index) of float;
+  type tensor is array (i_index, j_index, k_index) of float;
 
   data_in : tensor := ( ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
                         ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
