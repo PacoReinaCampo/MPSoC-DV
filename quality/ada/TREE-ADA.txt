@@ -1,21 +1,13 @@
-code
+library
 ├── arithmetic
 │   ├── matrix
-│   │   ├── ntm_matrix_adder.adb
-│   │   ├── ntm_matrix_divider.adb
-│   │   └── ntm_matrix_multiplier.adb
+│   │   └── ntm_matrix_arithmetic.adb
 │   ├── scalar
-│   │   ├── ntm_scalar_adder.adb
-│   │   ├── ntm_scalar_divider.adb
-│   │   └── ntm_scalar_multiplier.adb
+│   │   └── ntm_scalar_arithmetic.adb
 │   ├── tensor
-│   │   ├── ntm_tensor_adder.adb
-│   │   ├── ntm_tensor_divider.adb
-│   │   └── ntm_tensor_multiplier.adb
+│   │   └── ntm_tensor_arithmetic.adb
 │   └── vector
-│       ├── ntm_vector_adder.adb
-│       ├── ntm_vector_divider.adb
-│       └── ntm_vector_multiplier.adb
+│       └── ntm_vector_arithmetic.adb
 ├── controller
 │   ├── FNN
 │   │   ├── convolutional
@@ -97,67 +89,34 @@ code
 ├── math
 │   ├── algebra
 │   │   ├── matrix
-│   │   │   ├── ntm_matrix_convolution.adb
-│   │   │   ├── ntm_matrix_inverse.adb
-│   │   │   ├── ntm_matrix_multiplication.adb
-│   │   │   ├── ntm_matrix_product.adb
-│   │   │   ├── ntm_matrix_summation.adb
-│   │   │   ├── ntm_matrix_transpose.adb
-│   │   │   ├── ntm_matrix_vector_convolution.adb
-│   │   │   ├── ntm_matrix_vector_product.adb
-│   │   │   └── ntm_transpose_vector_product.adb
+│   │   │   └── ntm_matrix_algebra.adb
 │   │   ├── scalar
-│   │   │   ├── ntm_scalar_multiplication.adb
-│   │   │   └── ntm_scalar_summation.adb
+│   │   │   └── ntm_scalar_algebra.adb
 │   │   ├── tensor
-│   │   │   ├── ntm_tensor_convolution.adb
-│   │   │   ├── ntm_tensor_inverse.adb
-│   │   │   ├── ntm_tensor_matrix_convolution.adb
-│   │   │   ├── ntm_tensor_matrix_product.adb
-│   │   │   ├── ntm_tensor_multiplication.adb
-│   │   │   ├── ntm_tensor_product.adb
-│   │   │   ├── ntm_tensor_summation.adb
-│   │   │   └── ntm_tensor_transpose.adb
+│   │   │   └── ntm_tensor_algebra.adb
 │   │   └── vector
-│   │       ├── ntm_dot_product.adb
-│   │       ├── ntm_vector_convolution.adb
-│   │       ├── ntm_vector_cosine_similarity.adb
-│   │       ├── ntm_vector_module.adb
-│   │       ├── ntm_vector_multiplication.adb
-│   │       └── ntm_vector_summation.adb
+│   │       └── ntm_vector_algebra.adb
 │   ├── calculus
 │   │   ├── matrix
-│   │   │   ├── ntm_matrix_differentiation.adb
-│   │   │   ├── ntm_matrix_integration.adb
-│   │   │   └── ntm_matrix_softmax.adb
+│   │   │   └── ntm_matrix_calculus.adb
 │   │   ├── tensor
-│   │   │   ├── ntm_tensor_differentiation.adb
-│   │   │   ├── ntm_tensor_integration.adb
-│   │   │   └── ntm_tensor_softmax.adb
+│   │   │   └── ntm_tensor_calculus.adb
 │   │   └── vector
-│   │       ├── ntm_vector_differentiation.adb
-│   │       ├── ntm_vector_integration.adb
-│   │       └── ntm_vector_softmax.adb
+│   │       └── ntm_vector_calculus.adb
 │   ├── function
 │   │   ├── matrix
-│   │   │   ├── ntm_matrix_logistic_function.adb
-│   │   │   └── ntm_matrix_oneplus_function.adb
+│   │   │   └── ntm_matrix_function.adb
 │   │   ├── scalar
-│   │   │   ├── ntm_scalar_logistic_function.adb
-│   │   │   └── ntm_scalar_oneplus_function.adb
+│   │   │   └── ntm_scalar_function.adb
 │   │   └── vector
-│   │       ├── ntm_vector_logistic_function.adb
-│   │       └── ntm_vector_oneplus_function.adb
+│   │       └── ntm_vector_function.adb
 │   └── statitics
 │       ├── matrix
-│       │   ├── ntm_matrix_deviation.adb
-│       │   └── ntm_matrix_mean.adb
+│       │   └── ntm_matrix_statitics.adb
 │       ├── scalar
-│       │   ├── ntm_scalar_deviation.adb
-│       │   └── ntm_scalar_mean.adb
+│       │   └── ntm_scalar_statitics.adb
 │       └── vector
-│           ├── ntm_vector_deviation.adb
-│           └── ntm_vector_mean.adb
+│           └── ntm_vector_statitics.adb
 ├── ntm
 │   ├── memory
 │   │   ├── ntm_addressing.adb
@@ -178,13 +137,9 @@ code
 │       └── ntm_writing.adb
 ├── state
 │   ├── feedback
-│   │   ├── ntm_state_matrix_feedforward.adb
-│   │   ├── ntm_state_matrix_input.adb
-│   │   ├── ntm_state_matrix_output.adb
-│   │   └── ntm_state_matrix_state.adb
+│   │   └── ntm_state_feedback.adb
 │   ├── outputs
-│   │   ├── ntm_state_vector_output.adb
-│   │   └── ntm_state_vector_state.adb
+│   │   └── ntm_state_outputs.adb
 │   └── top
 │       └── ntm_state_top.adb
 └── trainer
@@ -233,4 +188,4 @@ code
             ├── ntm_lstm_output_v_trainer.adb
             └── ntm_lstm_output_w_trainer.adb
 
-59 directories, 174 files
+59 directories, 129 files

@@ -45,79 +45,42 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-with System.Assertions;
+package ntm_state_feedback is
 
-with ntm_matrix_calculus;
-use ntm_matrix_calculus;
+  SIZE_I_IN : constant integer := 3;
+  SIZE_J_IN : constant integer := 3;
 
-procedure test_matrix_calculus is
+  type i_index is range 1 .. SIZE_I_IN;
+  type j_index is range 1 .. SIZE_J_IN;
 
-  control : integer := 0;
+  type matrix is array (i_index, j_index) of float;
 
-  length_in : float := 1.0;
+  procedure ntm_state_matrix_feedforward (
+    data_a_in : in matrix;
+    data_b_in : in matrix;
 
-  length_i_in : float := 1.0;
-  length_j_in : float := 1.0;
-
-  data_in : matrix := ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0));
-
-  data_out : matrix;
-
-begin
-
-  ntm_matrix_calculus.ntm_matrix_differentiation (
-    data_in => data_in,
-
-    length_i_in => length_i_in,
-    length_j_in => length_j_in,
-
-    control => control,
-
-    data_out  => data_out
+    data_out : out matrix
   );
 
-  pragma Assert (1 = 0, "Matrix Differentiation");
+  procedure ntm_state_matrix_input (
+    data_a_in : in matrix;
+    data_b_in : in matrix;
 
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
-    end loop;
-
-    New_Line;
-  end loop;
-
-  ntm_matrix_calculus.ntm_matrix_integration (
-    data_in => data_in,
-
-    length_in => length_in,
-
-    data_out  => data_out
+    data_out : out matrix
   );
 
-  pragma Assert (1 = 0, "Matrix Integration");
+  procedure ntm_state_matrix_output (
+    data_a_in : in matrix;
+    data_b_in : in matrix;
 
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
-    end loop;
-
-    New_Line;
-  end loop;
-
-  ntm_matrix_calculus.ntm_matrix_softmax (
-    data_in => data_in,
-
-    data_out  => data_out
+    data_out : out matrix
   );
 
-  pragma Assert (1 = 0, "Matrix Softmax");
+  procedure ntm_state_matrix_state (
+    data_a_in : in matrix;
+    data_b_in : in matrix;
 
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
-    end loop;
+    data_out : out matrix
+  );
 
-    New_Line;
-  end loop;
-
-end test_matrix_calculus;
+end ntm_state_feedback;

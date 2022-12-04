@@ -45,79 +45,24 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-with System.Assertions;
+package ntm_scalar_algebra is
 
-with ntm_matrix_calculus;
-use ntm_matrix_calculus;
+  SIZE_IN : constant integer := 3;
 
-procedure test_matrix_calculus is
+  type index is range 1 .. SIZE_IN;
+ 
+  type vector is array (index) of float;
 
-  control : integer := 0;
-
-  length_in : float := 1.0;
-
-  length_i_in : float := 1.0;
-  length_j_in : float := 1.0;
-
-  data_in : matrix := ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0));
-
-  data_out : matrix;
-
-begin
-
-  ntm_matrix_calculus.ntm_matrix_differentiation (
-    data_in => data_in,
-
-    length_i_in => length_i_in,
-    length_j_in => length_j_in,
-
-    control => control,
-
-    data_out  => data_out
+  procedure ntm_scalar_multiplication (
+    data_in : in vector;
+    
+    data_out : out float
   );
 
-  pragma Assert (1 = 0, "Matrix Differentiation");
-
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
-    end loop;
-
-    New_Line;
-  end loop;
-
-  ntm_matrix_calculus.ntm_matrix_integration (
-    data_in => data_in,
-
-    length_in => length_in,
-
-    data_out  => data_out
+  procedure ntm_scalar_summation (
+    data_in : in vector;
+    
+    data_out : out float
   );
 
-  pragma Assert (1 = 0, "Matrix Integration");
-
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
-    end loop;
-
-    New_Line;
-  end loop;
-
-  ntm_matrix_calculus.ntm_matrix_softmax (
-    data_in => data_in,
-
-    data_out  => data_out
-  );
-
-  pragma Assert (1 = 0, "Matrix Softmax");
-
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
-    end loop;
-
-    New_Line;
-  end loop;
-
-end test_matrix_calculus;
+end ntm_scalar_algebra;

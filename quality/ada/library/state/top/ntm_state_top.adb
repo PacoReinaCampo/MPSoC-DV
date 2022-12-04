@@ -45,7 +45,21 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-procedure ntm_state_top is
-begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+package body ntm_state_top is
+
+  procedure ntm_state_matrix (
+    data_a_in : in matrix;
+    data_b_in : in matrix;
+
+    data_out : out matrix
+  ) is
+  begin
+    for i in i_index loop
+      for j in j_index loop
+        data_out(i, j) := data_a_in(i, j) + data_b_in(i, j);
+      end loop;
+    end loop;
+
+  end ntm_state_matrix;
+
+end ntm_state_top;

@@ -45,79 +45,125 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-with System.Assertions;
+with Ada.Numerics;
+use Ada.Numerics;
 
-with ntm_matrix_calculus;
-use ntm_matrix_calculus;
+with Ada.Numerics.Elementary_Functions;
+use Ada.Numerics.Elementary_Functions;
 
-procedure test_matrix_calculus is
+package body ntm_vector_algebra is
 
-  control : integer := 0;
+  procedure ntm_dot_product (
+    data_a_in : in vector;
+    data_b_in : in vector;
 
-  length_in : float := 1.0;
+    data_out : out float
+  ) is
+  begin
 
-  length_i_in : float := 1.0;
-  length_j_in : float := 1.0;
+    data_out := 0.0;
 
-  data_in : matrix := ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0));
-
-  data_out : matrix;
-
-begin
-
-  ntm_matrix_calculus.ntm_matrix_differentiation (
-    data_in => data_in,
-
-    length_i_in => length_i_in,
-    length_j_in => length_j_in,
-
-    control => control,
-
-    data_out  => data_out
-  );
-
-  pragma Assert (1 = 0, "Matrix Differentiation");
-
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
+    for i in i_index loop
+      data_out := data_out + data_a_in(i) * data_b_in(i);
     end loop;
 
-    New_Line;
-  end loop;
+  end ntm_dot_product;
 
-  ntm_matrix_calculus.ntm_matrix_integration (
-    data_in => data_in,
+  procedure ntm_vector_convolution (
+    data_a_in : in vector;
+    data_b_in : in vector;
 
-    length_in => length_in,
+    data_out : out vector
+  ) is
+    temporal : float;
+  begin
+    for i in i_index loop
+      temporal := 0.0;
 
-    data_out  => data_out
-  );
-
-  pragma Assert (1 = 0, "Matrix Integration");
-
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
+      for m in 1 .. i loop
+        temporal := temporal + data_a_in(m) * data_b_in(i-m);
+        
+        data_out(i) := temporal;
+      end loop;
     end loop;
 
-    New_Line;
-  end loop;
+  end ntm_vector_convolution;
 
-  ntm_matrix_calculus.ntm_matrix_softmax (
-    data_in => data_in,
+  procedure ntm_vector_cosine_similarity (
+    data_a_in : in vector;
+    data_b_in : in vector;
 
-    data_out  => data_out
-  );
+    data_out : out float
+  ) is
+    dot_result : float := 0.0;
 
-  pragma Assert (1 = 0, "Matrix Softmax");
+    input_a_result : float := 0.0;
+    input_b_result : float := 0.0;
+  begin
 
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
+    for i in i_index loop
+      dot_result := dot_result + data_a_in(i) * data_b_in(i);
     end loop;
 
-    New_Line;
-  end loop;
+    for i in i_index loop
+      input_a_result := input_a_result + data_a_in(i) * data_a_in(i);
+    end loop;
 
-end test_matrix_calculus;
+    for i in i_index loop
+      input_b_result := input_b_result + data_b_in(i) * data_b_in(i);
+    end loop;
+
+    data_out := dot_result/(sqrt(input_a_result)*sqrt(input_b_result));
+
+  end ntm_vector_cosine_similarity;
+
+  procedure ntm_vector_module (
+    data_in : in vector;
+
+    data_out : out float
+  ) is
+  begin
+
+    data_out := 0.0;
+
+    for i in i_index loop
+      data_out := data_out + data_in(i) * data_in(i);
+    end loop;
+
+    data_out := sqrt(data_out);
+
+  end ntm_vector_module;
+
+  procedure ntm_vector_multiplication (
+    data_in : matrix;
+
+    data_out : out vector
+  ) is
+  begin
+    for i in i_index loop
+      data_out(i) := 1.0;
+
+      for j in j_index loop
+        data_out(i) := data_out(i) * data_in(i, j);
+      end loop;
+    end loop;
+
+  end ntm_vector_multiplication;
+
+  procedure ntm_vector_summation (
+    data_in : matrix;
+
+    data_out : out vector
+  ) is
+  begin
+    for i in i_index loop
+      data_out(i) := 0.0;
+
+      for j in j_index loop
+        data_out(i) := data_out(i) + data_in(i, j);
+      end loop;
+    end loop;
+
+  end ntm_vector_summation;
+
+end ntm_vector_algebra;

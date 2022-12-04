@@ -45,79 +45,42 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-with System.Assertions;
+package ntm_tensor_calculus is
 
-with ntm_matrix_calculus;
-use ntm_matrix_calculus;
+  SIZE_I_IN : constant integer := 3;
+  SIZE_J_IN : constant integer := 3;
+  SIZE_K_IN : constant integer := 3;
 
-procedure test_matrix_calculus is
+  type i_index is range 1 .. SIZE_I_IN;
+  type j_index is range 1 .. SIZE_J_IN;
+  type k_index is range 1 .. SIZE_K_IN;
 
-  control : integer := 0;
+  type tensor is array (i_index, j_index, k_index) of float;
 
-  length_in : float := 1.0;
+  procedure ntm_tensor_differentiation (
+    data_in : tensor;
 
-  length_i_in : float := 1.0;
-  length_j_in : float := 1.0;
+    length_i_in : in float;
+    length_j_in : in float;
+    length_k_in : in float;
 
-  data_in : matrix := ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0));
+    control : in integer;
 
-  data_out : matrix;
-
-begin
-
-  ntm_matrix_calculus.ntm_matrix_differentiation (
-    data_in => data_in,
-
-    length_i_in => length_i_in,
-    length_j_in => length_j_in,
-
-    control => control,
-
-    data_out  => data_out
+    data_out : out tensor
   );
 
-  pragma Assert (1 = 0, "Matrix Differentiation");
+  procedure ntm_tensor_integration (
+    data_in : in tensor;
 
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
-    end loop;
+    length_in : in float;
 
-    New_Line;
-  end loop;
-
-  ntm_matrix_calculus.ntm_matrix_integration (
-    data_in => data_in,
-
-    length_in => length_in,
-
-    data_out  => data_out
+    data_out : out tensor
   );
 
-  pragma Assert (1 = 0, "Matrix Integration");
+  procedure ntm_tensor_softmax (
+    data_in : in tensor;
 
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
-    end loop;
-
-    New_Line;
-  end loop;
-
-  ntm_matrix_calculus.ntm_matrix_softmax (
-    data_in => data_in,
-
-    data_out  => data_out
+    data_out : out tensor
   );
 
-  pragma Assert (1 = 0, "Matrix Softmax");
-
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
-    end loop;
-
-    New_Line;
-  end loop;
-
-end test_matrix_calculus;
+end ntm_tensor_calculus;

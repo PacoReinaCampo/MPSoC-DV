@@ -48,9 +48,9 @@
 #
 ##########################################################################
 
--include include-math-calculus.txt
+-include include-state-top.txt
 
-TARGET=vector_calculus
+TARGET=state_top
 
 ##########################################################################
 #
@@ -61,7 +61,7 @@ TARGET=vector_calculus
 all: x86
 
 x86:
-	gnatmake test_${TARGET}.adb ${SOURCES_CALCULUS} -o ${TARGET}-x86.run
+	gnatmake test_${TARGET}.adb ${SOURCES_STATE} -o ${TARGET}-x86.run
 
 clean:
 	rm -rf *.run *.ali *.o

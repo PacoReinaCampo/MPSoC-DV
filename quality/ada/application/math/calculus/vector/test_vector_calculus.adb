@@ -45,7 +45,65 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-procedure Hello is
+with System.Assertions;
+
+with ntm_vector_calculus;
+use ntm_vector_calculus;
+
+procedure test_vector_calculus is
+
+  length_in : float := 1.0;
+
+  data_in : vector := (6.0, 3.0, 8.0);
+ 
+  data_out : vector;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  ntm_vector_calculus.ntm_vector_differentiation (
+    data_in => data_in,
+
+    length_in => length_in,
+
+    data_out  => data_out
+  );
+
+  pragma Assert (1 = 0, "Vector Differentiation");
+
+  for i in index loop
+    Put(float'Image(data_out(i)));
+  end loop;
+
+  New_Line;
+
+  ntm_vector_calculus.ntm_vector_integration (
+    data_in => data_in,
+
+    length_in => length_in,
+
+    data_out  => data_out
+  );
+
+  pragma Assert (1 = 0, "Vector Integration");
+
+  for i in index loop
+    Put(float'Image(data_out(i)));
+  end loop;
+
+  New_Line;
+
+  ntm_vector_calculus.ntm_vector_softmax (
+    data_in => data_in,
+
+    data_out  => data_out
+  );
+
+  pragma Assert (1 = 0, "Vector Softmax");
+
+  for i in index loop
+    Put(float'Image(data_out(i)));
+  end loop;
+
+  New_Line;
+
+end test_vector_calculus;

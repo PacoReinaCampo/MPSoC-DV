@@ -45,79 +45,100 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-with System.Assertions;
+package ntm_matrix_algebra is
 
-with ntm_matrix_calculus;
-use ntm_matrix_calculus;
+  SIZE_I_IN : constant integer := 3;
+  SIZE_J_IN : constant integer := 3;
+  SIZE_K_IN : constant integer := 3;
 
-procedure test_matrix_calculus is
+  SIZE_I_A_IN : constant integer := 4;
 
-  control : integer := 0;
+  SIZE_M_IN : constant integer := 3;
 
-  length_in : float := 1.0;
+  SIZE_J_B_IN : constant integer := 4;
 
-  length_i_in : float := 1.0;
-  length_j_in : float := 1.0;
+  type i_index is range 1 .. SIZE_I_IN;
+  type j_index is range 1 .. SIZE_J_IN;
+  type k_index is range 1 .. SIZE_K_IN;
 
-  data_in : matrix := ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0));
+  type i_a_index is range 1 .. SIZE_I_A_IN;
 
-  data_out : matrix;
+  type m_index is range 1 .. SIZE_M_IN;
 
-begin
+  type j_b_index is range 1 .. SIZE_J_B_IN;
 
-  ntm_matrix_calculus.ntm_matrix_differentiation (
-    data_in => data_in,
+  type vector is array (i_index) of float;
 
-    length_i_in => length_i_in,
-    length_j_in => length_j_in,
+  type matrix is array (i_index, j_index) of float;
 
-    control => control,
+  type tensor is array (i_index, j_index, k_index) of float;
 
-    data_out  => data_out
+  type a_vector is array (i_a_index) of float;
+  type b_vector is array (j_b_index) of float;
+  type m_vector is array (m_index) of float;
+
+  type a_matrix is array (i_a_index, m_index) of float;
+  type b_matrix is array (m_index, j_b_index) of float;
+
+  type out_matrix is array (i_a_index, j_b_index) of float;
+
+  procedure ntm_matrix_convolution (
+    data_a_in : in a_matrix;
+    data_b_in : in b_matrix;
+
+    data_out : out out_matrix
   );
 
-  pragma Assert (1 = 0, "Matrix Differentiation");
+  procedure ntm_matrix_inverse (
+    data_in : in matrix;
 
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
-    end loop;
-
-    New_Line;
-  end loop;
-
-  ntm_matrix_calculus.ntm_matrix_integration (
-    data_in => data_in,
-
-    length_in => length_in,
-
-    data_out  => data_out
+    data_out : out matrix
   );
 
-  pragma Assert (1 = 0, "Matrix Integration");
+  procedure ntm_matrix_multiplication (
+    data_in : in tensor;
 
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
-    end loop;
-
-    New_Line;
-  end loop;
-
-  ntm_matrix_calculus.ntm_matrix_softmax (
-    data_in => data_in,
-
-    data_out  => data_out
+    data_out : out matrix
   );
 
-  pragma Assert (1 = 0, "Matrix Softmax");
+  procedure ntm_matrix_product (
+    data_a_in : in a_matrix;
+    data_b_in : in b_matrix;
 
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
-    end loop;
+    data_out : out out_matrix
+  );
 
-    New_Line;
-  end loop;
+  procedure ntm_matrix_summation (
+    data_in : in tensor;
 
-end test_matrix_calculus;
+    data_out : out matrix
+  );
+
+  procedure ntm_matrix_transpose (
+    data_in : in matrix;
+
+    data_out : out matrix
+  );
+
+  procedure ntm_matrix_vector_convolution (
+    data_a_in : in a_matrix;
+    data_b_in : in b_vector;
+
+    data_out : out a_vector
+  );
+
+  procedure ntm_matrix_vector_product (
+    data_a_in : in a_matrix;
+    data_b_in : in m_vector;
+
+    data_out : out a_vector
+  );
+
+  procedure ntm_transpose_vector_product (
+    data_a_in : in a_vector;
+    data_b_in : in b_vector;
+
+    data_out : out out_matrix
+  );
+
+end ntm_matrix_algebra;

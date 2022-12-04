@@ -45,7 +45,115 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-procedure Hello is
+with System.Assertions;
+
+with ntm_vector_algebra;
+use ntm_vector_algebra;
+
+procedure test_vector_algebra is
+
+  vector_data_in : vector;
+
+  vector_data_a_in : vector;
+  vector_data_b_in : vector;
+
+  matrix_data_in : matrix;
+ 
+  scalar_data_out : float;
+  vector_data_out : vector;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  vector_data_a_in := (1.0, 2.0, 3.0);
+  vector_data_b_in := (1.0, 3.0, 3.0);
+
+  ntm_vector_algebra.ntm_dot_product (
+    data_a_in => vector_data_a_in,
+    data_b_in => vector_data_b_in,
+
+    data_out  => scalar_data_out
+  );
+
+  pragma Assert (1 = 0, "Vector Dot Product");
+
+  Put(float'Image(scalar_data_out));
+
+  New_Line;
+
+  vector_data_a_in := (1.0, 2.0, 3.0);
+  vector_data_b_in := (1.0, 3.0, 3.0);
+
+  ntm_vector_algebra.ntm_vector_convolution (
+    data_a_in => vector_data_a_in,
+    data_b_in => vector_data_b_in,
+
+    data_out  => vector_data_out
+  );
+
+  pragma Assert (1 = 0, "Vector Convolution");
+
+  for i in i_index loop
+    Put(float'Image(vector_data_out(i)));
+  end loop;
+
+  New_Line;
+
+  vector_data_a_in := (4.0, 0.0, 3.0);
+  vector_data_b_in := (4.0, 0.0, 3.0);
+
+  ntm_vector_algebra.ntm_vector_cosine_similarity (
+    data_a_in => vector_data_a_in,
+    data_b_in => vector_data_b_in,
+
+    data_out  => scalar_data_out
+  );
+
+  pragma Assert (1 = 0, "Cosine Similarity");
+
+  Put(float'Image(scalar_data_out));
+
+  New_Line;
+
+  vector_data_in := (4.0, 0.0, 3.0);
+
+  ntm_vector_algebra.ntm_vector_module (
+    data_in => vector_data_in,
+
+    data_out  => scalar_data_out
+  );
+
+  pragma Assert (1 = 0, "Vector Module");
+
+  Put(float'Image(scalar_data_out));
+
+  New_Line;
+
+  matrix_data_in := ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0));
+
+  ntm_vector_algebra.ntm_vector_multiplication (
+    data_in => matrix_data_in,
+
+    data_out  => vector_data_out
+  );
+
+  pragma Assert (1 = 0, "Vector Multiplication");
+
+  for i in i_index loop
+    Put(float'Image(vector_data_out(i)));
+  end loop;
+
+  matrix_data_in := ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0));
+
+  ntm_vector_algebra.ntm_vector_summation (
+    data_in => matrix_data_in,
+
+    data_out  => vector_data_out
+  );
+
+  pragma Assert (1 = 0, "Vector Summation");
+
+  for i in i_index loop
+    Put(float'Image(vector_data_out(i)));
+  end loop;
+
+end test_vector_algebra;

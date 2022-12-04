@@ -48,9 +48,9 @@
 #
 ##########################################################################
 
--include include-arithmetic.txt
+-include include-math-calculus.txt
 
-TARGET=matrix_arithmetic
+TARGET=tensor_calculus
 
 ##########################################################################
 #
@@ -61,7 +61,7 @@ TARGET=matrix_arithmetic
 all: x86
 
 x86:
-	gnatmake test_${TARGET}.adb ${SOURCES_ARITHMETIC} -o ${TARGET}-x86.run
+	gnatmake test_${TARGET}.adb ${SOURCES_CALCULUS} -o ${TARGET}-x86.run
 
 clean:
 	rm -rf *.run *.ali *.o

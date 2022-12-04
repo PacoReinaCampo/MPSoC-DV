@@ -45,7 +45,198 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-procedure Hello is
+with System.Assertions;
+
+with ntm_tensor_algebra;
+use ntm_tensor_algebra;
+
+procedure test_tensor_algebra is
+
+  tensor_data_in : tensor := ( ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
+                               ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
+                               ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)) );
+
+  tensor_data_a_in : tensor := ( ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
+                                 ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
+                                 ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)) );
+
+  tensor_data_b_in : tensor := ( ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
+                                 ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
+                                 ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)) );
+
+  matrix_data_b_in : matrix := ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0));
+
+  array4_data_in : array4 := ( ( ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
+                                 ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
+                                 ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)) ),
+                          
+                               ( ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
+                                 ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
+                                 ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)) ),
+                          
+                               ( ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
+                                 ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
+                                 ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)) ) );
+
+  tensor_data_out : tensor;
+  matrix_data_out : tensor;
+
 begin
-  Put_Line ("Hello QueenField!");
-end Hello;
+
+  ntm_tensor_algebra.ntm_tensor_convolution (
+    data_a_in => tensor_data_a_in,
+    data_b_in => tensor_data_b_in,
+
+    data_out => tensor_data_out
+  );
+
+  pragma Assert (1 = 0, "Tensor Convolution");
+
+  for i in i_index loop
+    for j in j_index loop
+      for k in k_index loop
+        Put(float'Image(tensor_data_out(i, j, k)));
+      end loop;
+
+      New_Line;
+    end loop;
+
+    New_Line;
+  end loop;
+
+  ntm_tensor_algebra.ntm_tensor_inverse (
+    data_in => tensor_data_in,
+
+    data_out => tensor_data_out
+  );
+
+  pragma Assert (1 = 0, "Tensor Inverse");
+
+  for i in i_index loop
+    for j in j_index loop
+      for k in k_index loop
+        Put(float'Image(tensor_data_out(i, j, k)));
+      end loop;
+
+      New_Line;
+    end loop;
+
+    New_Line;
+  end loop;
+
+--  ntm_tensor_algebra.ntm_tensor_matrix_convolution (
+--    data_a_in => tensor_data_a_in,
+--    data_b_in => matrix_data_b_in,
+
+--    data_out => matrix_data_out
+--  );
+
+--  pragma Assert (1 = 0, "Tensor Convolution");
+
+--  for i in i_index loop
+--    for j in j_index loop
+--      Put(float'Image(matrix_data_out(i, j)));
+--    end loop;
+
+--    New_Line;
+--  end loop;
+
+--  ntm_tensor_algebra.ntm_tensor_matrix_product (
+--    data_a_in => tensor_data_a_in,
+--    data_b_in => matrix_data_b_in,
+
+--    data_out => matrix_data_out
+--  );
+
+--  pragma Assert (1 = 0, "Tensor Product");
+
+--  for i in i_index loop
+--    for j in j_index loop
+--      Put(float'Image(matrix_data_out(i, j)));
+--    end loop;
+
+--    New_Line;
+--  end loop;
+
+  ntm_tensor_algebra.ntm_tensor_multiplication (
+    data_in => array4_data_in,
+
+    data_out => tensor_data_out
+  );
+
+  pragma Assert (1 = 0, "Tensor Multiplication");
+
+  for i in i_index loop
+    for j in j_index loop
+      for k in k_index loop
+        Put(float'Image(tensor_data_out(i, j, k)));
+      end loop;
+
+      New_Line;
+    end loop;
+
+    New_Line;
+  end loop;
+
+  ntm_tensor_algebra.ntm_tensor_summation (
+    data_in => array4_data_in,
+
+    data_out => tensor_data_out
+  );
+
+  pragma Assert (1 = 0, "Tensor Summation");
+
+  for i in i_index loop
+    for j in j_index loop
+      for k in k_index loop
+        Put(float'Image(tensor_data_out(i, j, k)));
+      end loop;
+
+      New_Line;
+    end loop;
+
+    New_Line;
+  end loop;
+
+  ntm_tensor_algebra.ntm_tensor_product (
+    data_a_in => tensor_data_a_in,
+    data_b_in => tensor_data_b_in,
+
+    data_out => tensor_data_out
+  );
+
+  pragma Assert (1 = 0, "Tensor Product");
+
+  for i in i_index loop
+    for j in j_index loop
+      for k in k_index loop
+        Put(float'Image(tensor_data_out(i, j, k)));
+      end loop;
+
+      New_Line;
+    end loop;
+
+    New_Line;
+  end loop;
+
+  ntm_tensor_algebra.ntm_tensor_transpose (
+    data_in => tensor_data_in,
+
+    data_out => tensor_data_out
+  );
+
+  pragma Assert (1 = 0, "Tensor Transpose");
+
+  for i in i_index loop
+    for j in j_index loop
+      for k in k_index loop
+        Put(float'Image(tensor_data_out(i, j, k)));
+      end loop;
+
+      New_Line;
+    end loop;
+
+    New_Line;
+  end loop;
+
+end test_tensor_algebra;

@@ -45,79 +45,88 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-with System.Assertions;
+with Ada.Numerics;
+use Ada.Numerics;
 
-with ntm_matrix_calculus;
-use ntm_matrix_calculus;
+with Ada.Numerics.Elementary_Functions;
+use Ada.Numerics.Elementary_Functions;
 
-procedure test_matrix_calculus is
+package body ntm_matrix_calculus is
 
-  control : integer := 0;
+  procedure ntm_matrix_differentiation (
+    data_in : in matrix;
 
-  length_in : float := 1.0;
+    length_i_in : in float;
+    length_j_in : in float;
 
-  length_i_in : float := 1.0;
-  length_j_in : float := 1.0;
+    control : in integer;
 
-  data_in : matrix := ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0));
-
-  data_out : matrix;
-
-begin
-
-  ntm_matrix_calculus.ntm_matrix_differentiation (
-    data_in => data_in,
-
-    length_i_in => length_i_in,
-    length_j_in => length_j_in,
-
-    control => control,
-
-    data_out  => data_out
-  );
-
-  pragma Assert (1 = 0, "Matrix Differentiation");
-
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
+    data_out : out matrix
+  ) is
+  begin
+    for i in i_index loop
+      for j in j_index loop
+        if control = 0 then
+          if i = 1 then
+            data_out(i, j) := 0.0;
+          else
+            data_out(i, j) := (data_in(i, j) - data_in(i-1, j))/length_i_in;
+          end if;
+        else
+          if i = 1 then
+            data_out(i, j) := 0.0;
+          else
+            data_out(i, j) := (data_in(i, j) - data_in(i, j-1))/length_j_in;
+          end if;
+        end if;
+      end loop;
     end loop;
 
-    New_Line;
-  end loop;
+  end ntm_matrix_differentiation;
 
-  ntm_matrix_calculus.ntm_matrix_integration (
-    data_in => data_in,
+  procedure ntm_matrix_integration (
+    data_in : in matrix;
 
-    length_in => length_in,
+    length_in : in float;
 
-    data_out  => data_out
-  );
+    data_out : out matrix
+  ) is
+    temporal : float := 0.0;
+  begin
+    for i in i_index loop
+      for j in j_index loop
+        temporal := temporal + data_in(i, j)*length_in;
 
-  pragma Assert (1 = 0, "Matrix Integration");
-
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
+        data_out(i, j) := temporal*length_in;
+      end loop;
     end loop;
 
-    New_Line;
-  end loop;
+  end ntm_matrix_integration;
 
-  ntm_matrix_calculus.ntm_matrix_softmax (
-    data_in => data_in,
+  procedure ntm_matrix_softmax (
+    data_in : in matrix;
 
-    data_out  => data_out
-  );
+    data_out : out matrix
+  ) is
+    temporal0 : float := 0.0;
+    temporal1 : float := 0.0;
+ 
+    data_int : matrix;
+  begin
+    for i in i_index loop
+      for j in j_index loop
+        temporal0 := temporal0 + exp(data_in(i, j));
 
-  pragma Assert (1 = 0, "Matrix Softmax");
+        temporal1 := exp(data_in(i, j));
 
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
+        data_int(i, j) := temporal1;
+      end loop;
+
+      for j in j_index loop
+        data_out(i, j) := data_int(i, j)/temporal0;
+      end loop;
     end loop;
 
-    New_Line;
-  end loop;
+  end ntm_matrix_softmax;
 
-end test_matrix_calculus;
+end ntm_matrix_calculus;

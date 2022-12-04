@@ -45,95 +45,179 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-with System.Assertions;
+package body ntm_matrix_algebra is
 
-with ntm_tensor_calculus;
-use ntm_tensor_calculus;
+  procedure ntm_matrix_convolution (
+    data_a_in : in a_matrix;
+    data_b_in : in b_matrix;
 
-procedure test_tensor_calculus is
+    data_out : out out_matrix
+  ) is
+    temporal : float;
+  begin
+    for i in i_a_index loop
+      for j in j_b_index loop
+        temporal := 0.0;
 
-  control : integer := 0;
+        for m in 1 .. i loop
+          for n in 1 .. j loop
+            --temporal := temporal + data_a_in(m, n) * data_b_in(i-m, j-n);
+            temporal := temporal + data_a_in(m, 1) * data_b_in(1, j-n);
 
-  length_in : float := 1.0;
-
-  length_i_in : float := 1.0;
-  length_j_in : float := 1.0;
-  length_k_in : float := 1.0;
-
-  data_in : tensor := ( ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
-                        ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
-                        ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)) );
-
-  data_out : tensor;
-
-begin
-
-  ntm_tensor_calculus.ntm_tensor_differentiation (
-    data_in => data_in,
-
-    length_i_in => length_i_in,
-    length_j_in => length_j_in,
-    length_k_in => length_k_in,
-
-    control => control,
-
-    data_out  => data_out
-  );
-
-  pragma Assert (1 = 0, "Tensor Differentiation");
-
-  for i in i_index loop
-    for j in j_index loop
-      for k in k_index loop
-        Put(float'Image(data_out(i, j, k)));
+            data_out(i, j) := temporal;
+          end loop;
+        end loop;
       end loop;
-
-      New_Line;
     end loop;
 
-    New_Line;
-  end loop;
+  end ntm_matrix_convolution;
 
-  ntm_tensor_calculus.ntm_tensor_integration (
-    data_in => data_in,
+  procedure ntm_matrix_inverse (
+    data_in : in matrix;
 
-    length_in => length_in,
-
-    data_out  => data_out
-  );
-
-  pragma Assert (1 = 0, "Tensor Integration");
-
-  for i in i_index loop
-    for j in j_index loop
-      for k in k_index loop
-        Put(float'Image(data_out(i, j, k)));
+    data_out : out matrix
+  ) is
+  begin
+    for i in i_index loop
+      for j in j_index loop
+        data_out(i, j) := data_in(i, j);
       end loop;
-
-      New_Line;
     end loop;
 
-    New_Line;
-  end loop;
+  end ntm_matrix_inverse;
 
-  ntm_tensor_calculus.ntm_tensor_softmax (
-    data_in => data_in,
+  procedure ntm_matrix_multiplication (
+    data_in : in tensor;
 
-    data_out  => data_out
-  );
+    data_out : out matrix
+  ) is
+  begin
+    for i in i_index loop
+      for j in j_index loop
+        data_out(i, j) := 1.0;
 
-  pragma Assert (1 = 0, "Tensor Softmax");
-
-  for i in i_index loop
-    for j in j_index loop
-      for k in k_index loop
-        Put(float'Image(data_out(i, j, k)));
+        for k in k_index loop
+          data_out(i, j) := data_out(i, j) * data_in(i, j, k);
+        end loop;
       end loop;
-
-      New_Line;
     end loop;
 
-    New_Line;
-  end loop;
+  end ntm_matrix_multiplication;
 
-end test_tensor_calculus;
+  procedure ntm_matrix_product (
+    data_a_in : in a_matrix;
+    data_b_in : in b_matrix;
+
+    data_out : out out_matrix
+  ) is
+    temporal : float;
+  begin
+    for i in i_a_index loop
+      for j in j_b_index loop
+        temporal := 0.0;
+
+        for m in m_index loop
+          temporal := temporal + data_a_in(i, m) * data_b_in(m, j);
+
+          data_out(i, j) := temporal;
+        end loop;
+      end loop;
+    end loop;
+
+  end ntm_matrix_product;
+
+  procedure ntm_matrix_summation (
+    data_in : in tensor;
+
+    data_out : out matrix
+  ) is
+  begin
+    for i in i_index loop
+      for j in j_index loop
+        data_out(i, j) := 0.0;
+
+        for k in k_index loop
+          data_out(i, j) := data_out(i, j) + data_in(i, j, k);
+        end loop;
+      end loop;
+    end loop;
+
+  end ntm_matrix_summation;
+
+  procedure ntm_matrix_transpose (
+    data_in : in matrix;
+
+    data_out : out matrix
+  ) is
+  begin
+    for i in i_index loop
+      for j in j_index loop
+        data_out(i, j) := data_in(i, j);
+      end loop;
+    end loop;
+
+  end ntm_matrix_transpose;
+
+  procedure ntm_matrix_vector_convolution (
+    data_a_in : in a_matrix;
+    data_b_in : in b_vector;
+
+    data_out : out a_vector
+  ) is
+    temporal : float;
+  begin
+    for i in i_a_index loop
+      for j in j_b_index loop
+        temporal := 0.0;
+
+        for m in 1 .. i loop
+          for n in 1 .. j loop
+            --temporal := temporal + data_a_in(m, n) * data_b_in(i-m);
+            temporal := temporal + data_a_in(m, 1) * data_b_in(1);
+
+            data_out(i) := temporal;
+          end loop;
+        end loop;
+      end loop;
+    end loop;
+
+  end ntm_matrix_vector_convolution;
+
+  procedure ntm_matrix_vector_product (
+    data_a_in : in a_matrix;
+    data_b_in : in m_vector;
+
+    data_out : out a_vector
+  ) is
+    temporal : float;
+  begin
+    for i in i_a_index loop
+      for j in j_b_index loop
+        temporal := 0.0;
+
+        for m in m_index loop
+          temporal := temporal + data_a_in(i, m) * data_b_in(m);
+
+          data_out(i) := temporal;
+        end loop;
+      end loop;
+    end loop;
+
+  end ntm_matrix_vector_product;
+
+  procedure ntm_transpose_vector_product (
+    data_a_in : a_vector;
+    data_b_in : b_vector;
+
+    data_out : out out_matrix
+  ) is
+  begin
+    for i in i_a_index loop
+      for j in j_b_index loop
+        data_out(i, j) := data_a_in(i) * data_b_in(j);
+      end loop;
+    end loop;
+
+  end ntm_transpose_vector_product;
+
+end ntm_matrix_algebra;
