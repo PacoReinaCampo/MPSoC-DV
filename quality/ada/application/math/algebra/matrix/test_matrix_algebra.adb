@@ -55,24 +55,26 @@ use ntm_matrix_algebra;
 
 procedure test_matrix_algebra is
 
-  tensor_data_in : tensor;
+  tensor_data_in : tensor := ( ((0.0, 0.0, 0.0), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0)),
+                               ((0.0, 0.0, 0.0), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0)),
+                               ((0.0, 0.0, 0.0), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0)) );
 
-  matrix_data_in : matrix;
+  matrix_data_in : matrix := ((0.0, 0.0, 0.0), (0.0, 0.0, -0.0), (-0.0, -0.0, -0.0));
 
-  matrix_data_a_in : a_matrix;
-  matrix_data_b_in : b_matrix;
+  matrix_data_a_in : matrix := ((0.0, 0.0, 0.0), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0));
+  matrix_data_b_in : matrix := ((0.0, 0.0, 0.0, 0.0), (0.0, 0.0, 0.0, 0.0), (0.0, 0.0, 0.0, 0.0));
 
-  vector_data_a_in : a_vector;
-  vector_data_b_in : b_vector;
+  vector_data_a_in : vector := (0.0, 0.0, 0.0, 0.0);
+  vector_data_b_in : vector := (0.0, 0.0, 0.0, 0.0);
 
-  vector_data_bm_in : m_vector;
+  vector_data_bm_in : vector := (0.0, 0.0, 0.0);
 
-  matrix_data_out : matrix;
+  matrix_data_out : matrix := ((0.0, 0.0, 0.0), (0.0, 0.0, -0.0), (-0.0, -0.0, -0.0));
 
-  matrix_data_ab_out : out_matrix;
+  matrix_data_ab_out : matrix := ((0.0, 0.0, 0.0, 0.0), (0.0, 0.0, 0.0, 0.0), (0.0, 0.0, 0.0, 0.0), (0.0, 0.0, 0.0, 0.0));
 
-  vector_data_a_out : a_vector;
-  vector_data_b_out : b_vector;
+  vector_data_a_out : vector := (0.0, 0.0, 0.0, 0.0);
+  vector_data_b_out : vector := (0.0, 0.0, 0.0);
 
 begin
 
@@ -88,8 +90,8 @@ begin
 
   pragma Assert (1 = 0, "Matrix Convolution");
 
-  for i in i_a_index loop
-    for j in j_b_index loop
+  for i in matrix_data_ab_out'Range(1) loop
+    for j in matrix_data_ab_out'Range(2) loop
       Put(float'Image(matrix_data_ab_out(i, j)));
     end loop;
 
@@ -106,8 +108,8 @@ begin
 
   pragma Assert (1 = 0, "Matrix Inverse");
 
-  for i in i_index loop
-    for j in j_index loop
+  for i in matrix_data_out'Range(1) loop
+    for j in matrix_data_out'Range(2) loop
       Put(float'Image(matrix_data_out(i, j)));
     end loop;
 
@@ -126,8 +128,8 @@ begin
 
   pragma Assert (1 = 0, "Matrix Multiplication");
 
-  for i in i_index loop
-    for j in j_index loop
+  for i in matrix_data_out'Range(1) loop
+    for j in matrix_data_out'Range(2) loop
       Put(float'Image(matrix_data_out(i, j)));
     end loop;
 
@@ -146,8 +148,8 @@ begin
 
   pragma Assert (1 = 0, "Matrix Product");
 
-  for i in i_a_index loop
-    for j in j_b_index loop
+  for i in matrix_data_ab_out'Range(1) loop
+    for j in matrix_data_ab_out'Range(2) loop
       Put(float'Image(matrix_data_ab_out(i, j)));
     end loop;
 
@@ -166,8 +168,8 @@ begin
 
   pragma Assert (1 = 0, "Matrix Summation");
 
-  for i in i_index loop
-    for j in j_index loop
+  for i in matrix_data_out'Range(1) loop
+    for j in matrix_data_out'Range(2) loop
       Put(float'Image(matrix_data_out(i, j)));
     end loop;
 
@@ -184,8 +186,8 @@ begin
 
   pragma Assert (1 = 0, "Matrix Transpose");
 
-  for i in i_index loop
-    for j in j_index loop
+  for i in matrix_data_out'Range(1) loop
+    for j in matrix_data_out'Range(2) loop
       Put(float'Image(matrix_data_out(i, j)));
     end loop;
 
@@ -204,7 +206,7 @@ begin
 
   pragma Assert (1 = 0, "Matrix Vector Convolution");
 
-  for i in i_a_index loop
+  for i in vector_data_a_out'Range(1) loop
     Put(float'Image(vector_data_a_out(i)));
   end loop;
 
@@ -221,7 +223,7 @@ begin
 
   pragma Assert (1 = 0, "Matrix Vector Product");
 
-  for i in i_a_index loop
+  for i in vector_data_a_out'Range(1) loop
     Put(float'Image(vector_data_a_out(i)));
   end loop;
 
@@ -239,8 +241,8 @@ begin
 
   pragma Assert (1 = 0, "Matrix Transpose Vector Product");
 
-  for i in i_a_index loop
-    for j in j_b_index loop
+  for i in matrix_data_ab_out'Range(1) loop
+    for j in matrix_data_ab_out'Range(2) loop
       Put(float'Image(matrix_data_ab_out(i, j)));
     end loop;
 

@@ -58,7 +58,7 @@ procedure test_matrix_arithmetic is
   data_a_in : matrix := ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0));
   data_b_in : matrix := ((1.0, 1.0, 2.0), (1.0, 1.0, 2.0), (1.0, 1.0, 2.0));
 
-  data_out : matrix;
+  data_out : matrix := ((0.0, 0.0, 0.0), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0));
 
 begin
 
@@ -70,8 +70,8 @@ begin
 
   pragma Assert (1 = 0, "Matrix Adder");
 
-  for i in i_index loop
-    for j in j_index loop
+  for i in data_out'Range(1) loop
+    for j in data_out'Range(2) loop
       Put(float'Image(data_out(i, j)));
     end loop;
 
@@ -86,8 +86,8 @@ begin
 
   pragma Assert (1 = 0, "Matrix Multiplier");
 
-  for i in i_index loop
-    for j in j_index loop
+  for i in data_out'Range(1) loop
+    for j in data_out'Range(2) loop
       Put(float'Image(data_out(i, j)));
     end loop;
 
@@ -102,8 +102,8 @@ begin
 
   pragma Assert (1 = 0, "Matrix Divider");
 
-  for i in i_index loop
-    for j in j_index loop
+  for i in data_out'Range(1) loop
+    for j in data_out'Range(2) loop
       Put(float'Image(data_out(i, j)));
     end loop;
 

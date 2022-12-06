@@ -65,9 +65,9 @@ package body ntm_tensor_calculus is
     data_out : out tensor
   ) is
   begin
-    for i in i_index loop
-      for j in j_index loop
-        for k in k_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
+        for k in data_out'Range(3) loop
           if control = 0 then
             if i = 1 then
               data_out(i, j, k) := 0.0;
@@ -102,9 +102,9 @@ package body ntm_tensor_calculus is
   ) is
     temporal : float := 0.0;
   begin
-    for i in i_index loop
-      for j in j_index loop
-        for k in k_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
+        for k in data_out'Range(3) loop
           temporal := temporal + data_in(i, j, k)*length_in;
 
           data_out(i, j, k) := temporal*length_in;
@@ -121,21 +121,19 @@ package body ntm_tensor_calculus is
   ) is
     temporal0 : float := 0.0;
     temporal1 : float := 0.0;
- 
-    data_int : tensor;
   begin
-    for i in i_index loop
-      for j in j_index loop
-        for k in k_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
+        for k in data_out'Range(3) loop
           temporal0 := temporal0 + exp(data_in(i, j, k));
 
           temporal1 := exp(data_in(i, j, k));
 
-          data_int(i, j, k) := temporal1;
+          data_out(i, j, k) := temporal1;
         end loop;
 
-        for k in k_index loop
-          data_out(i, j, k) := data_int(i, j, k)/temporal0;
+        for k in data_out'Range(3) loop
+          data_out(i, j, k) := data_out(i, j, k)/temporal0;
         end loop;
       end loop;
     end loop;

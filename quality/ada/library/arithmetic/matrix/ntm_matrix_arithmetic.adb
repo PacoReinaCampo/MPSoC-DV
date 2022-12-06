@@ -54,8 +54,8 @@ package body ntm_matrix_arithmetic is
     data_out : out matrix
   ) is
   begin
-    for i in i_index loop
-      for j in j_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
         data_out(i, j) := data_a_in(i, j) + data_b_in(i, j);
       end loop;
     end loop;
@@ -69,8 +69,8 @@ package body ntm_matrix_arithmetic is
     data_out : out matrix
   ) is
   begin
-    for i in i_index loop
-      for j in j_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
         data_out(i, j) := data_a_in(i, j) * data_b_in(i, j);
       end loop;
     end loop;
@@ -84,8 +84,8 @@ package body ntm_matrix_arithmetic is
     data_out : out matrix
   ) is
   begin
-    for i in i_index loop
-      for j in j_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
         data_out(i, j) := data_a_in(i, j) / data_b_in(i, j);
       end loop;
     end loop;

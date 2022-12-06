@@ -61,7 +61,7 @@ package body ntm_vector_calculus is
     data_out : out vector
   ) is
   begin
-    for i in index loop
+    for i in data_out'Range loop
       if i = 1 then
         data_out(i) := 0.0;
       else
@@ -80,7 +80,7 @@ package body ntm_vector_calculus is
   ) is
     temporal : float := 0.0;
   begin
-    for i in index loop
+    for i in data_out'Range loop
       temporal := temporal + data_in(i)*length_in;
 
       data_out(i) := temporal*length_in;
@@ -95,19 +95,17 @@ package body ntm_vector_calculus is
   ) is
     temporal0 : float := 0.0;
     temporal1 : float := 0.0;
- 
-    data_int : vector;
   begin
-    for i in index loop
+    for i in data_out'Range loop
       temporal0 := temporal0 + exp(data_in(i));
 
       temporal1 := exp(data_in(i));
 
-      data_int(i) := temporal1;
+      data_out(i) := temporal1;
     end loop;
 
-    for i in index loop
-      data_out(i) := data_int(i)/temporal0;
+    for i in data_out'Range loop
+      data_out(i) := data_out(i)/temporal0;
     end loop;
 
   end ntm_vector_softmax;

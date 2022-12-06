@@ -53,12 +53,12 @@ package body ntm_matrix_statitics is
     data_out : out matrix
   ) is
   begin
-    for i in i_index loop
-      for j in j_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
         data_out(i, j) := 0.0;
 
-        for k in k_index loop
-          data_out(i, j) := data_out(i, j) + data_in(i, j, k) / float(SIZE_K_IN);
+        for k in data_in'Range(3) loop
+          data_out(i, j) := data_out(i, j) + data_in(i, j, k) / float(data_in'Length(3));
         end loop;
       end loop;
     end loop;
@@ -73,12 +73,12 @@ package body ntm_matrix_statitics is
     data_out : out matrix
   ) is
   begin
-    for i in i_index loop
-      for j in j_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
         data_out(i, j) := 0.0;
 
-        for k in k_index loop
-          data_out(i, j) := data_out(i, j) + (data_in(i, j, k) - mean_in(i, j)) * (data_in(i, j, k) - mean_in(i, j)) / float(SIZE_K_IN-1);
+        for k in data_in'Range(3) loop
+          data_out(i, j) := data_out(i, j) + (data_in(i, j, k) - mean_in(i, j)) * (data_in(i, j, k) - mean_in(i, j)) / float(data_in'Length(3)-1);
         end loop;
       end loop;
     end loop;

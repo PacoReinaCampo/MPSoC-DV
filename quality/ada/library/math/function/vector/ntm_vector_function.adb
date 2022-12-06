@@ -60,7 +60,7 @@ package body ntm_vector_function is
   ) is
     ONE : constant float := 1.0;
   begin
-    for i in index loop
+    for i in data_out'Range loop
       data_out(i) := ONE/(ONE + ONE/exp(data_in(i)));
     end loop;
 
@@ -73,7 +73,7 @@ package body ntm_vector_function is
   ) is
     ONE : constant float := 1.0;
   begin
-    for i in index loop
+    for i in data_out'Range loop
       data_out(i) := ONE/(ONE + ONE/exp(data_in(i)));
    end loop;
 

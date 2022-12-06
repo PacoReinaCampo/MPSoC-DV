@@ -51,10 +51,10 @@ use ntm_size;
 package ntm_matrix_algebra is
 
   procedure ntm_matrix_convolution (
-    data_a_in : in a_matrix;
-    data_b_in : in b_matrix;
+    data_a_in : in matrix;
+    data_b_in : in matrix;
 
-    data_out : out out_matrix
+    data_out : out matrix
   );
 
   procedure ntm_matrix_inverse (
@@ -70,10 +70,10 @@ package ntm_matrix_algebra is
   );
 
   procedure ntm_matrix_product (
-    data_a_in : in a_matrix;
-    data_b_in : in b_matrix;
+    data_a_in : in matrix;
+    data_b_in : in matrix;
 
-    data_out : out out_matrix
+    data_out : out matrix
   );
 
   procedure ntm_matrix_summation (
@@ -89,24 +89,24 @@ package ntm_matrix_algebra is
   );
 
   procedure ntm_matrix_vector_convolution (
-    data_a_in : in a_matrix;
-    data_b_in : in b_vector;
+    data_a_in : in matrix;
+    data_b_in : in vector;
 
-    data_out : out a_vector
+    data_out : out vector
   );
 
   procedure ntm_matrix_vector_product (
-    data_a_in : in a_matrix;
-    data_b_in : in m_vector;
+    data_a_in : in matrix;
+    data_b_in : in vector;
 
-    data_out : out a_vector
+    data_out : out vector
   );
 
   procedure ntm_transpose_vector_product (
-    data_a_in : in a_vector;
-    data_b_in : in b_vector;
+    data_a_in : in vector;
+    data_b_in : in vector;
 
-    data_out : out out_matrix
+    data_out : out matrix
   );
 
 end ntm_matrix_algebra;

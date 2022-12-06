@@ -56,8 +56,8 @@ package body ntm_scalar_statitics is
 
     data_out := 0.0;
 
-    for i in index loop
-      data_out := data_out + data_in(i) / float(SIZE_IN);
+    for i in data_in'Range loop
+      data_out := data_out + data_in(i) / float(data_in'Length);
     end loop;
 
   end ntm_scalar_mean;
@@ -72,8 +72,8 @@ package body ntm_scalar_statitics is
 
     data_out := 0.0;
 
-    for i in index loop
-      data_out := data_out + (data_in(i) - mean_in) * (data_in(i) - mean_in) / float(SIZE_IN-1);
+    for i in data_in'Range loop
+      data_out := data_out + (data_in(i) - mean_in) * (data_in(i) - mean_in) / float(data_in'Length-1);
     end loop;
 
   end ntm_scalar_deviation;

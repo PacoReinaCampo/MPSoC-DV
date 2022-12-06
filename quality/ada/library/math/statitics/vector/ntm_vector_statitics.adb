@@ -53,11 +53,11 @@ package body ntm_vector_statitics is
     data_out : out vector
   ) is
   begin
-    for i in i_index loop
+    for i in data_out'Range loop
       data_out(i) := 0.0;
 
-      for j in j_index loop
-        data_out(i) := data_out(i) + data_in(i, j) / float(SIZE_J_IN);
+      for j in data_in'Range(2) loop
+        data_out(i) := data_out(i) + data_in(i, j) / float(data_in'Length(2));
       end loop;
     end loop;
 
@@ -71,11 +71,11 @@ package body ntm_vector_statitics is
     data_out : out vector
   ) is
   begin
-    for i in i_index loop
+    for i in data_out'Range loop
       data_out(i) := 0.0;
 
-      for j in j_index loop
-        data_out(i) := data_out(i) + (data_in(i, j) - mean_in(i)) * (data_in(i, j) - mean_in(i)) / float(SIZE_J_IN-1);
+      for j in data_in'Range(2) loop
+        data_out(i) := data_out(i) + (data_in(i, j) - mean_in(i)) * (data_in(i, j) - mean_in(i)) / float(data_in'Length(2)-1);
       end loop;
     end loop;
 

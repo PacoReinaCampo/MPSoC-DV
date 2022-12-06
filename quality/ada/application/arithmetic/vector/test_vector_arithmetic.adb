@@ -58,7 +58,7 @@ procedure test_vector_arithmetic is
   data_a_in : vector := (2.0, 0.0, 4.0);
   data_b_in : vector := (1.0, 1.0, 2.0);
  
-  data_out : vector;
+  data_out : vector := (0.0, 0.0, 0.0);
 
 begin
 
@@ -70,7 +70,7 @@ begin
 
   pragma Assert (1 = 0, "Vector Adder");
 
-  for i in index loop
+  for i in data_out'Range loop
     Put(float'Image(data_out(i)));
   end loop;
 
@@ -84,7 +84,7 @@ begin
 
   pragma Assert (1 = 0, "Vector Multiplier");
 
-  for i in index loop
+  for i in data_out'Range loop
     Put(float'Image(data_out(i)));
   end loop;
 
@@ -98,7 +98,7 @@ begin
 
   pragma Assert (1 = 0, "Vector Divider");
 
-  for i in index loop
+  for i in data_out'Range loop
     Put(float'Image(data_out(i)));
   end loop;
 

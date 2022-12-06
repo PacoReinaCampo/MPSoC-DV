@@ -63,19 +63,19 @@ package ntm_tensor_algebra is
     data_out : out tensor
   );
 
---  procedure ntm_tensor_matrix_convolution (
---    data_a_in : in tensor;
---    data_b_in : in matrix;
---    
---    data_out : out matrix
---  );
+  procedure ntm_tensor_matrix_convolution (
+    data_a_in : in tensor;
+    data_b_in : in matrix;
+    
+    data_out : out matrix
+  );
 
---  procedure ntm_tensor_matrix_product (
---    data_a_in : in tensor;
---    data_b_in : in matrix;
---    
---    data_out : out matrix
---  );
+  procedure ntm_tensor_matrix_product (
+    data_a_in : in tensor;
+    data_b_in : in matrix;
+    
+    data_out : out matrix
+  );
 
   procedure ntm_tensor_multiplication (
     data_in : in array4;

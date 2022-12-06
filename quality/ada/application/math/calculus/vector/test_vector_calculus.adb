@@ -59,7 +59,7 @@ procedure test_vector_calculus is
 
   data_in : vector := (6.0, 3.0, 8.0);
  
-  data_out : vector;
+  data_out : vector := (0.0, 0.0, 0.0);
 
 begin
 
@@ -73,7 +73,7 @@ begin
 
   pragma Assert (1 = 0, "Vector Differentiation");
 
-  for i in index loop
+  for i in data_out'Range loop
     Put(float'Image(data_out(i)));
   end loop;
 
@@ -89,7 +89,7 @@ begin
 
   pragma Assert (1 = 0, "Vector Integration");
 
-  for i in index loop
+  for i in data_out'Range loop
     Put(float'Image(data_out(i)));
   end loop;
 
@@ -103,7 +103,7 @@ begin
 
   pragma Assert (1 = 0, "Vector Softmax");
 
-  for i in index loop
+  for i in data_out'Range loop
     Put(float'Image(data_out(i)));
   end loop;
 

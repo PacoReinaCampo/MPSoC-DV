@@ -67,7 +67,9 @@ procedure test_tensor_calculus is
                         ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
                         ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)) );
 
-  data_out : tensor;
+  data_out : tensor := ( ((0.0, 0.0, 0.0), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0)),
+                         ((0.0, 0.0, 0.0), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0)),
+                         ((0.0, 0.0, 0.0), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0)) );
 
 begin
 
@@ -85,9 +87,9 @@ begin
 
   pragma Assert (1 = 0, "Tensor Differentiation");
 
-  for i in i_index loop
-    for j in j_index loop
-      for k in k_index loop
+  for i in data_out'Range(1) loop
+    for j in data_out'Range(2) loop
+      for k in data_out'Range(3) loop
         Put(float'Image(data_out(i, j, k)));
       end loop;
 
@@ -107,9 +109,9 @@ begin
 
   pragma Assert (1 = 0, "Tensor Integration");
 
-  for i in i_index loop
-    for j in j_index loop
-      for k in k_index loop
+  for i in data_out'Range(1) loop
+    for j in data_out'Range(2) loop
+      for k in data_out'Range(3) loop
         Put(float'Image(data_out(i, j, k)));
       end loop;
 
@@ -127,9 +129,9 @@ begin
 
   pragma Assert (1 = 0, "Tensor Softmax");
 
-  for i in i_index loop
-    for j in j_index loop
-      for k in k_index loop
+  for i in data_out'Range(1) loop
+    for j in data_out'Range(2) loop
+      for k in data_out'Range(3) loop
         Put(float'Image(data_out(i, j, k)));
       end loop;
 

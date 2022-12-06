@@ -64,7 +64,7 @@ procedure test_matrix_calculus is
 
   data_in : matrix := ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0));
 
-  data_out : matrix;
+  data_out : matrix := ((0.0, 0.0, 0.0), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0));
 
 begin
 
@@ -81,8 +81,8 @@ begin
 
   pragma Assert (1 = 0, "Matrix Differentiation");
 
-  for i in i_index loop
-    for j in j_index loop
+  for i in data_out'Range(1) loop
+    for j in data_out'Range(2) loop
       Put(float'Image(data_out(i, j)));
     end loop;
 
@@ -99,8 +99,8 @@ begin
 
   pragma Assert (1 = 0, "Matrix Integration");
 
-  for i in i_index loop
-    for j in j_index loop
+  for i in data_out'Range(1) loop
+    for j in data_out'Range(2) loop
       Put(float'Image(data_out(i, j)));
     end loop;
 
@@ -115,8 +115,8 @@ begin
 
   pragma Assert (1 = 0, "Matrix Softmax");
 
-  for i in i_index loop
-    for j in j_index loop
+  for i in data_out'Range(1) loop
+    for j in data_out'Range(2) loop
       Put(float'Image(data_out(i, j)));
     end loop;
 

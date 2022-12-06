@@ -61,7 +61,11 @@ procedure test_matrix_function is
     ( 9.9982079678583020, 7.9581688450893644, 2.9997639589554603 )
   );
 
-  data_out : matrix;
+  data_out : matrix := (
+    ( 0.0, 0.0, 0.0 ),
+    ( 0.0, 0.0, 0.0 ),
+    ( 0.0, 0.0, 0.0 )
+  );
 
 begin
 
@@ -73,8 +77,8 @@ begin
 
   pragma Assert (1 = 0, "Matrix Logistic");
 
-  for i in i_index loop
-    for j in j_index loop
+  for i in data_out'Range(1) loop
+    for j in data_out'Range(2) loop
       Put(float'Image(data_out(i, j)));
     end loop;
 
@@ -89,8 +93,8 @@ begin
 
   pragma Assert (1 = 0, "Matrix Oneplus");
 
-  for i in i_index loop
-    for j in j_index loop
+  for i in data_out'Range(1) loop
+    for j in data_out'Range(2) loop
       Put(float'Image(data_out(i, j)));
     end loop;
 

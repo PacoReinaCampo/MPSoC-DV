@@ -48,21 +48,20 @@ use Ada.Text_IO;
 package body ntm_matrix_algebra is
 
   procedure ntm_matrix_convolution (
-    data_a_in : in a_matrix;
-    data_b_in : in b_matrix;
+    data_a_in : in matrix;
+    data_b_in : in matrix;
 
-    data_out : out out_matrix
+    data_out : out matrix
   ) is
     temporal : float;
   begin
-    for i in i_a_index loop
-      for j in j_b_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
         temporal := 0.0;
 
         for m in 1 .. i loop
           for n in 1 .. j loop
-            --temporal := temporal + data_a_in(m, n) * data_b_in(i-m, j-n);
-            temporal := temporal + data_a_in(m, 1) * data_b_in(1, j-n);
+            temporal := temporal + data_a_in(m, n) * data_b_in(i-m, j-n);
 
             data_out(i, j) := temporal;
           end loop;
@@ -78,8 +77,8 @@ package body ntm_matrix_algebra is
     data_out : out matrix
   ) is
   begin
-    for i in i_index loop
-      for j in j_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
         data_out(i, j) := data_in(i, j);
       end loop;
     end loop;
@@ -92,11 +91,11 @@ package body ntm_matrix_algebra is
     data_out : out matrix
   ) is
   begin
-    for i in i_index loop
-      for j in j_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
         data_out(i, j) := 1.0;
 
-        for k in k_index loop
+        for k in data_in'Range(3) loop
           data_out(i, j) := data_out(i, j) * data_in(i, j, k);
         end loop;
       end loop;
@@ -105,18 +104,18 @@ package body ntm_matrix_algebra is
   end ntm_matrix_multiplication;
 
   procedure ntm_matrix_product (
-    data_a_in : in a_matrix;
-    data_b_in : in b_matrix;
+    data_a_in : in matrix;
+    data_b_in : in matrix;
 
-    data_out : out out_matrix
+    data_out : out matrix
   ) is
     temporal : float;
   begin
-    for i in i_a_index loop
-      for j in j_b_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
         temporal := 0.0;
 
-        for m in m_index loop
+        for m in data_a_in'Range(2) loop
           temporal := temporal + data_a_in(i, m) * data_b_in(m, j);
 
           data_out(i, j) := temporal;
@@ -132,11 +131,11 @@ package body ntm_matrix_algebra is
     data_out : out matrix
   ) is
   begin
-    for i in i_index loop
-      for j in j_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
         data_out(i, j) := 0.0;
 
-        for k in k_index loop
+        for k in data_in'Range(3) loop
           data_out(i, j) := data_out(i, j) + data_in(i, j, k);
         end loop;
       end loop;
@@ -150,30 +149,29 @@ package body ntm_matrix_algebra is
     data_out : out matrix
   ) is
   begin
-    for i in i_index loop
-      for j in j_index loop
-        data_out(i, j) := data_in(i, j);
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
+        data_out(i, j) := data_in(j, i);
       end loop;
     end loop;
 
   end ntm_matrix_transpose;
 
   procedure ntm_matrix_vector_convolution (
-    data_a_in : in a_matrix;
-    data_b_in : in b_vector;
+    data_a_in : in matrix;
+    data_b_in : in vector;
 
-    data_out : out a_vector
+    data_out : out vector
   ) is
     temporal : float;
   begin
-    for i in i_a_index loop
-      for j in j_b_index loop
+    for i in data_a_in'Range(1) loop
+      for j in data_a_in'Range(2) loop
         temporal := 0.0;
 
         for m in 1 .. i loop
           for n in 1 .. j loop
-            --temporal := temporal + data_a_in(m, n) * data_b_in(i-m);
-            temporal := temporal + data_a_in(m, 1) * data_b_in(1);
+            temporal := temporal + data_a_in(m, n) * data_b_in(i-m);
 
             data_out(i) := temporal;
           end loop;
@@ -184,18 +182,18 @@ package body ntm_matrix_algebra is
   end ntm_matrix_vector_convolution;
 
   procedure ntm_matrix_vector_product (
-    data_a_in : in a_matrix;
-    data_b_in : in m_vector;
+    data_a_in : in matrix;
+    data_b_in : in vector;
 
-    data_out : out a_vector
+    data_out : out vector
   ) is
     temporal : float;
   begin
-    for i in i_a_index loop
-      for j in j_b_index loop
+    for i in data_a_in'Range(1) loop
+      for j in data_a_in'Range(2) loop
         temporal := 0.0;
 
-        for m in m_index loop
+        for m in data_b_in'Range loop
           temporal := temporal + data_a_in(i, m) * data_b_in(m);
 
           data_out(i) := temporal;
@@ -206,14 +204,14 @@ package body ntm_matrix_algebra is
   end ntm_matrix_vector_product;
 
   procedure ntm_transpose_vector_product (
-    data_a_in : a_vector;
-    data_b_in : b_vector;
+    data_a_in : vector;
+    data_b_in : vector;
 
-    data_out : out out_matrix
+    data_out : out matrix
   ) is
   begin
-    for i in i_a_index loop
-      for j in j_b_index loop
+    for i in data_a_in'Range loop
+      for j in data_b_in'Range loop
         data_out(i, j) := data_a_in(i) * data_b_in(j);
       end loop;
     end loop;

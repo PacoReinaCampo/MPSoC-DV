@@ -56,7 +56,7 @@ package body ntm_scalar_algebra is
 
     data_out := 1.0;
 
-    for i in index loop
+    for i in data_in'Range loop
       data_out := data_out * data_in(i);
     end loop;
 
@@ -71,7 +71,7 @@ package body ntm_scalar_algebra is
 
     data_out := 0.0;
 
-    for i in index loop
+    for i in data_in'Range loop
       data_out := data_out + data_in(i);
     end loop;
 

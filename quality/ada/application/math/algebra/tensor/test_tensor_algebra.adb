@@ -81,8 +81,11 @@ procedure test_tensor_algebra is
                                  ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)),
                                  ((2.0, 0.0, 4.0), (2.0, 0.0, 4.0), (2.0, 0.0, 4.0)) ) );
 
-  tensor_data_out : tensor;
-  matrix_data_out : tensor;
+  tensor_data_out : tensor := ( ((0.0, 0.0, 0.0), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0)),
+                                ((0.0, 0.0, 0.0), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0)),
+                                ((0.0, 0.0, 0.0), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0)) );
+
+  matrix_data_out : matrix := ((0.0, 0.0, 0.0), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0));
 
 begin
 
@@ -95,9 +98,9 @@ begin
 
   pragma Assert (1 = 0, "Tensor Convolution");
 
-  for i in i_index loop
-    for j in j_index loop
-      for k in k_index loop
+  for i in tensor_data_out'Range(1) loop
+    for j in tensor_data_out'Range(2) loop
+      for k in tensor_data_out'Range(3) loop
         Put(float'Image(tensor_data_out(i, j, k)));
       end loop;
 
@@ -115,9 +118,9 @@ begin
 
   pragma Assert (1 = 0, "Tensor Inverse");
 
-  for i in i_index loop
-    for j in j_index loop
-      for k in k_index loop
+  for i in tensor_data_out'Range(1) loop
+    for j in tensor_data_out'Range(2) loop
+      for k in tensor_data_out'Range(3) loop
         Put(float'Image(tensor_data_out(i, j, k)));
       end loop;
 
@@ -127,39 +130,39 @@ begin
     New_Line;
   end loop;
 
---  ntm_tensor_algebra.ntm_tensor_matrix_convolution (
---    data_a_in => tensor_data_a_in,
---    data_b_in => matrix_data_b_in,
+  ntm_tensor_algebra.ntm_tensor_matrix_convolution (
+    data_a_in => tensor_data_a_in,
+    data_b_in => matrix_data_b_in,
 
---    data_out => matrix_data_out
---  );
+    data_out => matrix_data_out
+  );
 
---  pragma Assert (1 = 0, "Tensor Convolution");
+  pragma Assert (1 = 0, "Tensor Convolution");
 
---  for i in i_index loop
---    for j in j_index loop
---      Put(float'Image(matrix_data_out(i, j)));
---    end loop;
+  for i in matrix_data_out'Range(1) loop
+    for j in matrix_data_out'Range(2) loop
+      Put(float'Image(matrix_data_out(i, j)));
+    end loop;
 
---    New_Line;
---  end loop;
+    New_Line;
+  end loop;
 
---  ntm_tensor_algebra.ntm_tensor_matrix_product (
---    data_a_in => tensor_data_a_in,
---    data_b_in => matrix_data_b_in,
+  ntm_tensor_algebra.ntm_tensor_matrix_product (
+    data_a_in => tensor_data_a_in,
+    data_b_in => matrix_data_b_in,
 
---    data_out => matrix_data_out
---  );
+    data_out => matrix_data_out
+  );
 
---  pragma Assert (1 = 0, "Tensor Product");
+  pragma Assert (1 = 0, "Tensor Product");
 
---  for i in i_index loop
---    for j in j_index loop
---      Put(float'Image(matrix_data_out(i, j)));
---    end loop;
+  for i in matrix_data_out'Range(1) loop
+    for j in matrix_data_out'Range(2) loop
+      Put(float'Image(matrix_data_out(i, j)));
+    end loop;
 
---    New_Line;
---  end loop;
+    New_Line;
+  end loop;
 
   ntm_tensor_algebra.ntm_tensor_multiplication (
     data_in => array4_data_in,
@@ -169,9 +172,9 @@ begin
 
   pragma Assert (1 = 0, "Tensor Multiplication");
 
-  for i in i_index loop
-    for j in j_index loop
-      for k in k_index loop
+  for i in tensor_data_out'Range(1) loop
+    for j in tensor_data_out'Range(2) loop
+      for k in tensor_data_out'Range(3) loop
         Put(float'Image(tensor_data_out(i, j, k)));
       end loop;
 
@@ -189,9 +192,9 @@ begin
 
   pragma Assert (1 = 0, "Tensor Summation");
 
-  for i in i_index loop
-    for j in j_index loop
-      for k in k_index loop
+  for i in tensor_data_out'Range(1) loop
+    for j in tensor_data_out'Range(2) loop
+      for k in tensor_data_out'Range(3) loop
         Put(float'Image(tensor_data_out(i, j, k)));
       end loop;
 
@@ -210,9 +213,9 @@ begin
 
   pragma Assert (1 = 0, "Tensor Product");
 
-  for i in i_index loop
-    for j in j_index loop
-      for k in k_index loop
+  for i in tensor_data_out'Range(1) loop
+    for j in tensor_data_out'Range(2) loop
+      for k in tensor_data_out'Range(3) loop
         Put(float'Image(tensor_data_out(i, j, k)));
       end loop;
 
@@ -230,9 +233,9 @@ begin
 
   pragma Assert (1 = 0, "Tensor Transpose");
 
-  for i in i_index loop
-    for j in j_index loop
-      for k in k_index loop
+  for i in tensor_data_out'Range(1) loop
+    for j in tensor_data_out'Range(2) loop
+      for k in tensor_data_out'Range(3) loop
         Put(float'Image(tensor_data_out(i, j, k)));
       end loop;
 

@@ -59,7 +59,7 @@ procedure test_vector_statitics is
 
   mean_in : vector := (3.0, 3.0, 3.0);
  
-  data_out : vector;
+  data_out : vector := (0.0, 0.0, 0.0);
 
 begin
 
@@ -71,8 +71,8 @@ begin
 
   pragma Assert (1 = 0, "Vector Mean");
 
-  for i in i_index loop
-      Put(float'Image(data_out(i)));
+  for i in data_out'Range loop
+    Put(float'Image(data_out(i)));
   end loop;
 
   New_Line;
@@ -87,7 +87,7 @@ begin
 
   pragma Assert (1 = 0, "Vector Deviatiom");
 
-  for i in i_index loop
+  for i in data_out'Range loop
     Put(float'Image(data_out(i)));
   end loop;
 

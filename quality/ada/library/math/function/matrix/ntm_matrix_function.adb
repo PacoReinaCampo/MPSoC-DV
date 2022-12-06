@@ -60,8 +60,8 @@ package body ntm_matrix_function is
   ) is
     ONE : constant float := 1.0;
   begin
-    for i in i_index loop
-      for j in j_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
         data_out(i, j) := ONE/(ONE + ONE/exp(data_in(i, j)));
       end loop;
     end loop;
@@ -75,8 +75,8 @@ package body ntm_matrix_function is
   ) is
     ONE : constant float := 1.0;
   begin
-    for i in i_index loop
-      for j in j_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
         data_out(i, j) := ONE/(ONE + ONE/exp(data_in(i, j)));
       end loop;
     end loop;

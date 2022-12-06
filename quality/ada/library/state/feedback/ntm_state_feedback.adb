@@ -47,63 +47,164 @@ use Ada.Text_IO;
 
 package body ntm_state_feedback is
 
-  procedure ntm_state_matrix_feedforward (
-    data_a_in : in matrix;
-    data_b_in : in matrix;
+  procedure ntm_eye_matrix (
+    SIZE_D_I_IN : in integer;
+    SIZE_D_J_IN : in integer;
 
     data_out : out matrix
   ) is
+    ONE : constant float := 1.0;
   begin
-    for i in i_index loop
-      for j in j_index loop
-        data_out(i, j) := data_a_in(i, j) + data_b_in(i, j);
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
+        if i = j then
+          data_out(i, j) := 1.0;
+        else
+          data_out(i, j) := 0.0;
+        end if;
       end loop;
     end loop;
+
+  end ntm_eye_matrix;
+
+  procedure ntm_state_matrix_feedforward (
+    data_d_in : in matrix;
+    data_k_in : in matrix;
+
+    data_d_out : out matrix
+  ) is
+    -- Constants
+    -- SIZE: A[N,N]; B[N,P]; C[Q,N]; D[Q,P];
+    -- SIZE: K[P,P]; x[N,1]; y[Q,1]; u[P,1];
+
+    -- [SIZE_D_I_IN, SIZE_D_J_IN] = size(data_d_in);
+    SIZE_D_I_IN : integer := data_d_in'Length(1);
+    SIZE_D_J_IN : integer := data_d_in'Length(2);
+
+    -- Variables
+    matrix_operation_int : matrix;
+
+  begin
+
+    -- Body
+    -- d = inv(I + D·K)·D
+    matrix_operation_int := ntm_matrix_product(data_d_in, data_k_in);
+
+    matrix_operation_int := ntm_matrix_adder(ntm_eye_matrix(SIZE_D_I_IN, SIZE_D_J_IN), matrix_operation_int);
+
+    matrix_operation_int := ntm_matrix_inverse(matrix_operation_int);
+
+    data_d_out = ntm_matrix_product(matrix_operation_int, data_d_in);
 
   end ntm_state_matrix_feedforward;
 
   procedure ntm_state_matrix_input (
-    data_a_in : in matrix;
     data_b_in : in matrix;
+    data_d_in : in matrix;
+    data_k_in : in matrix;
 
-    data_out : out matrix
+    data_b_out : out matrix
   ) is
+    -- Constants
+    -- SIZE: A[N,N]; B[N,P]; C[Q,N]; D[Q,P];
+    -- SIZE: K[P,P]; x[N,1]; y[Q,1]; u[P,1];
+
+    -- [SIZE_D_I_IN, SIZE_D_J_IN] = size(data_d_in);
+    SIZE_D_I_IN : integer := data_d_in'Length(1);
+    SIZE_D_J_IN : integer := data_d_in'Length(2);
+
+    -- Variables
+    matrix_operation_int : matrix;
+
   begin
-    for i in i_index loop
-      for j in j_index loop
-        data_out(i, j) := data_a_in(i, j) * data_b_in(i, j);
-      end loop;
-    end loop;
+
+    -- Body
+    -- b = B·(I-K·inv(I + D·K)·D)
+    matrix_operation_int := ntm_matrix_product(data_d_in, data_k_in);
+
+    matrix_operation_int := ntm_matrix_adder(ntm_eye_matrix(SIZE_D_I_IN, SIZE_D_J_IN), matrix_operation_int);
+
+    matrix_operation_int := ntm_matrix_inverse(matrix_operation_int);
+
+    matrix_operation_int := ntm_matrix_product(matrix_operation_int, data_d_in);
+
+    matrix_operation_int := ntm_matrix_product(data_k_in, matrix_operation_int);
+
+    matrix_operation_int := ntm_eye_matrix(SIZE_D_I_IN, SIZE_D_J_IN) - matrix_operation_int;
+
+    data_b_out = ntm_matrix_product(data_b_in, matrix_operation_int);
 
   end ntm_state_matrix_input;
 
   procedure ntm_state_matrix_output (
     data_a_in : in matrix;
     data_b_in : in matrix;
+    data_c_in : in matrix;
+    data_d_in : in matrix;
+    data_k_in : in matrix;
 
-    data_out : out matrix
+    data_c_out : out matrix
   ) is
-  begin
-    for i in i_index loop
-      for j in j_index loop
-        data_out(i, j) := data_a_in(i, j) / data_b_in(i, j);
-      end loop;
-    end loop;
+    -- Constants
+    -- SIZE: A[N,N]; B[N,P]; C[Q,N]; D[Q,P];
+    -- SIZE: K[P,P]; x[N,1]; y[Q,1]; u[P,1];
 
-  end ntm_state_matrix_output;
+    -- [SIZE_D_I_IN, SIZE_D_J_IN] = size(data_d_in);
+    SIZE_D_I_IN : integer := data_d_in'Length(1);
+    SIZE_D_J_IN : integer := data_d_in'Length(2);
+
+    -- Variables
+    matrix_operation_int : matrix;
+
+  begin
+
+    -- Body
+    -- c = inv(I + D·K)·C
+    matrix_operation_int := ntm_matrix_product(data_d_in, data_k_in);
+
+    matrix_operation_int := ntm_matrix_adder(ntm_eye_matrix(SIZE_D_I_IN, SIZE_D_J_IN), matrix_operation_int);
+
+    matrix_operation_int := ntm_matrix_inverse(matrix_operation_int);
+
+    data_c_out = ntm_matrix_product(matrix_operation_int, data_c_in);
 
   procedure ntm_state_matrix_state (
     data_a_in : in matrix;
     data_b_in : in matrix;
+    data_c_in : in matrix;
+    data_d_in : in matrix;
+    data_k_in : in matrix;
 
-    data_out : out matrix
+    data_a_out : out matrix
   ) is
+    -- Constants
+    -- SIZE: A[N,N]; B[N,P]; C[Q,N]; D[Q,P];
+    -- SIZE: K[P,P]; x[N,1]; y[Q,1]; u[P,1];
+
+    -- [SIZE_D_I_IN, SIZE_D_J_IN] = size(data_d_in);
+    SIZE_D_I_IN : integer := data_d_in'Length(1);
+    SIZE_D_J_IN : integer := data_d_in'Length(2);
+
+    -- Variables
+    matrix_operation_int : matrix;
+
   begin
-    for i in i_index loop
-      for j in j_index loop
-        data_out(i, j) := data_a_in(i, j) / data_b_in(i, j);
-      end loop;
-    end loop;
+
+    -- Body
+    -- a = A-B·K·inv(I + D·K)·C
+    matrix_operation_int := ntm_matrix_product(data_d_in, data_k_in);
+
+    matrix_operation_int := ntm_matrix_adder(ntm_eye_matrix(SIZE_D_I_IN, SIZE_D_J_IN), matrix_operation_int);
+
+    matrix_operation_int := ntm_matrix_inverse(matrix_operation_int);
+
+    matrix_operation_int := ntm_matrix_product(matrix_operation_int, data_c_in);
+
+    matrix_operation_int := ntm_matrix_product(data_k_in, matrix_operation_int);
+
+    matrix_operation_int := ntm_matrix_product(data_b_in, matrix_operation_int);
+
+    data_a_out = ntm_matrix_adder(data_a_in, matrix_operation_int);
 
   end ntm_state_matrix_state;
 

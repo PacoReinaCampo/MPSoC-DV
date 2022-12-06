@@ -53,11 +53,22 @@ package body ntm_tensor_algebra is
     
     data_out : out tensor
   ) is
+    temporal : float;
   begin
-    for i in i_index loop
-      for j in j_index loop
-        for k in k_index loop
-          data_out(i, j, k) := data_a_in(i, j, k) + data_b_in(i, j, k);
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
+        for k in data_out'Range(3) loop
+          temporal := 0.0;
+
+          for m in 1 .. i loop
+            for n in 1 .. j loop
+              for p in 1 .. k loop
+                temporal := temporal + data_a_in(m, n, p) * data_b_in(i-m, j-n, k-p);
+
+                data_out(i, j, k) := temporal;
+              end loop;
+            end loop;
+          end loop;
         end loop;
       end loop;
     end loop;
@@ -70,9 +81,9 @@ package body ntm_tensor_algebra is
     data_out : out tensor
   ) is
   begin
-    for i in i_index loop
-      for j in j_index loop
-        for k in k_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
+        for k in data_out'Range(3) loop
           data_out(i, j, k) := data_in(i, j, k);
         end loop;
       end loop;
@@ -80,39 +91,55 @@ package body ntm_tensor_algebra is
 
   end ntm_tensor_inverse;
 
---  procedure ntm_tensor_matrix_convolution (
---    data_a_in : in tensor;
---    data_b_in : in matrix;
---    
---    data_out : out matrix
---  ) is
---  begin
---    for i in i_index loop
---      for j in j_index loop
---        for k in k_index loop
---          data_out(i, j, k) := data_a_in(i, j, k) + data_b_in(i, j);
---        end loop;
---      end loop;
---    end loop;
+  procedure ntm_tensor_matrix_convolution (
+    data_a_in : in tensor;
+    data_b_in : in matrix;
+    
+    data_out : out matrix
+  ) is
+    temporal : float;
+  begin
+    for i in data_a_in'Range(1) loop
+      for j in data_a_in'Range(2) loop
+        for k in data_a_in'Range(3) loop
+          temporal := 0.0;
 
---  end ntm_tensor_matrix_convolution;
+          for m in 1 .. i loop
+            for n in 1 .. j loop
+              for p in 1 .. k loop
+                temporal := temporal + data_a_in(m, n, p) * data_b_in(i-m, j-n);
 
---  procedure ntm_tensor_matrix_product (
---    data_a_in : in tensor;
---    data_b_in : in matrix;
---    
---    data_out : out matrix
---  ) is
---  begin
---    for i in i_index loop
---      for j in j_index loop
---        for k in k_index loop
---          data_out(i, j, k) := data_a_in(i, j, k) + data_b_in(i, j);
---        end loop;
---      end loop;
---    end loop;
+                data_out(i, j) := temporal;
+              end loop;
+            end loop;
+          end loop;
+        end loop;
+      end loop;
+    end loop;
 
---  end ntm_tensor_matrix_product;
+  end ntm_tensor_matrix_convolution;
+
+  procedure ntm_tensor_matrix_product (
+    data_a_in : in tensor;
+    data_b_in : in matrix;
+    
+    data_out : out matrix
+  ) is
+    temporal : float;
+  begin
+    for i in data_a_in'Range(1) loop
+      for j in data_a_in'Range(2) loop
+        for k in data_a_in'Range(3) loop
+          for m in data_a_in'Range(3) loop
+            temporal := temporal + data_a_in(i, j, m) * data_b_in(i, m);
+
+            data_out(i, j) := temporal;
+          end loop;
+        end loop;
+      end loop;
+    end loop;
+
+  end ntm_tensor_matrix_product;
 
   procedure ntm_tensor_multiplication (
     data_in : in array4;
@@ -120,12 +147,12 @@ package body ntm_tensor_algebra is
     data_out : out tensor
   ) is
   begin
-    for i in i_index loop
-      for j in j_index loop
-        for k in k_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
+        for k in data_out'Range(3) loop
           data_out(i, j, k) := 1.0;
 
-          for t in t_index loop
+          for t in data_in'Range(4) loop
             data_out(i, j, k) := data_out(i, j, k) * data_in(i, j, k, t);
           end loop;
         end loop;
@@ -140,11 +167,16 @@ package body ntm_tensor_algebra is
     
     data_out : out tensor
   ) is
+    temporal : float;
   begin
-    for i in i_index loop
-      for j in j_index loop
-        for k in k_index loop
-          data_out(i, j, k) := data_a_in(i, j, k) + data_b_in(i, j, k);
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
+        for k in data_out'Range(3) loop
+          for m in data_a_in'Range(3) loop
+            temporal := temporal + data_a_in(i, j, m) * data_b_in(i, m, k);
+
+            data_out(i, j, k) := temporal;
+          end loop;
         end loop;
       end loop;
     end loop;
@@ -157,12 +189,12 @@ package body ntm_tensor_algebra is
     data_out : out tensor
   ) is
   begin
-    for i in i_index loop
-      for j in j_index loop
-        for k in k_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
+        for k in data_out'Range(3) loop
           data_out(i, j, k) := 0.0;
 
-          for t in t_index loop
+          for t in data_in'Range(4) loop
             data_out(i, j, k) := data_out(i, j, k) + data_in(i, j, k, t);
           end loop;
         end loop;
@@ -177,10 +209,10 @@ package body ntm_tensor_algebra is
     data_out : out tensor
   ) is
    begin
-    for i in i_index loop
-      for j in j_index loop
-        for k in k_index loop
-          data_out(i, j, k) := data_in(i, j, k);
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
+        for k in data_out'Range(3) loop
+          data_out(i, j, k) := data_in(i, k, j);
         end loop;
       end loop;
     end loop;

@@ -54,9 +54,9 @@ package body ntm_tensor_arithmetic is
     data_out : out tensor
   ) is
   begin
-    for i in i_index loop
-      for j in j_index loop
-        for k in k_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
+        for k in data_out'Range(3) loop
           data_out(i, j, k) := data_a_in(i, j, k) + data_b_in(i, j, k);
         end loop;
       end loop;
@@ -71,9 +71,9 @@ package body ntm_tensor_arithmetic is
     data_out : out tensor
   ) is
    begin
-    for i in i_index loop
-      for j in j_index loop
-        for k in k_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
+        for k in data_out'Range(3) loop
           data_out(i, j, k) := data_a_in(i, j, k) * data_b_in(i, j, k);
         end loop;
       end loop;
@@ -88,9 +88,9 @@ package body ntm_tensor_arithmetic is
     data_out : out tensor
   ) is
   begin
-    for i in i_index loop
-      for j in j_index loop
-        for k in k_index loop
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
+        for k in data_out'Range(3) loop
           data_out(i, j, k) := data_a_in(i, j, k) / data_b_in(i, j, k);
         end loop;
       end loop;

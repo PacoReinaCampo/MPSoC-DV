@@ -54,7 +54,7 @@ package body ntm_vector_arithmetic is
     data_out : out vector
   ) is
   begin
-    for i in index loop
+    for i in data_out'Range loop
       data_out(i) := data_a_in(i) + data_b_in(i);
     end loop;
 
@@ -67,7 +67,7 @@ package body ntm_vector_arithmetic is
     data_out : out vector
   ) is
   begin
-    for i in index loop
+    for i in data_out'Range loop
       data_out(i) := data_a_in(i) * data_b_in(i);
    end loop;
 
@@ -80,7 +80,7 @@ package body ntm_vector_arithmetic is
     data_out : out vector
   ) is
   begin
-    for i in index loop
+    for i in data_out'Range loop
       data_out(i) := data_a_in(i) / data_b_in(i);
     end loop;
 

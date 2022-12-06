@@ -63,7 +63,7 @@ package body ntm_vector_algebra is
 
     data_out := 0.0;
 
-    for i in i_index loop
+    for i in data_a_in'Range loop
       data_out := data_out + data_a_in(i) * data_b_in(i);
     end loop;
 
@@ -77,7 +77,7 @@ package body ntm_vector_algebra is
   ) is
     temporal : float;
   begin
-    for i in i_index loop
+    for i in data_out'Range loop
       temporal := 0.0;
 
       for m in 1 .. i loop
@@ -101,15 +101,15 @@ package body ntm_vector_algebra is
     input_b_result : float := 0.0;
   begin
 
-    for i in i_index loop
+    for i in data_a_in'Range loop
       dot_result := dot_result + data_a_in(i) * data_b_in(i);
     end loop;
 
-    for i in i_index loop
+    for i in data_a_in'Range loop
       input_a_result := input_a_result + data_a_in(i) * data_a_in(i);
     end loop;
 
-    for i in i_index loop
+    for i in data_b_in'Range loop
       input_b_result := input_b_result + data_b_in(i) * data_b_in(i);
     end loop;
 
@@ -126,7 +126,7 @@ package body ntm_vector_algebra is
 
     data_out := 0.0;
 
-    for i in i_index loop
+    for i in data_in'Range loop
       data_out := data_out + data_in(i) * data_in(i);
     end loop;
 
@@ -140,10 +140,10 @@ package body ntm_vector_algebra is
     data_out : out vector
   ) is
   begin
-    for i in i_index loop
+    for i in data_out'Range loop
       data_out(i) := 1.0;
 
-      for j in j_index loop
+      for j in data_in'Range(2) loop
         data_out(i) := data_out(i) * data_in(i, j);
       end loop;
     end loop;
@@ -156,10 +156,10 @@ package body ntm_vector_algebra is
     data_out : out vector
   ) is
   begin
-    for i in i_index loop
+    for i in data_out'Range loop
       data_out(i) := 0.0;
 
-      for j in j_index loop
+      for j in data_in'Range(2) loop
         data_out(i) := data_out(i) + data_in(i, j);
       end loop;
     end loop;

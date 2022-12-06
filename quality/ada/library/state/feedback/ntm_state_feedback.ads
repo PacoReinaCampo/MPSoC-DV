@@ -51,7 +51,17 @@ use ntm_size;
 with ntm_matrix_arithmetic;
 use ntm_matrix_arithmetic;
 
+with ntm_matrix_algebra;
+use ntm_matrix_algebra;
+
 package ntm_state_feedback is
+
+  procedure ntm_eye_matrix (
+    SIZE_D_I_IN : in integer;
+    SIZE_D_J_IN : in integer;
+
+    data_out : out matrix
+  );
 
   procedure ntm_state_matrix_feedforward (
     data_a_in : in matrix;

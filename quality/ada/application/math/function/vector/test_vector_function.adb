@@ -57,7 +57,7 @@ procedure test_vector_function is
 
   data_in : vector := (6.3226113886226751, 3.1313826152262876, 8.3512687816132226);
  
-  data_out : vector;
+  data_out : vector := (0.0, 0.0, 0.0);
 
 begin
 
@@ -69,7 +69,7 @@ begin
 
   pragma Assert (1 = 0, "Vector Logistic");
 
-  for i in index loop
+  for i in data_out'Range loop
     Put(float'Image(data_out(i)));
   end loop;
 
@@ -83,7 +83,7 @@ begin
 
   pragma Assert (1 = 0, "Vector Oneplus");
 
-  for i in index loop
+  for i in data_out'Range loop
     Put(float'Image(data_out(i)));
   end loop;
 

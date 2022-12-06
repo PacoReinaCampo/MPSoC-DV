@@ -55,15 +55,16 @@ use ntm_vector_algebra;
 
 procedure test_vector_algebra is
 
-  vector_data_in : vector;
+  vector_data_in : vector := (0.0, 0.0, 0.0);
 
-  vector_data_a_in : vector;
-  vector_data_b_in : vector;
+  vector_data_a_in : vector := (0.0, 0.0, 0.0);
+  vector_data_b_in : vector := (0.0, 0.0, 0.0);
 
-  matrix_data_in : matrix;
+  matrix_data_in : matrix := ((0.0, 0.0, 0.0), (0.0, 0.0, 0.0), (0.0, 0.0, 0.0));
  
-  scalar_data_out : float;
-  vector_data_out : vector;
+  scalar_data_out : float := 0.0;
+
+  vector_data_out : vector := (0.0, 0.0, 0.0);
 
 begin
 
@@ -95,7 +96,7 @@ begin
 
   pragma Assert (1 = 0, "Vector Convolution");
 
-  for i in i_index loop
+  for i in vector_data_out'Range loop
     Put(float'Image(vector_data_out(i)));
   end loop;
 
@@ -141,7 +142,7 @@ begin
 
   pragma Assert (1 = 0, "Vector Multiplication");
 
-  for i in i_index loop
+  for i in vector_data_out'Range loop
     Put(float'Image(vector_data_out(i)));
   end loop;
 
@@ -155,7 +156,7 @@ begin
 
   pragma Assert (1 = 0, "Vector Summation");
 
-  for i in i_index loop
+  for i in vector_data_out'Range loop
     Put(float'Image(vector_data_out(i)));
   end loop;
 
