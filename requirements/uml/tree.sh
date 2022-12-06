@@ -1,1 +1,1 @@
-tree -P '*.dot' code > TREE-UML.txt
+tree -P '*.dot' library > TREE-UML.txt

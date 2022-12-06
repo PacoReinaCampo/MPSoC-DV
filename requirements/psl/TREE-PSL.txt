@@ -1,4 +1,4 @@
-code
+library
 ├── arithmetic
 │   ├── matrix
 │   │   ├── ntm_matrix_adder.psl

@@ -45,17 +45,10 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
+with ntm_size;
+use ntm_size;
+
 package ntm_vector_algebra is
-
-  SIZE_I_IN : constant integer := 3;
-  SIZE_J_IN : constant integer := 3;
-
-  type i_index is range 1 .. SIZE_I_IN;
-  type j_index is range 1 .. SIZE_J_IN;
- 
-  type vector is array (i_index) of float;
-
-  type matrix is array (i_index, j_index) of float;
 
   procedure ntm_dot_product (
     data_a_in : in vector;

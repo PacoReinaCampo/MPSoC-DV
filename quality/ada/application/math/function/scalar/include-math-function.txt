@@ -46,4 +46,5 @@
 # State-Feedback Sources
 #####################################################################
 
-SOURCES_FUNCTION =	-I../../../../library/math/function/scalar
+SOURCES_FUNCTION =	-I../../../../library \
+			-I../../../../library/math/function/scalar

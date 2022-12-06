@@ -47,6 +47,9 @@ use Ada.Text_IO;
 
 with System.Assertions;
 
+with ntm_size;
+use ntm_size;
+
 with ntm_scalar_algebra;
 use ntm_scalar_algebra;
 

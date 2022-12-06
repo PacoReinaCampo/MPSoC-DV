@@ -46,4 +46,5 @@
 # State-Feedback Sources
 #####################################################################
 
-SOURCES_ARITHMETIC =	-I../../../library/arithmetic/vector
+SOURCES_ARITHMETIC =	-I../../../library \
+			-I../../../library/arithmetic/vector

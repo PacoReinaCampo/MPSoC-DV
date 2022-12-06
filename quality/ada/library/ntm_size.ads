@@ -45,56 +45,45 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
-with System.Assertions;
+package ntm_size is
 
-with ntm_size;
-use ntm_size;
+  SIZE_I_IN : constant integer := 3;
+  SIZE_J_IN : constant integer := 3;
+  SIZE_K_IN : constant integer := 3;
+  SIZE_T_IN : constant integer := 3;
 
-with ntm_matrix_function;
-use ntm_matrix_function;
+  SIZE_I_A_IN : constant integer := 4;
 
-procedure test_matrix_function is
+  SIZE_M_IN : constant integer := 3;
 
-  data_in : matrix := (
-    ( 6.3226113886226751, 3.1313826152262876, 8.3512687816132226 ),
-    ( 4.3132651822261687, 5.3132616875182226, 6.6931471805599454 ),
-    ( 9.9982079678583020, 7.9581688450893644, 2.9997639589554603 )
-  );
+  SIZE_J_B_IN : constant integer := 4;
 
-  data_out : matrix;
+  type i_index is range 1 .. SIZE_I_IN;
+  type j_index is range 1 .. SIZE_J_IN;
+  type k_index is range 1 .. SIZE_K_IN;
+  type t_index is range 1 .. SIZE_T_IN;
 
-begin
+  type i_a_index is range 1 .. SIZE_I_A_IN;
 
-  ntm_matrix_function.ntm_matrix_logistic_function (
-    data_in => data_in,
+  type m_index is range 1 .. SIZE_M_IN;
 
-    data_out  => data_out
-  );
+  type j_b_index is range 1 .. SIZE_J_B_IN;
 
-  pragma Assert (1 = 0, "Matrix Logistic");
+  type vector is array (i_index) of float;
 
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
-    end loop;
+  type matrix is array (i_index, j_index) of float;
 
-    New_Line;
-  end loop;
+  type tensor is array (i_index, j_index, k_index) of float;
 
-  ntm_matrix_function.ntm_matrix_oneplus_function (
-    data_in => data_in,
+  type array4 is array (i_index, j_index, k_index, t_index) of float;
 
-    data_out  => data_out
-  );
+  type a_vector is array (i_a_index) of float;
+  type b_vector is array (j_b_index) of float;
+  type m_vector is array (m_index) of float;
 
-  pragma Assert (1 = 0, "Matrix Oneplus");
+  type a_matrix is array (i_a_index, m_index) of float;
+  type b_matrix is array (m_index, j_b_index) of float;
 
-  for i in i_index loop
-    for j in j_index loop
-      Put(float'Image(data_out(i, j)));
-    end loop;
+  type out_matrix is array (i_a_index, j_b_index) of float;
 
-    New_Line;
-  end loop;
-
-end test_matrix_function;
+end ntm_size;

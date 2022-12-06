@@ -1,1 +1,1 @@
-tree -P '*.psl' code > TREE-PSL.txt
+tree -P '*.psl' library > TREE-PSL.txt

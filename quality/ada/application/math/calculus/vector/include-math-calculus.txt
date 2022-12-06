@@ -46,4 +46,5 @@
 # State-Feedback Sources
 #####################################################################
 
-SOURCES_CALCULUS =	-I../../../../library/math/calculus/vector
+SOURCES_CALCULUS =	-I../../../../library \
+			-I../../../../library/math/calculus/vector

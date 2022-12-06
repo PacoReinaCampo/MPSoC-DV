@@ -45,6 +45,9 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
+with ntm_size;
+use ntm_size;
+
 package ntm_scalar_function is
 
   procedure ntm_scalar_logistic_function (

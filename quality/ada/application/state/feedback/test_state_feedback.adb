@@ -47,6 +47,9 @@ use Ada.Text_IO;
 
 with System.Assertions;
 
+with ntm_size;
+use ntm_size;
+
 with ntm_state_feedback;
 use ntm_state_feedback;
 

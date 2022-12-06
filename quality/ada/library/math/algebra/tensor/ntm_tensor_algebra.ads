@@ -45,23 +45,10 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
+with ntm_size;
+use ntm_size;
+
 package ntm_tensor_algebra is
-
-  SIZE_I_IN : constant integer := 3;
-  SIZE_J_IN : constant integer := 3;
-  SIZE_K_IN : constant integer := 3;
-  SIZE_T_IN : constant integer := 3;
-
-  type i_index is range 1 .. SIZE_I_IN;
-  type j_index is range 1 .. SIZE_J_IN;
-  type k_index is range 1 .. SIZE_K_IN;
-  type t_index is range 1 .. SIZE_T_IN;
-
-  type matrix is array (i_index, j_index) of float;
-
-  type tensor is array (i_index, j_index, k_index) of float;
-
-  type array4 is array (i_index, j_index, k_index, t_index) of float;
 
   procedure ntm_tensor_convolution (
     data_a_in : in tensor;

@@ -47,6 +47,9 @@ use Ada.Text_IO;
 
 with System.Assertions;
 
+with ntm_size;
+use ntm_size;
+
 with ntm_matrix_arithmetic;
 use ntm_matrix_arithmetic;
 

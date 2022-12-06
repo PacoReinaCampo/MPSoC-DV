@@ -45,13 +45,10 @@
 with Ada.Text_IO;
 use Ada.Text_IO;
 
+with ntm_size;
+use ntm_size;
+
 package ntm_vector_calculus is
-
-  SIZE_IN : constant integer := 3;
-
-  type index is range 1 .. SIZE_IN;
- 
-  type vector is array (index) of float;
 
   procedure ntm_vector_differentiation (
     data_in : in vector;

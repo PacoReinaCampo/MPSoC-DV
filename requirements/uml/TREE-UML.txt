@@ -1,4 +1,65 @@
-code
+library
+├── arithmetic
+│   ├── matrix
+│   │   ├── ntm_matrix_arithmetic.behavioral.activity.dot
+│   │   ├── ntm_matrix_arithmetic.behavioral.communication.dot
+│   │   ├── ntm_matrix_arithmetic.behavioral.interaction.dot
+│   │   ├── ntm_matrix_arithmetic.behavioral.sequence.dot
+│   │   ├── ntm_matrix_arithmetic.behavioral.state.dot
+│   │   ├── ntm_matrix_arithmetic.behavioral.timing.dot
+│   │   ├── ntm_matrix_arithmetic.behavioral.use.dot
+│   │   ├── ntm_matrix_arithmetic.structural.class.dot
+│   │   ├── ntm_matrix_arithmetic.structural.component.dot
+│   │   ├── ntm_matrix_arithmetic.structural.composite.dot
+│   │   ├── ntm_matrix_arithmetic.structural.deployment.dot
+│   │   ├── ntm_matrix_arithmetic.structural.object.dot
+│   │   ├── ntm_matrix_arithmetic.structural.package.dot
+│   │   └── ntm_matrix_arithmetic.structural.profile.dot
+│   ├── scalar
+│   │   ├── ntm_scalar_arithmetic.behavioral.activity.dot
+│   │   ├── ntm_scalar_arithmetic.behavioral.communication.dot
+│   │   ├── ntm_scalar_arithmetic.behavioral.interaction.dot
+│   │   ├── ntm_scalar_arithmetic.behavioral.sequence.dot
+│   │   ├── ntm_scalar_arithmetic.behavioral.state.dot
+│   │   ├── ntm_scalar_arithmetic.behavioral.timing.dot
+│   │   ├── ntm_scalar_arithmetic.behavioral.use.dot
+│   │   ├── ntm_scalar_arithmetic.structural.class.dot
+│   │   ├── ntm_scalar_arithmetic.structural.component.dot
+│   │   ├── ntm_scalar_arithmetic.structural.composite.dot
+│   │   ├── ntm_scalar_arithmetic.structural.deployment.dot
+│   │   ├── ntm_scalar_arithmetic.structural.object.dot
+│   │   ├── ntm_scalar_arithmetic.structural.package.dot
+│   │   └── ntm_scalar_arithmetic.structural.profile.dot
+│   ├── tensor
+│   │   ├── ntm_tensor_arithmetic.behavioral.activity.dot
+│   │   ├── ntm_tensor_arithmetic.behavioral.communication.dot
+│   │   ├── ntm_tensor_arithmetic.behavioral.interaction.dot
+│   │   ├── ntm_tensor_arithmetic.behavioral.sequence.dot
+│   │   ├── ntm_tensor_arithmetic.behavioral.state.dot
+│   │   ├── ntm_tensor_arithmetic.behavioral.timing.dot
+│   │   ├── ntm_tensor_arithmetic.behavioral.use.dot
+│   │   ├── ntm_tensor_arithmetic.structural.class.dot
+│   │   ├── ntm_tensor_arithmetic.structural.component.dot
+│   │   ├── ntm_tensor_arithmetic.structural.composite.dot
+│   │   ├── ntm_tensor_arithmetic.structural.deployment.dot
+│   │   ├── ntm_tensor_arithmetic.structural.object.dot
+│   │   ├── ntm_tensor_arithmetic.structural.package.dot
+│   │   └── ntm_tensor_arithmetic.structural.profile.dot
+│   └── vector
+│       ├── ntm_vector_arithmetic.behavioral.activity.dot
+│       ├── ntm_vector_arithmetic.behavioral.communication.dot
+│       ├── ntm_vector_arithmetic.behavioral.interaction.dot
+│       ├── ntm_vector_arithmetic.behavioral.sequence.dot
+│       ├── ntm_vector_arithmetic.behavioral.state.dot
+│       ├── ntm_vector_arithmetic.behavioral.timing.dot
+│       ├── ntm_vector_arithmetic.behavioral.use.dot
+│       ├── ntm_vector_arithmetic.structural.class.dot
+│       ├── ntm_vector_arithmetic.structural.component.dot
+│       ├── ntm_vector_arithmetic.structural.composite.dot
+│       ├── ntm_vector_arithmetic.structural.deployment.dot
+│       ├── ntm_vector_arithmetic.structural.object.dot
+│       ├── ntm_vector_arithmetic.structural.package.dot
+│       └── ntm_vector_arithmetic.structural.profile.dot
 ├── controller
 │   ├── FNN
 │   │   ├── convolutional
@@ -2484,4 +2545,4 @@ code
                 ├── ntm_lstm_output_w_trainer.structural.package.dot
                 └── ntm_lstm_output_w_trainer.structural.profile.dot
 
-216 directories, 2268 files
+221 directories, 2324 files

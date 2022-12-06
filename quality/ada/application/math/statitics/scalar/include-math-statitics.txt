@@ -46,4 +46,5 @@
 # State-Feedback Sources
 #####################################################################
 
-SOURCES_STATITICS =	-I../../../../library/math/statitics/scalar
+SOURCES_STATITICS =	-I../../../../library \
+			-I../../../../library/math/statitics/scalar
