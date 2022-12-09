@@ -56,8 +56,11 @@ package ntm_state_top is
   procedure ntm_state_matrix (
     data_a_in : in matrix;
     data_b_in : in matrix;
+    data_c_in : in matrix;
+    data_d_in : in matrix;
 
-    data_out : out matrix
+    data_x_out : out vector;
+    data_y_out : out vector
   );
 
 end ntm_state_top;

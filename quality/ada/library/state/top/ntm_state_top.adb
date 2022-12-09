@@ -50,15 +50,46 @@ package body ntm_state_top is
   procedure ntm_state_matrix (
     data_a_in : in matrix;
     data_b_in : in matrix;
+    data_c_in : in matrix;
+    data_d_in : in matrix;
 
-    data_out : out matrix
+    data_x_out : out vector;
+    data_y_out : out vector
   ) is
+
   begin
-    for i in i_index loop
-      for j in j_index loop
-        data_out(i, j) := data_a_in(i, j) + data_b_in(i, j);
-      end loop;
-    end loop;
+
+    ntm_state_outputs.ntm_state_vector_state (
+      data_a_in => data_a_in,
+      data_b_in => data_b_in,
+      data_c_in => data_c_in,
+      data_d_in => data_d_in,
+
+      data_k_in => data_k_in,
+      data_u_in => data_u_in,
+
+      initial_x => initial_x,
+
+      k => k,
+
+      data_x_out => data_x_out,
+    );
+
+    ntm_state_outputs.ntm_state_vector_output (
+      data_a_in => data_a_in,
+      data_b_in => data_b_in,
+      data_c_in => data_c_in,
+      data_d_in => data_d_in,
+
+      data_k_in => data_k_in,
+      data_u_in => data_u_in,
+
+      initial_x => initial_x,
+
+      k => k,
+
+      data_y_out => data_y_out,
+    );
 
   end ntm_state_matrix;
 

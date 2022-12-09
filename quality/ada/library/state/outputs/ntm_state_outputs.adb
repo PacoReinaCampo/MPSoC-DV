@@ -47,34 +47,126 @@ use Ada.Text_IO;
 
 package body ntm_state_outputs is
 
-  procedure ntm_state_vector_output (
-    data_a_in : in matrix;
-    data_b_in : in matrix;
-
-    data_out : out matrix
-  ) is
-  begin
-    for i in i_index loop
-      for j in j_index loop
-        data_out(i, j) := data_a_in(i, j) + data_b_in(i, j);
-      end loop;
-    end loop;
-
-  end ntm_state_vector_output;
-
   procedure ntm_state_vector_state (
     data_a_in : in matrix;
     data_b_in : in matrix;
+    data_c_in : in matrix;
+    data_d_in : in matrix;
 
-    data_out : out matrix
+    data_k_in : in matrix;
+    data_u_in : in matrix;
+
+    initial_x : in vector;
+
+    k : in float;
+
+    data_x_out : out vector
   ) is
+
+    -- Variables
+    matrix_operation_int : matrix;
+
   begin
-    for i in i_index loop
-      for j in j_index loop
-        data_out(i, j) := data_a_in(i, j) * data_b_in(i, j);
-      end loop;
-    end loop;
+
+  -- Body
+  -- x(k) = exp(A,k)·x(0) + summation(exp(A,k-j-1)·B·u(j))[j in 0 to k-1]
+
+  ntm_state_feedback.ntm_state_matrix_feedforward (
+    data_d_in => data_d_in,
+    data_k_in => data_k_in,
+
+    data_d_out => matrix_operation_int
+  );
+
+  ntm_state_feedback.ntm_state_matrix_input (
+    data_b_in => data_b_in,
+    data_d_in => data_d_in,
+    data_k_in => data_k_in,
+
+    data_b_out => matrix_operation_int
+  );
+
+  ntm_state_feedback.ntm_state_matrix_output (
+    data_a_in => data_a_in,
+    data_b_in => data_b_in,
+    data_c_in => data_c_in,
+    data_d_in => data_d_in,
+    data_k_in => data_k_in,
+
+    data_c_out  => matrix_operation_int
+  );
+
+  ntm_state_feedback.ntm_state_matrix_state (
+    data_a_in => data_a_in,
+    data_b_in => data_b_in,
+    data_c_in => data_c_in,
+    data_d_in => data_d_in,
+    data_k_in => data_k_in,
+
+    data_a_out => matrix_operation_int
+  );
 
   end ntm_state_vector_state;
+
+  procedure ntm_state_vector_output (
+    data_a_in : in matrix;
+    data_b_in : in matrix;
+    data_c_in : in matrix;
+    data_d_in : in matrix;
+
+    data_k_in : in matrix;
+    data_u_in : in matrix;
+
+    initial_x : in vector;
+
+    k : in float;
+
+    data_y_out : out vector
+  ) is
+
+    -- Variables
+    matrix_operation_int : matrix;
+
+  begin
+
+  -- Body
+  -- y(k) = C·exp(A,k)·x(0) + summation(C·exp(A,k-j)·B·u(j))[j in 0 to k-1] + D·u(k)
+
+  ntm_state_feedback.ntm_state_matrix_feedforward (
+    data_d_in => data_d_in,
+    data_k_in => data_k_in,
+
+    data_d_out => matrix_operation_int
+  );
+
+  ntm_state_feedback.ntm_state_matrix_input (
+    data_b_in => data_b_in,
+    data_d_in => data_d_in,
+    data_k_in => data_k_in,
+
+    data_b_out => matrix_operation_int
+  );
+
+  ntm_state_feedback.ntm_state_matrix_output (
+    data_a_in => data_a_in,
+    data_b_in => data_b_in,
+    data_c_in => data_c_in,
+    data_d_in => data_d_in,
+    data_k_in => data_k_in,
+
+    data_c_out  => matrix_operation_int
+  );
+
+  ntm_state_feedback.ntm_state_matrix_state (
+    data_a_in => data_a_in,
+    data_b_in => data_b_in,
+    data_c_in => data_c_in,
+    data_d_in => data_d_in,
+    data_k_in => data_k_in,
+
+    data_a_out => matrix_operation_int
+  );
+
+  end ntm_state_vector_output;
 
 end ntm_state_outputs;

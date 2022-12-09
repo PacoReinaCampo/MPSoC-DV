@@ -56,18 +56,36 @@ use ntm_state_feedback;
 
 package ntm_state_outputs is
 
-  procedure ntm_state_vector_output (
-    data_a_in : in matrix;
-    data_b_in : in matrix;
-
-    data_out : out matrix
-  );
-
   procedure ntm_state_vector_state (
     data_a_in : in matrix;
     data_b_in : in matrix;
+    data_c_in : in matrix;
+    data_d_in : in matrix;
 
-    data_out : out matrix
+    data_k_in : in matrix;
+    data_u_in : in matrix;
+
+    initial_x : in vector;
+
+    k : in float;
+
+    data_x_out : out vector
+  );
+
+  procedure ntm_state_vector_output (
+    data_a_in : in matrix;
+    data_b_in : in matrix;
+    data_c_in : in matrix;
+    data_d_in : in matrix;
+
+    data_k_in : in matrix;
+    data_u_in : in matrix;
+
+    initial_x : in vector;
+
+    k : in float;
+
+    data_y_out : out vector
   );
 
 end ntm_state_outputs;
