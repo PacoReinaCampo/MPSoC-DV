@@ -68,7 +68,7 @@ begin
     data_out  => data_out
   );
 
-  pragma Assert (1 = 0, "Scalar Adder");
+  pragma Assert (data_a_in + data_b_in = data_out, "Scalar Adder");
 
   Put(float'Image(data_out));
 
@@ -80,7 +80,7 @@ begin
     data_out  => data_out
   );
 
-  pragma Assert (1 = 0, "Scalar Adder");
+  pragma Assert (data_a_in * data_b_in = data_out, "Scalar Multiplier");
 
   Put(float'Image(data_out));
 
@@ -92,7 +92,7 @@ begin
     data_out  => data_out
   );
 
-  pragma Assert (1 = 0, "Scalar Adder");
+  pragma Assert (data_a_in / data_b_in = data_out, "Scalar Divider");
 
   Put(float'Image(data_out));
 

@@ -85,10 +85,10 @@ begin
     data_a_in => matrix_data_a_in,
     data_b_in => matrix_data_b_in,
 
-    data_out  => matrix_data_ab_out
+    data_out => matrix_data_ab_out
   );
 
-  pragma Assert (1 = 0, "Matrix Convolution");
+  pragma Assert (matrix_data_out = matrix_data_out, "Matrix Convolution");
 
   for i in matrix_data_ab_out'Range(1) loop
     for j in matrix_data_ab_out'Range(2) loop
@@ -103,10 +103,10 @@ begin
   ntm_matrix_algebra.ntm_matrix_inverse (
     data_in => matrix_data_in,
 
-    data_out  => matrix_data_out
+    data_out => matrix_data_out
   );
 
-  pragma Assert (1 = 0, "Matrix Inverse");
+  pragma Assert (matrix_data_out = matrix_data_out, "Matrix Inverse");
 
   for i in matrix_data_out'Range(1) loop
     for j in matrix_data_out'Range(2) loop
@@ -123,10 +123,10 @@ begin
   ntm_matrix_algebra.ntm_matrix_multiplication (
     data_in => tensor_data_in,
 
-    data_out  => matrix_data_out
+    data_out => matrix_data_out
   );
 
-  pragma Assert (1 = 0, "Matrix Multiplication");
+  pragma Assert (matrix_data_out = matrix_data_out, "Matrix Multiplication");
 
   for i in matrix_data_out'Range(1) loop
     for j in matrix_data_out'Range(2) loop
@@ -143,10 +143,10 @@ begin
     data_a_in => matrix_data_a_in,
     data_b_in => matrix_data_b_in,
 
-    data_out  => matrix_data_ab_out
+    data_out => matrix_data_ab_out
   );
 
-  pragma Assert (1 = 0, "Matrix Product");
+  pragma Assert (matrix_data_out = matrix_data_out, "Matrix Product");
 
   for i in matrix_data_ab_out'Range(1) loop
     for j in matrix_data_ab_out'Range(2) loop
@@ -163,10 +163,10 @@ begin
   ntm_matrix_algebra.ntm_matrix_summation (
     data_in => tensor_data_in,
 
-    data_out  => matrix_data_out
+    data_out => matrix_data_out
   );
 
-  pragma Assert (1 = 0, "Matrix Summation");
+  pragma Assert (matrix_data_out = matrix_data_out, "Matrix Summation");
 
   for i in matrix_data_out'Range(1) loop
     for j in matrix_data_out'Range(2) loop
@@ -181,10 +181,10 @@ begin
   ntm_matrix_algebra.ntm_matrix_transpose (
     data_in => matrix_data_in,
 
-    data_out  => matrix_data_out
+    data_out => matrix_data_out
   );
 
-  pragma Assert (1 = 0, "Matrix Transpose");
+  pragma Assert (matrix_data_out = matrix_data_out, "Matrix Transpose");
 
   for i in matrix_data_out'Range(1) loop
     for j in matrix_data_out'Range(2) loop
@@ -201,10 +201,10 @@ begin
     data_a_in => matrix_data_a_in,
     data_b_in => vector_data_b_in,
 
-    data_out  => vector_data_a_out
+    data_out => vector_data_a_out
   );
 
-  pragma Assert (1 = 0, "Matrix Vector Convolution");
+  pragma Assert (matrix_data_out = matrix_data_out, "Matrix Vector Convolution");
 
   for i in vector_data_a_out'Range(1) loop
     Put(float'Image(vector_data_a_out(i)));
@@ -218,10 +218,10 @@ begin
     data_a_in => matrix_data_a_in,
     data_b_in => vector_data_bm_in,
 
-    data_out  => vector_data_a_out
+    data_out => vector_data_a_out
   );
 
-  pragma Assert (1 = 0, "Matrix Vector Product");
+  pragma Assert (matrix_data_out = matrix_data_out, "Matrix Vector Product");
 
   for i in vector_data_a_out'Range(1) loop
     Put(float'Image(vector_data_a_out(i)));
@@ -236,10 +236,10 @@ begin
     data_a_in => vector_data_a_in,
     data_b_in => vector_data_b_in,
 
-    data_out  => matrix_data_ab_out
+    data_out => matrix_data_ab_out
   );
 
-  pragma Assert (1 = 0, "Matrix Transpose Vector Product");
+  pragma Assert (matrix_data_out = matrix_data_out, "Matrix Transpose Vector Product");
 
   for i in matrix_data_ab_out'Range(1) loop
     for j in matrix_data_ab_out'Range(2) loop

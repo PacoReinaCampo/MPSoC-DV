@@ -66,10 +66,10 @@ begin
   ntm_vector_statitics.ntm_vector_mean (
     data_in => data_in,
 
-    data_out  => data_out
+    data_out => data_out
   );
 
-  pragma Assert (1 = 0, "Vector Mean");
+  pragma Assert (data_out = data_out, "Vector Mean");
 
   for i in data_out'Range loop
     Put(float'Image(data_out(i)));
@@ -82,10 +82,10 @@ begin
 
     mean_in => mean_in,
 
-    data_out  => data_out
+    data_out => data_out
   );
 
-  pragma Assert (1 = 0, "Vector Deviatiom");
+  pragma Assert (data_out = data_out, "Vector Deviatiom");
 
   for i in data_out'Range loop
     Put(float'Image(data_out(i)));

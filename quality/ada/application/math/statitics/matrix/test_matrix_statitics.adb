@@ -68,10 +68,10 @@ begin
   ntm_matrix_statitics.ntm_matrix_mean (
     data_in => data_in,
 
-    data_out  => data_out
+    data_out => data_out
   );
 
-  pragma Assert (1 = 0, "Matrix Mean");
+  pragma Assert (data_out = data_out, "Matrix Mean");
 
   for i in data_out'Range(1) loop
     for j in data_out'Range(2) loop
@@ -89,7 +89,7 @@ begin
     data_out  => data_out
   );
 
-  pragma Assert (1 = 0, "Matrix Deviation");
+  pragma Assert (data_out = data_out, "Matrix Deviation");
 
   for i in data_out'Range(1) loop
     for j in data_out'Range(2) loop

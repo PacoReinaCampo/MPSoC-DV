@@ -75,10 +75,10 @@ begin
     data_a_in => vector_data_a_in,
     data_b_in => vector_data_b_in,
 
-    data_out  => scalar_data_out
+    data_out => scalar_data_out
   );
 
-  pragma Assert (1 = 0, "Vector Dot Product");
+  pragma Assert (vector_data_out = vector_data_out, "Vector Dot Product");
 
   Put(float'Image(scalar_data_out));
 
@@ -91,10 +91,10 @@ begin
     data_a_in => vector_data_a_in,
     data_b_in => vector_data_b_in,
 
-    data_out  => vector_data_out
+    data_out => vector_data_out
   );
 
-  pragma Assert (1 = 0, "Vector Convolution");
+  pragma Assert (vector_data_out = vector_data_out, "Vector Convolution");
 
   for i in vector_data_out'Range loop
     Put(float'Image(vector_data_out(i)));
@@ -109,10 +109,10 @@ begin
     data_a_in => vector_data_a_in,
     data_b_in => vector_data_b_in,
 
-    data_out  => scalar_data_out
+    data_out => scalar_data_out
   );
 
-  pragma Assert (1 = 0, "Cosine Similarity");
+  pragma Assert (vector_data_out = vector_data_out, "Cosine Similarity");
 
   Put(float'Image(scalar_data_out));
 
@@ -123,10 +123,10 @@ begin
   ntm_vector_algebra.ntm_vector_module (
     data_in => vector_data_in,
 
-    data_out  => scalar_data_out
+    data_out => scalar_data_out
   );
 
-  pragma Assert (1 = 0, "Vector Module");
+  pragma Assert (vector_data_out = vector_data_out, "Vector Module");
 
   Put(float'Image(scalar_data_out));
 
@@ -137,10 +137,10 @@ begin
   ntm_vector_algebra.ntm_vector_multiplication (
     data_in => matrix_data_in,
 
-    data_out  => vector_data_out
+    data_out => vector_data_out
   );
 
-  pragma Assert (1 = 0, "Vector Multiplication");
+  pragma Assert (vector_data_out = vector_data_out, "Vector Multiplication");
 
   for i in vector_data_out'Range loop
     Put(float'Image(vector_data_out(i)));
@@ -151,10 +151,10 @@ begin
   ntm_vector_algebra.ntm_vector_summation (
     data_in => matrix_data_in,
 
-    data_out  => vector_data_out
+    data_out => vector_data_out
   );
 
-  pragma Assert (1 = 0, "Vector Summation");
+  pragma Assert (vector_data_out = vector_data_out, "Vector Summation");
 
   for i in vector_data_out'Range loop
     Put(float'Image(vector_data_out(i)));

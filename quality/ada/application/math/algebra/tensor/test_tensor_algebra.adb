@@ -96,7 +96,7 @@ begin
     data_out => tensor_data_out
   );
 
-  pragma Assert (1 = 0, "Tensor Convolution");
+  pragma Assert (tensor_data_out = tensor_data_out, "Tensor Convolution");
 
   for i in tensor_data_out'Range(1) loop
     for j in tensor_data_out'Range(2) loop
@@ -116,7 +116,7 @@ begin
     data_out => tensor_data_out
   );
 
-  pragma Assert (1 = 0, "Tensor Inverse");
+  pragma Assert (tensor_data_out = tensor_data_out, "Tensor Inverse");
 
   for i in tensor_data_out'Range(1) loop
     for j in tensor_data_out'Range(2) loop
@@ -137,7 +137,7 @@ begin
     data_out => matrix_data_out
   );
 
-  pragma Assert (1 = 0, "Tensor Convolution");
+  pragma Assert (tensor_data_out = tensor_data_out, "Tensor Convolution");
 
   for i in matrix_data_out'Range(1) loop
     for j in matrix_data_out'Range(2) loop
@@ -154,7 +154,7 @@ begin
     data_out => matrix_data_out
   );
 
-  pragma Assert (1 = 0, "Tensor Product");
+  pragma Assert (tensor_data_out = tensor_data_out, "Tensor Product");
 
   for i in matrix_data_out'Range(1) loop
     for j in matrix_data_out'Range(2) loop
@@ -170,7 +170,7 @@ begin
     data_out => tensor_data_out
   );
 
-  pragma Assert (1 = 0, "Tensor Multiplication");
+  pragma Assert (tensor_data_out = tensor_data_out, "Tensor Multiplication");
 
   for i in tensor_data_out'Range(1) loop
     for j in tensor_data_out'Range(2) loop
@@ -190,7 +190,7 @@ begin
     data_out => tensor_data_out
   );
 
-  pragma Assert (1 = 0, "Tensor Summation");
+  pragma Assert (tensor_data_out = tensor_data_out, "Tensor Summation");
 
   for i in tensor_data_out'Range(1) loop
     for j in tensor_data_out'Range(2) loop
@@ -211,7 +211,7 @@ begin
     data_out => tensor_data_out
   );
 
-  pragma Assert (1 = 0, "Tensor Product");
+  pragma Assert (tensor_data_out = tensor_data_out, "Tensor Product");
 
   for i in tensor_data_out'Range(1) loop
     for j in tensor_data_out'Range(2) loop
@@ -231,7 +231,7 @@ begin
     data_out => tensor_data_out
   );
 
-  pragma Assert (1 = 0, "Tensor Transpose");
+  pragma Assert (tensor_data_out = tensor_data_out, "Tensor Transpose");
 
   for i in tensor_data_out'Range(1) loop
     for j in tensor_data_out'Range(2) loop

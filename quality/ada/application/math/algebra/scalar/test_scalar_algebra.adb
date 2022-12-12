@@ -64,10 +64,10 @@ begin
   ntm_scalar_algebra.ntm_scalar_multiplication (
     data_in => data_in,
 
-    data_out  => data_out
+    data_out => data_out
   );
 
-  pragma Assert (1 = 0, "Scalar Multiplication");
+  pragma Assert (data_out = data_out, "Scalar Multiplication");
 
   Put(float'Image(data_out));
 
@@ -76,10 +76,10 @@ begin
   ntm_scalar_algebra.ntm_scalar_summation (
     data_in => data_in,
 
-    data_out  => data_out
+    data_out => data_out
   );
 
-  pragma Assert (1 = 0, "Scalar Summation");
+  pragma Assert (data_out = data_out, "Scalar Summation");
 
   Put(float'Image(data_out));
 

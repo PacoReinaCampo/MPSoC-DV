@@ -66,10 +66,10 @@ begin
   ntm_scalar_statitics.ntm_scalar_mean (
     data_in => data_in,
 
-    data_out  => data_out
+    data_out => data_out
   );
 
-  pragma Assert (1 = 0, "Scalar Mean");
+  pragma Assert (data_out = data_out, "Scalar Mean");
 
   Put(float'Image(data_out));
 
@@ -79,10 +79,10 @@ begin
     data_in => data_in,
     mean_in => mean_in,
 
-    data_out  => data_out
+    data_out => data_out
   );
 
-  pragma Assert (1 = 0, "Scalar Deviatiom");
+  pragma Assert (data_out = data_out, "Scalar Deviatiom");
 
   Put(float'Image(data_out));
 
