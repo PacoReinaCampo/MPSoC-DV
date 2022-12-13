@@ -42,13 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-import random
-
 def ntm_scalar_adder(data_a_in, data_b_in):
   # calculating addition
   return (data_a_in + data_b_in)
-  
-data_a_in = random.random()
-data_b_in = random.random()
-
-assert ntm_scalar_adder(data_a_in, data_b_in) == data_a_in + data_b_in

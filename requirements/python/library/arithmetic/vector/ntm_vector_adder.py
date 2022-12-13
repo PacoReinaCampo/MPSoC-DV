@@ -56,8 +56,3 @@ def ntm_vector_adder(data_a_in, data_b_in):
     data_out.append(a_in[i] + b_in[i])
 
   return data_out
-  
-data_a_in = np.random.rand(3,1)
-data_b_in = np.random.rand(3,1)
-
-np.testing.assert_array_equal(ntm_vector_adder(data_a_in, data_b_in), data_a_in + data_b_in)

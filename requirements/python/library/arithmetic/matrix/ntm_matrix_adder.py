@@ -58,8 +58,3 @@ def ntm_matrix_adder(data_a_in, data_b_in):
       data_out[i].append(a_in[i][j] + b_in[i][j])
 
   return data_out
-
-data_a_in = np.random.rand(3,3)
-data_b_in = np.random.rand(3,3)
-
-np.testing.assert_array_equal(ntm_matrix_adder(data_a_in, data_b_in), data_a_in + data_b_in)

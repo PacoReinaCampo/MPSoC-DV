@@ -52,9 +52,3 @@ def ntm_matrix_oneplus_function(data_in):
 
   # calculating result
   return (ones + np.log(ones + np.exp(data_input)))
-
-data_in = np.random.rand(3,3)
-
-ones = np.ones(data_in.shape)
-
-np.testing.assert_array_equal(ntm_matrix_oneplus_function(data_in), ones + np.log(ones + np.exp(data_in)))

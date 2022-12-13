@@ -52,9 +52,3 @@ def ntm_vector_logistic_function(data_in):
 
   # calculating result
   return (ones/(ones + ones/np.exp(data_input)))
-
-data_in = np.random.rand(3,1)
-
-ones = np.ones(data_in.shape)
-
-np.testing.assert_array_equal(ntm_vector_logistic_function(data_in), ones/(ones + ones/np.exp(data_in)))

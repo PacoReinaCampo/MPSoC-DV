@@ -52,16 +52,3 @@ def ntm_scalar_multiplication(data_in):
     data_out *= data_in[i]
 
   return data_out
-
-def test_scalar_multiplication(data_in):
-  data_out = 0.0
-
-  # calculating multiplication
-  for i in range(len(data_in)):
-    data_out *= data_in[i]
-
-  return data_out
-
-data_in = np.random.rand(3,1)
-
-np.testing.assert_array_equal(ntm_scalar_multiplication(data_in), test_scalar_multiplication(data_in))

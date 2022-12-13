@@ -44,7 +44,7 @@
 
 import numpy as np
 
-def ntm_matrix_deviation(data_in, mean):
+def ntm_matrix_deviation(data_in, mean_in):
 
   data_out = []
 
@@ -56,33 +56,8 @@ def ntm_matrix_deviation(data_in, mean):
       temporal = 0.0
 
       for k in range(len(data_in[i][j])):
-        temporal += (data_in[i][j][k] - mean[i][j]) * (data_in[i][j][k] - mean[i][j]) / len(data_in[i][j])
+        temporal += (data_in[i][j][k] - mean_in[i][j]) * (data_in[i][j][k] - mean_in[i][j]) / len(data_in[i][j])
 
       data_out[i].append(temporal)
 
   return data_out
-
-def test_matrix_deviation(data_in, mean):
-  temporal = 0.0
-
-  data_out = []
-
-  # calculating deviation
-  for i in range(len(data_in)):
-    data_out.append([])
-
-    for j in range(len(data_in[i])):
-      temporal = 0.0
-
-      for k in range(len(data_in[i][j])):
-        temporal += (data_in[i][j][k] - mean[i][j]) * (data_in[i][j][k] - mean[i][j]) / len(data_in[i][j])
-
-      data_out[i].append(temporal)
-
-  return data_out
-
-data_in = np.random.rand(3,3,3)
-
-mean = np.random.rand(3,3)
-
-np.testing.assert_array_equal(ntm_matrix_deviation(data_in, mean), test_matrix_deviation(data_in, mean))

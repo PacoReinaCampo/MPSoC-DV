@@ -1,23 +1,27 @@
-code
+library
 ├── arithmetic
 │   ├── matrix
 │   │   ├── ntm_matrix_adder.py
+│   │   ├── ntm_matrix_arithmetic.py
 │   │   ├── ntm_matrix_divider.py
 │   │   └── ntm_matrix_multiplier.py
-│   ├── ntm_matrix_arithmetic.py
-│   ├── ntm_scalar_arithmetic.py
-│   ├── ntm_tensor_arithmetic.py
-│   ├── ntm_vector_arithmetic.py
 │   ├── scalar
 │   │   ├── ntm_scalar_adder.py
+│   │   ├── ntm_scalar_arithmetic.py
 │   │   ├── ntm_scalar_divider.py
 │   │   └── ntm_scalar_multiplier.py
 │   ├── tensor
 │   │   ├── ntm_tensor_adder.py
+│   │   ├── ntm_tensor_arithmetic.py
 │   │   ├── ntm_tensor_divider.py
 │   │   └── ntm_tensor_multiplier.py
+│   ├── test_matrix_arithmetic.py
+│   ├── test_scalar_arithmetic.py
+│   ├── test_tensor_arithmetic.py
+│   ├── test_vector_arithmetic.py
 │   └── vector
 │       ├── ntm_vector_adder.py
+│       ├── ntm_vector_arithmetic.py
 │       ├── ntm_vector_divider.py
 │       └── ntm_vector_multiplier.py
 ├── controller
@@ -107,6 +111,7 @@ code
 │   │   ├── matrix
 │   │   │   ├── ntm_matrix_convolution.py
 │   │   │   ├── ntm_matrix_inverse.py
+│   │   │   ├── ntm_matrix_math_algebra.py
 │   │   │   ├── ntm_matrix_multiplication.py
 │   │   │   ├── ntm_matrix_product.py
 │   │   │   ├── ntm_matrix_summation.py
@@ -114,26 +119,29 @@ code
 │   │   │   ├── ntm_matrix_vector_convolution.py
 │   │   │   ├── ntm_matrix_vector_product.py
 │   │   │   └── ntm_transpose_vector_product.py
-│   │   ├── ntm_matrix_math_algebra.py
-│   │   ├── ntm_scalar_math_algebra.py
-│   │   ├── ntm_tensor_math_algebra.py
-│   │   ├── ntm_vector_math_algebra.py
+│   │   ├── ntm_scalar_algebra.py
 │   │   ├── scalar
+│   │   │   ├── ntm_scalar_math_algebra.py
 │   │   │   ├── ntm_scalar_multiplication.py
 │   │   │   └── ntm_scalar_summation.py
 │   │   ├── tensor
 │   │   │   ├── ntm_tensor_convolution.py
 │   │   │   ├── ntm_tensor_inverse.py
+│   │   │   ├── ntm_tensor_math_algebra.py
 │   │   │   ├── ntm_tensor_matrix_convolution.py
 │   │   │   ├── ntm_tensor_matrix_product.py
 │   │   │   ├── ntm_tensor_multiplication.py
 │   │   │   ├── ntm_tensor_product.py
 │   │   │   ├── ntm_tensor_summation.py
 │   │   │   └── ntm_tensor_transpose.py
+│   │   ├── test_matrix_algebra.py
+│   │   ├── test_tensor_algebra.py
+│   │   ├── test_vector_algebra.py
 │   │   └── vector
 │   │       ├── ntm_dot_product.py
 │   │       ├── ntm_vector_convolution.py
 │   │       ├── ntm_vector_cosine_similarity.py
+│   │       ├── ntm_vector_math_algebra.py
 │   │       ├── ntm_vector_module.py
 │   │       ├── ntm_vector_multiplication.py
 │   │       └── ntm_vector_summation.py
@@ -141,43 +149,52 @@ code
 │   │   ├── matrix
 │   │   │   ├── ntm_matrix_differentiation.py
 │   │   │   ├── ntm_matrix_integration.py
+│   │   │   ├── ntm_matrix_math_calculus.py
 │   │   │   └── ntm_matrix_softmax.py
-│   │   ├── ntm_matrix_math_calculus.py
-│   │   ├── ntm_tensor_math_calculus.py
-│   │   ├── ntm_vector_math_calculus.py
 │   │   ├── tensor
 │   │   │   ├── ntm_tensor_differentiation.py
 │   │   │   ├── ntm_tensor_integration.py
+│   │   │   ├── ntm_tensor_math_calculus.py
 │   │   │   └── ntm_tensor_softmax.py
+│   │   ├── test_matrix_calculus.py
+│   │   ├── test_tensor_calculus.py
+│   │   ├── test_vector_calculus.py
 │   │   └── vector
 │   │       ├── ntm_vector_differentiation.py
 │   │       ├── ntm_vector_integration.py
+│   │       ├── ntm_vector_math_calculus.py
 │   │       └── ntm_vector_softmax.py
 │   ├── function
 │   │   ├── matrix
 │   │   │   ├── ntm_matrix_logistic_function.py
+│   │   │   ├── ntm_matrix_math_function.py
 │   │   │   └── ntm_matrix_oneplus_function.py
-│   │   ├── ntm_matrix_math_function.py
-│   │   ├── ntm_scalar_math_function.py
-│   │   ├── ntm_vector_math_function.py
 │   │   ├── scalar
 │   │   │   ├── ntm_scalar_logistic_function.py
+│   │   │   ├── ntm_scalar_math_function.py
 │   │   │   └── ntm_scalar_oneplus_function.py
+│   │   ├── test_matrix_function.py
+│   │   ├── test_scalar_function.py
+│   │   ├── test_vector_function.py
 │   │   └── vector
 │   │       ├── ntm_vector_logistic_function.py
+│   │       ├── ntm_vector_math_function.py
 │   │       └── ntm_vector_oneplus_function.py
 │   └── statitics
 │       ├── matrix
 │       │   ├── ntm_matrix_deviation.py
+│       │   ├── ntm_matrix_math_statitics.py
 │       │   └── ntm_matrix_mean.py
-│       ├── ntm_matrix_math_statitics.py
-│       ├── ntm_scalar_math_statitics.py
-│       ├── ntm_vector_math_statitics.py
 │       ├── scalar
 │       │   ├── ntm_scalar_deviation.py
+│       │   ├── ntm_scalar_math_statitics.py
 │       │   └── ntm_scalar_mean.py
+│       ├── test_matrix_statitics.py
+│       ├── test_scalar_statitics.py
+│       ├── test_vector_statitics.py
 │       └── vector
 │           ├── ntm_vector_deviation.py
+│           ├── ntm_vector_math_statitics.py
 │           └── ntm_vector_mean.py
 ├── ntm
 │   ├── memory
@@ -258,4 +275,4 @@ code
     ├── ntm_fnn.py
     └── ntm_lstm.py
 
-59 directories, 199 files
+59 directories, 216 files

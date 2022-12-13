@@ -48,7 +48,3 @@ import random
 def ntm_scalar_logistic_function(data_in):
   # calculating result
   return (1/(1 + 1/math.exp(data_in)))
-  
-data_in = random.random()
-
-assert ntm_scalar_logistic_function(data_in) == 1/(1 + 1/math.exp(data_in))

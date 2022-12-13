@@ -61,26 +61,3 @@ def ntm_vector_convolution(data_a_in, data_b_in):
     data_out.append(temporal)
 
   return data_out
-
-def test_vector_convolution(data_a_in, data_b_in):
-
-  a_in = np.array(data_a_in)
-  b_in = np.array(data_b_in)
-
-  data_out = []
-
-  # calculating convolution
-  for i in range(len(data_a_in)):
-    temporal = 0.0
-
-    for m in range(len(data_a_in)):
-      temporal += a_in[i] * b_in[i-m]
-
-    data_out.append(temporal)
-
-  return data_out
-  
-data_a_in = np.random.rand(3,1)
-data_b_in = np.random.rand(3,1)
-
-np.testing.assert_array_equal(ntm_vector_convolution(data_a_in, data_b_in), test_vector_convolution(data_a_in, data_b_in))

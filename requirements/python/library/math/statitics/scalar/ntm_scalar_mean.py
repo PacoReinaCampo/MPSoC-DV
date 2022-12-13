@@ -52,7 +52,3 @@ def ntm_scalar_mean(data_in):
     data_out += data_in[i]/len(data_in)
 
   return data_out
-
-data_in = np.random.rand(3,1)
-
-np.testing.assert_array_equal(ntm_scalar_mean(data_in), np.mean(data_in))

@@ -60,26 +60,3 @@ def ntm_tensor_integration(data_in, length_in):
         data_out[i][j].append(temporal*length_in)
 
   return data_out
-
-def test_tensor_integration(data_in, length_in):
-  temporal = 0.0
-
-  data_out = []
-
-  # calculating integration
-  for i in range(len(data_in)):
-    data_out.append([])
-    for j in range(len(data_in[i])):
-      data_out[i].append([])
-      for k in range(len(data_in[i][j])):
-        temporal += data_in[i][j][k]
-
-        data_out[i][j].append(temporal*length_in)
-
-  return data_out
-
-length_in = 1.0
-
-data_in = np.random.rand(3,3,3)
-
-np.testing.assert_array_equal(ntm_tensor_integration(data_in, length_in), test_tensor_integration(data_in, length_in))

@@ -51,15 +51,10 @@ def ntm_matrix_multiplier(data_a_in, data_b_in):
 
   data_out = []
 
-  # calculating addition
+  # calculating multiplication
   for i in range(len(data_a_in)):
     data_out.append([])
     for j in range(len(data_a_in[i])):
       data_out[i].append(a_in[i][j] * b_in[i][j])
 
   return data_out
-
-data_a_in = np.random.rand(3,3)
-data_b_in = np.random.rand(3,3)
-
-np.testing.assert_array_equal(ntm_matrix_multiplier(data_a_in, data_b_in), data_a_in * data_b_in)

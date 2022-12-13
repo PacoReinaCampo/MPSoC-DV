@@ -52,17 +52,3 @@ def ntm_dot_product(data_a_in, data_b_in):
     data_out += data_a_in[i] * data_b_in[i]
 
   return data_out
-
-def test_dot_product(data_a_in, data_b_in):
-  data_out = 0.0
-
-  # calculating dot_product
-  for i in range(len(data_a_in)):
-    data_out += data_a_in[i] * data_b_in[i]
-
-  return data_out
-
-data_a_in = np.random.rand(3,1)
-data_b_in = np.random.rand(3,1)
-
-np.testing.assert_array_equal(ntm_dot_product(data_a_in, data_b_in), test_dot_product(data_a_in, data_b_in))

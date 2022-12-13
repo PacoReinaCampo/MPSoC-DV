@@ -42,13 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-import random
-
 def ntm_scalar_divider(data_a_in, data_b_in):
   # calculating division
   return (data_a_in / data_b_in)
-  
-data_a_in = random.random()
-data_b_in = random.random()
-
-assert ntm_scalar_divider(data_a_in, data_b_in) == data_a_in / data_b_in

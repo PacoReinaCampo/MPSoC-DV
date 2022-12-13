@@ -60,8 +60,3 @@ def ntm_tensor_adder(data_a_in, data_b_in):
         data_out[i][j].append(a_in[i][j][k] + b_in[i][j][k])
 
   return data_out
-
-data_a_in = np.random.rand(3,3,3)
-data_b_in = np.random.rand(3,3,3)
-
-np.testing.assert_array_equal(ntm_tensor_adder(data_a_in, data_b_in), data_a_in + data_b_in)

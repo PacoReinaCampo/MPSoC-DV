@@ -61,26 +61,3 @@ def ntm_matrix_mean(data_in):
       data_out[i].append(temporal)
 
   return data_out
-
-def test_matrix_mean(data_in):
-  temporal = 0.0
-
-  data_out = []
-
-  # calculating mean
-  for i in range(len(data_in)):
-    data_out.append([])
-
-    for j in range(len(data_in[i])):
-      temporal = 0.0
-
-      for k in range(len(data_in[i][j])):
-        temporal += data_in[i][j][k]/len(data_in[i][j])
-
-      data_out[i].append(temporal)
-
-  return data_out
-
-data_in = np.random.rand(3,3,3)
-
-np.testing.assert_array_equal(ntm_matrix_mean(data_in), test_matrix_mean(data_in))

@@ -46,6 +46,7 @@
 
 function DATA_D_OUT = ntm_state_matrix_feedforward(DATA_K_IN, DATA_D_IN)
   % Package
+  addpath(genpath('../../arithmetic/matrix'));
   addpath(genpath('../../math/algebra/matrix'));
 
   % Constants
@@ -58,7 +59,7 @@ function DATA_D_OUT = ntm_state_matrix_feedforward(DATA_K_IN, DATA_D_IN)
   % d = inv(I + D·K)·D
   matrix_operation_int = ntm_matrix_product(DATA_D_IN, DATA_K_IN);
 
-  matrix_operation_int = eye(SIZE_D_I_IN, SIZE_D_J_IN) + matrix_operation_int;
+  matrix_operation_int = ntm_matrix_adder(eye(SIZE_D_I_IN, SIZE_D_J_IN), matrix_operation_int);
 
   matrix_operation_int = ntm_matrix_inverse(matrix_operation_int);
 
