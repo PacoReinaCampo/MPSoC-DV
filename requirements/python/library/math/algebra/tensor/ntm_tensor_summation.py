@@ -42,4 +42,25 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def ntm_tensor_summation(data_in):
+
+  data_out = []
+
+  # calculating summation
+  for i in range(len(data_in)):
+    data_out.append([])
+
+    for j in range(len(data_in[i])):
+      data_out[i].append([])
+
+      for k in range(len(data_in[i][j])):
+        temporal = 1.0
+
+        for t in range(len(data_in[i][j][k])):
+          temporal += data_in[i][j][k][t]
+
+        data_out[i][j].append(temporal)
+
+  return data_out

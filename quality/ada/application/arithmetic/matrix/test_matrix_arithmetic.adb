@@ -78,6 +78,22 @@ begin
     New_Line;
   end loop;
 
+  ntm_matrix_arithmetic.ntm_matrix_substractor(
+    data_a_in => data_a_in,
+    data_b_in => data_b_in,
+    data_out  => data_out
+  );
+
+  pragma Assert (data_out = data_out, "Matrix Substractor");
+
+  for i in data_out'Range(1) loop
+    for j in data_out'Range(2) loop
+      Put(float'Image(data_out(i, j)));
+    end loop;
+
+    New_Line;
+  end loop;
+
   ntm_matrix_arithmetic.ntm_matrix_multiplier(
     data_a_in => data_a_in,
     data_b_in => data_b_in,

@@ -57,6 +57,13 @@ package ntm_matrix_arithmetic is
     data_out : out matrix
   );
 
+  procedure ntm_matrix_substractor (
+    data_a_in : in matrix;
+    data_b_in : in matrix;
+
+    data_out : out matrix
+  );
+
   procedure ntm_matrix_multiplier (
     data_a_in : in matrix;
     data_b_in : in matrix;

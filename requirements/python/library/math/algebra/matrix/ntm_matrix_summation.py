@@ -42,4 +42,22 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def ntm_matrix_summation(data_in):
+
+  data_out = []
+
+  # calculating summation
+  for i in range(len(data_in)):
+    data_out.append([])
+
+    for j in range(len(data_in[i])):
+      temporal = 0.0
+
+      for k in range(len(data_in[i][j])):
+        temporal += data_in[i][j][k]
+
+      data_out[i].append(temporal)
+
+  return data_out

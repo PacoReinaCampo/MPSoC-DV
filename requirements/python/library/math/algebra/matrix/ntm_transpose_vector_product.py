@@ -42,4 +42,21 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np 
+
+def ntm_transpose_vector_product(data_a_in, data_b_in):
+
+  a_in = np.array(data_a_in)
+  b_in = np.array(data_b_in)
+
+  data_out = []
+
+  # calculating product
+  for i in range(len(data_a_in)):
+    data_out.append([])
+    for j in range(len(data_b_in)):
+      temporal = a_in[i] * b_in[j]
+
+      data_out[i].append(temporal)
+
+  return data_out

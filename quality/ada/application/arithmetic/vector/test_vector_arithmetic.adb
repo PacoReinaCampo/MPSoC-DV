@@ -76,6 +76,20 @@ begin
 
   New_Line;
 
+  ntm_vector_arithmetic.ntm_vector_substractor(
+    data_a_in => data_a_in,
+    data_b_in => data_b_in,
+    data_out  => data_out
+  );
+
+  pragma Assert (data_out = data_out, "Vector Substractor");
+
+  for i in data_out'Range loop
+    Put(float'Image(data_out(i)));
+  end loop;
+
+  New_Line;
+
   ntm_vector_arithmetic.ntm_vector_multiplier(
     data_a_in => data_a_in,
     data_b_in => data_b_in,

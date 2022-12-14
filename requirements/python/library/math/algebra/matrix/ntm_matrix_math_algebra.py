@@ -44,63 +44,172 @@
 
 import numpy as np 
 
-class MatrixArithmetic:
-  def __init__(self, data_a_in, data_b_in):
-    self.data_a_in = data_a_in
-    self.data_b_in = data_b_in
+class MatrixMathAlgebra:
+  def __init__(self, matrix_data_a_in, matrix_data_b_in, vector_data_a_in, vector_data_b_in, matrix_data_in, tensor_data_in):
+    self.matrix_data_a_in = matrix_data_a_in
+    self.matrix_data_b_in = matrix_data_b_in
 
-  def ntm_matrix_adder(self):
-    a_in = np.array(self.data_a_in)
-    b_in = np.array(self.data_b_in)
+    self.vector_data_a_in = vector_data_a_in
+    self.vector_data_b_in = vector_data_b_in
 
-    data_out = []
+    self.matrix_data_in = matrix_data_in
+    self.tensor_data_in = tensor_data_in
 
-    # calculating addition
-    for i in range(len(data_a_in)):
-      data_out.append([])
-      for j in range(len(data_a_in[i])):
-        data_out[i].append(a_in[i][j] + b_in[i][j])
+  def ntm_matrix_convolution(self):
 
-    return data_out
-
-  def ntm_matrix_multiplier(self):
-    a_in = np.array(self.data_a_in)
-    b_in = np.array(self.data_b_in)
+    a_in = np.array(self.matrix_data_a_in)
+    b_in = np.array(self.matrix_data_b_in)
 
     data_out = []
 
-    # calculating multiplication
-    for i in range(len(data_a_in)):
+    # calculating convolution
+    for i in range(len(self.matrix_data_a_in)):
       data_out.append([])
-      for j in range(len(data_a_in[i])):
-        data_out[i].append(a_in[i][j] * b_in[i][j])
+      for j in range(len(self.matrix_data_b_in[i])):
+        temporal = 0.0
+
+        for m in range(i):
+          for n in range(j):
+            temporal += a_in[m][n] * b_in[i-m][j-n]
+
+        data_out[i].append(temporal)
 
     return data_out
 
-  def ntm_matrix_divider(self):
-    a_in = np.array(self.data_a_in)
-    b_in = np.array(self.data_b_in)
+  def ntm_matrix_inverse(self):
 
     data_out = []
 
-    # calculating division
-    for i in range(len(data_a_in)):
+    # calculating inverse
+    for i in range(len(self.matrix_data_in)):
       data_out.append([])
-      for j in range(len(data_a_in[i])):
-        data_out[i].append(a_in[i][j] / b_in[i][j])
+      for j in range(len(self.matrix_data_in[i])):
+        data_out[i].append(self.matrix_data_in[j][i])
 
     return data_out
 
+  def ntm_matrix_multiplication(self):
 
-data_a_in = np.random.rand(3,3)
-data_b_in = np.random.rand(3,3)
+    data_out = []
 
+    # calculating summation
+    for i in range(len(self.tensor_data_in)):
+      data_out.append([])
 
-arithmetic = MatrixArithmetic(data_a_in, data_b_in)
+      for j in range(len(self.tensor_data_in[i])):
+        temporal = 1.0
 
+        for k in range(len(self.tensor_data_in[i][j])):
+          temporal *= self.tensor_data_in[i][j][k]
 
-np.testing.assert_array_equal(arithmetic.ntm_matrix_adder(), data_a_in + data_b_in)
+        data_out[i].append(temporal)
 
-np.testing.assert_array_equal(arithmetic.ntm_matrix_multiplier(), data_a_in * data_b_in)
+    return data_out
 
-np.testing.assert_array_equal(arithmetic.ntm_matrix_divider(), data_a_in / data_b_in)
+  def ntm_matrix_product(self):
+
+    a_in = np.array(self.matrix_data_a_in)
+    b_in = np.array(self.matrix_data_b_in)
+
+    data_out = []
+
+    # calculating product
+    for i in range(len(self.matrix_data_a_in)):
+      data_out.append([])
+      for j in range(len(self.matrix_data_b_in[i])):
+        temporal = 0.0
+
+        for m in range(len(self.matrix_data_a_in[i])):
+          temporal += a_in[i][m] * b_in[m][j]
+
+        data_out[i].append(temporal)
+
+    return data_out
+
+  def ntm_matrix_summation(self):
+
+    data_out = []
+
+    # calculating summation
+    for i in range(len(self.tensor_data_in)):
+      data_out.append([])
+
+      for j in range(len(self.tensor_data_in[i])):
+        temporal = 0.0
+
+        for k in range(len(self.tensor_data_in[i][j])):
+          temporal += self.tensor_data_in[i][j][k]
+
+        data_out[i].append(temporal)
+
+    return data_out
+
+  def ntm_matrix_transpose(self):
+
+    data_out = []
+
+    # calculating transpose
+    for i in range(len(self.matrix_data_in)):
+      data_out.append([])
+      for j in range(len(self.matrix_data_in[i])):
+        data_out[i].append(self.matrix_data_in[j][i])
+
+    return data_out
+
+  def ntm_matrix_vector_convolution(self):
+
+    a_in = np.array(self.matrix_data_a_in)
+    b_in = np.array(self.vector_data_b_in)
+
+    data_out = []
+
+    # calculating convolution
+    for i in range(len(self.matrix_data_a_in)):
+      data_out.append([])
+      for j in range(len(self.matrix_data_a_in[i])):
+        temporal = 0.0
+
+        for m in range(i):
+          for n in range(j):
+            temporal += a_in[m][n] * b_in[i-m]
+
+        data_out[i].append(temporal)
+
+    return data_out
+
+  def ntm_matrix_vector_product(self):
+
+    a_in = np.array(self.matrix_data_a_in)
+    b_in = np.array(self.vector_data_b_in)
+
+    data_out = []
+
+    # calculating product
+    for i in range(len(self.matrix_data_a_in)):
+      data_out.append([])
+      for j in range(len(self.matrix_data_a_in[i])):
+        temporal = 0.0
+
+        for m in range(len(self.vector_data_b_in)):
+          temporal += a_in[i][m] * b_in[m]
+
+        data_out[i].append(temporal)
+
+    return data_out
+  
+  def ntm_transpose_vector_product(self):
+
+    a_in = np.array(self.vector_data_a_in)
+    b_in = np.array(self.vector_data_b_in)
+
+    data_out = []
+
+    # calculating product
+    for i in range(len(self.vector_data_a_in)):
+      data_out.append([])
+      for j in range(len(self.vector_data_b_in)):
+        temporal = a_in[i] * b_in[j]
+
+        data_out[i].append(temporal)
+
+    return data_out

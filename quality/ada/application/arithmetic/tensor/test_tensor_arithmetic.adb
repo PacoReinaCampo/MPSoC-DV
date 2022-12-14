@@ -88,6 +88,26 @@ begin
     New_Line;
   end loop;
 
+  ntm_tensor_arithmetic.ntm_tensor_substractor(
+    data_a_in => data_a_in,
+    data_b_in => data_b_in,
+    data_out  => data_out
+  );
+
+  pragma Assert (data_out = data_out, "Tensor Substractor");
+
+  for i in data_out'Range(1) loop
+    for j in data_out'Range(2) loop
+      for k in data_out'Range(3) loop
+        Put(float'Image(data_out(i, j, k)));
+      end loop;
+
+      New_Line;
+    end loop;
+
+    New_Line;
+  end loop;
+
   ntm_tensor_arithmetic.ntm_tensor_multiplier(
     data_a_in => data_a_in,
     data_b_in => data_b_in,

@@ -42,4 +42,28 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np 
+
+def ntm_tensor_convolution(data_a_in, data_b_in):
+
+  a_in = np.array(data_a_in)
+  b_in = np.array(data_b_in)
+
+  data_out = []
+
+  # calculating convolution
+  for i in range(len(data_a_in)):
+    data_out.append([])
+    for j in range(len(data_a_in[i])):
+      data_out[i].append([])
+      for k in range(len(data_b_in[i])):
+        temporal = 0.0
+
+        for m in range(i):
+          for n in range(j):
+            for p in range(k):
+              temporal += a_in[m][n][p] * b_in[i-m][j-n][k-p]
+
+        data_out[i][j].append(temporal)
+
+  return data_out

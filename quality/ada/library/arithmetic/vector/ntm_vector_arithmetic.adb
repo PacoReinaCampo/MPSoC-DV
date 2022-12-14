@@ -60,6 +60,19 @@ package body ntm_vector_arithmetic is
 
   end ntm_vector_adder;
 
+  procedure ntm_vector_substractor (
+    data_a_in : in vector;
+    data_b_in : in vector;
+
+    data_out : out vector
+  ) is
+  begin
+    for i in data_out'Range loop
+      data_out(i) := data_a_in(i) - data_b_in(i);
+    end loop;
+
+  end ntm_vector_substractor;
+
   procedure ntm_vector_multiplier (
     data_a_in : in vector;
     data_b_in : in vector;

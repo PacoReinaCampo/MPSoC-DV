@@ -74,6 +74,18 @@ begin
 
   New_Line;
 
+  ntm_scalar_arithmetic.ntm_scalar_substractor(
+    data_a_in => data_a_in,
+    data_b_in => data_b_in,
+    data_out  => data_out
+  );
+
+  pragma Assert (data_a_in - data_b_in = data_out, "Scalar Substractor");
+
+  Put(float'Image(data_out));
+
+  New_Line;
+
   ntm_scalar_arithmetic.ntm_scalar_multiplier(
     data_a_in => data_a_in,
     data_b_in => data_b_in,

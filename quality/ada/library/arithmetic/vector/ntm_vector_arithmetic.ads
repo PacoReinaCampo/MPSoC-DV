@@ -57,6 +57,13 @@ package ntm_vector_arithmetic is
     data_out : out vector
   );
 
+  procedure ntm_vector_substractor (
+    data_a_in : in vector;
+    data_b_in : in vector;
+
+    data_out : out vector
+  );
+
   procedure ntm_vector_multiplier (
     data_a_in : in vector;
     data_b_in : in vector;

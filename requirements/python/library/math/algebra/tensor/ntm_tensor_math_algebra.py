@@ -44,69 +44,175 @@
 
 import numpy as np 
 
-class TensorArithmetic:
-  def __init__(self, data_a_in, data_b_in):
-    self.data_a_in = data_a_in
-    self.data_b_in = data_b_in
+class TensorMathAlgebra:
+  def __init__(self, tensor_data_a_in, tensor_data_b_in, matrix_data_a_in, matrix_data_b_in, tensor_data_in, array4_data_in):
+    self.tensor_data_a_in = tensor_data_a_in
+    self.tensor_data_b_in = tensor_data_b_in
 
-  def ntm_tensor_adder(self):
-    a_in = np.array(self.data_a_in)
-    b_in = np.array(self.data_b_in)
+    self.matrix_data_a_in = matrix_data_a_in
+    self.matrix_data_b_in = matrix_data_b_in
+
+    self.tensor_data_in = tensor_data_in
+    self.array4_data_in = array4_data_in
+
+  def ntm_tensor_convolution(self):
+
+    a_in = np.array(self.tensor_data_a_in)
+    b_in = np.array(self.tensor_data_b_in)
 
     data_out = []
 
-    # calculating addition
-    for i in range(len(data_a_in)):
+    # calculating convolution
+    for i in range(len(self.tensor_data_a_in)):
       data_out.append([])
-      for j in range(len(data_a_in[i])):
+      for j in range(len(self.tensor_data_a_in[i])):
         data_out[i].append([])
-        for k in range(len(data_a_in[i][j])):
-          data_out[i][j].append(a_in[i][j][k] + b_in[i][j][k])
+        for k in range(len(self.tensor_data_b_in[i])):
+          temporal = 0.0
+
+          for m in range(i):
+            for n in range(j):
+              for p in range(k):
+                temporal += a_in[m][n][p] * b_in[i-m][j-n][k-p]
+
+          data_out[i][j].append(temporal)
 
     return data_out
 
-  def ntm_tensor_multiplier(self):
-    a_in = np.array(self.data_a_in)
-    b_in = np.array(self.data_b_in)
+  def ntm_tensor_inverse(self):
+
+    data_out = []
+
+    # calculating inverse
+    for i in range(len(self.tensor_data_in)):
+      data_out.append([])
+      for j in range(len(self.tensor_data_in[i])):
+        data_out[i].append([])
+        for k in range(len(self.tensor_data_in[i][j])):
+          data_out[i][j].append(self.tensor_data_in[i][k][j])
+
+    return data_out
+
+  def ntm_tensor_matrix_convolution(self):
+
+    a_in = np.array(self.tensor_data_a_in)
+    b_in = np.array(self.matrix_data_b_in)
+
+    data_out = []
+
+    # calculating convolution
+    for i in range(len(self.tensor_data_a_in)):
+      data_out.append([])
+      for j in range(len(self.tensor_data_a_in[i])):
+        data_out[i].append([])
+        for k in range(len(self.matrix_data_b_in[i])):
+          temporal = 0.0
+
+          for m in range(i):
+            for n in range(j):
+              for p in range(k):
+                temporal += a_in[m][n][p] * b_in[i-m][j-n]
+
+          data_out[i][j].append(temporal)
+
+    return data_out
+
+  def ntm_tensor_matrix_product(self):
+
+    a_in = np.array(self.tensor_data_a_in)
+    b_in = np.array(self.matrix_data_b_in)
+
+    data_out = []
+
+    # calculating product
+    for i in range(len(self.tensor_data_a_in)):
+      data_out.append([])
+      for j in range(len(self.tensor_data_a_in[i])):
+        data_out[i].append([])
+        for k in range(len(self.matrix_data_b_in[i])):
+          temporal = 0.0
+
+          for m in range(len(self.tensor_data_a_in[i][j])):
+            temporal += a_in[i][j][m] * b_in[i][m]
+
+          data_out[i][j].append(temporal)
+
+    return data_out
+
+  def ntm_tensor_multiplication(self):
 
     data_out = []
 
     # calculating multiplication
-    for i in range(len(data_a_in)):
+    for i in range(len(self.array4_data_in)):
       data_out.append([])
-      for j in range(len(data_a_in[i])):
+
+      for j in range(len(self.array4_data_in[i])):
         data_out[i].append([])
-        for k in range(len(data_a_in[i][j])):
-          data_out[i][j].append(a_in[i][j][k] * b_in[i][j][k])
+
+        for k in range(len(self.array4_data_in[i][j])):
+          temporal = 1.0
+
+          for t in range(len(self.array4_data_in[i][j][k])):
+            temporal *= self.array4_data_in[i][j][k][t]
+
+          data_out[i][j].append(temporal)
 
     return data_out
 
-  def ntm_tensor_divider(self):
-    a_in = np.array(self.data_a_in)
-    b_in = np.array(self.data_b_in)
+  def ntm_tensor_product(self):
+
+    a_in = np.array(self.tensor_data_a_in)
+    b_in = np.array(self.tensor_data_b_in)
 
     data_out = []
 
-    # calculating division
-    for i in range(len(data_a_in)):
+    # calculating product
+    for i in range(len(self.tensor_data_a_in)):
       data_out.append([])
-      for j in range(len(data_a_in[i])):
+      for j in range(len(self.tensor_data_a_in[i])):
         data_out[i].append([])
-        for k in range(len(data_a_in[i][j])):
-          data_out[i][j].append(a_in[i][j][k] / b_in[i][j][k])
+        for k in range(len(self.tensor_data_b_in[i])):
+          temporal = 0.0
+
+          for m in range(len(self.tensor_data_a_in[i][j])):
+            temporal += a_in[i][j][m] * b_in[i][m][k]
+
+          data_out[i][j].append(temporal)
 
     return data_out
 
+  def ntm_tensor_summation(self):
 
-data_a_in = np.random.rand(3,3,3)
-data_b_in = np.random.rand(3,3,3)
+    data_out = []
 
+    # calculating summation
+    for i in range(len(self.array4_data_in)):
+      data_out.append([])
 
-arithmetic = TensorArithmetic(data_a_in, data_b_in)
+      for j in range(len(self.array4_data_in[i])):
+        data_out[i].append([])
 
+        for k in range(len(self.array4_data_in[i][j])):
+          temporal = 1.0
 
-np.testing.assert_array_equal(arithmetic.ntm_tensor_adder(), data_a_in + data_b_in)
+          for t in range(len(self.array4_data_in[i][j][k])):
+            temporal += self.array4_data_in[i][j][k][t]
 
-np.testing.assert_array_equal(arithmetic.ntm_tensor_multiplier(), data_a_in * data_b_in)
+          data_out[i][j].append(temporal)
 
-np.testing.assert_array_equal(arithmetic.ntm_tensor_divider(), data_a_in / data_b_in)
+    return data_out
+
+  def ntm_tensor_transpose(self):
+
+    data_out = []
+
+    # calculating transpose
+    for i in range(len(self.tensor_data_in)):
+      data_out.append([])
+      for j in range(len(self.tensor_data_in[i])):
+        data_out[i].append([])
+        for k in range(len(self.tensor_data_in[i][j])):
+          data_out[i][j].append(self.tensor_data_in[i][k][j])
+
+    return data_out

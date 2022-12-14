@@ -57,6 +57,16 @@ package body ntm_scalar_arithmetic is
     data_out := data_a_in + data_b_in;
   end ntm_scalar_adder;
 
+  procedure ntm_scalar_substractor (
+    data_a_in : in float;
+    data_b_in : in float;
+    
+    data_out : out float
+  ) is
+  begin
+    data_out := data_a_in - data_b_in;
+  end ntm_scalar_substractor;
+
   procedure ntm_scalar_multiplier (
     data_a_in : in float;
     data_b_in : in float;

@@ -57,6 +57,13 @@ package ntm_tensor_arithmetic is
     data_out : out tensor
   );
 
+  procedure ntm_tensor_substractor (
+    data_a_in : in tensor;
+    data_b_in : in tensor;
+    
+    data_out : out tensor
+  );
+
   procedure ntm_tensor_multiplier (
     data_a_in : in tensor;
     data_b_in : in tensor;

@@ -62,6 +62,21 @@ package body ntm_matrix_arithmetic is
 
   end ntm_matrix_adder;
 
+  procedure ntm_matrix_substractor (
+    data_a_in : in matrix;
+    data_b_in : in matrix;
+
+    data_out : out matrix
+  ) is
+  begin
+    for i in data_out'Range(1) loop
+      for j in data_out'Range(2) loop
+        data_out(i, j) := data_a_in(i, j) - data_b_in(i, j);
+      end loop;
+    end loop;
+
+  end ntm_matrix_substractor;
+
   procedure ntm_matrix_multiplier (
     data_a_in : in matrix;
     data_b_in : in matrix;
