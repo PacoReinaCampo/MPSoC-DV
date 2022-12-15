@@ -107,7 +107,7 @@ package body ntm_tensor_calculus is
         for k in data_out'Range(3) loop
           temporal := temporal + data_in(i, j, k)*length_in;
 
-          data_out(i, j, k) := temporal*length_in;
+          data_out(i, j, k) := temporal;
         end loop;
       end loop;
     end loop;
@@ -119,21 +119,18 @@ package body ntm_tensor_calculus is
     
     data_out : out tensor
   ) is
-    temporal0 : float := 0.0;
-    temporal1 : float := 0.0;
+    temporal : float := 0.0;
   begin
     for i in data_out'Range(1) loop
       for j in data_out'Range(2) loop
         for k in data_out'Range(3) loop
-          temporal0 := temporal0 + exp(data_in(i, j, k));
+          temporal := temporal + exp(data_in(i, j, k));
 
-          temporal1 := exp(data_in(i, j, k));
-
-          data_out(i, j, k) := temporal1;
+          data_out(i, j, k) := exp(data_in(i, j, k));
         end loop;
 
         for k in data_out'Range(3) loop
-          data_out(i, j, k) := data_out(i, j, k)/temporal0;
+          data_out(i, j, k) := data_out(i, j, k)/temporal;
         end loop;
       end loop;
     end loop;

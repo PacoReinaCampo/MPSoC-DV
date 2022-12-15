@@ -97,7 +97,7 @@ package body ntm_matrix_calculus is
       for j in data_out'Range(2) loop
         temporal := temporal + data_in(i, j)*length_in;
 
-        data_out(i, j) := temporal*length_in;
+        data_out(i, j) := temporal;
       end loop;
     end loop;
 
@@ -108,20 +108,17 @@ package body ntm_matrix_calculus is
 
     data_out : out matrix
   ) is
-    temporal0 : float := 0.0;
-    temporal1 : float := 0.0;
+    temporal : float := 0.0;
   begin
     for i in data_out'Range(1) loop
       for j in data_out'Range(2) loop
-        temporal0 := temporal0 + exp(data_in(i, j));
+        temporal := temporal + exp(data_in(i, j));
 
-        temporal1 := exp(data_in(i, j));
-
-        data_out(i, j) := temporal1;
+        data_out(i, j) := exp(data_in(i, j));
       end loop;
 
       for j in data_out'Range(2) loop
-        data_out(i, j) := data_out(i, j)/temporal0;
+        data_out(i, j) := data_out(i, j)/temporal;
       end loop;
     end loop;
 
