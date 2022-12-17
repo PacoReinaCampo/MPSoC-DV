@@ -64,6 +64,24 @@ classdef TensorArithmetic
       end
     end
 
+    function DATA_OUT = ntm_tensor_substractor(DATA_A_IN, DATA_B_IN)
+      % Constants
+      [SIZE_A_I_IN, SIZE_A_J_IN, SIZE_A_K_IN] = size(DATA_A_IN);
+      [SIZE_B_I_IN, SIZE_B_J_IN, SIZE_B_K_IN] = size(DATA_B_IN);
+
+      % Signals
+      DATA_OUT = zeros(SIZE_A_I_IN, SIZE_A_J_IN, SIZE_A_K_IN);
+
+      % Body
+      for i = 1:SIZE_A_I_IN
+        for j = 1:SIZE_A_J_IN
+          for k = 1:SIZE_A_K_IN
+            DATA_OUT(i, j, k) = DATA_A_IN(i, j, k) - DATA_B_IN(i, j, k);
+          end
+        end
+      end
+    end
+
     function DATA_OUT = ntm_tensor_multiplier(DATA_A_IN, DATA_B_IN)
       % Constants
       [SIZE_A_I_IN, SIZE_A_J_IN, SIZE_A_K_IN] = size(DATA_A_IN);

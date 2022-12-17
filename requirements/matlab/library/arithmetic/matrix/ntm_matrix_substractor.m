@@ -44,62 +44,18 @@
 ###################################################################################
 %}
 
-classdef MatrixArithmetic
-  methods
-    function DATA_OUT = ntm_vector_adder(DATA_A_IN, DATA_B_IN)
-      % Constants
-      SIZE_A_IN = length(DATA_A_IN);
-      SIZE_B_IN = length(DATA_B_IN);
+function DATA_OUT = ntm_matrix_substractor(DATA_A_IN, DATA_B_IN)
+  % Constants
+  [SIZE_A_I_IN, SIZE_A_J_IN] = size(DATA_A_IN);
+  [SIZE_B_I_IN, SIZE_B_J_IN] = size(DATA_B_IN);
 
-      % Signals
-      DATA_OUT = zeros(SIZE_A_IN, 1);
+  % Signals
+  DATA_OUT = zeros(SIZE_A_I_IN, SIZE_A_J_IN);
 
-      % Body
-      for i = 1:SIZE_A_IN
-        DATA_OUT(i) = DATA_A_IN(i) + DATA_B_IN(i);
-      end
-    end
-
-    function DATA_OUT = ntm_vector_substractor(DATA_A_IN, DATA_B_IN)
-      % Constants
-      SIZE_A_IN = length(DATA_A_IN);
-      SIZE_B_IN = length(DATA_B_IN);
-
-      % Signals
-      DATA_OUT = zeros(SIZE_A_IN, 1);
-
-      % Body
-      for i = 1:SIZE_A_IN
-        DATA_OUT(i) = DATA_A_IN(i) - DATA_B_IN(i);
-      end
-    end
-
-    function DATA_OUT = ntm_vector_multiplier(DATA_A_IN, DATA_B_IN)
-      % Constants
-      SIZE_A_IN = length(DATA_A_IN);
-      SIZE_B_IN = length(DATA_B_IN);
-
-      % Signals
-      DATA_OUT = zeros(SIZE_A_IN, 1);
-
-      % Body
-      for i = 1:SIZE_A_IN
-        DATA_OUT(i) = DATA_A_IN(i) * DATA_B_IN(i);
-      end
-    end
-
-    function DATA_OUT = ntm_vector_divider(DATA_A_IN, DATA_B_IN)
-      % Constants
-      SIZE_A_IN = length(DATA_A_IN);
-      SIZE_B_IN = length(DATA_B_IN);
-
-      % Signals
-      DATA_OUT = zeros(SIZE_A_IN, 1);
-
-      % Body
-      for i = 1:SIZE_A_IN
-        DATA_OUT(i) = DATA_A_IN(i) / DATA_B_IN(i);
-      end
+  % Body
+  for i = 1:SIZE_A_I_IN
+    for j = 1:SIZE_A_J_IN
+      DATA_OUT(i, j) = DATA_A_IN(i, j) - DATA_B_IN(i, j);
     end
   end
 end
