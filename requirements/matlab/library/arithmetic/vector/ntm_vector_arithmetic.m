@@ -60,7 +60,7 @@ classdef MatrixArithmetic
       end
     end
 
-    function DATA_OUT = ntm_vector_substractor(DATA_A_IN, DATA_B_IN)
+    function DATA_OUT = ntm_vector_subtractor(DATA_A_IN, DATA_B_IN)
       % Constants
       SIZE_A_IN = length(DATA_A_IN);
       SIZE_B_IN = length(DATA_B_IN);

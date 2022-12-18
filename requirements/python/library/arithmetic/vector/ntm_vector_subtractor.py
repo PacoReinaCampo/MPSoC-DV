@@ -1,4 +1,3 @@
-%{
 ###################################################################################
 ##                                            __ _      _     _                  ##
 ##                                           / _(_)    | |   | |                 ##
@@ -17,7 +16,7 @@
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2020-2024 by the author(s)                                      ##
+## Copyright (c) 2022-2023 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,22 +41,18 @@
 ##   Paco Reina Campo <pacoreinacampo@queenfield.tech>                           ##
 ##                                                                               ##
 ###################################################################################
-%}
 
-function DATA_OUT = ntm_tensor_substractor(DATA_A_IN, DATA_B_IN)
-  % Constants
-  [SIZE_A_I_IN, SIZE_A_J_IN, SIZE_A_K_IN] = size(DATA_A_IN);
-  [SIZE_B_I_IN, SIZE_B_J_IN, SIZE_B_K_IN] = size(DATA_B_IN);
+import numpy as np 
 
-  % Signals
-  DATA_OUT = zeros(SIZE_A_I_IN, SIZE_A_J_IN, SIZE_A_K_IN);
+def ntm_vector_subtractor(data_a_in, data_b_in):
 
-  % Body
-  for i = 1:SIZE_A_I_IN
-    for j = 1:SIZE_A_J_IN
-      for k = 1:SIZE_A_K_IN
-        DATA_OUT(i, j, k) = DATA_A_IN(i, j, k) - DATA_B_IN(i, j, k);
-      end
-    end
-  end
-end
+  a_in = np.array(data_a_in)
+  b_in = np.array(data_b_in)
+
+  data_out = []
+
+  # calculating subtraction
+  for i in range(len(data_a_in)):
+    data_out.append(a_in[i] - b_in[i])
+
+  return data_out

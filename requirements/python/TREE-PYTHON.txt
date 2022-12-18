@@ -4,17 +4,20 @@ library
 │   │   ├── ntm_matrix_adder.py
 │   │   ├── ntm_matrix_arithmetic.py
 │   │   ├── ntm_matrix_divider.py
-│   │   └── ntm_matrix_multiplier.py
+│   │   ├── ntm_matrix_multiplier.py
+│   │   └── ntm_matrix_subtractor.py
 │   ├── scalar
 │   │   ├── ntm_scalar_adder.py
 │   │   ├── ntm_scalar_arithmetic.py
 │   │   ├── ntm_scalar_divider.py
-│   │   └── ntm_scalar_multiplier.py
+│   │   ├── ntm_scalar_multiplier.py
+│   │   └── ntm_scalar_subtractor.py
 │   ├── tensor
 │   │   ├── ntm_tensor_adder.py
 │   │   ├── ntm_tensor_arithmetic.py
 │   │   ├── ntm_tensor_divider.py
-│   │   └── ntm_tensor_multiplier.py
+│   │   ├── ntm_tensor_multiplier.py
+│   │   └── ntm_tensor_subtractor.py
 │   ├── test_matrix_arithmetic.py
 │   ├── test_scalar_arithmetic.py
 │   ├── test_tensor_arithmetic.py
@@ -23,7 +26,8 @@ library
 │       ├── ntm_vector_adder.py
 │       ├── ntm_vector_arithmetic.py
 │       ├── ntm_vector_divider.py
-│       └── ntm_vector_multiplier.py
+│       ├── ntm_vector_multiplier.py
+│       └── ntm_vector_subtractor.py
 ├── controller
 │   ├── FNN
 │   │   ├── convolutional
@@ -119,7 +123,6 @@ library
 │   │   │   ├── ntm_matrix_vector_convolution.py
 │   │   │   ├── ntm_matrix_vector_product.py
 │   │   │   └── ntm_transpose_vector_product.py
-│   │   ├── ntm_scalar_algebra.py
 │   │   ├── scalar
 │   │   │   ├── ntm_scalar_math_algebra.py
 │   │   │   ├── ntm_scalar_multiplication.py
@@ -135,6 +138,7 @@ library
 │   │   │   ├── ntm_tensor_summation.py
 │   │   │   └── ntm_tensor_transpose.py
 │   │   ├── test_matrix_algebra.py
+│   │   ├── test_scalar_algebra.py
 │   │   ├── test_tensor_algebra.py
 │   │   ├── test_vector_algebra.py
 │   │   └── vector
@@ -275,4 +279,4 @@ library
     ├── ntm_fnn.py
     └── ntm_lstm.py
 
-59 directories, 216 files
+59 directories, 220 files

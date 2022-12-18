@@ -1,4 +1,3 @@
-%{
 ###################################################################################
 ##                                            __ _      _     _                  ##
 ##                                           / _(_)    | |   | |                 ##
@@ -17,7 +16,7 @@
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2020-2024 by the author(s)                                      ##
+## Copyright (c) 2022-2023 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,16 +41,22 @@
 ##   Paco Reina Campo <pacoreinacampo@queenfield.tech>                           ##
 ##                                                                               ##
 ###################################################################################
-%}
 
-% Constants
-SIZE_I_IN = 3;
-SIZE_J_IN = 3;
-SIZE_K_IN = 3;
+import numpy as np 
 
-% Signals
-DATA_A_IN = rand(SIZE_I_IN, SIZE_J_IN, SIZE_K_IN);
-DATA_B_IN = rand(SIZE_I_IN, SIZE_J_IN, SIZE_K_IN);
+def ntm_tensor_subtractor(data_a_in, data_b_in):
 
-% DUT
-assert(ntm_tensor_substractor(DATA_A_IN, DATA_B_IN), DATA_A_IN - DATA_B_IN);
+  a_in = np.array(data_a_in)
+  b_in = np.array(data_b_in)
+
+  data_out = []
+
+  # calculating subtraction
+  for i in range(len(data_a_in)):
+    data_out.append([])
+    for j in range(len(data_a_in[i])):
+      data_out[i].append([])
+      for k in range(len(data_a_in[i][j])):
+        data_out[i][j].append(a_in[i][j][k] - b_in[i][j][k])
+
+  return data_out

@@ -44,18 +44,9 @@
 ###################################################################################
 %}
 
-function DATA_OUT = ntm_matrix_substractor(DATA_A_IN, DATA_B_IN)
-  % Constants
-  [SIZE_A_I_IN, SIZE_A_J_IN] = size(DATA_A_IN);
-  [SIZE_B_I_IN, SIZE_B_J_IN] = size(DATA_B_IN);
+% Signals
+DATA_A_IN = rand(1);
+DATA_B_IN = rand(1);
 
-  % Signals
-  DATA_OUT = zeros(SIZE_A_I_IN, SIZE_A_J_IN);
-
-  % Body
-  for i = 1:SIZE_A_I_IN
-    for j = 1:SIZE_A_J_IN
-      DATA_OUT(i, j) = DATA_A_IN(i, j) - DATA_B_IN(i, j);
-    end
-  end
-end
+% DUT
+assert(ntm_scalar_subtractor(DATA_A_IN, DATA_B_IN), DATA_A_IN - DATA_B_IN);

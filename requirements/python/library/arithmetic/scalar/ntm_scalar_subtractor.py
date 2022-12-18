@@ -1,4 +1,3 @@
-%{
 ###################################################################################
 ##                                            __ _      _     _                  ##
 ##                                           / _(_)    | |   | |                 ##
@@ -17,7 +16,7 @@
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2020-2024 by the author(s)                                      ##
+## Copyright (c) 2022-2023 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,15 +41,7 @@
 ##   Paco Reina Campo <pacoreinacampo@queenfield.tech>                           ##
 ##                                                                               ##
 ###################################################################################
-%}
 
-% Constants
-SIZE_I_IN = 3;
-SIZE_J_IN = 3;
-
-% Signals
-DATA_A_IN = rand(SIZE_I_IN, SIZE_J_IN);
-DATA_B_IN = rand(SIZE_I_IN, SIZE_J_IN);
-
-% DUT
-assert(ntm_matrix_substractor(DATA_A_IN, DATA_B_IN), DATA_A_IN - DATA_B_IN);
+def ntm_scalar_subtractor(data_a_in, data_b_in):
+  # calculating subtraction
+  return (data_a_in - data_b_in)

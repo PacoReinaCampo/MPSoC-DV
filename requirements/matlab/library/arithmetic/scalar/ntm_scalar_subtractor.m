@@ -44,12 +44,7 @@
 ###################################################################################
 %}
 
-% Constants
-SIZE_IN = 3;
-
-% Signals
-DATA_A_IN = rand(SIZE_IN, 1);
-DATA_B_IN = rand(SIZE_IN, 1);
-
-% DUT
-assert(ntm_vector_substractor(DATA_A_IN, DATA_B_IN), DATA_A_IN - DATA_B_IN);
+function DATA_OUT = ntm_scalar_subtractor(DATA_A_IN, DATA_B_IN)
+  % Body
+  DATA_OUT = DATA_A_IN - DATA_B_IN;
+end

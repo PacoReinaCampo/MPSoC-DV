@@ -1,4 +1,3 @@
-%{
 ###################################################################################
 ##                                            __ _      _     _                  ##
 ##                                           / _(_)    | |   | |                 ##
@@ -17,7 +16,7 @@
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2020-2024 by the author(s)                                      ##
+## Copyright (c) 2022-2023 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,11 +41,20 @@
 ##   Paco Reina Campo <pacoreinacampo@queenfield.tech>                           ##
 ##                                                                               ##
 ###################################################################################
-%}
 
-% Signals
-DATA_A_IN = rand(1);
-DATA_B_IN = rand(1);
+import numpy as np 
 
-% DUT
-assert(ntm_scalar_substractor(DATA_A_IN, DATA_B_IN), DATA_A_IN - DATA_B_IN);
+def ntm_matrix_subtractor(data_a_in, data_b_in):
+
+  a_in = np.array(data_a_in)
+  b_in = np.array(data_b_in)
+
+  data_out = []
+
+  # calculating subtraction
+  for i in range(len(data_a_in)):
+    data_out.append([])
+    for j in range(len(data_a_in[i])):
+      data_out[i].append(a_in[i][j] - b_in[i][j])
+
+  return data_out

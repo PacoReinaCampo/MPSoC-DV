@@ -51,7 +51,7 @@ classdef ScalarArithmetic
       DATA_OUT = DATA_A_IN + DATA_B_IN;
     end
 
-    function DATA_OUT = ntm_scalar_substractor(DATA_A_IN, DATA_B_IN)
+    function DATA_OUT = ntm_scalar_subtractor(DATA_A_IN, DATA_B_IN)
       % Body
       DATA_OUT = DATA_A_IN - DATA_B_IN;
     end
