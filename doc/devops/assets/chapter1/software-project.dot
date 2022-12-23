@@ -10,7 +10,7 @@ digraph Project {
   Validation[label="Software Validation \n(C/C++/Go/Rust) [GCC]"];
   Design[label="Software Design \n(C/C++/Go/Rust) [Emacs]"];
   Verification[label="Software Verification \n(C/C++/Go/Rust) [GCC]"];
-  Quality[label="Quality Assurance \n(TeX) [Emacs]"];
+  Quality[label="Quality Assurance \n(Ada) [Emacs]"];
   Certification[label="Certification \n(TeX) [Emacs]"];
   Lifecycle[label="Design Lifecycle Data \n(TeX) [Emacs]"];
 

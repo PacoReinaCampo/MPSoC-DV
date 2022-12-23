@@ -98,7 +98,7 @@
 <title>Quality</title>
 <polygon fill="none" stroke="black" points="1398,-24.5 1398,-62.5 1549,-62.5 1549,-24.5 1398,-24.5"/>
 <text text-anchor="middle" x="1473.5" y="-47.3" font-family="Times,serif" font-size="14.00">Quality Assurance </text>
-<text text-anchor="middle" x="1473.5" y="-32.3" font-family="Times,serif" font-size="14.00">(TeX) [Emacs]</text>
+<text text-anchor="middle" x="1473.5" y="-32.3" font-family="Times,serif" font-size="14.00">(Ada) [Emacs]</text>
 </g>
 <!-- Verification&#45;&gt;Quality -->
 <g id="edge6" class="edge">

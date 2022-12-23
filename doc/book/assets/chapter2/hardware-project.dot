@@ -4,13 +4,13 @@ digraph Project {
   node[shape=record];
 
   // Blocks
-  Requirements[label="Requirements \n(Matlab/PSL/UML) [Emacs]"];
+  Requirements[label="Requirements \n(Matlab/Python/PSL/UML) [Emacs]"];
   Source[label="Source \n(C/C++/Go/Rust) [Emacs]"];
   Model[label="Hardware Model \n(VHDL/SystemVerilog) [Emacs]"];
   Validation[label="Hardware Validation \n(VHDL/SystemVerilog) [GHDL / Icarus Verilog]"];
   Design[label="Hardware Design \n(VHDL/Verilog) [Emacs]"];
   Verification[label="Hardware Verification \n(VHDL/SystemVerilog) [GHDL / Icarus Verilog]"];
-  Quality[label="Quality Assurance \n(TeX) [Emacs]"];
+  Quality[label="Quality Assurance \n(Ada) [Emacs]"];
   Certification[label="Certification \n(TeX) [Emacs]"];
   Lifecycle[label="Design Lifecycle Data \n(TeX) [Emacs]"];
 
