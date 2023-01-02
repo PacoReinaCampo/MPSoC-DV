@@ -42,8 +42,20 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-class HelloWorld {
-  public static void main(String[] args) {
-    System.out.println("Hello, World!"); 
+class ScalarMathStatitics {
+  static double ntm_scalar_mean(double data_a_in, double data_b_in) {
+    double data_out;
+ 
+    data_out = data_a_in + data_b_in;
+ 
+    return data_out;
+  }
+
+  static double ntm_scalar_deviation(double data_a_in, double data_b_in) {
+    double data_out;
+ 
+    data_out = data_a_in * data_b_in;
+ 
+    return data_out;
   }
 }

@@ -42,8 +42,26 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-class HelloWorld {
-  public static void main(String[] args) {
-    System.out.println("Hello, World!"); 
+class VectorMathFunction {
+  static double[] ntm_vector_logistic_function(double data_a_in[], double data_b_in[]) {
+    int i;
+
+    double data_out[] = new double[data_a_in.length];
+ 
+    for (i = 0; i < data_a_in.length; i++)
+      data_out[i] = data_a_in[i] + data_b_in[i];
+ 
+    return data_out;
+  }
+
+  static double[] ntm_vector_oneplus_function(double data_a_in[], double data_b_in[]) {
+    int i;
+
+    double data_out[] = new double[data_a_in.length];
+ 
+    for (i = 0; i < data_a_in.length; i++)
+      data_out[i] = data_a_in[i] * data_b_in[i];
+ 
+    return data_out;
   }
 }

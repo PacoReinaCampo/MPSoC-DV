@@ -42,8 +42,43 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-class HelloWorld {
-  public static void main(String[] args) {
-    System.out.println("Hello, World!"); 
+class TensorMathCalculus {
+  static double[][][] ntm_tensor_differentiation(double data_a_in[][][], double data_b_in[][][]) {
+    int i, j;
+
+    double data_out[][][] = new double[data_a_in.length][data_a_in[0].length][data_a_in[0][0].length];
+ 
+    for (i = 0; i < data_a_in.length; i++)
+      for (j = 0; j < data_a_in[0].length; j++)
+        for (k = 0; k < data_a_in[0][0].length; k++)
+          data_out[i][j][k] = data_a_in[i][j][k] + data_b_in[i][j][k];
+ 
+    return data_out;
+  }
+
+  static double[][][] ntm_tensor_integration(double data_a_in[][][], double data_b_in[][][]) {
+    int i, j;
+
+    double data_out[][][] = new double[data_a_in.length][data_a_in[0].length][data_a_in[0][0].length];
+ 
+    for (i = 0; i < data_a_in.length; i++)
+      for (j = 0; j < data_a_in[0].length; j++)
+        for (k = 0; k < data_a_in[0][0].length; k++)
+          data_out[i][j][k] = data_a_in[i][j][k] - data_b_in[i][j][k];
+ 
+    return data_out;
+  }
+
+  static double[][][] ntm_tensor_softmax(double data_a_in[][][], double data_b_in[][][]) {
+    int i, j;
+
+    double data_out[][][] = new double[data_a_in.length][data_a_in[0].length][data_a_in[0][0].length];
+ 
+    for (i = 0; i < data_a_in.length; i++)
+      for (j = 0; j < data_a_in[0].length; j++)
+        for (k = 0; k < data_a_in[0][0].length; k++)
+          data_out[i][j][k] = data_a_in[i][j][k] * data_b_in[i][j][k];
+ 
+    return data_out;
   }
 }

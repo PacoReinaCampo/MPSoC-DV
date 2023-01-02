@@ -42,8 +42,28 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-class HelloWorld {
-  public static void main(String[] args) {
-    System.out.println("Hello, World!"); 
+class MatrixMathStatitics {
+  static double[][] ntm_matrix_mean(double data_a_in[][], double data_b_in[][]) {
+    int i, j;
+
+    double data_out[][] = new double[data_a_in.length][data_a_in[0].length];
+ 
+    for (i = 0; i < data_a_in.length; i++)
+      for (j = 0; j < data_a_in[0].length; j++)
+        data_out[i][j] = data_a_in[i][j] + data_b_in[i][j];
+ 
+    return data_out;
+  }
+
+  static double[][] ntm_matrix_deviation(double data_a_in[][], double data_b_in[][]) {
+    int i, j;
+
+    double data_out[][] = new double[data_a_in.length][data_a_in[0].length];
+ 
+    for (i = 0; i < data_a_in.length; i++)
+      for (j = 0; j < data_a_in[0].length; j++)
+        data_out[i][j] = data_a_in[i][j] - data_b_in[i][j];
+ 
+    return data_out;
   }
 }

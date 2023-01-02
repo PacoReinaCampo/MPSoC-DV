@@ -9,7 +9,7 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              The Ada Programming Language                                     ##
+##              The Java Programming Language                                    ##
 ##              QueenField                                                       ##
 ##                                                                               ##
 ###################################################################################

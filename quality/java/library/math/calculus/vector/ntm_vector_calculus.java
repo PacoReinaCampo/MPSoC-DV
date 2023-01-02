@@ -42,8 +42,37 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-class HelloWorld {
-  public static void main(String[] args) {
-    System.out.println("Hello, World!"); 
+class VectorMathCalculus {
+  static double[] ntm_vector_differentiation(double data_a_in[], double data_b_in[]) {
+    int i;
+
+    double data_out[] = new double[data_a_in.length];
+ 
+    for (i = 0; i < data_a_in.length; i++)
+      data_out[i] = data_a_in[i] + data_b_in[i];
+ 
+    return data_out;
+  }
+
+  static double[] ntm_vector_integration(double data_a_in[], double data_b_in[]) {
+    int i;
+
+    double data_out[] = new double[data_a_in.length];
+ 
+    for (i = 0; i < data_a_in.length; i++)
+      data_out[i] = data_a_in[i] - data_b_in[i];
+ 
+    return data_out;
+  }
+
+  static double[] ntm_vector_softmax(double data_a_in[], double data_b_in[]) {
+    int i;
+
+    double data_out[] = new double[data_a_in.length];
+ 
+    for (i = 0; i < data_a_in.length; i++)
+      data_out[i] = data_a_in[i] * data_b_in[i];
+ 
+    return data_out;
   }
 }
