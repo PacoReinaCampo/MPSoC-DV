@@ -1,0 +1,596 @@
+library
+├── arithmetic
+│   ├── matrix
+│   │   ├── adder
+│   │   │   ├── ntm_matrix_adder_osvvm_model.vhd
+│   │   │   └── ntm_matrix_adder_osvvm_testbench.vhd
+│   │   ├── divider
+│   │   │   ├── ntm_matrix_divider_osvvm_model.vhd
+│   │   │   └── ntm_matrix_divider_osvvm_testbench.vhd
+│   │   ├── multiplier
+│   │   │   ├── ntm_matrix_multiplier_osvvm_model.vhd
+│   │   │   └── ntm_matrix_multiplier_osvvm_testbench.vhd
+│   │   └── subtractor
+│   │       ├── ntm_matrix_subtractor_osvvm_model.vhd
+│   │       └── ntm_matrix_subtractor_osvvm_testbench.vhd
+│   ├── scalar
+│   │   ├── adder
+│   │   │   ├── ntm_scalar_adder_osvvm_model.vhd
+│   │   │   └── ntm_scalar_adder_osvvm_testbench.vhd
+│   │   ├── divider
+│   │   │   ├── ntm_scalar_divider_osvvm_model.vhd
+│   │   │   └── ntm_scalar_divider_osvvm_testbench.vhd
+│   │   ├── multiplier
+│   │   │   ├── ntm_scalar_multiplier_osvvm_model.vhd
+│   │   │   └── ntm_scalar_multiplier_osvvm_testbench.vhd
+│   │   └── subtractor
+│   │       ├── ntm_scalar_subtractor_osvvm_model.vhd
+│   │       └── ntm_scalar_subtractor_osvvm_testbench.vhd
+│   ├── tensor
+│   │   ├── adder
+│   │   │   ├── ntm_tensor_adder_osvvm_model.vhd
+│   │   │   └── ntm_tensor_adder_osvvm_testbench.vhd
+│   │   ├── divider
+│   │   │   ├── ntm_tensor_divider_osvvm_model.vhd
+│   │   │   └── ntm_tensor_divider_osvvm_testbench.vhd
+│   │   ├── multiplier
+│   │   │   ├── ntm_tensor_multiplier_osvvm_model.vhd
+│   │   │   └── ntm_tensor_multiplier_osvvm_testbench.vhd
+│   │   └── subtractor
+│   │       ├── ntm_tensor_subtractor_osvvm_model.vhd
+│   │       └── ntm_tensor_subtractor_osvvm_testbench.vhd
+│   └── vector
+│       ├── adder
+│       │   ├── ntm_vector_adder_osvvm_model.vhd
+│       │   └── ntm_vector_adder_osvvm_testbench.vhd
+│       ├── divider
+│       │   ├── ntm_vector_divider_osvvm_model.vhd
+│       │   └── ntm_vector_divider_osvvm_testbench.vhd
+│       ├── multiplier
+│       │   ├── ntm_vector_multiplier_osvvm_model.vhd
+│       │   └── ntm_vector_multiplier_osvvm_testbench.vhd
+│       └── subtractor
+│           ├── ntm_vector_subtractor_osvvm_model.vhd
+│           └── ntm_vector_subtractor_osvvm_testbench.vhd
+├── controller
+│   ├── FNN
+│   │   ├── convolutional
+│   │   │   └── ntm_controller
+│   │   │       ├── ntm_controller_osvvm_model.vhd
+│   │   │       └── ntm_controller_osvvm_testbench.vhd
+│   │   └── standard
+│   │       └── ntm_controller
+│   │           ├── ntm_controller_osvvm_model.vhd
+│   │           └── ntm_controller_osvvm_testbench.vhd
+│   ├── LSTM
+│   │   ├── convolutional
+│   │   │   ├── ntm_activation_gate_vector
+│   │   │   │   ├── ntm_activation_gate_vector_osvvm_model.vhd
+│   │   │   │   └── ntm_activation_gate_vector_osvvm_testbench.vhd
+│   │   │   ├── ntm_controller
+│   │   │   │   ├── ntm_controller_osvvm_model.vhd
+│   │   │   │   └── ntm_controller_osvvm_testbench.vhd
+│   │   │   ├── ntm_forget_gate_vector
+│   │   │   │   ├── ntm_forget_gate_vector_osvvm_model.vhd
+│   │   │   │   └── ntm_forget_gate_vector_osvvm_testbench.vhd
+│   │   │   ├── ntm_hidden_gate_vector
+│   │   │   │   ├── ntm_hidden_gate_vector_osvvm_model.vhd
+│   │   │   │   └── ntm_hidden_gate_vector_osvvm_testbench.vhd
+│   │   │   ├── ntm_input_gate_vector
+│   │   │   │   ├── ntm_input_gate_vector_osvvm_model.vhd
+│   │   │   │   └── ntm_input_gate_vector_osvvm_testbench.vhd
+│   │   │   ├── ntm_output_gate_vector
+│   │   │   │   ├── ntm_output_gate_vector_osvvm_model.vhd
+│   │   │   │   └── ntm_output_gate_vector_osvvm_testbench.vhd
+│   │   │   └── ntm_state_gate_vector
+│   │   │       ├── ntm_state_gate_vector_osvvm_model.vhd
+│   │   │       └── ntm_state_gate_vector_osvvm_testbench.vhd
+│   │   └── standard
+│   │       ├── ntm_activation_gate_vector
+│   │       │   ├── ntm_activation_gate_vector_osvvm_model.vhd
+│   │       │   └── ntm_activation_gate_vector_osvvm_testbench.vhd
+│   │       ├── ntm_controller
+│   │       │   ├── ntm_controller_osvvm_model.vhd
+│   │       │   └── ntm_controller_osvvm_testbench.vhd
+│   │       ├── ntm_forget_gate_vector
+│   │       │   ├── ntm_forget_gate_vector_osvvm_model.vhd
+│   │       │   └── ntm_forget_gate_vector_osvvm_testbench.vhd
+│   │       ├── ntm_hidden_gate_vector
+│   │       │   ├── ntm_hidden_gate_vector_osvvm_model.vhd
+│   │       │   └── ntm_hidden_gate_vector_osvvm_testbench.vhd
+│   │       ├── ntm_input_gate_vector
+│   │       │   ├── ntm_input_gate_vector_osvvm_model.vhd
+│   │       │   └── ntm_input_gate_vector_osvvm_testbench.vhd
+│   │       ├── ntm_output_gate_vector
+│   │       │   ├── ntm_output_gate_vector_osvvm_model.vhd
+│   │       │   └── ntm_output_gate_vector_osvvm_testbench.vhd
+│   │       └── ntm_state_gate_vector
+│   │           ├── ntm_state_gate_vector_osvvm_model.vhd
+│   │           └── ntm_state_gate_vector_osvvm_testbench.vhd
+│   └── transformer
+│       ├── components
+│       │   ├── ntm_masked_multi_head_attention
+│       │   │   ├── ntm_masked_multi_head_attention_osvvm_model.vhd
+│       │   │   └── ntm_masked_multi_head_attention_osvvm_testbench.vhd
+│       │   ├── ntm_masked_scaled_dot_product_attention
+│       │   │   ├── ntm_masked_scaled_dot_product_attention_osvvm_model.vhd
+│       │   │   └── ntm_masked_scaled_dot_product_attention_osvvm_testbench.vhd
+│       │   ├── ntm_multi_head_attention
+│       │   │   ├── ntm_multi_head_attention_osvvm_model.vhd
+│       │   │   └── ntm_multi_head_attention_osvvm_testbench.vhd
+│       │   └── ntm_scaled_dot_product_attention
+│       │       ├── ntm_scaled_dot_product_attention_osvvm_model.vhd
+│       │       └── ntm_scaled_dot_product_attention_osvvm_testbench.vhd
+│       ├── fnn
+│       │   └── ntm_fnn
+│       │       ├── ntm_fnn_osvvm_model.vhd
+│       │       └── ntm_fnn_osvvm_testbench.vhd
+│       ├── functions
+│       │   ├── ntm_layer_norm
+│       │   │   ├── ntm_layer_norm_osvvm_model.vhd
+│       │   │   └── ntm_layer_norm_osvvm_testbench.vhd
+│       │   └── ntm_positional_encoding
+│       │       ├── ntm_positional_encoding_osvvm_model.vhd
+│       │       └── ntm_positional_encoding_osvvm_testbench.vhd
+│       ├── inputs
+│       │   ├── ntm_inputs_vector
+│       │   │   ├── ntm_inputs_vector_osvvm_model.vhd
+│       │   │   └── ntm_inputs_vector_osvvm_testbench.vhd
+│       │   ├── ntm_keys_vector
+│       │   │   ├── ntm_keys_vector_osvvm_model.vhd
+│       │   │   └── ntm_keys_vector_osvvm_testbench.vhd
+│       │   ├── ntm_queries_vector
+│       │   │   ├── ntm_queries_vector_osvvm_model.vhd
+│       │   │   └── ntm_queries_vector_osvvm_testbench.vhd
+│       │   └── ntm_values_vector
+│       │       ├── ntm_values_vector_osvvm_model.vhd
+│       │       └── ntm_values_vector_osvvm_testbench.vhd
+│       ├── lstm
+│       │   ├── ntm_activation_gate_vector
+│       │   │   ├── ntm_activation_gate_vector_osvvm_model.vhd
+│       │   │   └── ntm_activation_gate_vector_osvvm_testbench.vhd
+│       │   ├── ntm_forget_gate_vector
+│       │   │   ├── ntm_forget_gate_vector_osvvm_model.vhd
+│       │   │   └── ntm_forget_gate_vector_osvvm_testbench.vhd
+│       │   ├── ntm_hidden_gate_vector
+│       │   │   ├── ntm_hidden_gate_vector_osvvm_model.vhd
+│       │   │   └── ntm_hidden_gate_vector_osvvm_testbench.vhd
+│       │   ├── ntm_input_gate_vector
+│       │   │   ├── ntm_input_gate_vector_osvvm_model.vhd
+│       │   │   └── ntm_input_gate_vector_osvvm_testbench.vhd
+│       │   ├── ntm_lstm
+│       │   │   ├── ntm_lstm_osvvm_model.vhd
+│       │   │   └── ntm_lstm_osvvm_testbench.vhd
+│       │   ├── ntm_output_gate_vector
+│       │   │   ├── ntm_output_gate_vector_osvvm_model.vhd
+│       │   │   └── ntm_output_gate_vector_osvvm_testbench.vhd
+│       │   └── ntm_state_gate_vector
+│       │       ├── ntm_state_gate_vector_osvvm_model.vhd
+│       │       └── ntm_state_gate_vector_osvvm_testbench.vhd
+│       └── top
+│           ├── ntm_controller
+│           │   ├── ntm_controller_osvvm_model.vhd
+│           │   └── ntm_controller_osvvm_testbench.vhd
+│           ├── ntm_decoder
+│           │   ├── ntm_decoder_osvvm_model.vhd
+│           │   └── ntm_decoder_osvvm_testbench.vhd
+│           └── ntm_encoder
+│               ├── ntm_encoder_osvvm_model.vhd
+│               └── ntm_encoder_osvvm_testbench.vhd
+├── dnc
+│   ├── memory
+│   │   ├── dnc_addressing
+│   │   │   ├── dnc_addressing_osvvm_model.vhd
+│   │   │   └── dnc_addressing_osvvm_testbench.vhd
+│   │   ├── dnc_allocation_weighting
+│   │   │   ├── dnc_allocation_weighting_osvvm_model.vhd
+│   │   │   └── dnc_allocation_weighting_osvvm_testbench.vhd
+│   │   ├── dnc_backward_weighting
+│   │   │   ├── dnc_backward_weighting_osvvm_model.vhd
+│   │   │   └── dnc_backward_weighting_osvvm_testbench.vhd
+│   │   ├── dnc_forward_weighting
+│   │   │   ├── dnc_forward_weighting_osvvm_model.vhd
+│   │   │   └── dnc_forward_weighting_osvvm_testbench.vhd
+│   │   ├── dnc_matrix_content_based_addressing
+│   │   │   ├── dnc_matrix_content_based_addressing_osvvm_model.vhd
+│   │   │   └── dnc_matrix_content_based_addressing_osvvm_testbench.vhd
+│   │   ├── dnc_memory_matrix
+│   │   │   ├── dnc_memory_matrix_osvvm_model.vhd
+│   │   │   └── dnc_memory_matrix_osvvm_testbench.vhd
+│   │   ├── dnc_memory_retention_vector
+│   │   │   ├── dnc_memory_retention_vector_osvvm_model.vhd
+│   │   │   └── dnc_memory_retention_vector_osvvm_testbench.vhd
+│   │   ├── dnc_precedence_weighting
+│   │   │   ├── dnc_precedence_weighting_osvvm_model.vhd
+│   │   │   └── dnc_precedence_weighting_osvvm_testbench.vhd
+│   │   ├── dnc_read_content_weighting
+│   │   │   ├── dnc_read_content_weighting_osvvm_model.vhd
+│   │   │   └── dnc_read_content_weighting_osvvm_testbench.vhd
+│   │   ├── dnc_read_vectors
+│   │   │   ├── dnc_read_vectors_osvvm_model.vhd
+│   │   │   └── dnc_read_vectors_osvvm_testbench.vhd
+│   │   ├── dnc_read_weighting
+│   │   │   ├── dnc_read_weighting_osvvm_model.vhd
+│   │   │   └── dnc_read_weighting_osvvm_testbench.vhd
+│   │   ├── dnc_sort_vector
+│   │   │   ├── dnc_sort_vector_osvvm_model.vhd
+│   │   │   └── dnc_sort_vector_osvvm_testbench.vhd
+│   │   ├── dnc_temporal_link_matrix
+│   │   │   ├── dnc_temporal_link_matrix_osvvm_model.vhd
+│   │   │   └── dnc_temporal_link_matrix_osvvm_testbench.vhd
+│   │   ├── dnc_usage_vector
+│   │   │   ├── dnc_usage_vector_osvvm_model.vhd
+│   │   │   └── dnc_usage_vector_osvvm_testbench.vhd
+│   │   ├── dnc_vector_content_based_addressing
+│   │   │   ├── dnc_vector_content_based_addressing_osvvm_model.vhd
+│   │   │   └── dnc_vector_content_based_addressing_osvvm_testbench.vhd
+│   │   ├── dnc_write_content_weighting
+│   │   │   ├── dnc_write_content_weighting_osvvm_model.vhd
+│   │   │   └── dnc_write_content_weighting_osvvm_testbench.vhd
+│   │   └── dnc_write_weighting
+│   │       ├── dnc_write_weighting_osvvm_model.vhd
+│   │       └── dnc_write_weighting_osvvm_testbench.vhd
+│   ├── top
+│   │   ├── dnc_interface_matrix
+│   │   │   ├── dnc_interface_matrix_osvvm_model.vhd
+│   │   │   └── dnc_interface_matrix_osvvm_testbench.vhd
+│   │   ├── dnc_interface_top
+│   │   │   ├── dnc_interface_top_osvvm_model.vhd
+│   │   │   └── dnc_interface_top_osvvm_testbench.vhd
+│   │   ├── dnc_interface_vector
+│   │   │   ├── dnc_interface_vector_osvvm_model.vhd
+│   │   │   └── dnc_interface_vector_osvvm_testbench.vhd
+│   │   ├── dnc_output_vector
+│   │   │   ├── dnc_output_vector_osvvm_model.vhd
+│   │   │   └── dnc_output_vector_osvvm_testbench.vhd
+│   │   └── dnc_top
+│   │       ├── dnc_top_osvvm_model.vhd
+│   │       └── dnc_top_osvvm_testbench.vhd
+│   └── trained
+│       └── dnc_trained_top
+│           ├── dnc_trained_top_osvvm_model.vhd
+│           └── dnc_trained_top_osvvm_testbench.vhd
+├── math
+│   ├── algebra
+│   │   ├── matrix
+│   │   │   ├── ntm_matrix_convolution
+│   │   │   │   ├── ntm_matrix_convolution_osvvm_model.vhd
+│   │   │   │   └── ntm_matrix_convolution_osvvm_testbench.vhd
+│   │   │   ├── ntm_matrix_inverse
+│   │   │   │   ├── ntm_matrix_inverse_osvvm_model.vhd
+│   │   │   │   └── ntm_matrix_inverse_osvvm_testbench.vhd
+│   │   │   ├── ntm_matrix_multiplication
+│   │   │   │   ├── ntm_matrix_multiplication_osvvm_model.vhd
+│   │   │   │   └── ntm_matrix_multiplication_osvvm_testbench.vhd
+│   │   │   ├── ntm_matrix_product
+│   │   │   │   ├── ntm_matrix_product_osvvm_model.vhd
+│   │   │   │   └── ntm_matrix_product_osvvm_testbench.vhd
+│   │   │   ├── ntm_matrix_summation
+│   │   │   │   ├── ntm_matrix_summation_osvvm_model.vhd
+│   │   │   │   └── ntm_matrix_summation_osvvm_testbench.vhd
+│   │   │   ├── ntm_matrix_transpose
+│   │   │   │   ├── ntm_matrix_transpose_osvvm_model.vhd
+│   │   │   │   └── ntm_matrix_transpose_osvvm_testbench.vhd
+│   │   │   ├── ntm_matrix_vector_convolution
+│   │   │   │   ├── ntm_matrix_vector_convolution_osvvm_model.vhd
+│   │   │   │   └── ntm_matrix_vector_convolution_osvvm_testbench.vhd
+│   │   │   ├── ntm_matrix_vector_product
+│   │   │   │   ├── ntm_matrix_vector_product_osvvm_model.vhd
+│   │   │   │   └── ntm_matrix_vector_product_osvvm_testbench.vhd
+│   │   │   └── ntm_transpose_vector_product
+│   │   │       ├── ntm_transpose_vector_product_osvvm_model.vhd
+│   │   │       └── ntm_transpose_vector_product_osvvm_testbench.vhd
+│   │   ├── scalar
+│   │   │   ├── ntm_scalar_multiplication
+│   │   │   │   ├── ntm_scalar_multiplication_osvvm_model.vhd
+│   │   │   │   └── ntm_scalar_multiplication_osvvm_testbench.vhd
+│   │   │   └── ntm_scalar_summation
+│   │   │       ├── ntm_scalar_summation_osvvm_model.vhd
+│   │   │       └── ntm_scalar_summation_osvvm_testbench.vhd
+│   │   ├── tensor
+│   │   │   ├── ntm_tensor_convolution
+│   │   │   │   ├── ntm_tensor_convolution_osvvm_model.vhd
+│   │   │   │   └── ntm_tensor_convolution_osvvm_testbench.vhd
+│   │   │   ├── ntm_tensor_inverse
+│   │   │   │   ├── ntm_tensor_inverse_osvvm_model.vhd
+│   │   │   │   └── ntm_tensor_inverse_osvvm_testbench.vhd
+│   │   │   ├── ntm_tensor_matrix_convolution
+│   │   │   │   ├── ntm_tensor_matrix_convolution_osvvm_model.vhd
+│   │   │   │   └── ntm_tensor_matrix_convolution_osvvm_testbench.vhd
+│   │   │   ├── ntm_tensor_matrix_product
+│   │   │   │   ├── ntm_tensor_matrix_product_osvvm_model.vhd
+│   │   │   │   └── ntm_tensor_matrix_product_osvvm_testbench.vhd
+│   │   │   ├── ntm_tensor_multiplication
+│   │   │   │   ├── ntm_tensor_multiplication_osvvm_model.vhd
+│   │   │   │   └── ntm_tensor_multiplication_osvvm_testbench.vhd
+│   │   │   ├── ntm_tensor_product
+│   │   │   │   ├── ntm_tensor_product_osvvm_model.vhd
+│   │   │   │   └── ntm_tensor_product_osvvm_testbench.vhd
+│   │   │   ├── ntm_tensor_summation
+│   │   │   │   ├── ntm_tensor_summation_osvvm_model.vhd
+│   │   │   │   └── ntm_tensor_summation_osvvm_testbench.vhd
+│   │   │   └── ntm_tensor_transpose
+│   │   │       ├── ntm_tensor_transpose_osvvm_model.vhd
+│   │   │       └── ntm_tensor_transpose_osvvm_testbench.vhd
+│   │   └── vector
+│   │       ├── ntm_dot_product
+│   │       │   ├── ntm_dot_product_osvvm_model.vhd
+│   │       │   └── ntm_dot_product_osvvm_testbench.vhd
+│   │       ├── ntm_vector_convolution
+│   │       │   ├── ntm_vector_convolution_osvvm_model.vhd
+│   │       │   └── ntm_vector_convolution_osvvm_testbench.vhd
+│   │       ├── ntm_vector_cosine_similarity
+│   │       │   ├── ntm_vector_cosine_similarity_osvvm_model.vhd
+│   │       │   └── ntm_vector_cosine_similarity_osvvm_testbench.vhd
+│   │       ├── ntm_vector_module
+│   │       │   ├── ntm_vector_module_osvvm_model.vhd
+│   │       │   └── ntm_vector_module_osvvm_testbench.vhd
+│   │       ├── ntm_vector_multiplication
+│   │       │   ├── ntm_vector_multiplication_osvvm_model.vhd
+│   │       │   └── ntm_vector_multiplication_osvvm_testbench.vhd
+│   │       └── ntm_vector_summation
+│   │           ├── ntm_vector_summation_osvvm_model.vhd
+│   │           └── ntm_vector_summation_osvvm_testbench.vhd
+│   ├── calculus
+│   │   ├── matrix
+│   │   │   ├── ntm_matrix_differentiation
+│   │   │   │   ├── ntm_matrix_differentiation_osvvm_model.vhd
+│   │   │   │   └── ntm_matrix_differentiation_osvvm_testbench.vhd
+│   │   │   ├── ntm_matrix_integration
+│   │   │   │   ├── ntm_matrix_integration_osvvm_model.vhd
+│   │   │   │   └── ntm_matrix_integration_osvvm_testbench.vhd
+│   │   │   └── ntm_matrix_softmax
+│   │   │       ├── ntm_matrix_softmax_osvvm_model.vhd
+│   │   │       └── ntm_matrix_softmax_osvvm_testbench.vhd
+│   │   ├── tensor
+│   │   │   ├── ntm_tensor_differentiation
+│   │   │   │   ├── ntm_tensor_differentiation_osvvm_model.vhd
+│   │   │   │   └── ntm_tensor_differentiation_osvvm_testbench.vhd
+│   │   │   ├── ntm_tensor_integration
+│   │   │   │   ├── ntm_tensor_integration_osvvm_model.vhd
+│   │   │   │   └── ntm_tensor_integration_osvvm_testbench.vhd
+│   │   │   └── ntm_tensor_softmax
+│   │   │       ├── ntm_tensor_softmax_osvvm_model.vhd
+│   │   │       └── ntm_tensor_softmax_osvvm_testbench.vhd
+│   │   └── vector
+│   │       ├── ntm_vector_differentiation
+│   │       │   ├── ntm_vector_differentiation_osvvm_model.vhd
+│   │       │   └── ntm_vector_differentiation_osvvm_testbench.vhd
+│   │       ├── ntm_vector_integration
+│   │       │   ├── ntm_vector_integration_osvvm_model.vhd
+│   │       │   └── ntm_vector_integration_osvvm_testbench.vhd
+│   │       └── ntm_vector_softmax
+│   │           ├── ntm_vector_softmax_osvvm_model.vhd
+│   │           └── ntm_vector_softmax_osvvm_testbench.vhd
+│   ├── function
+│   │   ├── matrix
+│   │   │   ├── ntm_matrix_logistic_function
+│   │   │   │   ├── ntm_matrix_logistic_function_osvvm_model.vhd
+│   │   │   │   └── ntm_matrix_logistic_function_osvvm_testbench.vhd
+│   │   │   └── ntm_matrix_oneplus_function
+│   │   │       ├── ntm_matrix_oneplus_function_osvvm_model.vhd
+│   │   │       └── ntm_matrix_oneplus_function_osvvm_testbench.vhd
+│   │   ├── scalar
+│   │   │   ├── ntm_scalar_logistic_function
+│   │   │   │   ├── ntm_scalar_logistic_function_osvvm_model.vhd
+│   │   │   │   └── ntm_scalar_logistic_function_osvvm_testbench.vhd
+│   │   │   └── ntm_scalar_oneplus_function
+│   │   │       ├── ntm_scalar_oneplus_function_osvvm_model.vhd
+│   │   │       └── ntm_scalar_oneplus_function_osvvm_testbench.vhd
+│   │   └── vector
+│   │       ├── ntm_vector_logistic_function
+│   │       │   ├── ntm_vector_logistic_function_osvvm_model.vhd
+│   │       │   └── ntm_vector_logistic_function_osvvm_testbench.vhd
+│   │       └── ntm_vector_oneplus_function
+│   │           ├── ntm_vector_oneplus_function_osvvm_model.vhd
+│   │           └── ntm_vector_oneplus_function_osvvm_testbench.vhd
+│   └── statitics
+│       ├── matrix
+│       │   ├── ntm_matrix_deviation
+│       │   │   ├── ntm_matrix_deviation_osvvm_model.vhd
+│       │   │   └── ntm_matrix_deviation_osvvm_testbench.vhd
+│       │   └── ntm_matrix_mean
+│       │       ├── ntm_matrix_mean_osvvm_model.vhd
+│       │       └── ntm_matrix_mean_osvvm_testbench.vhd
+│       ├── scalar
+│       │   ├── ntm_scalar_deviation
+│       │   │   ├── ntm_scalar_deviation_osvvm_model.vhd
+│       │   │   └── ntm_scalar_deviation_osvvm_testbench.vhd
+│       │   └── ntm_scalar_mean
+│       │       ├── ntm_scalar_mean_osvvm_model.vhd
+│       │       └── ntm_scalar_mean_osvvm_testbench.vhd
+│       └── vector
+│           ├── ntm_vector_deviation
+│           │   ├── ntm_vector_deviation_osvvm_model.vhd
+│           │   └── ntm_vector_deviation_osvvm_testbench.vhd
+│           └── ntm_vector_mean
+│               ├── ntm_vector_mean_osvvm_model.vhd
+│               └── ntm_vector_mean_osvvm_testbench.vhd
+├── ntm
+│   ├── memory
+│   │   ├── ntm_addressing
+│   │   │   ├── ntm_addressing_osvvm_model.vhd
+│   │   │   └── ntm_addressing_osvvm_testbench.vhd
+│   │   ├── ntm_matrix_content_based_addressing
+│   │   │   ├── ntm_matrix_content_based_addressing_osvvm_model.vhd
+│   │   │   └── ntm_matrix_content_based_addressing_osvvm_testbench.vhd
+│   │   └── ntm_vector_content_based_addressing
+│   │       ├── ntm_vector_content_based_addressing_osvvm_model.vhd
+│   │       └── ntm_vector_content_based_addressing_osvvm_testbench.vhd
+│   ├── read_heads
+│   │   └── ntm_reading
+│   │       ├── ntm_reading_osvvm_model.vhd
+│   │       └── ntm_reading_osvvm_testbench.vhd
+│   ├── top
+│   │   ├── ntm_interface_matrix
+│   │   │   ├── ntm_interface_matrix_osvvm_model.vhd
+│   │   │   └── ntm_interface_matrix_osvvm_testbench.vhd
+│   │   ├── ntm_interface_top
+│   │   │   ├── ntm_interface_top_osvvm_model.vhd
+│   │   │   └── ntm_interface_top_osvvm_testbench.vhd
+│   │   ├── ntm_interface_vector
+│   │   │   ├── ntm_interface_vector_osvvm_model.vhd
+│   │   │   └── ntm_interface_vector_osvvm_testbench.vhd
+│   │   ├── ntm_output_vector
+│   │   │   ├── ntm_output_vector_osvvm_model.vhd
+│   │   │   └── ntm_output_vector_osvvm_testbench.vhd
+│   │   └── ntm_top
+│   │       ├── ntm_top_osvvm_model.vhd
+│   │       └── ntm_top_osvvm_testbench.vhd
+│   ├── trained
+│   │   └── ntm_trained_top
+│   │       ├── ntm_trained_top_osvvm_model.vhd
+│   │       └── ntm_trained_top_osvvm_testbench.vhd
+│   └── write_heads
+│       ├── ntm_erasing
+│       │   ├── ntm_erasing_osvvm_model.vhd
+│       │   └── ntm_erasing_osvvm_testbench.vhd
+│       └── ntm_writing
+│           ├── ntm_writing_osvvm_model.vhd
+│           └── ntm_writing_osvvm_testbench.vhd
+├── state
+│   ├── feedback
+│   │   ├── ntm_state_matrix_feedforward
+│   │   │   ├── ntm_state_matrix_feedforward_osvvm_model.vhd
+│   │   │   └── ntm_state_matrix_feedforward_osvvm_testbench.vhd
+│   │   ├── ntm_state_matrix_input
+│   │   │   ├── ntm_state_matrix_input_osvvm_model.vhd
+│   │   │   └── ntm_state_matrix_input_osvvm_testbench.vhd
+│   │   ├── ntm_state_matrix_output
+│   │   │   ├── ntm_state_matrix_output_osvvm_model.vhd
+│   │   │   └── ntm_state_matrix_output_osvvm_testbench.vhd
+│   │   └── ntm_state_matrix_state
+│   │       ├── ntm_state_matrix_state_osvvm_model.vhd
+│   │       └── ntm_state_matrix_state_osvvm_testbench.vhd
+│   ├── outputs
+│   │   ├── ntm_state_vector_output
+│   │   │   ├── ntm_state_vector_output_osvvm_model.vhd
+│   │   │   └── ntm_state_vector_output_osvvm_testbench.vhd
+│   │   └── ntm_state_vector_state
+│   │       ├── ntm_state_vector_state_osvvm_model.vhd
+│   │       └── ntm_state_vector_state_osvvm_testbench.vhd
+│   └── top
+│       └── ntm_state_top
+│           ├── ntm_state_top_osvvm_model.vhd
+│           └── ntm_state_top_osvvm_testbench.vhd
+└── trainer
+    ├── differentiation
+    │   ├── ntm_matrix_controller_differentiation
+    │   │   ├── ntm_matrix_controller_differentiation_osvvm_model.vhd
+    │   │   └── ntm_matrix_controller_differentiation_osvvm_testbench.vhd
+    │   └── ntm_vector_controller_differentiation
+    │       ├── ntm_vector_controller_differentiation_osvvm_model.vhd
+    │       └── ntm_vector_controller_differentiation_osvvm_testbench.vhd
+    ├── FNN
+    │   ├── ntm_fnn_b_trainer
+    │   │   ├── ntm_fnn_b_trainer_osvvm_model.vhd
+    │   │   └── ntm_fnn_b_trainer_osvvm_testbench.vhd
+    │   ├── ntm_fnn_d_trainer
+    │   │   ├── ntm_fnn_d_trainer_osvvm_model.vhd
+    │   │   └── ntm_fnn_d_trainer_osvvm_testbench.vhd
+    │   ├── ntm_fnn_k_trainer
+    │   │   ├── ntm_fnn_k_trainer_osvvm_model.vhd
+    │   │   └── ntm_fnn_k_trainer_osvvm_testbench.vhd
+    │   ├── ntm_fnn_trainer
+    │   │   ├── ntm_fnn_trainer_osvvm_model.vhd
+    │   │   └── ntm_fnn_trainer_osvvm_testbench.vhd
+    │   ├── ntm_fnn_u_trainer
+    │   │   ├── ntm_fnn_u_trainer_osvvm_model.vhd
+    │   │   └── ntm_fnn_u_trainer_osvvm_testbench.vhd
+    │   ├── ntm_fnn_v_trainer
+    │   │   ├── ntm_fnn_v_trainer_osvvm_model.vhd
+    │   │   └── ntm_fnn_v_trainer_osvvm_testbench.vhd
+    │   └── ntm_fnn_w_trainer
+    │       ├── ntm_fnn_w_trainer_osvvm_model.vhd
+    │       └── ntm_fnn_w_trainer_osvvm_testbench.vhd
+    └── LSTM
+        ├── activation
+        │   ├── ntm_lstm_activation_b_trainer
+        │   │   ├── ntm_lstm_activation_b_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_activation_b_trainer_osvvm_testbench.vhd
+        │   ├── ntm_lstm_activation_d_trainer
+        │   │   ├── ntm_lstm_activation_d_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_activation_d_trainer_osvvm_testbench.vhd
+        │   ├── ntm_lstm_activation_k_trainer
+        │   │   ├── ntm_lstm_activation_k_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_activation_k_trainer_osvvm_testbench.vhd
+        │   ├── ntm_lstm_activation_trainer
+        │   │   ├── ntm_lstm_activation_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_activation_trainer_osvvm_testbench.vhd
+        │   ├── ntm_lstm_activation_u_trainer
+        │   │   ├── ntm_lstm_activation_u_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_activation_u_trainer_osvvm_testbench.vhd
+        │   ├── ntm_lstm_activation_v_trainer
+        │   │   ├── ntm_lstm_activation_v_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_activation_v_trainer_osvvm_testbench.vhd
+        │   └── ntm_lstm_activation_w_trainer
+        │       ├── ntm_lstm_activation_w_trainer_osvvm_model.vhd
+        │       └── ntm_lstm_activation_w_trainer_osvvm_testbench.vhd
+        ├── forget
+        │   ├── ntm_lstm_forget_b_trainer
+        │   │   ├── ntm_lstm_forget_b_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_forget_b_trainer_osvvm_testbench.vhd
+        │   ├── ntm_lstm_forget_d_trainer
+        │   │   ├── ntm_lstm_forget_d_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_forget_d_trainer_osvvm_testbench.vhd
+        │   ├── ntm_lstm_forget_k_trainer
+        │   │   ├── ntm_lstm_forget_k_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_forget_k_trainer_osvvm_testbench.vhd
+        │   ├── ntm_lstm_forget_trainer
+        │   │   ├── ntm_lstm_forget_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_forget_trainer_osvvm_testbench.vhd
+        │   ├── ntm_lstm_forget_u_trainer
+        │   │   ├── ntm_lstm_forget_u_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_forget_u_trainer_osvvm_testbench.vhd
+        │   ├── ntm_lstm_forget_v_trainer
+        │   │   ├── ntm_lstm_forget_v_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_forget_v_trainer_osvvm_testbench.vhd
+        │   └── ntm_lstm_forget_w_trainer
+        │       ├── ntm_lstm_forget_w_trainer_osvvm_model.vhd
+        │       └── ntm_lstm_forget_w_trainer_osvvm_testbench.vhd
+        ├── input
+        │   ├── ntm_lstm_input_b_trainer
+        │   │   ├── ntm_lstm_input_b_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_input_b_trainer_osvvm_testbench.vhd
+        │   ├── ntm_lstm_input_d_trainer
+        │   │   ├── ntm_lstm_input_d_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_input_d_trainer_osvvm_testbench.vhd
+        │   ├── ntm_lstm_input_k_trainer
+        │   │   ├── ntm_lstm_input_k_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_input_k_trainer_osvvm_testbench.vhd
+        │   ├── ntm_lstm_input_trainer
+        │   │   ├── ntm_lstm_input_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_input_trainer_osvvm_testbench.vhd
+        │   ├── ntm_lstm_input_u_trainer
+        │   │   ├── ntm_lstm_input_u_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_input_u_trainer_osvvm_testbench.vhd
+        │   ├── ntm_lstm_input_v_trainer
+        │   │   ├── ntm_lstm_input_v_trainer_osvvm_model.vhd
+        │   │   └── ntm_lstm_input_v_trainer_osvvm_testbench.vhd
+        │   └── ntm_lstm_input_w_trainer
+        │       ├── ntm_lstm_input_w_trainer_osvvm_model.vhd
+        │       └── ntm_lstm_input_w_trainer_osvvm_testbench.vhd
+        └── output
+            ├── ntm_lstm_output_b_trainer
+            │   ├── ntm_lstm_output_b_trainer_osvvm_model.vhd
+            │   └── ntm_lstm_output_b_trainer_osvvm_testbench.vhd
+            ├── ntm_lstm_output_d_trainer
+            │   ├── ntm_lstm_output_d_trainer_osvvm_model.vhd
+            │   └── ntm_lstm_output_d_trainer_osvvm_testbench.vhd
+            ├── ntm_lstm_output_k_trainer
+            │   ├── ntm_lstm_output_k_trainer_osvvm_model.vhd
+            │   └── ntm_lstm_output_k_trainer_osvvm_testbench.vhd
+            ├── ntm_lstm_output_trainer
+            │   ├── ntm_lstm_output_trainer_osvvm_model.vhd
+            │   └── ntm_lstm_output_trainer_osvvm_testbench.vhd
+            ├── ntm_lstm_output_u_trainer
+            │   ├── ntm_lstm_output_u_trainer_osvvm_model.vhd
+            │   └── ntm_lstm_output_u_trainer_osvvm_testbench.vhd
+            ├── ntm_lstm_output_v_trainer
+            │   ├── ntm_lstm_output_v_trainer_osvvm_model.vhd
+            │   └── ntm_lstm_output_v_trainer_osvvm_testbench.vhd
+            └── ntm_lstm_output_w_trainer
+                ├── ntm_lstm_output_w_trainer_osvvm_model.vhd
+                └── ntm_lstm_output_w_trainer_osvvm_testbench.vhd
+
+237 directories, 356 files
