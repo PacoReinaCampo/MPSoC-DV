@@ -1,9 +1,3 @@
-[submodule "uvm"]
-	path = uvm
-	url = https://github.com/PacoReinaCampo/UVM.git
-[submodule "osvvm"]
-	path = osvvm
-	url = https://github.com/PacoReinaCampo/OSVVM.git
 [submodule "mpsoc-msp430"]
 	path = mpsoc-msp430
 	url = https://github.com/PacoReinaCampo/MPSoC-MSP430.git
