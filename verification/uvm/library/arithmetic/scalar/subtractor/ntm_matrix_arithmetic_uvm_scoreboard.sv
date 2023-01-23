@@ -56,18 +56,18 @@ class ntm_scalar_arithmetic_uvm_scoreboard extends uvm_scoreboard;
   endfunction
 
   task run_phase (uvm_phase phase);
-    ntm_scalar_arithmetic_uvm_sequence_item sb_item;
+    ntm_scalar_arithmetic_uvm_sequence_item scoreboard_item;
     forever begin
       wait(item_q.size > 0);
 
       if(item_q.size > 0) begin
-        sb_item = item_q.pop_front();
+        scoreboard_item = item_q.pop_front();
         $display("----------------------------------------------------------------------------------------------------------");
-        if(sb_item.ip1 + sb_item.ip2 == sb_item.out) begin
-          `uvm_info(get_type_name, $sformatf("Matched: ip1 = %0d, ip2 = %0d, out = %0d", sb_item.ip1, sb_item.ip2, sb_item.out),UVM_LOW);
+        if(scoreboard_item.ip1 + scoreboard_item.ip2 == scoreboard_item.out) begin
+          `uvm_info(get_type_name, $sformatf("Matched: ip1 = %0d, ip2 = %0d, out = %0d", scoreboard_item.ip1, scoreboard_item.ip2, scoreboard_item.out), UVM_LOW);
         end
         else begin
-          `uvm_error(get_name, $sformatf("NOT matched: ip1 = %0d, ip2 = %0d, out = %0d", sb_item.ip1, sb_item.ip2, sb_item.out));
+          `uvm_error(get_name, $sformatf("NOT matched: ip1 = %0d, ip2 = %0d, out = %0d", scoreboard_item.ip1, scoreboard_item.ip2, scoreboard_item.out));
         end
         $display("----------------------------------------------------------------------------------------------------------");
       end

@@ -40,7 +40,7 @@
 `include "ntm_scalar_arithmetic_uvm_package.sv"
 
 class ntm_scalar_arithmetic_uvm_test extends uvm_test;
-  ntm_scalar_arithmetic_uvm_enviroment enviroment_o;
+  ntm_scalar_arithmetic_uvm_enviroment enviroment;
   ntm_scalar_arithmetic_uvm_sequence base_sequence;
   `uvm_component_utils(ntm_scalar_arithmetic_uvm_test)
 
@@ -50,7 +50,7 @@ class ntm_scalar_arithmetic_uvm_test extends uvm_test;
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    enviroment_o = env::type_id::create("enviroment_o", this);
+    enviroment = ntm_matrix_arithmetic_uvm_environment::type_id::create("enviroment", this);
   endfunction
 
   task run_phase(uvm_phase phase);
@@ -58,7 +58,7 @@ class ntm_scalar_arithmetic_uvm_test extends uvm_test;
     base_sequence = ntm_scalar_arithmetic_uvm_sequence::type_id::create("base sequence");
 
     repeat(10) begin 
-      #5; base_sequence.start(enviroment_o.agt.seqr);
+      #5; base_sequence.start(enviroment.agent.sequencer);
     end
 
     phase.drop_objection(this);

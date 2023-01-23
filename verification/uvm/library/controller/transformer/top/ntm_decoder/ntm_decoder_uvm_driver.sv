@@ -37,7 +37,7 @@
 // Author(s):
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-class ntm_scalar_arithmetic_uvm_driver extends uvm_driver#(seq_item);
+class ntm_scalar_arithmetic_uvm_driver extends uvm_driver#(sequence_item);
   virtual ntm_scalar_adder_if vif;
   `uvm_component_utils(ntm_scalar_arithmetic_uvm_driver)
 

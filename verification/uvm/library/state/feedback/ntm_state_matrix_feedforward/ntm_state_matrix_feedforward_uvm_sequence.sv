@@ -37,8 +37,8 @@
 // Author(s):
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-class ntm_scalar_arithmetic_uvm_sequence extends uvm_sequence#(seq_item);
-  seq_item req;
+class ntm_scalar_arithmetic_uvm_sequence extends uvm_sequence#(sequence_item);
+  sequence_item req;
   `uvm_object_utils(ntm_scalar_arithmetic_uvm_sequence)
   
   function new (string name = "sequence");
