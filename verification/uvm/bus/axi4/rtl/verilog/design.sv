@@ -29,14 +29,14 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
@@ -259,17 +259,17 @@ module axi4_slave(dut_if dif);
   logic [31:0] mem [0:256];
   logic [ 1:0] axi4_st;
 
-  const logic [1:0] SETUP=0;
-  const logic [1:0] W_ENABLE=1;
-  const logic [1:0] R_ENABLE=2;
+  const logic [1:0] SETUP = 0;
+  const logic [1:0] W_ENABLE = 1;
+  const logic [1:0] R_ENABLE = 2;
   
   always @(posedge dif.clk or negedge dif.rst) begin
-    if (dif.rst==0) begin
-      axi4_st      <=0;
-      dif.dr_data  <=0;
-      dif.dr_ready <=1;
-      dif.b_ready  <=1;
-      for(int i=0;i<256;i++) mem[i]=i;
+    if (dif.rst == 0) begin
+      axi4_st      <= 0;
+      dif.dr_data  <= 0;
+      dif.dr_ready <= 1;
+      dif.b_ready  <= 1;
+      for(int i = 0;i<256;i++) mem[i] = i;
     end
     else begin
       case (axi4_st)

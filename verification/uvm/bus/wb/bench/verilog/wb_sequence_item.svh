@@ -11,7 +11,7 @@
 //                                                                            //
 //              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
-//              AMBA4 APB-Lite Bus Interface                                  //
+//              Wishbone Bus Interface                                        //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
@@ -29,49 +29,37 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class apb4_env extends uvm_env;
-  `uvm_component_utils(apb4_env);
+class wb_sequence_item extends uvm_sequence_item;
+  `uvm_object_utils(wb_sequence_item)
 
-  //ENV class will have agent as its sub component
-  apb4_agent agt;
-  apb4_scoreboard scb;
-  apb4_subscriber apb4_subscriber_h;
+  //typedef for READ/WRITE transaction type
+  typedef enum {READ, WRITE} kind_e;
 
-  //virtual interface for APB4 interface
-  virtual dut_if vif;
+  rand bit [31:0] addr;  //Address
+  rand bit [31:0] data;  //Data - For write or read response
 
-  function new(string name, uvm_component parent);
-    super.new(name, parent);
+  rand kind_e we_i;  //command type
+
+  constraint c1{addr[31:0] >= 32'd0; addr[31:0] < 32'd256;};
+  constraint c2{data[31:0] >= 32'd0; data[31:0] < 32'd256;};
+
+  function new (string name = "wb_sequence_item");
+    super.new(name);
   endfunction
 
-  //Build phase
-  //Construct agent and get virtual interface handle from test and pass it down to agent
-  function void build_phase(uvm_phase phase);
-    super.build_phase(phase);
-    agt = apb4_agent::type_id::create("agt", this);
-    scb = apb4_scoreboard::type_id::create("scb", this);
-    apb4_subscriber_h=apb4_subscriber::type_id::create("apn_subscriber_h",this);
-    if (!uvm_config_db#(virtual dut_if)::get(this, "", "vif", vif)) begin
-      `uvm_fatal("build phase", "No virtual interface specified for this env instance")
-    end
-    uvm_config_db#(virtual dut_if)::set( this, "agt", "vif", vif);
-  endfunction
-
-  function void connect_phase(uvm_phase phase);
-    super.connect_phase(phase);
-    agt.mon.ap.connect(scb.mon_export);
-    agt.mon.ap.connect(apb4_subscriber_h.analysis_export);
+  function string convert2string();
+    return $sformatf("we_i = %s adr_i = %0h data = %0h", we_i, addr, data);
   endfunction
 endclass

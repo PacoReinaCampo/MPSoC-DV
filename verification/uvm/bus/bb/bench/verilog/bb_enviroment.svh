@@ -11,7 +11,7 @@
 //                                                                            //
 //              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
-//              Wishbone Bus Interface                                        //
+//              Blackbone Bus Interface                                       //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
@@ -29,27 +29,27 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class wb_env extends uvm_env;
-  `uvm_component_utils(wb_env);
+class bb_enviroment extends uvm_enviroment;
+  `uvm_component_utils(bb_enviroment);
 
   //ENV class will have agent as its sub component
-  wb_agent agt;
-  wb_scoreboard scb;
-  wb_subscriber wb_subscriber_h;
+  bb_agent agent;
+  bb_scoreboard scoreboard;
+  bb_subscriber subscriber;
 
-  //virtual interface for WB interface
+  //virtual interface for BB interface
   virtual dut_if vif;
 
   function new(string name, uvm_component parent);
@@ -60,18 +60,18 @@ class wb_env extends uvm_env;
   //Construct agent and get virtual interface handle from test and pass it down to agent
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    agt = wb_agent::type_id::create("agt", this);
-    scb = wb_scoreboard::type_id::create("scb", this);
-    wb_subscriber_h=wb_subscriber::type_id::create("apn_subscriber_h",this);
+    agent = bb_agent::type_id::create("agent", this);
+    scoreboard = bb_scoreboard::type_id::create("scoreboard", this);
+    subscriber = bb_subscriber::type_id::create("subscriber", this);
     if (!uvm_config_db#(virtual dut_if)::get(this, "", "vif", vif)) begin
-      `uvm_fatal("build phase", "No virtual interface specified for this env instance")
+      `uvm_fatal("build phase", "No virtual interface specified for this enviroment instance")
     end
-    uvm_config_db#(virtual dut_if)::set( this, "agt", "vif", vif);
+    uvm_config_db#(virtual dut_if)::set( this, "agent", "vif", vif);
   endfunction
 
   function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
-    agt.mon.ap.connect(scb.mon_export);
-    agt.mon.ap.connect(wb_subscriber_h.analysis_export);
+    agent.monitor.ap.connect(scoreboard.monitor_export);
+    agent.monitor.ap.connect(subscriber.analysis_export);
   endfunction
 endclass

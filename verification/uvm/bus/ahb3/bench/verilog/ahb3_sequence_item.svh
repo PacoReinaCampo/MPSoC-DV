@@ -29,20 +29,20 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class ahb3_transaction extends uvm_sequence_item;
-  `uvm_object_utils(ahb3_transaction)
+class ahb3_sequence_item extends uvm_sequence_item;
+  `uvm_object_utils(ahb3_sequence_item)
 
   //typedef for READ/WRITE transaction type
   typedef enum {READ, WRITE} kind_e;
@@ -52,14 +52,14 @@ class ahb3_transaction extends uvm_sequence_item;
 
   rand kind_e hwrite;  //command type
 
-  constraint c1{addr[31:0]>=32'd0; addr[31:0] <32'd256;};
-  constraint c2{data[31:0]>=32'd0; data[31:0] <32'd256;};
+  constraint c1{addr[31:0] >= 32'd0; addr[31:0] < 32'd256;};
+  constraint c2{data[31:0] >= 32'd0; data[31:0] < 32'd256;};
 
-  function new (string name = "ahb3_transaction");
+  function new (string name = "ahb3_sequence_item");
     super.new(name);
   endfunction
 
   function string convert2string();
-    return $sformatf("hwrite=%s haddr=%0h data=%0h",hwrite,addr,data);
+    return $sformatf("hwrite = %s haddr = %0h data = %0h", hwrite, addr, data);
   endfunction
 endclass

@@ -29,14 +29,14 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
@@ -45,22 +45,22 @@ class apb4_test extends uvm_test;
   //Register with factory
   `uvm_component_utils(apb4_test);
 
-  apb4_env env;
+  apb4_enviroment enviroment;
   virtual dut_if vif;
 
   function new(string name = "apb4_test", uvm_component parent = null);
     super.new(name, parent);
   endfunction
 
-  //Build phase - Construct the env class using factory
-  //Get the virtual interface handle from Test and then set it config db for the env component
+  //Build phase - Construct the enviroment class using factory
+  //Get the virtual interface handle from Test and then set it config db for the enviroment component
   function void build_phase(uvm_phase phase);
-    env = apb4_env::type_id::create("env", this);
+    enviroment = apb4_enviroment::type_id::create("enviroment", this);
 
     if (!uvm_config_db#(virtual dut_if)::get(this, "", "vif", vif)) begin
       `uvm_fatal("build_phase", "No virtual interface specified for this test instance")
     end 
-    uvm_config_db#(virtual dut_if)::set( this, "env", "vif", vif);
+    uvm_config_db#(virtual dut_if)::set( this, "enviroment", "vif", vif);
   endfunction
 
   //Run phase - Create an apb4_sequence and start it on the apb4_sequencer
@@ -68,9 +68,9 @@ class apb4_test extends uvm_test;
     apb4_sequence apb4_seq;
     apb4_seq = apb4_sequence::type_id::create("apb4_seq");
     phase.raise_objection( this, "Starting apb4_base_seqin main phase" );
-    $display("%t Starting sequence apb4_seq run_phase",$time);
-    apb4_seq.start(env.agt.sqr);
+    $display("%t Starting sequence apb4_seq run_phase", $time);
+    apb4_seq.start(enviroment.agent.sequencer);
     #100ns;
-    phase.drop_objection( this , "Finished apb4_seq in main phase" );
+    phase.drop_objection( this, "Finished apb4_seq in main phase" );
   endtask
 endclass

@@ -29,14 +29,14 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
@@ -47,7 +47,7 @@
 import uvm_pkg::*;
 
 //Include common files
-`include "bb_transaction.svh"
+`include "bb_sequence_item.svh"
 `include "bb_sequence.svh"
 `include "bb_sequencer.svh"
 `include "bb_driver.svh"
@@ -55,7 +55,7 @@ import uvm_pkg::*;
 `include "bb_agent.svh"
 `include "bb_scoreboard.svh"
 `include "bb_subscriber.svh"
-`include "bb_env.svh"
+`include "bb_enviroment.svh"
 `include "bb_test.svh"
 
 module test;
@@ -72,7 +72,7 @@ module test;
   bb_slave dut(.dif(bb_if));
 
   initial begin
-    bb_if.mclk=0;
+    bb_if.mclk = 0;
   end
 
   //Generate a clock
@@ -81,9 +81,9 @@ module test;
   end
 
   initial begin
-    bb_if.mrst=0;
+    bb_if.mrst = 0;
     repeat (1) @(posedge bb_if.mclk);
-    bb_if.mrst=1;
+    bb_if.mrst = 1;
   end
 
   initial begin

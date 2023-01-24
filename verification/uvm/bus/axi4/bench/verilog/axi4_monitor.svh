@@ -29,14 +29,14 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
@@ -46,7 +46,7 @@ class axi4_monitor extends uvm_monitor;
 
   //Analysis port -parameterized to axi4_rw transaction
   ///Monitor writes transaction objects to this port once detected on interface
-  uvm_analysis_port#(axi4_transaction) ap;
+  uvm_analysis_port#(axi4_sequence_item) ap;
 
   `uvm_component_utils(axi4_monitor)
 
@@ -66,35 +66,35 @@ class axi4_monitor extends uvm_monitor;
   virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
     forever begin
-      axi4_transaction tr;
+      axi4_sequence_item transaction;
       // Wait for a SETUP cycle
       do begin
         @ (this.vif.monitor_cb);
       end
-      while (this.vif.monitor_cb.dw_strb !== 1'b1 || this.vif.monitor_cb.aw_len !== 1'b0 || this.vif.monitor_cb.ar_len !== 1'b0);
+      while (this.vif.monitor_cb.dw_strb ! == 1'b1 || this.vif.monitor_cb.aw_len ! == 1'b0 || this.vif.monitor_cb.ar_len ! == 1'b0);
       //create a transaction object
-      tr = axi4_transaction::type_id::create("tr", this);
+      transaction = axi4_sequence_item::type_id::create("transaction", this);
 
       //populate fields based on values seen on interface
-      tr.dw_valid = (this.vif.monitor_cb.dw_valid) ? axi4_transaction::WRITE : axi4_transaction::READ;
-      tr.ar_valid = (this.vif.monitor_cb.ar_valid) ? axi4_transaction::WRITE : axi4_transaction::READ;
-      tr.addr = this.vif.monitor_cb.aw_addr;
+      transaction.dw_valid = (this.vif.monitor_cb.dw_valid) ? axi4_sequence_item::WRITE : axi4_sequence_item::READ;
+      transaction.ar_valid = (this.vif.monitor_cb.ar_valid) ? axi4_sequence_item::WRITE : axi4_sequence_item::READ;
+      transaction.addr = this.vif.monitor_cb.aw_addr;
 
       @ (this.vif.monitor_cb);
-      if (this.vif.monitor_cb.aw_len !== 1'b1 || this.vif.monitor_cb.ar_len !== 1'b1) begin
+      if (this.vif.monitor_cb.aw_len ! == 1'b1 || this.vif.monitor_cb.ar_len ! == 1'b1) begin
         `uvm_error("AXI4", "AXI4 protocol violation: SETUP cycle not followed by ENABLE cycle");
       end
 
-      if (tr.ar_valid == axi4_transaction::READ) begin
-        tr.data = this.vif.monitor_cb.dr_data;
+      if (transaction.ar_valid ==  axi4_sequence_item::READ) begin
+        transaction.data = this.vif.monitor_cb.dr_data;
       end
-      else if (tr.dw_valid == axi4_transaction::WRITE) begin
-        tr.data = this.vif.monitor_cb.dw_data;
+      else if (transaction.dw_valid ==  axi4_sequence_item::WRITE) begin
+        transaction.data = this.vif.monitor_cb.dw_data;
       end
 
-      uvm_report_info("AXI4_MONITOR", $sformatf("Got Transaction %s",tr.convert2string()));
+      uvm_report_info("AXI4_MONITOR", $sformatf("Got Transaction %s", transaction.convert2string()));
       //Write to analysis port
-      ap.write(tr);
+      ap.write(transaction);
     end
   endtask
 endclass

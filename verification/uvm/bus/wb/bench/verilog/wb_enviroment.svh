@@ -29,37 +29,49 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class wb_transaction extends uvm_sequence_item;
-  `uvm_object_utils(wb_transaction)
+class wb_enviroment extends uvm_enviroment;
+  `uvm_component_utils(wb_enviroment);
 
-  //typedef for READ/WRITE transaction type
-  typedef enum {READ, WRITE} kind_e;
+  //ENV class will have agent as its sub component
+  wb_agent agent;
+  wb_scoreboard scoreboard;
+  wb_subscriber subscriber;
 
-  rand bit [31:0] addr;  //Address
-  rand bit [31:0] data;  //Data - For write or read response
+  //virtual interface for WB interface
+  virtual dut_if vif;
 
-  rand kind_e we_i;  //command type
-
-  constraint c1{addr[31:0]>=32'd0; addr[31:0] <32'd256;};
-  constraint c2{data[31:0]>=32'd0; data[31:0] <32'd256;};
-
-  function new (string name = "wb_transaction");
-    super.new(name);
+  function new(string name, uvm_component parent);
+    super.new(name, parent);
   endfunction
 
-  function string convert2string();
-    return $sformatf("we_i=%s adr_i=%0h data=%0h",we_i,addr,data);
+  //Build phase
+  //Construct agent and get virtual interface handle from test and pass it down to agent
+  function void build_phase(uvm_phase phase);
+    super.build_phase(phase);
+    agent = wb_agent::type_id::create("agent", this);
+    scoreboard = wb_scoreboard::type_id::create("scoreboard", this);
+    subscriber = wb_subscriber::type_id::create("subscriber", this);
+    if (!uvm_config_db#(virtual dut_if)::get(this, "", "vif", vif)) begin
+      `uvm_fatal("build phase", "No virtual interface specified for this enviroment instance")
+    end
+    uvm_config_db#(virtual dut_if)::set( this, "agent", "vif", vif);
+  endfunction
+
+  function void connect_phase(uvm_phase phase);
+    super.connect_phase(phase);
+    agent.monitor.ap.connect(scoreboard.monitor_export);
+    agent.monitor.ap.connect(subscriber.analysis_export);
   endfunction
 endclass

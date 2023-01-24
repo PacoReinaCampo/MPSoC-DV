@@ -29,19 +29,19 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class axi4_sequence extends uvm_sequence#(axi4_transaction);
+class axi4_sequence extends uvm_sequence#(axi4_sequence_item);
   `uvm_object_utils(axi4_sequence)
 
   function new (string name = "");
@@ -49,10 +49,10 @@ class axi4_sequence extends uvm_sequence#(axi4_transaction);
   endfunction
 
   task body();
-    axi4_transaction rw_trans;
+    axi4_sequence_item rw_trans;
     //create 10 random AXI4 read/write transaction and send to driver
     repeat (80) begin
-      rw_trans=new();
+      rw_trans = new();
       start_item(rw_trans);
       assert(rw_trans.randomize());
       finish_item(rw_trans);

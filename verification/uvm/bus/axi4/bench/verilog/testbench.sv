@@ -29,14 +29,14 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
@@ -47,7 +47,7 @@
 import uvm_pkg::*;
 
 //Include common files
-`include "axi4_transaction.svh"
+`include "axi4_sequence_item.svh"
 `include "axi4_sequence.svh"
 `include "axi4_sequencer.svh"
 `include "axi4_driver.svh"
@@ -55,7 +55,7 @@ import uvm_pkg::*;
 `include "axi4_agent.svh"
 `include "axi4_scoreboard.svh"
 `include "axi4_subscriber.svh"
-`include "axi4_env.svh"
+`include "axi4_enviroment.svh"
 `include "axi4_test.svh"
 
 module test;
@@ -116,7 +116,7 @@ module test;
   axi4_slave dut(.dif(axi4_if));
 
   initial begin
-    axi4_if.clk=0;
+    axi4_if.clk = 0;
   end
 
   //Generate a clock
@@ -125,9 +125,9 @@ module test;
   end
 
   initial begin
-    axi4_if.rst=0;
+    axi4_if.rst = 0;
     repeat (1) @(posedge axi4_if.clk);
-    axi4_if.rst=1;
+    axi4_if.rst = 1;
   end
 
   initial begin

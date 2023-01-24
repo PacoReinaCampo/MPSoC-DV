@@ -29,31 +29,31 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class ahb3_driver extends uvm_driver#(ahb3_transaction);
+class ahb3_driver extends uvm_driver#(ahb3_sequence_item);
   `uvm_component_utils(ahb3_driver)
   
   virtual dut_if vif;
   
   function new(string name, uvm_component parent);
-    super.new(name,parent);
+    super.new(name, parent);
   endfunction
   
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if(!uvm_config_db#(virtual dut_if)::get(this,"","vif",vif)) begin
-      `uvm_error("build_phase","driver virtual interface failed")
+    if(!uvm_config_db#(virtual dut_if)::get(this, "", "vif", vif)) begin
+      `uvm_error("build_phase", "driver virtual interface failed")
     end
   endfunction
   
@@ -63,16 +63,16 @@ class ahb3_driver extends uvm_driver#(ahb3_transaction);
     this.vif.master_cb.hsel <= 0;
 
     forever begin
-      ahb3_transaction tr;
+      ahb3_sequence_item transaction;
       @ (this.vif.master_cb);
       //First get an item from sequencer
-      seq_item_port.get_next_item(tr);
+      seq_item_port.get_next_item(transaction);
       @ (this.vif.master_cb);
-      uvm_report_info("AHB3_DRIVER ", $sformatf("Got Transaction %s",tr.convert2string()));
+      uvm_report_info("AHB3_DRIVER ", $sformatf("Got Transaction %s", transaction.convert2string()));
       //Decode the AHB3 Command and call either the read/write function
-      case (tr.hwrite)
-        ahb3_transaction::READ:  drive_read(tr.addr, tr.data);  
-        ahb3_transaction::WRITE: drive_write(tr.addr, tr.data);
+      case (transaction.hwrite)
+        ahb3_sequence_item::READ:  drive_read(transaction.addr, transaction.data);  
+        ahb3_sequence_item::WRITE: drive_write(transaction.addr, transaction.data);
       endcase
       //Handshake DONE back to sequencer
       seq_item_port.item_done();

@@ -29,14 +29,14 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
@@ -46,7 +46,7 @@ class bb_monitor extends uvm_monitor;
 
   //Analysis port -parameterized to bb_rw transaction
   ///Monitor writes transaction objects to this port once detected on interface
-  uvm_analysis_port#(bb_transaction) ap;
+  uvm_analysis_port#(bb_sequence_item) ap;
 
   `uvm_component_utils(bb_monitor)
 
@@ -66,34 +66,34 @@ class bb_monitor extends uvm_monitor;
   virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
     forever begin
-      bb_transaction tr;
+      bb_sequence_item transaction;
       // Wait for a SETUP cycle
       do begin
         @ (this.vif.monitor_cb);
       end
-      while (this.vif.monitor_cb.per_en !== 1'b0);
+      while (this.vif.monitor_cb.per_en ! == 1'b0);
       //create a transaction object
-      tr = bb_transaction::type_id::create("tr", this);
+      transaction = bb_sequence_item::type_id::create("transaction", this);
 
       //populate fields based on values seen on interface
-      tr.per_we = (this.vif.monitor_cb.per_we) ? bb_transaction::WRITE : bb_transaction::READ;
-      tr.addr = this.vif.monitor_cb.per_addr;
+      transaction.per_we = (this.vif.monitor_cb.per_we) ? bb_sequence_item::WRITE : bb_sequence_item::READ;
+      transaction.addr = this.vif.monitor_cb.per_addr;
 
       @ (this.vif.monitor_cb);
-      if (this.vif.monitor_cb.per_en !== 1'b1) begin
+      if (this.vif.monitor_cb.per_en ! == 1'b1) begin
         `uvm_error("BB", "BB protocol violation: SETUP cycle not followed by ENABLE cycle");
       end
 
-      if (tr.per_we == bb_transaction::READ) begin
-        tr.data = this.vif.monitor_cb.per_din;
+      if (transaction.per_we ==  bb_sequence_item::READ) begin
+        transaction.data = this.vif.monitor_cb.per_din;
       end
-      else if (tr.per_we == bb_transaction::WRITE) begin
-        tr.data = this.vif.monitor_cb.per_dout;
+      else if (transaction.per_we ==  bb_sequence_item::WRITE) begin
+        transaction.data = this.vif.monitor_cb.per_dout;
       end
 
-      uvm_report_info("BB_MONITOR", $sformatf("Got Transaction %s",tr.convert2string()));
+      uvm_report_info("BB_MONITOR", $sformatf("Got Transaction %s", transaction.convert2string()));
       //Write to analysis port
-      ap.write(tr);
+      ap.write(transaction);
     end
   endtask
 endclass

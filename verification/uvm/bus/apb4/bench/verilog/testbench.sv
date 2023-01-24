@@ -29,14 +29,14 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
@@ -47,7 +47,7 @@
 import uvm_pkg::*;
 
 //Include common files
-`include "apb4_transaction.svh"
+`include "apb4_sequence_item.svh"
 `include "apb4_sequence.svh"
 `include "apb4_sequencer.svh"
 `include "apb4_driver.svh"
@@ -55,7 +55,7 @@ import uvm_pkg::*;
 `include "apb4_agent.svh"
 `include "apb4_scoreboard.svh"
 `include "apb4_subscriber.svh"
-`include "apb4_env.svh"
+`include "apb4_enviroment.svh"
 `include "apb4_test.svh"
 
 module test;
@@ -73,7 +73,7 @@ module test;
   apb4_slave dut(.dif(apb4_if));
 
   initial begin
-    apb4_if.pclk=0;
+    apb4_if.pclk = 0;
   end
 
   //Generate a clock
@@ -82,9 +82,9 @@ module test;
   end
 
   initial begin
-    apb4_if.prst=0;
+    apb4_if.prst = 0;
     repeat (1) @(posedge apb4_if.pclk);
-    apb4_if.prst=1;
+    apb4_if.prst = 1;
   end
 
   initial begin

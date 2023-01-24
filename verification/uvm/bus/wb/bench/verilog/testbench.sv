@@ -29,14 +29,14 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
@@ -47,7 +47,7 @@
 import uvm_pkg::*;
 
 //Include common files
-`include "wb_transaction.svh"
+`include "wb_sequence_item.svh"
 `include "wb_sequence.svh"
 `include "wb_sequencer.svh"
 `include "wb_driver.svh"
@@ -55,7 +55,7 @@ import uvm_pkg::*;
 `include "wb_agent.svh"
 `include "wb_scoreboard.svh"
 `include "wb_subscriber.svh"
-`include "wb_env.svh"
+`include "wb_enviroment.svh"
 `include "wb_test.svh"
 
 module test;
@@ -79,7 +79,7 @@ module test;
   wb_slave dut(.dif(wb_if));
 
   initial begin
-    wb_if.clk=0;
+    wb_if.clk = 0;
   end
 
   //Generate a clock
@@ -88,9 +88,9 @@ module test;
   end
 
   initial begin
-    wb_if.rst=0;
+    wb_if.rst = 0;
     repeat (1) @(posedge wb_if.clk);
-    wb_if.rst=1;
+    wb_if.rst = 1;
   end
 
   initial begin

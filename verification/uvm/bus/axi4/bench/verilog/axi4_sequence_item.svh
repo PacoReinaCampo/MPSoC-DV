@@ -11,7 +11,7 @@
 //                                                                            //
 //              MPSoC-RISCV / OR1K / MSP430 CPU                               //
 //              General Purpose Input Output Bridge                           //
-//              AMBA4 APB-Lite Bus Interface                                  //
+//              AMBA4 AXI-Lite Bus Interface                                  //
 //              Universal Verification Methodology                            //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
@@ -29,20 +29,20 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class apb4_transaction extends uvm_sequence_item;
-  `uvm_object_utils(apb4_transaction)
+class axi4_sequence_item extends uvm_sequence_item;
+  `uvm_object_utils(axi4_sequence_item)
 
   //typedef for READ/WRITE transaction type
   typedef enum {READ, WRITE} kind_e;
@@ -50,16 +50,17 @@ class apb4_transaction extends uvm_sequence_item;
   rand bit [31:0] addr;  //Address
   rand bit [31:0] data;  //Data - For write or read response
 
-  rand kind_e pwrite;  //command type
+  rand kind_e dw_valid;  //command type
+  rand kind_e ar_valid;  //command type
 
-  constraint c1{addr[31:0]>=32'd0; addr[31:0] <32'd256;};
-  constraint c2{data[31:0]>=32'd0; data[31:0] <32'd256;};
+  constraint c1{addr[31:0] >= 32'd0; addr[31:0] < 32'd256;};
+  constraint c2{data[31:0] >= 32'd0; data[31:0] < 32'd256;};
 
-  function new (string name = "apb4_transaction");
+  function new (string name = "axi4_sequence_item");
     super.new(name);
   endfunction
 
   function string convert2string();
-    return $sformatf("pwrite=%s paddr=%0h data=%0h",pwrite,addr,data);
+    return $sformatf("pwrite = %s pwrite = %s paddr = %0h data = %0h", dw_valid, ar_valid, addr, data);
   endfunction
 endclass

@@ -29,14 +29,14 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
@@ -47,7 +47,7 @@
 import uvm_pkg::*;
 
 //Include common files
-`include "ahb3_transaction.svh"
+`include "ahb3_sequence_item.svh"
 `include "ahb3_sequence.svh"
 `include "ahb3_sequencer.svh"
 `include "ahb3_driver.svh"
@@ -55,7 +55,7 @@ import uvm_pkg::*;
 `include "ahb3_agent.svh"
 `include "ahb3_scoreboard.svh"
 `include "ahb3_subscriber.svh"
-`include "ahb3_env.svh"
+`include "ahb3_enviroment.svh"
 `include "ahb3_test.svh"
 
 module test;
@@ -80,7 +80,7 @@ module test;
   ahb3_slave dut(.dif(ahb3_if));
 
   initial begin
-    ahb3_if.hclk=0;
+    ahb3_if.hclk = 0;
   end
 
   //Generate a clock
@@ -89,9 +89,9 @@ module test;
   end
 
   initial begin
-    ahb3_if.hrst=0;
+    ahb3_if.hrst = 0;
     repeat (1) @(posedge ahb3_if.hclk);
-    ahb3_if.hrst=1;
+    ahb3_if.hrst = 1;
   end
 
   initial begin

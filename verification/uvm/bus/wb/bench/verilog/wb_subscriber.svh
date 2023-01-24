@@ -29,19 +29,19 @@
  * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * =============================================================================
+ * ============================================================================= 
  * Author(s):
  *   Paco Reina Campo <pacoreinacampo@queenfield.tech>
  */
 
-class wb_subscriber extends uvm_subscriber#(wb_transaction);
+class wb_subscriber extends uvm_subscriber#(wb_sequence_item);
   `uvm_component_utils(wb_subscriber)
   
   bit [31:0] addr;
@@ -57,11 +57,11 @@ class wb_subscriber extends uvm_subscriber#(wb_transaction);
   endgroup
   
   function new(string name, uvm_component parent);
-    super.new(name,parent);
-    cover_bus=new;
+    super.new(name, parent);
+    cover_bus = new;
   endfunction
   
-  function void write(wb_transaction t);
+  function void write(wb_sequence_item t);
     `uvm_info("WB_SUBSCRIBER", $sformatf("Subscriber received tx %s", t.convert2string()), UVM_NONE);
    
     addr = t.addr;
