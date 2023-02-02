@@ -1,0 +1,952 @@
+application
+├── arithmetic
+│   ├── matrix
+│   │   ├── adder
+│   │   │   ├── ntm_matrix_arithmetic_design.sv
+│   │   │   ├── ntm_matrix_arithmetic_interface.sv
+│   │   │   ├── ntm_matrix_arithmetic_package.sv
+│   │   │   └── ntm_matrix_arithmetic_testbench.sv
+│   │   ├── divider
+│   │   │   ├── ntm_matrix_arithmetic_design.sv
+│   │   │   ├── ntm_matrix_arithmetic_interface.sv
+│   │   │   ├── ntm_matrix_arithmetic_package.sv
+│   │   │   └── ntm_matrix_arithmetic_testbench.sv
+│   │   ├── multiplier
+│   │   │   ├── ntm_matrix_arithmetic_design.sv
+│   │   │   ├── ntm_matrix_arithmetic_interface.sv
+│   │   │   ├── ntm_matrix_arithmetic_package.sv
+│   │   │   └── ntm_matrix_arithmetic_testbench.sv
+│   │   └── subtractor
+│   │       ├── ntm_matrix_arithmetic_design.sv
+│   │       ├── ntm_matrix_arithmetic_interface.sv
+│   │       ├── ntm_matrix_arithmetic_package.sv
+│   │       └── ntm_matrix_arithmetic_testbench.sv
+│   ├── scalar
+│   │   ├── adder
+│   │   │   ├── ntm_scalar_arithmetic_design.sv
+│   │   │   ├── ntm_scalar_arithmetic_interface.sv
+│   │   │   ├── ntm_scalar_arithmetic_package.sv
+│   │   │   └── ntm_scalar_arithmetic_testbench.sv
+│   │   ├── divider
+│   │   │   ├── ntm_scalar_arithmetic_design.sv
+│   │   │   ├── ntm_scalar_arithmetic_interface.sv
+│   │   │   ├── ntm_scalar_arithmetic_package.sv
+│   │   │   └── ntm_scalar_arithmetic_testbench.sv
+│   │   ├── multiplier
+│   │   │   ├── ntm_scalar_arithmetic_design.sv
+│   │   │   ├── ntm_scalar_arithmetic_interface.sv
+│   │   │   ├── ntm_scalar_arithmetic_package.sv
+│   │   │   └── ntm_scalar_arithmetic_testbench.sv
+│   │   └── subtractor
+│   │       ├── ntm_scalar_arithmetic_design.sv
+│   │       ├── ntm_scalar_arithmetic_interface.sv
+│   │       ├── ntm_scalar_arithmetic_package.sv
+│   │       └── ntm_scalar_arithmetic_testbench.sv
+│   ├── tensor
+│   │   ├── adder
+│   │   │   ├── ntm_tensor_arithmetic_design.sv
+│   │   │   ├── ntm_tensor_arithmetic_interface.sv
+│   │   │   ├── ntm_tensor_arithmetic_package.sv
+│   │   │   └── ntm_tensor_arithmetic_testbench.sv
+│   │   ├── divider
+│   │   │   ├── ntm_tensor_arithmetic_design.sv
+│   │   │   ├── ntm_tensor_arithmetic_interface.sv
+│   │   │   ├── ntm_tensor_arithmetic_package.sv
+│   │   │   └── ntm_tensor_arithmetic_testbench.sv
+│   │   ├── multiplier
+│   │   │   ├── ntm_tensor_arithmetic_design.sv
+│   │   │   ├── ntm_tensor_arithmetic_interface.sv
+│   │   │   ├── ntm_tensor_arithmetic_package.sv
+│   │   │   └── ntm_tensor_arithmetic_testbench.sv
+│   │   └── subtractor
+│   │       ├── ntm_tensor_arithmetic_design.sv
+│   │       ├── ntm_tensor_arithmetic_interface.sv
+│   │       ├── ntm_tensor_arithmetic_package.sv
+│   │       └── ntm_tensor_arithmetic_testbench.sv
+│   └── vector
+│       ├── adder
+│       │   ├── ntm_vector_arithmetic_design.sv
+│       │   ├── ntm_vector_arithmetic_interface.sv
+│       │   ├── ntm_vector_arithmetic_package.sv
+│       │   └── ntm_vector_arithmetic_testbench.sv
+│       ├── divider
+│       │   ├── ntm_vector_arithmetic_design.sv
+│       │   ├── ntm_vector_arithmetic_interface.sv
+│       │   ├── ntm_vector_arithmetic_package.sv
+│       │   └── ntm_vector_arithmetic_testbench.sv
+│       ├── multiplier
+│       │   ├── ntm_vector_arithmetic_design.sv
+│       │   ├── ntm_vector_arithmetic_interface.sv
+│       │   ├── ntm_vector_arithmetic_package.sv
+│       │   └── ntm_vector_arithmetic_testbench.sv
+│       └── subtractor
+│           ├── ntm_vector_arithmetic_design.sv
+│           ├── ntm_vector_arithmetic_interface.sv
+│           ├── ntm_vector_arithmetic_package.sv
+│           └── ntm_vector_arithmetic_testbench.sv
+├── controller
+│   ├── FNN
+│   │   ├── convolutional
+│   │   │   └── ntm_controller
+│   │   │       ├── ntm_controller_design.sv
+│   │   │       ├── ntm_controller_interface.sv
+│   │   │       ├── ntm_controller_package.sv
+│   │   │       └── ntm_controller_testbench.sv
+│   │   └── standard
+│   │       └── ntm_controller
+│   │           ├── ntm_controller_design.sv
+│   │           ├── ntm_controller_interface.sv
+│   │           ├── ntm_controller_package.sv
+│   │           └── ntm_controller_testbench.sv
+│   ├── LSTM
+│   │   ├── convolutional
+│   │   │   ├── ntm_activation_gate_vector
+│   │   │   │   ├── ntm_activation_gate_vector_design.sv
+│   │   │   │   ├── ntm_activation_gate_vector_interface.sv
+│   │   │   │   ├── ntm_activation_gate_vector_package.sv
+│   │   │   │   └── ntm_activation_gate_vector_testbench.sv
+│   │   │   ├── ntm_controller
+│   │   │   │   ├── ntm_controller_design.sv
+│   │   │   │   ├── ntm_controller_interface.sv
+│   │   │   │   ├── ntm_controller_package.sv
+│   │   │   │   └── ntm_controller_testbench.sv
+│   │   │   ├── ntm_forget_gate_vector
+│   │   │   │   ├── ntm_forget_gate_vector_design.sv
+│   │   │   │   ├── ntm_forget_gate_vector_interface.sv
+│   │   │   │   ├── ntm_forget_gate_vector_package.sv
+│   │   │   │   └── ntm_forget_gate_vector_testbench.sv
+│   │   │   ├── ntm_hidden_gate_vector
+│   │   │   │   ├── ntm_hidden_gate_vector_design.sv
+│   │   │   │   ├── ntm_hidden_gate_vector_interface.sv
+│   │   │   │   ├── ntm_hidden_gate_vector_package.sv
+│   │   │   │   └── ntm_hidden_gate_vector_testbench.sv
+│   │   │   ├── ntm_input_gate_vector
+│   │   │   │   ├── ntm_input_gate_vector_design.sv
+│   │   │   │   ├── ntm_input_gate_vector_interface.sv
+│   │   │   │   ├── ntm_input_gate_vector_package.sv
+│   │   │   │   └── ntm_input_gate_vector_testbench.sv
+│   │   │   ├── ntm_output_gate_vector
+│   │   │   │   ├── ntm_output_gate_vector_design.sv
+│   │   │   │   ├── ntm_output_gate_vector_interface.sv
+│   │   │   │   ├── ntm_output_gate_vector_package.sv
+│   │   │   │   └── ntm_output_gate_vector_testbench.sv
+│   │   │   └── ntm_state_gate_vector
+│   │   │       ├── ntm_state_gate_vector_design.sv
+│   │   │       ├── ntm_state_gate_vector_interface.sv
+│   │   │       ├── ntm_state_gate_vector_package.sv
+│   │   │       └── ntm_state_gate_vector_testbench.sv
+│   │   └── standard
+│   │       ├── ntm_activation_gate_vector
+│   │       │   ├── ntm_activation_gate_vector_design.sv
+│   │       │   ├── ntm_activation_gate_vector_interface.sv
+│   │       │   ├── ntm_activation_gate_vector_package.sv
+│   │       │   └── ntm_activation_gate_vector_testbench.sv
+│   │       ├── ntm_controller
+│   │       │   ├── ntm_controller_design.sv
+│   │       │   ├── ntm_controller_interface.sv
+│   │       │   ├── ntm_controller_package.sv
+│   │       │   └── ntm_controller_testbench.sv
+│   │       ├── ntm_forget_gate_vector
+│   │       │   ├── ntm_forget_gate_vector_design.sv
+│   │       │   ├── ntm_forget_gate_vector_interface.sv
+│   │       │   ├── ntm_forget_gate_vector_package.sv
+│   │       │   └── ntm_forget_gate_vector_testbench.sv
+│   │       ├── ntm_hidden_gate_vector
+│   │       │   ├── ntm_hidden_gate_vector_design.sv
+│   │       │   ├── ntm_hidden_gate_vector_interface.sv
+│   │       │   ├── ntm_hidden_gate_vector_package.sv
+│   │       │   └── ntm_hidden_gate_vector_testbench.sv
+│   │       ├── ntm_input_gate_vector
+│   │       │   ├── ntm_input_gate_vector_design.sv
+│   │       │   ├── ntm_input_gate_vector_interface.sv
+│   │       │   ├── ntm_input_gate_vector_package.sv
+│   │       │   └── ntm_input_gate_vector_testbench.sv
+│   │       ├── ntm_output_gate_vector
+│   │       │   ├── ntm_output_gate_vector_design.sv
+│   │       │   ├── ntm_output_gate_vector_interface.sv
+│   │       │   ├── ntm_output_gate_vector_package.sv
+│   │       │   └── ntm_output_gate_vector_testbench.sv
+│   │       └── ntm_state_gate_vector
+│   │           ├── ntm_state_gate_vector_design.sv
+│   │           ├── ntm_state_gate_vector_interface.sv
+│   │           ├── ntm_state_gate_vector_package.sv
+│   │           └── ntm_state_gate_vector_testbench.sv
+│   └── transformer
+│       ├── components
+│       │   ├── ntm_masked_multi_head_attention
+│       │   │   ├── ntm_masked_multi_head_attention_design.sv
+│       │   │   ├── ntm_masked_multi_head_attention_interface.sv
+│       │   │   ├── ntm_masked_multi_head_attention_package.sv
+│       │   │   └── ntm_masked_multi_head_attention_testbench.sv
+│       │   ├── ntm_masked_scaled_dot_product_attention
+│       │   │   ├── ntm_masked_scaled_dot_product_attention_design.sv
+│       │   │   ├── ntm_masked_scaled_dot_product_attention_interface.sv
+│       │   │   ├── ntm_masked_scaled_dot_product_attention_package.sv
+│       │   │   └── ntm_masked_scaled_dot_product_attention_testbench.sv
+│       │   ├── ntm_multi_head_attention
+│       │   │   ├── ntm_multi_head_attention_design.sv
+│       │   │   ├── ntm_multi_head_attention_interface.sv
+│       │   │   ├── ntm_multi_head_attention_package.sv
+│       │   │   └── ntm_multi_head_attention_testbench.sv
+│       │   └── ntm_scaled_dot_product_attention
+│       │       ├── ntm_scaled_dot_product_attention_design.sv
+│       │       ├── ntm_scaled_dot_product_attention_interface.sv
+│       │       ├── ntm_scaled_dot_product_attention_package.sv
+│       │       └── ntm_scaled_dot_product_attention_testbench.sv
+│       ├── fnn
+│       │   └── ntm_fnn
+│       │       ├── ntm_fnn_design.sv
+│       │       ├── ntm_fnn_interface.sv
+│       │       ├── ntm_fnn_package.sv
+│       │       └── ntm_fnn_testbench.sv
+│       ├── functions
+│       │   ├── ntm_layer_norm
+│       │   │   ├── ntm_layer_norm_design.sv
+│       │   │   ├── ntm_layer_norm_interface.sv
+│       │   │   ├── ntm_layer_norm_package.sv
+│       │   │   └── ntm_layer_norm_testbench.sv
+│       │   └── ntm_positional_encoding
+│       │       ├── ntm_positional_encoding_design.sv
+│       │       ├── ntm_positional_encoding_interface.sv
+│       │       ├── ntm_positional_encoding_package.sv
+│       │       └── ntm_positional_encoding_testbench.sv
+│       ├── inputs
+│       │   ├── ntm_inputs_vector
+│       │   │   ├── ntm_inputs_vector_design.sv
+│       │   │   ├── ntm_inputs_vector_interface.sv
+│       │   │   ├── ntm_inputs_vector_package.sv
+│       │   │   └── ntm_inputs_vector_testbench.sv
+│       │   ├── ntm_keys_vector
+│       │   │   ├── ntm_keys_vector_design.sv
+│       │   │   ├── ntm_keys_vector_interface.sv
+│       │   │   ├── ntm_keys_vector_package.sv
+│       │   │   └── ntm_keys_vector_testbench.sv
+│       │   ├── ntm_queries_vector
+│       │   │   ├── ntm_queries_vector_design.sv
+│       │   │   ├── ntm_queries_vector_interface.sv
+│       │   │   ├── ntm_queries_vector_package.sv
+│       │   │   └── ntm_queries_vector_testbench.sv
+│       │   └── ntm_values_vector
+│       │       ├── ntm_values_vector_design.sv
+│       │       ├── ntm_values_vector_interface.sv
+│       │       ├── ntm_values_vector_package.sv
+│       │       └── ntm_values_vector_testbench.sv
+│       ├── lstm
+│       │   ├── ntm_activation_gate_vector
+│       │   │   ├── ntm_activation_gate_vector_design.sv
+│       │   │   ├── ntm_activation_gate_vector_interface.sv
+│       │   │   ├── ntm_activation_gate_vector_package.sv
+│       │   │   └── ntm_activation_gate_vector_testbench.sv
+│       │   ├── ntm_forget_gate_vector
+│       │   │   ├── ntm_forget_gate_vector_design.sv
+│       │   │   ├── ntm_forget_gate_vector_interface.sv
+│       │   │   ├── ntm_forget_gate_vector_package.sv
+│       │   │   └── ntm_forget_gate_vector_testbench.sv
+│       │   ├── ntm_hidden_gate_vector
+│       │   │   ├── ntm_hidden_gate_vector_design.sv
+│       │   │   ├── ntm_hidden_gate_vector_interface.sv
+│       │   │   ├── ntm_hidden_gate_vector_package.sv
+│       │   │   └── ntm_hidden_gate_vector_testbench.sv
+│       │   ├── ntm_input_gate_vector
+│       │   │   ├── ntm_input_gate_vector_design.sv
+│       │   │   ├── ntm_input_gate_vector_interface.sv
+│       │   │   ├── ntm_input_gate_vector_package.sv
+│       │   │   └── ntm_input_gate_vector_testbench.sv
+│       │   ├── ntm_lstm
+│       │   │   ├── ntm_lstm_design.sv
+│       │   │   ├── ntm_lstm_interface.sv
+│       │   │   ├── ntm_lstm_package.sv
+│       │   │   └── ntm_lstm_testbench.sv
+│       │   ├── ntm_output_gate_vector
+│       │   │   ├── ntm_output_gate_vector_design.sv
+│       │   │   ├── ntm_output_gate_vector_interface.sv
+│       │   │   ├── ntm_output_gate_vector_package.sv
+│       │   │   └── ntm_output_gate_vector_testbench.sv
+│       │   └── ntm_state_gate_vector
+│       │       ├── ntm_state_gate_vector_design.sv
+│       │       ├── ntm_state_gate_vector_interface.sv
+│       │       ├── ntm_state_gate_vector_package.sv
+│       │       └── ntm_state_gate_vector_testbench.sv
+│       └── top
+│           ├── ntm_controller
+│           │   ├── ntm_controller_design.sv
+│           │   ├── ntm_controller_interface.sv
+│           │   ├── ntm_controller_package.sv
+│           │   └── ntm_controller_testbench.sv
+│           ├── ntm_decoder
+│           │   ├── ntm_decoder_design.sv
+│           │   ├── ntm_decoder_interface.sv
+│           │   ├── ntm_decoder_package.sv
+│           │   └── ntm_decoder_testbench.sv
+│           └── ntm_encoder
+│               ├── ntm_encoder_design.sv
+│               ├── ntm_encoder_interface.sv
+│               ├── ntm_encoder_package.sv
+│               └── ntm_encoder_testbench.sv
+├── dnc
+│   ├── memory
+│   │   ├── dnc_addressing
+│   │   │   ├── dnc_addressing_design.sv
+│   │   │   ├── dnc_addressing_interface.sv
+│   │   │   ├── dnc_addressing_package.sv
+│   │   │   └── dnc_addressing_testbench.sv
+│   │   ├── dnc_allocation_weighting
+│   │   │   ├── dnc_allocation_weighting_design.sv
+│   │   │   ├── dnc_allocation_weighting_interface.sv
+│   │   │   ├── dnc_allocation_weighting_package.sv
+│   │   │   └── dnc_allocation_weighting_testbench.sv
+│   │   ├── dnc_backward_weighting
+│   │   │   ├── dnc_backward_weighting_design.sv
+│   │   │   ├── dnc_backward_weighting_interface.sv
+│   │   │   ├── dnc_backward_weighting_package.sv
+│   │   │   └── dnc_backward_weighting_testbench.sv
+│   │   ├── dnc_forward_weighting
+│   │   │   ├── dnc_forward_weighting_design.sv
+│   │   │   ├── dnc_forward_weighting_interface.sv
+│   │   │   ├── dnc_forward_weighting_package.sv
+│   │   │   └── dnc_forward_weighting_testbench.sv
+│   │   ├── dnc_matrix_content_based_addressing
+│   │   │   ├── dnc_matrix_content_based_addressing_design.sv
+│   │   │   ├── dnc_matrix_content_based_addressing_interface.sv
+│   │   │   ├── dnc_matrix_content_based_addressing_package.sv
+│   │   │   └── dnc_matrix_content_based_addressing_testbench.sv
+│   │   ├── dnc_memory_matrix
+│   │   │   ├── dnc_memory_matrix_design.sv
+│   │   │   ├── dnc_memory_matrix_interface.sv
+│   │   │   ├── dnc_memory_matrix_package.sv
+│   │   │   └── dnc_memory_matrix_testbench.sv
+│   │   ├── dnc_memory_retention_vector
+│   │   │   ├── dnc_memory_retention_vector_design.sv
+│   │   │   ├── dnc_memory_retention_vector_interface.sv
+│   │   │   ├── dnc_memory_retention_vector_package.sv
+│   │   │   └── dnc_memory_retention_vector_testbench.sv
+│   │   ├── dnc_precedence_weighting
+│   │   │   ├── dnc_precedence_weighting_design.sv
+│   │   │   ├── dnc_precedence_weighting_interface.sv
+│   │   │   ├── dnc_precedence_weighting_package.sv
+│   │   │   └── dnc_precedence_weighting_testbench.sv
+│   │   ├── dnc_read_content_weighting
+│   │   │   ├── dnc_read_content_weighting_design.sv
+│   │   │   ├── dnc_read_content_weighting_interface.sv
+│   │   │   ├── dnc_read_content_weighting_package.sv
+│   │   │   └── dnc_read_content_weighting_testbench.sv
+│   │   ├── dnc_read_vectors
+│   │   │   ├── dnc_read_vectors_design.sv
+│   │   │   ├── dnc_read_vectors_interface.sv
+│   │   │   ├── dnc_read_vectors_package.sv
+│   │   │   └── dnc_read_vectors_testbench.sv
+│   │   ├── dnc_read_weighting
+│   │   │   ├── dnc_read_weighting_design.sv
+│   │   │   ├── dnc_read_weighting_interface.sv
+│   │   │   ├── dnc_read_weighting_package.sv
+│   │   │   └── dnc_read_weighting_testbench.sv
+│   │   ├── dnc_sort_vector
+│   │   │   ├── dnc_sort_vector_design.sv
+│   │   │   ├── dnc_sort_vector_interface.sv
+│   │   │   ├── dnc_sort_vector_package.sv
+│   │   │   └── dnc_sort_vector_testbench.sv
+│   │   ├── dnc_temporal_link_matrix
+│   │   │   ├── dnc_temporal_link_matrix_design.sv
+│   │   │   ├── dnc_temporal_link_matrix_interface.sv
+│   │   │   ├── dnc_temporal_link_matrix_package.sv
+│   │   │   └── dnc_temporal_link_matrix_testbench.sv
+│   │   ├── dnc_usage_vector
+│   │   │   ├── dnc_usage_vector_design.sv
+│   │   │   ├── dnc_usage_vector_interface.sv
+│   │   │   ├── dnc_usage_vector_package.sv
+│   │   │   └── dnc_usage_vector_testbench.sv
+│   │   ├── dnc_vector_content_based_addressing
+│   │   │   ├── dnc_vector_content_based_addressing_design.sv
+│   │   │   ├── dnc_vector_content_based_addressing_interface.sv
+│   │   │   ├── dnc_vector_content_based_addressing_package.sv
+│   │   │   └── dnc_vector_content_based_addressing_testbench.sv
+│   │   ├── dnc_write_content_weighting
+│   │   │   ├── dnc_write_content_weighting_design.sv
+│   │   │   ├── dnc_write_content_weighting_interface.sv
+│   │   │   ├── dnc_write_content_weighting_package.sv
+│   │   │   └── dnc_write_content_weighting_testbench.sv
+│   │   └── dnc_write_weighting
+│   │       ├── dnc_write_weighting_design.sv
+│   │       ├── dnc_write_weighting_interface.sv
+│   │       ├── dnc_write_weighting_package.sv
+│   │       └── dnc_write_weighting_testbench.sv
+│   ├── top
+│   │   ├── dnc_interface_matrix
+│   │   │   ├── dnc_interface_matrix_design.sv
+│   │   │   ├── dnc_interface_matrix_interface.sv
+│   │   │   ├── dnc_interface_matrix_package.sv
+│   │   │   └── dnc_interface_matrix_testbench.sv
+│   │   ├── dnc_interface_top
+│   │   │   ├── dnc_interface_top_design.sv
+│   │   │   ├── dnc_interface_top_interface.sv
+│   │   │   ├── dnc_interface_top_package.sv
+│   │   │   └── dnc_interface_top_testbench.sv
+│   │   ├── dnc_interface_vector
+│   │   │   ├── dnc_interface_vector_design.sv
+│   │   │   ├── dnc_interface_vector_interface.sv
+│   │   │   ├── dnc_interface_vector_package.sv
+│   │   │   └── dnc_interface_vector_testbench.sv
+│   │   ├── dnc_output_vector
+│   │   │   ├── dnc_output_vector_design.sv
+│   │   │   ├── dnc_output_vector_interface.sv
+│   │   │   ├── dnc_output_vector_package.sv
+│   │   │   └── dnc_output_vector_testbench.sv
+│   │   └── dnc_top
+│   │       ├── dnc_top_design.sv
+│   │       ├── dnc_top_interface.sv
+│   │       ├── dnc_top_package.sv
+│   │       └── dnc_top_testbench.sv
+│   └── trained
+│       └── dnc_trained_top
+│           ├── dnc_trained_top_design.sv
+│           ├── dnc_trained_top_interface.sv
+│           ├── dnc_trained_top_package.sv
+│           └── dnc_trained_top_testbench.sv
+├── math
+│   ├── algebra
+│   │   ├── matrix
+│   │   │   ├── ntm_matrix_convolution
+│   │   │   │   ├── ntm_matrix_convolution_design.sv
+│   │   │   │   ├── ntm_matrix_convolution_interface.sv
+│   │   │   │   ├── ntm_matrix_convolution_package.sv
+│   │   │   │   └── ntm_matrix_convolution_testbench.sv
+│   │   │   ├── ntm_matrix_inverse
+│   │   │   │   ├── ntm_matrix_inverse_design.sv
+│   │   │   │   ├── ntm_matrix_inverse_interface.sv
+│   │   │   │   ├── ntm_matrix_inverse_package.sv
+│   │   │   │   └── ntm_matrix_inverse_testbench.sv
+│   │   │   ├── ntm_matrix_multiplication
+│   │   │   │   ├── ntm_matrix_multiplication_design.sv
+│   │   │   │   ├── ntm_matrix_multiplication_interface.sv
+│   │   │   │   ├── ntm_matrix_multiplication_package.sv
+│   │   │   │   └── ntm_matrix_multiplication_testbench.sv
+│   │   │   ├── ntm_matrix_product
+│   │   │   │   ├── ntm_matrix_product_design.sv
+│   │   │   │   ├── ntm_matrix_product_interface.sv
+│   │   │   │   ├── ntm_matrix_product_package.sv
+│   │   │   │   └── ntm_matrix_product_testbench.sv
+│   │   │   ├── ntm_matrix_summation
+│   │   │   │   ├── ntm_matrix_summation_design.sv
+│   │   │   │   ├── ntm_matrix_summation_interface.sv
+│   │   │   │   ├── ntm_matrix_summation_package.sv
+│   │   │   │   └── ntm_matrix_summation_testbench.sv
+│   │   │   ├── ntm_matrix_transpose
+│   │   │   │   ├── ntm_matrix_transpose_design.sv
+│   │   │   │   ├── ntm_matrix_transpose_interface.sv
+│   │   │   │   ├── ntm_matrix_transpose_package.sv
+│   │   │   │   └── ntm_matrix_transpose_testbench.sv
+│   │   │   ├── ntm_matrix_vector_convolution
+│   │   │   │   ├── ntm_matrix_vector_convolution_design.sv
+│   │   │   │   ├── ntm_matrix_vector_convolution_interface.sv
+│   │   │   │   ├── ntm_matrix_vector_convolution_package.sv
+│   │   │   │   └── ntm_matrix_vector_convolution_testbench.sv
+│   │   │   ├── ntm_matrix_vector_product
+│   │   │   │   ├── ntm_matrix_vector_product_design.sv
+│   │   │   │   ├── ntm_matrix_vector_product_interface.sv
+│   │   │   │   ├── ntm_matrix_vector_product_package.sv
+│   │   │   │   └── ntm_matrix_vector_product_testbench.sv
+│   │   │   └── ntm_transpose_vector_product
+│   │   │       ├── ntm_transpose_vector_product_design.sv
+│   │   │       ├── ntm_transpose_vector_product_interface.sv
+│   │   │       ├── ntm_transpose_vector_product_package.sv
+│   │   │       └── ntm_transpose_vector_product_testbench.sv
+│   │   ├── scalar
+│   │   │   ├── ntm_scalar_multiplication
+│   │   │   │   ├── ntm_scalar_multiplication_design.sv
+│   │   │   │   ├── ntm_scalar_multiplication_interface.sv
+│   │   │   │   ├── ntm_scalar_multiplication_package.sv
+│   │   │   │   └── ntm_scalar_multiplication_testbench.sv
+│   │   │   └── ntm_scalar_summation
+│   │   │       ├── ntm_scalar_summation_design.sv
+│   │   │       ├── ntm_scalar_summation_interface.sv
+│   │   │       ├── ntm_scalar_summation_package.sv
+│   │   │       └── ntm_scalar_summation_testbench.sv
+│   │   ├── tensor
+│   │   │   ├── ntm_tensor_convolution
+│   │   │   │   ├── ntm_tensor_convolution_design.sv
+│   │   │   │   ├── ntm_tensor_convolution_interface.sv
+│   │   │   │   ├── ntm_tensor_convolution_package.sv
+│   │   │   │   └── ntm_tensor_convolution_testbench.sv
+│   │   │   ├── ntm_tensor_inverse
+│   │   │   │   ├── ntm_tensor_inverse_design.sv
+│   │   │   │   ├── ntm_tensor_inverse_interface.sv
+│   │   │   │   ├── ntm_tensor_inverse_package.sv
+│   │   │   │   └── ntm_tensor_inverse_testbench.sv
+│   │   │   ├── ntm_tensor_matrix_convolution
+│   │   │   │   ├── ntm_tensor_matrix_convolution_design.sv
+│   │   │   │   ├── ntm_tensor_matrix_convolution_interface.sv
+│   │   │   │   ├── ntm_tensor_matrix_convolution_package.sv
+│   │   │   │   └── ntm_tensor_matrix_convolution_testbench.sv
+│   │   │   ├── ntm_tensor_matrix_product
+│   │   │   │   ├── ntm_tensor_matrix_product_design.sv
+│   │   │   │   ├── ntm_tensor_matrix_product_interface.sv
+│   │   │   │   ├── ntm_tensor_matrix_product_package.sv
+│   │   │   │   └── ntm_tensor_matrix_product_testbench.sv
+│   │   │   ├── ntm_tensor_multiplication
+│   │   │   │   ├── ntm_tensor_multiplication_design.sv
+│   │   │   │   ├── ntm_tensor_multiplication_interface.sv
+│   │   │   │   ├── ntm_tensor_multiplication_package.sv
+│   │   │   │   └── ntm_tensor_multiplication_testbench.sv
+│   │   │   ├── ntm_tensor_product
+│   │   │   │   ├── ntm_tensor_product_design.sv
+│   │   │   │   ├── ntm_tensor_product_interface.sv
+│   │   │   │   ├── ntm_tensor_product_package.sv
+│   │   │   │   └── ntm_tensor_product_testbench.sv
+│   │   │   ├── ntm_tensor_summation
+│   │   │   │   ├── ntm_tensor_summation_design.sv
+│   │   │   │   ├── ntm_tensor_summation_interface.sv
+│   │   │   │   ├── ntm_tensor_summation_package.sv
+│   │   │   │   └── ntm_tensor_summation_testbench.sv
+│   │   │   └── ntm_tensor_transpose
+│   │   │       ├── ntm_tensor_transpose_design.sv
+│   │   │       ├── ntm_tensor_transpose_interface.sv
+│   │   │       ├── ntm_tensor_transpose_package.sv
+│   │   │       └── ntm_tensor_transpose_testbench.sv
+│   │   └── vector
+│   │       ├── ntm_dot_product
+│   │       │   ├── ntm_dot_product_design.sv
+│   │       │   ├── ntm_dot_product_interface.sv
+│   │       │   ├── ntm_dot_product_package.sv
+│   │       │   └── ntm_dot_product_testbench.sv
+│   │       ├── ntm_vector_convolution
+│   │       │   ├── ntm_vector_convolution_design.sv
+│   │       │   ├── ntm_vector_convolution_interface.sv
+│   │       │   ├── ntm_vector_convolution_package.sv
+│   │       │   └── ntm_vector_convolution_testbench.sv
+│   │       ├── ntm_vector_cosine_similarity
+│   │       │   ├── ntm_vector_cosine_similarity_design.sv
+│   │       │   ├── ntm_vector_cosine_similarity_interface.sv
+│   │       │   ├── ntm_vector_cosine_similarity_package.sv
+│   │       │   └── ntm_vector_cosine_similarity_testbench.sv
+│   │       ├── ntm_vector_module
+│   │       │   ├── ntm_vector_module_design.sv
+│   │       │   ├── ntm_vector_module_interface.sv
+│   │       │   ├── ntm_vector_module_package.sv
+│   │       │   └── ntm_vector_module_testbench.sv
+│   │       ├── ntm_vector_multiplication
+│   │       │   ├── ntm_vector_multiplication_design.sv
+│   │       │   ├── ntm_vector_multiplication_interface.sv
+│   │       │   ├── ntm_vector_multiplication_package.sv
+│   │       │   └── ntm_vector_multiplication_testbench.sv
+│   │       └── ntm_vector_summation
+│   │           ├── ntm_vector_summation_design.sv
+│   │           ├── ntm_vector_summation_interface.sv
+│   │           ├── ntm_vector_summation_package.sv
+│   │           └── ntm_vector_summation_testbench.sv
+│   ├── calculus
+│   │   ├── matrix
+│   │   │   ├── ntm_matrix_differentiation
+│   │   │   │   ├── ntm_matrix_differentiation_design.sv
+│   │   │   │   ├── ntm_matrix_differentiation_interface.sv
+│   │   │   │   ├── ntm_matrix_differentiation_package.sv
+│   │   │   │   └── ntm_matrix_differentiation_testbench.sv
+│   │   │   ├── ntm_matrix_integration
+│   │   │   │   ├── ntm_matrix_integration_design.sv
+│   │   │   │   ├── ntm_matrix_integration_interface.sv
+│   │   │   │   ├── ntm_matrix_integration_package.sv
+│   │   │   │   └── ntm_matrix_integration_testbench.sv
+│   │   │   └── ntm_matrix_softmax
+│   │   │       ├── ntm_matrix_softmax_design.sv
+│   │   │       ├── ntm_matrix_softmax_interface.sv
+│   │   │       ├── ntm_matrix_softmax_package.sv
+│   │   │       └── ntm_matrix_softmax_testbench.sv
+│   │   ├── tensor
+│   │   │   ├── ntm_tensor_differentiation
+│   │   │   │   ├── ntm_tensor_differentiation_design.sv
+│   │   │   │   ├── ntm_tensor_differentiation_interface.sv
+│   │   │   │   ├── ntm_tensor_differentiation_package.sv
+│   │   │   │   └── ntm_tensor_differentiation_testbench.sv
+│   │   │   ├── ntm_tensor_integration
+│   │   │   │   ├── ntm_tensor_integration_design.sv
+│   │   │   │   ├── ntm_tensor_integration_interface.sv
+│   │   │   │   ├── ntm_tensor_integration_package.sv
+│   │   │   │   └── ntm_tensor_integration_testbench.sv
+│   │   │   └── ntm_tensor_softmax
+│   │   │       ├── ntm_tensor_softmax_design.sv
+│   │   │       ├── ntm_tensor_softmax_interface.sv
+│   │   │       ├── ntm_tensor_softmax_package.sv
+│   │   │       └── ntm_tensor_softmax_testbench.sv
+│   │   └── vector
+│   │       ├── ntm_vector_differentiation
+│   │       │   ├── ntm_vector_differentiation_design.sv
+│   │       │   ├── ntm_vector_differentiation_interface.sv
+│   │       │   ├── ntm_vector_differentiation_package.sv
+│   │       │   └── ntm_vector_differentiation_testbench.sv
+│   │       ├── ntm_vector_integration
+│   │       │   ├── ntm_vector_integration_design.sv
+│   │       │   ├── ntm_vector_integration_interface.sv
+│   │       │   ├── ntm_vector_integration_package.sv
+│   │       │   └── ntm_vector_integration_testbench.sv
+│   │       └── ntm_vector_softmax
+│   │           ├── ntm_vector_softmax_design.sv
+│   │           ├── ntm_vector_softmax_interface.sv
+│   │           ├── ntm_vector_softmax_package.sv
+│   │           └── ntm_vector_softmax_testbench.sv
+│   ├── function
+│   │   ├── matrix
+│   │   │   ├── ntm_matrix_logistic_function
+│   │   │   │   ├── ntm_matrix_logistic_function_design.sv
+│   │   │   │   ├── ntm_matrix_logistic_function_interface.sv
+│   │   │   │   ├── ntm_matrix_logistic_function_package.sv
+│   │   │   │   └── ntm_matrix_logistic_function_testbench.sv
+│   │   │   └── ntm_matrix_oneplus_function
+│   │   │       ├── ntm_matrix_oneplus_function_design.sv
+│   │   │       ├── ntm_matrix_oneplus_function_interface.sv
+│   │   │       ├── ntm_matrix_oneplus_function_package.sv
+│   │   │       └── ntm_matrix_oneplus_function_testbench.sv
+│   │   ├── scalar
+│   │   │   ├── ntm_scalar_logistic_function
+│   │   │   │   ├── ntm_scalar_logistic_function_design.sv
+│   │   │   │   ├── ntm_scalar_logistic_function_interface.sv
+│   │   │   │   ├── ntm_scalar_logistic_function_package.sv
+│   │   │   │   └── ntm_scalar_logistic_function_testbench.sv
+│   │   │   └── ntm_scalar_oneplus_function
+│   │   │       ├── ntm_scalar_oneplus_function_design.sv
+│   │   │       ├── ntm_scalar_oneplus_function_interface.sv
+│   │   │       ├── ntm_scalar_oneplus_function_package.sv
+│   │   │       └── ntm_scalar_oneplus_function_testbench.sv
+│   │   └── vector
+│   │       ├── ntm_vector_logistic_function
+│   │       │   ├── ntm_vector_logistic_function_design.sv
+│   │       │   ├── ntm_vector_logistic_function_interface.sv
+│   │       │   ├── ntm_vector_logistic_function_package.sv
+│   │       │   └── ntm_vector_logistic_function_testbench.sv
+│   │       └── ntm_vector_oneplus_function
+│   │           ├── ntm_vector_oneplus_function_design.sv
+│   │           ├── ntm_vector_oneplus_function_interface.sv
+│   │           ├── ntm_vector_oneplus_function_package.sv
+│   │           └── ntm_vector_oneplus_function_testbench.sv
+│   └── statitics
+│       ├── matrix
+│       │   ├── ntm_matrix_deviation
+│       │   │   ├── ntm_matrix_deviation_design.sv
+│       │   │   ├── ntm_matrix_deviation_interface.sv
+│       │   │   ├── ntm_matrix_deviation_package.sv
+│       │   │   └── ntm_matrix_deviation_testbench.sv
+│       │   └── ntm_matrix_mean
+│       │       ├── ntm_matrix_mean_design.sv
+│       │       ├── ntm_matrix_mean_interface.sv
+│       │       ├── ntm_matrix_mean_package.sv
+│       │       └── ntm_matrix_mean_testbench.sv
+│       ├── scalar
+│       │   ├── ntm_scalar_deviation
+│       │   │   ├── ntm_scalar_deviation_design.sv
+│       │   │   ├── ntm_scalar_deviation_interface.sv
+│       │   │   ├── ntm_scalar_deviation_package.sv
+│       │   │   └── ntm_scalar_deviation_testbench.sv
+│       │   └── ntm_scalar_mean
+│       │       ├── ntm_scalar_mean_design.sv
+│       │       ├── ntm_scalar_mean_interface.sv
+│       │       ├── ntm_scalar_mean_package.sv
+│       │       └── ntm_scalar_mean_testbench.sv
+│       └── vector
+│           ├── ntm_vector_deviation
+│           │   ├── ntm_vector_deviation_design.sv
+│           │   ├── ntm_vector_deviation_interface.sv
+│           │   ├── ntm_vector_deviation_package.sv
+│           │   └── ntm_vector_deviation_testbench.sv
+│           └── ntm_vector_mean
+│               ├── ntm_vector_mean_design.sv
+│               ├── ntm_vector_mean_interface.sv
+│               ├── ntm_vector_mean_package.sv
+│               └── ntm_vector_mean_testbench.sv
+├── ntm
+│   ├── memory
+│   │   ├── ntm_addressing
+│   │   │   ├── ntm_addressing_design.sv
+│   │   │   ├── ntm_addressing_interface.sv
+│   │   │   ├── ntm_addressing_package.sv
+│   │   │   └── ntm_addressing_testbench.sv
+│   │   ├── ntm_matrix_content_based_addressing
+│   │   │   ├── ntm_matrix_content_based_addressing_design.sv
+│   │   │   ├── ntm_matrix_content_based_addressing_interface.sv
+│   │   │   ├── ntm_matrix_content_based_addressing_package.sv
+│   │   │   └── ntm_matrix_content_based_addressing_testbench.sv
+│   │   └── ntm_vector_content_based_addressing
+│   │       ├── ntm_vector_content_based_addressing_design.sv
+│   │       ├── ntm_vector_content_based_addressing_interface.sv
+│   │       ├── ntm_vector_content_based_addressing_package.sv
+│   │       └── ntm_vector_content_based_addressing_testbench.sv
+│   ├── read_heads
+│   │   └── ntm_reading
+│   │       ├── ntm_reading_design.sv
+│   │       ├── ntm_reading_interface.sv
+│   │       ├── ntm_reading_package.sv
+│   │       └── ntm_reading_testbench.sv
+│   ├── top
+│   │   ├── ntm_interface_matrix
+│   │   │   ├── ntm_interface_matrix_design.sv
+│   │   │   ├── ntm_interface_matrix_interface.sv
+│   │   │   ├── ntm_interface_matrix_package.sv
+│   │   │   └── ntm_interface_matrix_testbench.sv
+│   │   ├── ntm_interface_top
+│   │   │   ├── ntm_interface_top_design.sv
+│   │   │   ├── ntm_interface_top_interface.sv
+│   │   │   ├── ntm_interface_top_package.sv
+│   │   │   └── ntm_interface_top_testbench.sv
+│   │   ├── ntm_interface_vector
+│   │   │   ├── ntm_interface_vector_design.sv
+│   │   │   ├── ntm_interface_vector_interface.sv
+│   │   │   ├── ntm_interface_vector_package.sv
+│   │   │   └── ntm_interface_vector_testbench.sv
+│   │   ├── ntm_output_vector
+│   │   │   ├── ntm_output_vector_design.sv
+│   │   │   ├── ntm_output_vector_interface.sv
+│   │   │   ├── ntm_output_vector_package.sv
+│   │   │   └── ntm_output_vector_testbench.sv
+│   │   └── ntm_top
+│   │       ├── ntm_top_design.sv
+│   │       ├── ntm_top_interface.sv
+│   │       ├── ntm_top_package.sv
+│   │       └── ntm_top_testbench.sv
+│   ├── trained
+│   │   └── ntm_trained_top
+│   │       ├── ntm_trained_top_design.sv
+│   │       ├── ntm_trained_top_interface.sv
+│   │       ├── ntm_trained_top_package.sv
+│   │       └── ntm_trained_top_testbench.sv
+│   └── write_heads
+│       ├── ntm_erasing
+│       │   ├── ntm_erasing_design.sv
+│       │   ├── ntm_erasing_interface.sv
+│       │   ├── ntm_erasing_package.sv
+│       │   └── ntm_erasing_testbench.sv
+│       └── ntm_writing
+│           ├── ntm_writing_design.sv
+│           ├── ntm_writing_interface.sv
+│           ├── ntm_writing_package.sv
+│           └── ntm_writing_testbench.sv
+├── state
+│   ├── feedback
+│   │   ├── ntm_state_matrix_feedforward
+│   │   │   ├── ntm_state_matrix_feedforward_design.sv
+│   │   │   ├── ntm_state_matrix_feedforward_interface.sv
+│   │   │   ├── ntm_state_matrix_feedforward_package.sv
+│   │   │   └── ntm_state_matrix_feedforward_testbench.sv
+│   │   ├── ntm_state_matrix_input
+│   │   │   ├── ntm_state_matrix_input_design.sv
+│   │   │   ├── ntm_state_matrix_input_interface.sv
+│   │   │   ├── ntm_state_matrix_input_package.sv
+│   │   │   └── ntm_state_matrix_input_testbench.sv
+│   │   ├── ntm_state_matrix_output
+│   │   │   ├── ntm_state_matrix_output_design.sv
+│   │   │   ├── ntm_state_matrix_output_interface.sv
+│   │   │   ├── ntm_state_matrix_output_package.sv
+│   │   │   └── ntm_state_matrix_output_testbench.sv
+│   │   └── ntm_state_matrix_state
+│   │       ├── ntm_state_matrix_state_design.sv
+│   │       ├── ntm_state_matrix_state_interface.sv
+│   │       ├── ntm_state_matrix_state_package.sv
+│   │       └── ntm_state_matrix_state_testbench.sv
+│   ├── outputs
+│   │   ├── ntm_state_vector_output
+│   │   │   ├── ntm_state_vector_output_design.sv
+│   │   │   ├── ntm_state_vector_output_interface.sv
+│   │   │   ├── ntm_state_vector_output_package.sv
+│   │   │   └── ntm_state_vector_output_testbench.sv
+│   │   └── ntm_state_vector_state
+│   │       ├── ntm_state_vector_state_design.sv
+│   │       ├── ntm_state_vector_state_interface.sv
+│   │       ├── ntm_state_vector_state_package.sv
+│   │       └── ntm_state_vector_state_testbench.sv
+│   └── top
+│       └── ntm_state_top
+│           ├── ntm_state_top_design.sv
+│           ├── ntm_state_top_interface.sv
+│           ├── ntm_state_top_package.sv
+│           └── ntm_state_top_testbench.sv
+└── trainer
+    ├── differentiation
+    │   ├── ntm_matrix_controller_differentiation
+    │   │   ├── ntm_matrix_controller_differentiation_design.sv
+    │   │   ├── ntm_matrix_controller_differentiation_interface.sv
+    │   │   ├── ntm_matrix_controller_differentiation_package.sv
+    │   │   └── ntm_matrix_controller_differentiation_testbench.sv
+    │   └── ntm_vector_controller_differentiation
+    │       ├── ntm_vector_controller_differentiation_design.sv
+    │       ├── ntm_vector_controller_differentiation_interface.sv
+    │       ├── ntm_vector_controller_differentiation_package.sv
+    │       └── ntm_vector_controller_differentiation_testbench.sv
+    ├── FNN
+    │   ├── ntm_fnn_b_trainer
+    │   │   ├── ntm_fnn_b_trainer_design.sv
+    │   │   ├── ntm_fnn_b_trainer_interface.sv
+    │   │   ├── ntm_fnn_b_trainer_package.sv
+    │   │   └── ntm_fnn_b_trainer_testbench.sv
+    │   ├── ntm_fnn_d_trainer
+    │   │   ├── ntm_fnn_d_trainer_design.sv
+    │   │   ├── ntm_fnn_d_trainer_interface.sv
+    │   │   ├── ntm_fnn_d_trainer_package.sv
+    │   │   └── ntm_fnn_d_trainer_testbench.sv
+    │   ├── ntm_fnn_k_trainer
+    │   │   ├── ntm_fnn_k_trainer_design.sv
+    │   │   ├── ntm_fnn_k_trainer_interface.sv
+    │   │   ├── ntm_fnn_k_trainer_package.sv
+    │   │   └── ntm_fnn_k_trainer_testbench.sv
+    │   ├── ntm_fnn_trainer
+    │   │   ├── ntm_fnn_trainer_design.sv
+    │   │   ├── ntm_fnn_trainer_interface.sv
+    │   │   ├── ntm_fnn_trainer_package.sv
+    │   │   └── ntm_fnn_trainer_testbench.sv
+    │   ├── ntm_fnn_u_trainer
+    │   │   ├── ntm_fnn_u_trainer_design.sv
+    │   │   ├── ntm_fnn_u_trainer_interface.sv
+    │   │   ├── ntm_fnn_u_trainer_package.sv
+    │   │   └── ntm_fnn_u_trainer_testbench.sv
+    │   ├── ntm_fnn_v_trainer
+    │   │   ├── ntm_fnn_v_trainer_design.sv
+    │   │   ├── ntm_fnn_v_trainer_interface.sv
+    │   │   ├── ntm_fnn_v_trainer_package.sv
+    │   │   └── ntm_fnn_v_trainer_testbench.sv
+    │   └── ntm_fnn_w_trainer
+    │       ├── ntm_fnn_w_trainer_design.sv
+    │       ├── ntm_fnn_w_trainer_interface.sv
+    │       ├── ntm_fnn_w_trainer_package.sv
+    │       └── ntm_fnn_w_trainer_testbench.sv
+    └── LSTM
+        ├── activation
+        │   ├── ntm_lstm_activation_b_trainer
+        │   │   ├── ntm_lstm_activation_b_trainer_design.sv
+        │   │   ├── ntm_lstm_activation_b_trainer_interface.sv
+        │   │   ├── ntm_lstm_activation_b_trainer_package.sv
+        │   │   └── ntm_lstm_activation_b_trainer_testbench.sv
+        │   ├── ntm_lstm_activation_d_trainer
+        │   │   ├── ntm_lstm_activation_d_trainer_design.sv
+        │   │   ├── ntm_lstm_activation_d_trainer_interface.sv
+        │   │   ├── ntm_lstm_activation_d_trainer_package.sv
+        │   │   └── ntm_lstm_activation_d_trainer_testbench.sv
+        │   ├── ntm_lstm_activation_k_trainer
+        │   │   ├── ntm_lstm_activation_k_trainer_design.sv
+        │   │   ├── ntm_lstm_activation_k_trainer_interface.sv
+        │   │   ├── ntm_lstm_activation_k_trainer_package.sv
+        │   │   └── ntm_lstm_activation_k_trainer_testbench.sv
+        │   ├── ntm_lstm_activation_trainer
+        │   │   ├── ntm_lstm_activation_trainer_design.sv
+        │   │   ├── ntm_lstm_activation_trainer_interface.sv
+        │   │   ├── ntm_lstm_activation_trainer_package.sv
+        │   │   └── ntm_lstm_activation_trainer_testbench.sv
+        │   ├── ntm_lstm_activation_u_trainer
+        │   │   ├── ntm_lstm_activation_u_trainer_design.sv
+        │   │   ├── ntm_lstm_activation_u_trainer_interface.sv
+        │   │   ├── ntm_lstm_activation_u_trainer_package.sv
+        │   │   └── ntm_lstm_activation_u_trainer_testbench.sv
+        │   ├── ntm_lstm_activation_v_trainer
+        │   │   ├── ntm_lstm_activation_v_trainer_design.sv
+        │   │   ├── ntm_lstm_activation_v_trainer_interface.sv
+        │   │   ├── ntm_lstm_activation_v_trainer_package.sv
+        │   │   └── ntm_lstm_activation_v_trainer_testbench.sv
+        │   └── ntm_lstm_activation_w_trainer
+        │       ├── ntm_lstm_activation_w_trainer_design.sv
+        │       ├── ntm_lstm_activation_w_trainer_interface.sv
+        │       ├── ntm_lstm_activation_w_trainer_package.sv
+        │       └── ntm_lstm_activation_w_trainer_testbench.sv
+        ├── forget
+        │   ├── ntm_lstm_forget_b_trainer
+        │   │   ├── ntm_lstm_forget_b_trainer_design.sv
+        │   │   ├── ntm_lstm_forget_b_trainer_interface.sv
+        │   │   ├── ntm_lstm_forget_b_trainer_package.sv
+        │   │   └── ntm_lstm_forget_b_trainer_testbench.sv
+        │   ├── ntm_lstm_forget_d_trainer
+        │   │   ├── ntm_lstm_forget_d_trainer_design.sv
+        │   │   ├── ntm_lstm_forget_d_trainer_interface.sv
+        │   │   ├── ntm_lstm_forget_d_trainer_package.sv
+        │   │   └── ntm_lstm_forget_d_trainer_testbench.sv
+        │   ├── ntm_lstm_forget_k_trainer
+        │   │   ├── ntm_lstm_forget_k_trainer_design.sv
+        │   │   ├── ntm_lstm_forget_k_trainer_interface.sv
+        │   │   ├── ntm_lstm_forget_k_trainer_package.sv
+        │   │   └── ntm_lstm_forget_k_trainer_testbench.sv
+        │   ├── ntm_lstm_forget_trainer
+        │   │   ├── ntm_lstm_forget_trainer_design.sv
+        │   │   ├── ntm_lstm_forget_trainer_interface.sv
+        │   │   ├── ntm_lstm_forget_trainer_package.sv
+        │   │   └── ntm_lstm_forget_trainer_testbench.sv
+        │   ├── ntm_lstm_forget_u_trainer
+        │   │   ├── ntm_lstm_forget_u_trainer_design.sv
+        │   │   ├── ntm_lstm_forget_u_trainer_interface.sv
+        │   │   ├── ntm_lstm_forget_u_trainer_package.sv
+        │   │   └── ntm_lstm_forget_u_trainer_testbench.sv
+        │   ├── ntm_lstm_forget_v_trainer
+        │   │   ├── ntm_lstm_forget_v_trainer_design.sv
+        │   │   ├── ntm_lstm_forget_v_trainer_interface.sv
+        │   │   ├── ntm_lstm_forget_v_trainer_package.sv
+        │   │   └── ntm_lstm_forget_v_trainer_testbench.sv
+        │   └── ntm_lstm_forget_w_trainer
+        │       ├── ntm_lstm_forget_w_trainer_design.sv
+        │       ├── ntm_lstm_forget_w_trainer_interface.sv
+        │       ├── ntm_lstm_forget_w_trainer_package.sv
+        │       └── ntm_lstm_forget_w_trainer_testbench.sv
+        ├── input
+        │   ├── ntm_lstm_input_b_trainer
+        │   │   ├── ntm_lstm_input_b_trainer_design.sv
+        │   │   ├── ntm_lstm_input_b_trainer_interface.sv
+        │   │   ├── ntm_lstm_input_b_trainer_package.sv
+        │   │   └── ntm_lstm_input_b_trainer_testbench.sv
+        │   ├── ntm_lstm_input_d_trainer
+        │   │   ├── ntm_lstm_input_d_trainer_design.sv
+        │   │   ├── ntm_lstm_input_d_trainer_interface.sv
+        │   │   ├── ntm_lstm_input_d_trainer_package.sv
+        │   │   └── ntm_lstm_input_d_trainer_testbench.sv
+        │   ├── ntm_lstm_input_k_trainer
+        │   │   ├── ntm_lstm_input_k_trainer_design.sv
+        │   │   ├── ntm_lstm_input_k_trainer_interface.sv
+        │   │   ├── ntm_lstm_input_k_trainer_package.sv
+        │   │   └── ntm_lstm_input_k_trainer_testbench.sv
+        │   ├── ntm_lstm_input_trainer
+        │   │   ├── ntm_lstm_input_trainer_design.sv
+        │   │   ├── ntm_lstm_input_trainer_interface.sv
+        │   │   ├── ntm_lstm_input_trainer_package.sv
+        │   │   └── ntm_lstm_input_trainer_testbench.sv
+        │   ├── ntm_lstm_input_u_trainer
+        │   │   ├── ntm_lstm_input_u_trainer_design.sv
+        │   │   ├── ntm_lstm_input_u_trainer_interface.sv
+        │   │   ├── ntm_lstm_input_u_trainer_package.sv
+        │   │   └── ntm_lstm_input_u_trainer_testbench.sv
+        │   ├── ntm_lstm_input_v_trainer
+        │   │   ├── ntm_lstm_input_v_trainer_design.sv
+        │   │   ├── ntm_lstm_input_v_trainer_interface.sv
+        │   │   ├── ntm_lstm_input_v_trainer_package.sv
+        │   │   └── ntm_lstm_input_v_trainer_testbench.sv
+        │   └── ntm_lstm_input_w_trainer
+        │       ├── ntm_lstm_input_w_trainer_design.sv
+        │       ├── ntm_lstm_input_w_trainer_interface.sv
+        │       ├── ntm_lstm_input_w_trainer_package.sv
+        │       └── ntm_lstm_input_w_trainer_testbench.sv
+        └── output
+            ├── ntm_lstm_output_b_trainer
+            │   ├── ntm_lstm_output_b_trainer_design.sv
+            │   ├── ntm_lstm_output_b_trainer_interface.sv
+            │   ├── ntm_lstm_output_b_trainer_package.sv
+            │   └── ntm_lstm_output_b_trainer_testbench.sv
+            ├── ntm_lstm_output_d_trainer
+            │   ├── ntm_lstm_output_d_trainer_design.sv
+            │   ├── ntm_lstm_output_d_trainer_interface.sv
+            │   ├── ntm_lstm_output_d_trainer_package.sv
+            │   └── ntm_lstm_output_d_trainer_testbench.sv
+            ├── ntm_lstm_output_k_trainer
+            │   ├── ntm_lstm_output_k_trainer_design.sv
+            │   ├── ntm_lstm_output_k_trainer_interface.sv
+            │   ├── ntm_lstm_output_k_trainer_package.sv
+            │   └── ntm_lstm_output_k_trainer_testbench.sv
+            ├── ntm_lstm_output_trainer
+            │   ├── ntm_lstm_output_trainer_design.sv
+            │   ├── ntm_lstm_output_trainer_interface.sv
+            │   ├── ntm_lstm_output_trainer_package.sv
+            │   └── ntm_lstm_output_trainer_testbench.sv
+            ├── ntm_lstm_output_u_trainer
+            │   ├── ntm_lstm_output_u_trainer_design.sv
+            │   ├── ntm_lstm_output_u_trainer_interface.sv
+            │   ├── ntm_lstm_output_u_trainer_package.sv
+            │   └── ntm_lstm_output_u_trainer_testbench.sv
+            ├── ntm_lstm_output_v_trainer
+            │   ├── ntm_lstm_output_v_trainer_design.sv
+            │   ├── ntm_lstm_output_v_trainer_interface.sv
+            │   ├── ntm_lstm_output_v_trainer_package.sv
+            │   └── ntm_lstm_output_v_trainer_testbench.sv
+            └── ntm_lstm_output_w_trainer
+                ├── ntm_lstm_output_w_trainer_design.sv
+                ├── ntm_lstm_output_w_trainer_interface.sv
+                ├── ntm_lstm_output_w_trainer_package.sv
+                └── ntm_lstm_output_w_trainer_testbench.sv
+
+237 directories, 712 files
