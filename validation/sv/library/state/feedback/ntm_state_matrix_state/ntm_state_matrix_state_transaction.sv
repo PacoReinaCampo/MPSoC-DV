@@ -37,39 +37,12 @@
 // Author(s):
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-`include "peripheral_interface.sv"
-`include "peripheral_test.sv"
+class peripheral_transaction;
+  rand bit [7:0] ip1;
+  rand bit [7:0] ip2;
 
-module peripheral_testbench;
-  bit clk;
-  bit rst;
+  bit [8:0] out;
 
-  always #2 clk = ~clk;
+  constraint ip_c {ip1 < 100; ip2 < 100;}
 
-  add_if vif(clk, rst);
-
-  adder DUT (
-    .clk (vif.clk),
-    .rst (vif.rst),
-
-    .in1 (vif.ip1),
-    .in2 (vif.ip2),
-
-    .out (vif.out)
-  );
-
-  peripheral_test t1(vif);
-
-  initial begin
-    clk = 0;
-    rst = 1;
-    #5; 
-    rst = 0;
-  end
-
-  initial begin
-    // Dump waves
-    $dumpfile("dump.vcd");
-    $dumpvars(0);
-  end
-endmodule
+endclass

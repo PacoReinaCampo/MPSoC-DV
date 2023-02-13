@@ -37,26 +37,28 @@
 // Author(s):
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-class peripheral_driver;
-  virtual add_if vif;
-  mailbox generator_to_driver;
-  peripheral_transaction transaction;
+class peripheral_agent;
+  peripheral_driver driver;
+  peripheral_monitor monitor;
+  peripheral_generator generator;
 
-  function new(mailbox generator_to_driver, virtual add_if vif);
-    this.generator_to_driver = generator_to_driver;
-    this.vif = vif;
+  mailbox generator_to_driver;
+  virtual add_if vif;
+
+  function new(virtual add_if vif, mailbox monitor_to_scoreboard);
+    generator_to_driver = new();
+
+    driver = new(generator_to_driver, vif);
+    monitor = new(monitor_to_scoreboard, vif);
+    generator = new(generator_to_driver);
   endfunction
 
-  task run;
-    forever begin
-      // Driver to the DUT
-      @(posedge vif.clk);
-      generator_to_driver.get(transaction);
-      //$display("ip1 = %0d, ip2 = %0d", transaction.ip1, transaction.ip2);
-      vif.ip1 <= transaction.ip1;
-      vif.ip2 <= transaction.ip2;
-      @(posedge vif.clk);
-      transaction.out <= vif.out;
-    end
+  task run();
+    fork
+      driver.run();
+      monitor.run();
+      generator.run();
+    join_any
   endtask
+
 endclass

@@ -37,23 +37,26 @@
 // Author(s):
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-class peripheral_enviroment;
-  peripheral_agent agent;
-  peripheral_scoreboard scoreboard;
+class peripheral_driver;
+  virtual add_if vif;
+  mailbox generator_to_driver;
+  peripheral_transaction transaction;
 
-  mailbox monitor_to_scoreboard;
-  function new(virtual add_if vif);
-    monitor_to_scoreboard = new();
-    agent = new(vif, monitor_to_scoreboard);
-    scoreboard = new(monitor_to_scoreboard);
+  function new(mailbox generator_to_driver, virtual add_if vif);
+    this.generator_to_driver = generator_to_driver;
+    this.vif = vif;
   endfunction
 
-  task run();
-    fork
-      agent.run();
-      scoreboard.run();
-    join_any
-    wait(agent.generator.count == scoreboard.compare_cnt);
-    $finish;
+  task run;
+    forever begin
+      // Driver to the DUT
+      @(posedge vif.clk);
+      generator_to_driver.get(transaction);
+      //$display("ip1 = %0d, ip2 = %0d", transaction.ip1, transaction.ip2);
+      vif.ip1 <= transaction.ip1;
+      vif.ip2 <= transaction.ip2;
+      @(posedge vif.clk);
+      transaction.out <= vif.out;
+    end
   endtask
 endclass

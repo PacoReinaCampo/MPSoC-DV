@@ -37,20 +37,26 @@
 // Author(s):
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-class peripheral_generator;
-  int count;
-  mailbox generator_to_driver;
-  peripheral_transaction transaction;
+class peripheral_scoreboard;
+  int compare_cnt;
+  mailbox monitor_to_scoreboard;
 
-  function new(mailbox generator_to_driver);
-    this.generator_to_driver = generator_to_driver;
+  function new(mailbox monitor_to_scoreboard);
+    this.monitor_to_scoreboard = monitor_to_scoreboard;
   endfunction
 
   task run;
-    repeat(count) begin
+    forever begin
+      peripheral_transaction transaction;
       transaction = new();
-      void'(transaction.randomize());
-      generator_to_driver.put(transaction);
+      monitor_to_scoreboard.get(transaction);     
+      if(transaction.ip1 + transaction.ip2 == transaction.out) begin
+        $display("Matched: ip1 = %0d, ip2 = %0d, out = %0d", transaction.ip1, transaction.ip2, transaction.out);
+      end
+      else begin
+        $display("NOT matched: ip1 = %0d, ip2 = %0d, out = %0d", transaction.ip1, transaction.ip2, transaction.out);
+      end
+      compare_cnt++;
     end
   endtask
 endclass

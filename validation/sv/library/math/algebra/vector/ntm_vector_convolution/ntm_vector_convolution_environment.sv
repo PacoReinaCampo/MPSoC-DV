@@ -37,26 +37,23 @@
 // Author(s):
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-class peripheral_monitor;
-  virtual add_if vif;
+class peripheral_enviroment;
+  peripheral_agent agent;
+  peripheral_scoreboard scoreboard;
+
   mailbox monitor_to_scoreboard;
-  
-  function new(mailbox monitor_to_scoreboard, virtual add_if vif);
-    this.vif = vif;
-    this.monitor_to_scoreboard = monitor_to_scoreboard;
+  function new(virtual add_if vif);
+    monitor_to_scoreboard = new();
+    agent = new(vif, monitor_to_scoreboard);
+    scoreboard = new(monitor_to_scoreboard);
   endfunction
-  
-  task run;
-    forever begin
-      peripheral_transaction monitor_transaction;
-      wait(!vif.rst);
-      @(posedge vif.clk);
-      monitor_transaction = new();
-      monitor_transaction.ip1 = vif.ip1;
-      monitor_transaction.ip2 = vif.ip2;
-      @(posedge vif.clk);
-      monitor_transaction.out = vif.out;
-      monitor_to_scoreboard.put(monitor_transaction);
-    end
+
+  task run();
+    fork
+      agent.run();
+      scoreboard.run();
+    join_any
+    wait(agent.generator.count == scoreboard.compare_cnt);
+    $finish;
   endtask
 endclass

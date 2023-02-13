@@ -37,26 +37,26 @@
 // Author(s):
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-class peripheral_scoreboard;
-  int compare_cnt;
+class peripheral_monitor;
+  virtual add_if vif;
   mailbox monitor_to_scoreboard;
-
-  function new(mailbox monitor_to_scoreboard);
+  
+  function new(mailbox monitor_to_scoreboard, virtual add_if vif);
+    this.vif = vif;
     this.monitor_to_scoreboard = monitor_to_scoreboard;
   endfunction
-
+  
   task run;
     forever begin
-      peripheral_transaction transaction;
-      transaction = new();
-      monitor_to_scoreboard.get(transaction);     
-      if(transaction.ip1 + transaction.ip2 == transaction.out) begin
-        $display("Matched: ip1 = %0d, ip2 = %0d, out = %0d", transaction.ip1, transaction.ip2, transaction.out);
-      end
-      else begin
-        $display("NOT matched: ip1 = %0d, ip2 = %0d, out = %0d", transaction.ip1, transaction.ip2, transaction.out);
-      end
-      compare_cnt++;
+      peripheral_transaction monitor_transaction;
+      wait(!vif.rst);
+      @(posedge vif.clk);
+      monitor_transaction = new();
+      monitor_transaction.ip1 = vif.ip1;
+      monitor_transaction.ip2 = vif.ip2;
+      @(posedge vif.clk);
+      monitor_transaction.out = vif.out;
+      monitor_to_scoreboard.put(monitor_transaction);
     end
   endtask
 endclass

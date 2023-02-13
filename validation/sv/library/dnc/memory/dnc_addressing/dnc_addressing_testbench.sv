@@ -37,14 +37,39 @@
 // Author(s):
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-`include "peripheral_package.sv"
+`include "peripheral_interface.sv"
+`include "peripheral_test.sv"
 
-program peripheral_test(add_if vif);
-  peripheral_enviroment enviroment;
-  
+module peripheral_testbench;
+  bit clk;
+  bit rst;
+
+  always #2 clk = ~clk;
+
+  add_if vif(clk, rst);
+
+  adder DUT (
+    .clk (vif.clk),
+    .rst (vif.rst),
+
+    .in1 (vif.ip1),
+    .in2 (vif.ip2),
+
+    .out (vif.out)
+  );
+
+  peripheral_test t1(vif);
+
   initial begin
-    enviroment = new(vif);
-    enviroment.agent.generator.count = 5;
-    enviroment.run();
+    clk = 0;
+    rst = 1;
+    #5; 
+    rst = 0;
   end
-endprogram
+
+  initial begin
+    // Dump waves
+    $dumpfile("dump.vcd");
+    $dumpvars(0);
+  end
+endmodule

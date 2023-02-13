@@ -37,28 +37,14 @@
 // Author(s):
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-class peripheral_agent;
-  peripheral_driver driver;
-  peripheral_monitor monitor;
-  peripheral_generator generator;
+`include "peripheral_package.sv"
 
-  mailbox generator_to_driver;
-  virtual add_if vif;
-
-  function new(virtual add_if vif, mailbox monitor_to_scoreboard);
-    generator_to_driver = new();
-
-    driver = new(generator_to_driver, vif);
-    monitor = new(monitor_to_scoreboard, vif);
-    generator = new(generator_to_driver);
-  endfunction
-
-  task run();
-    fork
-      driver.run();
-      monitor.run();
-      generator.run();
-    join_any
-  endtask
-
-endclass
+program peripheral_test(add_if vif);
+  peripheral_enviroment enviroment;
+  
+  initial begin
+    enviroment = new(vif);
+    enviroment.agent.generator.count = 5;
+    enviroment.run();
+  end
+endprogram

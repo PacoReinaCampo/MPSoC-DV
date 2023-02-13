@@ -37,12 +37,20 @@
 // Author(s):
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-class peripheral_transaction;
-  rand bit [7:0] ip1;
-  rand bit [7:0] ip2;
+class peripheral_generator;
+  int count;
+  mailbox generator_to_driver;
+  peripheral_transaction transaction;
 
-  bit [8:0] out;
+  function new(mailbox generator_to_driver);
+    this.generator_to_driver = generator_to_driver;
+  endfunction
 
-  constraint ip_c {ip1 < 100; ip2 < 100;}
-
+  task run;
+    repeat(count) begin
+      transaction = new();
+      void'(transaction.randomize());
+      generator_to_driver.put(transaction);
+    end
+  endtask
 endclass
