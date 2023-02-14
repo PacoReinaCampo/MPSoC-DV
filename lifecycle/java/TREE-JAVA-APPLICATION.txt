@@ -1,0 +1,25 @@
+application
+├── bfm
+│   ├── ahb3
+│   │   └── peripheral_test.java
+│   ├── apb4
+│   │   └── peripheral_test.java
+│   ├── axi4
+│   │   └── peripheral_test.java
+│   ├── bb
+│   │   └── peripheral_test.java
+│   └── wb
+│       └── peripheral_test.java
+└── core
+    ├── ahb3
+    │   └── peripheral_test.java
+    ├── apb4
+    │   └── peripheral_test.java
+    ├── axi4
+    │   └── peripheral_test.java
+    ├── bb
+    │   └── peripheral_test.java
+    └── wb
+        └── peripheral_test.java
+
+12 directories, 10 files

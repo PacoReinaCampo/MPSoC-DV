@@ -1,0 +1,35 @@
+application
+├── bfm
+│   ├── ahb3
+│   │   ├── peripheral_test.c
+│   │   └── peripheral_test.h
+│   ├── apb4
+│   │   ├── peripheral_test.c
+│   │   └── peripheral_test.h
+│   ├── axi4
+│   │   ├── peripheral_test.c
+│   │   └── peripheral_test.h
+│   ├── bb
+│   │   ├── peripheral_test.c
+│   │   └── peripheral_test.h
+│   └── wb
+│       ├── peripheral_test.c
+│       └── peripheral_test.h
+└── core
+    ├── ahb3
+    │   ├── peripheral_test.c
+    │   └── peripheral_test.h
+    ├── apb4
+    │   ├── peripheral_test.c
+    │   └── peripheral_test.h
+    ├── axi4
+    │   ├── peripheral_test.c
+    │   └── peripheral_test.h
+    ├── bb
+    │   ├── peripheral_test.c
+    │   └── peripheral_test.h
+    └── wb
+        ├── peripheral_test.c
+        └── peripheral_test.h
+
+12 directories, 20 files

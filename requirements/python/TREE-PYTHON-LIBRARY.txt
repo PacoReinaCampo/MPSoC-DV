@@ -1,0 +1,25 @@
+library
+├── bfm
+│   ├── ahb3
+│   │   └── peripheral.py
+│   ├── apb4
+│   │   └── peripheral.py
+│   ├── axi4
+│   │   └── peripheral.py
+│   ├── bb
+│   │   └── peripheral.py
+│   └── wb
+│       └── peripheral.py
+└── core
+    ├── ahb3
+    │   └── peripheral.py
+    ├── apb4
+    │   └── peripheral.py
+    ├── axi4
+    │   └── peripheral.py
+    ├── bb
+    │   └── peripheral.py
+    └── wb
+        └── peripheral.py
+
+12 directories, 10 files

@@ -1,1 +1,2 @@
-tree -P '*.adb' library > TREE-ADA.txt
+tree -P '*.ad*' application > TREE-ADA-APPLICATION.txt
+tree -P '*.ad*' library > TREE-ADA-LIBRARY.txt

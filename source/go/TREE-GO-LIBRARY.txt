@@ -1,0 +1,25 @@
+library
+├── bfm
+│   ├── ahb3
+│   │   └── peripheral.go
+│   ├── apb4
+│   │   └── peripheral.go
+│   ├── axi4
+│   │   └── peripheral.go
+│   ├── bb
+│   │   └── peripheral.go
+│   └── wb
+│       └── peripheral.go
+└── core
+    ├── ahb3
+    │   └── peripheral.go
+    ├── apb4
+    │   └── peripheral.go
+    ├── axi4
+    │   └── peripheral.go
+    ├── bb
+    │   └── peripheral.go
+    └── wb
+        └── peripheral.go
+
+12 directories, 10 files

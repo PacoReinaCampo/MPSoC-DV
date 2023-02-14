@@ -1,0 +1,25 @@
+application
+├── bfm
+│   ├── ahb3
+│   │   └── peripheral_test.m
+│   ├── apb4
+│   │   └── peripheral_test.m
+│   ├── axi4
+│   │   └── peripheral_test.m
+│   ├── bb
+│   │   └── peripheral_test.m
+│   └── wb
+│       └── peripheral_test.m
+└── core
+    ├── ahb3
+    │   └── peripheral_test.m
+    ├── apb4
+    │   └── peripheral_test.m
+    ├── axi4
+    │   └── peripheral_test.m
+    ├── bb
+    │   └── peripheral_test.m
+    └── wb
+        └── peripheral_test.m
+
+12 directories, 10 files

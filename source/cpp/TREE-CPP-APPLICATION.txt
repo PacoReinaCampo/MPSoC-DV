@@ -1,0 +1,35 @@
+application
+├── bfm
+│   ├── ahb3
+│   │   ├── peripheral_test.cpp
+│   │   └── peripheral_test.hpp
+│   ├── apb4
+│   │   ├── peripheral_test.cpp
+│   │   └── peripheral_test.hpp
+│   ├── axi4
+│   │   ├── peripheral_test.cpp
+│   │   └── peripheral_test.hpp
+│   ├── bb
+│   │   ├── peripheral_test.cpp
+│   │   └── peripheral_test.hpp
+│   └── wb
+│       ├── peripheral_test.cpp
+│       └── peripheral_test.hpp
+└── core
+    ├── ahb3
+    │   ├── peripheral_test.cpp
+    │   └── peripheral_test.hpp
+    ├── apb4
+    │   ├── peripheral_test.cpp
+    │   └── peripheral_test.hpp
+    ├── axi4
+    │   ├── peripheral_test.cpp
+    │   └── peripheral_test.hpp
+    ├── bb
+    │   ├── peripheral_test.cpp
+    │   └── peripheral_test.hpp
+    └── wb
+        ├── peripheral_test.cpp
+        └── peripheral_test.hpp
+
+12 directories, 20 files

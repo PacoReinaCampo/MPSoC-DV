@@ -1,0 +1,25 @@
+library
+├── bfm
+│   ├── ahb3
+│   │   └── peripheral.m
+│   ├── apb4
+│   │   └── peripheral.m
+│   ├── axi4
+│   │   └── peripheral.m
+│   ├── bb
+│   │   └── peripheral.m
+│   └── wb
+│       └── peripheral.m
+└── core
+    ├── ahb3
+    │   └── peripheral.m
+    ├── apb4
+    │   └── peripheral.m
+    ├── axi4
+    │   └── peripheral.m
+    ├── bb
+    │   └── peripheral.m
+    └── wb
+        └── peripheral.m
+
+12 directories, 10 files
