@@ -1,0 +1,70 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = LR];
+  node[shape=record];
+
+  // Peripheral Blocks
+  MPSoC_DBG[label="MPSoC_DBG \nPeripheral"];
+  MPSoC_DMA[label="MPSoC_DMA \nPeripheral"];
+  MPSoC_GPIO[label="MPSoC_GPIO \nPeripheral"];
+  MPSoC_MPI[label="MPSoC_MPI \nPeripheral"];
+  MPSoC_MPRAM[label="MPSoC_MPRAM \nPeripheral"];
+  MPSoC_MSI[label="MPSoC_MSI \nPeripheral"];
+  MPSoC_SPRAM[label="MPSoC_SPRAM \nPeripheral"];
+  MPSoC_UART[label="MPSoC_UART \nPeripheral"];
+
+  // Architecture Blocks
+  PU_MSP430[label="PU_MSP430 \nArchitecture"];
+  PU_OR1K[label="PU_OR1K \nArchitecture"];
+  PU_RISCV[label="PU_RISCV \nArchitecture"];
+
+  // Enviroment Blocks
+  PU_DV[label="PU_DV \nEnviroment"];
+
+  // Advanced A Blocks
+  PU_NTM[label="PU_NTM \nAdvanced"];
+  PU_DNC[label="PU_DNC \nAdvanced"];
+
+  // Advanced B Blocks
+  PU_FinTech[label="PU_FinTech \nAdvanced"];
+
+  MPSoC_DBG -> PU_MSP430;
+  MPSoC_DMA -> PU_MSP430;
+  MPSoC_GPIO -> PU_MSP430;
+  MPSoC_MPI -> PU_MSP430;
+  MPSoC_MPRAM -> PU_MSP430;
+  MPSoC_MSI -> PU_MSP430;
+  MPSoC_SPRAM -> PU_MSP430;
+  MPSoC_UART -> PU_MSP430;
+
+  MPSoC_DBG -> PU_OR1K;
+  MPSoC_DMA -> PU_OR1K;
+  MPSoC_GPIO -> PU_OR1K;
+  MPSoC_MPI -> PU_OR1K;
+  MPSoC_MPRAM -> PU_OR1K;
+  MPSoC_MSI -> PU_OR1K;
+  MPSoC_SPRAM -> PU_OR1K;
+  MPSoC_UART -> PU_OR1K;
+
+  MPSoC_DBG -> PU_RISCV;
+  MPSoC_DMA -> PU_RISCV;
+  MPSoC_GPIO -> PU_RISCV;
+  MPSoC_MPI -> PU_RISCV;
+  MPSoC_MPRAM -> PU_RISCV;
+  MPSoC_MSI -> PU_RISCV;
+  MPSoC_SPRAM -> PU_RISCV;
+  MPSoC_UART -> PU_RISCV;
+
+  // Architecture -> Enviroment
+  PU_MSP430 -> PU_DV;
+  PU_OR1K -> PU_DV;
+  PU_RISCV -> PU_DV;
+
+  // Enviroment -> Avanced A
+  PU_DV -> PU_NTM;
+  PU_DV -> PU_DNC;
+
+  // Avanced A -> Avanced B
+  PU_NTM -> PU_FinTech;
+  PU_DNC -> PU_FinTech;
+}
