@@ -7,10 +7,10 @@ class master_sequencer extends uvm_sequencer #(master_sequence_item);
   //------------------------------------------
 
   // Standard UVM Methods:
-  extern function new(string name = "master_sequencer",uvm_component parent);
+  extern function new(string name = "master_sequencer", uvm_component parent);
 endclass
 
 //-----------------  constructor new method  -------------------//
-function master_sequencer::new(string name="master_sequencer",uvm_component parent);
-  super.new(name,parent);
+function master_sequencer::new(string name = "master_sequencer", uvm_component parent);
+  super.new(name, parent);
 endfunction

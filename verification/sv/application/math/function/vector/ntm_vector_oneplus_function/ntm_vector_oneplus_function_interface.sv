@@ -46,7 +46,7 @@ interface add_if (
   logic [7:0] ip2;
 
   logic [8:0] out;
-  
+
   // clocking driver_cb @(posedge clk);
   // default input #1 output #1;
   // endclocking

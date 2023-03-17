@@ -1,15 +1,15 @@
 class master_monitor extends uvm_monitor;
   `uvm_component_utils(master_monitor)
 
-  virtual axi_if.M_MON_MP vif;
+  virtual axi_if.M_MON_MP                   vif;
 
-  master_object m_cfg;
+  master_object                             m_cfg;
 
   uvm_analysis_port #(master_sequence_item) monitor_port;
 
-  master_sequence_item store[int][int];
+  master_sequence_item                      store[int][int];
 
-  int ID[int];
+  int                                       ID[int];
 
   //------------------------------------------
   // METHODS
@@ -36,8 +36,7 @@ function void master_monitor::build_phase(uvm_phase phase);
   // call super.build_phase(phase);
   super.build_phase(phase);
 
-  if (!uvm_config_db#(master_object)::get(this, "", "set_from_master_top", m_cfg))
-    `uvm_fatal("CONFIG", "cannot get() m_cfg from uvm_config_db. Have you set() it?")
+  if (!uvm_config_db#(master_object)::get(this, "", "set_from_master_top", m_cfg)) `uvm_fatal("CONFIG", "cannot get() m_cfg from uvm_config_db. Have you set() it?")
 endfunction
 
 task master_monitor::run_phase(uvm_phase phase);
@@ -92,7 +91,7 @@ endtask
 task master_monitor::collect_resp();
   master_sequence_item data_rcv1;
 
-  int a;
+  int                  a;
 
   repeat (data_rcv1.WRITE_DATA_TRANS) begin
     a = 0;
@@ -123,8 +122,8 @@ task master_monitor::collect_resp();
 endtask
 
 task master_monitor::collect();
-  semaphore s1 = new(1);
-  semaphore s2 = new(1);
+  semaphore            s1 = new(1);
+  semaphore            s2 = new(1);
 
   master_sequence_item data_rcv2;
 

@@ -37,32 +37,29 @@ class ubus_example_tb extends uvm_env;
   `uvm_component_utils(ubus_example_tb)
 
   // ubus environment
-  ubus_env ubus0;
+  ubus_env                ubus0;
 
   // Scoreboard to check the memory operation of the slave.
   ubus_example_scoreboard scoreboard0;
 
   // new
-  function new (string name, uvm_component parent=null);
+  function new(string name, uvm_component parent = null);
     super.new(name, parent);
   endfunction : new
 
   // build_phase
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    uvm_config_db#(int)::set(this,"ubus0", 
-			       "num_masters", 1);
-    uvm_config_db#(int)::set(this,"ubus0", 
-			       "num_slaves", 1);
-    
-    ubus0 = ubus_env::type_id::create("ubus0", this);
+    uvm_config_db#(int)::set(this, "ubus0", "num_masters", 1);
+    uvm_config_db#(int)::set(this, "ubus0", "num_slaves", 1);
+
+    ubus0       = ubus_env::type_id::create("ubus0", this);
     scoreboard0 = ubus_example_scoreboard::type_id::create("scoreboard0", this);
   endfunction : build_phase
 
   function void connect_phase(uvm_phase phase);
     // Connect slave0 monitor to scoreboard
-    ubus0.slaves[0].monitor.item_collected_port.connect(
-      scoreboard0.item_collected_export);
+    ubus0.slaves[0].monitor.item_collected_port.connect(scoreboard0.item_collected_export);
   endfunction : connect_phase
 
   function void end_of_elaboration_phase(uvm_phase phase);

@@ -1,23 +1,23 @@
 class slave_sequence_item extends uvm_sequence_item;
   `uvm_object_utils(slave_sequence_item)
-  static int WRITE_DATA_TRANS = 0;
-  static int NO_OF_TRANS = 5;
+  static int        WRITE_DATA_TRANS     = 0;
+  static int        NO_OF_TRANS          = 5;
 
-  bit [3:0] AWID;
-  bit [31:0] AWADDR;
-  bit [3:0] AWLEN;
-  bit [2:0] AWSIZE;
-  bit [1:0] AWBURST;
+  bit        [ 3:0] AWID;
+  bit        [31:0] AWADDR;
+  bit        [ 3:0] AWLEN;
+  bit        [ 2:0] AWSIZE;
+  bit        [ 1:0] AWBURST;
 
-  bit [3:0] WSTRB[$];
-  bit [31:0] WDATA[$];
-  bit [3:0] WID;
+  bit        [ 3:0] WSTRB           [$];
+  bit        [31:0] WDATA           [$];
+  bit        [ 3:0] WID;
 
-  rand bit [5:0] b_delay;
-  rand bit [5:0] a_delay;
-  rand bit [2:0] d_delay;
-  rand bit [2:0] rd_a_delay;
-  rand bit [2:0] rd_d_delay;
+  rand bit   [ 5:0] b_delay;
+  rand bit   [ 5:0] a_delay;
+  rand bit   [ 2:0] d_delay;
+  rand bit   [ 2:0] rd_a_delay;
+  rand bit   [ 2:0] rd_d_delay;
 
   extern function new(string name = "slave_sequence_item");
   extern function void do_print(uvm_printer printer);

@@ -38,22 +38,22 @@
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
 module ntm_scalar_arithmetic_testbench;
-  reg clk;
-  reg rst;
+  reg        clk;
+  reg        rst;
 
-  reg [7:0] ip1;
-  reg [7:0] ip2;
+  reg  [7:0] ip1;
+  reg  [7:0] ip2;
 
   wire [8:0] out;
 
-  ntm_scalar_adder dut(
-    .clk (clk),
-    .rst (rst),
+  ntm_scalar_adder dut (
+    .clk(clk),
+    .rst(rst),
 
-    .in1 (ip1),
-    .in2 (ip2),
+    .in1(ip1),
+    .in2(ip2),
 
-    .out (out)
+    .out(out)
   );
 
   always #5 clk = ~clk;

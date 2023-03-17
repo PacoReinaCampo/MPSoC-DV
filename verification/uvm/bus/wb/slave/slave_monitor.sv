@@ -1,15 +1,15 @@
 class slave_monitor extends uvm_monitor;
   `uvm_component_utils(slave_monitor)
 
-  virtual axi_if.S_MON_MP vif;
+  virtual axi_if.S_MON_MP                  vif;
 
-  slave_object m_cfg;
+  slave_object                             m_cfg;
 
   uvm_analysis_port #(slave_sequence_item) monitor_port;
 
-  slave_sequence_item store[int][int];
+  slave_sequence_item                      store[int][int];
 
-  int ID[int];
+  int                                      ID[int];
 
   //------------------------------------------
   // METHODS
@@ -41,8 +41,7 @@ function void slave_monitor::build_phase(uvm_phase phase);
   // call super.build_phase(phase);
   super.build_phase(phase);
 
-  if (!uvm_config_db#(slave_object)::get(this, "", "set_from_slave_top", m_cfg))
-    `uvm_fatal("CONFIG", "cannot get() m_cfg from uvm_config_db. Have you set() it?")
+  if (!uvm_config_db#(slave_object)::get(this, "", "set_from_slave_top", m_cfg)) `uvm_fatal("CONFIG", "cannot get() m_cfg from uvm_config_db. Have you set() it?")
 endfunction
 
 task slave_monitor::run_phase(uvm_phase phase);
@@ -55,8 +54,8 @@ task slave_monitor::run_phase(uvm_phase phase);
 endtask
 
 task slave_monitor::collect();
-  semaphore s1 = new(1);
-  semaphore s2 = new(1);
+  semaphore           s1 = new(1);
+  semaphore           s2 = new(1);
 
   slave_sequence_item data_rcv2;
 
@@ -105,8 +104,7 @@ task slave_monitor::collect_data();
           end
 
           disable B1;
-        end
-        else
+        end else
           wait (vif.s_mon_cb.WREADY && vif.s_mon_cb.WVALID) begin
             // $display("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH at time %0t",$time);
             data_rcv.WID = vif.s_mon_cb.WID;
@@ -131,7 +129,7 @@ endtask
 
 task slave_monitor::collect_resp();
   slave_sequence_item data_rcv1;
-  int a;
+  int                 a;
 
   repeat (data_rcv1.WRITE_DATA_TRANS) begin
     a = 0;

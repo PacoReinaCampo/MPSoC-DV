@@ -2,18 +2,18 @@ class axi_scoreboard extends uvm_scoreboard;
   `uvm_component_utils(axi_scoreboard)
 
   uvm_tlm_analysis_fifo #(master_sequence_item) fifo_master;
-  uvm_tlm_analysis_fifo #(slave_sequence_item) fifo_slave;
+  uvm_tlm_analysis_fifo #(slave_sequence_item)  fifo_slave;
 
-  static int no_of_write_packet;
-  static int no_of_read_packet;
-  static int no_of_data_verification_with_success;
-  static int no_of_data_verification_with_failure;
-  static int no_of_data_verification;
-  static int no_of_trans_verification_with_success;
-  static int no_of_trans_verification_with_faluare;
+  static int                                    no_of_write_packet;
+  static int                                    no_of_read_packet;
+  static int                                    no_of_data_verification_with_success;
+  static int                                    no_of_data_verification_with_failure;
+  static int                                    no_of_data_verification;
+  static int                                    no_of_trans_verification_with_success;
+  static int                                    no_of_trans_verification_with_faluare;
 
-  master_sequence_item master_data;
-  slave_sequence_item slave_data;
+  master_sequence_item                          master_data;
+  slave_sequence_item                           slave_data;
 
   extern function new(string name, uvm_component parent);
   extern task run_phase(uvm_phase phase);
@@ -61,18 +61,15 @@ function void axi_scoreboard::check_phase1();
       `uvm_info("axi_scoreboard", $sformatf("DATA mismatch[%0d]", i), UVM_LOW)
       no_of_data_verification_with_failure++;
       no_of_data_verification++;
-    end
-    else begin
+    end else begin
       `uvm_info("axi_scoreboard", $sformatf("DATA match[%0d]", i), UVM_LOW)
       no_of_data_verification_with_success++;
       no_of_data_verification++;
     end
   end
 
-  if (no_of_data_verification_with_success == no_of_data_verification)
-    no_of_trans_verification_with_success++;
-  else
-    no_of_trans_verification_with_faluare++;
+  if (no_of_data_verification_with_success == no_of_data_verification) no_of_trans_verification_with_success++;
+  else no_of_trans_verification_with_faluare++;
 
   $display("   ***************************** SCORE BOARD RESULT FOR PACKET: %0d *************************************", no_of_read_packet);
   $display("   *                                                                                                    *");

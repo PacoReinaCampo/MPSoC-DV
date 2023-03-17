@@ -40,8 +40,8 @@
 module bench;
   reg clk, rst;
   reg [7:0] ip1, ip2;
-  wire [8:0]out;
-  
+  wire [8:0] out;
+
   adder DUT (
     .clk(clk),
     .rst(rst),
@@ -51,7 +51,7 @@ module bench;
 
     .out(out)
   );
-  
+
   always #5 clk = ~clk;
 
   initial begin
@@ -61,22 +61,22 @@ module bench;
 
     clk = 0;
 
-    ip1= 0;
-    ip2= 0;
+    ip1 = 0;
+    ip2 = 0;
 
     rst = 0;
     #2ns;
     rst = 1;
-    
+
     #2ns;
     rst = 0;
     #10;
-    
-    ip1= 5;
-    ip2= 2;
+
+    ip1 = 5;
+    ip2 = 2;
     #5;
     $display("End.");
     $finish;
-  end 
+  end
 
 endmodule

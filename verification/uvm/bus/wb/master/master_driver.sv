@@ -2,23 +2,23 @@ class master_driver extends uvm_driver #(master_sequence_item);
   // Factory Registration
   `uvm_component_utils(master_driver)
 
-  master_sequence_item q1[$];
-  master_sequence_item q2[$];
-  master_sequence_item q3[$];
-  master_sequence_item q4[$];
-  master_sequence_item q5[$];
- 
-  bit [3:0] d_delay;
-  bit [3:0] BID[$];
+  master_sequence_item          q1      [$];
+  master_sequence_item          q2      [$];
+  master_sequence_item          q3      [$];
+  master_sequence_item          q4      [$];
+  master_sequence_item          q5      [$];
 
-  virtual axi_if.M_DRV_MP vif;
+  bit                     [3:0] d_delay;
+  bit                     [3:0] BID     [$];
+
+  virtual axi_if.M_DRV_MP       vif;
 
   // Declare virtual interface handle with WDR_MP as modport
   // virtual ram_if.WDR_MP vif;
 
   // Declare the ram_wr_agent_config handle as "m_cfg"
   // master_object m_cfg;
-  master_object m_cfg;
+  master_object                 m_cfg;
 
   //------------------------------------------
   // METHODS
@@ -47,8 +47,7 @@ endfunction
 function void master_driver::build_phase(uvm_phase phase);
   super.build_phase(phase);
   // get the config object using uvm_config_db 
-  if (!uvm_config_db#(master_object)::get(this, "", "set_from_master_top", m_cfg))
-    `uvm_fatal("CONFIG", "cannot get() m_cfg from uvm_config_db. Have you set() it?")
+  if (!uvm_config_db#(master_object)::get(this, "", "set_from_master_top", m_cfg)) `uvm_fatal("CONFIG", "cannot get() m_cfg from uvm_config_db. Have you set() it?")
 
   //$display("##################CFG CLASS PROPERTY %p",m_cfg);
 endfunction
@@ -125,11 +124,11 @@ task master_driver::write_addr(master_sequence_item xtn);
   repeat (xtn.a_delay) @(vif.m_drv_cb);
 
   vif.m_drv_cb.AWVALID <= 1'b1;
-  vif.m_drv_cb.AWID <= xtn.AWID;
-  vif.m_drv_cb.AWLEN <= xtn.AWLEN;
-  vif.m_drv_cb.AWSIZE <= xtn.AWSIZE;
+  vif.m_drv_cb.AWID    <= xtn.AWID;
+  vif.m_drv_cb.AWLEN   <= xtn.AWLEN;
+  vif.m_drv_cb.AWSIZE  <= xtn.AWSIZE;
   vif.m_drv_cb.AWBURST <= xtn.AWBURST;
-  vif.m_drv_cb.AWADDR <= xtn.AWADDR;
+  vif.m_drv_cb.AWADDR  <= xtn.AWADDR;
   wait (vif.m_drv_cb.AWREADY) @(vif.m_drv_cb);
   vif.m_drv_cb.AWVALID <= 1'b0;
 endtask
@@ -140,13 +139,11 @@ task master_driver::write_data(master_sequence_item xtn);
 
     vif.m_drv_cb.WVALID <= 1'b1;
 
-    vif.m_drv_cb.WID <= xtn.WID;
+    vif.m_drv_cb.WID    <= xtn.WID;
 
     if (i == xtn.Burst_Length - 1) begin
       vif.m_drv_cb.WLAST <= 1'b1;
-    end
-    else
-      vif.m_drv_cb.WLAST <= 1'b0;
+    end else vif.m_drv_cb.WLAST <= 1'b0;
 
     vif.m_drv_cb.WSTRB <= xtn.WSTRB[i];
 
@@ -184,8 +181,7 @@ task master_driver::write_resp(master_sequence_item xtn);
       vif.m_drv_cb.BREADY <= 1'b0;
 
       d_delay = $urandom;
-      if (d_delay == 0)
-        d_delay = 2;
+      if (d_delay == 0) d_delay = 2;
     end
   end
 endtask
@@ -195,10 +191,10 @@ task master_driver::read_addr(master_sequence_item xtn);
 
   vif.m_drv_cb.ARVALID <= 1'b1;
 
-  vif.m_drv_cb.ARID <= xtn.ARID;
-  vif.m_drv_cb.ARADDR <= xtn.ARADDR;
-  vif.m_drv_cb.ARLEN <= xtn.ARLEN;
-  vif.m_drv_cb.ARSIZE <= xtn.ARSIZE;
+  vif.m_drv_cb.ARID    <= xtn.ARID;
+  vif.m_drv_cb.ARADDR  <= xtn.ARADDR;
+  vif.m_drv_cb.ARLEN   <= xtn.ARLEN;
+  vif.m_drv_cb.ARSIZE  <= xtn.ARSIZE;
   vif.m_drv_cb.ARBURST <= xtn.ARBURST;
 endtask
 

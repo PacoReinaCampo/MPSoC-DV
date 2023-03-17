@@ -39,7 +39,7 @@
 
 class ntm_scalar_arithmetic_uvm_environment extends uvm_env;
   `uvm_component_utils(ntm_scalar_arithmetic_uvm_environment)
-  ntm_scalar_arithmetic_uvm_agent agent;
+  ntm_scalar_arithmetic_uvm_agent      agent;
   ntm_scalar_arithmetic_uvm_scoreboard scoreboard;
 
   function new(string name = "environment", uvm_component parent = null);
@@ -48,7 +48,7 @@ class ntm_scalar_arithmetic_uvm_environment extends uvm_env;
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    agent = ntm_scalar_arithmetic_uvm_agent::type_id::create("agent", this);
+    agent      = ntm_scalar_arithmetic_uvm_agent::type_id::create("agent", this);
     scoreboard = ntm_scalar_arithmetic_uvm_scoreboard::type_id::create("scoreboard", this);
   endfunction
 

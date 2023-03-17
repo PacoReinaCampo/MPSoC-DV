@@ -38,13 +38,13 @@
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
 class peripheral_driver;
-  virtual add_if vif;
-  mailbox generator_to_driver;
+  virtual add_if         vif;
+  mailbox                generator_to_driver;
   peripheral_transaction transaction;
 
   function new(mailbox generator_to_driver, virtual add_if vif);
     this.generator_to_driver = generator_to_driver;
-    this.vif = vif;
+    this.vif                 = vif;
   endfunction
 
   task run;

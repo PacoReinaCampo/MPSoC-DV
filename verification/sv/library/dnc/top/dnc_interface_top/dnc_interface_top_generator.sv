@@ -38,8 +38,8 @@
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
 class peripheral_generator;
-  int count;
-  mailbox generator_to_driver;
+  int                    count;
+  mailbox                generator_to_driver;
   peripheral_transaction transaction;
 
   function new(mailbox generator_to_driver);
@@ -47,7 +47,7 @@ class peripheral_generator;
   endfunction
 
   task run;
-    repeat(count) begin
+    repeat (count) begin
       transaction = new();
       void'(transaction.randomize());
       generator_to_driver.put(transaction);

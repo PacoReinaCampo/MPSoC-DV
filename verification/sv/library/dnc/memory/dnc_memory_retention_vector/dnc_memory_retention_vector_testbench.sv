@@ -46,24 +46,27 @@ module peripheral_testbench;
 
   always #2 clk = ~clk;
 
-  add_if vif(clk, rst);
-
-  adder DUT (
-    .clk (vif.clk),
-    .rst (vif.rst),
-
-    .in1 (vif.ip1),
-    .in2 (vif.ip2),
-
-    .out (vif.out)
+  add_if vif (
+    clk,
+    rst
   );
 
-  peripheral_test t1(vif);
+  adder DUT (
+    .clk(vif.clk),
+    .rst(vif.rst),
+
+    .in1(vif.ip1),
+    .in2(vif.ip2),
+
+    .out(vif.out)
+  );
+
+  peripheral_test t1 (vif);
 
   initial begin
     clk = 0;
     rst = 1;
-    #5; 
+    #5;
     rst = 0;
   end
 

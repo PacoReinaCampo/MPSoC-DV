@@ -2,20 +2,20 @@ class slave_driver extends uvm_driver #(slave_sequence_item);
   // Factory Registration
   `uvm_component_utils(slave_driver)
 
-  slave_sequence_item q1[$];
-  slave_sequence_item q2[$];
-  slave_sequence_item q3[$];
-  slave_sequence_item q4[$];
-  slave_sequence_item q5[$];
+  slave_sequence_item            q1      [$];
+  slave_sequence_item            q2      [$];
+  slave_sequence_item            q3      [$];
+  slave_sequence_item            q4      [$];
+  slave_sequence_item            q5      [$];
 
-  virtual axi_if.S_DRV_MP vif;
+  virtual axi_if.S_DRV_MP        vif;
 
-  slave_object m_cfg;
+  slave_object                   m_cfg;
 
-  bit [31:0] data;
-  bit [3:0] strobe;
-  bit [3:0] d_delay;
-  bit [3:0] BID[$];
+  bit                     [31:0] data;
+  bit                     [ 3:0] strobe;
+  bit                     [ 3:0] d_delay;
+  bit                     [ 3:0] BID     [$];
 
   //------------------------------------------
   // METHODS
@@ -44,8 +44,7 @@ endfunction
 function void slave_driver::build_phase(uvm_phase phase);
   super.build_phase(phase);
   // get the config object using uvm_config_db 
-  if (!uvm_config_db#(slave_object)::get(this, "", "set_from_slave_top", m_cfg))
-    `uvm_fatal("CONFIG", "cannot get() m_cfg from uvm_config_db. Have you set() it?")
+  if (!uvm_config_db#(slave_object)::get(this, "", "set_from_slave_top", m_cfg)) `uvm_fatal("CONFIG", "cannot get() m_cfg from uvm_config_db. Have you set() it?")
 endfunction
 
 function void slave_driver::connect_phase(uvm_phase phase);
@@ -176,17 +175,16 @@ task slave_driver::write_resp(slave_sequence_item xtn);
 
     vif.s_drv_cb.BVALID <= 1;
 
-    vif.s_drv_cb.BID <= BID[i];
+    vif.s_drv_cb.BID    <= BID[i];
 
     wait (vif.s_drv_cb.BREADY) @(vif.s_drv_cb);
 
-    vif.s_drv_cb.BID <= 4'b0;
+    vif.s_drv_cb.BID    <= 4'b0;
 
     vif.s_drv_cb.BVALID <= 0;
 
     d_delay = $urandom;
 
-    if (d_delay == 0)
-      d_delay = 2;
+    if (d_delay == 0) d_delay = 2;
   end
 endtask

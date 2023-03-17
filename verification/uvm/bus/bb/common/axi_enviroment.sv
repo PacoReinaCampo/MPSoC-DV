@@ -3,10 +3,10 @@ class axi_enviroment extends uvm_env;
   `uvm_component_utils(axi_enviroment)
 
   master_enviroment m_agenth_top;
-  slave_enviroment s_agenth_top;
-  axi_scoreboard sb;
+  slave_enviroment  s_agenth_top;
+  axi_scoreboard    sb;
 
-  axi_object e_cfg;
+  axi_object        e_cfg;
 
   extern function new(string name = "axi_enviroment", uvm_component parent);
   extern function void build_phase(uvm_phase phase);
@@ -18,8 +18,7 @@ function axi_enviroment::new(string name = "axi_enviroment", uvm_component paren
 endfunction
 
 function void axi_enviroment::build_phase(uvm_phase phase);
-  if (!uvm_config_db#(axi_object)::get(this, "", "axi_object", e_cfg))
-    `uvm_fatal("CONFIG", "cannot get() m_cfg from uvm_config_db. Have you set() it?")
+  if (!uvm_config_db#(axi_object)::get(this, "", "axi_object", e_cfg)) `uvm_fatal("CONFIG", "cannot get() m_cfg from uvm_config_db. Have you set() it?")
 
   if (e_cfg.has_master_agent) begin
     // uvm_config_db #(master_object)::set(this,"*","master_object",e_cfg.m_cfg);
@@ -37,7 +36,9 @@ function void axi_enviroment::build_phase(uvm_phase phase);
 
   if (e_cfg.has_scoreboard)
     // Create the instance of v_sequencer handle 
-    sb = axi_scoreboard::type_id::create("sb", this);
+    sb = axi_scoreboard::type_id::create(
+      "sb", this
+    );
 
   super.build_phase(phase);
 endfunction
@@ -45,13 +46,11 @@ endfunction
 function void axi_enviroment::connect_phase(uvm_phase phase);
   if (e_cfg.has_scoreboard) begin
     if (e_cfg.has_master_agent) begin
-      for (int i = 0; i < e_cfg.no_of_master_agent; i++)
-        m_agenth_top.m_agenth[i].monh.monitor_port.connect(sb.fifo_master.analysis_export);
+      for (int i = 0; i < e_cfg.no_of_master_agent; i++) m_agenth_top.m_agenth[i].monh.monitor_port.connect(sb.fifo_master.analysis_export);
     end
 
     if (e_cfg.has_slave_agent) begin
-      for (int i = 0; i < e_cfg.no_of_slave_agent; i++)
-        s_agenth_top.s_agenth[i].monh.monitor_port.connect(sb.fifo_slave.analysis_export);
+      for (int i = 0; i < e_cfg.no_of_slave_agent; i++) s_agenth_top.s_agenth[i].monh.monitor_port.connect(sb.fifo_slave.analysis_export);
     end
   end
 endfunction

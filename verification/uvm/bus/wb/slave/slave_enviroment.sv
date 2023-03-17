@@ -3,7 +3,7 @@ class slave_enviroment extends uvm_env;
 
   slave_agent s_agenth[];
 
-  axi_object e_cfg;
+  axi_object  e_cfg;
 
   extern function new(string name = "slave_enviroment", uvm_component parent);
   extern function void build_phase(uvm_phase phase);
@@ -13,8 +13,7 @@ endclass
 function slave_enviroment::new(string name = "slave_enviroment", uvm_component parent);
   super.new(name, parent);
 
-  if (!uvm_config_db#(axi_object)::get(this, "", "axi_object", e_cfg))
-    `uvm_fatal("SLAVE_AGT_TOP", "Cannot get configuration db from the test")
+  if (!uvm_config_db#(axi_object)::get(this, "", "axi_object", e_cfg)) `uvm_fatal("SLAVE_AGT_TOP", "Cannot get configuration db from the test")
 endfunction
 
 function void slave_enviroment::build_phase(uvm_phase phase);

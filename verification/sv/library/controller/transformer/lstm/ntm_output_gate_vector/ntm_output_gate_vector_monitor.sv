@@ -39,19 +39,19 @@
 
 class peripheral_monitor;
   virtual add_if vif;
-  mailbox monitor_to_scoreboard;
-  
+  mailbox        monitor_to_scoreboard;
+
   function new(mailbox monitor_to_scoreboard, virtual add_if vif);
-    this.vif = vif;
+    this.vif                   = vif;
     this.monitor_to_scoreboard = monitor_to_scoreboard;
   endfunction
-  
+
   task run;
     forever begin
       peripheral_transaction monitor_transaction;
-      wait(!vif.rst);
+      wait (!vif.rst);
       @(posedge vif.clk);
-      monitor_transaction = new();
+      monitor_transaction     = new();
       monitor_transaction.ip1 = vif.ip1;
       monitor_transaction.ip2 = vif.ip2;
       @(posedge vif.clk);

@@ -29,11 +29,11 @@
 module ubus_tb_top;
   import uvm_pkg::*;
   import ubus_pkg::*;
-  `include "test_lib.sv" 
+  `include "test_lib.sv"
 
-  ubus_if vif(); // SystemVerilog Interface
-  
-  dut_dummy dut(
+ubus_if vif ();  // SystemVerilog Interface
+
+  dut_dummy dut (
     vif.sig_request[0],
     vif.sig_grant[0],
     vif.sig_request[1],
@@ -63,7 +63,6 @@ module ubus_tb_top;
   end
 
   //Generate Clock
-  always
-    #5 vif.sig_clock = ~vif.sig_clock;
+  always #5 vif.sig_clock = ~vif.sig_clock;
 
 endmodule

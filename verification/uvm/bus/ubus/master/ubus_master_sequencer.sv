@@ -27,9 +27,9 @@
 
 class ubus_master_sequencer extends uvm_sequencer #(ubus_transfer);
 
-   `uvm_component_utils(ubus_master_sequencer)
-     
-  function new (string name, uvm_component parent);
+  `uvm_component_utils(ubus_master_sequencer)
+
+  function new(string name, uvm_component parent);
     super.new(name, parent);
   endfunction : new
 

@@ -41,8 +41,11 @@ class peripheral_transaction;
   rand bit [7:0] ip1;
   rand bit [7:0] ip2;
 
-  bit [8:0] out;
+  bit      [8:0] out;
 
-  constraint ip_c {ip1 < 100; ip2 < 100;}
+  constraint ip_c {
+    ip1 < 100;
+    ip2 < 100;
+  }
 
 endclass

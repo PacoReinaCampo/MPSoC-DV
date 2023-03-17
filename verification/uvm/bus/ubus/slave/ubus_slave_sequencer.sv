@@ -28,13 +28,13 @@
 class ubus_slave_sequencer extends uvm_sequencer #(ubus_transfer);
 
   // TLM port to peek the address phase from the slave monitor
-  uvm_blocking_peek_port#(ubus_transfer) addr_ph_port;
+  uvm_blocking_peek_port #(ubus_transfer) addr_ph_port;
 
   // Provide implementations of virtual methods such as get_type_name and create
   `uvm_component_utils(ubus_slave_sequencer)
 
-  
-  function new (string name, uvm_component parent);
+
+  function new(string name, uvm_component parent);
     super.new(name, parent);
     addr_ph_port = new("addr_ph_port", this);
   endfunction : new

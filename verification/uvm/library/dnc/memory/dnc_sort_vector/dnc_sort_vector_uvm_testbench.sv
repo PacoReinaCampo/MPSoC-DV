@@ -56,16 +56,19 @@ module ntm_scalar_arithmetic_uvm_testbench;
     rst = 0;
   end
 
-  ntm_scalar_adder_if vif(clk, rst);
+  ntm_scalar_adder_if vif (
+    clk,
+    rst
+  );
 
-  ntm_scalar_adder dut(
+  ntm_scalar_adder dut (
     .clk(vif.clk),
     .rst(vif.rst),
 
-    .in1 (vif.ip1),
-    .in2 (vif.ip2),
+    .in1(vif.ip1),
+    .in2(vif.ip2),
 
-  .out (vif.out)
+    .out(vif.out)
   );
 
   initial begin

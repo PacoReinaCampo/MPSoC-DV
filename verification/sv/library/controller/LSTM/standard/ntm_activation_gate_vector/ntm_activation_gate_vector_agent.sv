@@ -38,19 +38,19 @@
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
 class peripheral_agent;
-  peripheral_driver driver;
-  peripheral_monitor monitor;
+  peripheral_driver    driver;
+  peripheral_monitor   monitor;
   peripheral_generator generator;
 
-  mailbox generator_to_driver;
-  virtual add_if vif;
+  mailbox              generator_to_driver;
+  virtual add_if       vif;
 
   function new(virtual add_if vif, mailbox monitor_to_scoreboard);
     generator_to_driver = new();
 
-    driver = new(generator_to_driver, vif);
-    monitor = new(monitor_to_scoreboard, vif);
-    generator = new(generator_to_driver);
+    driver              = new(generator_to_driver, vif);
+    monitor             = new(monitor_to_scoreboard, vif);
+    generator           = new(generator_to_driver);
   endfunction
 
   task run();
