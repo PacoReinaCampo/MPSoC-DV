@@ -1,7 +1,7 @@
 class axi_test extends uvm_test;
   `uvm_component_utils(axi_test)
 
-  axi_enviroment  envh;
+  axi_environment  envh;
 
   master_sequence seqh1;
   slave_sequence  seqh2;
@@ -42,7 +42,7 @@ function void axi_test::build_phase(uvm_phase phase);
 
   super.build_phase(phase);
 
-  envh = axi_enviroment::type_id::create("envh", this);
+  envh = axi_environment::type_id::create("envh", this);
 endfunction
 
 function void axi_test::config_axi();

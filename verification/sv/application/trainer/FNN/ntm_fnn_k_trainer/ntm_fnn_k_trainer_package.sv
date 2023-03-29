@@ -43,4 +43,4 @@
 `include "peripheral_monitor.sv"
 `include "peripheral_scoreboard.sv"
 `include "peripheral_agent.sv"
-`include "peripheral_enviroment.sv"
+`include "peripheral_environment.sv"

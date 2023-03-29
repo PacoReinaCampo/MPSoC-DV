@@ -42,11 +42,11 @@
 program peripheral_test (
   add_if vif
 );
-  peripheral_enviroment enviroment;
+  peripheral_environment environment;
 
   initial begin
-    enviroment                       = new(vif);
-    enviroment.agent.generator.count = 5;
-    enviroment.run();
+    environment                       = new(vif);
+    environment.agent.generator.count = 5;
+    environment.run();
   end
 endprogram

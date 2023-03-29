@@ -1,16 +1,16 @@
-class master_enviroment extends uvm_env;
-  `uvm_component_utils(master_enviroment);
+class master_environment extends uvm_env;
+  `uvm_component_utils(master_environment);
 
   master_agent m_agenth[];
 
   axi_object   e_cfg;
 
-  extern function new(string name = "master_enviroment", uvm_component parent);
+  extern function new(string name = "master_environment", uvm_component parent);
   extern function void build_phase(uvm_phase phase);
   extern task run_phase(uvm_phase phase);
 endclass
 
-function master_enviroment::new(string name = "master_enviroment", uvm_component parent);
+function master_environment::new(string name = "master_environment", uvm_component parent);
   super.new(name, parent);
 
   if (!uvm_config_db#(axi_object)::get(this, "", "axi_object", e_cfg)) `uvm_fatal("MASTER_AGT_TOP", "Cannot get configuration db from the test")
@@ -18,7 +18,7 @@ function master_enviroment::new(string name = "master_enviroment", uvm_component
   $display("$$$$$$$$$$$$$$$$$ %0p", e_cfg);
 endfunction
 
-function void master_enviroment::build_phase(uvm_phase phase);
+function void master_environment::build_phase(uvm_phase phase);
   super.build_phase(phase);
 
   m_agenth = new[e_cfg.no_of_master_agent];
@@ -30,6 +30,6 @@ function void master_enviroment::build_phase(uvm_phase phase);
   end
 endfunction
 
-task master_enviroment::run_phase(uvm_phase phase);
+task master_environment::run_phase(uvm_phase phase);
   uvm_top.print_topology;
 endtask

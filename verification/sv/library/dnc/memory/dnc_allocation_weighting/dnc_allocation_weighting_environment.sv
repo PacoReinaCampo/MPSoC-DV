@@ -37,7 +37,7 @@
 // Author(s):
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-class peripheral_enviroment;
+class peripheral_environment;
   peripheral_agent      agent;
   peripheral_scoreboard scoreboard;
 
