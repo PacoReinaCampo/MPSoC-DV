@@ -1,0 +1,78 @@
+library
+├── ahb3
+│   ├── peripheral_uvm_agent.sv
+│   ├── peripheral_uvm_coverage.sv
+│   ├── peripheral_uvm_defines.sv
+│   ├── peripheral_uvm_driver.sv
+│   ├── peripheral_uvm_environment.sv
+│   ├── peripheral_uvm_interface.sv
+│   ├── peripheral_uvm_monitor.sv
+│   ├── peripheral_uvm_reference_model.sv
+│   ├── peripheral_uvm_scoreboard.sv
+│   ├── peripheral_uvm_sequencer.sv
+│   ├── peripheral_uvm_sequence.sv
+│   ├── peripheral_uvm_testbench.sv
+│   ├── peripheral_uvm_test.sv
+│   └── peripheral_uvm_transaction.sv
+├── apb4
+│   ├── peripheral_uvm_agent.sv
+│   ├── peripheral_uvm_coverage.sv
+│   ├── peripheral_uvm_defines.sv
+│   ├── peripheral_uvm_driver.sv
+│   ├── peripheral_uvm_environment.sv
+│   ├── peripheral_uvm_interface.sv
+│   ├── peripheral_uvm_monitor.sv
+│   ├── peripheral_uvm_reference_model.sv
+│   ├── peripheral_uvm_scoreboard.sv
+│   ├── peripheral_uvm_sequencer.sv
+│   ├── peripheral_uvm_sequence.sv
+│   ├── peripheral_uvm_testbench.sv
+│   ├── peripheral_uvm_test.sv
+│   └── peripheral_uvm_transaction.sv
+├── axi4
+│   ├── peripheral_uvm_agent.sv
+│   ├── peripheral_uvm_coverage.sv
+│   ├── peripheral_uvm_defines.sv
+│   ├── peripheral_uvm_driver.sv
+│   ├── peripheral_uvm_environment.sv
+│   ├── peripheral_uvm_interface.sv
+│   ├── peripheral_uvm_monitor.sv
+│   ├── peripheral_uvm_reference_model.sv
+│   ├── peripheral_uvm_scoreboard.sv
+│   ├── peripheral_uvm_sequencer.sv
+│   ├── peripheral_uvm_sequence.sv
+│   ├── peripheral_uvm_testbench.sv
+│   ├── peripheral_uvm_test.sv
+│   └── peripheral_uvm_transaction.sv
+├── bb
+│   ├── peripheral_uvm_agent.sv
+│   ├── peripheral_uvm_coverage.sv
+│   ├── peripheral_uvm_defines.sv
+│   ├── peripheral_uvm_driver.sv
+│   ├── peripheral_uvm_environment.sv
+│   ├── peripheral_uvm_interface.sv
+│   ├── peripheral_uvm_monitor.sv
+│   ├── peripheral_uvm_reference_model.sv
+│   ├── peripheral_uvm_scoreboard.sv
+│   ├── peripheral_uvm_sequencer.sv
+│   ├── peripheral_uvm_sequence.sv
+│   ├── peripheral_uvm_testbench.sv
+│   ├── peripheral_uvm_test.sv
+│   └── peripheral_uvm_transaction.sv
+└── wb
+    ├── peripheral_uvm_agent.sv
+    ├── peripheral_uvm_coverage.sv
+    ├── peripheral_uvm_defines.sv
+    ├── peripheral_uvm_driver.sv
+    ├── peripheral_uvm_environment.sv
+    ├── peripheral_uvm_interface.sv
+    ├── peripheral_uvm_monitor.sv
+    ├── peripheral_uvm_reference_model.sv
+    ├── peripheral_uvm_scoreboard.sv
+    ├── peripheral_uvm_sequencer.sv
+    ├── peripheral_uvm_sequence.sv
+    ├── peripheral_uvm_testbench.sv
+    ├── peripheral_uvm_test.sv
+    └── peripheral_uvm_transaction.sv
+
+5 directories, 70 files
