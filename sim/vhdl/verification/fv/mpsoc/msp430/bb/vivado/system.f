@@ -42,16 +42,16 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
--i ../../../../../../../../mpsoc/msp430/library/bb
+-i ../../../../../../../../mpsoc/msp430/uvm/library/bb
 
-../../../../../../../../mpsoc/msp430/application/bb/peripheral_adder.sv
-../../../../../../../../mpsoc/msp430/application/bb/peripheral_full_adder.sv
-../../../../../../../../mpsoc/msp430/application/bb/peripheral_half_adder.sv
+../../../../../../../../mpsoc/msp430/uvm/application/bb/peripheral_adder.sv
+../../../../../../../../mpsoc/msp430/uvm/application/bb/peripheral_full_adder.sv
+../../../../../../../../mpsoc/msp430/uvm/application/bb/peripheral_half_adder.sv
 
-../../../../../../../../mpsoc/msp430/pkg/bb/peripheral_uvm_agent_pkg.sv
-../../../../../../../../mpsoc/msp430/pkg/bb/peripheral_uvm_reference_model_pkg.sv
-../../../../../../../../mpsoc/msp430/pkg/bb/peripheral_uvm_environment_pkg.sv
-../../../../../../../../mpsoc/msp430/pkg/bb/peripheral_uvm_sequence_pkg.sv
-../../../../../../../../mpsoc/msp430/pkg/bb/peripheral_uvm_test_pkg.sv
+../../../../../../../../mpsoc/msp430/uvm/pkg/bb/peripheral_uvm_agent_pkg.sv
+../../../../../../../../mpsoc/msp430/uvm/pkg/bb/peripheral_uvm_reference_model_pkg.sv
+../../../../../../../../mpsoc/msp430/uvm/pkg/bb/peripheral_uvm_environment_pkg.sv
+../../../../../../../../mpsoc/msp430/uvm/pkg/bb/peripheral_uvm_sequence_pkg.sv
+../../../../../../../../mpsoc/msp430/uvm/pkg/bb/peripheral_uvm_test_pkg.sv
 
-../../../../../../../../mpsoc/msp430/library/bb/peripheral_uvm_testbench.sv
+../../../../../../../../mpsoc/msp430/uvm/library/bb/peripheral_uvm_testbench.sv

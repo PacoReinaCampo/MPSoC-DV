@@ -1,0 +1,23 @@
+library
+├── ahb3
+│   ├── peripheral_osvvm_model_pkg.vhd
+│   ├── peripheral_osvvm_model.vhd
+│   └── peripheral_osvvm_testbench.vhd
+├── apb4
+│   ├── peripheral_osvvm_model_pkg.vhd
+│   ├── peripheral_osvvm_model.vhd
+│   └── peripheral_osvvm_testbench.vhd
+├── axi4
+│   ├── peripheral_osvvm_model_pkg.vhd
+│   ├── peripheral_osvvm_model.vhd
+│   └── peripheral_osvvm_testbench.vhd
+├── bb
+│   ├── peripheral_osvvm_model_pkg.vhd
+│   ├── peripheral_osvvm_model.vhd
+│   └── peripheral_osvvm_testbench.vhd
+└── wb
+    ├── peripheral_osvvm_model_pkg.vhd
+    ├── peripheral_osvvm_model.vhd
+    └── peripheral_osvvm_testbench.vhd
+
+5 directories, 15 files

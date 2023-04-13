@@ -42,16 +42,16 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
--i ../../../../../../../../mpsoc/or1k/library/axi4
+-i ../../../../../../../../mpsoc/or1k/uvm/library/axi4
 
-../../../../../../../../mpsoc/or1k/application/axi4/peripheral_adder.sv
-../../../../../../../../mpsoc/or1k/application/axi4/peripheral_full_adder.sv
-../../../../../../../../mpsoc/or1k/application/axi4/peripheral_half_adder.sv
+../../../../../../../../mpsoc/or1k/uvm/application/axi4/peripheral_adder.sv
+../../../../../../../../mpsoc/or1k/uvm/application/axi4/peripheral_full_adder.sv
+../../../../../../../../mpsoc/or1k/uvm/application/axi4/peripheral_half_adder.sv
 
-../../../../../../../../mpsoc/or1k/pkg/axi4/peripheral_uvm_agent_pkg.sv
-../../../../../../../../mpsoc/or1k/pkg/axi4/peripheral_uvm_reference_model_pkg.sv
-../../../../../../../../mpsoc/or1k/pkg/axi4/peripheral_uvm_environment_pkg.sv
-../../../../../../../../mpsoc/or1k/pkg/axi4/peripheral_uvm_sequence_pkg.sv
-../../../../../../../../mpsoc/or1k/pkg/axi4/peripheral_uvm_test_pkg.sv
+../../../../../../../../mpsoc/or1k/uvm/pkg/axi4/peripheral_uvm_agent_pkg.sv
+../../../../../../../../mpsoc/or1k/uvm/pkg/axi4/peripheral_uvm_reference_model_pkg.sv
+../../../../../../../../mpsoc/or1k/uvm/pkg/axi4/peripheral_uvm_environment_pkg.sv
+../../../../../../../../mpsoc/or1k/uvm/pkg/axi4/peripheral_uvm_sequence_pkg.sv
+../../../../../../../../mpsoc/or1k/uvm/pkg/axi4/peripheral_uvm_test_pkg.sv
 
-../../../../../../../../mpsoc/or1k/library/axi4/peripheral_uvm_testbench.sv
+../../../../../../../../mpsoc/or1k/uvm/library/axi4/peripheral_uvm_testbench.sv
