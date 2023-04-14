@@ -38,7 +38,6 @@
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
 `include "uvm_macros.svh"
-`include "uvm_pkg.sv"
 import uvm_pkg::*;
 
 `include "ntm_uvm_interface.sv"
