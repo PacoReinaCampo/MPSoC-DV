@@ -42,6 +42,8 @@
 ##                                                                               ##
 ###################################################################################
 
+dot -Tsvg dependences-global.dot > dependences-global.svg
+
 dot -Tsvg hardware-project.dot > hardware-project.svg
 dot -Tsvg software-project.dot > software-project.svg
 

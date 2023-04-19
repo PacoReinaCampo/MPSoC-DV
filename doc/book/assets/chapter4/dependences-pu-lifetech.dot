@@ -10,43 +10,23 @@ digraph Project {
   MPSoC_MPI[label="MPSoC_MPI \nPeripheral"];
   MPSoC_MPRAM[label="MPSoC_MPRAM \nPeripheral"];
   MPSoC_MSI[label="MPSoC_MSI \nPeripheral"];
-  MPSoC_NoC[label="MPSoC_NoC \nPeripheral"];
   MPSoC_SPRAM[label="MPSoC_SPRAM \nPeripheral"];
   MPSoC_UART[label="MPSoC_UART \nPeripheral"];
 
   // Architecture Blocks
-  SoC_MSP430[label="SoC_MSP430 \nArchitecture"];
-  SoC_OR1K[label="SoC_OR1K \nArchitecture"];
-  SoC_RISCV[label="SoC_RISCV \nArchitecture"];
   PU_MSP430[label="PU_MSP430 \nArchitecture"];
   PU_OR1K[label="PU_OR1K \nArchitecture"];
   PU_RISCV[label="PU_RISCV \nArchitecture"];
 
-  // Enviroment Blocks
-  SoC_DV[label="SoC_DV \nEnviroment"];
-  PU_DV[label="PU_DV \nEnviroment"];
+  // Environment Blocks
+  PU_DV[label="PU_DV \nEnvironment"];
 
   // Advanced A Blocks
-  SoC_NTM[label="SoC_NTM \nAdvanced"];
   PU_NTM[label="PU_NTM \nAdvanced"];
-
-  SoC_DNC[label="SoC_DNC \nAdvanced"];
   PU_DNC[label="PU_DNC \nAdvanced"];
 
   // Advanced B Blocks
-  SoC_Life[label="SoC_Life \nAdvanced"];
-  PU_Life[label="PU_Life \nAdvanced"];
-
-  // Peripheral -> Architecture
-  MPSoC_DBG -> SoC_MSP430;
-  MPSoC_DMA -> SoC_MSP430;
-  MPSoC_GPIO -> SoC_MSP430;
-  MPSoC_MPI -> SoC_MSP430;
-  MPSoC_MPRAM -> SoC_MSP430;
-  MPSoC_MSI -> SoC_MSP430;
-  MPSoC_NoC -> SoC_MSP430;
-  MPSoC_SPRAM -> SoC_MSP430;
-  MPSoC_UART -> SoC_MSP430;
+  PU_LifeTech[label="PU_LifeTech \nAdvanced"];
 
   MPSoC_DBG -> PU_MSP430;
   MPSoC_DMA -> PU_MSP430;
@@ -57,17 +37,6 @@ digraph Project {
   MPSoC_SPRAM -> PU_MSP430;
   MPSoC_UART -> PU_MSP430;
 
-
-  MPSoC_DBG -> SoC_OR1K;
-  MPSoC_DMA -> SoC_OR1K;
-  MPSoC_GPIO -> SoC_OR1K;
-  MPSoC_MPI -> SoC_OR1K;
-  MPSoC_MPRAM -> SoC_OR1K;
-  MPSoC_MSI -> SoC_OR1K;
-  MPSoC_NoC -> SoC_OR1K;
-  MPSoC_SPRAM -> SoC_OR1K;
-  MPSoC_UART -> SoC_OR1K;
-
   MPSoC_DBG -> PU_OR1K;
   MPSoC_DMA -> PU_OR1K;
   MPSoC_GPIO -> PU_OR1K;
@@ -76,17 +45,6 @@ digraph Project {
   MPSoC_MSI -> PU_OR1K;
   MPSoC_SPRAM -> PU_OR1K;
   MPSoC_UART -> PU_OR1K;
-
-
-  MPSoC_DBG -> SoC_RISCV;
-  MPSoC_DMA -> SoC_RISCV;
-  MPSoC_GPIO -> SoC_RISCV;
-  MPSoC_MPI -> SoC_RISCV;
-  MPSoC_MPRAM -> SoC_RISCV;
-  MPSoC_MSI -> SoC_RISCV;
-  MPSoC_NoC -> SoC_RISCV;
-  MPSoC_SPRAM -> SoC_RISCV;
-  MPSoC_UART -> SoC_RISCV;
 
   MPSoC_DBG -> PU_RISCV;
   MPSoC_DMA -> PU_RISCV;
@@ -97,26 +55,16 @@ digraph Project {
   MPSoC_SPRAM -> PU_RISCV;
   MPSoC_UART -> PU_RISCV;
 
-  // Architecture -> Enviroment
+  // Architecture -> Environment
   PU_MSP430 -> PU_DV;
   PU_OR1K -> PU_DV;
   PU_RISCV -> PU_DV;
 
-  SoC_MSP430 -> SoC_DV;
-  SoC_OR1K -> SoC_DV;
-  SoC_RISCV -> SoC_DV;
-
-  // Enviroment -> Avanced A
+  // Environment -> Avanced A
   PU_DV -> PU_NTM;
   PU_DV -> PU_DNC;
 
-  SoC_DV -> SoC_NTM;
-  SoC_DV -> SoC_DNC;
-
   // Avanced A -> Avanced B
-  PU_NTM -> PU_Life;
-  PU_DNC -> PU_Life;
-
-  SoC_NTM -> SoC_Life;
-  SoC_DNC -> SoC_Life;
+  PU_NTM -> PU_LifeTech;
+  PU_DNC -> PU_LifeTech;
 }
