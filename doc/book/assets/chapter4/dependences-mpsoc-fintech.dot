@@ -40,9 +40,9 @@ digraph Project {
   PU_DNC[label="PU_DNC \nAdvanced"];
 
   // Advanced B Blocks
-  MPSoC_Life[label="MPSoC_Life \nAdvanced"];
-  SoC_Life[label="SoC_Life \nAdvanced"];
-  PU_Life[label="PU_Life \nAdvanced"];
+  MPSoC_FinTech[label="MPSoC_FinTech \nAdvanced"];
+  SoC_FinTech[label="SoC_FinTech \nAdvanced"];
+  PU_FinTech[label="PU_FinTech \nAdvanced"];
 
   // Peripheral -> Architecture
   MPSoC_DBG -> MPSoC_MSP430;
@@ -158,12 +158,12 @@ digraph Project {
   MPSoC_DV -> MPSoC_DNC;
 
   // Avanced A -> Avanced B
-  PU_NTM -> PU_Life;
-  PU_DNC -> PU_Life;
+  PU_NTM -> PU_FinTech;
+  PU_DNC -> PU_FinTech;
 
-  SoC_NTM -> SoC_Life;
-  SoC_DNC -> SoC_Life;
+  SoC_NTM -> SoC_FinTech;
+  SoC_DNC -> SoC_FinTech;
 
-  MPSoC_NTM -> MPSoC_Life;
-  MPSoC_DNC -> MPSoC_Life;
+  MPSoC_NTM -> MPSoC_FinTech;
+  MPSoC_DNC -> MPSoC_FinTech;
 }
