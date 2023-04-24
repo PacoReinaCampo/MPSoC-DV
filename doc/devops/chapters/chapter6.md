@@ -13,7 +13,7 @@ pip3 install --upgrade --user fusesoc
 # Uninstall FuseSoC
 pip3 uninstall fusesoc
 
-# Enviroment FuseSoC
+# Environment FuseSoC
 export PATH=~/.local/bin:$PATH
 
 # Check FuseSoC version

@@ -25,12 +25,12 @@ digraph Project {
   PU_OR1K[label="PU_OR1K \nArchitecture"];
   PU_RISCV[label="PU_RISCV \nArchitecture"];
 
-  // Enviroment Blocks
-  MPSoC_DV[label="MPSoC_DV \nEnviroment"];
-  SoC_DV[label="SoC_DV \nEnviroment"];
-  PU_DV[label="PU_DV \nEnviroment"];
+  // Environment Blocks
+  MPSoC_DV[label="MPSoC_DV \nEnvironment"];
+  SoC_DV[label="SoC_DV \nEnvironment"];
+  PU_DV[label="PU_DV \nEnvironment"];
 
-  // Advanced A Blocks
+  // Accelerator Blocks
   MPSoC_NTM[label="MPSoC_NTM \nAdvanced"];
   SoC_NTM[label="SoC_NTM \nAdvanced"];
   PU_NTM[label="PU_NTM \nAdvanced"];
@@ -39,7 +39,7 @@ digraph Project {
   SoC_DNC[label="SoC_DNC \nAdvanced"];
   PU_DNC[label="PU_DNC \nAdvanced"];
 
-  // Advanced B Blocks
+  // Advanced Blocks
   MPSoC_FinTech[label="MPSoC_FinTech \nAdvanced"];
   SoC_FinTech[label="SoC_FinTech \nAdvanced"];
   PU_FinTech[label="PU_FinTech \nAdvanced"];
@@ -134,7 +134,7 @@ digraph Project {
   MPSoC_SPRAM -> PU_RISCV;
   MPSoC_UART -> PU_RISCV;
 
-  // Architecture -> Enviroment
+  // Architecture -> Environment
   PU_MSP430 -> PU_DV;
   PU_OR1K -> PU_DV;
   PU_RISCV -> PU_DV;
@@ -147,7 +147,7 @@ digraph Project {
   MPSoC_OR1K -> MPSoC_DV;
   MPSoC_RISCV -> MPSoC_DV;
 
-  // Enviroment -> Avanced A
+  // Environment -> Accelerator
   PU_DV -> PU_NTM;
   PU_DV -> PU_DNC;
 
@@ -157,7 +157,7 @@ digraph Project {
   MPSoC_DV -> MPSoC_NTM;
   MPSoC_DV -> MPSoC_DNC;
 
-  // Avanced A -> Avanced B
+  // Accelerator -> Advanced
   PU_NTM -> PU_FinTech;
   PU_DNC -> PU_FinTech;
 

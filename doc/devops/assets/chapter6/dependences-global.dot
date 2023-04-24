@@ -39,7 +39,7 @@ digraph Project {
   SoC_DNC[label="SoC_DNC \nAccelerator"];
   PU_DNC[label="PU_DNC \nAccelerator"];
 
-  // Advanced Blocks
+  // Advancedlocks
   MPSoC_EnergyTech[label="MPSoC_EnergyTech \nAdvanced"];
   SoC_EnergyTech[label="SoC_EnergyTech \nAdvanced"];
   PU_EnergyTech[label="PU_EnergyTech \nAdvanced"];
@@ -155,7 +155,7 @@ digraph Project {
   MPSoC_OR1K -> MPSoC_DV;
   MPSoC_RISCV -> MPSoC_DV;
 
-  // Environment -> Avanced A
+  // Environment -> Accelerator
   PU_DV -> PU_NTM;
   PU_DV -> PU_DNC;
 
@@ -165,7 +165,7 @@ digraph Project {
   MPSoC_DV -> MPSoC_NTM;
   MPSoC_DV -> MPSoC_DNC;
 
-  // Avanced A -> Avanced B
+  // Accelerator -> Advanced
   PU_NTM -> PU_EnergyTech;
   PU_DNC -> PU_EnergyTech;
 
