@@ -1,4 +1,3 @@
-%{
 ###################################################################################
 ##                                            __ _      _     _                  ##
 ##                                           / _(_)    | |   | |                 ##
@@ -10,14 +9,14 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              Peripheral-NTM for MPSoC                                         ##
-##              Neural Turing Machine for MPSoC                                  ##
+##              QueenField                                                       ##
+##              Multi-Processor System on Chip                                   ##
 ##                                                                               ##
 ###################################################################################
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2020-2024 by the author(s)                                      ##
+## Copyright (c) 2022-2025 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,14 +41,15 @@
 ##   Paco Reina Campo <pacoreinacampo@queenfield.tech>                           ##
 ##                                                                               ##
 ###################################################################################
-%}
 
-% Package
-addpath(genpath('../../../library/bfm/ahb3'));
-  
-% Signals
-DATA_A_IN = rand(1);
-DATA_B_IN = rand(1);
+cd application/bfm/ahb3; octave peripheral_test.m; cd ../../..
+cd application/bfm/apb4; octave peripheral_test.m; cd ../../..
+cd application/bfm/axi4; octave peripheral_test.m; cd ../../..
+cd application/bfm/bb; octave peripheral_test.m; cd ../../..
+cd application/bfm/wb; octave peripheral_test.m; cd ../../..
 
-% DUT
-assert(peripheral_design(DATA_A_IN, DATA_B_IN), DATA_A_IN + DATA_B_IN);
+cd application/core/ahb3; octave peripheral_test.m; cd ../../..
+cd application/core/apb4; octave peripheral_test.m; cd ../../..
+cd application/core/axi4; octave peripheral_test.m; cd ../../..
+cd application/core/bb; octave peripheral_test.m; cd ../../..
+cd application/core/wb; octave peripheral_test.m; cd ../../..

@@ -43,3 +43,13 @@
 ##                                                                               ##
 ###################################################################################
 %}
+
+% Package
+addpath(genpath('../../../library/core/bb'));
+  
+% Signals
+DATA_A_IN = rand(1);
+DATA_B_IN = rand(1);
+
+% DUT
+assert(peripheral_design(DATA_A_IN, DATA_B_IN), DATA_A_IN + DATA_B_IN);
