@@ -1,155 +1,155 @@
 library
 ├── bfm
 │   ├── ahb3
-│   │   ├── peripheral.behavioral.activity.dot
-│   │   ├── peripheral.behavioral.communication.dot
-│   │   ├── peripheral.behavioral.interaction.dot
-│   │   ├── peripheral.behavioral.sequence.dot
-│   │   ├── peripheral.behavioral.state.dot
-│   │   ├── peripheral.behavioral.timing.dot
-│   │   ├── peripheral.behavioral.use.dot
-│   │   ├── peripheral.structural.class.dot
-│   │   ├── peripheral.structural.component.dot
-│   │   ├── peripheral.structural.composite.dot
-│   │   ├── peripheral.structural.deployment.dot
-│   │   ├── peripheral.structural.object.dot
-│   │   ├── peripheral.structural.package.dot
-│   │   └── peripheral.structural.profile.dot
+│   │   ├── peripheral_behavioral_activity.dot
+│   │   ├── peripheral_behavioral_communication.dot
+│   │   ├── peripheral_behavioral_interaction.dot
+│   │   ├── peripheral_behavioral_sequence.dot
+│   │   ├── peripheral_behavioral_state.dot
+│   │   ├── peripheral_behavioral_timing.dot
+│   │   ├── peripheral_behavioral_use.dot
+│   │   ├── peripheral_structural_class.dot
+│   │   ├── peripheral_structural_component.dot
+│   │   ├── peripheral_structural_composite.dot
+│   │   ├── peripheral_structural_deployment.dot
+│   │   ├── peripheral_structural_object.dot
+│   │   ├── peripheral_structural_package.dot
+│   │   └── peripheral_structural_profile.dot
 │   ├── apb4
-│   │   ├── peripheral.behavioral.activity.dot
-│   │   ├── peripheral.behavioral.communication.dot
-│   │   ├── peripheral.behavioral.interaction.dot
-│   │   ├── peripheral.behavioral.sequence.dot
-│   │   ├── peripheral.behavioral.state.dot
-│   │   ├── peripheral.behavioral.timing.dot
-│   │   ├── peripheral.behavioral.use.dot
-│   │   ├── peripheral.structural.class.dot
-│   │   ├── peripheral.structural.component.dot
-│   │   ├── peripheral.structural.composite.dot
-│   │   ├── peripheral.structural.deployment.dot
-│   │   ├── peripheral.structural.object.dot
-│   │   ├── peripheral.structural.package.dot
-│   │   └── peripheral.structural.profile.dot
+│   │   ├── peripheral_behavioral_activity.dot
+│   │   ├── peripheral_behavioral_communication.dot
+│   │   ├── peripheral_behavioral_interaction.dot
+│   │   ├── peripheral_behavioral_sequence.dot
+│   │   ├── peripheral_behavioral_state.dot
+│   │   ├── peripheral_behavioral_timing.dot
+│   │   ├── peripheral_behavioral_use.dot
+│   │   ├── peripheral_structural_class.dot
+│   │   ├── peripheral_structural_component.dot
+│   │   ├── peripheral_structural_composite.dot
+│   │   ├── peripheral_structural_deployment.dot
+│   │   ├── peripheral_structural_object.dot
+│   │   ├── peripheral_structural_package.dot
+│   │   └── peripheral_structural_profile.dot
 │   ├── axi4
-│   │   ├── peripheral.behavioral.activity.dot
-│   │   ├── peripheral.behavioral.communication.dot
-│   │   ├── peripheral.behavioral.interaction.dot
-│   │   ├── peripheral.behavioral.sequence.dot
-│   │   ├── peripheral.behavioral.state.dot
-│   │   ├── peripheral.behavioral.timing.dot
-│   │   ├── peripheral.behavioral.use.dot
-│   │   ├── peripheral.structural.class.dot
-│   │   ├── peripheral.structural.component.dot
-│   │   ├── peripheral.structural.composite.dot
-│   │   ├── peripheral.structural.deployment.dot
-│   │   ├── peripheral.structural.object.dot
-│   │   ├── peripheral.structural.package.dot
-│   │   └── peripheral.structural.profile.dot
+│   │   ├── peripheral_behavioral_activity.dot
+│   │   ├── peripheral_behavioral_communication.dot
+│   │   ├── peripheral_behavioral_interaction.dot
+│   │   ├── peripheral_behavioral_sequence.dot
+│   │   ├── peripheral_behavioral_state.dot
+│   │   ├── peripheral_behavioral_timing.dot
+│   │   ├── peripheral_behavioral_use.dot
+│   │   ├── peripheral_structural_class.dot
+│   │   ├── peripheral_structural_component.dot
+│   │   ├── peripheral_structural_composite.dot
+│   │   ├── peripheral_structural_deployment.dot
+│   │   ├── peripheral_structural_object.dot
+│   │   ├── peripheral_structural_package.dot
+│   │   └── peripheral_structural_profile.dot
 │   ├── bb
-│   │   ├── peripheral.behavioral.activity.dot
-│   │   ├── peripheral.behavioral.communication.dot
-│   │   ├── peripheral.behavioral.interaction.dot
-│   │   ├── peripheral.behavioral.sequence.dot
-│   │   ├── peripheral.behavioral.state.dot
-│   │   ├── peripheral.behavioral.timing.dot
-│   │   ├── peripheral.behavioral.use.dot
-│   │   ├── peripheral.structural.class.dot
-│   │   ├── peripheral.structural.component.dot
-│   │   ├── peripheral.structural.composite.dot
-│   │   ├── peripheral.structural.deployment.dot
-│   │   ├── peripheral.structural.object.dot
-│   │   ├── peripheral.structural.package.dot
-│   │   └── peripheral.structural.profile.dot
+│   │   ├── peripheral_behavioral_activity.dot
+│   │   ├── peripheral_behavioral_communication.dot
+│   │   ├── peripheral_behavioral_interaction.dot
+│   │   ├── peripheral_behavioral_sequence.dot
+│   │   ├── peripheral_behavioral_state.dot
+│   │   ├── peripheral_behavioral_timing.dot
+│   │   ├── peripheral_behavioral_use.dot
+│   │   ├── peripheral_structural_class.dot
+│   │   ├── peripheral_structural_component.dot
+│   │   ├── peripheral_structural_composite.dot
+│   │   ├── peripheral_structural_deployment.dot
+│   │   ├── peripheral_structural_object.dot
+│   │   ├── peripheral_structural_package.dot
+│   │   └── peripheral_structural_profile.dot
 │   └── wb
-│       ├── peripheral.behavioral.activity.dot
-│       ├── peripheral.behavioral.communication.dot
-│       ├── peripheral.behavioral.interaction.dot
-│       ├── peripheral.behavioral.sequence.dot
-│       ├── peripheral.behavioral.state.dot
-│       ├── peripheral.behavioral.timing.dot
-│       ├── peripheral.behavioral.use.dot
-│       ├── peripheral.structural.class.dot
-│       ├── peripheral.structural.component.dot
-│       ├── peripheral.structural.composite.dot
-│       ├── peripheral.structural.deployment.dot
-│       ├── peripheral.structural.object.dot
-│       ├── peripheral.structural.package.dot
-│       └── peripheral.structural.profile.dot
+│       ├── peripheral_behavioral_activity.dot
+│       ├── peripheral_behavioral_communication.dot
+│       ├── peripheral_behavioral_interaction.dot
+│       ├── peripheral_behavioral_sequence.dot
+│       ├── peripheral_behavioral_state.dot
+│       ├── peripheral_behavioral_timing.dot
+│       ├── peripheral_behavioral_use.dot
+│       ├── peripheral_structural_class.dot
+│       ├── peripheral_structural_component.dot
+│       ├── peripheral_structural_composite.dot
+│       ├── peripheral_structural_deployment.dot
+│       ├── peripheral_structural_object.dot
+│       ├── peripheral_structural_package.dot
+│       └── peripheral_structural_profile.dot
 └── core
     ├── ahb3
-    │   ├── peripheral.behavioral.activity.dot
-    │   ├── peripheral.behavioral.communication.dot
-    │   ├── peripheral.behavioral.interaction.dot
-    │   ├── peripheral.behavioral.sequence.dot
-    │   ├── peripheral.behavioral.state.dot
-    │   ├── peripheral.behavioral.timing.dot
-    │   ├── peripheral.behavioral.use.dot
-    │   ├── peripheral.structural.class.dot
-    │   ├── peripheral.structural.component.dot
-    │   ├── peripheral.structural.composite.dot
-    │   ├── peripheral.structural.deployment.dot
-    │   ├── peripheral.structural.object.dot
-    │   ├── peripheral.structural.package.dot
-    │   └── peripheral.structural.profile.dot
+    │   ├── peripheral_behavioral_activity.dot
+    │   ├── peripheral_behavioral_communication.dot
+    │   ├── peripheral_behavioral_interaction.dot
+    │   ├── peripheral_behavioral_sequence.dot
+    │   ├── peripheral_behavioral_state.dot
+    │   ├── peripheral_behavioral_timing.dot
+    │   ├── peripheral_behavioral_use.dot
+    │   ├── peripheral_structural_class.dot
+    │   ├── peripheral_structural_component.dot
+    │   ├── peripheral_structural_composite.dot
+    │   ├── peripheral_structural_deployment.dot
+    │   ├── peripheral_structural_object.dot
+    │   ├── peripheral_structural_package.dot
+    │   └── peripheral_structural_profile.dot
     ├── apb4
-    │   ├── peripheral.behavioral.activity.dot
-    │   ├── peripheral.behavioral.communication.dot
-    │   ├── peripheral.behavioral.interaction.dot
-    │   ├── peripheral.behavioral.sequence.dot
-    │   ├── peripheral.behavioral.state.dot
-    │   ├── peripheral.behavioral.timing.dot
-    │   ├── peripheral.behavioral.use.dot
-    │   ├── peripheral.structural.class.dot
-    │   ├── peripheral.structural.component.dot
-    │   ├── peripheral.structural.composite.dot
-    │   ├── peripheral.structural.deployment.dot
-    │   ├── peripheral.structural.object.dot
-    │   ├── peripheral.structural.package.dot
-    │   └── peripheral.structural.profile.dot
+    │   ├── peripheral_behavioral_activity.dot
+    │   ├── peripheral_behavioral_communication.dot
+    │   ├── peripheral_behavioral_interaction.dot
+    │   ├── peripheral_behavioral_sequence.dot
+    │   ├── peripheral_behavioral_state.dot
+    │   ├── peripheral_behavioral_timing.dot
+    │   ├── peripheral_behavioral_use.dot
+    │   ├── peripheral_structural_class.dot
+    │   ├── peripheral_structural_component.dot
+    │   ├── peripheral_structural_composite.dot
+    │   ├── peripheral_structural_deployment.dot
+    │   ├── peripheral_structural_object.dot
+    │   ├── peripheral_structural_package.dot
+    │   └── peripheral_structural_profile.dot
     ├── axi4
-    │   ├── peripheral.behavioral.activity.dot
-    │   ├── peripheral.behavioral.communication.dot
-    │   ├── peripheral.behavioral.interaction.dot
-    │   ├── peripheral.behavioral.sequence.dot
-    │   ├── peripheral.behavioral.state.dot
-    │   ├── peripheral.behavioral.timing.dot
-    │   ├── peripheral.behavioral.use.dot
-    │   ├── peripheral.structural.class.dot
-    │   ├── peripheral.structural.component.dot
-    │   ├── peripheral.structural.composite.dot
-    │   ├── peripheral.structural.deployment.dot
-    │   ├── peripheral.structural.object.dot
-    │   ├── peripheral.structural.package.dot
-    │   └── peripheral.structural.profile.dot
+    │   ├── peripheral_behavioral_activity.dot
+    │   ├── peripheral_behavioral_communication.dot
+    │   ├── peripheral_behavioral_interaction.dot
+    │   ├── peripheral_behavioral_sequence.dot
+    │   ├── peripheral_behavioral_state.dot
+    │   ├── peripheral_behavioral_timing.dot
+    │   ├── peripheral_behavioral_use.dot
+    │   ├── peripheral_structural_class.dot
+    │   ├── peripheral_structural_component.dot
+    │   ├── peripheral_structural_composite.dot
+    │   ├── peripheral_structural_deployment.dot
+    │   ├── peripheral_structural_object.dot
+    │   ├── peripheral_structural_package.dot
+    │   └── peripheral_structural_profile.dot
     ├── bb
-    │   ├── peripheral.behavioral.activity.dot
-    │   ├── peripheral.behavioral.communication.dot
-    │   ├── peripheral.behavioral.interaction.dot
-    │   ├── peripheral.behavioral.sequence.dot
-    │   ├── peripheral.behavioral.state.dot
-    │   ├── peripheral.behavioral.timing.dot
-    │   ├── peripheral.behavioral.use.dot
-    │   ├── peripheral.structural.class.dot
-    │   ├── peripheral.structural.component.dot
-    │   ├── peripheral.structural.composite.dot
-    │   ├── peripheral.structural.deployment.dot
-    │   ├── peripheral.structural.object.dot
-    │   ├── peripheral.structural.package.dot
-    │   └── peripheral.structural.profile.dot
+    │   ├── peripheral_behavioral_activity.dot
+    │   ├── peripheral_behavioral_communication.dot
+    │   ├── peripheral_behavioral_interaction.dot
+    │   ├── peripheral_behavioral_sequence.dot
+    │   ├── peripheral_behavioral_state.dot
+    │   ├── peripheral_behavioral_timing.dot
+    │   ├── peripheral_behavioral_use.dot
+    │   ├── peripheral_structural_class.dot
+    │   ├── peripheral_structural_component.dot
+    │   ├── peripheral_structural_composite.dot
+    │   ├── peripheral_structural_deployment.dot
+    │   ├── peripheral_structural_object.dot
+    │   ├── peripheral_structural_package.dot
+    │   └── peripheral_structural_profile.dot
     └── wb
-        ├── peripheral.behavioral.activity.dot
-        ├── peripheral.behavioral.communication.dot
-        ├── peripheral.behavioral.interaction.dot
-        ├── peripheral.behavioral.sequence.dot
-        ├── peripheral.behavioral.state.dot
-        ├── peripheral.behavioral.timing.dot
-        ├── peripheral.behavioral.use.dot
-        ├── peripheral.structural.class.dot
-        ├── peripheral.structural.component.dot
-        ├── peripheral.structural.composite.dot
-        ├── peripheral.structural.deployment.dot
-        ├── peripheral.structural.object.dot
-        ├── peripheral.structural.package.dot
-        └── peripheral.structural.profile.dot
+        ├── peripheral_behavioral_activity.dot
+        ├── peripheral_behavioral_communication.dot
+        ├── peripheral_behavioral_interaction.dot
+        ├── peripheral_behavioral_sequence.dot
+        ├── peripheral_behavioral_state.dot
+        ├── peripheral_behavioral_timing.dot
+        ├── peripheral_behavioral_use.dot
+        ├── peripheral_structural_class.dot
+        ├── peripheral_structural_component.dot
+        ├── peripheral_structural_composite.dot
+        ├── peripheral_structural_deployment.dot
+        ├── peripheral_structural_object.dot
+        ├── peripheral_structural_package.dot
+        └── peripheral_structural_profile.dot
 
 12 directories, 140 files
