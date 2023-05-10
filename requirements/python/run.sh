@@ -9,14 +9,14 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              Peripheral-NTM for MPSoC                                         ##
-##              Neural Turing Machine for MPSoC                                  ##
+##              Architecture                                                     ##
+##              QueenField                                                       ##
 ##                                                                               ##
 ###################################################################################
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2023 by the author(s)                                      ##
+## Copyright (c) 2019-2020 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,34 +42,13 @@
 ##                                                                               ##
 ###################################################################################
 
-import random
-
-from scalar import ntm_scalar_adder as scalar_adder
-from scalar import ntm_scalar_multiplier as scalar_multiplier
-from scalar import ntm_scalar_divider as scalar_divider
-
-def test_scalar_adder():
-
-  data_a_in = random.random()
-  data_b_in = random.random()
-
-  assert scalar_adder.ntm_scalar_adder(data_a_in, data_b_in) == data_a_in + data_b_in
-
-def test_scalar_multiplier():
-  
-  data_a_in = random.random()
-  data_b_in = random.random()
-
-  assert scalar_multiplier.ntm_scalar_multiplier(data_a_in, data_b_in) == data_a_in * data_b_in
-
-def test_scalar_divider():
-  
-  data_a_in = random.random()
-  data_b_in = random.random()
-
-  assert scalar_divider.ntm_scalar_divider(data_a_in, data_b_in) == data_a_in / data_b_in
-
-
-test_scalar_adder()
-test_scalar_multiplier()
-test_scalar_divider()
+python3 library/bfm/ahb3/peripheral_design.py
+python3 library/bfm/apb4/peripheral_design.py
+python3 library/bfm/axi4/peripheral_design.py
+python3 library/bfm/bb/peripheral_design.py
+python3 library/bfm/wb/peripheral_design.py
+python3 library/core/ahb3/peripheral_design.py
+python3 library/core/apb4/peripheral_design.py
+python3 library/core/axi4/peripheral_design.py
+python3 library/core/bb/peripheral_design.py
+python3 library/core/wb/peripheral_design.py

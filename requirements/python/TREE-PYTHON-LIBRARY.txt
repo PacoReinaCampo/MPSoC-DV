@@ -1,25 +1,25 @@
 library
 ├── bfm
 │   ├── ahb3
-│   │   └── peripheral.py
+│   │   └── peripheral_design.py
 │   ├── apb4
-│   │   └── peripheral.py
+│   │   └── peripheral_design.py
 │   ├── axi4
-│   │   └── peripheral.py
+│   │   └── peripheral_design.py
 │   ├── bb
-│   │   └── peripheral.py
+│   │   └── peripheral_design.py
 │   └── wb
-│       └── peripheral.py
+│       └── peripheral_design.py
 └── core
     ├── ahb3
-    │   └── peripheral.py
+    │   └── peripheral_design.py
     ├── apb4
-    │   └── peripheral.py
+    │   └── peripheral_design.py
     ├── axi4
-    │   └── peripheral.py
+    │   └── peripheral_design.py
     ├── bb
-    │   └── peripheral.py
+    │   └── peripheral_design.py
     └── wb
-        └── peripheral.py
+        └── peripheral_design.py
 
 12 directories, 10 files

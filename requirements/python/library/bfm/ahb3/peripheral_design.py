@@ -42,4 +42,21 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import random
+
+class ScalarArithmetic:
+  def __init__(self, data_a_in, data_b_in):
+    self.data_a_in = data_a_in
+    self.data_b_in = data_b_in
+
+  def ntm_scalar_adder(self):
+    # calculating addition
+    return (self.data_a_in + self.data_b_in)
+
+  def ntm_scalar_multiplier(self):
+    # calculating multiplication
+    return (self.data_a_in * self.data_b_in)
+
+  def ntm_scalar_divider(self):
+    # calculating division
+    return (self.data_a_in / self.data_b_in)

@@ -1,36 +1,75 @@
+###################################################################################
+##                                            __ _      _     _                  ##
+##                                           / _(_)    | |   | |                 ##
+##                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |                 ##
+##               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |                 ##
+##              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |                 ##
+##               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|                 ##
+##                  | |                                                          ##
+##                  |_|                                                          ##
+##                                                                               ##
+##                                                                               ##
+##              Peripheral-NTM for MPSoC                                         ##
+##              Neural Turing Machine for MPSoC                                  ##
+##                                                                               ##
+###################################################################################
+
+###################################################################################
+##                                                                               ##
+## Copyright (c) 2022-2023 by the author(s)                                      ##
+##                                                                               ##
+## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
+## of this software and associated documentation files (the "Software"), to deal ##
+## in the Software without restriction, including without limitation the rights  ##
+## to use, copy, modify, merge, publish, distribute, sublicense, and/or sell     ##
+## copies of the Software, and to permit persons to whom the Software is         ##
+## furnished to do so, subject to the following conditions:                      ##
+##                                                                               ##
+## The above copyright notice and this permission notice shall be included in    ##
+## all copies or substantial portions of the Software.                           ##
+##                                                                               ##
+## THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR    ##
+## IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,      ##
+## FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE   ##
+## AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER        ##
+## LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, ##
+## OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN     ##
+## THE SOFTWARE.                                                                 ##
+##                                                                               ##
+## ============================================================================= ##
+## Author(s):                                                                    ##
+##   Paco Reina Campo <pacoreinacampo@queenfield.tech>                           ##
+##                                                                               ##
+###################################################################################
+
 import random
 
-from adder_model import adder_model
+from scalar import ntm_scalar_adder as scalar_adder
+from scalar import ntm_scalar_multiplier as scalar_multiplier
+from scalar import ntm_scalar_divider as scalar_divider
 
-import cocotb
-from cocotb.triggers import Timer
+def test_scalar_adder():
 
-@cocotb.test()
-async def adder_basic_test(dut):
-  """Test for 5 + 10"""
+  data_a_in = random.random()
+  data_b_in = random.random()
 
-  A = 5
-  B = 10
+  assert scalar_adder.ntm_scalar_adder(data_a_in, data_b_in) == data_a_in + data_b_in
 
-  dut.A.value = A
-  dut.B.value = B
+def test_scalar_multiplier():
+  
+  data_a_in = random.random()
+  data_b_in = random.random()
 
-  await Timer(2, units="ns")
+  assert scalar_multiplier.ntm_scalar_multiplier(data_a_in, data_b_in) == data_a_in * data_b_in
 
-  assert dut.X.value == adder_model(A, B), f"Adder result is incorrect: {dut.X.value} != 15"
+def test_scalar_divider():
+  
+  data_a_in = random.random()
+  data_b_in = random.random()
 
-@cocotb.test()
-async def adder_randomised_test(dut):
-  """Test for adding 2 random numbers multiple times"""
+  assert scalar_divider.ntm_scalar_divider(data_a_in, data_b_in) == data_a_in / data_b_in
 
-  for i in range(10):
 
-    A = random.randint(0, 15)
-    B = random.randint(0, 15)
-
-    dut.A.value = A
-    dut.B.value = B
-
-    await Timer(2, units="ns")
-
-    assert dut.X.value == adder_model(A, B), "Randomised test failed with: {A} + {B} = {X}".format(A=dut.A.value, B=dut.B.value, X=dut.X.value)
+test_scalar_adder()
+test_scalar_multiplier()
+test_scalar_divider()
