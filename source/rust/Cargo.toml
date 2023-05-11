@@ -1,0 +1,6 @@
+[workspace]
+members = [
+"library/bfm/ahb3",
+
+"application/bfm/ahb3"
+]

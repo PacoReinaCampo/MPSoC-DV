@@ -1,25 +1,25 @@
 application
 ├── bfm
 │   ├── ahb3
-│   │   └── peripheral_test.go
+│   │   └── test_peripheral.go
 │   ├── apb4
-│   │   └── peripheral_test.go
+│   │   └── test_peripheral.go
 │   ├── axi4
-│   │   └── peripheral_test.go
+│   │   └── test_peripheral.go
 │   ├── bb
-│   │   └── peripheral_test.go
+│   │   └── test_peripheral.go
 │   └── wb
-│       └── peripheral_test.go
+│       └── test_peripheral.go
 └── core
     ├── ahb3
-    │   └── peripheral_test.go
+    │   └── test_peripheral.go
     ├── apb4
-    │   └── peripheral_test.go
+    │   └── test_peripheral.go
     ├── axi4
-    │   └── peripheral_test.go
+    │   └── test_peripheral.go
     ├── bb
-    │   └── peripheral_test.go
+    │   └── test_peripheral.go
     └── wb
-        └── peripheral_test.go
+        └── test_peripheral.go
 
 12 directories, 10 files

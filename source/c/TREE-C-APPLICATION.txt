@@ -1,35 +1,85 @@
 application
 ├── bfm
 │   ├── ahb3
-│   │   ├── peripheral_test.c
-│   │   └── peripheral_test.h
+│   │   ├── build-or1k.sh
+│   │   ├── build-riscv.sh
+│   │   ├── build-x86.sh
+│   │   ├── clean.sh
+│   │   ├── include-arithmetic.txt
+│   │   ├── main.c
+│   │   └── simulate-riscv.sh
 │   ├── apb4
-│   │   ├── peripheral_test.c
-│   │   └── peripheral_test.h
+│   │   ├── build-or1k.sh
+│   │   ├── build-riscv.sh
+│   │   ├── build-x86.sh
+│   │   ├── clean.sh
+│   │   ├── include-arithmetic.txt
+│   │   ├── main.c
+│   │   └── simulate-riscv.sh
 │   ├── axi4
-│   │   ├── peripheral_test.c
-│   │   └── peripheral_test.h
+│   │   ├── build-or1k.sh
+│   │   ├── build-riscv.sh
+│   │   ├── build-x86.sh
+│   │   ├── clean.sh
+│   │   ├── include-arithmetic.txt
+│   │   ├── main.c
+│   │   └── simulate-riscv.sh
 │   ├── bb
-│   │   ├── peripheral_test.c
-│   │   └── peripheral_test.h
+│   │   ├── build-or1k.sh
+│   │   ├── build-riscv.sh
+│   │   ├── build-x86.sh
+│   │   ├── clean.sh
+│   │   ├── include-arithmetic.txt
+│   │   ├── main.c
+│   │   └── simulate-riscv.sh
 │   └── wb
-│       ├── peripheral_test.c
-│       └── peripheral_test.h
+│       ├── build-or1k.sh
+│       ├── build-riscv.sh
+│       ├── build-x86.sh
+│       ├── clean.sh
+│       ├── include-arithmetic.txt
+│       ├── main.c
+│       └── simulate-riscv.sh
 └── core
     ├── ahb3
-    │   ├── peripheral_test.c
-    │   └── peripheral_test.h
+    │   ├── build-or1k.sh
+    │   ├── build-riscv.sh
+    │   ├── build-x86.sh
+    │   ├── clean.sh
+    │   ├── include-arithmetic.txt
+    │   ├── main.c
+    │   └── simulate-riscv.sh
     ├── apb4
-    │   ├── peripheral_test.c
-    │   └── peripheral_test.h
+    │   ├── build-or1k.sh
+    │   ├── build-riscv.sh
+    │   ├── build-x86.sh
+    │   ├── clean.sh
+    │   ├── include-arithmetic.txt
+    │   ├── main.c
+    │   └── simulate-riscv.sh
     ├── axi4
-    │   ├── peripheral_test.c
-    │   └── peripheral_test.h
+    │   ├── build-or1k.sh
+    │   ├── build-riscv.sh
+    │   ├── build-x86.sh
+    │   ├── clean.sh
+    │   ├── include-arithmetic.txt
+    │   ├── main.c
+    │   └── simulate-riscv.sh
     ├── bb
-    │   ├── peripheral_test.c
-    │   └── peripheral_test.h
+    │   ├── build-or1k.sh
+    │   ├── build-riscv.sh
+    │   ├── build-x86.sh
+    │   ├── clean.sh
+    │   ├── include-arithmetic.txt
+    │   ├── main.c
+    │   └── simulate-riscv.sh
     └── wb
-        ├── peripheral_test.c
-        └── peripheral_test.h
+        ├── build-or1k.sh
+        ├── build-riscv.sh
+        ├── build-x86.sh
+        ├── clean.sh
+        ├── include-arithmetic.txt
+        ├── main.c
+        └── simulate-riscv.sh
 
-12 directories, 20 files
+12 directories, 70 files

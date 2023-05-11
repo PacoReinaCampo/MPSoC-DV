@@ -42,9 +42,24 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-package main
+package peripheral_design
 
-import "fmt"
-func main() {
-  fmt.Println("Hello QueenField!")
+// function to add the two float64 numbers
+func ScalarAdder(data_a_in, data_b_in float64) float64 {
+  return data_a_in + data_b_in
+}
+
+// function to substract the two float64 numbers
+func ScalarSubstractor(data_a_in, data_b_in float64) float64 {
+  return data_a_in - data_b_in
+}
+
+// function to multiply the two float64 numbers
+func ScalarMultiplier(data_a_in, data_b_in float64) float64 {
+  return data_a_in * data_b_in
+}
+
+// function to divide the two float64 numbers
+func ScalarDivider(data_a_in, data_b_in float64) float64 {
+  return data_a_in / data_b_in
 }
