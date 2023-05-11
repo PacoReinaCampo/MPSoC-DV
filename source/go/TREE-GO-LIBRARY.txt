@@ -1,25 +1,25 @@
 library
 ├── bfm
 │   ├── ahb3
-│   │   └── peripheral.go
+│   │   └── peripheral_design.go
 │   ├── apb4
-│   │   └── peripheral.go
+│   │   └── peripheral_design.go
 │   ├── axi4
-│   │   └── peripheral.go
+│   │   └── peripheral_design.go
 │   ├── bb
-│   │   └── peripheral.go
+│   │   └── peripheral_design.go
 │   └── wb
-│       └── peripheral.go
+│       └── peripheral_design.go
 └── core
     ├── ahb3
-    │   └── peripheral.go
+    │   └── peripheral_design.go
     ├── apb4
-    │   └── peripheral.go
+    │   └── peripheral_design.go
     ├── axi4
-    │   └── peripheral.go
+    │   └── peripheral_design.go
     ├── bb
-    │   └── peripheral.go
+    │   └── peripheral_design.go
     └── wb
-        └── peripheral.go
+        └── peripheral_design.go
 
 12 directories, 10 files

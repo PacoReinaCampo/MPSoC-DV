@@ -1,25 +1,25 @@
 library
 ├── bfm
 │   ├── ahb3
-│   │   └── peripheral.psl
+│   │   └── peripheral_design.psl
 │   ├── apb4
-│   │   └── peripheral.psl
+│   │   └── peripheral_design.psl
 │   ├── axi4
-│   │   └── peripheral.psl
+│   │   └── peripheral_design.psl
 │   ├── bb
-│   │   └── peripheral.psl
+│   │   └── peripheral_design.psl
 │   └── wb
-│       └── peripheral.psl
+│       └── peripheral_design.psl
 └── core
     ├── ahb3
-    │   └── peripheral.psl
+    │   └── peripheral_design.psl
     ├── apb4
-    │   └── peripheral.psl
+    │   └── peripheral_design.psl
     ├── axi4
-    │   └── peripheral.psl
+    │   └── peripheral_design.psl
     ├── bb
-    │   └── peripheral.psl
+    │   └── peripheral_design.psl
     └── wb
-        └── peripheral.psl
+        └── peripheral_design.psl
 
 12 directories, 10 files

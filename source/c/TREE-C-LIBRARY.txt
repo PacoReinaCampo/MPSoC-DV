@@ -1,35 +1,35 @@
 library
 ├── bfm
 │   ├── ahb3
-│   │   ├── peripheral.c
-│   │   └── peripheral.h
+│   │   ├── peripheral_design.c
+│   │   └── peripheral_design.h
 │   ├── apb4
-│   │   ├── peripheral.c
-│   │   └── peripheral.h
+│   │   ├── peripheral_design.c
+│   │   └── peripheral_design.h
 │   ├── axi4
-│   │   ├── peripheral.c
-│   │   └── peripheral.h
+│   │   ├── peripheral_design.c
+│   │   └── peripheral_design.h
 │   ├── bb
-│   │   ├── peripheral.c
-│   │   └── peripheral.h
+│   │   ├── peripheral_design.c
+│   │   └── peripheral_design.h
 │   └── wb
-│       ├── peripheral.c
-│       └── peripheral.h
+│       ├── peripheral_design.c
+│       └── peripheral_design.h
 └── core
     ├── ahb3
-    │   ├── peripheral.c
-    │   └── peripheral.h
+    │   ├── peripheral_design.c
+    │   └── peripheral_design.h
     ├── apb4
-    │   ├── peripheral.c
-    │   └── peripheral.h
+    │   ├── peripheral_design.c
+    │   └── peripheral_design.h
     ├── axi4
-    │   ├── peripheral.c
-    │   └── peripheral.h
+    │   ├── peripheral_design.c
+    │   └── peripheral_design.h
     ├── bb
-    │   ├── peripheral.c
-    │   └── peripheral.h
+    │   ├── peripheral_design.c
+    │   └── peripheral_design.h
     └── wb
-        ├── peripheral.c
-        └── peripheral.h
+        ├── peripheral_design.c
+        └── peripheral_design.h
 
 12 directories, 20 files
