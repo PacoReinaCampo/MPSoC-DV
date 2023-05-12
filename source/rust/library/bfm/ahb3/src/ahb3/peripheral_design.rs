@@ -42,36 +42,26 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-extern crate bfm;
+pub struct ScalarArithmetic {
+    pub data_a_in: f64,
+    pub data_b_in: f64,
 
-use bfm::ahb3::peripheral_design::*;
+    pub data_out: f64
+}
 
-fn main() {
+impl ScalarArithmetic {
+    pub fn ntm_scalar_adder(&self) -> f64 {
+        // calculating addition
+        return self.data_a_in + self.data_b_in
+    }
 
-    let addition = ScalarArithmetic {
-        data_a_in: 48.0,
-        data_b_in: 16.0,
+    pub fn ntm_scalar_multiplier(&self) -> f64 {
+        // calculating multiplication
+        return self.data_a_in * self.data_b_in
+    }
 
-        data_out: 64.0
-    };
-
-    assert_eq!(addition.ntm_scalar_adder(), addition.data_out);
-
-    let multiplication = ScalarArithmetic {
-        data_a_in: 48.0,
-        data_b_in: 16.0,
-
-        data_out: 768.0
-    };
-
-    assert_eq!(multiplication.ntm_scalar_multiplier(), multiplication.data_out);
-
-    let division = ScalarArithmetic {
-        data_a_in: 48.0,
-        data_b_in: 16.0,
-
-        data_out: 3.0
-    };
-
-    assert_eq!(division.ntm_scalar_divider(), division.data_out);
+    pub fn ntm_scalar_divider(&self) -> f64 {
+        // calculating division
+        return self.data_a_in / self.data_b_in
+    }
 }

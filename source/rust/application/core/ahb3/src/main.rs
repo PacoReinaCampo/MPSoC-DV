@@ -55,7 +55,7 @@ fn main() {
         data_out: 64.0
     };
 
-    assert_eq!(addition.ntm_ahb3_adder(), addition.data_out);
+    assert_eq!(addition.ntm_scalar_adder(), addition.data_out);
 
     let multiplication = ScalarArithmetic {
         data_a_in: 48.0,
@@ -64,7 +64,7 @@ fn main() {
         data_out: 768.0
     };
 
-    assert_eq!(multiplication.ntm_ahb3_multiplier(), multiplication.data_out);
+    assert_eq!(multiplication.ntm_scalar_multiplier(), multiplication.data_out);
 
     let division = ScalarArithmetic {
         data_a_in: 48.0,
@@ -73,5 +73,5 @@ fn main() {
         data_out: 3.0
     };
 
-    assert_eq!(division.ntm_ahb3_divider(), division.data_out);
+    assert_eq!(division.ntm_scalar_divider(), division.data_out);
 }
