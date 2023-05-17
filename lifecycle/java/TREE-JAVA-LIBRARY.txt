@@ -1,25 +1,58 @@
 library
 ├── bfm
 │   ├── ahb3
-│   │   └── peripheral.java
+│   │   └── peripheral_design.java
 │   ├── apb4
-│   │   └── peripheral.java
+│   │   └── peripheral_design.java
 │   ├── axi4
-│   │   └── peripheral.java
+│   │   └── peripheral_design.java
 │   ├── bb
-│   │   └── peripheral.java
+│   │   └── peripheral_design.java
 │   └── wb
-│       └── peripheral.java
-└── core
+│       └── peripheral_design.java
+├── core
+│   ├── ahb3
+│   │   └── peripheral_design.java
+│   ├── apb4
+│   │   └── peripheral_design.java
+│   ├── axi4
+│   │   └── peripheral_design.java
+│   ├── bb
+│   │   └── peripheral_design.java
+│   └── wb
+│       └── peripheral_design.java
+├── mpsoc
+│   ├── ahb3
+│   │   └── peripheral_design.java
+│   ├── apb4
+│   │   └── peripheral_design.java
+│   ├── axi4
+│   │   └── peripheral_design.java
+│   ├── bb
+│   │   └── peripheral_design.java
+│   └── wb
+│       └── peripheral_design.java
+├── pu
+│   ├── ahb3
+│   │   └── peripheral_design.java
+│   ├── apb4
+│   │   └── peripheral_design.java
+│   ├── axi4
+│   │   └── peripheral_design.java
+│   ├── bb
+│   │   └── peripheral_design.java
+│   └── wb
+│       └── peripheral_design.java
+└── soc
     ├── ahb3
-    │   └── peripheral.java
+    │   └── peripheral_design.java
     ├── apb4
-    │   └── peripheral.java
+    │   └── peripheral_design.java
     ├── axi4
-    │   └── peripheral.java
+    │   └── peripheral_design.java
     ├── bb
-    │   └── peripheral.java
+    │   └── peripheral_design.java
     └── wb
-        └── peripheral.java
+        └── peripheral_design.java
 
-12 directories, 10 files
+30 directories, 25 files

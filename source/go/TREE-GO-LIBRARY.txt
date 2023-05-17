@@ -10,7 +10,40 @@ library
 │   │   └── peripheral_design.go
 │   └── wb
 │       └── peripheral_design.go
-└── core
+├── core
+│   ├── ahb3
+│   │   └── peripheral_design.go
+│   ├── apb4
+│   │   └── peripheral_design.go
+│   ├── axi4
+│   │   └── peripheral_design.go
+│   ├── bb
+│   │   └── peripheral_design.go
+│   └── wb
+│       └── peripheral_design.go
+├── mpsoc
+│   ├── ahb3
+│   │   └── peripheral_design.go
+│   ├── apb4
+│   │   └── peripheral_design.go
+│   ├── axi4
+│   │   └── peripheral_design.go
+│   ├── bb
+│   │   └── peripheral_design.go
+│   └── wb
+│       └── peripheral_design.go
+├── pu
+│   ├── ahb3
+│   │   └── peripheral_design.go
+│   ├── apb4
+│   │   └── peripheral_design.go
+│   ├── axi4
+│   │   └── peripheral_design.go
+│   ├── bb
+│   │   └── peripheral_design.go
+│   └── wb
+│       └── peripheral_design.go
+└── soc
     ├── ahb3
     │   └── peripheral_design.go
     ├── apb4
@@ -22,4 +55,4 @@ library
     └── wb
         └── peripheral_design.go
 
-12 directories, 10 files
+30 directories, 25 files

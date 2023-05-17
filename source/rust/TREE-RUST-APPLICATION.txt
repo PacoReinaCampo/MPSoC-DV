@@ -15,7 +15,55 @@ application
 │   └── wb
 │       └── src
 │           └── main.rs
-└── core
+├── core
+│   ├── ahb3
+│   │   └── src
+│   │       └── main.rs
+│   ├── apb4
+│   │   └── src
+│   │       └── main.rs
+│   ├── axi4
+│   │   └── src
+│   │       └── main.rs
+│   ├── bb
+│   │   └── src
+│   │       └── main.rs
+│   └── wb
+│       └── src
+│           └── main.rs
+├── mpsoc
+│   ├── ahb3
+│   │   └── src
+│   │       └── main.rs
+│   ├── apb4
+│   │   └── src
+│   │       └── main.rs
+│   ├── axi4
+│   │   └── src
+│   │       └── main.rs
+│   ├── bb
+│   │   └── src
+│   │       └── main.rs
+│   └── wb
+│       └── src
+│           └── main.rs
+├── pu
+│   ├── ahb3
+│   │   └── src
+│   │       └── main.rs
+│   ├── apb4
+│   │   └── src
+│   │       └── main.rs
+│   ├── axi4
+│   │   └── src
+│   │       └── main.rs
+│   ├── bb
+│   │   └── src
+│   │       └── main.rs
+│   └── wb
+│       └── src
+│           └── main.rs
+└── soc
     ├── ahb3
     │   └── src
     │       └── main.rs
@@ -32,4 +80,4 @@ application
         └── src
             └── main.rs
 
-22 directories, 10 files
+55 directories, 25 files

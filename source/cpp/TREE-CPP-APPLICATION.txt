@@ -10,7 +10,40 @@ application
 │   │   └── main.cpp
 │   └── wb
 │       └── main.cpp
-└── core
+├── core
+│   ├── ahb3
+│   │   └── main.cpp
+│   ├── apb4
+│   │   └── main.cpp
+│   ├── axi4
+│   │   └── main.cpp
+│   ├── bb
+│   │   └── main.cpp
+│   └── wb
+│       └── main.cpp
+├── mpsoc
+│   ├── ahb3
+│   │   └── main.cpp
+│   ├── apb4
+│   │   └── main.cpp
+│   ├── axi4
+│   │   └── main.cpp
+│   ├── bb
+│   │   └── main.cpp
+│   └── wb
+│       └── main.cpp
+├── pu
+│   ├── ahb3
+│   │   └── main.cpp
+│   ├── apb4
+│   │   └── main.cpp
+│   ├── axi4
+│   │   └── main.cpp
+│   ├── bb
+│   │   └── main.cpp
+│   └── wb
+│       └── main.cpp
+└── soc
     ├── ahb3
     │   └── main.cpp
     ├── apb4
@@ -22,4 +55,4 @@ application
     └── wb
         └── main.cpp
 
-12 directories, 10 files
+30 directories, 25 files

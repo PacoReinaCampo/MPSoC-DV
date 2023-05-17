@@ -130,7 +130,7 @@
 <title>Lifecycle</title>
 <polygon fill="none" stroke="black" points="2143,-0.5 2143,-38.5 2319,-38.5 2319,-0.5 2143,-0.5"/>
 <text text-anchor="middle" x="2231" y="-23.3" font-family="Times,serif" font-size="14.00">Design Lifecycle Data </text>
-<text text-anchor="middle" x="2231" y="-8.3" font-family="Times,serif" font-size="14.00">(TeX) [Emacs]</text>
+<text text-anchor="middle" x="2231" y="-8.3" font-family="Times,serif" font-size="14.00">(Java) [Emacs]</text>
 </g>
 <!-- Certification&#45;&gt;Lifecycle -->
 <g id="edge8" class="edge">
