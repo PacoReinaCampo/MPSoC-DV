@@ -12,7 +12,7 @@ digraph Project {
   Verification[label="Hardware Verification \n(VHDL/SystemVerilog) [GHDL / Icarus Verilog]"];
   Quality[label="Quality Assurance \n(Ada) [Emacs]"];
   Certification[label="Certification \n(TeX) [Emacs]"];
-  Lifecycle[label="Design Lifecycle Data \n(Java) [Emacs]"];
+  Lifecycle[label="Design Lifecycle Data \n(Chisel) [Emacs]"];
 
   // Sequence
   Requirements -> Source;
