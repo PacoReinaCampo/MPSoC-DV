@@ -242,341 +242,22 @@ library
 │   │           ├── ntm_uvm_sequence.sv
 │   │           ├── ntm_uvm_testbench.sv
 │   │           └── ntm_uvm_test.sv
-│   ├── LSTM
-│   │   ├── convolutional
-│   │   │   ├── ntm_activation_gate_vector
-│   │   │   │   ├── ntm_uvm_agent.sv
-│   │   │   │   ├── ntm_uvm_driver.sv
-│   │   │   │   ├── ntm_uvm_environment.sv
-│   │   │   │   ├── ntm_uvm_interface.sv
-│   │   │   │   ├── ntm_uvm_monitor.sv
-│   │   │   │   ├── ntm_uvm_package.sv
-│   │   │   │   ├── ntm_uvm_scoreboard.sv
-│   │   │   │   ├── ntm_uvm_sequence_item.sv
-│   │   │   │   ├── ntm_uvm_sequencer.sv
-│   │   │   │   ├── ntm_uvm_sequence.sv
-│   │   │   │   ├── ntm_uvm_testbench.sv
-│   │   │   │   └── ntm_uvm_test.sv
-│   │   │   ├── ntm_controller
-│   │   │   │   ├── ntm_uvm_agent.sv
-│   │   │   │   ├── ntm_uvm_driver.sv
-│   │   │   │   ├── ntm_uvm_environment.sv
-│   │   │   │   ├── ntm_uvm_interface.sv
-│   │   │   │   ├── ntm_uvm_monitor.sv
-│   │   │   │   ├── ntm_uvm_package.sv
-│   │   │   │   ├── ntm_uvm_scoreboard.sv
-│   │   │   │   ├── ntm_uvm_sequence_item.sv
-│   │   │   │   ├── ntm_uvm_sequencer.sv
-│   │   │   │   ├── ntm_uvm_sequence.sv
-│   │   │   │   ├── ntm_uvm_testbench.sv
-│   │   │   │   └── ntm_uvm_test.sv
-│   │   │   ├── ntm_forget_gate_vector
-│   │   │   │   ├── ntm_uvm_agent.sv
-│   │   │   │   ├── ntm_uvm_driver.sv
-│   │   │   │   ├── ntm_uvm_environment.sv
-│   │   │   │   ├── ntm_uvm_interface.sv
-│   │   │   │   ├── ntm_uvm_monitor.sv
-│   │   │   │   ├── ntm_uvm_package.sv
-│   │   │   │   ├── ntm_uvm_scoreboard.sv
-│   │   │   │   ├── ntm_uvm_sequence_item.sv
-│   │   │   │   ├── ntm_uvm_sequencer.sv
-│   │   │   │   ├── ntm_uvm_sequence.sv
-│   │   │   │   ├── ntm_uvm_testbench.sv
-│   │   │   │   └── ntm_uvm_test.sv
-│   │   │   ├── ntm_hidden_gate_vector
-│   │   │   │   ├── ntm_uvm_agent.sv
-│   │   │   │   ├── ntm_uvm_driver.sv
-│   │   │   │   ├── ntm_uvm_environment.sv
-│   │   │   │   ├── ntm_uvm_interface.sv
-│   │   │   │   ├── ntm_uvm_monitor.sv
-│   │   │   │   ├── ntm_uvm_package.sv
-│   │   │   │   ├── ntm_uvm_scoreboard.sv
-│   │   │   │   ├── ntm_uvm_sequence_item.sv
-│   │   │   │   ├── ntm_uvm_sequencer.sv
-│   │   │   │   ├── ntm_uvm_sequence.sv
-│   │   │   │   ├── ntm_uvm_testbench.sv
-│   │   │   │   └── ntm_uvm_test.sv
-│   │   │   ├── ntm_input_gate_vector
-│   │   │   │   ├── ntm_uvm_agent.sv
-│   │   │   │   ├── ntm_uvm_driver.sv
-│   │   │   │   ├── ntm_uvm_environment.sv
-│   │   │   │   ├── ntm_uvm_interface.sv
-│   │   │   │   ├── ntm_uvm_monitor.sv
-│   │   │   │   ├── ntm_uvm_package.sv
-│   │   │   │   ├── ntm_uvm_scoreboard.sv
-│   │   │   │   ├── ntm_uvm_sequence_item.sv
-│   │   │   │   ├── ntm_uvm_sequencer.sv
-│   │   │   │   ├── ntm_uvm_sequence.sv
-│   │   │   │   ├── ntm_uvm_testbench.sv
-│   │   │   │   └── ntm_uvm_test.sv
-│   │   │   ├── ntm_output_gate_vector
-│   │   │   │   ├── ntm_uvm_agent.sv
-│   │   │   │   ├── ntm_uvm_driver.sv
-│   │   │   │   ├── ntm_uvm_environment.sv
-│   │   │   │   ├── ntm_uvm_interface.sv
-│   │   │   │   ├── ntm_uvm_monitor.sv
-│   │   │   │   ├── ntm_uvm_package.sv
-│   │   │   │   ├── ntm_uvm_scoreboard.sv
-│   │   │   │   ├── ntm_uvm_sequence_item.sv
-│   │   │   │   ├── ntm_uvm_sequencer.sv
-│   │   │   │   ├── ntm_uvm_sequence.sv
-│   │   │   │   ├── ntm_uvm_testbench.sv
-│   │   │   │   └── ntm_uvm_test.sv
-│   │   │   └── ntm_state_gate_vector
-│   │   │       ├── ntm_uvm_agent.sv
-│   │   │       ├── ntm_uvm_driver.sv
-│   │   │       ├── ntm_uvm_environment.sv
-│   │   │       ├── ntm_uvm_interface.sv
-│   │   │       ├── ntm_uvm_monitor.sv
-│   │   │       ├── ntm_uvm_package.sv
-│   │   │       ├── ntm_uvm_scoreboard.sv
-│   │   │       ├── ntm_uvm_sequence_item.sv
-│   │   │       ├── ntm_uvm_sequencer.sv
-│   │   │       ├── ntm_uvm_sequence.sv
-│   │   │       ├── ntm_uvm_testbench.sv
-│   │   │       └── ntm_uvm_test.sv
-│   │   └── standard
-│   │       ├── ntm_activation_gate_vector
-│   │       │   ├── ntm_uvm_agent.sv
-│   │       │   ├── ntm_uvm_driver.sv
-│   │       │   ├── ntm_uvm_environment.sv
-│   │       │   ├── ntm_uvm_interface.sv
-│   │       │   ├── ntm_uvm_monitor.sv
-│   │       │   ├── ntm_uvm_package.sv
-│   │       │   ├── ntm_uvm_scoreboard.sv
-│   │       │   ├── ntm_uvm_sequence_item.sv
-│   │       │   ├── ntm_uvm_sequencer.sv
-│   │       │   ├── ntm_uvm_sequence.sv
-│   │       │   ├── ntm_uvm_testbench.sv
-│   │       │   └── ntm_uvm_test.sv
-│   │       ├── ntm_controller
-│   │       │   ├── ntm_uvm_agent.sv
-│   │       │   ├── ntm_uvm_driver.sv
-│   │       │   ├── ntm_uvm_environment.sv
-│   │       │   ├── ntm_uvm_interface.sv
-│   │       │   ├── ntm_uvm_monitor.sv
-│   │       │   ├── ntm_uvm_package.sv
-│   │       │   ├── ntm_uvm_scoreboard.sv
-│   │       │   ├── ntm_uvm_sequence_item.sv
-│   │       │   ├── ntm_uvm_sequencer.sv
-│   │       │   ├── ntm_uvm_sequence.sv
-│   │       │   ├── ntm_uvm_testbench.sv
-│   │       │   └── ntm_uvm_test.sv
-│   │       ├── ntm_forget_gate_vector
-│   │       │   ├── ntm_uvm_agent.sv
-│   │       │   ├── ntm_uvm_driver.sv
-│   │       │   ├── ntm_uvm_environment.sv
-│   │       │   ├── ntm_uvm_interface.sv
-│   │       │   ├── ntm_uvm_monitor.sv
-│   │       │   ├── ntm_uvm_package.sv
-│   │       │   ├── ntm_uvm_scoreboard.sv
-│   │       │   ├── ntm_uvm_sequence_item.sv
-│   │       │   ├── ntm_uvm_sequencer.sv
-│   │       │   ├── ntm_uvm_sequence.sv
-│   │       │   ├── ntm_uvm_testbench.sv
-│   │       │   └── ntm_uvm_test.sv
-│   │       ├── ntm_hidden_gate_vector
-│   │       │   ├── ntm_uvm_agent.sv
-│   │       │   ├── ntm_uvm_driver.sv
-│   │       │   ├── ntm_uvm_environment.sv
-│   │       │   ├── ntm_uvm_interface.sv
-│   │       │   ├── ntm_uvm_monitor.sv
-│   │       │   ├── ntm_uvm_package.sv
-│   │       │   ├── ntm_uvm_scoreboard.sv
-│   │       │   ├── ntm_uvm_sequence_item.sv
-│   │       │   ├── ntm_uvm_sequencer.sv
-│   │       │   ├── ntm_uvm_sequence.sv
-│   │       │   ├── ntm_uvm_testbench.sv
-│   │       │   └── ntm_uvm_test.sv
-│   │       ├── ntm_input_gate_vector
-│   │       │   ├── ntm_uvm_agent.sv
-│   │       │   ├── ntm_uvm_driver.sv
-│   │       │   ├── ntm_uvm_environment.sv
-│   │       │   ├── ntm_uvm_interface.sv
-│   │       │   ├── ntm_uvm_monitor.sv
-│   │       │   ├── ntm_uvm_package.sv
-│   │       │   ├── ntm_uvm_scoreboard.sv
-│   │       │   ├── ntm_uvm_sequence_item.sv
-│   │       │   ├── ntm_uvm_sequencer.sv
-│   │       │   ├── ntm_uvm_sequence.sv
-│   │       │   ├── ntm_uvm_testbench.sv
-│   │       │   └── ntm_uvm_test.sv
-│   │       ├── ntm_output_gate_vector
-│   │       │   ├── ntm_uvm_agent.sv
-│   │       │   ├── ntm_uvm_driver.sv
-│   │       │   ├── ntm_uvm_environment.sv
-│   │       │   ├── ntm_uvm_interface.sv
-│   │       │   ├── ntm_uvm_monitor.sv
-│   │       │   ├── ntm_uvm_package.sv
-│   │       │   ├── ntm_uvm_scoreboard.sv
-│   │       │   ├── ntm_uvm_sequence_item.sv
-│   │       │   ├── ntm_uvm_sequencer.sv
-│   │       │   ├── ntm_uvm_sequence.sv
-│   │       │   ├── ntm_uvm_testbench.sv
-│   │       │   └── ntm_uvm_test.sv
-│   │       └── ntm_state_gate_vector
-│   │           ├── ntm_uvm_agent.sv
-│   │           ├── ntm_uvm_driver.sv
-│   │           ├── ntm_uvm_environment.sv
-│   │           ├── ntm_uvm_interface.sv
-│   │           ├── ntm_uvm_monitor.sv
-│   │           ├── ntm_uvm_package.sv
-│   │           ├── ntm_uvm_scoreboard.sv
-│   │           ├── ntm_uvm_sequence_item.sv
-│   │           ├── ntm_uvm_sequencer.sv
-│   │           ├── ntm_uvm_sequence.sv
-│   │           ├── ntm_uvm_testbench.sv
-│   │           └── ntm_uvm_test.sv
-│   └── transformer
-│       ├── components
-│       │   ├── ntm_masked_multi_head_attention
-│       │   │   ├── ntm_uvm_agent.sv
-│       │   │   ├── ntm_uvm_driver.sv
-│       │   │   ├── ntm_uvm_environment.sv
-│       │   │   ├── ntm_uvm_interface.sv
-│       │   │   ├── ntm_uvm_monitor.sv
-│       │   │   ├── ntm_uvm_package.sv
-│       │   │   ├── ntm_uvm_scoreboard.sv
-│       │   │   ├── ntm_uvm_sequence_item.sv
-│       │   │   ├── ntm_uvm_sequencer.sv
-│       │   │   ├── ntm_uvm_sequence.sv
-│       │   │   ├── ntm_uvm_testbench.sv
-│       │   │   └── ntm_uvm_test.sv
-│       │   ├── ntm_masked_scaled_dot_product_attention
-│       │   │   ├── ntm_uvm_agent.sv
-│       │   │   ├── ntm_uvm_driver.sv
-│       │   │   ├── ntm_uvm_environment.sv
-│       │   │   ├── ntm_uvm_interface.sv
-│       │   │   ├── ntm_uvm_monitor.sv
-│       │   │   ├── ntm_uvm_package.sv
-│       │   │   ├── ntm_uvm_scoreboard.sv
-│       │   │   ├── ntm_uvm_sequence_item.sv
-│       │   │   ├── ntm_uvm_sequencer.sv
-│       │   │   ├── ntm_uvm_sequence.sv
-│       │   │   ├── ntm_uvm_testbench.sv
-│       │   │   └── ntm_uvm_test.sv
-│       │   ├── ntm_multi_head_attention
-│       │   │   ├── ntm_uvm_agent.sv
-│       │   │   ├── ntm_uvm_driver.sv
-│       │   │   ├── ntm_uvm_environment.sv
-│       │   │   ├── ntm_uvm_interface.sv
-│       │   │   ├── ntm_uvm_monitor.sv
-│       │   │   ├── ntm_uvm_package.sv
-│       │   │   ├── ntm_uvm_scoreboard.sv
-│       │   │   ├── ntm_uvm_sequence_item.sv
-│       │   │   ├── ntm_uvm_sequencer.sv
-│       │   │   ├── ntm_uvm_sequence.sv
-│       │   │   ├── ntm_uvm_testbench.sv
-│       │   │   └── ntm_uvm_test.sv
-│       │   └── ntm_scaled_dot_product_attention
-│       │       ├── ntm_uvm_agent.sv
-│       │       ├── ntm_uvm_driver.sv
-│       │       ├── ntm_uvm_environment.sv
-│       │       ├── ntm_uvm_interface.sv
-│       │       ├── ntm_uvm_monitor.sv
-│       │       ├── ntm_uvm_package.sv
-│       │       ├── ntm_uvm_scoreboard.sv
-│       │       ├── ntm_uvm_sequence_item.sv
-│       │       ├── ntm_uvm_sequencer.sv
-│       │       ├── ntm_uvm_sequence.sv
-│       │       ├── ntm_uvm_testbench.sv
-│       │       └── ntm_uvm_test.sv
-│       ├── fnn
-│       │   └── ntm_fnn
-│       │       ├── ntm_uvm_agent.sv
-│       │       ├── ntm_uvm_driver.sv
-│       │       ├── ntm_uvm_environment.sv
-│       │       ├── ntm_uvm_interface.sv
-│       │       ├── ntm_uvm_monitor.sv
-│       │       ├── ntm_uvm_package.sv
-│       │       ├── ntm_uvm_scoreboard.sv
-│       │       ├── ntm_uvm_sequence_item.sv
-│       │       ├── ntm_uvm_sequencer.sv
-│       │       ├── ntm_uvm_sequence.sv
-│       │       ├── ntm_uvm_testbench.sv
-│       │       └── ntm_uvm_test.sv
-│       ├── functions
-│       │   ├── ntm_layer_norm
-│       │   │   ├── ntm_uvm_agent.sv
-│       │   │   ├── ntm_uvm_driver.sv
-│       │   │   ├── ntm_uvm_environment.sv
-│       │   │   ├── ntm_uvm_interface.sv
-│       │   │   ├── ntm_uvm_monitor.sv
-│       │   │   ├── ntm_uvm_package.sv
-│       │   │   ├── ntm_uvm_scoreboard.sv
-│       │   │   ├── ntm_uvm_sequence_item.sv
-│       │   │   ├── ntm_uvm_sequencer.sv
-│       │   │   ├── ntm_uvm_sequence.sv
-│       │   │   ├── ntm_uvm_testbench.sv
-│       │   │   └── ntm_uvm_test.sv
-│       │   └── ntm_positional_encoding
-│       │       ├── ntm_uvm_agent.sv
-│       │       ├── ntm_uvm_driver.sv
-│       │       ├── ntm_uvm_environment.sv
-│       │       ├── ntm_uvm_interface.sv
-│       │       ├── ntm_uvm_monitor.sv
-│       │       ├── ntm_uvm_package.sv
-│       │       ├── ntm_uvm_scoreboard.sv
-│       │       ├── ntm_uvm_sequence_item.sv
-│       │       ├── ntm_uvm_sequencer.sv
-│       │       ├── ntm_uvm_sequence.sv
-│       │       ├── ntm_uvm_testbench.sv
-│       │       └── ntm_uvm_test.sv
-│       ├── inputs
-│       │   ├── ntm_inputs_vector
-│       │   │   ├── ntm_uvm_agent.sv
-│       │   │   ├── ntm_uvm_driver.sv
-│       │   │   ├── ntm_uvm_environment.sv
-│       │   │   ├── ntm_uvm_interface.sv
-│       │   │   ├── ntm_uvm_monitor.sv
-│       │   │   ├── ntm_uvm_package.sv
-│       │   │   ├── ntm_uvm_scoreboard.sv
-│       │   │   ├── ntm_uvm_sequence_item.sv
-│       │   │   ├── ntm_uvm_sequencer.sv
-│       │   │   ├── ntm_uvm_sequence.sv
-│       │   │   ├── ntm_uvm_testbench.sv
-│       │   │   └── ntm_uvm_test.sv
-│       │   ├── ntm_keys_vector
-│       │   │   ├── ntm_uvm_agent.sv
-│       │   │   ├── ntm_uvm_driver.sv
-│       │   │   ├── ntm_uvm_environment.sv
-│       │   │   ├── ntm_uvm_interface.sv
-│       │   │   ├── ntm_uvm_monitor.sv
-│       │   │   ├── ntm_uvm_package.sv
-│       │   │   ├── ntm_uvm_scoreboard.sv
-│       │   │   ├── ntm_uvm_sequence_item.sv
-│       │   │   ├── ntm_uvm_sequencer.sv
-│       │   │   ├── ntm_uvm_sequence.sv
-│       │   │   ├── ntm_uvm_testbench.sv
-│       │   │   └── ntm_uvm_test.sv
-│       │   ├── ntm_queries_vector
-│       │   │   ├── ntm_uvm_agent.sv
-│       │   │   ├── ntm_uvm_driver.sv
-│       │   │   ├── ntm_uvm_environment.sv
-│       │   │   ├── ntm_uvm_interface.sv
-│       │   │   ├── ntm_uvm_monitor.sv
-│       │   │   ├── ntm_uvm_package.sv
-│       │   │   ├── ntm_uvm_scoreboard.sv
-│       │   │   ├── ntm_uvm_sequence_item.sv
-│       │   │   ├── ntm_uvm_sequencer.sv
-│       │   │   ├── ntm_uvm_sequence.sv
-│       │   │   ├── ntm_uvm_testbench.sv
-│       │   │   └── ntm_uvm_test.sv
-│       │   └── ntm_values_vector
-│       │       ├── ntm_uvm_agent.sv
-│       │       ├── ntm_uvm_driver.sv
-│       │       ├── ntm_uvm_environment.sv
-│       │       ├── ntm_uvm_interface.sv
-│       │       ├── ntm_uvm_monitor.sv
-│       │       ├── ntm_uvm_package.sv
-│       │       ├── ntm_uvm_scoreboard.sv
-│       │       ├── ntm_uvm_sequence_item.sv
-│       │       ├── ntm_uvm_sequencer.sv
-│       │       ├── ntm_uvm_sequence.sv
-│       │       ├── ntm_uvm_testbench.sv
-│       │       └── ntm_uvm_test.sv
-│       ├── lstm
+│   └── LSTM
+│       ├── convolutional
 │       │   ├── ntm_activation_gate_vector
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   ├── ntm_controller
 │       │   │   ├── ntm_uvm_agent.sv
 │       │   │   ├── ntm_uvm_driver.sv
 │       │   │   ├── ntm_uvm_environment.sv
@@ -628,19 +309,6 @@ library
 │       │   │   ├── ntm_uvm_sequence.sv
 │       │   │   ├── ntm_uvm_testbench.sv
 │       │   │   └── ntm_uvm_test.sv
-│       │   ├── ntm_lstm
-│       │   │   ├── ntm_uvm_agent.sv
-│       │   │   ├── ntm_uvm_driver.sv
-│       │   │   ├── ntm_uvm_environment.sv
-│       │   │   ├── ntm_uvm_interface.sv
-│       │   │   ├── ntm_uvm_monitor.sv
-│       │   │   ├── ntm_uvm_package.sv
-│       │   │   ├── ntm_uvm_scoreboard.sv
-│       │   │   ├── ntm_uvm_sequence_item.sv
-│       │   │   ├── ntm_uvm_sequencer.sv
-│       │   │   ├── ntm_uvm_sequence.sv
-│       │   │   ├── ntm_uvm_testbench.sv
-│       │   │   └── ntm_uvm_test.sv
 │       │   ├── ntm_output_gate_vector
 │       │   │   ├── ntm_uvm_agent.sv
 │       │   │   ├── ntm_uvm_driver.sv
@@ -667,7 +335,20 @@ library
 │       │       ├── ntm_uvm_sequence.sv
 │       │       ├── ntm_uvm_testbench.sv
 │       │       └── ntm_uvm_test.sv
-│       └── top
+│       └── standard
+│           ├── ntm_activation_gate_vector
+│           │   ├── ntm_uvm_agent.sv
+│           │   ├── ntm_uvm_driver.sv
+│           │   ├── ntm_uvm_environment.sv
+│           │   ├── ntm_uvm_interface.sv
+│           │   ├── ntm_uvm_monitor.sv
+│           │   ├── ntm_uvm_package.sv
+│           │   ├── ntm_uvm_scoreboard.sv
+│           │   ├── ntm_uvm_sequence_item.sv
+│           │   ├── ntm_uvm_sequencer.sv
+│           │   ├── ntm_uvm_sequence.sv
+│           │   ├── ntm_uvm_testbench.sv
+│           │   └── ntm_uvm_test.sv
 │           ├── ntm_controller
 │           │   ├── ntm_uvm_agent.sv
 │           │   ├── ntm_uvm_driver.sv
@@ -681,7 +362,7 @@ library
 │           │   ├── ntm_uvm_sequence.sv
 │           │   ├── ntm_uvm_testbench.sv
 │           │   └── ntm_uvm_test.sv
-│           ├── ntm_decoder
+│           ├── ntm_forget_gate_vector
 │           │   ├── ntm_uvm_agent.sv
 │           │   ├── ntm_uvm_driver.sv
 │           │   ├── ntm_uvm_environment.sv
@@ -694,7 +375,46 @@ library
 │           │   ├── ntm_uvm_sequence.sv
 │           │   ├── ntm_uvm_testbench.sv
 │           │   └── ntm_uvm_test.sv
-│           └── ntm_encoder
+│           ├── ntm_hidden_gate_vector
+│           │   ├── ntm_uvm_agent.sv
+│           │   ├── ntm_uvm_driver.sv
+│           │   ├── ntm_uvm_environment.sv
+│           │   ├── ntm_uvm_interface.sv
+│           │   ├── ntm_uvm_monitor.sv
+│           │   ├── ntm_uvm_package.sv
+│           │   ├── ntm_uvm_scoreboard.sv
+│           │   ├── ntm_uvm_sequence_item.sv
+│           │   ├── ntm_uvm_sequencer.sv
+│           │   ├── ntm_uvm_sequence.sv
+│           │   ├── ntm_uvm_testbench.sv
+│           │   └── ntm_uvm_test.sv
+│           ├── ntm_input_gate_vector
+│           │   ├── ntm_uvm_agent.sv
+│           │   ├── ntm_uvm_driver.sv
+│           │   ├── ntm_uvm_environment.sv
+│           │   ├── ntm_uvm_interface.sv
+│           │   ├── ntm_uvm_monitor.sv
+│           │   ├── ntm_uvm_package.sv
+│           │   ├── ntm_uvm_scoreboard.sv
+│           │   ├── ntm_uvm_sequence_item.sv
+│           │   ├── ntm_uvm_sequencer.sv
+│           │   ├── ntm_uvm_sequence.sv
+│           │   ├── ntm_uvm_testbench.sv
+│           │   └── ntm_uvm_test.sv
+│           ├── ntm_output_gate_vector
+│           │   ├── ntm_uvm_agent.sv
+│           │   ├── ntm_uvm_driver.sv
+│           │   ├── ntm_uvm_environment.sv
+│           │   ├── ntm_uvm_interface.sv
+│           │   ├── ntm_uvm_monitor.sv
+│           │   ├── ntm_uvm_package.sv
+│           │   ├── ntm_uvm_scoreboard.sv
+│           │   ├── ntm_uvm_sequence_item.sv
+│           │   ├── ntm_uvm_sequencer.sv
+│           │   ├── ntm_uvm_sequence.sv
+│           │   ├── ntm_uvm_testbench.sv
+│           │   └── ntm_uvm_test.sv
+│           └── ntm_state_gate_vector
 │               ├── ntm_uvm_agent.sv
 │               ├── ntm_uvm_driver.sv
 │               ├── ntm_uvm_environment.sv
@@ -1883,9 +1603,498 @@ library
 │           ├── ntm_uvm_sequence.sv
 │           ├── ntm_uvm_testbench.sv
 │           └── ntm_uvm_test.sv
-└── trainer
-    ├── differentiation
-    │   ├── ntm_matrix_controller_differentiation
+├── trainer
+│   ├── differentiation
+│   │   ├── ntm_matrix_controller_differentiation
+│   │   │   ├── ntm_uvm_agent.sv
+│   │   │   ├── ntm_uvm_driver.sv
+│   │   │   ├── ntm_uvm_environment.sv
+│   │   │   ├── ntm_uvm_interface.sv
+│   │   │   ├── ntm_uvm_monitor.sv
+│   │   │   ├── ntm_uvm_package.sv
+│   │   │   ├── ntm_uvm_scoreboard.sv
+│   │   │   ├── ntm_uvm_sequence_item.sv
+│   │   │   ├── ntm_uvm_sequencer.sv
+│   │   │   ├── ntm_uvm_sequence.sv
+│   │   │   ├── ntm_uvm_testbench.sv
+│   │   │   └── ntm_uvm_test.sv
+│   │   └── ntm_vector_controller_differentiation
+│   │       ├── ntm_uvm_agent.sv
+│   │       ├── ntm_uvm_driver.sv
+│   │       ├── ntm_uvm_environment.sv
+│   │       ├── ntm_uvm_interface.sv
+│   │       ├── ntm_uvm_monitor.sv
+│   │       ├── ntm_uvm_package.sv
+│   │       ├── ntm_uvm_scoreboard.sv
+│   │       ├── ntm_uvm_sequence_item.sv
+│   │       ├── ntm_uvm_sequencer.sv
+│   │       ├── ntm_uvm_sequence.sv
+│   │       ├── ntm_uvm_testbench.sv
+│   │       └── ntm_uvm_test.sv
+│   ├── FNN
+│   │   ├── ntm_fnn_b_trainer
+│   │   │   ├── ntm_uvm_agent.sv
+│   │   │   ├── ntm_uvm_driver.sv
+│   │   │   ├── ntm_uvm_environment.sv
+│   │   │   ├── ntm_uvm_interface.sv
+│   │   │   ├── ntm_uvm_monitor.sv
+│   │   │   ├── ntm_uvm_package.sv
+│   │   │   ├── ntm_uvm_scoreboard.sv
+│   │   │   ├── ntm_uvm_sequence_item.sv
+│   │   │   ├── ntm_uvm_sequencer.sv
+│   │   │   ├── ntm_uvm_sequence.sv
+│   │   │   ├── ntm_uvm_testbench.sv
+│   │   │   └── ntm_uvm_test.sv
+│   │   ├── ntm_fnn_d_trainer
+│   │   │   ├── ntm_uvm_agent.sv
+│   │   │   ├── ntm_uvm_driver.sv
+│   │   │   ├── ntm_uvm_environment.sv
+│   │   │   ├── ntm_uvm_interface.sv
+│   │   │   ├── ntm_uvm_monitor.sv
+│   │   │   ├── ntm_uvm_package.sv
+│   │   │   ├── ntm_uvm_scoreboard.sv
+│   │   │   ├── ntm_uvm_sequence_item.sv
+│   │   │   ├── ntm_uvm_sequencer.sv
+│   │   │   ├── ntm_uvm_sequence.sv
+│   │   │   ├── ntm_uvm_testbench.sv
+│   │   │   └── ntm_uvm_test.sv
+│   │   ├── ntm_fnn_k_trainer
+│   │   │   ├── ntm_uvm_agent.sv
+│   │   │   ├── ntm_uvm_driver.sv
+│   │   │   ├── ntm_uvm_environment.sv
+│   │   │   ├── ntm_uvm_interface.sv
+│   │   │   ├── ntm_uvm_monitor.sv
+│   │   │   ├── ntm_uvm_package.sv
+│   │   │   ├── ntm_uvm_scoreboard.sv
+│   │   │   ├── ntm_uvm_sequence_item.sv
+│   │   │   ├── ntm_uvm_sequencer.sv
+│   │   │   ├── ntm_uvm_sequence.sv
+│   │   │   ├── ntm_uvm_testbench.sv
+│   │   │   └── ntm_uvm_test.sv
+│   │   ├── ntm_fnn_trainer
+│   │   │   ├── ntm_uvm_agent.sv
+│   │   │   ├── ntm_uvm_driver.sv
+│   │   │   ├── ntm_uvm_environment.sv
+│   │   │   ├── ntm_uvm_interface.sv
+│   │   │   ├── ntm_uvm_monitor.sv
+│   │   │   ├── ntm_uvm_package.sv
+│   │   │   ├── ntm_uvm_scoreboard.sv
+│   │   │   ├── ntm_uvm_sequence_item.sv
+│   │   │   ├── ntm_uvm_sequencer.sv
+│   │   │   ├── ntm_uvm_sequence.sv
+│   │   │   ├── ntm_uvm_testbench.sv
+│   │   │   └── ntm_uvm_test.sv
+│   │   ├── ntm_fnn_u_trainer
+│   │   │   ├── ntm_uvm_agent.sv
+│   │   │   ├── ntm_uvm_driver.sv
+│   │   │   ├── ntm_uvm_environment.sv
+│   │   │   ├── ntm_uvm_interface.sv
+│   │   │   ├── ntm_uvm_monitor.sv
+│   │   │   ├── ntm_uvm_package.sv
+│   │   │   ├── ntm_uvm_scoreboard.sv
+│   │   │   ├── ntm_uvm_sequence_item.sv
+│   │   │   ├── ntm_uvm_sequencer.sv
+│   │   │   ├── ntm_uvm_sequence.sv
+│   │   │   ├── ntm_uvm_testbench.sv
+│   │   │   └── ntm_uvm_test.sv
+│   │   ├── ntm_fnn_v_trainer
+│   │   │   ├── ntm_uvm_agent.sv
+│   │   │   ├── ntm_uvm_driver.sv
+│   │   │   ├── ntm_uvm_environment.sv
+│   │   │   ├── ntm_uvm_interface.sv
+│   │   │   ├── ntm_uvm_monitor.sv
+│   │   │   ├── ntm_uvm_package.sv
+│   │   │   ├── ntm_uvm_scoreboard.sv
+│   │   │   ├── ntm_uvm_sequence_item.sv
+│   │   │   ├── ntm_uvm_sequencer.sv
+│   │   │   ├── ntm_uvm_sequence.sv
+│   │   │   ├── ntm_uvm_testbench.sv
+│   │   │   └── ntm_uvm_test.sv
+│   │   └── ntm_fnn_w_trainer
+│   │       ├── ntm_uvm_agent.sv
+│   │       ├── ntm_uvm_driver.sv
+│   │       ├── ntm_uvm_environment.sv
+│   │       ├── ntm_uvm_interface.sv
+│   │       ├── ntm_uvm_monitor.sv
+│   │       ├── ntm_uvm_package.sv
+│   │       ├── ntm_uvm_scoreboard.sv
+│   │       ├── ntm_uvm_sequence_item.sv
+│   │       ├── ntm_uvm_sequencer.sv
+│   │       ├── ntm_uvm_sequence.sv
+│   │       ├── ntm_uvm_testbench.sv
+│   │       └── ntm_uvm_test.sv
+│   └── LSTM
+│       ├── activation
+│       │   ├── ntm_lstm_activation_b_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   ├── ntm_lstm_activation_d_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   ├── ntm_lstm_activation_k_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   ├── ntm_lstm_activation_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   ├── ntm_lstm_activation_u_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   ├── ntm_lstm_activation_v_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   └── ntm_lstm_activation_w_trainer
+│       │       ├── ntm_uvm_agent.sv
+│       │       ├── ntm_uvm_driver.sv
+│       │       ├── ntm_uvm_environment.sv
+│       │       ├── ntm_uvm_interface.sv
+│       │       ├── ntm_uvm_monitor.sv
+│       │       ├── ntm_uvm_package.sv
+│       │       ├── ntm_uvm_scoreboard.sv
+│       │       ├── ntm_uvm_sequence_item.sv
+│       │       ├── ntm_uvm_sequencer.sv
+│       │       ├── ntm_uvm_sequence.sv
+│       │       ├── ntm_uvm_testbench.sv
+│       │       └── ntm_uvm_test.sv
+│       ├── forget
+│       │   ├── ntm_lstm_forget_b_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   ├── ntm_lstm_forget_d_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   ├── ntm_lstm_forget_k_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   ├── ntm_lstm_forget_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   ├── ntm_lstm_forget_u_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   ├── ntm_lstm_forget_v_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   └── ntm_lstm_forget_w_trainer
+│       │       ├── ntm_uvm_agent.sv
+│       │       ├── ntm_uvm_driver.sv
+│       │       ├── ntm_uvm_environment.sv
+│       │       ├── ntm_uvm_interface.sv
+│       │       ├── ntm_uvm_monitor.sv
+│       │       ├── ntm_uvm_package.sv
+│       │       ├── ntm_uvm_scoreboard.sv
+│       │       ├── ntm_uvm_sequence_item.sv
+│       │       ├── ntm_uvm_sequencer.sv
+│       │       ├── ntm_uvm_sequence.sv
+│       │       ├── ntm_uvm_testbench.sv
+│       │       └── ntm_uvm_test.sv
+│       ├── input
+│       │   ├── ntm_lstm_input_b_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   ├── ntm_lstm_input_d_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   ├── ntm_lstm_input_k_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   ├── ntm_lstm_input_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   ├── ntm_lstm_input_u_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   ├── ntm_lstm_input_v_trainer
+│       │   │   ├── ntm_uvm_agent.sv
+│       │   │   ├── ntm_uvm_driver.sv
+│       │   │   ├── ntm_uvm_environment.sv
+│       │   │   ├── ntm_uvm_interface.sv
+│       │   │   ├── ntm_uvm_monitor.sv
+│       │   │   ├── ntm_uvm_package.sv
+│       │   │   ├── ntm_uvm_scoreboard.sv
+│       │   │   ├── ntm_uvm_sequence_item.sv
+│       │   │   ├── ntm_uvm_sequencer.sv
+│       │   │   ├── ntm_uvm_sequence.sv
+│       │   │   ├── ntm_uvm_testbench.sv
+│       │   │   └── ntm_uvm_test.sv
+│       │   └── ntm_lstm_input_w_trainer
+│       │       ├── ntm_uvm_agent.sv
+│       │       ├── ntm_uvm_driver.sv
+│       │       ├── ntm_uvm_environment.sv
+│       │       ├── ntm_uvm_interface.sv
+│       │       ├── ntm_uvm_monitor.sv
+│       │       ├── ntm_uvm_package.sv
+│       │       ├── ntm_uvm_scoreboard.sv
+│       │       ├── ntm_uvm_sequence_item.sv
+│       │       ├── ntm_uvm_sequencer.sv
+│       │       ├── ntm_uvm_sequence.sv
+│       │       ├── ntm_uvm_testbench.sv
+│       │       └── ntm_uvm_test.sv
+│       └── output
+│           ├── ntm_lstm_output_b_trainer
+│           │   ├── ntm_uvm_agent.sv
+│           │   ├── ntm_uvm_driver.sv
+│           │   ├── ntm_uvm_environment.sv
+│           │   ├── ntm_uvm_interface.sv
+│           │   ├── ntm_uvm_monitor.sv
+│           │   ├── ntm_uvm_package.sv
+│           │   ├── ntm_uvm_scoreboard.sv
+│           │   ├── ntm_uvm_sequence_item.sv
+│           │   ├── ntm_uvm_sequencer.sv
+│           │   ├── ntm_uvm_sequence.sv
+│           │   ├── ntm_uvm_testbench.sv
+│           │   └── ntm_uvm_test.sv
+│           ├── ntm_lstm_output_d_trainer
+│           │   ├── ntm_uvm_agent.sv
+│           │   ├── ntm_uvm_driver.sv
+│           │   ├── ntm_uvm_environment.sv
+│           │   ├── ntm_uvm_interface.sv
+│           │   ├── ntm_uvm_monitor.sv
+│           │   ├── ntm_uvm_package.sv
+│           │   ├── ntm_uvm_scoreboard.sv
+│           │   ├── ntm_uvm_sequence_item.sv
+│           │   ├── ntm_uvm_sequencer.sv
+│           │   ├── ntm_uvm_sequence.sv
+│           │   ├── ntm_uvm_testbench.sv
+│           │   └── ntm_uvm_test.sv
+│           ├── ntm_lstm_output_k_trainer
+│           │   ├── ntm_uvm_agent.sv
+│           │   ├── ntm_uvm_driver.sv
+│           │   ├── ntm_uvm_environment.sv
+│           │   ├── ntm_uvm_interface.sv
+│           │   ├── ntm_uvm_monitor.sv
+│           │   ├── ntm_uvm_package.sv
+│           │   ├── ntm_uvm_scoreboard.sv
+│           │   ├── ntm_uvm_sequence_item.sv
+│           │   ├── ntm_uvm_sequencer.sv
+│           │   ├── ntm_uvm_sequence.sv
+│           │   ├── ntm_uvm_testbench.sv
+│           │   └── ntm_uvm_test.sv
+│           ├── ntm_lstm_output_trainer
+│           │   ├── ntm_uvm_agent.sv
+│           │   ├── ntm_uvm_driver.sv
+│           │   ├── ntm_uvm_environment.sv
+│           │   ├── ntm_uvm_interface.sv
+│           │   ├── ntm_uvm_monitor.sv
+│           │   ├── ntm_uvm_package.sv
+│           │   ├── ntm_uvm_scoreboard.sv
+│           │   ├── ntm_uvm_sequence_item.sv
+│           │   ├── ntm_uvm_sequencer.sv
+│           │   ├── ntm_uvm_sequence.sv
+│           │   ├── ntm_uvm_testbench.sv
+│           │   └── ntm_uvm_test.sv
+│           ├── ntm_lstm_output_u_trainer
+│           │   ├── ntm_uvm_agent.sv
+│           │   ├── ntm_uvm_driver.sv
+│           │   ├── ntm_uvm_environment.sv
+│           │   ├── ntm_uvm_interface.sv
+│           │   ├── ntm_uvm_monitor.sv
+│           │   ├── ntm_uvm_package.sv
+│           │   ├── ntm_uvm_scoreboard.sv
+│           │   ├── ntm_uvm_sequence_item.sv
+│           │   ├── ntm_uvm_sequencer.sv
+│           │   ├── ntm_uvm_sequence.sv
+│           │   ├── ntm_uvm_testbench.sv
+│           │   └── ntm_uvm_test.sv
+│           ├── ntm_lstm_output_v_trainer
+│           │   ├── ntm_uvm_agent.sv
+│           │   ├── ntm_uvm_driver.sv
+│           │   ├── ntm_uvm_environment.sv
+│           │   ├── ntm_uvm_interface.sv
+│           │   ├── ntm_uvm_monitor.sv
+│           │   ├── ntm_uvm_package.sv
+│           │   ├── ntm_uvm_scoreboard.sv
+│           │   ├── ntm_uvm_sequence_item.sv
+│           │   ├── ntm_uvm_sequencer.sv
+│           │   ├── ntm_uvm_sequence.sv
+│           │   ├── ntm_uvm_testbench.sv
+│           │   └── ntm_uvm_test.sv
+│           └── ntm_lstm_output_w_trainer
+│               ├── ntm_uvm_agent.sv
+│               ├── ntm_uvm_driver.sv
+│               ├── ntm_uvm_environment.sv
+│               ├── ntm_uvm_interface.sv
+│               ├── ntm_uvm_monitor.sv
+│               ├── ntm_uvm_package.sv
+│               ├── ntm_uvm_scoreboard.sv
+│               ├── ntm_uvm_sequence_item.sv
+│               ├── ntm_uvm_sequencer.sv
+│               ├── ntm_uvm_sequence.sv
+│               ├── ntm_uvm_testbench.sv
+│               └── ntm_uvm_test.sv
+└── transformer
+    ├── components
+    │   ├── ntm_masked_multi_head_attention
     │   │   ├── ntm_uvm_agent.sv
     │   │   ├── ntm_uvm_driver.sv
     │   │   ├── ntm_uvm_environment.sv
@@ -1898,7 +2107,33 @@ library
     │   │   ├── ntm_uvm_sequence.sv
     │   │   ├── ntm_uvm_testbench.sv
     │   │   └── ntm_uvm_test.sv
-    │   └── ntm_vector_controller_differentiation
+    │   ├── ntm_masked_scaled_dot_product_attention
+    │   │   ├── ntm_uvm_agent.sv
+    │   │   ├── ntm_uvm_driver.sv
+    │   │   ├── ntm_uvm_environment.sv
+    │   │   ├── ntm_uvm_interface.sv
+    │   │   ├── ntm_uvm_monitor.sv
+    │   │   ├── ntm_uvm_package.sv
+    │   │   ├── ntm_uvm_scoreboard.sv
+    │   │   ├── ntm_uvm_sequence_item.sv
+    │   │   ├── ntm_uvm_sequencer.sv
+    │   │   ├── ntm_uvm_sequence.sv
+    │   │   ├── ntm_uvm_testbench.sv
+    │   │   └── ntm_uvm_test.sv
+    │   ├── ntm_multi_head_attention
+    │   │   ├── ntm_uvm_agent.sv
+    │   │   ├── ntm_uvm_driver.sv
+    │   │   ├── ntm_uvm_environment.sv
+    │   │   ├── ntm_uvm_interface.sv
+    │   │   ├── ntm_uvm_monitor.sv
+    │   │   ├── ntm_uvm_package.sv
+    │   │   ├── ntm_uvm_scoreboard.sv
+    │   │   ├── ntm_uvm_sequence_item.sv
+    │   │   ├── ntm_uvm_sequencer.sv
+    │   │   ├── ntm_uvm_sequence.sv
+    │   │   ├── ntm_uvm_testbench.sv
+    │   │   └── ntm_uvm_test.sv
+    │   └── ntm_scaled_dot_product_attention
     │       ├── ntm_uvm_agent.sv
     │       ├── ntm_uvm_driver.sv
     │       ├── ntm_uvm_environment.sv
@@ -1911,86 +2146,8 @@ library
     │       ├── ntm_uvm_sequence.sv
     │       ├── ntm_uvm_testbench.sv
     │       └── ntm_uvm_test.sv
-    ├── FNN
-    │   ├── ntm_fnn_b_trainer
-    │   │   ├── ntm_uvm_agent.sv
-    │   │   ├── ntm_uvm_driver.sv
-    │   │   ├── ntm_uvm_environment.sv
-    │   │   ├── ntm_uvm_interface.sv
-    │   │   ├── ntm_uvm_monitor.sv
-    │   │   ├── ntm_uvm_package.sv
-    │   │   ├── ntm_uvm_scoreboard.sv
-    │   │   ├── ntm_uvm_sequence_item.sv
-    │   │   ├── ntm_uvm_sequencer.sv
-    │   │   ├── ntm_uvm_sequence.sv
-    │   │   ├── ntm_uvm_testbench.sv
-    │   │   └── ntm_uvm_test.sv
-    │   ├── ntm_fnn_d_trainer
-    │   │   ├── ntm_uvm_agent.sv
-    │   │   ├── ntm_uvm_driver.sv
-    │   │   ├── ntm_uvm_environment.sv
-    │   │   ├── ntm_uvm_interface.sv
-    │   │   ├── ntm_uvm_monitor.sv
-    │   │   ├── ntm_uvm_package.sv
-    │   │   ├── ntm_uvm_scoreboard.sv
-    │   │   ├── ntm_uvm_sequence_item.sv
-    │   │   ├── ntm_uvm_sequencer.sv
-    │   │   ├── ntm_uvm_sequence.sv
-    │   │   ├── ntm_uvm_testbench.sv
-    │   │   └── ntm_uvm_test.sv
-    │   ├── ntm_fnn_k_trainer
-    │   │   ├── ntm_uvm_agent.sv
-    │   │   ├── ntm_uvm_driver.sv
-    │   │   ├── ntm_uvm_environment.sv
-    │   │   ├── ntm_uvm_interface.sv
-    │   │   ├── ntm_uvm_monitor.sv
-    │   │   ├── ntm_uvm_package.sv
-    │   │   ├── ntm_uvm_scoreboard.sv
-    │   │   ├── ntm_uvm_sequence_item.sv
-    │   │   ├── ntm_uvm_sequencer.sv
-    │   │   ├── ntm_uvm_sequence.sv
-    │   │   ├── ntm_uvm_testbench.sv
-    │   │   └── ntm_uvm_test.sv
-    │   ├── ntm_fnn_trainer
-    │   │   ├── ntm_uvm_agent.sv
-    │   │   ├── ntm_uvm_driver.sv
-    │   │   ├── ntm_uvm_environment.sv
-    │   │   ├── ntm_uvm_interface.sv
-    │   │   ├── ntm_uvm_monitor.sv
-    │   │   ├── ntm_uvm_package.sv
-    │   │   ├── ntm_uvm_scoreboard.sv
-    │   │   ├── ntm_uvm_sequence_item.sv
-    │   │   ├── ntm_uvm_sequencer.sv
-    │   │   ├── ntm_uvm_sequence.sv
-    │   │   ├── ntm_uvm_testbench.sv
-    │   │   └── ntm_uvm_test.sv
-    │   ├── ntm_fnn_u_trainer
-    │   │   ├── ntm_uvm_agent.sv
-    │   │   ├── ntm_uvm_driver.sv
-    │   │   ├── ntm_uvm_environment.sv
-    │   │   ├── ntm_uvm_interface.sv
-    │   │   ├── ntm_uvm_monitor.sv
-    │   │   ├── ntm_uvm_package.sv
-    │   │   ├── ntm_uvm_scoreboard.sv
-    │   │   ├── ntm_uvm_sequence_item.sv
-    │   │   ├── ntm_uvm_sequencer.sv
-    │   │   ├── ntm_uvm_sequence.sv
-    │   │   ├── ntm_uvm_testbench.sv
-    │   │   └── ntm_uvm_test.sv
-    │   ├── ntm_fnn_v_trainer
-    │   │   ├── ntm_uvm_agent.sv
-    │   │   ├── ntm_uvm_driver.sv
-    │   │   ├── ntm_uvm_environment.sv
-    │   │   ├── ntm_uvm_interface.sv
-    │   │   ├── ntm_uvm_monitor.sv
-    │   │   ├── ntm_uvm_package.sv
-    │   │   ├── ntm_uvm_scoreboard.sv
-    │   │   ├── ntm_uvm_sequence_item.sv
-    │   │   ├── ntm_uvm_sequencer.sv
-    │   │   ├── ntm_uvm_sequence.sv
-    │   │   ├── ntm_uvm_testbench.sv
-    │   │   └── ntm_uvm_test.sv
-    │   └── ntm_fnn_w_trainer
+    ├── fnn
+    │   └── ntm_fnn
     │       ├── ntm_uvm_agent.sv
     │       ├── ntm_uvm_driver.sv
     │       ├── ntm_uvm_environment.sv
@@ -2003,374 +2160,217 @@ library
     │       ├── ntm_uvm_sequence.sv
     │       ├── ntm_uvm_testbench.sv
     │       └── ntm_uvm_test.sv
-    └── LSTM
-        ├── activation
-        │   ├── ntm_lstm_activation_b_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   ├── ntm_lstm_activation_d_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   ├── ntm_lstm_activation_k_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   ├── ntm_lstm_activation_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   ├── ntm_lstm_activation_u_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   ├── ntm_lstm_activation_v_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   └── ntm_lstm_activation_w_trainer
-        │       ├── ntm_uvm_agent.sv
-        │       ├── ntm_uvm_driver.sv
-        │       ├── ntm_uvm_environment.sv
-        │       ├── ntm_uvm_interface.sv
-        │       ├── ntm_uvm_monitor.sv
-        │       ├── ntm_uvm_package.sv
-        │       ├── ntm_uvm_scoreboard.sv
-        │       ├── ntm_uvm_sequence_item.sv
-        │       ├── ntm_uvm_sequencer.sv
-        │       ├── ntm_uvm_sequence.sv
-        │       ├── ntm_uvm_testbench.sv
-        │       └── ntm_uvm_test.sv
-        ├── forget
-        │   ├── ntm_lstm_forget_b_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   ├── ntm_lstm_forget_d_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   ├── ntm_lstm_forget_k_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   ├── ntm_lstm_forget_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   ├── ntm_lstm_forget_u_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   ├── ntm_lstm_forget_v_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   └── ntm_lstm_forget_w_trainer
-        │       ├── ntm_uvm_agent.sv
-        │       ├── ntm_uvm_driver.sv
-        │       ├── ntm_uvm_environment.sv
-        │       ├── ntm_uvm_interface.sv
-        │       ├── ntm_uvm_monitor.sv
-        │       ├── ntm_uvm_package.sv
-        │       ├── ntm_uvm_scoreboard.sv
-        │       ├── ntm_uvm_sequence_item.sv
-        │       ├── ntm_uvm_sequencer.sv
-        │       ├── ntm_uvm_sequence.sv
-        │       ├── ntm_uvm_testbench.sv
-        │       └── ntm_uvm_test.sv
-        ├── input
-        │   ├── ntm_lstm_input_b_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   ├── ntm_lstm_input_d_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   ├── ntm_lstm_input_k_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   ├── ntm_lstm_input_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   ├── ntm_lstm_input_u_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   ├── ntm_lstm_input_v_trainer
-        │   │   ├── ntm_uvm_agent.sv
-        │   │   ├── ntm_uvm_driver.sv
-        │   │   ├── ntm_uvm_environment.sv
-        │   │   ├── ntm_uvm_interface.sv
-        │   │   ├── ntm_uvm_monitor.sv
-        │   │   ├── ntm_uvm_package.sv
-        │   │   ├── ntm_uvm_scoreboard.sv
-        │   │   ├── ntm_uvm_sequence_item.sv
-        │   │   ├── ntm_uvm_sequencer.sv
-        │   │   ├── ntm_uvm_sequence.sv
-        │   │   ├── ntm_uvm_testbench.sv
-        │   │   └── ntm_uvm_test.sv
-        │   └── ntm_lstm_input_w_trainer
-        │       ├── ntm_uvm_agent.sv
-        │       ├── ntm_uvm_driver.sv
-        │       ├── ntm_uvm_environment.sv
-        │       ├── ntm_uvm_interface.sv
-        │       ├── ntm_uvm_monitor.sv
-        │       ├── ntm_uvm_package.sv
-        │       ├── ntm_uvm_scoreboard.sv
-        │       ├── ntm_uvm_sequence_item.sv
-        │       ├── ntm_uvm_sequencer.sv
-        │       ├── ntm_uvm_sequence.sv
-        │       ├── ntm_uvm_testbench.sv
-        │       └── ntm_uvm_test.sv
-        └── output
-            ├── ntm_lstm_output_b_trainer
-            │   ├── ntm_uvm_agent.sv
-            │   ├── ntm_uvm_driver.sv
-            │   ├── ntm_uvm_environment.sv
-            │   ├── ntm_uvm_interface.sv
-            │   ├── ntm_uvm_monitor.sv
-            │   ├── ntm_uvm_package.sv
-            │   ├── ntm_uvm_scoreboard.sv
-            │   ├── ntm_uvm_sequence_item.sv
-            │   ├── ntm_uvm_sequencer.sv
-            │   ├── ntm_uvm_sequence.sv
-            │   ├── ntm_uvm_testbench.sv
-            │   └── ntm_uvm_test.sv
-            ├── ntm_lstm_output_d_trainer
-            │   ├── ntm_uvm_agent.sv
-            │   ├── ntm_uvm_driver.sv
-            │   ├── ntm_uvm_environment.sv
-            │   ├── ntm_uvm_interface.sv
-            │   ├── ntm_uvm_monitor.sv
-            │   ├── ntm_uvm_package.sv
-            │   ├── ntm_uvm_scoreboard.sv
-            │   ├── ntm_uvm_sequence_item.sv
-            │   ├── ntm_uvm_sequencer.sv
-            │   ├── ntm_uvm_sequence.sv
-            │   ├── ntm_uvm_testbench.sv
-            │   └── ntm_uvm_test.sv
-            ├── ntm_lstm_output_k_trainer
-            │   ├── ntm_uvm_agent.sv
-            │   ├── ntm_uvm_driver.sv
-            │   ├── ntm_uvm_environment.sv
-            │   ├── ntm_uvm_interface.sv
-            │   ├── ntm_uvm_monitor.sv
-            │   ├── ntm_uvm_package.sv
-            │   ├── ntm_uvm_scoreboard.sv
-            │   ├── ntm_uvm_sequence_item.sv
-            │   ├── ntm_uvm_sequencer.sv
-            │   ├── ntm_uvm_sequence.sv
-            │   ├── ntm_uvm_testbench.sv
-            │   └── ntm_uvm_test.sv
-            ├── ntm_lstm_output_trainer
-            │   ├── ntm_uvm_agent.sv
-            │   ├── ntm_uvm_driver.sv
-            │   ├── ntm_uvm_environment.sv
-            │   ├── ntm_uvm_interface.sv
-            │   ├── ntm_uvm_monitor.sv
-            │   ├── ntm_uvm_package.sv
-            │   ├── ntm_uvm_scoreboard.sv
-            │   ├── ntm_uvm_sequence_item.sv
-            │   ├── ntm_uvm_sequencer.sv
-            │   ├── ntm_uvm_sequence.sv
-            │   ├── ntm_uvm_testbench.sv
-            │   └── ntm_uvm_test.sv
-            ├── ntm_lstm_output_u_trainer
-            │   ├── ntm_uvm_agent.sv
-            │   ├── ntm_uvm_driver.sv
-            │   ├── ntm_uvm_environment.sv
-            │   ├── ntm_uvm_interface.sv
-            │   ├── ntm_uvm_monitor.sv
-            │   ├── ntm_uvm_package.sv
-            │   ├── ntm_uvm_scoreboard.sv
-            │   ├── ntm_uvm_sequence_item.sv
-            │   ├── ntm_uvm_sequencer.sv
-            │   ├── ntm_uvm_sequence.sv
-            │   ├── ntm_uvm_testbench.sv
-            │   └── ntm_uvm_test.sv
-            ├── ntm_lstm_output_v_trainer
-            │   ├── ntm_uvm_agent.sv
-            │   ├── ntm_uvm_driver.sv
-            │   ├── ntm_uvm_environment.sv
-            │   ├── ntm_uvm_interface.sv
-            │   ├── ntm_uvm_monitor.sv
-            │   ├── ntm_uvm_package.sv
-            │   ├── ntm_uvm_scoreboard.sv
-            │   ├── ntm_uvm_sequence_item.sv
-            │   ├── ntm_uvm_sequencer.sv
-            │   ├── ntm_uvm_sequence.sv
-            │   ├── ntm_uvm_testbench.sv
-            │   └── ntm_uvm_test.sv
-            └── ntm_lstm_output_w_trainer
-                ├── ntm_uvm_agent.sv
-                ├── ntm_uvm_driver.sv
-                ├── ntm_uvm_environment.sv
-                ├── ntm_uvm_interface.sv
-                ├── ntm_uvm_monitor.sv
-                ├── ntm_uvm_package.sv
-                ├── ntm_uvm_scoreboard.sv
-                ├── ntm_uvm_sequence_item.sv
-                ├── ntm_uvm_sequencer.sv
-                ├── ntm_uvm_sequence.sv
-                ├── ntm_uvm_testbench.sv
-                └── ntm_uvm_test.sv
+    ├── functions
+    │   ├── ntm_layer_norm
+    │   │   ├── ntm_uvm_agent.sv
+    │   │   ├── ntm_uvm_driver.sv
+    │   │   ├── ntm_uvm_environment.sv
+    │   │   ├── ntm_uvm_interface.sv
+    │   │   ├── ntm_uvm_monitor.sv
+    │   │   ├── ntm_uvm_package.sv
+    │   │   ├── ntm_uvm_scoreboard.sv
+    │   │   ├── ntm_uvm_sequence_item.sv
+    │   │   ├── ntm_uvm_sequencer.sv
+    │   │   ├── ntm_uvm_sequence.sv
+    │   │   ├── ntm_uvm_testbench.sv
+    │   │   └── ntm_uvm_test.sv
+    │   └── ntm_positional_encoding
+    │       ├── ntm_uvm_agent.sv
+    │       ├── ntm_uvm_driver.sv
+    │       ├── ntm_uvm_environment.sv
+    │       ├── ntm_uvm_interface.sv
+    │       ├── ntm_uvm_monitor.sv
+    │       ├── ntm_uvm_package.sv
+    │       ├── ntm_uvm_scoreboard.sv
+    │       ├── ntm_uvm_sequence_item.sv
+    │       ├── ntm_uvm_sequencer.sv
+    │       ├── ntm_uvm_sequence.sv
+    │       ├── ntm_uvm_testbench.sv
+    │       └── ntm_uvm_test.sv
+    ├── inputs
+    │   ├── ntm_inputs_vector
+    │   │   ├── ntm_uvm_agent.sv
+    │   │   ├── ntm_uvm_driver.sv
+    │   │   ├── ntm_uvm_environment.sv
+    │   │   ├── ntm_uvm_interface.sv
+    │   │   ├── ntm_uvm_monitor.sv
+    │   │   ├── ntm_uvm_package.sv
+    │   │   ├── ntm_uvm_scoreboard.sv
+    │   │   ├── ntm_uvm_sequence_item.sv
+    │   │   ├── ntm_uvm_sequencer.sv
+    │   │   ├── ntm_uvm_sequence.sv
+    │   │   ├── ntm_uvm_testbench.sv
+    │   │   └── ntm_uvm_test.sv
+    │   ├── ntm_keys_vector
+    │   │   ├── ntm_uvm_agent.sv
+    │   │   ├── ntm_uvm_driver.sv
+    │   │   ├── ntm_uvm_environment.sv
+    │   │   ├── ntm_uvm_interface.sv
+    │   │   ├── ntm_uvm_monitor.sv
+    │   │   ├── ntm_uvm_package.sv
+    │   │   ├── ntm_uvm_scoreboard.sv
+    │   │   ├── ntm_uvm_sequence_item.sv
+    │   │   ├── ntm_uvm_sequencer.sv
+    │   │   ├── ntm_uvm_sequence.sv
+    │   │   ├── ntm_uvm_testbench.sv
+    │   │   └── ntm_uvm_test.sv
+    │   ├── ntm_queries_vector
+    │   │   ├── ntm_uvm_agent.sv
+    │   │   ├── ntm_uvm_driver.sv
+    │   │   ├── ntm_uvm_environment.sv
+    │   │   ├── ntm_uvm_interface.sv
+    │   │   ├── ntm_uvm_monitor.sv
+    │   │   ├── ntm_uvm_package.sv
+    │   │   ├── ntm_uvm_scoreboard.sv
+    │   │   ├── ntm_uvm_sequence_item.sv
+    │   │   ├── ntm_uvm_sequencer.sv
+    │   │   ├── ntm_uvm_sequence.sv
+    │   │   ├── ntm_uvm_testbench.sv
+    │   │   └── ntm_uvm_test.sv
+    │   └── ntm_values_vector
+    │       ├── ntm_uvm_agent.sv
+    │       ├── ntm_uvm_driver.sv
+    │       ├── ntm_uvm_environment.sv
+    │       ├── ntm_uvm_interface.sv
+    │       ├── ntm_uvm_monitor.sv
+    │       ├── ntm_uvm_package.sv
+    │       ├── ntm_uvm_scoreboard.sv
+    │       ├── ntm_uvm_sequence_item.sv
+    │       ├── ntm_uvm_sequencer.sv
+    │       ├── ntm_uvm_sequence.sv
+    │       ├── ntm_uvm_testbench.sv
+    │       └── ntm_uvm_test.sv
+    ├── lstm
+    │   ├── ntm_activation_gate_vector
+    │   │   ├── ntm_uvm_agent.sv
+    │   │   ├── ntm_uvm_driver.sv
+    │   │   ├── ntm_uvm_environment.sv
+    │   │   ├── ntm_uvm_interface.sv
+    │   │   ├── ntm_uvm_monitor.sv
+    │   │   ├── ntm_uvm_package.sv
+    │   │   ├── ntm_uvm_scoreboard.sv
+    │   │   ├── ntm_uvm_sequence_item.sv
+    │   │   ├── ntm_uvm_sequencer.sv
+    │   │   ├── ntm_uvm_sequence.sv
+    │   │   ├── ntm_uvm_testbench.sv
+    │   │   └── ntm_uvm_test.sv
+    │   ├── ntm_forget_gate_vector
+    │   │   ├── ntm_uvm_agent.sv
+    │   │   ├── ntm_uvm_driver.sv
+    │   │   ├── ntm_uvm_environment.sv
+    │   │   ├── ntm_uvm_interface.sv
+    │   │   ├── ntm_uvm_monitor.sv
+    │   │   ├── ntm_uvm_package.sv
+    │   │   ├── ntm_uvm_scoreboard.sv
+    │   │   ├── ntm_uvm_sequence_item.sv
+    │   │   ├── ntm_uvm_sequencer.sv
+    │   │   ├── ntm_uvm_sequence.sv
+    │   │   ├── ntm_uvm_testbench.sv
+    │   │   └── ntm_uvm_test.sv
+    │   ├── ntm_hidden_gate_vector
+    │   │   ├── ntm_uvm_agent.sv
+    │   │   ├── ntm_uvm_driver.sv
+    │   │   ├── ntm_uvm_environment.sv
+    │   │   ├── ntm_uvm_interface.sv
+    │   │   ├── ntm_uvm_monitor.sv
+    │   │   ├── ntm_uvm_package.sv
+    │   │   ├── ntm_uvm_scoreboard.sv
+    │   │   ├── ntm_uvm_sequence_item.sv
+    │   │   ├── ntm_uvm_sequencer.sv
+    │   │   ├── ntm_uvm_sequence.sv
+    │   │   ├── ntm_uvm_testbench.sv
+    │   │   └── ntm_uvm_test.sv
+    │   ├── ntm_input_gate_vector
+    │   │   ├── ntm_uvm_agent.sv
+    │   │   ├── ntm_uvm_driver.sv
+    │   │   ├── ntm_uvm_environment.sv
+    │   │   ├── ntm_uvm_interface.sv
+    │   │   ├── ntm_uvm_monitor.sv
+    │   │   ├── ntm_uvm_package.sv
+    │   │   ├── ntm_uvm_scoreboard.sv
+    │   │   ├── ntm_uvm_sequence_item.sv
+    │   │   ├── ntm_uvm_sequencer.sv
+    │   │   ├── ntm_uvm_sequence.sv
+    │   │   ├── ntm_uvm_testbench.sv
+    │   │   └── ntm_uvm_test.sv
+    │   ├── ntm_lstm
+    │   │   ├── ntm_uvm_agent.sv
+    │   │   ├── ntm_uvm_driver.sv
+    │   │   ├── ntm_uvm_environment.sv
+    │   │   ├── ntm_uvm_interface.sv
+    │   │   ├── ntm_uvm_monitor.sv
+    │   │   ├── ntm_uvm_package.sv
+    │   │   ├── ntm_uvm_scoreboard.sv
+    │   │   ├── ntm_uvm_sequence_item.sv
+    │   │   ├── ntm_uvm_sequencer.sv
+    │   │   ├── ntm_uvm_sequence.sv
+    │   │   ├── ntm_uvm_testbench.sv
+    │   │   └── ntm_uvm_test.sv
+    │   ├── ntm_output_gate_vector
+    │   │   ├── ntm_uvm_agent.sv
+    │   │   ├── ntm_uvm_driver.sv
+    │   │   ├── ntm_uvm_environment.sv
+    │   │   ├── ntm_uvm_interface.sv
+    │   │   ├── ntm_uvm_monitor.sv
+    │   │   ├── ntm_uvm_package.sv
+    │   │   ├── ntm_uvm_scoreboard.sv
+    │   │   ├── ntm_uvm_sequence_item.sv
+    │   │   ├── ntm_uvm_sequencer.sv
+    │   │   ├── ntm_uvm_sequence.sv
+    │   │   ├── ntm_uvm_testbench.sv
+    │   │   └── ntm_uvm_test.sv
+    │   └── ntm_state_gate_vector
+    │       ├── ntm_uvm_agent.sv
+    │       ├── ntm_uvm_driver.sv
+    │       ├── ntm_uvm_environment.sv
+    │       ├── ntm_uvm_interface.sv
+    │       ├── ntm_uvm_monitor.sv
+    │       ├── ntm_uvm_package.sv
+    │       ├── ntm_uvm_scoreboard.sv
+    │       ├── ntm_uvm_sequence_item.sv
+    │       ├── ntm_uvm_sequencer.sv
+    │       ├── ntm_uvm_sequence.sv
+    │       ├── ntm_uvm_testbench.sv
+    │       └── ntm_uvm_test.sv
+    └── top
+        ├── ntm_controller
+        │   ├── ntm_uvm_agent.sv
+        │   ├── ntm_uvm_driver.sv
+        │   ├── ntm_uvm_environment.sv
+        │   ├── ntm_uvm_interface.sv
+        │   ├── ntm_uvm_monitor.sv
+        │   ├── ntm_uvm_package.sv
+        │   ├── ntm_uvm_scoreboard.sv
+        │   ├── ntm_uvm_sequence_item.sv
+        │   ├── ntm_uvm_sequencer.sv
+        │   ├── ntm_uvm_sequence.sv
+        │   ├── ntm_uvm_testbench.sv
+        │   └── ntm_uvm_test.sv
+        ├── ntm_decoder
+        │   ├── ntm_uvm_agent.sv
+        │   ├── ntm_uvm_driver.sv
+        │   ├── ntm_uvm_environment.sv
+        │   ├── ntm_uvm_interface.sv
+        │   ├── ntm_uvm_monitor.sv
+        │   ├── ntm_uvm_package.sv
+        │   ├── ntm_uvm_scoreboard.sv
+        │   ├── ntm_uvm_sequence_item.sv
+        │   ├── ntm_uvm_sequencer.sv
+        │   ├── ntm_uvm_sequence.sv
+        │   ├── ntm_uvm_testbench.sv
+        │   └── ntm_uvm_test.sv
+        └── ntm_encoder
+            ├── ntm_uvm_agent.sv
+            ├── ntm_uvm_driver.sv
+            ├── ntm_uvm_environment.sv
+            ├── ntm_uvm_interface.sv
+            ├── ntm_uvm_monitor.sv
+            ├── ntm_uvm_package.sv
+            ├── ntm_uvm_scoreboard.sv
+            ├── ntm_uvm_sequence_item.sv
+            ├── ntm_uvm_sequencer.sv
+            ├── ntm_uvm_sequence.sv
+            ├── ntm_uvm_testbench.sv
+            └── ntm_uvm_test.sv
 
 237 directories, 2136 files

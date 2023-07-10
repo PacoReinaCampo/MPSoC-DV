@@ -224,316 +224,21 @@ library
 │   │           ├── ntm_testbench.sv
 │   │           ├── ntm_test.sv
 │   │           └── ntm_transaction.sv
-│   ├── LSTM
-│   │   ├── convolutional
-│   │   │   ├── ntm_activation_gate_vector
-│   │   │   │   ├── ntm_agent.sv
-│   │   │   │   ├── ntm_driver.sv
-│   │   │   │   ├── ntm_environment.sv
-│   │   │   │   ├── ntm_generator.sv
-│   │   │   │   ├── ntm_interface.sv
-│   │   │   │   ├── ntm_monitor.sv
-│   │   │   │   ├── ntm_package.sv
-│   │   │   │   ├── ntm_scoreboard.sv
-│   │   │   │   ├── ntm_testbench.sv
-│   │   │   │   ├── ntm_test.sv
-│   │   │   │   └── ntm_transaction.sv
-│   │   │   ├── ntm_controller
-│   │   │   │   ├── ntm_agent.sv
-│   │   │   │   ├── ntm_driver.sv
-│   │   │   │   ├── ntm_environment.sv
-│   │   │   │   ├── ntm_generator.sv
-│   │   │   │   ├── ntm_interface.sv
-│   │   │   │   ├── ntm_monitor.sv
-│   │   │   │   ├── ntm_package.sv
-│   │   │   │   ├── ntm_scoreboard.sv
-│   │   │   │   ├── ntm_testbench.sv
-│   │   │   │   ├── ntm_test.sv
-│   │   │   │   └── ntm_transaction.sv
-│   │   │   ├── ntm_forget_gate_vector
-│   │   │   │   ├── ntm_agent.sv
-│   │   │   │   ├── ntm_driver.sv
-│   │   │   │   ├── ntm_environment.sv
-│   │   │   │   ├── ntm_generator.sv
-│   │   │   │   ├── ntm_interface.sv
-│   │   │   │   ├── ntm_monitor.sv
-│   │   │   │   ├── ntm_package.sv
-│   │   │   │   ├── ntm_scoreboard.sv
-│   │   │   │   ├── ntm_testbench.sv
-│   │   │   │   ├── ntm_test.sv
-│   │   │   │   └── ntm_transaction.sv
-│   │   │   ├── ntm_hidden_gate_vector
-│   │   │   │   ├── ntm_agent.sv
-│   │   │   │   ├── ntm_driver.sv
-│   │   │   │   ├── ntm_environment.sv
-│   │   │   │   ├── ntm_generator.sv
-│   │   │   │   ├── ntm_interface.sv
-│   │   │   │   ├── ntm_monitor.sv
-│   │   │   │   ├── ntm_package.sv
-│   │   │   │   ├── ntm_scoreboard.sv
-│   │   │   │   ├── ntm_testbench.sv
-│   │   │   │   ├── ntm_test.sv
-│   │   │   │   └── ntm_transaction.sv
-│   │   │   ├── ntm_input_gate_vector
-│   │   │   │   ├── ntm_agent.sv
-│   │   │   │   ├── ntm_driver.sv
-│   │   │   │   ├── ntm_environment.sv
-│   │   │   │   ├── ntm_generator.sv
-│   │   │   │   ├── ntm_interface.sv
-│   │   │   │   ├── ntm_monitor.sv
-│   │   │   │   ├── ntm_package.sv
-│   │   │   │   ├── ntm_scoreboard.sv
-│   │   │   │   ├── ntm_testbench.sv
-│   │   │   │   ├── ntm_test.sv
-│   │   │   │   └── ntm_transaction.sv
-│   │   │   ├── ntm_output_gate_vector
-│   │   │   │   ├── ntm_agent.sv
-│   │   │   │   ├── ntm_driver.sv
-│   │   │   │   ├── ntm_environment.sv
-│   │   │   │   ├── ntm_generator.sv
-│   │   │   │   ├── ntm_interface.sv
-│   │   │   │   ├── ntm_monitor.sv
-│   │   │   │   ├── ntm_package.sv
-│   │   │   │   ├── ntm_scoreboard.sv
-│   │   │   │   ├── ntm_testbench.sv
-│   │   │   │   ├── ntm_test.sv
-│   │   │   │   └── ntm_transaction.sv
-│   │   │   └── ntm_state_gate_vector
-│   │   │       ├── ntm_agent.sv
-│   │   │       ├── ntm_driver.sv
-│   │   │       ├── ntm_environment.sv
-│   │   │       ├── ntm_generator.sv
-│   │   │       ├── ntm_interface.sv
-│   │   │       ├── ntm_monitor.sv
-│   │   │       ├── ntm_package.sv
-│   │   │       ├── ntm_scoreboard.sv
-│   │   │       ├── ntm_testbench.sv
-│   │   │       ├── ntm_test.sv
-│   │   │       └── ntm_transaction.sv
-│   │   └── standard
-│   │       ├── ntm_activation_gate_vector
-│   │       │   ├── ntm_agent.sv
-│   │       │   ├── ntm_driver.sv
-│   │       │   ├── ntm_environment.sv
-│   │       │   ├── ntm_generator.sv
-│   │       │   ├── ntm_interface.sv
-│   │       │   ├── ntm_monitor.sv
-│   │       │   ├── ntm_package.sv
-│   │       │   ├── ntm_scoreboard.sv
-│   │       │   ├── ntm_testbench.sv
-│   │       │   ├── ntm_test.sv
-│   │       │   └── ntm_transaction.sv
-│   │       ├── ntm_controller
-│   │       │   ├── ntm_agent.sv
-│   │       │   ├── ntm_driver.sv
-│   │       │   ├── ntm_environment.sv
-│   │       │   ├── ntm_generator.sv
-│   │       │   ├── ntm_interface.sv
-│   │       │   ├── ntm_monitor.sv
-│   │       │   ├── ntm_package.sv
-│   │       │   ├── ntm_scoreboard.sv
-│   │       │   ├── ntm_testbench.sv
-│   │       │   ├── ntm_test.sv
-│   │       │   └── ntm_transaction.sv
-│   │       ├── ntm_forget_gate_vector
-│   │       │   ├── ntm_agent.sv
-│   │       │   ├── ntm_driver.sv
-│   │       │   ├── ntm_environment.sv
-│   │       │   ├── ntm_generator.sv
-│   │       │   ├── ntm_interface.sv
-│   │       │   ├── ntm_monitor.sv
-│   │       │   ├── ntm_package.sv
-│   │       │   ├── ntm_scoreboard.sv
-│   │       │   ├── ntm_testbench.sv
-│   │       │   ├── ntm_test.sv
-│   │       │   └── ntm_transaction.sv
-│   │       ├── ntm_hidden_gate_vector
-│   │       │   ├── ntm_agent.sv
-│   │       │   ├── ntm_driver.sv
-│   │       │   ├── ntm_environment.sv
-│   │       │   ├── ntm_generator.sv
-│   │       │   ├── ntm_interface.sv
-│   │       │   ├── ntm_monitor.sv
-│   │       │   ├── ntm_package.sv
-│   │       │   ├── ntm_scoreboard.sv
-│   │       │   ├── ntm_testbench.sv
-│   │       │   ├── ntm_test.sv
-│   │       │   └── ntm_transaction.sv
-│   │       ├── ntm_input_gate_vector
-│   │       │   ├── ntm_agent.sv
-│   │       │   ├── ntm_driver.sv
-│   │       │   ├── ntm_environment.sv
-│   │       │   ├── ntm_generator.sv
-│   │       │   ├── ntm_interface.sv
-│   │       │   ├── ntm_monitor.sv
-│   │       │   ├── ntm_package.sv
-│   │       │   ├── ntm_scoreboard.sv
-│   │       │   ├── ntm_testbench.sv
-│   │       │   ├── ntm_test.sv
-│   │       │   └── ntm_transaction.sv
-│   │       ├── ntm_output_gate_vector
-│   │       │   ├── ntm_agent.sv
-│   │       │   ├── ntm_driver.sv
-│   │       │   ├── ntm_environment.sv
-│   │       │   ├── ntm_generator.sv
-│   │       │   ├── ntm_interface.sv
-│   │       │   ├── ntm_monitor.sv
-│   │       │   ├── ntm_package.sv
-│   │       │   ├── ntm_scoreboard.sv
-│   │       │   ├── ntm_testbench.sv
-│   │       │   ├── ntm_test.sv
-│   │       │   └── ntm_transaction.sv
-│   │       └── ntm_state_gate_vector
-│   │           ├── ntm_agent.sv
-│   │           ├── ntm_driver.sv
-│   │           ├── ntm_environment.sv
-│   │           ├── ntm_generator.sv
-│   │           ├── ntm_interface.sv
-│   │           ├── ntm_monitor.sv
-│   │           ├── ntm_package.sv
-│   │           ├── ntm_scoreboard.sv
-│   │           ├── ntm_testbench.sv
-│   │           ├── ntm_test.sv
-│   │           └── ntm_transaction.sv
-│   └── transformer
-│       ├── components
-│       │   ├── ntm_masked_multi_head_attention
-│       │   │   ├── ntm_agent.sv
-│       │   │   ├── ntm_driver.sv
-│       │   │   ├── ntm_environment.sv
-│       │   │   ├── ntm_generator.sv
-│       │   │   ├── ntm_interface.sv
-│       │   │   ├── ntm_monitor.sv
-│       │   │   ├── ntm_package.sv
-│       │   │   ├── ntm_scoreboard.sv
-│       │   │   ├── ntm_testbench.sv
-│       │   │   ├── ntm_test.sv
-│       │   │   └── ntm_transaction.sv
-│       │   ├── ntm_masked_scaled_dot_product_attention
-│       │   │   ├── ntm_agent.sv
-│       │   │   ├── ntm_driver.sv
-│       │   │   ├── ntm_environment.sv
-│       │   │   ├── ntm_generator.sv
-│       │   │   ├── ntm_interface.sv
-│       │   │   ├── ntm_monitor.sv
-│       │   │   ├── ntm_package.sv
-│       │   │   ├── ntm_scoreboard.sv
-│       │   │   ├── ntm_testbench.sv
-│       │   │   ├── ntm_test.sv
-│       │   │   └── ntm_transaction.sv
-│       │   ├── ntm_multi_head_attention
-│       │   │   ├── ntm_agent.sv
-│       │   │   ├── ntm_driver.sv
-│       │   │   ├── ntm_environment.sv
-│       │   │   ├── ntm_generator.sv
-│       │   │   ├── ntm_interface.sv
-│       │   │   ├── ntm_monitor.sv
-│       │   │   ├── ntm_package.sv
-│       │   │   ├── ntm_scoreboard.sv
-│       │   │   ├── ntm_testbench.sv
-│       │   │   ├── ntm_test.sv
-│       │   │   └── ntm_transaction.sv
-│       │   └── ntm_scaled_dot_product_attention
-│       │       ├── ntm_agent.sv
-│       │       ├── ntm_driver.sv
-│       │       ├── ntm_environment.sv
-│       │       ├── ntm_generator.sv
-│       │       ├── ntm_interface.sv
-│       │       ├── ntm_monitor.sv
-│       │       ├── ntm_package.sv
-│       │       ├── ntm_scoreboard.sv
-│       │       ├── ntm_testbench.sv
-│       │       ├── ntm_test.sv
-│       │       └── ntm_transaction.sv
-│       ├── fnn
-│       │   └── ntm_fnn
-│       │       ├── ntm_agent.sv
-│       │       ├── ntm_driver.sv
-│       │       ├── ntm_environment.sv
-│       │       ├── ntm_generator.sv
-│       │       ├── ntm_interface.sv
-│       │       ├── ntm_monitor.sv
-│       │       ├── ntm_package.sv
-│       │       ├── ntm_scoreboard.sv
-│       │       ├── ntm_testbench.sv
-│       │       ├── ntm_test.sv
-│       │       └── ntm_transaction.sv
-│       ├── functions
-│       │   ├── ntm_layer_norm
-│       │   │   ├── ntm_agent.sv
-│       │   │   ├── ntm_driver.sv
-│       │   │   ├── ntm_environment.sv
-│       │   │   ├── ntm_generator.sv
-│       │   │   ├── ntm_interface.sv
-│       │   │   ├── ntm_monitor.sv
-│       │   │   ├── ntm_package.sv
-│       │   │   ├── ntm_scoreboard.sv
-│       │   │   ├── ntm_testbench.sv
-│       │   │   ├── ntm_test.sv
-│       │   │   └── ntm_transaction.sv
-│       │   └── ntm_positional_encoding
-│       │       ├── ntm_agent.sv
-│       │       ├── ntm_driver.sv
-│       │       ├── ntm_environment.sv
-│       │       ├── ntm_generator.sv
-│       │       ├── ntm_interface.sv
-│       │       ├── ntm_monitor.sv
-│       │       ├── ntm_package.sv
-│       │       ├── ntm_scoreboard.sv
-│       │       ├── ntm_testbench.sv
-│       │       ├── ntm_test.sv
-│       │       └── ntm_transaction.sv
-│       ├── inputs
-│       │   ├── ntm_inputs_vector
-│       │   │   ├── ntm_agent.sv
-│       │   │   ├── ntm_driver.sv
-│       │   │   ├── ntm_environment.sv
-│       │   │   ├── ntm_generator.sv
-│       │   │   ├── ntm_interface.sv
-│       │   │   ├── ntm_monitor.sv
-│       │   │   ├── ntm_package.sv
-│       │   │   ├── ntm_scoreboard.sv
-│       │   │   ├── ntm_testbench.sv
-│       │   │   ├── ntm_test.sv
-│       │   │   └── ntm_transaction.sv
-│       │   ├── ntm_keys_vector
-│       │   │   ├── ntm_agent.sv
-│       │   │   ├── ntm_driver.sv
-│       │   │   ├── ntm_environment.sv
-│       │   │   ├── ntm_generator.sv
-│       │   │   ├── ntm_interface.sv
-│       │   │   ├── ntm_monitor.sv
-│       │   │   ├── ntm_package.sv
-│       │   │   ├── ntm_scoreboard.sv
-│       │   │   ├── ntm_testbench.sv
-│       │   │   ├── ntm_test.sv
-│       │   │   └── ntm_transaction.sv
-│       │   ├── ntm_queries_vector
-│       │   │   ├── ntm_agent.sv
-│       │   │   ├── ntm_driver.sv
-│       │   │   ├── ntm_environment.sv
-│       │   │   ├── ntm_generator.sv
-│       │   │   ├── ntm_interface.sv
-│       │   │   ├── ntm_monitor.sv
-│       │   │   ├── ntm_package.sv
-│       │   │   ├── ntm_scoreboard.sv
-│       │   │   ├── ntm_testbench.sv
-│       │   │   ├── ntm_test.sv
-│       │   │   └── ntm_transaction.sv
-│       │   └── ntm_values_vector
-│       │       ├── ntm_agent.sv
-│       │       ├── ntm_driver.sv
-│       │       ├── ntm_environment.sv
-│       │       ├── ntm_generator.sv
-│       │       ├── ntm_interface.sv
-│       │       ├── ntm_monitor.sv
-│       │       ├── ntm_package.sv
-│       │       ├── ntm_scoreboard.sv
-│       │       ├── ntm_testbench.sv
-│       │       ├── ntm_test.sv
-│       │       └── ntm_transaction.sv
-│       ├── lstm
+│   └── LSTM
+│       ├── convolutional
 │       │   ├── ntm_activation_gate_vector
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   ├── ntm_controller
 │       │   │   ├── ntm_agent.sv
 │       │   │   ├── ntm_driver.sv
 │       │   │   ├── ntm_environment.sv
@@ -581,18 +286,6 @@ library
 │       │   │   ├── ntm_testbench.sv
 │       │   │   ├── ntm_test.sv
 │       │   │   └── ntm_transaction.sv
-│       │   ├── ntm_lstm
-│       │   │   ├── ntm_agent.sv
-│       │   │   ├── ntm_driver.sv
-│       │   │   ├── ntm_environment.sv
-│       │   │   ├── ntm_generator.sv
-│       │   │   ├── ntm_interface.sv
-│       │   │   ├── ntm_monitor.sv
-│       │   │   ├── ntm_package.sv
-│       │   │   ├── ntm_scoreboard.sv
-│       │   │   ├── ntm_testbench.sv
-│       │   │   ├── ntm_test.sv
-│       │   │   └── ntm_transaction.sv
 │       │   ├── ntm_output_gate_vector
 │       │   │   ├── ntm_agent.sv
 │       │   │   ├── ntm_driver.sv
@@ -617,7 +310,19 @@ library
 │       │       ├── ntm_testbench.sv
 │       │       ├── ntm_test.sv
 │       │       └── ntm_transaction.sv
-│       └── top
+│       └── standard
+│           ├── ntm_activation_gate_vector
+│           │   ├── ntm_agent.sv
+│           │   ├── ntm_driver.sv
+│           │   ├── ntm_environment.sv
+│           │   ├── ntm_generator.sv
+│           │   ├── ntm_interface.sv
+│           │   ├── ntm_monitor.sv
+│           │   ├── ntm_package.sv
+│           │   ├── ntm_scoreboard.sv
+│           │   ├── ntm_testbench.sv
+│           │   ├── ntm_test.sv
+│           │   └── ntm_transaction.sv
 │           ├── ntm_controller
 │           │   ├── ntm_agent.sv
 │           │   ├── ntm_driver.sv
@@ -630,7 +335,7 @@ library
 │           │   ├── ntm_testbench.sv
 │           │   ├── ntm_test.sv
 │           │   └── ntm_transaction.sv
-│           ├── ntm_decoder
+│           ├── ntm_forget_gate_vector
 │           │   ├── ntm_agent.sv
 │           │   ├── ntm_driver.sv
 │           │   ├── ntm_environment.sv
@@ -642,7 +347,43 @@ library
 │           │   ├── ntm_testbench.sv
 │           │   ├── ntm_test.sv
 │           │   └── ntm_transaction.sv
-│           └── ntm_encoder
+│           ├── ntm_hidden_gate_vector
+│           │   ├── ntm_agent.sv
+│           │   ├── ntm_driver.sv
+│           │   ├── ntm_environment.sv
+│           │   ├── ntm_generator.sv
+│           │   ├── ntm_interface.sv
+│           │   ├── ntm_monitor.sv
+│           │   ├── ntm_package.sv
+│           │   ├── ntm_scoreboard.sv
+│           │   ├── ntm_testbench.sv
+│           │   ├── ntm_test.sv
+│           │   └── ntm_transaction.sv
+│           ├── ntm_input_gate_vector
+│           │   ├── ntm_agent.sv
+│           │   ├── ntm_driver.sv
+│           │   ├── ntm_environment.sv
+│           │   ├── ntm_generator.sv
+│           │   ├── ntm_interface.sv
+│           │   ├── ntm_monitor.sv
+│           │   ├── ntm_package.sv
+│           │   ├── ntm_scoreboard.sv
+│           │   ├── ntm_testbench.sv
+│           │   ├── ntm_test.sv
+│           │   └── ntm_transaction.sv
+│           ├── ntm_output_gate_vector
+│           │   ├── ntm_agent.sv
+│           │   ├── ntm_driver.sv
+│           │   ├── ntm_environment.sv
+│           │   ├── ntm_generator.sv
+│           │   ├── ntm_interface.sv
+│           │   ├── ntm_monitor.sv
+│           │   ├── ntm_package.sv
+│           │   ├── ntm_scoreboard.sv
+│           │   ├── ntm_testbench.sv
+│           │   ├── ntm_test.sv
+│           │   └── ntm_transaction.sv
+│           └── ntm_state_gate_vector
 │               ├── ntm_agent.sv
 │               ├── ntm_driver.sv
 │               ├── ntm_environment.sv
@@ -1742,9 +1483,461 @@ library
 │           ├── ntm_testbench.sv
 │           ├── ntm_test.sv
 │           └── ntm_transaction.sv
-└── trainer
-    ├── differentiation
-    │   ├── ntm_matrix_controller_differentiation
+├── trainer
+│   ├── differentiation
+│   │   ├── ntm_matrix_controller_differentiation
+│   │   │   ├── ntm_agent.sv
+│   │   │   ├── ntm_driver.sv
+│   │   │   ├── ntm_environment.sv
+│   │   │   ├── ntm_generator.sv
+│   │   │   ├── ntm_interface.sv
+│   │   │   ├── ntm_monitor.sv
+│   │   │   ├── ntm_package.sv
+│   │   │   ├── ntm_scoreboard.sv
+│   │   │   ├── ntm_testbench.sv
+│   │   │   ├── ntm_test.sv
+│   │   │   └── ntm_transaction.sv
+│   │   └── ntm_vector_controller_differentiation
+│   │       ├── ntm_agent.sv
+│   │       ├── ntm_driver.sv
+│   │       ├── ntm_environment.sv
+│   │       ├── ntm_generator.sv
+│   │       ├── ntm_interface.sv
+│   │       ├── ntm_monitor.sv
+│   │       ├── ntm_package.sv
+│   │       ├── ntm_scoreboard.sv
+│   │       ├── ntm_testbench.sv
+│   │       ├── ntm_test.sv
+│   │       └── ntm_transaction.sv
+│   ├── FNN
+│   │   ├── ntm_fnn_b_trainer
+│   │   │   ├── ntm_agent.sv
+│   │   │   ├── ntm_driver.sv
+│   │   │   ├── ntm_environment.sv
+│   │   │   ├── ntm_generator.sv
+│   │   │   ├── ntm_interface.sv
+│   │   │   ├── ntm_monitor.sv
+│   │   │   ├── ntm_package.sv
+│   │   │   ├── ntm_scoreboard.sv
+│   │   │   ├── ntm_testbench.sv
+│   │   │   ├── ntm_test.sv
+│   │   │   └── ntm_transaction.sv
+│   │   ├── ntm_fnn_d_trainer
+│   │   │   ├── ntm_agent.sv
+│   │   │   ├── ntm_driver.sv
+│   │   │   ├── ntm_environment.sv
+│   │   │   ├── ntm_generator.sv
+│   │   │   ├── ntm_interface.sv
+│   │   │   ├── ntm_monitor.sv
+│   │   │   ├── ntm_package.sv
+│   │   │   ├── ntm_scoreboard.sv
+│   │   │   ├── ntm_testbench.sv
+│   │   │   ├── ntm_test.sv
+│   │   │   └── ntm_transaction.sv
+│   │   ├── ntm_fnn_k_trainer
+│   │   │   ├── ntm_agent.sv
+│   │   │   ├── ntm_driver.sv
+│   │   │   ├── ntm_environment.sv
+│   │   │   ├── ntm_generator.sv
+│   │   │   ├── ntm_interface.sv
+│   │   │   ├── ntm_monitor.sv
+│   │   │   ├── ntm_package.sv
+│   │   │   ├── ntm_scoreboard.sv
+│   │   │   ├── ntm_testbench.sv
+│   │   │   ├── ntm_test.sv
+│   │   │   └── ntm_transaction.sv
+│   │   ├── ntm_fnn_trainer
+│   │   │   ├── ntm_agent.sv
+│   │   │   ├── ntm_driver.sv
+│   │   │   ├── ntm_environment.sv
+│   │   │   ├── ntm_generator.sv
+│   │   │   ├── ntm_interface.sv
+│   │   │   ├── ntm_monitor.sv
+│   │   │   ├── ntm_package.sv
+│   │   │   ├── ntm_scoreboard.sv
+│   │   │   ├── ntm_testbench.sv
+│   │   │   ├── ntm_test.sv
+│   │   │   └── ntm_transaction.sv
+│   │   ├── ntm_fnn_u_trainer
+│   │   │   ├── ntm_agent.sv
+│   │   │   ├── ntm_driver.sv
+│   │   │   ├── ntm_environment.sv
+│   │   │   ├── ntm_generator.sv
+│   │   │   ├── ntm_interface.sv
+│   │   │   ├── ntm_monitor.sv
+│   │   │   ├── ntm_package.sv
+│   │   │   ├── ntm_scoreboard.sv
+│   │   │   ├── ntm_testbench.sv
+│   │   │   ├── ntm_test.sv
+│   │   │   └── ntm_transaction.sv
+│   │   ├── ntm_fnn_v_trainer
+│   │   │   ├── ntm_agent.sv
+│   │   │   ├── ntm_driver.sv
+│   │   │   ├── ntm_environment.sv
+│   │   │   ├── ntm_generator.sv
+│   │   │   ├── ntm_interface.sv
+│   │   │   ├── ntm_monitor.sv
+│   │   │   ├── ntm_package.sv
+│   │   │   ├── ntm_scoreboard.sv
+│   │   │   ├── ntm_testbench.sv
+│   │   │   ├── ntm_test.sv
+│   │   │   └── ntm_transaction.sv
+│   │   └── ntm_fnn_w_trainer
+│   │       ├── ntm_agent.sv
+│   │       ├── ntm_driver.sv
+│   │       ├── ntm_environment.sv
+│   │       ├── ntm_generator.sv
+│   │       ├── ntm_interface.sv
+│   │       ├── ntm_monitor.sv
+│   │       ├── ntm_package.sv
+│   │       ├── ntm_scoreboard.sv
+│   │       ├── ntm_testbench.sv
+│   │       ├── ntm_test.sv
+│   │       └── ntm_transaction.sv
+│   └── LSTM
+│       ├── activation
+│       │   ├── ntm_lstm_activation_b_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   ├── ntm_lstm_activation_d_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   ├── ntm_lstm_activation_k_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   ├── ntm_lstm_activation_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   ├── ntm_lstm_activation_u_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   ├── ntm_lstm_activation_v_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   └── ntm_lstm_activation_w_trainer
+│       │       ├── ntm_agent.sv
+│       │       ├── ntm_driver.sv
+│       │       ├── ntm_environment.sv
+│       │       ├── ntm_generator.sv
+│       │       ├── ntm_interface.sv
+│       │       ├── ntm_monitor.sv
+│       │       ├── ntm_package.sv
+│       │       ├── ntm_scoreboard.sv
+│       │       ├── ntm_testbench.sv
+│       │       ├── ntm_test.sv
+│       │       └── ntm_transaction.sv
+│       ├── forget
+│       │   ├── ntm_lstm_forget_b_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   ├── ntm_lstm_forget_d_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   ├── ntm_lstm_forget_k_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   ├── ntm_lstm_forget_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   ├── ntm_lstm_forget_u_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   ├── ntm_lstm_forget_v_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   └── ntm_lstm_forget_w_trainer
+│       │       ├── ntm_agent.sv
+│       │       ├── ntm_driver.sv
+│       │       ├── ntm_environment.sv
+│       │       ├── ntm_generator.sv
+│       │       ├── ntm_interface.sv
+│       │       ├── ntm_monitor.sv
+│       │       ├── ntm_package.sv
+│       │       ├── ntm_scoreboard.sv
+│       │       ├── ntm_testbench.sv
+│       │       ├── ntm_test.sv
+│       │       └── ntm_transaction.sv
+│       ├── input
+│       │   ├── ntm_lstm_input_b_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   ├── ntm_lstm_input_d_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   ├── ntm_lstm_input_k_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   ├── ntm_lstm_input_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   ├── ntm_lstm_input_u_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   ├── ntm_lstm_input_v_trainer
+│       │   │   ├── ntm_agent.sv
+│       │   │   ├── ntm_driver.sv
+│       │   │   ├── ntm_environment.sv
+│       │   │   ├── ntm_generator.sv
+│       │   │   ├── ntm_interface.sv
+│       │   │   ├── ntm_monitor.sv
+│       │   │   ├── ntm_package.sv
+│       │   │   ├── ntm_scoreboard.sv
+│       │   │   ├── ntm_testbench.sv
+│       │   │   ├── ntm_test.sv
+│       │   │   └── ntm_transaction.sv
+│       │   └── ntm_lstm_input_w_trainer
+│       │       ├── ntm_agent.sv
+│       │       ├── ntm_driver.sv
+│       │       ├── ntm_environment.sv
+│       │       ├── ntm_generator.sv
+│       │       ├── ntm_interface.sv
+│       │       ├── ntm_monitor.sv
+│       │       ├── ntm_package.sv
+│       │       ├── ntm_scoreboard.sv
+│       │       ├── ntm_testbench.sv
+│       │       ├── ntm_test.sv
+│       │       └── ntm_transaction.sv
+│       └── output
+│           ├── ntm_lstm_output_b_trainer
+│           │   ├── ntm_agent.sv
+│           │   ├── ntm_driver.sv
+│           │   ├── ntm_environment.sv
+│           │   ├── ntm_generator.sv
+│           │   ├── ntm_interface.sv
+│           │   ├── ntm_monitor.sv
+│           │   ├── ntm_package.sv
+│           │   ├── ntm_scoreboard.sv
+│           │   ├── ntm_testbench.sv
+│           │   ├── ntm_test.sv
+│           │   └── ntm_transaction.sv
+│           ├── ntm_lstm_output_d_trainer
+│           │   ├── ntm_agent.sv
+│           │   ├── ntm_driver.sv
+│           │   ├── ntm_environment.sv
+│           │   ├── ntm_generator.sv
+│           │   ├── ntm_interface.sv
+│           │   ├── ntm_monitor.sv
+│           │   ├── ntm_package.sv
+│           │   ├── ntm_scoreboard.sv
+│           │   ├── ntm_testbench.sv
+│           │   ├── ntm_test.sv
+│           │   └── ntm_transaction.sv
+│           ├── ntm_lstm_output_k_trainer
+│           │   ├── ntm_agent.sv
+│           │   ├── ntm_driver.sv
+│           │   ├── ntm_environment.sv
+│           │   ├── ntm_generator.sv
+│           │   ├── ntm_interface.sv
+│           │   ├── ntm_monitor.sv
+│           │   ├── ntm_package.sv
+│           │   ├── ntm_scoreboard.sv
+│           │   ├── ntm_testbench.sv
+│           │   ├── ntm_test.sv
+│           │   └── ntm_transaction.sv
+│           ├── ntm_lstm_output_trainer
+│           │   ├── ntm_agent.sv
+│           │   ├── ntm_driver.sv
+│           │   ├── ntm_environment.sv
+│           │   ├── ntm_generator.sv
+│           │   ├── ntm_interface.sv
+│           │   ├── ntm_monitor.sv
+│           │   ├── ntm_package.sv
+│           │   ├── ntm_scoreboard.sv
+│           │   ├── ntm_testbench.sv
+│           │   ├── ntm_test.sv
+│           │   └── ntm_transaction.sv
+│           ├── ntm_lstm_output_u_trainer
+│           │   ├── ntm_agent.sv
+│           │   ├── ntm_driver.sv
+│           │   ├── ntm_environment.sv
+│           │   ├── ntm_generator.sv
+│           │   ├── ntm_interface.sv
+│           │   ├── ntm_monitor.sv
+│           │   ├── ntm_package.sv
+│           │   ├── ntm_scoreboard.sv
+│           │   ├── ntm_testbench.sv
+│           │   ├── ntm_test.sv
+│           │   └── ntm_transaction.sv
+│           ├── ntm_lstm_output_v_trainer
+│           │   ├── ntm_agent.sv
+│           │   ├── ntm_driver.sv
+│           │   ├── ntm_environment.sv
+│           │   ├── ntm_generator.sv
+│           │   ├── ntm_interface.sv
+│           │   ├── ntm_monitor.sv
+│           │   ├── ntm_package.sv
+│           │   ├── ntm_scoreboard.sv
+│           │   ├── ntm_testbench.sv
+│           │   ├── ntm_test.sv
+│           │   └── ntm_transaction.sv
+│           └── ntm_lstm_output_w_trainer
+│               ├── ntm_agent.sv
+│               ├── ntm_driver.sv
+│               ├── ntm_environment.sv
+│               ├── ntm_generator.sv
+│               ├── ntm_interface.sv
+│               ├── ntm_monitor.sv
+│               ├── ntm_package.sv
+│               ├── ntm_scoreboard.sv
+│               ├── ntm_testbench.sv
+│               ├── ntm_test.sv
+│               └── ntm_transaction.sv
+└── transformer
+    ├── components
+    │   ├── ntm_masked_multi_head_attention
     │   │   ├── ntm_agent.sv
     │   │   ├── ntm_driver.sv
     │   │   ├── ntm_environment.sv
@@ -1756,7 +1949,31 @@ library
     │   │   ├── ntm_testbench.sv
     │   │   ├── ntm_test.sv
     │   │   └── ntm_transaction.sv
-    │   └── ntm_vector_controller_differentiation
+    │   ├── ntm_masked_scaled_dot_product_attention
+    │   │   ├── ntm_agent.sv
+    │   │   ├── ntm_driver.sv
+    │   │   ├── ntm_environment.sv
+    │   │   ├── ntm_generator.sv
+    │   │   ├── ntm_interface.sv
+    │   │   ├── ntm_monitor.sv
+    │   │   ├── ntm_package.sv
+    │   │   ├── ntm_scoreboard.sv
+    │   │   ├── ntm_testbench.sv
+    │   │   ├── ntm_test.sv
+    │   │   └── ntm_transaction.sv
+    │   ├── ntm_multi_head_attention
+    │   │   ├── ntm_agent.sv
+    │   │   ├── ntm_driver.sv
+    │   │   ├── ntm_environment.sv
+    │   │   ├── ntm_generator.sv
+    │   │   ├── ntm_interface.sv
+    │   │   ├── ntm_monitor.sv
+    │   │   ├── ntm_package.sv
+    │   │   ├── ntm_scoreboard.sv
+    │   │   ├── ntm_testbench.sv
+    │   │   ├── ntm_test.sv
+    │   │   └── ntm_transaction.sv
+    │   └── ntm_scaled_dot_product_attention
     │       ├── ntm_agent.sv
     │       ├── ntm_driver.sv
     │       ├── ntm_environment.sv
@@ -1768,80 +1985,8 @@ library
     │       ├── ntm_testbench.sv
     │       ├── ntm_test.sv
     │       └── ntm_transaction.sv
-    ├── FNN
-    │   ├── ntm_fnn_b_trainer
-    │   │   ├── ntm_agent.sv
-    │   │   ├── ntm_driver.sv
-    │   │   ├── ntm_environment.sv
-    │   │   ├── ntm_generator.sv
-    │   │   ├── ntm_interface.sv
-    │   │   ├── ntm_monitor.sv
-    │   │   ├── ntm_package.sv
-    │   │   ├── ntm_scoreboard.sv
-    │   │   ├── ntm_testbench.sv
-    │   │   ├── ntm_test.sv
-    │   │   └── ntm_transaction.sv
-    │   ├── ntm_fnn_d_trainer
-    │   │   ├── ntm_agent.sv
-    │   │   ├── ntm_driver.sv
-    │   │   ├── ntm_environment.sv
-    │   │   ├── ntm_generator.sv
-    │   │   ├── ntm_interface.sv
-    │   │   ├── ntm_monitor.sv
-    │   │   ├── ntm_package.sv
-    │   │   ├── ntm_scoreboard.sv
-    │   │   ├── ntm_testbench.sv
-    │   │   ├── ntm_test.sv
-    │   │   └── ntm_transaction.sv
-    │   ├── ntm_fnn_k_trainer
-    │   │   ├── ntm_agent.sv
-    │   │   ├── ntm_driver.sv
-    │   │   ├── ntm_environment.sv
-    │   │   ├── ntm_generator.sv
-    │   │   ├── ntm_interface.sv
-    │   │   ├── ntm_monitor.sv
-    │   │   ├── ntm_package.sv
-    │   │   ├── ntm_scoreboard.sv
-    │   │   ├── ntm_testbench.sv
-    │   │   ├── ntm_test.sv
-    │   │   └── ntm_transaction.sv
-    │   ├── ntm_fnn_trainer
-    │   │   ├── ntm_agent.sv
-    │   │   ├── ntm_driver.sv
-    │   │   ├── ntm_environment.sv
-    │   │   ├── ntm_generator.sv
-    │   │   ├── ntm_interface.sv
-    │   │   ├── ntm_monitor.sv
-    │   │   ├── ntm_package.sv
-    │   │   ├── ntm_scoreboard.sv
-    │   │   ├── ntm_testbench.sv
-    │   │   ├── ntm_test.sv
-    │   │   └── ntm_transaction.sv
-    │   ├── ntm_fnn_u_trainer
-    │   │   ├── ntm_agent.sv
-    │   │   ├── ntm_driver.sv
-    │   │   ├── ntm_environment.sv
-    │   │   ├── ntm_generator.sv
-    │   │   ├── ntm_interface.sv
-    │   │   ├── ntm_monitor.sv
-    │   │   ├── ntm_package.sv
-    │   │   ├── ntm_scoreboard.sv
-    │   │   ├── ntm_testbench.sv
-    │   │   ├── ntm_test.sv
-    │   │   └── ntm_transaction.sv
-    │   ├── ntm_fnn_v_trainer
-    │   │   ├── ntm_agent.sv
-    │   │   ├── ntm_driver.sv
-    │   │   ├── ntm_environment.sv
-    │   │   ├── ntm_generator.sv
-    │   │   ├── ntm_interface.sv
-    │   │   ├── ntm_monitor.sv
-    │   │   ├── ntm_package.sv
-    │   │   ├── ntm_scoreboard.sv
-    │   │   ├── ntm_testbench.sv
-    │   │   ├── ntm_test.sv
-    │   │   └── ntm_transaction.sv
-    │   └── ntm_fnn_w_trainer
+    ├── fnn
+    │   └── ntm_fnn
     │       ├── ntm_agent.sv
     │       ├── ntm_driver.sv
     │       ├── ntm_environment.sv
@@ -1853,346 +1998,201 @@ library
     │       ├── ntm_testbench.sv
     │       ├── ntm_test.sv
     │       └── ntm_transaction.sv
-    └── LSTM
-        ├── activation
-        │   ├── ntm_lstm_activation_b_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   ├── ntm_lstm_activation_d_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   ├── ntm_lstm_activation_k_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   ├── ntm_lstm_activation_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   ├── ntm_lstm_activation_u_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   ├── ntm_lstm_activation_v_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   └── ntm_lstm_activation_w_trainer
-        │       ├── ntm_agent.sv
-        │       ├── ntm_driver.sv
-        │       ├── ntm_environment.sv
-        │       ├── ntm_generator.sv
-        │       ├── ntm_interface.sv
-        │       ├── ntm_monitor.sv
-        │       ├── ntm_package.sv
-        │       ├── ntm_scoreboard.sv
-        │       ├── ntm_testbench.sv
-        │       ├── ntm_test.sv
-        │       └── ntm_transaction.sv
-        ├── forget
-        │   ├── ntm_lstm_forget_b_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   ├── ntm_lstm_forget_d_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   ├── ntm_lstm_forget_k_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   ├── ntm_lstm_forget_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   ├── ntm_lstm_forget_u_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   ├── ntm_lstm_forget_v_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   └── ntm_lstm_forget_w_trainer
-        │       ├── ntm_agent.sv
-        │       ├── ntm_driver.sv
-        │       ├── ntm_environment.sv
-        │       ├── ntm_generator.sv
-        │       ├── ntm_interface.sv
-        │       ├── ntm_monitor.sv
-        │       ├── ntm_package.sv
-        │       ├── ntm_scoreboard.sv
-        │       ├── ntm_testbench.sv
-        │       ├── ntm_test.sv
-        │       └── ntm_transaction.sv
-        ├── input
-        │   ├── ntm_lstm_input_b_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   ├── ntm_lstm_input_d_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   ├── ntm_lstm_input_k_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   ├── ntm_lstm_input_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   ├── ntm_lstm_input_u_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   ├── ntm_lstm_input_v_trainer
-        │   │   ├── ntm_agent.sv
-        │   │   ├── ntm_driver.sv
-        │   │   ├── ntm_environment.sv
-        │   │   ├── ntm_generator.sv
-        │   │   ├── ntm_interface.sv
-        │   │   ├── ntm_monitor.sv
-        │   │   ├── ntm_package.sv
-        │   │   ├── ntm_scoreboard.sv
-        │   │   ├── ntm_testbench.sv
-        │   │   ├── ntm_test.sv
-        │   │   └── ntm_transaction.sv
-        │   └── ntm_lstm_input_w_trainer
-        │       ├── ntm_agent.sv
-        │       ├── ntm_driver.sv
-        │       ├── ntm_environment.sv
-        │       ├── ntm_generator.sv
-        │       ├── ntm_interface.sv
-        │       ├── ntm_monitor.sv
-        │       ├── ntm_package.sv
-        │       ├── ntm_scoreboard.sv
-        │       ├── ntm_testbench.sv
-        │       ├── ntm_test.sv
-        │       └── ntm_transaction.sv
-        └── output
-            ├── ntm_lstm_output_b_trainer
-            │   ├── ntm_agent.sv
-            │   ├── ntm_driver.sv
-            │   ├── ntm_environment.sv
-            │   ├── ntm_generator.sv
-            │   ├── ntm_interface.sv
-            │   ├── ntm_monitor.sv
-            │   ├── ntm_package.sv
-            │   ├── ntm_scoreboard.sv
-            │   ├── ntm_testbench.sv
-            │   ├── ntm_test.sv
-            │   └── ntm_transaction.sv
-            ├── ntm_lstm_output_d_trainer
-            │   ├── ntm_agent.sv
-            │   ├── ntm_driver.sv
-            │   ├── ntm_environment.sv
-            │   ├── ntm_generator.sv
-            │   ├── ntm_interface.sv
-            │   ├── ntm_monitor.sv
-            │   ├── ntm_package.sv
-            │   ├── ntm_scoreboard.sv
-            │   ├── ntm_testbench.sv
-            │   ├── ntm_test.sv
-            │   └── ntm_transaction.sv
-            ├── ntm_lstm_output_k_trainer
-            │   ├── ntm_agent.sv
-            │   ├── ntm_driver.sv
-            │   ├── ntm_environment.sv
-            │   ├── ntm_generator.sv
-            │   ├── ntm_interface.sv
-            │   ├── ntm_monitor.sv
-            │   ├── ntm_package.sv
-            │   ├── ntm_scoreboard.sv
-            │   ├── ntm_testbench.sv
-            │   ├── ntm_test.sv
-            │   └── ntm_transaction.sv
-            ├── ntm_lstm_output_trainer
-            │   ├── ntm_agent.sv
-            │   ├── ntm_driver.sv
-            │   ├── ntm_environment.sv
-            │   ├── ntm_generator.sv
-            │   ├── ntm_interface.sv
-            │   ├── ntm_monitor.sv
-            │   ├── ntm_package.sv
-            │   ├── ntm_scoreboard.sv
-            │   ├── ntm_testbench.sv
-            │   ├── ntm_test.sv
-            │   └── ntm_transaction.sv
-            ├── ntm_lstm_output_u_trainer
-            │   ├── ntm_agent.sv
-            │   ├── ntm_driver.sv
-            │   ├── ntm_environment.sv
-            │   ├── ntm_generator.sv
-            │   ├── ntm_interface.sv
-            │   ├── ntm_monitor.sv
-            │   ├── ntm_package.sv
-            │   ├── ntm_scoreboard.sv
-            │   ├── ntm_testbench.sv
-            │   ├── ntm_test.sv
-            │   └── ntm_transaction.sv
-            ├── ntm_lstm_output_v_trainer
-            │   ├── ntm_agent.sv
-            │   ├── ntm_driver.sv
-            │   ├── ntm_environment.sv
-            │   ├── ntm_generator.sv
-            │   ├── ntm_interface.sv
-            │   ├── ntm_monitor.sv
-            │   ├── ntm_package.sv
-            │   ├── ntm_scoreboard.sv
-            │   ├── ntm_testbench.sv
-            │   ├── ntm_test.sv
-            │   └── ntm_transaction.sv
-            └── ntm_lstm_output_w_trainer
-                ├── ntm_agent.sv
-                ├── ntm_driver.sv
-                ├── ntm_environment.sv
-                ├── ntm_generator.sv
-                ├── ntm_interface.sv
-                ├── ntm_monitor.sv
-                ├── ntm_package.sv
-                ├── ntm_scoreboard.sv
-                ├── ntm_testbench.sv
-                ├── ntm_test.sv
-                └── ntm_transaction.sv
+    ├── functions
+    │   ├── ntm_layer_norm
+    │   │   ├── ntm_agent.sv
+    │   │   ├── ntm_driver.sv
+    │   │   ├── ntm_environment.sv
+    │   │   ├── ntm_generator.sv
+    │   │   ├── ntm_interface.sv
+    │   │   ├── ntm_monitor.sv
+    │   │   ├── ntm_package.sv
+    │   │   ├── ntm_scoreboard.sv
+    │   │   ├── ntm_testbench.sv
+    │   │   ├── ntm_test.sv
+    │   │   └── ntm_transaction.sv
+    │   └── ntm_positional_encoding
+    │       ├── ntm_agent.sv
+    │       ├── ntm_driver.sv
+    │       ├── ntm_environment.sv
+    │       ├── ntm_generator.sv
+    │       ├── ntm_interface.sv
+    │       ├── ntm_monitor.sv
+    │       ├── ntm_package.sv
+    │       ├── ntm_scoreboard.sv
+    │       ├── ntm_testbench.sv
+    │       ├── ntm_test.sv
+    │       └── ntm_transaction.sv
+    ├── inputs
+    │   ├── ntm_inputs_vector
+    │   │   ├── ntm_agent.sv
+    │   │   ├── ntm_driver.sv
+    │   │   ├── ntm_environment.sv
+    │   │   ├── ntm_generator.sv
+    │   │   ├── ntm_interface.sv
+    │   │   ├── ntm_monitor.sv
+    │   │   ├── ntm_package.sv
+    │   │   ├── ntm_scoreboard.sv
+    │   │   ├── ntm_testbench.sv
+    │   │   ├── ntm_test.sv
+    │   │   └── ntm_transaction.sv
+    │   ├── ntm_keys_vector
+    │   │   ├── ntm_agent.sv
+    │   │   ├── ntm_driver.sv
+    │   │   ├── ntm_environment.sv
+    │   │   ├── ntm_generator.sv
+    │   │   ├── ntm_interface.sv
+    │   │   ├── ntm_monitor.sv
+    │   │   ├── ntm_package.sv
+    │   │   ├── ntm_scoreboard.sv
+    │   │   ├── ntm_testbench.sv
+    │   │   ├── ntm_test.sv
+    │   │   └── ntm_transaction.sv
+    │   ├── ntm_queries_vector
+    │   │   ├── ntm_agent.sv
+    │   │   ├── ntm_driver.sv
+    │   │   ├── ntm_environment.sv
+    │   │   ├── ntm_generator.sv
+    │   │   ├── ntm_interface.sv
+    │   │   ├── ntm_monitor.sv
+    │   │   ├── ntm_package.sv
+    │   │   ├── ntm_scoreboard.sv
+    │   │   ├── ntm_testbench.sv
+    │   │   ├── ntm_test.sv
+    │   │   └── ntm_transaction.sv
+    │   └── ntm_values_vector
+    │       ├── ntm_agent.sv
+    │       ├── ntm_driver.sv
+    │       ├── ntm_environment.sv
+    │       ├── ntm_generator.sv
+    │       ├── ntm_interface.sv
+    │       ├── ntm_monitor.sv
+    │       ├── ntm_package.sv
+    │       ├── ntm_scoreboard.sv
+    │       ├── ntm_testbench.sv
+    │       ├── ntm_test.sv
+    │       └── ntm_transaction.sv
+    ├── lstm
+    │   ├── ntm_activation_gate_vector
+    │   │   ├── ntm_agent.sv
+    │   │   ├── ntm_driver.sv
+    │   │   ├── ntm_environment.sv
+    │   │   ├── ntm_generator.sv
+    │   │   ├── ntm_interface.sv
+    │   │   ├── ntm_monitor.sv
+    │   │   ├── ntm_package.sv
+    │   │   ├── ntm_scoreboard.sv
+    │   │   ├── ntm_testbench.sv
+    │   │   ├── ntm_test.sv
+    │   │   └── ntm_transaction.sv
+    │   ├── ntm_forget_gate_vector
+    │   │   ├── ntm_agent.sv
+    │   │   ├── ntm_driver.sv
+    │   │   ├── ntm_environment.sv
+    │   │   ├── ntm_generator.sv
+    │   │   ├── ntm_interface.sv
+    │   │   ├── ntm_monitor.sv
+    │   │   ├── ntm_package.sv
+    │   │   ├── ntm_scoreboard.sv
+    │   │   ├── ntm_testbench.sv
+    │   │   ├── ntm_test.sv
+    │   │   └── ntm_transaction.sv
+    │   ├── ntm_hidden_gate_vector
+    │   │   ├── ntm_agent.sv
+    │   │   ├── ntm_driver.sv
+    │   │   ├── ntm_environment.sv
+    │   │   ├── ntm_generator.sv
+    │   │   ├── ntm_interface.sv
+    │   │   ├── ntm_monitor.sv
+    │   │   ├── ntm_package.sv
+    │   │   ├── ntm_scoreboard.sv
+    │   │   ├── ntm_testbench.sv
+    │   │   ├── ntm_test.sv
+    │   │   └── ntm_transaction.sv
+    │   ├── ntm_input_gate_vector
+    │   │   ├── ntm_agent.sv
+    │   │   ├── ntm_driver.sv
+    │   │   ├── ntm_environment.sv
+    │   │   ├── ntm_generator.sv
+    │   │   ├── ntm_interface.sv
+    │   │   ├── ntm_monitor.sv
+    │   │   ├── ntm_package.sv
+    │   │   ├── ntm_scoreboard.sv
+    │   │   ├── ntm_testbench.sv
+    │   │   ├── ntm_test.sv
+    │   │   └── ntm_transaction.sv
+    │   ├── ntm_lstm
+    │   │   ├── ntm_agent.sv
+    │   │   ├── ntm_driver.sv
+    │   │   ├── ntm_environment.sv
+    │   │   ├── ntm_generator.sv
+    │   │   ├── ntm_interface.sv
+    │   │   ├── ntm_monitor.sv
+    │   │   ├── ntm_package.sv
+    │   │   ├── ntm_scoreboard.sv
+    │   │   ├── ntm_testbench.sv
+    │   │   ├── ntm_test.sv
+    │   │   └── ntm_transaction.sv
+    │   ├── ntm_output_gate_vector
+    │   │   ├── ntm_agent.sv
+    │   │   ├── ntm_driver.sv
+    │   │   ├── ntm_environment.sv
+    │   │   ├── ntm_generator.sv
+    │   │   ├── ntm_interface.sv
+    │   │   ├── ntm_monitor.sv
+    │   │   ├── ntm_package.sv
+    │   │   ├── ntm_scoreboard.sv
+    │   │   ├── ntm_testbench.sv
+    │   │   ├── ntm_test.sv
+    │   │   └── ntm_transaction.sv
+    │   └── ntm_state_gate_vector
+    │       ├── ntm_agent.sv
+    │       ├── ntm_driver.sv
+    │       ├── ntm_environment.sv
+    │       ├── ntm_generator.sv
+    │       ├── ntm_interface.sv
+    │       ├── ntm_monitor.sv
+    │       ├── ntm_package.sv
+    │       ├── ntm_scoreboard.sv
+    │       ├── ntm_testbench.sv
+    │       ├── ntm_test.sv
+    │       └── ntm_transaction.sv
+    └── top
+        ├── ntm_controller
+        │   ├── ntm_agent.sv
+        │   ├── ntm_driver.sv
+        │   ├── ntm_environment.sv
+        │   ├── ntm_generator.sv
+        │   ├── ntm_interface.sv
+        │   ├── ntm_monitor.sv
+        │   ├── ntm_package.sv
+        │   ├── ntm_scoreboard.sv
+        │   ├── ntm_testbench.sv
+        │   ├── ntm_test.sv
+        │   └── ntm_transaction.sv
+        ├── ntm_decoder
+        │   ├── ntm_agent.sv
+        │   ├── ntm_driver.sv
+        │   ├── ntm_environment.sv
+        │   ├── ntm_generator.sv
+        │   ├── ntm_interface.sv
+        │   ├── ntm_monitor.sv
+        │   ├── ntm_package.sv
+        │   ├── ntm_scoreboard.sv
+        │   ├── ntm_testbench.sv
+        │   ├── ntm_test.sv
+        │   └── ntm_transaction.sv
+        └── ntm_encoder
+            ├── ntm_agent.sv
+            ├── ntm_driver.sv
+            ├── ntm_environment.sv
+            ├── ntm_generator.sv
+            ├── ntm_interface.sv
+            ├── ntm_monitor.sv
+            ├── ntm_package.sv
+            ├── ntm_scoreboard.sv
+            ├── ntm_testbench.sv
+            ├── ntm_test.sv
+            └── ntm_transaction.sv
 
 237 directories, 1958 files

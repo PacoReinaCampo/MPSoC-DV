@@ -62,91 +62,12 @@ application
 │   │       └── ntm_controller
 │   │           ├── ntm_design.sv
 │   │           └── ntm_testbench.sv
-│   ├── LSTM
-│   │   ├── convolutional
-│   │   │   ├── ntm_activation_gate_vector
-│   │   │   │   ├── ntm_design.sv
-│   │   │   │   └── ntm_testbench.sv
-│   │   │   ├── ntm_controller
-│   │   │   │   ├── ntm_design.sv
-│   │   │   │   └── ntm_testbench.sv
-│   │   │   ├── ntm_forget_gate_vector
-│   │   │   │   ├── ntm_design.sv
-│   │   │   │   └── ntm_testbench.sv
-│   │   │   ├── ntm_hidden_gate_vector
-│   │   │   │   ├── ntm_design.sv
-│   │   │   │   └── ntm_testbench.sv
-│   │   │   ├── ntm_input_gate_vector
-│   │   │   │   ├── ntm_design.sv
-│   │   │   │   └── ntm_testbench.sv
-│   │   │   ├── ntm_output_gate_vector
-│   │   │   │   ├── ntm_design.sv
-│   │   │   │   └── ntm_testbench.sv
-│   │   │   └── ntm_state_gate_vector
-│   │   │       ├── ntm_design.sv
-│   │   │       └── ntm_testbench.sv
-│   │   └── standard
-│   │       ├── ntm_activation_gate_vector
-│   │       │   ├── ntm_design.sv
-│   │       │   └── ntm_testbench.sv
-│   │       ├── ntm_controller
-│   │       │   ├── ntm_design.sv
-│   │       │   └── ntm_testbench.sv
-│   │       ├── ntm_forget_gate_vector
-│   │       │   ├── ntm_design.sv
-│   │       │   └── ntm_testbench.sv
-│   │       ├── ntm_hidden_gate_vector
-│   │       │   ├── ntm_design.sv
-│   │       │   └── ntm_testbench.sv
-│   │       ├── ntm_input_gate_vector
-│   │       │   ├── ntm_design.sv
-│   │       │   └── ntm_testbench.sv
-│   │       ├── ntm_output_gate_vector
-│   │       │   ├── ntm_design.sv
-│   │       │   └── ntm_testbench.sv
-│   │       └── ntm_state_gate_vector
-│   │           ├── ntm_design.sv
-│   │           └── ntm_testbench.sv
-│   └── transformer
-│       ├── components
-│       │   ├── ntm_masked_multi_head_attention
-│       │   │   ├── ntm_design.sv
-│       │   │   └── ntm_testbench.sv
-│       │   ├── ntm_masked_scaled_dot_product_attention
-│       │   │   ├── ntm_design.sv
-│       │   │   └── ntm_testbench.sv
-│       │   ├── ntm_multi_head_attention
-│       │   │   ├── ntm_design.sv
-│       │   │   └── ntm_testbench.sv
-│       │   └── ntm_scaled_dot_product_attention
-│       │       ├── ntm_design.sv
-│       │       └── ntm_testbench.sv
-│       ├── fnn
-│       │   └── ntm_fnn
-│       │       ├── ntm_design.sv
-│       │       └── ntm_testbench.sv
-│       ├── functions
-│       │   ├── ntm_layer_norm
-│       │   │   ├── ntm_design.sv
-│       │   │   └── ntm_testbench.sv
-│       │   └── ntm_positional_encoding
-│       │       ├── ntm_design.sv
-│       │       └── ntm_testbench.sv
-│       ├── inputs
-│       │   ├── ntm_inputs_vector
-│       │   │   ├── ntm_design.sv
-│       │   │   └── ntm_testbench.sv
-│       │   ├── ntm_keys_vector
-│       │   │   ├── ntm_design.sv
-│       │   │   └── ntm_testbench.sv
-│       │   ├── ntm_queries_vector
-│       │   │   ├── ntm_design.sv
-│       │   │   └── ntm_testbench.sv
-│       │   └── ntm_values_vector
-│       │       ├── ntm_design.sv
-│       │       └── ntm_testbench.sv
-│       ├── lstm
+│   └── LSTM
+│       ├── convolutional
 │       │   ├── ntm_activation_gate_vector
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   ├── ntm_controller
 │       │   │   ├── ntm_design.sv
 │       │   │   └── ntm_testbench.sv
 │       │   ├── ntm_forget_gate_vector
@@ -158,23 +79,32 @@ application
 │       │   ├── ntm_input_gate_vector
 │       │   │   ├── ntm_design.sv
 │       │   │   └── ntm_testbench.sv
-│       │   ├── ntm_lstm
-│       │   │   ├── ntm_design.sv
-│       │   │   └── ntm_testbench.sv
 │       │   ├── ntm_output_gate_vector
 │       │   │   ├── ntm_design.sv
 │       │   │   └── ntm_testbench.sv
 │       │   └── ntm_state_gate_vector
 │       │       ├── ntm_design.sv
 │       │       └── ntm_testbench.sv
-│       └── top
+│       └── standard
+│           ├── ntm_activation_gate_vector
+│           │   ├── ntm_design.sv
+│           │   └── ntm_testbench.sv
 │           ├── ntm_controller
 │           │   ├── ntm_design.sv
 │           │   └── ntm_testbench.sv
-│           ├── ntm_decoder
+│           ├── ntm_forget_gate_vector
 │           │   ├── ntm_design.sv
 │           │   └── ntm_testbench.sv
-│           └── ntm_encoder
+│           ├── ntm_hidden_gate_vector
+│           │   ├── ntm_design.sv
+│           │   └── ntm_testbench.sv
+│           ├── ntm_input_gate_vector
+│           │   ├── ntm_design.sv
+│           │   └── ntm_testbench.sv
+│           ├── ntm_output_gate_vector
+│           │   ├── ntm_design.sv
+│           │   └── ntm_testbench.sv
+│           └── ntm_state_gate_vector
 │               ├── ntm_design.sv
 │               └── ntm_testbench.sv
 ├── dnc
@@ -473,124 +403,194 @@ application
 │       └── ntm_state_top
 │           ├── ntm_design.sv
 │           └── ntm_testbench.sv
-└── trainer
-    ├── differentiation
-    │   ├── ntm_matrix_controller_differentiation
+├── trainer
+│   ├── differentiation
+│   │   ├── ntm_matrix_controller_differentiation
+│   │   │   ├── ntm_design.sv
+│   │   │   └── ntm_testbench.sv
+│   │   └── ntm_vector_controller_differentiation
+│   │       ├── ntm_design.sv
+│   │       └── ntm_testbench.sv
+│   ├── FNN
+│   │   ├── ntm_fnn_b_trainer
+│   │   │   ├── ntm_design.sv
+│   │   │   └── ntm_testbench.sv
+│   │   ├── ntm_fnn_d_trainer
+│   │   │   ├── ntm_design.sv
+│   │   │   └── ntm_testbench.sv
+│   │   ├── ntm_fnn_k_trainer
+│   │   │   ├── ntm_design.sv
+│   │   │   └── ntm_testbench.sv
+│   │   ├── ntm_fnn_trainer
+│   │   │   ├── ntm_design.sv
+│   │   │   └── ntm_testbench.sv
+│   │   ├── ntm_fnn_u_trainer
+│   │   │   ├── ntm_design.sv
+│   │   │   └── ntm_testbench.sv
+│   │   ├── ntm_fnn_v_trainer
+│   │   │   ├── ntm_design.sv
+│   │   │   └── ntm_testbench.sv
+│   │   └── ntm_fnn_w_trainer
+│   │       ├── ntm_design.sv
+│   │       └── ntm_testbench.sv
+│   └── LSTM
+│       ├── activation
+│       │   ├── ntm_lstm_activation_b_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   ├── ntm_lstm_activation_d_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   ├── ntm_lstm_activation_k_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   ├── ntm_lstm_activation_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   ├── ntm_lstm_activation_u_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   ├── ntm_lstm_activation_v_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   └── ntm_lstm_activation_w_trainer
+│       │       ├── ntm_design.sv
+│       │       └── ntm_testbench.sv
+│       ├── forget
+│       │   ├── ntm_lstm_forget_b_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   ├── ntm_lstm_forget_d_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   ├── ntm_lstm_forget_k_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   ├── ntm_lstm_forget_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   ├── ntm_lstm_forget_u_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   ├── ntm_lstm_forget_v_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   └── ntm_lstm_forget_w_trainer
+│       │       ├── ntm_design.sv
+│       │       └── ntm_testbench.sv
+│       ├── input
+│       │   ├── ntm_lstm_input_b_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   ├── ntm_lstm_input_d_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   ├── ntm_lstm_input_k_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   ├── ntm_lstm_input_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   ├── ntm_lstm_input_u_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   ├── ntm_lstm_input_v_trainer
+│       │   │   ├── ntm_design.sv
+│       │   │   └── ntm_testbench.sv
+│       │   └── ntm_lstm_input_w_trainer
+│       │       ├── ntm_design.sv
+│       │       └── ntm_testbench.sv
+│       └── output
+│           ├── ntm_lstm_output_b_trainer
+│           │   ├── ntm_design.sv
+│           │   └── ntm_testbench.sv
+│           ├── ntm_lstm_output_d_trainer
+│           │   ├── ntm_design.sv
+│           │   └── ntm_testbench.sv
+│           ├── ntm_lstm_output_k_trainer
+│           │   ├── ntm_design.sv
+│           │   └── ntm_testbench.sv
+│           ├── ntm_lstm_output_trainer
+│           │   ├── ntm_design.sv
+│           │   └── ntm_testbench.sv
+│           ├── ntm_lstm_output_u_trainer
+│           │   ├── ntm_design.sv
+│           │   └── ntm_testbench.sv
+│           ├── ntm_lstm_output_v_trainer
+│           │   ├── ntm_design.sv
+│           │   └── ntm_testbench.sv
+│           └── ntm_lstm_output_w_trainer
+│               ├── ntm_design.sv
+│               └── ntm_testbench.sv
+└── transformer
+    ├── components
+    │   ├── ntm_masked_multi_head_attention
     │   │   ├── ntm_design.sv
     │   │   └── ntm_testbench.sv
-    │   └── ntm_vector_controller_differentiation
+    │   ├── ntm_masked_scaled_dot_product_attention
+    │   │   ├── ntm_design.sv
+    │   │   └── ntm_testbench.sv
+    │   ├── ntm_multi_head_attention
+    │   │   ├── ntm_design.sv
+    │   │   └── ntm_testbench.sv
+    │   └── ntm_scaled_dot_product_attention
     │       ├── ntm_design.sv
     │       └── ntm_testbench.sv
-    ├── FNN
-    │   ├── ntm_fnn_b_trainer
-    │   │   ├── ntm_design.sv
-    │   │   └── ntm_testbench.sv
-    │   ├── ntm_fnn_d_trainer
-    │   │   ├── ntm_design.sv
-    │   │   └── ntm_testbench.sv
-    │   ├── ntm_fnn_k_trainer
-    │   │   ├── ntm_design.sv
-    │   │   └── ntm_testbench.sv
-    │   ├── ntm_fnn_trainer
-    │   │   ├── ntm_design.sv
-    │   │   └── ntm_testbench.sv
-    │   ├── ntm_fnn_u_trainer
-    │   │   ├── ntm_design.sv
-    │   │   └── ntm_testbench.sv
-    │   ├── ntm_fnn_v_trainer
-    │   │   ├── ntm_design.sv
-    │   │   └── ntm_testbench.sv
-    │   └── ntm_fnn_w_trainer
+    ├── fnn
+    │   └── ntm_fnn
     │       ├── ntm_design.sv
     │       └── ntm_testbench.sv
-    └── LSTM
-        ├── activation
-        │   ├── ntm_lstm_activation_b_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   ├── ntm_lstm_activation_d_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   ├── ntm_lstm_activation_k_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   ├── ntm_lstm_activation_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   ├── ntm_lstm_activation_u_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   ├── ntm_lstm_activation_v_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   └── ntm_lstm_activation_w_trainer
-        │       ├── ntm_design.sv
-        │       └── ntm_testbench.sv
-        ├── forget
-        │   ├── ntm_lstm_forget_b_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   ├── ntm_lstm_forget_d_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   ├── ntm_lstm_forget_k_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   ├── ntm_lstm_forget_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   ├── ntm_lstm_forget_u_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   ├── ntm_lstm_forget_v_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   └── ntm_lstm_forget_w_trainer
-        │       ├── ntm_design.sv
-        │       └── ntm_testbench.sv
-        ├── input
-        │   ├── ntm_lstm_input_b_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   ├── ntm_lstm_input_d_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   ├── ntm_lstm_input_k_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   ├── ntm_lstm_input_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   ├── ntm_lstm_input_u_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   ├── ntm_lstm_input_v_trainer
-        │   │   ├── ntm_design.sv
-        │   │   └── ntm_testbench.sv
-        │   └── ntm_lstm_input_w_trainer
-        │       ├── ntm_design.sv
-        │       └── ntm_testbench.sv
-        └── output
-            ├── ntm_lstm_output_b_trainer
-            │   ├── ntm_design.sv
-            │   └── ntm_testbench.sv
-            ├── ntm_lstm_output_d_trainer
-            │   ├── ntm_design.sv
-            │   └── ntm_testbench.sv
-            ├── ntm_lstm_output_k_trainer
-            │   ├── ntm_design.sv
-            │   └── ntm_testbench.sv
-            ├── ntm_lstm_output_trainer
-            │   ├── ntm_design.sv
-            │   └── ntm_testbench.sv
-            ├── ntm_lstm_output_u_trainer
-            │   ├── ntm_design.sv
-            │   └── ntm_testbench.sv
-            ├── ntm_lstm_output_v_trainer
-            │   ├── ntm_design.sv
-            │   └── ntm_testbench.sv
-            └── ntm_lstm_output_w_trainer
-                ├── ntm_design.sv
-                └── ntm_testbench.sv
+    ├── functions
+    │   ├── ntm_layer_norm
+    │   │   ├── ntm_design.sv
+    │   │   └── ntm_testbench.sv
+    │   └── ntm_positional_encoding
+    │       ├── ntm_design.sv
+    │       └── ntm_testbench.sv
+    ├── inputs
+    │   ├── ntm_inputs_vector
+    │   │   ├── ntm_design.sv
+    │   │   └── ntm_testbench.sv
+    │   ├── ntm_keys_vector
+    │   │   ├── ntm_design.sv
+    │   │   └── ntm_testbench.sv
+    │   ├── ntm_queries_vector
+    │   │   ├── ntm_design.sv
+    │   │   └── ntm_testbench.sv
+    │   └── ntm_values_vector
+    │       ├── ntm_design.sv
+    │       └── ntm_testbench.sv
+    ├── lstm
+    │   ├── ntm_activation_gate_vector
+    │   │   ├── ntm_design.sv
+    │   │   └── ntm_testbench.sv
+    │   ├── ntm_forget_gate_vector
+    │   │   ├── ntm_design.sv
+    │   │   └── ntm_testbench.sv
+    │   ├── ntm_hidden_gate_vector
+    │   │   ├── ntm_design.sv
+    │   │   └── ntm_testbench.sv
+    │   ├── ntm_input_gate_vector
+    │   │   ├── ntm_design.sv
+    │   │   └── ntm_testbench.sv
+    │   ├── ntm_lstm
+    │   │   ├── ntm_design.sv
+    │   │   └── ntm_testbench.sv
+    │   ├── ntm_output_gate_vector
+    │   │   ├── ntm_design.sv
+    │   │   └── ntm_testbench.sv
+    │   └── ntm_state_gate_vector
+    │       ├── ntm_design.sv
+    │       └── ntm_testbench.sv
+    └── top
+        ├── ntm_controller
+        │   ├── ntm_design.sv
+        │   └── ntm_testbench.sv
+        ├── ntm_decoder
+        │   ├── ntm_design.sv
+        │   └── ntm_testbench.sv
+        └── ntm_encoder
+            ├── ntm_design.sv
+            └── ntm_testbench.sv
 
 237 directories, 356 files

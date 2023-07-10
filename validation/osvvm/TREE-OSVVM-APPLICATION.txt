@@ -62,91 +62,12 @@ application
 │   │       └── ntm_controller
 │   │           ├── ntm_design_pkg.vhd
 │   │           └── ntm_design.vhd
-│   ├── LSTM
-│   │   ├── convolutional
-│   │   │   ├── ntm_activation_gate_vector
-│   │   │   │   ├── ntm_design_pkg.vhd
-│   │   │   │   └── ntm_design.vhd
-│   │   │   ├── ntm_controller
-│   │   │   │   ├── ntm_design_pkg.vhd
-│   │   │   │   └── ntm_design.vhd
-│   │   │   ├── ntm_forget_gate_vector
-│   │   │   │   ├── ntm_design_pkg.vhd
-│   │   │   │   └── ntm_design.vhd
-│   │   │   ├── ntm_hidden_gate_vector
-│   │   │   │   ├── ntm_design_pkg.vhd
-│   │   │   │   └── ntm_design.vhd
-│   │   │   ├── ntm_input_gate_vector
-│   │   │   │   ├── ntm_design_pkg.vhd
-│   │   │   │   └── ntm_design.vhd
-│   │   │   ├── ntm_output_gate_vector
-│   │   │   │   ├── ntm_design_pkg.vhd
-│   │   │   │   └── ntm_design.vhd
-│   │   │   └── ntm_state_gate_vector
-│   │   │       ├── ntm_design_pkg.vhd
-│   │   │       └── ntm_design.vhd
-│   │   └── standard
-│   │       ├── ntm_activation_gate_vector
-│   │       │   ├── ntm_design_pkg.vhd
-│   │       │   └── ntm_design.vhd
-│   │       ├── ntm_controller
-│   │       │   ├── ntm_design_pkg.vhd
-│   │       │   └── ntm_design.vhd
-│   │       ├── ntm_forget_gate_vector
-│   │       │   ├── ntm_design_pkg.vhd
-│   │       │   └── ntm_design.vhd
-│   │       ├── ntm_hidden_gate_vector
-│   │       │   ├── ntm_design_pkg.vhd
-│   │       │   └── ntm_design.vhd
-│   │       ├── ntm_input_gate_vector
-│   │       │   ├── ntm_design_pkg.vhd
-│   │       │   └── ntm_design.vhd
-│   │       ├── ntm_output_gate_vector
-│   │       │   ├── ntm_design_pkg.vhd
-│   │       │   └── ntm_design.vhd
-│   │       └── ntm_state_gate_vector
-│   │           ├── ntm_design_pkg.vhd
-│   │           └── ntm_design.vhd
-│   └── transformer
-│       ├── components
-│       │   ├── ntm_masked_multi_head_attention
-│       │   │   ├── ntm_design_pkg.vhd
-│       │   │   └── ntm_design.vhd
-│       │   ├── ntm_masked_scaled_dot_product_attention
-│       │   │   ├── ntm_design_pkg.vhd
-│       │   │   └── ntm_design.vhd
-│       │   ├── ntm_multi_head_attention
-│       │   │   ├── ntm_design_pkg.vhd
-│       │   │   └── ntm_design.vhd
-│       │   └── ntm_scaled_dot_product_attention
-│       │       ├── ntm_design_pkg.vhd
-│       │       └── ntm_design.vhd
-│       ├── fnn
-│       │   └── ntm_fnn
-│       │       ├── ntm_design_pkg.vhd
-│       │       └── ntm_design.vhd
-│       ├── functions
-│       │   ├── ntm_layer_norm
-│       │   │   ├── ntm_design_pkg.vhd
-│       │   │   └── ntm_design.vhd
-│       │   └── ntm_positional_encoding
-│       │       ├── ntm_design_pkg.vhd
-│       │       └── ntm_design.vhd
-│       ├── inputs
-│       │   ├── ntm_inputs_vector
-│       │   │   ├── ntm_design_pkg.vhd
-│       │   │   └── ntm_design.vhd
-│       │   ├── ntm_keys_vector
-│       │   │   ├── ntm_design_pkg.vhd
-│       │   │   └── ntm_design.vhd
-│       │   ├── ntm_queries_vector
-│       │   │   ├── ntm_design_pkg.vhd
-│       │   │   └── ntm_design.vhd
-│       │   └── ntm_values_vector
-│       │       ├── ntm_design_pkg.vhd
-│       │       └── ntm_design.vhd
-│       ├── lstm
+│   └── LSTM
+│       ├── convolutional
 │       │   ├── ntm_activation_gate_vector
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   ├── ntm_controller
 │       │   │   ├── ntm_design_pkg.vhd
 │       │   │   └── ntm_design.vhd
 │       │   ├── ntm_forget_gate_vector
@@ -158,23 +79,32 @@ application
 │       │   ├── ntm_input_gate_vector
 │       │   │   ├── ntm_design_pkg.vhd
 │       │   │   └── ntm_design.vhd
-│       │   ├── ntm_lstm
-│       │   │   ├── ntm_design_pkg.vhd
-│       │   │   └── ntm_design.vhd
 │       │   ├── ntm_output_gate_vector
 │       │   │   ├── ntm_design_pkg.vhd
 │       │   │   └── ntm_design.vhd
 │       │   └── ntm_state_gate_vector
 │       │       ├── ntm_design_pkg.vhd
 │       │       └── ntm_design.vhd
-│       └── top
+│       └── standard
+│           ├── ntm_activation_gate_vector
+│           │   ├── ntm_design_pkg.vhd
+│           │   └── ntm_design.vhd
 │           ├── ntm_controller
 │           │   ├── ntm_design_pkg.vhd
 │           │   └── ntm_design.vhd
-│           ├── ntm_decoder
+│           ├── ntm_forget_gate_vector
 │           │   ├── ntm_design_pkg.vhd
 │           │   └── ntm_design.vhd
-│           └── ntm_encoder
+│           ├── ntm_hidden_gate_vector
+│           │   ├── ntm_design_pkg.vhd
+│           │   └── ntm_design.vhd
+│           ├── ntm_input_gate_vector
+│           │   ├── ntm_design_pkg.vhd
+│           │   └── ntm_design.vhd
+│           ├── ntm_output_gate_vector
+│           │   ├── ntm_design_pkg.vhd
+│           │   └── ntm_design.vhd
+│           └── ntm_state_gate_vector
 │               ├── ntm_design_pkg.vhd
 │               └── ntm_design.vhd
 ├── dnc
@@ -473,124 +403,194 @@ application
 │       └── ntm_state_top
 │           ├── ntm_design_pkg.vhd
 │           └── ntm_design.vhd
-└── trainer
-    ├── differentiation
-    │   ├── ntm_matrix_controller_differentiation
+├── trainer
+│   ├── differentiation
+│   │   ├── ntm_matrix_controller_differentiation
+│   │   │   ├── ntm_design_pkg.vhd
+│   │   │   └── ntm_design.vhd
+│   │   └── ntm_vector_controller_differentiation
+│   │       ├── ntm_design_pkg.vhd
+│   │       └── ntm_design.vhd
+│   ├── FNN
+│   │   ├── ntm_fnn_b_trainer
+│   │   │   ├── ntm_design_pkg.vhd
+│   │   │   └── ntm_design.vhd
+│   │   ├── ntm_fnn_d_trainer
+│   │   │   ├── ntm_design_pkg.vhd
+│   │   │   └── ntm_design.vhd
+│   │   ├── ntm_fnn_k_trainer
+│   │   │   ├── ntm_design_pkg.vhd
+│   │   │   └── ntm_design.vhd
+│   │   ├── ntm_fnn_trainer
+│   │   │   ├── ntm_design_pkg.vhd
+│   │   │   └── ntm_design.vhd
+│   │   ├── ntm_fnn_u_trainer
+│   │   │   ├── ntm_design_pkg.vhd
+│   │   │   └── ntm_design.vhd
+│   │   ├── ntm_fnn_v_trainer
+│   │   │   ├── ntm_design_pkg.vhd
+│   │   │   └── ntm_design.vhd
+│   │   └── ntm_fnn_w_trainer
+│   │       ├── ntm_design_pkg.vhd
+│   │       └── ntm_design.vhd
+│   └── LSTM
+│       ├── activation
+│       │   ├── ntm_lstm_activation_b_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   ├── ntm_lstm_activation_d_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   ├── ntm_lstm_activation_k_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   ├── ntm_lstm_activation_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   ├── ntm_lstm_activation_u_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   ├── ntm_lstm_activation_v_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   └── ntm_lstm_activation_w_trainer
+│       │       ├── ntm_design_pkg.vhd
+│       │       └── ntm_design.vhd
+│       ├── forget
+│       │   ├── ntm_lstm_forget_b_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   ├── ntm_lstm_forget_d_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   ├── ntm_lstm_forget_k_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   ├── ntm_lstm_forget_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   ├── ntm_lstm_forget_u_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   ├── ntm_lstm_forget_v_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   └── ntm_lstm_forget_w_trainer
+│       │       ├── ntm_design_pkg.vhd
+│       │       └── ntm_design.vhd
+│       ├── input
+│       │   ├── ntm_lstm_input_b_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   ├── ntm_lstm_input_d_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   ├── ntm_lstm_input_k_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   ├── ntm_lstm_input_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   ├── ntm_lstm_input_u_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   ├── ntm_lstm_input_v_trainer
+│       │   │   ├── ntm_design_pkg.vhd
+│       │   │   └── ntm_design.vhd
+│       │   └── ntm_lstm_input_w_trainer
+│       │       ├── ntm_design_pkg.vhd
+│       │       └── ntm_design.vhd
+│       └── output
+│           ├── ntm_lstm_output_b_trainer
+│           │   ├── ntm_design_pkg.vhd
+│           │   └── ntm_design.vhd
+│           ├── ntm_lstm_output_d_trainer
+│           │   ├── ntm_design_pkg.vhd
+│           │   └── ntm_design.vhd
+│           ├── ntm_lstm_output_k_trainer
+│           │   ├── ntm_design_pkg.vhd
+│           │   └── ntm_design.vhd
+│           ├── ntm_lstm_output_trainer
+│           │   ├── ntm_design_pkg.vhd
+│           │   └── ntm_design.vhd
+│           ├── ntm_lstm_output_u_trainer
+│           │   ├── ntm_design_pkg.vhd
+│           │   └── ntm_design.vhd
+│           ├── ntm_lstm_output_v_trainer
+│           │   ├── ntm_design_pkg.vhd
+│           │   └── ntm_design.vhd
+│           └── ntm_lstm_output_w_trainer
+│               ├── ntm_design_pkg.vhd
+│               └── ntm_design.vhd
+└── transformer
+    ├── components
+    │   ├── ntm_masked_multi_head_attention
     │   │   ├── ntm_design_pkg.vhd
     │   │   └── ntm_design.vhd
-    │   └── ntm_vector_controller_differentiation
+    │   ├── ntm_masked_scaled_dot_product_attention
+    │   │   ├── ntm_design_pkg.vhd
+    │   │   └── ntm_design.vhd
+    │   ├── ntm_multi_head_attention
+    │   │   ├── ntm_design_pkg.vhd
+    │   │   └── ntm_design.vhd
+    │   └── ntm_scaled_dot_product_attention
     │       ├── ntm_design_pkg.vhd
     │       └── ntm_design.vhd
-    ├── FNN
-    │   ├── ntm_fnn_b_trainer
-    │   │   ├── ntm_design_pkg.vhd
-    │   │   └── ntm_design.vhd
-    │   ├── ntm_fnn_d_trainer
-    │   │   ├── ntm_design_pkg.vhd
-    │   │   └── ntm_design.vhd
-    │   ├── ntm_fnn_k_trainer
-    │   │   ├── ntm_design_pkg.vhd
-    │   │   └── ntm_design.vhd
-    │   ├── ntm_fnn_trainer
-    │   │   ├── ntm_design_pkg.vhd
-    │   │   └── ntm_design.vhd
-    │   ├── ntm_fnn_u_trainer
-    │   │   ├── ntm_design_pkg.vhd
-    │   │   └── ntm_design.vhd
-    │   ├── ntm_fnn_v_trainer
-    │   │   ├── ntm_design_pkg.vhd
-    │   │   └── ntm_design.vhd
-    │   └── ntm_fnn_w_trainer
+    ├── fnn
+    │   └── ntm_fnn
     │       ├── ntm_design_pkg.vhd
     │       └── ntm_design.vhd
-    └── LSTM
-        ├── activation
-        │   ├── ntm_lstm_activation_b_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   ├── ntm_lstm_activation_d_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   ├── ntm_lstm_activation_k_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   ├── ntm_lstm_activation_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   ├── ntm_lstm_activation_u_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   ├── ntm_lstm_activation_v_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   └── ntm_lstm_activation_w_trainer
-        │       ├── ntm_design_pkg.vhd
-        │       └── ntm_design.vhd
-        ├── forget
-        │   ├── ntm_lstm_forget_b_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   ├── ntm_lstm_forget_d_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   ├── ntm_lstm_forget_k_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   ├── ntm_lstm_forget_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   ├── ntm_lstm_forget_u_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   ├── ntm_lstm_forget_v_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   └── ntm_lstm_forget_w_trainer
-        │       ├── ntm_design_pkg.vhd
-        │       └── ntm_design.vhd
-        ├── input
-        │   ├── ntm_lstm_input_b_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   ├── ntm_lstm_input_d_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   ├── ntm_lstm_input_k_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   ├── ntm_lstm_input_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   ├── ntm_lstm_input_u_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   ├── ntm_lstm_input_v_trainer
-        │   │   ├── ntm_design_pkg.vhd
-        │   │   └── ntm_design.vhd
-        │   └── ntm_lstm_input_w_trainer
-        │       ├── ntm_design_pkg.vhd
-        │       └── ntm_design.vhd
-        └── output
-            ├── ntm_lstm_output_b_trainer
-            │   ├── ntm_design_pkg.vhd
-            │   └── ntm_design.vhd
-            ├── ntm_lstm_output_d_trainer
-            │   ├── ntm_design_pkg.vhd
-            │   └── ntm_design.vhd
-            ├── ntm_lstm_output_k_trainer
-            │   ├── ntm_design_pkg.vhd
-            │   └── ntm_design.vhd
-            ├── ntm_lstm_output_trainer
-            │   ├── ntm_design_pkg.vhd
-            │   └── ntm_design.vhd
-            ├── ntm_lstm_output_u_trainer
-            │   ├── ntm_design_pkg.vhd
-            │   └── ntm_design.vhd
-            ├── ntm_lstm_output_v_trainer
-            │   ├── ntm_design_pkg.vhd
-            │   └── ntm_design.vhd
-            └── ntm_lstm_output_w_trainer
-                ├── ntm_design_pkg.vhd
-                └── ntm_design.vhd
+    ├── functions
+    │   ├── ntm_layer_norm
+    │   │   ├── ntm_design_pkg.vhd
+    │   │   └── ntm_design.vhd
+    │   └── ntm_positional_encoding
+    │       ├── ntm_design_pkg.vhd
+    │       └── ntm_design.vhd
+    ├── inputs
+    │   ├── ntm_inputs_vector
+    │   │   ├── ntm_design_pkg.vhd
+    │   │   └── ntm_design.vhd
+    │   ├── ntm_keys_vector
+    │   │   ├── ntm_design_pkg.vhd
+    │   │   └── ntm_design.vhd
+    │   ├── ntm_queries_vector
+    │   │   ├── ntm_design_pkg.vhd
+    │   │   └── ntm_design.vhd
+    │   └── ntm_values_vector
+    │       ├── ntm_design_pkg.vhd
+    │       └── ntm_design.vhd
+    ├── lstm
+    │   ├── ntm_activation_gate_vector
+    │   │   ├── ntm_design_pkg.vhd
+    │   │   └── ntm_design.vhd
+    │   ├── ntm_forget_gate_vector
+    │   │   ├── ntm_design_pkg.vhd
+    │   │   └── ntm_design.vhd
+    │   ├── ntm_hidden_gate_vector
+    │   │   ├── ntm_design_pkg.vhd
+    │   │   └── ntm_design.vhd
+    │   ├── ntm_input_gate_vector
+    │   │   ├── ntm_design_pkg.vhd
+    │   │   └── ntm_design.vhd
+    │   ├── ntm_lstm
+    │   │   ├── ntm_design_pkg.vhd
+    │   │   └── ntm_design.vhd
+    │   ├── ntm_output_gate_vector
+    │   │   ├── ntm_design_pkg.vhd
+    │   │   └── ntm_design.vhd
+    │   └── ntm_state_gate_vector
+    │       ├── ntm_design_pkg.vhd
+    │       └── ntm_design.vhd
+    └── top
+        ├── ntm_controller
+        │   ├── ntm_design_pkg.vhd
+        │   └── ntm_design.vhd
+        ├── ntm_decoder
+        │   ├── ntm_design_pkg.vhd
+        │   └── ntm_design.vhd
+        └── ntm_encoder
+            ├── ntm_design_pkg.vhd
+            └── ntm_design.vhd
 
 237 directories, 356 files
