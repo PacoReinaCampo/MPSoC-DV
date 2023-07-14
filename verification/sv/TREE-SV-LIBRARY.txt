@@ -2073,79 +2073,7 @@ library
     │       ├── ntm_test.sv
     │       └── ntm_transaction.sv
     ├── lstm
-    │   ├── ntm_activation_gate_vector
-    │   │   ├── ntm_agent.sv
-    │   │   ├── ntm_driver.sv
-    │   │   ├── ntm_environment.sv
-    │   │   ├── ntm_generator.sv
-    │   │   ├── ntm_interface.sv
-    │   │   ├── ntm_monitor.sv
-    │   │   ├── ntm_package.sv
-    │   │   ├── ntm_scoreboard.sv
-    │   │   ├── ntm_testbench.sv
-    │   │   ├── ntm_test.sv
-    │   │   └── ntm_transaction.sv
-    │   ├── ntm_forget_gate_vector
-    │   │   ├── ntm_agent.sv
-    │   │   ├── ntm_driver.sv
-    │   │   ├── ntm_environment.sv
-    │   │   ├── ntm_generator.sv
-    │   │   ├── ntm_interface.sv
-    │   │   ├── ntm_monitor.sv
-    │   │   ├── ntm_package.sv
-    │   │   ├── ntm_scoreboard.sv
-    │   │   ├── ntm_testbench.sv
-    │   │   ├── ntm_test.sv
-    │   │   └── ntm_transaction.sv
-    │   ├── ntm_hidden_gate_vector
-    │   │   ├── ntm_agent.sv
-    │   │   ├── ntm_driver.sv
-    │   │   ├── ntm_environment.sv
-    │   │   ├── ntm_generator.sv
-    │   │   ├── ntm_interface.sv
-    │   │   ├── ntm_monitor.sv
-    │   │   ├── ntm_package.sv
-    │   │   ├── ntm_scoreboard.sv
-    │   │   ├── ntm_testbench.sv
-    │   │   ├── ntm_test.sv
-    │   │   └── ntm_transaction.sv
-    │   ├── ntm_input_gate_vector
-    │   │   ├── ntm_agent.sv
-    │   │   ├── ntm_driver.sv
-    │   │   ├── ntm_environment.sv
-    │   │   ├── ntm_generator.sv
-    │   │   ├── ntm_interface.sv
-    │   │   ├── ntm_monitor.sv
-    │   │   ├── ntm_package.sv
-    │   │   ├── ntm_scoreboard.sv
-    │   │   ├── ntm_testbench.sv
-    │   │   ├── ntm_test.sv
-    │   │   └── ntm_transaction.sv
-    │   ├── ntm_lstm
-    │   │   ├── ntm_agent.sv
-    │   │   ├── ntm_driver.sv
-    │   │   ├── ntm_environment.sv
-    │   │   ├── ntm_generator.sv
-    │   │   ├── ntm_interface.sv
-    │   │   ├── ntm_monitor.sv
-    │   │   ├── ntm_package.sv
-    │   │   ├── ntm_scoreboard.sv
-    │   │   ├── ntm_testbench.sv
-    │   │   ├── ntm_test.sv
-    │   │   └── ntm_transaction.sv
-    │   ├── ntm_output_gate_vector
-    │   │   ├── ntm_agent.sv
-    │   │   ├── ntm_driver.sv
-    │   │   ├── ntm_environment.sv
-    │   │   ├── ntm_generator.sv
-    │   │   ├── ntm_interface.sv
-    │   │   ├── ntm_monitor.sv
-    │   │   ├── ntm_package.sv
-    │   │   ├── ntm_scoreboard.sv
-    │   │   ├── ntm_testbench.sv
-    │   │   ├── ntm_test.sv
-    │   │   └── ntm_transaction.sv
-    │   └── ntm_state_gate_vector
+    │   └── ntm_lstm
     │       ├── ntm_agent.sv
     │       ├── ntm_driver.sv
     │       ├── ntm_environment.sv
@@ -2195,4 +2123,4 @@ library
             ├── ntm_test.sv
             └── ntm_transaction.sv
 
-237 directories, 1958 files
+231 directories, 1892 files

@@ -561,25 +561,7 @@ application
     │       ├── ntm_design.sv
     │       └── ntm_testbench.sv
     ├── lstm
-    │   ├── ntm_activation_gate_vector
-    │   │   ├── ntm_design.sv
-    │   │   └── ntm_testbench.sv
-    │   ├── ntm_forget_gate_vector
-    │   │   ├── ntm_design.sv
-    │   │   └── ntm_testbench.sv
-    │   ├── ntm_hidden_gate_vector
-    │   │   ├── ntm_design.sv
-    │   │   └── ntm_testbench.sv
-    │   ├── ntm_input_gate_vector
-    │   │   ├── ntm_design.sv
-    │   │   └── ntm_testbench.sv
-    │   ├── ntm_lstm
-    │   │   ├── ntm_design.sv
-    │   │   └── ntm_testbench.sv
-    │   ├── ntm_output_gate_vector
-    │   │   ├── ntm_design.sv
-    │   │   └── ntm_testbench.sv
-    │   └── ntm_state_gate_vector
+    │   └── ntm_lstm
     │       ├── ntm_design.sv
     │       └── ntm_testbench.sv
     └── top
@@ -593,4 +575,4 @@ application
             ├── ntm_design.sv
             └── ntm_testbench.sv
 
-237 directories, 356 files
+231 directories, 344 files

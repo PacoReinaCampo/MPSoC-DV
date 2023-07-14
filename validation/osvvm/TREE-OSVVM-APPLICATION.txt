@@ -561,25 +561,7 @@ application
     │       ├── ntm_design_pkg.vhd
     │       └── ntm_design.vhd
     ├── lstm
-    │   ├── ntm_activation_gate_vector
-    │   │   ├── ntm_design_pkg.vhd
-    │   │   └── ntm_design.vhd
-    │   ├── ntm_forget_gate_vector
-    │   │   ├── ntm_design_pkg.vhd
-    │   │   └── ntm_design.vhd
-    │   ├── ntm_hidden_gate_vector
-    │   │   ├── ntm_design_pkg.vhd
-    │   │   └── ntm_design.vhd
-    │   ├── ntm_input_gate_vector
-    │   │   ├── ntm_design_pkg.vhd
-    │   │   └── ntm_design.vhd
-    │   ├── ntm_lstm
-    │   │   ├── ntm_design_pkg.vhd
-    │   │   └── ntm_design.vhd
-    │   ├── ntm_output_gate_vector
-    │   │   ├── ntm_design_pkg.vhd
-    │   │   └── ntm_design.vhd
-    │   └── ntm_state_gate_vector
+    │   └── ntm_lstm
     │       ├── ntm_design_pkg.vhd
     │       └── ntm_design.vhd
     └── top
@@ -593,4 +575,4 @@ application
             ├── ntm_design_pkg.vhd
             └── ntm_design.vhd
 
-237 directories, 356 files
+231 directories, 344 files

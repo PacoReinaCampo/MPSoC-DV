@@ -729,31 +729,7 @@ library
     │       ├── ntm_model.vhd
     │       └── ntm_testbench.vhd
     ├── lstm
-    │   ├── ntm_activation_gate_vector
-    │   │   ├── ntm_model_pkg.vhd
-    │   │   ├── ntm_model.vhd
-    │   │   └── ntm_testbench.vhd
-    │   ├── ntm_forget_gate_vector
-    │   │   ├── ntm_model_pkg.vhd
-    │   │   ├── ntm_model.vhd
-    │   │   └── ntm_testbench.vhd
-    │   ├── ntm_hidden_gate_vector
-    │   │   ├── ntm_model_pkg.vhd
-    │   │   ├── ntm_model.vhd
-    │   │   └── ntm_testbench.vhd
-    │   ├── ntm_input_gate_vector
-    │   │   ├── ntm_model_pkg.vhd
-    │   │   ├── ntm_model.vhd
-    │   │   └── ntm_testbench.vhd
-    │   ├── ntm_lstm
-    │   │   ├── ntm_model_pkg.vhd
-    │   │   ├── ntm_model.vhd
-    │   │   └── ntm_testbench.vhd
-    │   ├── ntm_output_gate_vector
-    │   │   ├── ntm_model_pkg.vhd
-    │   │   ├── ntm_model.vhd
-    │   │   └── ntm_testbench.vhd
-    │   └── ntm_state_gate_vector
+    │   └── ntm_lstm
     │       ├── ntm_model_pkg.vhd
     │       ├── ntm_model.vhd
     │       └── ntm_testbench.vhd
@@ -771,4 +747,4 @@ library
             ├── ntm_model.vhd
             └── ntm_testbench.vhd
 
-237 directories, 534 files
+231 directories, 516 files

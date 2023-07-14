@@ -2241,85 +2241,7 @@ library
     │       ├── ntm_uvm_testbench.sv
     │       └── ntm_uvm_test.sv
     ├── lstm
-    │   ├── ntm_activation_gate_vector
-    │   │   ├── ntm_uvm_agent.sv
-    │   │   ├── ntm_uvm_driver.sv
-    │   │   ├── ntm_uvm_environment.sv
-    │   │   ├── ntm_uvm_interface.sv
-    │   │   ├── ntm_uvm_monitor.sv
-    │   │   ├── ntm_uvm_package.sv
-    │   │   ├── ntm_uvm_scoreboard.sv
-    │   │   ├── ntm_uvm_sequence_item.sv
-    │   │   ├── ntm_uvm_sequencer.sv
-    │   │   ├── ntm_uvm_sequence.sv
-    │   │   ├── ntm_uvm_testbench.sv
-    │   │   └── ntm_uvm_test.sv
-    │   ├── ntm_forget_gate_vector
-    │   │   ├── ntm_uvm_agent.sv
-    │   │   ├── ntm_uvm_driver.sv
-    │   │   ├── ntm_uvm_environment.sv
-    │   │   ├── ntm_uvm_interface.sv
-    │   │   ├── ntm_uvm_monitor.sv
-    │   │   ├── ntm_uvm_package.sv
-    │   │   ├── ntm_uvm_scoreboard.sv
-    │   │   ├── ntm_uvm_sequence_item.sv
-    │   │   ├── ntm_uvm_sequencer.sv
-    │   │   ├── ntm_uvm_sequence.sv
-    │   │   ├── ntm_uvm_testbench.sv
-    │   │   └── ntm_uvm_test.sv
-    │   ├── ntm_hidden_gate_vector
-    │   │   ├── ntm_uvm_agent.sv
-    │   │   ├── ntm_uvm_driver.sv
-    │   │   ├── ntm_uvm_environment.sv
-    │   │   ├── ntm_uvm_interface.sv
-    │   │   ├── ntm_uvm_monitor.sv
-    │   │   ├── ntm_uvm_package.sv
-    │   │   ├── ntm_uvm_scoreboard.sv
-    │   │   ├── ntm_uvm_sequence_item.sv
-    │   │   ├── ntm_uvm_sequencer.sv
-    │   │   ├── ntm_uvm_sequence.sv
-    │   │   ├── ntm_uvm_testbench.sv
-    │   │   └── ntm_uvm_test.sv
-    │   ├── ntm_input_gate_vector
-    │   │   ├── ntm_uvm_agent.sv
-    │   │   ├── ntm_uvm_driver.sv
-    │   │   ├── ntm_uvm_environment.sv
-    │   │   ├── ntm_uvm_interface.sv
-    │   │   ├── ntm_uvm_monitor.sv
-    │   │   ├── ntm_uvm_package.sv
-    │   │   ├── ntm_uvm_scoreboard.sv
-    │   │   ├── ntm_uvm_sequence_item.sv
-    │   │   ├── ntm_uvm_sequencer.sv
-    │   │   ├── ntm_uvm_sequence.sv
-    │   │   ├── ntm_uvm_testbench.sv
-    │   │   └── ntm_uvm_test.sv
-    │   ├── ntm_lstm
-    │   │   ├── ntm_uvm_agent.sv
-    │   │   ├── ntm_uvm_driver.sv
-    │   │   ├── ntm_uvm_environment.sv
-    │   │   ├── ntm_uvm_interface.sv
-    │   │   ├── ntm_uvm_monitor.sv
-    │   │   ├── ntm_uvm_package.sv
-    │   │   ├── ntm_uvm_scoreboard.sv
-    │   │   ├── ntm_uvm_sequence_item.sv
-    │   │   ├── ntm_uvm_sequencer.sv
-    │   │   ├── ntm_uvm_sequence.sv
-    │   │   ├── ntm_uvm_testbench.sv
-    │   │   └── ntm_uvm_test.sv
-    │   ├── ntm_output_gate_vector
-    │   │   ├── ntm_uvm_agent.sv
-    │   │   ├── ntm_uvm_driver.sv
-    │   │   ├── ntm_uvm_environment.sv
-    │   │   ├── ntm_uvm_interface.sv
-    │   │   ├── ntm_uvm_monitor.sv
-    │   │   ├── ntm_uvm_package.sv
-    │   │   ├── ntm_uvm_scoreboard.sv
-    │   │   ├── ntm_uvm_sequence_item.sv
-    │   │   ├── ntm_uvm_sequencer.sv
-    │   │   ├── ntm_uvm_sequence.sv
-    │   │   ├── ntm_uvm_testbench.sv
-    │   │   └── ntm_uvm_test.sv
-    │   └── ntm_state_gate_vector
+    │   └── ntm_lstm
     │       ├── ntm_uvm_agent.sv
     │       ├── ntm_uvm_driver.sv
     │       ├── ntm_uvm_environment.sv
@@ -2373,4 +2295,4 @@ library
             ├── ntm_uvm_testbench.sv
             └── ntm_uvm_test.sv
 
-237 directories, 2136 files
+231 directories, 2064 files
