@@ -697,11 +697,17 @@ library
     │       ├── ntm_model_pkg.vhd
     │       ├── ntm_model.vhd
     │       └── ntm_testbench.vhd
-    ├── fnn
-    │   └── ntm_fnn
-    │       ├── ntm_model_pkg.vhd
-    │       ├── ntm_model.vhd
-    │       └── ntm_testbench.vhd
+    ├── controller
+    │   ├── fnn
+    │   │   └── ntm_fnn
+    │   │       ├── ntm_model_pkg.vhd
+    │   │       ├── ntm_model.vhd
+    │   │       └── ntm_testbench.vhd
+    │   └── lstm
+    │       └── ntm_lstm
+    │           ├── ntm_model_pkg.vhd
+    │           ├── ntm_model.vhd
+    │           └── ntm_testbench.vhd
     ├── functions
     │   ├── ntm_layer_norm
     │   │   ├── ntm_model_pkg.vhd
@@ -728,11 +734,6 @@ library
     │       ├── ntm_model_pkg.vhd
     │       ├── ntm_model.vhd
     │       └── ntm_testbench.vhd
-    ├── lstm
-    │   └── ntm_lstm
-    │       ├── ntm_model_pkg.vhd
-    │       ├── ntm_model.vhd
-    │       └── ntm_testbench.vhd
     └── top
         ├── ntm_controller
         │   ├── ntm_model_pkg.vhd
@@ -747,4 +748,4 @@ library
             ├── ntm_model.vhd
             └── ntm_testbench.vhd
 
-231 directories, 516 files
+232 directories, 516 files

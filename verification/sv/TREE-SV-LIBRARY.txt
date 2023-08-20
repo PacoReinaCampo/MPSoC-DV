@@ -1985,19 +1985,33 @@ library
     │       ├── ntm_testbench.sv
     │       ├── ntm_test.sv
     │       └── ntm_transaction.sv
-    ├── fnn
-    │   └── ntm_fnn
-    │       ├── ntm_agent.sv
-    │       ├── ntm_driver.sv
-    │       ├── ntm_environment.sv
-    │       ├── ntm_generator.sv
-    │       ├── ntm_interface.sv
-    │       ├── ntm_monitor.sv
-    │       ├── ntm_package.sv
-    │       ├── ntm_scoreboard.sv
-    │       ├── ntm_testbench.sv
-    │       ├── ntm_test.sv
-    │       └── ntm_transaction.sv
+    ├── controller
+    │   ├── fnn
+    │   │   └── ntm_fnn
+    │   │       ├── ntm_agent.sv
+    │   │       ├── ntm_driver.sv
+    │   │       ├── ntm_environment.sv
+    │   │       ├── ntm_generator.sv
+    │   │       ├── ntm_interface.sv
+    │   │       ├── ntm_monitor.sv
+    │   │       ├── ntm_package.sv
+    │   │       ├── ntm_scoreboard.sv
+    │   │       ├── ntm_testbench.sv
+    │   │       ├── ntm_test.sv
+    │   │       └── ntm_transaction.sv
+    │   └── lstm
+    │       └── ntm_lstm
+    │           ├── ntm_agent.sv
+    │           ├── ntm_driver.sv
+    │           ├── ntm_environment.sv
+    │           ├── ntm_generator.sv
+    │           ├── ntm_interface.sv
+    │           ├── ntm_monitor.sv
+    │           ├── ntm_package.sv
+    │           ├── ntm_scoreboard.sv
+    │           ├── ntm_testbench.sv
+    │           ├── ntm_test.sv
+    │           └── ntm_transaction.sv
     ├── functions
     │   ├── ntm_layer_norm
     │   │   ├── ntm_agent.sv
@@ -2072,19 +2086,6 @@ library
     │       ├── ntm_testbench.sv
     │       ├── ntm_test.sv
     │       └── ntm_transaction.sv
-    ├── lstm
-    │   └── ntm_lstm
-    │       ├── ntm_agent.sv
-    │       ├── ntm_driver.sv
-    │       ├── ntm_environment.sv
-    │       ├── ntm_generator.sv
-    │       ├── ntm_interface.sv
-    │       ├── ntm_monitor.sv
-    │       ├── ntm_package.sv
-    │       ├── ntm_scoreboard.sv
-    │       ├── ntm_testbench.sv
-    │       ├── ntm_test.sv
-    │       └── ntm_transaction.sv
     └── top
         ├── ntm_controller
         │   ├── ntm_agent.sv
@@ -2123,4 +2124,4 @@ library
             ├── ntm_test.sv
             └── ntm_transaction.sv
 
-231 directories, 1892 files
+232 directories, 1892 files

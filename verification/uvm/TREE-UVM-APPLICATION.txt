@@ -536,10 +536,15 @@ application
     │   └── ntm_scaled_dot_product_attention
     │       ├── ntm_design.sv
     │       └── ntm_testbench.sv
-    ├── fnn
-    │   └── ntm_fnn
-    │       ├── ntm_design.sv
-    │       └── ntm_testbench.sv
+    ├── controller
+    │   ├── fnn
+    │   │   └── ntm_fnn
+    │   │       ├── ntm_design.sv
+    │   │       └── ntm_testbench.sv
+    │   └── lstm
+    │       └── ntm_lstm
+    │           ├── ntm_design.sv
+    │           └── ntm_testbench.sv
     ├── functions
     │   ├── ntm_layer_norm
     │   │   ├── ntm_design.sv
@@ -560,10 +565,6 @@ application
     │   └── ntm_values_vector
     │       ├── ntm_design.sv
     │       └── ntm_testbench.sv
-    ├── lstm
-    │   └── ntm_lstm
-    │       ├── ntm_design.sv
-    │       └── ntm_testbench.sv
     └── top
         ├── ntm_controller
         │   ├── ntm_design.sv
@@ -575,4 +576,4 @@ application
             ├── ntm_design.sv
             └── ntm_testbench.sv
 
-231 directories, 344 files
+232 directories, 344 files

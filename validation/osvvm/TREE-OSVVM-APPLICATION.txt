@@ -536,10 +536,15 @@ application
     │   └── ntm_scaled_dot_product_attention
     │       ├── ntm_design_pkg.vhd
     │       └── ntm_design.vhd
-    ├── fnn
-    │   └── ntm_fnn
-    │       ├── ntm_design_pkg.vhd
-    │       └── ntm_design.vhd
+    ├── controller
+    │   ├── fnn
+    │   │   └── ntm_fnn
+    │   │       ├── ntm_design_pkg.vhd
+    │   │       └── ntm_design.vhd
+    │   └── lstm
+    │       └── ntm_lstm
+    │           ├── ntm_design_pkg.vhd
+    │           └── ntm_design.vhd
     ├── functions
     │   ├── ntm_layer_norm
     │   │   ├── ntm_design_pkg.vhd
@@ -560,10 +565,6 @@ application
     │   └── ntm_values_vector
     │       ├── ntm_design_pkg.vhd
     │       └── ntm_design.vhd
-    ├── lstm
-    │   └── ntm_lstm
-    │       ├── ntm_design_pkg.vhd
-    │       └── ntm_design.vhd
     └── top
         ├── ntm_controller
         │   ├── ntm_design_pkg.vhd
@@ -575,4 +576,4 @@ application
             ├── ntm_design_pkg.vhd
             └── ntm_design.vhd
 
-231 directories, 344 files
+232 directories, 344 files
