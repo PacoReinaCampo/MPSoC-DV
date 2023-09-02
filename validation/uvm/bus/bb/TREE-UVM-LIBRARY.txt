@@ -1,0 +1,28 @@
+library
+├── core
+│   ├── peripheral_uvm_bus_monitor.sv
+│   ├── peripheral_uvm_environment.sv
+│   ├── peripheral_uvm_if.sv
+│   ├── peripheral_uvm_pkg.sv
+│   ├── peripheral_uvm_testbench.sv
+│   ├── peripheral_uvm_test_library.sv
+│   ├── peripheral_uvm_transfer.sv
+│   └── peripheral_uvm_version.sv
+├── example
+│   ├── peripheral_uvm_example_master_sequence_library.sv
+│   ├── peripheral_uvm_example_scoreboard.sv
+│   └── peripheral_uvm_example_testbench.sv
+├── master
+│   ├── peripheral_uvm_master_agent.sv
+│   ├── peripheral_uvm_master_driver.sv
+│   ├── peripheral_uvm_master_monitor.sv
+│   ├── peripheral_uvm_master_sequence_library.sv
+│   └── peripheral_uvm_master_sequencer.sv
+└── slave
+    ├── peripheral_uvm_slave_agent.sv
+    ├── peripheral_uvm_slave_driver.sv
+    ├── peripheral_uvm_slave_monitor.sv
+    ├── peripheral_uvm_slave_sequence_library.sv
+    └── peripheral_uvm_slave_sequencer.sv
+
+4 directories, 21 files
