@@ -52,4 +52,4 @@ simulate:
 	xsim -R ntm_testbench
 
 clean:
-	rm -rf *.dir *.jou *.log *.pb .Xil
+	rm -rf *.dir *.jou *.log *.pb *.vcd .Xil
