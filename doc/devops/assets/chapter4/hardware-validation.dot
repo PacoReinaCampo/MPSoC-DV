@@ -1,0 +1,19 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = LR, splines=ortho];
+  node[shape=record];
+
+  // Blocks
+  DUT[label="DUT"];
+  Tests[label="Tests"];
+  Procedures[label="Procedures"];
+  OSVVM[label="OSVVM"];
+  UVM[label="UVM"];
+
+  // Sequence
+  DUT -> Tests;
+  Tests -> Procedures;
+  Tests -> Classes;
+  Procedures -> OSVVM;
+  Classes -> UVM;
+}

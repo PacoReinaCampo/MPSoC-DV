@@ -4,7 +4,7 @@ digraph Project {
   node[shape=record];
 
   // Blocks
-  Requirements[label="Requirements \n(Matlab/PSL/UML) [Emacs]"];
+  Requirements[label="Requirements \n(Matlab/Python/PSL/UML) [Emacs]"];
   Source[label="Source \n(C/C++/Go/Rust) [Emacs]"];
   Model[label="Software Model \n(C/C++/Go/Rust) [Emacs]"];
   Validation[label="Software Validation \n(C/C++/Go/Rust) [GCC]"];

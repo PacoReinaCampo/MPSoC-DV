@@ -1,0 +1,18 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = LR, splines=ortho];
+  node[shape=record];
+
+  // Blocks
+  DUT[label="DUT"];
+  Tests[label="Tests"];
+  Baremetal[label="Baremetal"];
+  OS[label="OS"];
+  Distribution[label="Distribution"];
+
+  // Sequence
+  DUT -> Tests;
+  Tests -> Baremetal;
+  Baremetal -> OS;
+  OS -> Distribution;
+}
