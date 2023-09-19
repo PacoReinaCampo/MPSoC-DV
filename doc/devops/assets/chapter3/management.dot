@@ -6,13 +6,15 @@ digraph Project {
   // Blocks
   BFM[label="BFM"];
   Peripheral[label="Peripheral"];
+  Core[label="Core"];
   PU[label="PU"];
   SoC[label="SoC"];
   MPSoC[label="MPSoC"];
 
   // Sequence
   BFM -> Peripheral;
-  BFM -> PU;
+  BFM -> Core;
+  Core -> PU;
   Peripheral -> SoC;
   PU -> SoC;
   SoC -> MPSoC;
