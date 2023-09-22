@@ -1,0 +1,16 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = LR, splines=ortho];
+  node[shape=record];
+
+  // Blocks
+  subgraph "cluster TestBench" { label = "TestBench";
+    Stimulus[shape=box, label="Stimulus"];
+    DUT[shape=box, label="DUT (Device)"];
+    Checker[shape=box, label="Checker"];
+  }
+
+  // Sequence
+  Stimulus -> DUT;
+  DUT -> Checker;
+}

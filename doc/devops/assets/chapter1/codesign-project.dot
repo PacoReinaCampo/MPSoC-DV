@@ -1,0 +1,61 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = LR, splines=ortho];
+  node[shape=record];
+
+  // Blocks
+  subgraph "cluster Workflow" { label = "Workflow";
+    subgraph "cluster Hardware" { label = "Hardware";
+      Requirements_HW[label="Requirements \n(Matlab/Python/PSL/UML) [Emacs]"];
+      Source_HW[label="Source \n(C/C++/Go/Rust) [Emacs]"];
+      Model_HW[label="Hardware Model \n(VHDL/SystemVerilog) [Emacs]"];
+      Validation_HW[label="Hardware Validation \n(VHDL/SystemVerilog) [GHDL / Icarus Verilog]"];
+      Design_HW[label="Hardware Design \n(VHDL/Verilog) [Emacs]"];
+      Verification_HW[label="Hardware Verification \n(VHDL/SystemVerilog) [GHDL / Icarus Verilog]"];
+      Quality_HW[label="Quality Assurance \n(Ada) [Emacs]"];
+      Certification_HW[label="Certification \n(TeX) [Emacs]"];
+      Lifecycle_HW[label="Design Lifecycle Data \n(Chisel) [Emacs]"];
+    }
+    subgraph "cluster Software" { label = "Software";
+      Requirements_SW[label="Requirements \n(Matlab/Python/PSL/UML) [Emacs]"];
+      Source_SW[label="Source \n(C/C++/Go/Rust) [Emacs]"];
+      Model_SW[label="Software Model \n(C/C++/Go/Rust) [Emacs]"];
+      Validation_SW[label="Software Validation \n(C/C++/Go/Rust) [GCC]"];
+      Design_SW[label="Software Design \n(C/C++/Go/Rust) [Emacs]"];
+      Verification_SW[label="Software Verification \n(C/C++/Go/Rust) [GCC]"];
+      Quality_SW[label="Quality Assurance \n(Ada) [Emacs]"];
+      Certification_SW[label="Certification \n(TeX) [Emacs]"];
+      Lifecycle_SW[label="Design Lifecycle Data \n(Java/Scala) [Emacs]"];
+    }
+  }
+
+  // Sequence
+  Requirements_HW -> Source_HW;
+  Source_HW -> Model_HW;
+  Model_HW -> Validation_HW;
+  Validation_HW -> Design_HW;
+  Design_HW -> Verification_HW;
+  Verification_HW -> Quality_HW;
+  Quality_HW -> Certification_HW;
+  Certification_HW -> Lifecycle_HW;
+  Lifecycle_HW -> Requirements_HW;
+
+  Requirements_SW -> Source_SW;
+  Source_SW -> Model_SW;
+  Model_SW -> Validation_SW;
+  Validation_SW -> Design_SW;
+  Design_SW -> Verification_SW;
+  Verification_SW -> Quality_SW;
+  Quality_SW -> Certification_SW;
+  Certification_SW -> Lifecycle_SW;
+  Lifecycle_SW -> Requirements_SW;
+
+  // Feedback
+  Validation_HW -> Model_HW;
+  Verification_HW -> Design_HW;
+  Quality_HW -> Requirements_HW;
+
+  Validation_SW -> Model_SW;
+  Verification_SW -> Design_SW;
+  Quality_SW -> Requirements_SW;
+}

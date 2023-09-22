@@ -4,11 +4,13 @@ digraph Project {
   node[shape=record];
 
   // Blocks
-  DUT[label="DUT"];
-  Tests[label="Tests"];
-  Baremetal[label="Baremetal"];
-  OS[label="OS"];
-  Distribution[label="Distribution"];
+  subgraph "cluster TestBench" { label = "TestBench";
+    DUT[shape=box, label="DUT"];
+   Tests[shape=box, label="Tests"];
+    Baremetal[shape=box, label="Baremetal"];
+    OS[shape=box, label="OS"];
+    Distribution[shape=box, label="Distribution"];
+  }
 
   // Sequence
   DUT -> Tests;

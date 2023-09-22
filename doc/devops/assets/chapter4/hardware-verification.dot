@@ -4,11 +4,14 @@ digraph Project {
   node[shape=record];
 
   // Blocks
-  DUT[label="DUT"];
-  Tests[label="Tests"];
-  Procedures[label="Procedures"];
-  OSVVM[label="OSVVM"];
-  UVM[label="UVM"];
+  subgraph "cluster TestBench" { label = "TestBench";
+    DUT[shape=box, label="DUT"];
+    Tests[shape=box, label="Tests"];
+    Procedures[shape=box, label="Procedures"];
+    OSVVM[shape=box, label="OSVVM"];
+    Classes[shape=box, label="Classes"];
+    UVM[shape=box, label="UVM"];
+  }
 
   // Sequence
   DUT -> Tests;

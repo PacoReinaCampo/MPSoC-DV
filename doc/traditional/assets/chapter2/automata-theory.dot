@@ -1,0 +1,14 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = LR, splines=ortho];
+  node[shape=record];
+
+  // Blocks
+  subgraph "cluster TuringMachine" { label = "Turing Machine";
+    subgraph "cluster PushdownAutomaton" { label = "Pushdown Automaton";
+      subgraph "cluster FiniteStateMachine" { label = "Finite State Machine";
+        CombinationalLogic[shape=box, label="Combinational Logic"];
+      }
+    }
+  }
+}

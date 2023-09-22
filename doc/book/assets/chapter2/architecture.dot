@@ -1,0 +1,30 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = LR, splines=ortho];
+  node[shape=record];
+
+  // Blocks
+  subgraph "cluster Architecture" { label = "Architecture";
+    subgraph "cluster MPSoC" { label = "MPSoC";
+      subgraph "cluster SoC" { label = "SoC";
+        subgraph "cluster PU" { label = "PU";
+          Peripheral[shape=box, label="Peripheral"];
+        }
+        NoC[shape=box, label="NoC"];
+      }
+    }
+    subgraph "cluster Accelerator" { label = "Accelerator";
+      subgraph "cluster NTM/DNC" { label = "NTM/DNC";
+        subgraph "cluster Trainer/State" { label = "Trainer/State";
+          subgraph "cluster Transformer" { label = "Transformer";
+            subgraph "cluster FNN/LSTM" { label = "FNN/LSTM";
+              subgraph "cluster Math" { label = "Math";
+                arithmetic[shape=box, label="Arithmetic IEEE 754"];
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

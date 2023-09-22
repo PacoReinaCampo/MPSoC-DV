@@ -4,53 +4,63 @@ digraph Project {
   node[shape=record];
 
   // Peripheral Blocks
-  MPSoC_DBG[label="MPSoC_DBG \nPeripheral"];
-  MPSoC_DMA[label="MPSoC_DMA \nPeripheral"];
-  MPSoC_GPIO[label="MPSoC_GPIO \nPeripheral"];
-  MPSoC_MPI[label="MPSoC_MPI \nPeripheral"];
-  MPSoC_MPRAM[label="MPSoC_MPRAM \nPeripheral"];
-  MPSoC_MSI[label="MPSoC_MSI \nPeripheral"];
-  MPSoC_NoC[label="MPSoC_NoC \nPeripheral"];
-  MPSoC_SPRAM[label="MPSoC_SPRAM \nPeripheral"];
-  MPSoC_UART[label="MPSoC_UART \nPeripheral"];
+  subgraph "cluster PeripheralBlocks" { label = "Peripheral Blocks";
+    MPSoC_DBG[label="MPSoC_DBG \nPeripheral"];
+    MPSoC_DMA[label="MPSoC_DMA \nPeripheral"];
+    MPSoC_GPIO[label="MPSoC_GPIO \nPeripheral"];
+    MPSoC_MPI[label="MPSoC_MPI \nPeripheral"];
+    MPSoC_MPRAM[label="MPSoC_MPRAM \nPeripheral"];
+    MPSoC_MSI[label="MPSoC_MSI \nPeripheral"];
+    MPSoC_NoC[label="MPSoC_NoC \nPeripheral"];
+    MPSoC_SPRAM[label="MPSoC_SPRAM \nPeripheral"];
+    MPSoC_UART[label="MPSoC_UART \nPeripheral"];
+  }
 
   // Architecture Blocks
-  MPSoC_MSP430[label="MPSoC_MSP430 \nArchitecture"];
-  MPSoC_OR1K[label="MPSoC_OR1K \nArchitecture"];
-  MPSoC_RISCV[label="MPSoC_RISCV \nArchitecture"];
-  SoC_MSP430[label="SoC_MSP430 \nArchitecture"];
-  SoC_OR1K[label="SoC_OR1K \nArchitecture"];
-  SoC_RISCV[label="SoC_RISCV \nArchitecture"];
-  PU_MSP430[label="PU_MSP430 \nArchitecture"];
-  PU_OR1K[label="PU_OR1K \nArchitecture"];
-  PU_RISCV[label="PU_RISCV \nArchitecture"];
+  subgraph "cluster ArchitectureBlocks" { label = "Architecture Blocks";
+    MPSoC_MSP430[label="MPSoC_MSP430 \nArchitecture"];
+    MPSoC_OR1K[label="MPSoC_OR1K \nArchitecture"];
+    MPSoC_RISCV[label="MPSoC_RISCV \nArchitecture"];
+    SoC_MSP430[label="SoC_MSP430 \nArchitecture"];
+    SoC_OR1K[label="SoC_OR1K \nArchitecture"];
+    SoC_RISCV[label="SoC_RISCV \nArchitecture"];
+    PU_MSP430[label="PU_MSP430 \nArchitecture"];
+    PU_OR1K[label="PU_OR1K \nArchitecture"];
+    PU_RISCV[label="PU_RISCV \nArchitecture"];
+  }
 
   // Environment Blocks
-  MPSoC_DV[label="MPSoC_DV \nEnvironment"];
-  SoC_DV[label="SoC_DV \nEnvironment"];
-  PU_DV[label="PU_DV \nEnvironment"];
+  subgraph "cluster EnvironmentBlocks" { label = "Environment Blocks";
+    MPSoC_DV[label="MPSoC_DV \nEnvironment"];
+    SoC_DV[label="SoC_DV \nEnvironment"];
+    PU_DV[label="PU_DV \nEnvironment"];
+  }
 
   // Accelerator Blocks
-  MPSoC_NTM[label="MPSoC_NTM \nAccelerator"];
-  SoC_NTM[label="SoC_NTM \nAccelerator"];
-  PU_NTM[label="PU_NTM \nAccelerator"];
+  subgraph "cluster AcceleratorBlocks" { label = "Accelerator Blocks";
+    MPSoC_NTM[label="MPSoC_NTM \nAccelerator"];
+    SoC_NTM[label="SoC_NTM \nAccelerator"];
+    PU_NTM[label="PU_NTM \nAccelerator"];
 
-  MPSoC_DNC[label="MPSoC_DNC \nAccelerator"];
-  SoC_DNC[label="SoC_DNC \nAccelerator"];
-  PU_DNC[label="PU_DNC \nAccelerator"];
+    MPSoC_DNC[label="MPSoC_DNC \nAccelerator"];
+    SoC_DNC[label="SoC_DNC \nAccelerator"];
+    PU_DNC[label="PU_DNC \nAccelerator"];
+  }
 
-  // Advancedlocks
-  MPSoC_EnergyTech[label="MPSoC_EnergyTech \nAdvanced"];
-  SoC_EnergyTech[label="SoC_EnergyTech \nAdvanced"];
-  PU_EnergyTech[label="PU_EnergyTech \nAdvanced"];
+  // Advanced Blocks
+  subgraph "cluster AdvancedBlocks" { label = "Advanced Blocks";
+    MPSoC_EnergyTech[label="MPSoC_EnergyTech \nAdvanced"];
+    SoC_EnergyTech[label="SoC_EnergyTech \nAdvanced"];
+    PU_EnergyTech[label="PU_EnergyTech \nAdvanced"];
 
-  MPSoC_FinTech[label="MPSoC_FinTech \nAdvanced"];
-  SoC_FinTech[label="SoC_FinTech \nAdvanced"];
-  PU_FinTech[label="PU_FinTech \nAdvanced"];
+    MPSoC_FinTech[label="MPSoC_FinTech \nAdvanced"];
+    SoC_FinTech[label="SoC_FinTech \nAdvanced"];
+    PU_FinTech[label="PU_FinTech \nAdvanced"];
 
-  MPSoC_LifeTech[label="MPSoC_LifeTech \nAdvanced"];
-  SoC_LifeTech[label="SoC_LifeTech \nAdvanced"];
-  PU_LifeTech[label="PU_LifeTech \nAdvanced"];
+    MPSoC_LifeTech[label="MPSoC_LifeTech \nAdvanced"];
+    SoC_LifeTech[label="SoC_LifeTech \nAdvanced"];
+    PU_LifeTech[label="PU_LifeTech \nAdvanced"];
+  }
 
   // Peripheral -> Architecture
   MPSoC_DBG -> MPSoC_MSP430;
