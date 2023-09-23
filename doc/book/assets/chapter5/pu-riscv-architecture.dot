@@ -1,6 +1,6 @@
 digraph Project {
   // Introduction
-  graph [rankdir = TB, splines=ortho];
+  graph [rankdir = BT, splines=ortho];
   node[shape=record];
 
   // Blocks
@@ -27,8 +27,14 @@ digraph Project {
         if[shape=box, label="if"];
       }
       subgraph "cluster memory" { label = "memory";
-        PU[shape=box, label="PU"];
-        PRF[shape=box, label="Peripheral"];
+        dmem_ctrl[shape=box, label="dmem_ctrl"];
+        imem_ctrl[shape=box, label="imem_ctrl"];
+        membuf[shape=box, label="membuf"];
+        memmisaligned[shape=box, label="memmisaligned"];
+        mmu[shape=box, label="mmu"];
+        mux[shape=box, label="mux"];
+        pmachk[shape=box, label="pmachk"];
+        pmpchk[shape=box, label="pmpchk"];
       }
       subgraph "cluster main" { label = "main";
         bp[shape=box, label="bp"];
@@ -41,15 +47,18 @@ digraph Project {
       }
     }
     subgraph "cluster memory" { label = "memory";
-      ram_1r1w_generic[shape=box, label="ram_1r1w_generic"];
-      ram_1r1w[shape=box, label="ram_1r1w"];
-      ram_1rw_generic[shape=box, label="ram_1rw_generic"];
-      ram_1rw[shape=box, label="ram_1rw"];
+      subgraph "cluster ram_1r1w" { label = "ram_1r1w";
+        ram_1r1w_generic[shape=box, label="ram_1r1w_generic"];
+      }
+      subgraph "cluster ram_1rw" { label = "ram_1rw";
+        ram_1rw_generic[shape=box, label="ram_1rw_generic"];
+      }
       ram_queue[shape=box, label="ram_queue"];
     }
     subgraph "cluster interface" { label = "interface";
       ahb3[shape=box, label="ahb3"];
       axi4[shape=box, label="axi4"];
+      wb[shape=box, label="wb"];
     }
   }
 }
