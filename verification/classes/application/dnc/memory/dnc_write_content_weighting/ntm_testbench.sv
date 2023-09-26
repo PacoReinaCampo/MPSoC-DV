@@ -38,11 +38,15 @@
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
 module ntm_testbench;
-  reg clk, rst;
-  reg [7:0] ip1, ip2;
+  reg        clk;
+  reg        rst;
+
+  reg  [7:0] ip1;
+  reg  [7:0] ip2;
+
   wire [8:0] out;
 
-  ntm_design DUT (
+  ntm_design dut (
     .clk(clk),
     .rst(rst),
 
@@ -52,31 +56,32 @@ module ntm_testbench;
     .out(out)
   );
 
-  always #5 clk = ~clk;
+  always #1 clk = ~clk;
 
   initial begin
     // Dump waves
-    $dumpfile("dump.vcd");
-    $dumpvars(1);
+    $dumpfile("system.vcd");
+    $dumpvars(0, ntm_testbench);
 
     clk = 0;
+    rst = 0;
 
     ip1 = 0;
     ip2 = 0;
+    #2;
 
-    rst = 0;
-    #2ns;
     rst = 1;
+    #2;
 
-    #2ns;
     rst = 0;
-    #10;
+    #4;
 
     ip1 = 5;
     ip2 = 2;
     #5;
-    $display("End.");
-    $finish;
+
+    $display("End");
+    $finish();
   end
 
 endmodule

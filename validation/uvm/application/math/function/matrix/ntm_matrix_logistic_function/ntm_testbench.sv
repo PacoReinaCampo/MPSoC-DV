@@ -56,30 +56,32 @@ module ntm_testbench;
     .out(out)
   );
 
-  always #5 clk = ~clk;
+  always #1 clk = ~clk;
 
   initial begin
     // Dump waves
-    $dumpfile("dump.vcd");
-    $dumpvars(1);
+    $dumpfile("system.vcd");
+    $dumpvars(0, ntm_testbench);
 
     clk = 0;
+    rst = 0;
+
     ip1 = 0;
     ip2 = 0;
-    rst = 0;
-    #2ns;
-    rst = 1;
+    #2;
 
-    #2ns;
+    rst = 1;
+    #2;
+
     rst = 0;
-    #10;
+    #4;
 
     ip1 = 5;
     ip2 = 2;
     #5;
 
-    $display("End.");
-    $finish;
+    $display("End");
+    $finish();
   end
 
 endmodule

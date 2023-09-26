@@ -10,7 +10,9 @@ digraph Project {
         subgraph "cluster PU" { label = "PU";
           Peripheral[shape=box, label="Peripheral"];
         }
-        NoC[shape=box, label="NoC"];
+        subgraph "cluster NoC" { label = "NoC";
+          NoC[shape=box, label="NoC"];
+        }
       }
     }
     subgraph "cluster Accelerator" { label = "Accelerator";

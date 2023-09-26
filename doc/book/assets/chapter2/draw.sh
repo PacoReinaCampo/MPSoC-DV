@@ -42,7 +42,8 @@
 ##                                                                               ##
 ###################################################################################
 
-dot -Tsvg architecture.dot > architecture.svg
+dot -Tsvg extended-architecture.dot > extended-architecture.svg
+dot -Tsvg reduced-architecture.dot > reduced-architecture.svg
 
 dot -Tsvg dependences-global.dot > dependences-global.svg
 

@@ -37,42 +37,51 @@
 // Author(s):
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-`include "ntm_interface.sv"
-`include "ntm_test.sv"
-
 module ntm_testbench;
-  bit clk;
-  bit rst;
+  reg        clk;
+  reg        rst;
 
-  always #2 clk = ~clk;
+  reg  [7:0] ip1;
+  reg  [7:0] ip2;
 
-  add_if vif (
-    clk,
-    rst
+  wire [8:0] out;
+
+  ntm_design dut (
+    .clk(clk),
+    .rst(rst),
+
+    .in1(ip1),
+    .in2(ip2),
+
+    .out(out)
   );
 
-  ntm_design DUT (
-    .clk(vif.clk),
-    .rst(vif.rst),
-
-    .in1(vif.ip1),
-    .in2(vif.ip2),
-
-    .out(vif.out)
-  );
-
-  ntm_test t1 (vif);
-
-  initial begin
-    clk = 0;
-    rst = 1;
-    #5;
-    rst = 0;
-  end
+  always #1 clk = ~clk;
 
   initial begin
     // Dump waves
-    $dumpfile("dump.vcd");
-    $dumpvars(0);
+    $dumpfile("system.vcd");
+    $dumpvars(0, ntm_testbench);
+
+    clk = 0;
+    rst = 0;
+
+    ip1 = 0;
+    ip2 = 0;
+    #2;
+
+    rst = 1;
+    #2;
+
+    rst = 0;
+    #4;
+
+    ip1 = 5;
+    ip2 = 2;
+    #5;
+
+    $display("End");
+    $finish();
   end
+
 endmodule

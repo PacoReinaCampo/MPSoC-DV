@@ -49,13 +49,4 @@ digraph Project {
   Quality_SW -> Certification_SW;
   Certification_SW -> Lifecycle_SW;
   Lifecycle_SW -> Requirements_SW;
-
-  // Feedback
-  Validation_HW -> Model_HW;
-  Verification_HW -> Design_HW;
-  Quality_HW -> Requirements_HW;
-
-  Validation_SW -> Model_SW;
-  Verification_SW -> Design_SW;
-  Quality_SW -> Requirements_SW;
 }
