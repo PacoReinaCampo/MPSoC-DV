@@ -1,0 +1,19 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = LR, splines=ortho];
+  node[shape=record];
+
+  // Blocks
+  subgraph "cluster FormalTestBench" { label = "Formal TestBench";
+    Stimulus[shape=box, label="Stimulus"];
+    Requirements[shape=box, label="Requirements (MSP430)"];
+    DUT[shape=box, label="DUT (MSP430)"];
+    Checker[shape=box, label="Checker"];
+  }
+
+  // Sequence
+  Stimulus -> Requirements;
+  Stimulus -> DUT;
+  Requirements -> Checker;
+  DUT -> Checker;
+}

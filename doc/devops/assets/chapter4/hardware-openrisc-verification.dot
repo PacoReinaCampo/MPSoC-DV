@@ -7,7 +7,7 @@ digraph Project {
   subgraph "cluster TestBench" { label = "TestBench";
     Stimulus[shape=box, label="Stimulus"];
     Model[shape=box, label="Model (OpenRISC)"];
-    DUT[shape=box, label="DUT (RISC-V)"];
+    DUT[shape=box, label="DUT (OpenRISC)"];
     Checker[shape=box, label="Checker"];
   }
 

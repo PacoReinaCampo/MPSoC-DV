@@ -35,14 +35,14 @@
 <!-- DUT -->
 <g id="node3" class="node">
 <title>DUT</title>
-<polygon fill="none" stroke="black" points="257,-106 144,-106 144,-70 257,-70 257,-106"/>
-<text text-anchor="middle" x="200.5" y="-84.3" font-family="Times,serif" font-size="14.00">DUT (RISC&#45;V)</text>
+<polygon fill="none" stroke="black" points="263,-106 138,-106 138,-70 263,-70 263,-106"/>
+<text text-anchor="middle" x="200.5" y="-84.3" font-family="Times,serif" font-size="14.00">DUT (MSP430)</text>
 </g>
 <!-- Stimulus&#45;&gt;DUT -->
 <g id="edge2" class="edge">
 <title>Stimulus&#45;&gt;DUT</title>
-<path fill="none" stroke="black" d="M96.25,-74.5C96.25,-74.5 134,-74.5 134,-74.5"/>
-<polygon fill="black" stroke="black" points="134,-78 144,-74.5 134,-71 134,-78"/>
+<path fill="none" stroke="black" d="M96.25,-74.5C96.25,-74.5 127.73,-74.5 127.73,-74.5"/>
+<polygon fill="black" stroke="black" points="127.73,-78 137.73,-74.5 127.73,-71 127.73,-78"/>
 </g>
 <!-- Checker -->
 <g id="node4" class="node">
@@ -59,8 +59,8 @@
 <!-- DUT&#45;&gt;Checker -->
 <g id="edge4" class="edge">
 <title>DUT&#45;&gt;Checker</title>
-<path fill="none" stroke="black" d="M257.03,-74.5C257.03,-74.5 294.9,-74.5 294.9,-74.5"/>
-<polygon fill="black" stroke="black" points="294.9,-78 304.9,-74.5 294.9,-71 294.9,-78"/>
+<path fill="none" stroke="black" d="M263.2,-74.5C263.2,-74.5 294.6,-74.5 294.6,-74.5"/>
+<polygon fill="black" stroke="black" points="294.6,-78 304.6,-74.5 294.6,-71 294.6,-78"/>
 </g>
 </g>
 </svg>
