@@ -46,7 +46,7 @@ all: build
 
 build:
 	if [ ! -e work ]; then vlib work; fi
-	vlog -sv -stats=none -f system.vc
+	vlog -sv -stats=none -f system.f
 
 simulate:
 	vsim -c -do run.do work.ntm_uvm_testbench
