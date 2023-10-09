@@ -45,7 +45,7 @@
 all: build simulate
 
 build:
-	xvlog -sv -f system.f -L uvm
+	xvlog -sv -prj system.prj -L uvm
 
 simulate:
 	xelab peripheral_uvm_testbench -relax -s top -timescale 1ns/1ps
