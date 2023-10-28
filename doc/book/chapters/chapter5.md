@@ -539,7 +539,42 @@ sudo make install
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
+**Building OR1KSIM**
+
+type:
+```
+export PATH=/opt/or1k-elf-gcc/bin:${PATH}
+
+git clone --recursive https://github.com/openrisc/or1ksim
+
+mkdir build
+cd build
+../configure --target=or1k --prefix=/opt/or1k-elf-gcc
+make
+sudo make install
+```
+
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+
+
 ##### Software Engineers Compiler
+
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+
+**Building OR1KSIM**
+
+type:
+```
+export PATH=/opt/or1k-app-gcc/bin:${PATH}
+
+git clone --recursive https://github.com/openrisc/or1ksim
+
+mkdir build
+cd build
+../configure --target=or1k --prefix=/opt/or1k-app-gcc
+make
+sudo make install
+```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -598,12 +633,12 @@ sudo make install
 
 type:
 ```
-export PATH=/opt/riscv-elf-gcc/bin:${PATH}
+export PATH=/opt/riscv-app-gcc/bin:${PATH}
 
 git clone --recursive https://github.com/qemu/qemu
 
 cd qemu
-./configure --prefix=/opt/riscv-elf-gcc \
+./configure --prefix=/opt/riscv-app-gcc \
 --target-list=riscv64-softmmu,riscv32-softmmu,riscv64-linux-user,riscv32-linux-user
 make
 sudo make install
@@ -682,11 +717,7 @@ cd riscv-gnu-toolchain
 sudo make clean
 sudo make
 
-./configure --prefix=/opt/riscv-elf-gcc
-sudo make clean
-sudo make linux
-
-./configure --prefix=/opt/riscv-elf-gcc --enable-multilib
+./configure --prefix=/opt/riscv-app-gcc --enable-multilib
 sudo make clean
 sudo make linux
 ```
@@ -707,11 +738,7 @@ cd riscv-gnu-toolchain
 sudo make clean
 sudo make
 
-./configure --prefix=/opt/riscv-elf-g++
-sudo make clean
-sudo make linux
-
-./configure --prefix=/opt/riscv-elf-g++ --enable-multilib
+./configure --prefix=/opt/riscv-app-g++ --enable-multilib
 sudo make clean
 sudo make linux
 ```
