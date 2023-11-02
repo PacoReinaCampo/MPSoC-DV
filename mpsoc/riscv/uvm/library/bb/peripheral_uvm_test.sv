@@ -3,7 +3,7 @@
 
 class peripheral_uvm_test extends uvm_test;
 
-  //declaring component utils for the basic test-case 
+  // declaring component utils for the basic test-case 
   `uvm_component_utils(peripheral_uvm_test)
 
   peripheral_uvm_entironment    env;

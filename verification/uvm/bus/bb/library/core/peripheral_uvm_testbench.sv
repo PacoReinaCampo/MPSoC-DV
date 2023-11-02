@@ -40,7 +40,7 @@ peripheral_uvm_if vif ();  // SystemVerilog Interface
     #51 vif.sig_reset = 1'b0;
   end
 
-  //Generate Clock
+  // Generate Clock
   always #5 vif.sig_clock = ~vif.sig_clock;
 
 endmodule

@@ -53,7 +53,7 @@ module mpsoc_spram_testbench;
   localparam SYNC_DEPTH = 3;
   localparam TECHNOLOGY = "GENERIC";
 
-  //Memory parameters
+  // Memory parameters
   parameter DEPTH   = 256;
   parameter MEMFILE = "";
 
@@ -62,11 +62,11 @@ module mpsoc_spram_testbench;
   // Variables
   //
 
-  //Common signals
+  // Common signals
   wire                                     HRESETn;
   wire                                     HCLK;
 
-  //AHB3 signals
+  // AHB3 signals
   wire                                     mst_spram_HSEL;
   wire               [PLEN           -1:0] mst_spram_HADDR;
   wire               [XLEN           -1:0] mst_spram_HWDATA;
@@ -86,7 +86,7 @@ module mpsoc_spram_testbench;
   // Module Body
   //
 
-  //DUT AHB3
+  // DUT AHB3
   mpsoc_ahb3_spram #(
     .MEM_SIZE          ( 256 ),
     .MEM_DEPTH         ( 256 ),

@@ -31,7 +31,7 @@ class peripheral_uvm_example_base_test extends uvm_test;
   endfunction : end_of_elaboration_phase
 
   task run_phase(uvm_phase phase);
-    //set a drain-time for the environment if desired
+    // set a drain-time for the environment if desired
     phase.phase_done.set_drain_time(this, 50);
   endtask : run_phase
 

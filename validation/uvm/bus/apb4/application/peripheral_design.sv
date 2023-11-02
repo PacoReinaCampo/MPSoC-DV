@@ -26,11 +26,11 @@ module peripheral_design (
       st         <= 3'h0;
     end else
       case (st)
-        0: begin  //Begin out of Reset
+        0: begin  // Begin out of Reset
           ubus_start <= 1'b1;
           st         <= 3'h3;
         end
-        3: begin  //Start state
+        3: begin  // Start state
           ubus_start <= 1'b0;
           if ((ubus_gnt_master_0 == 0) && (ubus_gnt_master_1 == 0)) begin
             st <= 3'h4;

@@ -3,13 +3,13 @@
 
 class peripheral_uvm_entironment extends uvm_env;
 
-  //Declaration components
+  // Declaration components
   peripheral_uvm_agent                                  agent;
   peripheral_uvm_reference_model                        reference_model;
   peripheral_uvm_coverage #(peripheral_uvm_transaction) coverage;
   peripheral_uvm_scoreboard                             scoreboard;
 
-  //Declaration of component utils to register with factory
+  // Declaration of component utils to register with factory
   `uvm_component_utils(peripheral_uvm_entironment)
 
   // Method name : new 

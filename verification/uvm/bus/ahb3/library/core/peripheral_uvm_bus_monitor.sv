@@ -326,7 +326,7 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
       for (int unsigned i = 0; i < trans_collected.size; i++) begin
         addr = trans_collected.addr + i;
         data = trans_collected.data[i];
-        //wait_state = trans_collected.wait_state[i];
+        // wait_state = trans_collected.wait_state[i];
         ->cov_transaction_beat;
       end
     end

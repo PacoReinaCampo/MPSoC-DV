@@ -41,8 +41,8 @@
  */
 
 module mpsoc_spram_synthesis #(
-  parameter MEM_SIZE          = 256,  //Memory in Bytes
-  parameter MEM_DEPTH         = 256,  //Memory depth
+  parameter MEM_SIZE          = 256,  // Memory in Bytes
+  parameter MEM_DEPTH         = 256,  // Memory depth
   parameter PLEN              = 8,
   parameter XLEN              = 32,
   parameter TECHNOLOGY        = "GENERIC",
@@ -72,7 +72,7 @@ module mpsoc_spram_synthesis #(
   // Module Body
   //
 
-  //DUT AHB3
+  // DUT AHB3
   mpsoc_ahb3_spram #(
     .MEM_SIZE          ( MEM_SIZE ),
     .MEM_DEPTH         ( MEM_DEPTH ),

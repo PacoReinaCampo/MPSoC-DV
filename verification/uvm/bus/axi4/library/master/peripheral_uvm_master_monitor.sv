@@ -173,7 +173,7 @@ class peripheral_uvm_master_monitor extends uvm_monitor;
     for (int unsigned i = 0; i < trans_collected.size; i++) begin
       addr = trans_collected.addr + i;
       data = trans_collected.data[i];
-      //Wait state is not currently monitored
+      // Wait state is not currently monitored
       //      wait_state = trans_collected.wait_state[i];
       cov_trans_beat.sample();
     end

@@ -66,7 +66,7 @@ module mpsoc_spram_synthesis #(
   // Module Body
   //
 
-  //DUT AHB3
+  // DUT AHB3
   msp430_ram #(
     .AW       ( AW ),
     .DW       ( DW ),

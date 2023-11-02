@@ -104,7 +104,7 @@ class peripheral_uvm_master_driver extends uvm_driver #(peripheral_uvm_transfer)
         READ:  read_byte(trans.data[i], err);
         WRITE: write_byte(trans.data[i], err);
       endcase
-    end  //for loop
+    end  // for loop
     vif.sig_data_out <= 8'bz;
     vif.sig_bip      <= 1'bz;
   endtask : drive_data_phase

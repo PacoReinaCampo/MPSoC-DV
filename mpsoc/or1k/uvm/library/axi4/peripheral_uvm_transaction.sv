@@ -10,7 +10,7 @@ class peripheral_uvm_transaction extends uvm_sequence_item;
   bit                         cout;
   bit      [             2:0] carry_out;
 
-  //Declaration of Utility and Field macros, 
+  // Declaration of Utility and Field macros, 
   `uvm_object_utils_begin(peripheral_uvm_transaction)
     `uvm_field_int(x, UVM_ALL_ON)
     `uvm_field_int(y, UVM_ALL_ON)
@@ -20,7 +20,7 @@ class peripheral_uvm_transaction extends uvm_sequence_item;
     `uvm_field_int(carry_out, UVM_ALL_ON)
   `uvm_object_utils_end
 
-  //Constructor
+  // Constructor
   function new(string name = "peripheral_uvm_transaction");
     super.new(name);
   endfunction

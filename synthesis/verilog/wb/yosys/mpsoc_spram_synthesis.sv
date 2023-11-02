@@ -41,11 +41,11 @@
  */
 
 module mpsoc_spram_synthesis #(
-  //Memory parameters
+  // Memory parameters
   parameter DEPTH   = 256,
   parameter MEMFILE = "",
 
-  //Wishbone parameters
+  // Wishbone parameters
   parameter DW = 32,
   parameter AW = $clog2(DEPTH)
 )
@@ -72,13 +72,13 @@ module mpsoc_spram_synthesis #(
   // Module Body
   //
 
-  //DUT WB
+  // DUT WB
   mpsoc_wb_spram #(
-    //Memory parameters
+    // Memory parameters
     .DEPTH   ( DEPTH   ),
     .MEMFILE ( MEMFILE ),
 
-    //Wishbone parameters
+    // Wishbone parameters
     .AW ( AW ),
     .DW ( DW )
   )
