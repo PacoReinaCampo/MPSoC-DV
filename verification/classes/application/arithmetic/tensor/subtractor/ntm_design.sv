@@ -48,7 +48,11 @@ module ntm_design (
 );
 
   always @(posedge clk or posedge rst) begin
-    if (rst) out <= 0;
-    else out <= in1 + in2;
+    if (rst) begin
+      out <= 0;
+    end else begin
+      out <= in1 + in2;
+    end
   end
+
 endmodule
