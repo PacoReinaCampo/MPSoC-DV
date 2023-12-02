@@ -51,7 +51,9 @@ class ntm_uvm_monitor extends uvm_monitor;
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if (!uvm_config_db#(virtual ntm_design_if)::get(this, "", "vif", vif)) `uvm_fatal(get_type_name(), "Not set at top level");
+    if (!uvm_config_db#(virtual ntm_design_if)::get(this, "", "vif", vif)) begin
+      `uvm_fatal(get_type_name(), "Not set at top level");
+    end
   endfunction
 
   task run_phase(uvm_phase phase);
