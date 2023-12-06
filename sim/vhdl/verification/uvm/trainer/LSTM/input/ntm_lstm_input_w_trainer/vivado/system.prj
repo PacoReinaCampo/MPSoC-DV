@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../verification/uvm/application/arithmetic/scalar/adder/ntm_design.sv
+sv work ../../../../../../../../verification/uvm/application/trainer/LSTM/input/ntm_lstm_input_w_trainer/ntm_design.sv
 
-sv work ../../../../../../../../verification/uvm/application/arithmetic/scalar/adder/ntm_design.sv
+sv work ../../../../../../../../verification/uvm/library/trainer/LSTM/input/ntm_lstm_input_w_trainer/ntm_uvm_testbench.sv

@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design.vhd
-../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design_pkg.vhd
+../../../../../../../../validation/osvvm/application/controller/LSTM/standard/ntm_activation_gate_vector/ntm_design.vhd
+../../../../../../../../validation/osvvm/application/controller/LSTM/standard/ntm_activation_gate_vector/ntm_design_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model.vhd
-../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model_pkg.vhd
+../../../../../../../../validation/osvvm/library/controller/LSTM/standard/ntm_activation_gate_vector/ntm_model.vhd
+../../../../../../../../validation/osvvm/library/controller/LSTM/standard/ntm_activation_gate_vector/ntm_model_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_testbench.vhd
+../../../../../../../../validation/osvvm/library/controller/LSTM/standard/ntm_activation_gate_vector/ntm_testbench.vhd

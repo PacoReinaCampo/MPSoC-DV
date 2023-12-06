@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../verification/classes/application/arithmetic/scalar/adder/ntm_design.sv
+sv work ../../../../../../../../verification/classes/application/math/statitics/vector/ntm_vector_mean/ntm_design.sv
 
-sv work ../../../../../../../../verification/classes/library/arithmetic/scalar/adder/ntm_testbench.sv
+sv work ../../../../../../../../verification/classes/library/math/statitics/vector/ntm_vector_mean/ntm_testbench.sv

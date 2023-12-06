@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../verification/classes/application/arithmetic/scalar/adder/ntm_design.sv
+sv work ../../../../../../../../verification/classes/application/state/outputs/ntm_state_vector_state/ntm_design.sv
 
-sv work ../../../../../../../../verification/classes/library/arithmetic/scalar/adder/ntm_testbench.sv
+sv work ../../../../../../../../verification/classes/library/state/outputs/ntm_state_vector_state/ntm_testbench.sv

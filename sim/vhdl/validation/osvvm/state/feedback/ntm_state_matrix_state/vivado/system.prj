@@ -42,10 +42,10 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-vhdl2008 work ../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design.vhd
-vhdl2008 work ../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design_pkg.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/application/state/feedback/ntm_state_matrix_state/ntm_design.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/application/state/feedback/ntm_state_matrix_state/ntm_design_pkg.vhd
 
-vhdl2008 work ../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model.vhd
-vhdl2008 work ../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model_pkg.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/library/state/feedback/ntm_state_matrix_state/ntm_model.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/library/state/feedback/ntm_state_matrix_state/ntm_model_pkg.vhd
 
-vhdl2008 work ../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_testbench.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/library/state/feedback/ntm_state_matrix_state/ntm_testbench.vhd

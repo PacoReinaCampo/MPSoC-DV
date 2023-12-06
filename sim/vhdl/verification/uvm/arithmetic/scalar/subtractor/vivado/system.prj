@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../verification/uvm/application/arithmetic/scalar/adder/ntm_design.sv
+sv work ../../../../../../../../verification/uvm/application/arithmetic/scalar/subtractor/ntm_design.sv
 
-sv work ../../../../../../../../verification/uvm/application/arithmetic/scalar/adder/ntm_design.sv
+sv work ../../../../../../../../verification/uvm/library/arithmetic/scalar/subtractor/ntm_uvm_testbench.sv

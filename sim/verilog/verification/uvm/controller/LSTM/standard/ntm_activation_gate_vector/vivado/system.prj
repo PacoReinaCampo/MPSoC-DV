@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../verification/uvm/application/arithmetic/scalar/adder/ntm_design.sv
+sv work ../../../../../../../../verification/uvm/application/controller/LSTM/standard/ntm_activation_gate_vector/ntm_design.sv
 
-sv work ../../../../../../../../verification/uvm/library/arithmetic/scalar/adder/ntm_uvm_testbench.sv
+sv work ../../../../../../../../verification/uvm/library/controller/LSTM/standard/ntm_activation_gate_vector/ntm_uvm_testbench.sv

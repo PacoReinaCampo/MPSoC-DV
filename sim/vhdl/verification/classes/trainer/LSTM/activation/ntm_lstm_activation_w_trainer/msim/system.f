@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/classes/application/arithmetic/scalar/adder/ntm_design.sv
+../../../../../../../../verification/classes/application/trainer/LSTM/activation/ntm_lstm_activation_w_trainer/ntm_design.sv
 
-../../../../../../../../verification/classes/library/arithmetic/scalar/adder/ntm_testbench.sv
+../../../../../../../../verification/classes/library/trainer/LSTM/activation/ntm_lstm_activation_w_trainer/ntm_testbench.sv

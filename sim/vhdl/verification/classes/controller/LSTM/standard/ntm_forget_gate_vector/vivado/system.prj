@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../verification/classes/application/arithmetic/scalar/adder/ntm_design.sv
+sv work ../../../../../../../../verification/classes/application/controller/LSTM/standard/ntm_forget_gate_vector/ntm_design.sv
 
-sv work ../../../../../../../../verification/classes/library/arithmetic/scalar/adder/ntm_testbench.sv
+sv work ../../../../../../../../verification/classes/library/controller/LSTM/standard/ntm_forget_gate_vector/ntm_testbench.sv

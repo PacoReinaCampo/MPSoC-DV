@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design.vhd
-../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design_pkg.vhd
+../../../../../../../../validation/osvvm/application/arithmetic/tensor/subtractor/ntm_design.vhd
+../../../../../../../../validation/osvvm/application/arithmetic/tensor/subtractor/ntm_design_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model.vhd
-../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model_pkg.vhd
+../../../../../../../../validation/osvvm/library/arithmetic/tensor/subtractor/ntm_model.vhd
+../../../../../../../../validation/osvvm/library/arithmetic/tensor/subtractor/ntm_model_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_testbench.vhd
+../../../../../../../../validation/osvvm/library/arithmetic/tensor/subtractor/ntm_testbench.vhd

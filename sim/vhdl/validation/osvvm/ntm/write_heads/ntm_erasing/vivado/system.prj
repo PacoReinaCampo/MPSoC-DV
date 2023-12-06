@@ -42,10 +42,10 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-vhdl2008 work ../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design.vhd
-vhdl2008 work ../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design_pkg.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/application/ntm/write_heads/ntm_erasing/ntm_design.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/application/ntm/write_heads/ntm_erasing/ntm_design_pkg.vhd
 
-vhdl2008 work ../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model.vhd
-vhdl2008 work ../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model_pkg.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/library/ntm/write_heads/ntm_erasing/ntm_model.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/library/ntm/write_heads/ntm_erasing/ntm_model_pkg.vhd
 
-vhdl2008 work ../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_testbench.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/library/ntm/write_heads/ntm_erasing/ntm_testbench.vhd

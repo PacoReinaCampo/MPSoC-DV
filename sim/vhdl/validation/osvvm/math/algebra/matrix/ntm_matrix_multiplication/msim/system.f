@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design.vhd
-../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design_pkg.vhd
+../../../../../../../../validation/osvvm/application/math/algebra/matrix/ntm_matrix_multiplication/ntm_design.vhd
+../../../../../../../../validation/osvvm/application/math/algebra/matrix/ntm_matrix_multiplication/ntm_design_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model.vhd
-../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model_pkg.vhd
+../../../../../../../../validation/osvvm/library/math/algebra/matrix/ntm_matrix_multiplication/ntm_model.vhd
+../../../../../../../../validation/osvvm/library/math/algebra/matrix/ntm_matrix_multiplication/ntm_model_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_testbench.vhd
+../../../../../../../../validation/osvvm/library/math/algebra/matrix/ntm_matrix_multiplication/ntm_testbench.vhd

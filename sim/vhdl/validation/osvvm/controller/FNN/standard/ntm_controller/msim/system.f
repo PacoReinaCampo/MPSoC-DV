@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design.vhd
-../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design_pkg.vhd
+../../../../../../../../validation/osvvm/application/controller/FNN/standard/ntm_controller/ntm_design.vhd
+../../../../../../../../validation/osvvm/application/controller/FNN/standard/ntm_controller/ntm_design_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model.vhd
-../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model_pkg.vhd
+../../../../../../../../validation/osvvm/library/controller/FNN/standard/ntm_controller/ntm_model.vhd
+../../../../../../../../validation/osvvm/library/controller/FNN/standard/ntm_controller/ntm_model_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_testbench.vhd
+../../../../../../../../validation/osvvm/library/controller/FNN/standard/ntm_controller/ntm_testbench.vhd

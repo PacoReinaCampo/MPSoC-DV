@@ -42,10 +42,10 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-vhdl2008 work ../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design.vhd
-vhdl2008 work ../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design_pkg.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/application/trainer/LSTM/output/ntm_lstm_output_d_trainer/ntm_design.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/application/trainer/LSTM/output/ntm_lstm_output_d_trainer/ntm_design_pkg.vhd
 
-vhdl2008 work ../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model.vhd
-vhdl2008 work ../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model_pkg.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/library/trainer/LSTM/output/ntm_lstm_output_d_trainer/ntm_model.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/library/trainer/LSTM/output/ntm_lstm_output_d_trainer/ntm_model_pkg.vhd
 
-vhdl2008 work ../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_testbench.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/library/trainer/LSTM/output/ntm_lstm_output_d_trainer/ntm_testbench.vhd

@@ -42,10 +42,10 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-vhdl2008 work ../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design.vhd
-vhdl2008 work ../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design_pkg.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/application/ntm/trained/ntm_trained_top/ntm_design.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/application/ntm/trained/ntm_trained_top/ntm_design_pkg.vhd
 
-vhdl2008 work ../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model.vhd
-vhdl2008 work ../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model_pkg.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/library/ntm/trained/ntm_trained_top/ntm_model.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/library/ntm/trained/ntm_trained_top/ntm_model_pkg.vhd
 
-vhdl2008 work ../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_testbench.vhd
+vhdl2008 work ../../../../../../../../validation/osvvm/library/ntm/trained/ntm_trained_top/ntm_testbench.vhd

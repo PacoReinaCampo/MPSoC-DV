@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design.vhd
-../../../../../../../../validation/osvvm/application/arithmetic/scalar/adder/ntm_design_pkg.vhd
+../../../../../../../../validation/osvvm/application/trainer/LSTM/input/ntm_lstm_input_u_trainer/ntm_design.vhd
+../../../../../../../../validation/osvvm/application/trainer/LSTM/input/ntm_lstm_input_u_trainer/ntm_design_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model.vhd
-../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_model_pkg.vhd
+../../../../../../../../validation/osvvm/library/trainer/LSTM/input/ntm_lstm_input_u_trainer/ntm_model.vhd
+../../../../../../../../validation/osvvm/library/trainer/LSTM/input/ntm_lstm_input_u_trainer/ntm_model_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/arithmetic/scalar/adder/ntm_testbench.vhd
+../../../../../../../../validation/osvvm/library/trainer/LSTM/input/ntm_lstm_input_u_trainer/ntm_testbench.vhd
