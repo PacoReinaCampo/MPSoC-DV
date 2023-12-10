@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/classes/application/math/algebra/tensor/ntm_tensor_summation/ntm_design.sv
+../../../../../../../../../verification/classes/application/math/algebra/tensor/ntm_tensor_summation/ntm_design.sv
 
-../../../../../../../../verification/classes/library/math/algebra/tensor/ntm_tensor_summation/ntm_testbench.sv
+../../../../../../../../../verification/classes/library/math/algebra/tensor/ntm_tensor_summation/ntm_testbench.sv

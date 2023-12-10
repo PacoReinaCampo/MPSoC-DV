@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/classes/application/math/algebra/tensor/ntm_tensor_transpose/ntm_design.sv
+../../../../../../../../../validation/classes/application/math/algebra/tensor/ntm_tensor_transpose/ntm_design.sv
 
-../../../../../../../../validation/classes/library/math/algebra/tensor/ntm_tensor_transpose/ntm_testbench.sv
+../../../../../../../../../validation/classes/library/math/algebra/tensor/ntm_tensor_transpose/ntm_testbench.sv

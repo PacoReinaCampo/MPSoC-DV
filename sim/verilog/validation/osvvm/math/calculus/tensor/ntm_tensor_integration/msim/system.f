@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/osvvm/application/math/calculus/tensor/ntm_tensor_integration/ntm_design.vhd
-../../../../../../../../validation/osvvm/application/math/calculus/tensor/ntm_tensor_integration/ntm_design_pkg.vhd
+../../../../../../../../../validation/osvvm/application/math/calculus/tensor/ntm_tensor_integration/ntm_design.vhd
+../../../../../../../../../validation/osvvm/application/math/calculus/tensor/ntm_tensor_integration/ntm_design_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/math/calculus/tensor/ntm_tensor_integration/ntm_model.vhd
-../../../../../../../../validation/osvvm/library/math/calculus/tensor/ntm_tensor_integration/ntm_model_pkg.vhd
+../../../../../../../../../validation/osvvm/library/math/calculus/tensor/ntm_tensor_integration/ntm_model.vhd
+../../../../../../../../../validation/osvvm/library/math/calculus/tensor/ntm_tensor_integration/ntm_model_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/math/calculus/tensor/ntm_tensor_integration/ntm_testbench.vhd
+../../../../../../../../../validation/osvvm/library/math/calculus/tensor/ntm_tensor_integration/ntm_testbench.vhd

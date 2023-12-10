@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/classes/application/math/calculus/matrix/ntm_matrix_differentiation/ntm_design.sv
+../../../../../../../../../verification/classes/application/math/calculus/matrix/ntm_matrix_differentiation/ntm_design.sv
 
-../../../../../../../../verification/classes/library/math/calculus/matrix/ntm_matrix_differentiation/ntm_testbench.sv
+../../../../../../../../../verification/classes/library/math/calculus/matrix/ntm_matrix_differentiation/ntm_testbench.sv

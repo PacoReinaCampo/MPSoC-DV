@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/classes/application/math/algebra/scalar/ntm_scalar_multiplication/ntm_design.sv
+../../../../../../../../../validation/classes/application/math/algebra/scalar/ntm_scalar_multiplication/ntm_design.sv
 
-../../../../../../../../validation/classes/library/math/algebra/scalar/ntm_scalar_multiplication/ntm_testbench.sv
+../../../../../../../../../validation/classes/library/math/algebra/scalar/ntm_scalar_multiplication/ntm_testbench.sv

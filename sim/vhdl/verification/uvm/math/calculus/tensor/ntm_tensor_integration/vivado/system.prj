@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../verification/uvm/application/math/calculus/tensor/ntm_tensor_integration/ntm_design.sv
+sv work ../../../../../../../../../verification/uvm/application/math/calculus/tensor/ntm_tensor_integration/ntm_design.sv
 
-sv work ../../../../../../../../verification/uvm/library/math/calculus/tensor/ntm_tensor_integration/ntm_uvm_testbench.sv
+sv work ../../../../../../../../../verification/uvm/library/math/calculus/tensor/ntm_tensor_integration/ntm_uvm_testbench.sv

@@ -42,8 +42,8 @@
 ##                                                                               ##
 ###################################################################################
 
-+incdir+../../../../../../../../validation/uvm/src
++incdir+../../../../../../../../../validation/uvm/src
 
-../../../../../../../../validation/uvm/application/math/algebra/tensor/ntm_tensor_matrix_product/ntm_design.sv
+../../../../../../../../../validation/uvm/application/math/algebra/tensor/ntm_tensor_matrix_product/ntm_design.sv
 
-../../../../../../../../validation/uvm/library/math/algebra/tensor/ntm_tensor_matrix_product/ntm_uvm_testbench.sv
+../../../../../../../../../validation/uvm/library/math/algebra/tensor/ntm_tensor_matrix_product/ntm_uvm_testbench.sv

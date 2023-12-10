@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../verification/uvm/application/math/algebra/tensor/ntm_tensor_matrix_convolution/ntm_design.sv
+sv work ../../../../../../../../../verification/uvm/application/math/algebra/tensor/ntm_tensor_matrix_convolution/ntm_design.sv
 
-sv work ../../../../../../../../verification/uvm/library/math/algebra/tensor/ntm_tensor_matrix_convolution/ntm_uvm_testbench.sv
+sv work ../../../../../../../../../verification/uvm/library/math/algebra/tensor/ntm_tensor_matrix_convolution/ntm_uvm_testbench.sv

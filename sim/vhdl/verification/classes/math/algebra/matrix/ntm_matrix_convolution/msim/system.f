@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/classes/application/math/algebra/matrix/ntm_matrix_convolution/ntm_design.sv
+../../../../../../../../../verification/classes/application/math/algebra/matrix/ntm_matrix_convolution/ntm_design.sv
 
-../../../../../../../../verification/classes/library/math/algebra/matrix/ntm_matrix_convolution/ntm_testbench.sv
+../../../../../../../../../verification/classes/library/math/algebra/matrix/ntm_matrix_convolution/ntm_testbench.sv

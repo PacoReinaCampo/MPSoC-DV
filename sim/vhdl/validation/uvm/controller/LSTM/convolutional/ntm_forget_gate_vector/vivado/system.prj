@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../validation/uvm/application/controller/LSTM/convolutional/ntm_forget_gate_vector/ntm_design.sv
+sv work ../../../../../../../../../../validation/uvm/application/controller/LSTM/convolutional/ntm_forget_gate_vector/ntm_design.sv
 
-sv work ../../../../../../../../validation/uvm/library/controller/LSTM/convolutional/ntm_forget_gate_vector/ntm_uvm_testbench.sv
+sv work ../../../../../../../../../../validation/uvm/library/controller/LSTM/convolutional/ntm_forget_gate_vector/ntm_uvm_testbench.sv

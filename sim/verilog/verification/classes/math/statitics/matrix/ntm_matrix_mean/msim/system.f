@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/classes/application/math/statitics/matrix/ntm_matrix_mean/ntm_design.sv
+../../../../../../../../../verification/classes/application/math/statitics/matrix/ntm_matrix_mean/ntm_design.sv
 
-../../../../../../../../verification/classes/library/math/statitics/matrix/ntm_matrix_mean/ntm_testbench.sv
+../../../../../../../../../verification/classes/library/math/statitics/matrix/ntm_matrix_mean/ntm_testbench.sv

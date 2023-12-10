@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../validation/classes/application/controller/LSTM/convolutional/ntm_input_gate_vector/ntm_design.sv
+sv work ../../../../../../../../../../validation/classes/application/controller/LSTM/convolutional/ntm_input_gate_vector/ntm_design.sv
 
-sv work ../../../../../../../../validation/classes/library/controller/LSTM/convolutional/ntm_input_gate_vector/ntm_testbench.sv
+sv work ../../../../../../../../../../validation/classes/library/controller/LSTM/convolutional/ntm_input_gate_vector/ntm_testbench.sv

@@ -42,8 +42,8 @@
 ##                                                                               ##
 ###################################################################################
 
-+incdir+../../../../../../../../verification/uvm/src
++incdir+../../../../../../../../../../verification/uvm/src
 
-../../../../../../../../verification/uvm/application/controller/FNN/convolutional/ntm_controller/ntm_design.sv
+../../../../../../../../../../verification/uvm/application/controller/FNN/convolutional/ntm_controller/ntm_design.sv
 
-../../../../../../../../verification/uvm/library/controller/FNN/convolutional/ntm_controller/ntm_uvm_testbench.sv
+../../../../../../../../../../verification/uvm/library/controller/FNN/convolutional/ntm_controller/ntm_uvm_testbench.sv

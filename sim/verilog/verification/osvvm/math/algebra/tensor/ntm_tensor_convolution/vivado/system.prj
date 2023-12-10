@@ -42,10 +42,10 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-vhdl2008 work ../../../../../../../../validation/osvvm/application/math/algebra/tensor/ntm_tensor_convolution/ntm_design.vhd
-vhdl2008 work ../../../../../../../../validation/osvvm/application/math/algebra/tensor/ntm_tensor_convolution/ntm_design_pkg.vhd
+vhdl2008 work ../../../../../../../../../validation/osvvm/application/math/algebra/tensor/ntm_tensor_convolution/ntm_design.vhd
+vhdl2008 work ../../../../../../../../../validation/osvvm/application/math/algebra/tensor/ntm_tensor_convolution/ntm_design_pkg.vhd
 
-vhdl2008 work ../../../../../../../../validation/osvvm/library/math/algebra/tensor/ntm_tensor_convolution/ntm_model.vhd
-vhdl2008 work ../../../../../../../../validation/osvvm/library/math/algebra/tensor/ntm_tensor_convolution/ntm_model_pkg.vhd
+vhdl2008 work ../../../../../../../../../validation/osvvm/library/math/algebra/tensor/ntm_tensor_convolution/ntm_model.vhd
+vhdl2008 work ../../../../../../../../../validation/osvvm/library/math/algebra/tensor/ntm_tensor_convolution/ntm_model_pkg.vhd
 
-vhdl2008 work ../../../../../../../../validation/osvvm/library/math/algebra/tensor/ntm_tensor_convolution/ntm_testbench.vhd
+vhdl2008 work ../../../../../../../../../validation/osvvm/library/math/algebra/tensor/ntm_tensor_convolution/ntm_testbench.vhd

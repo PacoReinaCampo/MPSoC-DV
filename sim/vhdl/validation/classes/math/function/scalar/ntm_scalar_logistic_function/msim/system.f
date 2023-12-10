@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/classes/application/math/function/scalar/ntm_scalar_logistic_function/ntm_design.sv
+../../../../../../../../../validation/classes/application/math/function/scalar/ntm_scalar_logistic_function/ntm_design.sv
 
-../../../../../../../../validation/classes/library/math/function/scalar/ntm_scalar_logistic_function/ntm_testbench.sv
+../../../../../../../../../validation/classes/library/math/function/scalar/ntm_scalar_logistic_function/ntm_testbench.sv

@@ -42,8 +42,8 @@
 ##                                                                               ##
 ###################################################################################
 
-+incdir+../../../../../../../../validation/uvm/src
++incdir+../../../../../../../../../validation/uvm/src
 
-../../../../../../../../validation/uvm/application/math/algebra/vector/ntm_dot_product/ntm_design.sv
+../../../../../../../../../validation/uvm/application/math/algebra/vector/ntm_dot_product/ntm_design.sv
 
-../../../../../../../../validation/uvm/library/math/algebra/vector/ntm_dot_product/ntm_uvm_testbench.sv
+../../../../../../../../../validation/uvm/library/math/algebra/vector/ntm_dot_product/ntm_uvm_testbench.sv

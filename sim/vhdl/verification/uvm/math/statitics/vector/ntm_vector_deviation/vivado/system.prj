@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../verification/uvm/application/math/statitics/vector/ntm_vector_deviation/ntm_design.sv
+sv work ../../../../../../../../../verification/uvm/application/math/statitics/vector/ntm_vector_deviation/ntm_design.sv
 
-sv work ../../../../../../../../verification/uvm/library/math/statitics/vector/ntm_vector_deviation/ntm_uvm_testbench.sv
+sv work ../../../../../../../../../verification/uvm/library/math/statitics/vector/ntm_vector_deviation/ntm_uvm_testbench.sv

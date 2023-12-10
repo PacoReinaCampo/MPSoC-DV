@@ -42,8 +42,8 @@
 ##                                                                               ##
 ###################################################################################
 
-+incdir+../../../../../../../../validation/uvm/src
++incdir+../../../../../../../../../validation/uvm/src
 
-../../../../../../../../validation/uvm/application/math/calculus/tensor/ntm_tensor_softmax/ntm_design.sv
+../../../../../../../../../validation/uvm/application/math/calculus/tensor/ntm_tensor_softmax/ntm_design.sv
 
-../../../../../../../../validation/uvm/library/math/calculus/tensor/ntm_tensor_softmax/ntm_uvm_testbench.sv
+../../../../../../../../../validation/uvm/library/math/calculus/tensor/ntm_tensor_softmax/ntm_uvm_testbench.sv

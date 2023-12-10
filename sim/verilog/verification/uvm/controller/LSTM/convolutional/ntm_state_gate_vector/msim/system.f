@@ -42,8 +42,8 @@
 ##                                                                               ##
 ###################################################################################
 
-+incdir+../../../../../../../../verification/uvm/src
++incdir+../../../../../../../../../../verification/uvm/src
 
-../../../../../../../../verification/uvm/application/controller/LSTM/convolutional/ntm_state_gate_vector/ntm_design.sv
+../../../../../../../../../../verification/uvm/application/controller/LSTM/convolutional/ntm_state_gate_vector/ntm_design.sv
 
-../../../../../../../../verification/uvm/library/controller/LSTM/convolutional/ntm_state_gate_vector/ntm_uvm_testbench.sv
+../../../../../../../../../../verification/uvm/library/controller/LSTM/convolutional/ntm_state_gate_vector/ntm_uvm_testbench.sv

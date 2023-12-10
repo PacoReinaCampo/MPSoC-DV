@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/classes/application/math/calculus/vector/ntm_vector_integration/ntm_design.sv
+../../../../../../../../../verification/classes/application/math/calculus/vector/ntm_vector_integration/ntm_design.sv
 
-../../../../../../../../verification/classes/library/math/calculus/vector/ntm_vector_integration/ntm_testbench.sv
+../../../../../../../../../verification/classes/library/math/calculus/vector/ntm_vector_integration/ntm_testbench.sv

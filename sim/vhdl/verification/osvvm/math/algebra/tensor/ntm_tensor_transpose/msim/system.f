@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/osvvm/application/math/algebra/tensor/ntm_tensor_transpose/ntm_design.vhd
-../../../../../../../../validation/osvvm/application/math/algebra/tensor/ntm_tensor_transpose/ntm_design_pkg.vhd
+../../../../../../../../../validation/osvvm/application/math/algebra/tensor/ntm_tensor_transpose/ntm_design.vhd
+../../../../../../../../../validation/osvvm/application/math/algebra/tensor/ntm_tensor_transpose/ntm_design_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/math/algebra/tensor/ntm_tensor_transpose/ntm_model.vhd
-../../../../../../../../validation/osvvm/library/math/algebra/tensor/ntm_tensor_transpose/ntm_model_pkg.vhd
+../../../../../../../../../validation/osvvm/library/math/algebra/tensor/ntm_tensor_transpose/ntm_model.vhd
+../../../../../../../../../validation/osvvm/library/math/algebra/tensor/ntm_tensor_transpose/ntm_model_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/math/algebra/tensor/ntm_tensor_transpose/ntm_testbench.vhd
+../../../../../../../../../validation/osvvm/library/math/algebra/tensor/ntm_tensor_transpose/ntm_testbench.vhd

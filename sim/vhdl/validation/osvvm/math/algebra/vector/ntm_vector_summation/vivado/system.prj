@@ -42,10 +42,10 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-vhdl2008 work ../../../../../../../../validation/osvvm/application/math/algebra/vector/ntm_vector_summation/ntm_design.vhd
-vhdl2008 work ../../../../../../../../validation/osvvm/application/math/algebra/vector/ntm_vector_summation/ntm_design_pkg.vhd
+vhdl2008 work ../../../../../../../../../validation/osvvm/application/math/algebra/vector/ntm_vector_summation/ntm_design.vhd
+vhdl2008 work ../../../../../../../../../validation/osvvm/application/math/algebra/vector/ntm_vector_summation/ntm_design_pkg.vhd
 
-vhdl2008 work ../../../../../../../../validation/osvvm/library/math/algebra/vector/ntm_vector_summation/ntm_model.vhd
-vhdl2008 work ../../../../../../../../validation/osvvm/library/math/algebra/vector/ntm_vector_summation/ntm_model_pkg.vhd
+vhdl2008 work ../../../../../../../../../validation/osvvm/library/math/algebra/vector/ntm_vector_summation/ntm_model.vhd
+vhdl2008 work ../../../../../../../../../validation/osvvm/library/math/algebra/vector/ntm_vector_summation/ntm_model_pkg.vhd
 
-vhdl2008 work ../../../../../../../../validation/osvvm/library/math/algebra/vector/ntm_vector_summation/ntm_testbench.vhd
+vhdl2008 work ../../../../../../../../../validation/osvvm/library/math/algebra/vector/ntm_vector_summation/ntm_testbench.vhd

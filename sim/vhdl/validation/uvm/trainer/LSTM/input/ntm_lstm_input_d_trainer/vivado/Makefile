@@ -51,4 +51,4 @@ simulate:
 	xelab ntm_uvm_testbench -relax -s top -timescale 1ns/1ps
 	xsim top -testplusarg UVM_TESTNAME=ntm_uvm_test -testplusarg UVM_VERBOSITY=UVM_LOW -runall
 clean:
-	rm -rf *.dir *.jou *.log *.pb *.vcd
+	rm -rf *.dir *.jou *.log *.pb *.vcd *.wdb

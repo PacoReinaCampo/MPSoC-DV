@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/osvvm/application/controller/LSTM/standard/ntm_controller/ntm_design.vhd
-../../../../../../../../validation/osvvm/application/controller/LSTM/standard/ntm_controller/ntm_design_pkg.vhd
+../../../../../../../../../../validation/osvvm/application/controller/LSTM/standard/ntm_controller/ntm_design.vhd
+../../../../../../../../../../validation/osvvm/application/controller/LSTM/standard/ntm_controller/ntm_design_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/controller/LSTM/standard/ntm_controller/ntm_model.vhd
-../../../../../../../../validation/osvvm/library/controller/LSTM/standard/ntm_controller/ntm_model_pkg.vhd
+../../../../../../../../../../validation/osvvm/library/controller/LSTM/standard/ntm_controller/ntm_model.vhd
+../../../../../../../../../../validation/osvvm/library/controller/LSTM/standard/ntm_controller/ntm_model_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/controller/LSTM/standard/ntm_controller/ntm_testbench.vhd
+../../../../../../../../../../validation/osvvm/library/controller/LSTM/standard/ntm_controller/ntm_testbench.vhd

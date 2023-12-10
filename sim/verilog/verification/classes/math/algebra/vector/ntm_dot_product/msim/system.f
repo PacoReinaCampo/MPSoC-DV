@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/classes/application/math/algebra/vector/ntm_dot_product/ntm_design.sv
+../../../../../../../../../verification/classes/application/math/algebra/vector/ntm_dot_product/ntm_design.sv
 
-../../../../../../../../verification/classes/library/math/algebra/vector/ntm_dot_product/ntm_testbench.sv
+../../../../../../../../../verification/classes/library/math/algebra/vector/ntm_dot_product/ntm_testbench.sv

@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/classes/application/math/algebra/matrix/ntm_matrix_transpose/ntm_design.sv
+../../../../../../../../../validation/classes/application/math/algebra/matrix/ntm_matrix_transpose/ntm_design.sv
 
-../../../../../../../../validation/classes/library/math/algebra/matrix/ntm_matrix_transpose/ntm_testbench.sv
+../../../../../../../../../validation/classes/library/math/algebra/matrix/ntm_matrix_transpose/ntm_testbench.sv

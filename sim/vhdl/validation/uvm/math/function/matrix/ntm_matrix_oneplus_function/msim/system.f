@@ -42,8 +42,8 @@
 ##                                                                               ##
 ###################################################################################
 
-+incdir+../../../../../../../../validation/uvm/src
++incdir+../../../../../../../../../validation/uvm/src
 
-../../../../../../../../validation/uvm/application/math/function/matrix/ntm_matrix_oneplus_function/ntm_design.sv
+../../../../../../../../../validation/uvm/application/math/function/matrix/ntm_matrix_oneplus_function/ntm_design.sv
 
-../../../../../../../../validation/uvm/library/math/function/matrix/ntm_matrix_oneplus_function/ntm_uvm_testbench.sv
+../../../../../../../../../validation/uvm/library/math/function/matrix/ntm_matrix_oneplus_function/ntm_uvm_testbench.sv

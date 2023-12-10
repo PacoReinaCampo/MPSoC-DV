@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/osvvm/application/math/statitics/scalar/ntm_scalar_deviation/ntm_design.vhd
-../../../../../../../../validation/osvvm/application/math/statitics/scalar/ntm_scalar_deviation/ntm_design_pkg.vhd
+../../../../../../../../../validation/osvvm/application/math/statitics/scalar/ntm_scalar_deviation/ntm_design.vhd
+../../../../../../../../../validation/osvvm/application/math/statitics/scalar/ntm_scalar_deviation/ntm_design_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/math/statitics/scalar/ntm_scalar_deviation/ntm_model.vhd
-../../../../../../../../validation/osvvm/library/math/statitics/scalar/ntm_scalar_deviation/ntm_model_pkg.vhd
+../../../../../../../../../validation/osvvm/library/math/statitics/scalar/ntm_scalar_deviation/ntm_model.vhd
+../../../../../../../../../validation/osvvm/library/math/statitics/scalar/ntm_scalar_deviation/ntm_model_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/math/statitics/scalar/ntm_scalar_deviation/ntm_testbench.vhd
+../../../../../../../../../validation/osvvm/library/math/statitics/scalar/ntm_scalar_deviation/ntm_testbench.vhd

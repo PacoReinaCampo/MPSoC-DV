@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../verification/classes/application/math/calculus/vector/ntm_vector_differentiation/ntm_design.sv
+sv work ../../../../../../../../../verification/classes/application/math/calculus/vector/ntm_vector_differentiation/ntm_design.sv
 
-sv work ../../../../../../../../verification/classes/library/math/calculus/vector/ntm_vector_differentiation/ntm_testbench.sv
+sv work ../../../../../../../../../verification/classes/library/math/calculus/vector/ntm_vector_differentiation/ntm_testbench.sv

@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../validation/classes/application/math/function/matrix/ntm_matrix_oneplus_function/ntm_design.sv
+sv work ../../../../../../../../../validation/classes/application/math/function/matrix/ntm_matrix_oneplus_function/ntm_design.sv
 
-sv work ../../../../../../../../validation/classes/library/math/function/matrix/ntm_matrix_oneplus_function/ntm_testbench.sv
+sv work ../../../../../../../../../validation/classes/library/math/function/matrix/ntm_matrix_oneplus_function/ntm_testbench.sv

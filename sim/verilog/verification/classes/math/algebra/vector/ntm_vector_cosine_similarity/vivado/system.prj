@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../verification/classes/application/math/algebra/vector/ntm_vector_cosine_similarity/ntm_design.sv
+sv work ../../../../../../../../../verification/classes/application/math/algebra/vector/ntm_vector_cosine_similarity/ntm_design.sv
 
-sv work ../../../../../../../../verification/classes/library/math/algebra/vector/ntm_vector_cosine_similarity/ntm_testbench.sv
+sv work ../../../../../../../../../verification/classes/library/math/algebra/vector/ntm_vector_cosine_similarity/ntm_testbench.sv

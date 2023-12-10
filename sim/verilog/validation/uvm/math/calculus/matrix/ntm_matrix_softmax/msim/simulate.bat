@@ -43,7 +43,7 @@
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 @echo off
-call ../../../../../../../../settings64_msim.bat
+call ../../../../../../../../../settings64_msim.bat
 
 vlib work
 vlog -sv -stats=none -f system.f

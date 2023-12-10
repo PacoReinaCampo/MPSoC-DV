@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/osvvm/application/math/statitics/matrix/ntm_matrix_mean/ntm_design.vhd
-../../../../../../../../validation/osvvm/application/math/statitics/matrix/ntm_matrix_mean/ntm_design_pkg.vhd
+../../../../../../../../../validation/osvvm/application/math/statitics/matrix/ntm_matrix_mean/ntm_design.vhd
+../../../../../../../../../validation/osvvm/application/math/statitics/matrix/ntm_matrix_mean/ntm_design_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/math/statitics/matrix/ntm_matrix_mean/ntm_model.vhd
-../../../../../../../../validation/osvvm/library/math/statitics/matrix/ntm_matrix_mean/ntm_model_pkg.vhd
+../../../../../../../../../validation/osvvm/library/math/statitics/matrix/ntm_matrix_mean/ntm_model.vhd
+../../../../../../../../../validation/osvvm/library/math/statitics/matrix/ntm_matrix_mean/ntm_model_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/math/statitics/matrix/ntm_matrix_mean/ntm_testbench.vhd
+../../../../../../../../../validation/osvvm/library/math/statitics/matrix/ntm_matrix_mean/ntm_testbench.vhd

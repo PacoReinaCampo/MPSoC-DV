@@ -43,7 +43,7 @@
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 @echo off
-call ../../../../../../../../settings64_vivado.bat
+call ../../../../../../../../../settings64_vivado.bat
 
 xvlog -prj system.prj
 xelab ntm_testbench

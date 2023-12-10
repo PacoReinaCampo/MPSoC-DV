@@ -42,8 +42,8 @@
 ##                                                                               ##
 ###################################################################################
 
-+incdir+../../../../../../../../verification/uvm/src
++incdir+../../../../../../../../../verification/uvm/src
 
-../../../../../../../../verification/uvm/application/math/statitics/matrix/ntm_matrix_mean/ntm_design.sv
+../../../../../../../../../verification/uvm/application/math/statitics/matrix/ntm_matrix_mean/ntm_design.sv
 
-../../../../../../../../verification/uvm/library/math/statitics/matrix/ntm_matrix_mean/ntm_uvm_testbench.sv
+../../../../../../../../../verification/uvm/library/math/statitics/matrix/ntm_matrix_mean/ntm_uvm_testbench.sv

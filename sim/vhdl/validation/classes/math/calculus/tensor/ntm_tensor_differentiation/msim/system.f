@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/classes/application/math/calculus/tensor/ntm_tensor_differentiation/ntm_design.sv
+../../../../../../../../../validation/classes/application/math/calculus/tensor/ntm_tensor_differentiation/ntm_design.sv
 
-../../../../../../../../validation/classes/library/math/calculus/tensor/ntm_tensor_differentiation/ntm_testbench.sv
+../../../../../../../../../validation/classes/library/math/calculus/tensor/ntm_tensor_differentiation/ntm_testbench.sv

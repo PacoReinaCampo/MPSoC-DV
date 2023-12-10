@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/classes/application/controller/LSTM/standard/ntm_controller/ntm_design.sv
+../../../../../../../../../../verification/classes/application/controller/LSTM/standard/ntm_controller/ntm_design.sv
 
-../../../../../../../../verification/classes/library/controller/LSTM/standard/ntm_controller/ntm_testbench.sv
+../../../../../../../../../../verification/classes/library/controller/LSTM/standard/ntm_controller/ntm_testbench.sv

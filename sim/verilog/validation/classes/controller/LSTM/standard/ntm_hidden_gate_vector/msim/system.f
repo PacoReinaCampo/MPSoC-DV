@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/classes/application/controller/LSTM/standard/ntm_hidden_gate_vector/ntm_design.sv
+../../../../../../../../../../validation/classes/application/controller/LSTM/standard/ntm_hidden_gate_vector/ntm_design.sv
 
-../../../../../../../../validation/classes/library/controller/LSTM/standard/ntm_hidden_gate_vector/ntm_testbench.sv
+../../../../../../../../../../validation/classes/library/controller/LSTM/standard/ntm_hidden_gate_vector/ntm_testbench.sv

@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../validation/uvm/application/math/algebra/matrix/ntm_matrix_summation/ntm_design.sv
+sv work ../../../../../../../../../validation/uvm/application/math/algebra/matrix/ntm_matrix_summation/ntm_design.sv
 
-sv work ../../../../../../../../validation/uvm/library/math/algebra/matrix/ntm_matrix_summation/ntm_uvm_testbench.sv
+sv work ../../../../../../../../../validation/uvm/library/math/algebra/matrix/ntm_matrix_summation/ntm_uvm_testbench.sv

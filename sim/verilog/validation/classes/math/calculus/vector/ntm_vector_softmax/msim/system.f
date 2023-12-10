@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/classes/application/math/calculus/vector/ntm_vector_softmax/ntm_design.sv
+../../../../../../../../../validation/classes/application/math/calculus/vector/ntm_vector_softmax/ntm_design.sv
 
-../../../../../../../../validation/classes/library/math/calculus/vector/ntm_vector_softmax/ntm_testbench.sv
+../../../../../../../../../validation/classes/library/math/calculus/vector/ntm_vector_softmax/ntm_testbench.sv

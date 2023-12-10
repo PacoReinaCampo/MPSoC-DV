@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/classes/application/math/statitics/scalar/ntm_scalar_deviation/ntm_design.sv
+../../../../../../../../../verification/classes/application/math/statitics/scalar/ntm_scalar_deviation/ntm_design.sv
 
-../../../../../../../../verification/classes/library/math/statitics/scalar/ntm_scalar_deviation/ntm_testbench.sv
+../../../../../../../../../verification/classes/library/math/statitics/scalar/ntm_scalar_deviation/ntm_testbench.sv

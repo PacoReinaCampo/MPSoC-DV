@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/classes/application/math/algebra/vector/ntm_vector_cosine_similarity/ntm_design.sv
+../../../../../../../../../verification/classes/application/math/algebra/vector/ntm_vector_cosine_similarity/ntm_design.sv
 
-../../../../../../../../verification/classes/library/math/algebra/vector/ntm_vector_cosine_similarity/ntm_testbench.sv
+../../../../../../../../../verification/classes/library/math/algebra/vector/ntm_vector_cosine_similarity/ntm_testbench.sv

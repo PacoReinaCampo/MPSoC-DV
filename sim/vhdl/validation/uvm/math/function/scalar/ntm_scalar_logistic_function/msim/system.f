@@ -42,8 +42,8 @@
 ##                                                                               ##
 ###################################################################################
 
-+incdir+../../../../../../../../validation/uvm/src
++incdir+../../../../../../../../../validation/uvm/src
 
-../../../../../../../../validation/uvm/application/math/function/scalar/ntm_scalar_logistic_function/ntm_design.sv
+../../../../../../../../../validation/uvm/application/math/function/scalar/ntm_scalar_logistic_function/ntm_design.sv
 
-../../../../../../../../validation/uvm/library/math/function/scalar/ntm_scalar_logistic_function/ntm_uvm_testbench.sv
+../../../../../../../../../validation/uvm/library/math/function/scalar/ntm_scalar_logistic_function/ntm_uvm_testbench.sv

@@ -42,8 +42,8 @@
 ##                                                                               ##
 ###################################################################################
 
-+incdir+../../../../../../../../validation/uvm/src
++incdir+../../../../../../../../../validation/uvm/src
 
-../../../../../../../../validation/uvm/application/math/statitics/vector/ntm_vector_deviation/ntm_design.sv
+../../../../../../../../../validation/uvm/application/math/statitics/vector/ntm_vector_deviation/ntm_design.sv
 
-../../../../../../../../validation/uvm/library/math/statitics/vector/ntm_vector_deviation/ntm_uvm_testbench.sv
+../../../../../../../../../validation/uvm/library/math/statitics/vector/ntm_vector_deviation/ntm_uvm_testbench.sv
