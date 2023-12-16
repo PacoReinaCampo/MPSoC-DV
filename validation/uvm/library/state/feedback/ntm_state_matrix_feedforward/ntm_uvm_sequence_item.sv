@@ -38,20 +38,24 @@
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
 class ntm_uvm_sequence_item extends uvm_sequence_item;
+  // Data Signals
   rand bit [7:0] ip1;
   rand bit [7:0] ip2;
 
   bit      [8:0] out;
 
+  // Constructor
   function new(string name = "ntm_uvm_sequence_item");
     super.new(name);
   endfunction
 
+  // Utility and Field declarations
   `uvm_object_utils_begin(ntm_uvm_sequence_item)
-    `uvm_field_int(ip1, UVM_ALL_ON)
-    `uvm_field_int(ip2, UVM_ALL_ON)
+  `uvm_field_int(ip1, UVM_ALL_ON)
+  `uvm_field_int(ip2, UVM_ALL_ON)
   `uvm_object_utils_end
 
+  // Constraints
   constraint ip_c {
     ip1 < 100;
     ip2 < 100;

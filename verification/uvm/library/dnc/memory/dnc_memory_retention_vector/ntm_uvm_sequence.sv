@@ -38,13 +38,18 @@
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
 class ntm_uvm_sequence extends uvm_sequence #(ntm_uvm_sequence_item);
+  // Sequence Item method instantiation
   ntm_uvm_sequence_item req;
+
+  // Utility declaration
   `uvm_object_utils(ntm_uvm_sequence)
 
+  // Constructor
   function new(string name = "sequence");
     super.new(name);
   endfunction
 
+  // Sequence body
   task body();
     `uvm_info(get_type_name(), "Base Sequence: Inside Body", UVM_LOW);
     `uvm_do(req);

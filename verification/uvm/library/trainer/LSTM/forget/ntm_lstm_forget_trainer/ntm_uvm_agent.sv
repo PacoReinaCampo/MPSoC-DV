@@ -38,28 +38,42 @@
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
 class ntm_uvm_agent extends uvm_agent;
+  // Utility declaration
   `uvm_component_utils(ntm_uvm_agent)
+
+  // Driver method instantiation
   ntm_uvm_driver    driver;
+
+  // Sequencer method instantiation
   ntm_uvm_sequencer sequencer;
+
+  // Monitor method instantiation
   ntm_uvm_monitor   monitor;
 
+  // Constructor
   function new(string name = "ntm_uvm_agent", uvm_component parent = null);
     super.new(name, parent);
   endfunction
 
+  // Build phase
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
 
+    // Create driver and sequencer methods only for active agent
     if (get_is_active == UVM_ACTIVE) begin
       driver    = ntm_uvm_driver::type_id::create("driver", this);
       sequencer = ntm_uvm_sequencer::type_id::create("sequencer", this);
     end
 
+    // Create monitor method
     monitor = ntm_uvm_monitor::type_id::create("monitor", this);
   endfunction
 
+  // Connect phase
   function void connect_phase(uvm_phase phase);
     if (get_is_active == UVM_ACTIVE) begin
+
+      // Connecting the driver and sequencer port
       driver.seq_item_port.connect(sequencer.seq_item_export);
     end
   endfunction

@@ -38,17 +38,26 @@
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
 class ntm_uvm_monitor extends uvm_monitor;
-  virtual ntm_design_if                       vif;
+  // Virtual Interface
+  virtual ntm_design_if vif;
+
+  // UVM analysis port
   uvm_analysis_port #(ntm_uvm_sequence_item) item_collect_port;
-  ntm_uvm_sequence_item                      monitor_item;
+
+  // Sequence Item method instantiation
+  ntm_uvm_sequence_item monitor_item;
+
+  // Utility declaration
   `uvm_component_utils(ntm_uvm_monitor)
 
+  // Constructor
   function new(string name = "monitor", uvm_component parent = null);
     super.new(name, parent);
     item_collect_port = new("item_collect_port", this);
     monitor_item      = new();
   endfunction
 
+  // Build phase
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     if (!uvm_config_db#(virtual ntm_design_if)::get(this, "", "vif", vif)) begin
@@ -56,6 +65,7 @@ class ntm_uvm_monitor extends uvm_monitor;
     end
   endfunction
 
+  // Run phase
   task run_phase(uvm_phase phase);
     forever begin
       wait (!vif.rst);

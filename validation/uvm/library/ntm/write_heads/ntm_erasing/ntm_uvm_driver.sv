@@ -38,13 +38,18 @@
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
 class ntm_uvm_driver extends uvm_driver #(ntm_uvm_sequence_item);
+  // Virtual Interface
   virtual ntm_design_if vif;
+
+  // Utility declaration
   `uvm_component_utils(ntm_uvm_driver)
 
+  // Constructor
   function new(string name = "ntm_uvm_driver", uvm_component parent = null);
     super.new(name, parent);
   endfunction
 
+  // Build phase
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     if (!uvm_config_db#(virtual ntm_design_if)::get(this, "", "vif", vif)) begin
@@ -52,6 +57,7 @@ class ntm_uvm_driver extends uvm_driver #(ntm_uvm_sequence_item);
     end
   endfunction
 
+  // Run phase
   task run_phase(uvm_phase phase);
     forever begin
       // Driver to the DUT

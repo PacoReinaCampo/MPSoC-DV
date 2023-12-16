@@ -38,21 +38,34 @@
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
 class ntm_uvm_environment extends uvm_env;
+  // Utility declaration
   `uvm_component_utils(ntm_uvm_environment)
+
+  // Agent method instantiation
   ntm_uvm_agent      agent;
+
+  // ScoreBoard method instantiation
   ntm_uvm_scoreboard scoreboard;
 
+  // Constructor
   function new(string name = "environment", uvm_component parent = null);
     super.new(name, parent);
   endfunction
 
+  // Build phase
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
+
+    // Create agent method
     agent      = ntm_uvm_agent::type_id::create("agent", this);
+
+    // Create scoreboard method
     scoreboard = ntm_uvm_scoreboard::type_id::create("scoreboard", this);
   endfunction
 
+  // Connect phase
   function void connect_phase(uvm_phase phase);
+    // Connecting the driver and sequencer port
     agent.monitor.item_collect_port.connect(scoreboard.item_collect_export);
   endfunction
 endclass

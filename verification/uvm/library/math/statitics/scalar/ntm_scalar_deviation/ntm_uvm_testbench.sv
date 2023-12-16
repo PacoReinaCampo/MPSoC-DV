@@ -44,23 +44,24 @@ import uvm_pkg::*;
 `include "ntm_uvm_test.sv"
 
 module ntm_uvm_testbench;
+  // Clock and Reset declaration
   bit clk;
   bit rst;
 
+  // Clock Generation
   always #2 clk = ~clk;
 
+  // Reset Generation
   initial begin
-    // clk = 0;
     rst = 1;
     #5;
     rst = 0;
   end
 
-  ntm_design_if vif (
-    clk,
-    rst
-  );
+  // Virtual interface
+  ntm_design_if vif (clk, rst);
 
+  // DUT instantiation
   ntm_design dut (
     .clk(vif.clk),
     .rst(vif.rst),
@@ -72,13 +73,15 @@ module ntm_uvm_testbench;
   );
 
   initial begin
-    // set interface in config_db
+    // Passing the interface handle to lower heirarchy using set method
     uvm_config_db#(virtual ntm_design_if)::set(uvm_root::get(), "*", "vif", vif);
-    // Dump waves
+
+    // Enable wave dump
     $dumpfile("dump.vcd");
     $dumpvars(0);
   end
 
+  // Calling TestCase
   initial begin
     run_test("base_test");
   end

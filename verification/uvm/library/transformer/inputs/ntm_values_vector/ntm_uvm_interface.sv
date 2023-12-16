@@ -42,6 +42,7 @@ interface ntm_design_if (
   input logic rst
 );
 
+  // Declaration of signals
   logic [7:0] ip1;
   logic [7:0] ip2;
 
