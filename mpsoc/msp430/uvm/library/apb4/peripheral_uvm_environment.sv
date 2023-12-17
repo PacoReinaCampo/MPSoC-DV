@@ -1,8 +1,7 @@
-`ifndef PERIPHERAL_UVM_ENVIRONMENT
-`define PERIPHERAL_UVM_ENVIRONMENT
+`include "peripheral_uvm_reference_model.sv"
+`include "peripheral_uvm_scoreboard.sv"
 
 class peripheral_uvm_entironment extends uvm_env;
-
   // Declaration components
   peripheral_uvm_agent                                  agent;
   peripheral_uvm_reference_model                        reference_model;
@@ -37,7 +36,4 @@ class peripheral_uvm_entironment extends uvm_env;
     reference_model.rm2scoreboard_port.connect(coverage.analysis_export);
     reference_model.rm2scoreboard_port.connect(scoreboard.rm2scoreboard_export);
   endfunction : connect_phase
-
 endclass : peripheral_uvm_entironment
-
-`endif

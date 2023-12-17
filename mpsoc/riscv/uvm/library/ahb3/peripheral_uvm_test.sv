@@ -1,8 +1,4 @@
-`ifndef PERIPHERAL_UVM_BASIC_TEST
-`define PERIPHERAL_UVM_BASIC_TEST
-
 class peripheral_uvm_test extends uvm_test;
-
   // declaring component utils for the basic test-case 
   `uvm_component_utils(peripheral_uvm_test)
 
@@ -31,7 +27,4 @@ class peripheral_uvm_test extends uvm_test;
     seq.start(env.agent.sequencer);
     phase.drop_objection(this);
   endtask : run_phase
-
 endclass : peripheral_uvm_test
-
-`endif

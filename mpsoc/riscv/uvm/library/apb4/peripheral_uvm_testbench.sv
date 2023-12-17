@@ -1,16 +1,17 @@
-`ifndef PERIPHERAL_UVM_TESTBENCH
-`define PERIPHERAL_UVM_TESTBENCH
-
 `include "uvm_macros.svh"
-`include "peripheral_uvm_interface.sv"
 import uvm_pkg::*;
 
+`include "peripheral_uvm_agent.sv"
+`include "peripheral_uvm_coverage.sv"
+`include "peripheral_uvm_environment.sv"
+`include "peripheral_uvm_interface.sv"
+`include "peripheral_uvm_sequence.sv"
+`include "peripheral_uvm_test.sv"
+
 module peripheral_uvm_testbench;
-
-  import peripheral_uvm_test_pkg::*;
-
   // Declaration of Local Fields
   parameter cycle = 10;
+
   bit clk;
   bit reset;
 
@@ -53,5 +54,3 @@ module peripheral_uvm_testbench;
   end
 
 endmodule
-
-`endif

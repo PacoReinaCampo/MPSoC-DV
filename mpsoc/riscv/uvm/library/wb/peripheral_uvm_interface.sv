@@ -1,13 +1,11 @@
-`ifndef PERIPHERAL_UVM_INTERFACE
-`define PERIPHERAL_UVM_INTERFACE
-
 interface peripheral_uvm_interface (
   input logic clk,
-  reset
+  input logic reset
 );
 
   // Declaration of Signals
-  logic [3:0] x, y;
+  logic [3:0] x;
+  logic [3:0] y;
   logic       cin;
   logic [3:0] sum;
   logic       cout;
@@ -33,7 +31,4 @@ interface peripheral_uvm_interface (
   endclocking
 
   modport RCV(clocking rc_cb, input clk, reset);
-
 endinterface
-
-`endif

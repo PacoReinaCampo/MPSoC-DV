@@ -1,8 +1,4 @@
-`ifndef PERIPHERAL_UVM_SCOREBOARD
-`define PERIPHERAL_UVM_SCOREBOARD
-
 class peripheral_uvm_scoreboard extends uvm_scoreboard;
-
   // Declaration of component utils
   `uvm_component_utils(peripheral_uvm_scoreboard)
 
@@ -96,5 +92,3 @@ class peripheral_uvm_scoreboard extends uvm_scoreboard;
     end
   endfunction
 endclass : peripheral_uvm_scoreboard
-
-`endif

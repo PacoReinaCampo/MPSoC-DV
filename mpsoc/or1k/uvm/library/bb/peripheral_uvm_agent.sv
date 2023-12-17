@@ -1,5 +1,6 @@
-`ifndef PERIPHERAL_UVM_AGENT
-`define PERIPHERAL_UVM_AGENT
+`include "peripheral_uvm_driver.sv"
+`include "peripheral_uvm_monitor.sv"
+`include "peripheral_uvm_sequencer.sv"
 
 class peripheral_uvm_agent extends uvm_agent;
   // Declaration of UVC components such as.. driver, monitor, sequencer..etc
@@ -30,7 +31,4 @@ class peripheral_uvm_agent extends uvm_agent;
   function void connect_phase(uvm_phase phase);
     driver.seq_item_port.connect(sequencer.seq_item_export);
   endfunction : connect_phase
-
 endclass : peripheral_uvm_agent
-
-`endif

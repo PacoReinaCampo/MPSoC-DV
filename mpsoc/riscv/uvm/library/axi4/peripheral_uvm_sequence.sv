@@ -1,8 +1,4 @@
-`ifndef PERIPHERAL_UVM_BASIC_SEQUENCE
-`define PERIPHERAL_UVM_BASIC_SEQUENCE
-
 class peripheral_uvm_sequence extends uvm_sequence #(peripheral_uvm_transaction);
-
   // Declaration of Sequence utils
   `uvm_object_utils(peripheral_uvm_sequence)
 
@@ -16,7 +12,7 @@ class peripheral_uvm_sequence extends uvm_sequence #(peripheral_uvm_transaction)
   // Description : Body of sequence to send randomized transaction through
   // sequencer to driver
   virtual task body();
-    for (int i = 0; i < `NO_OF_TRANSACTIONS; i++) begin
+    for (int i = 0; i < 20000; i++) begin
       req = peripheral_uvm_transaction::type_id::create("req");
       start_item(req);
       assert (req.randomize());
@@ -26,7 +22,4 @@ class peripheral_uvm_sequence extends uvm_sequence #(peripheral_uvm_transaction)
       get_response(rsp);
     end
   endtask
-
 endclass
-
-`endif

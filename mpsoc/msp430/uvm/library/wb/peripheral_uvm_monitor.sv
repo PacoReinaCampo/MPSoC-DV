@@ -1,8 +1,4 @@
-`ifndef PERIPHERAL_UVM_MONITOR
-`define PERIPHERAL_UVM_MONITOR
-
 class peripheral_uvm_monitor extends uvm_monitor;
-
   // Declaration of Virtual interface
   virtual peripheral_uvm_interface                vif;
 
@@ -12,7 +8,7 @@ class peripheral_uvm_monitor extends uvm_monitor;
   // Declaration of transaction item 
   peripheral_uvm_transaction                      act_transaction;
 
-  // Declaration of component  utils 
+  // Declaration of component utils
   `uvm_component_utils(peripheral_uvm_monitor)
 
   // Method name : new 
@@ -27,8 +23,9 @@ class peripheral_uvm_monitor extends uvm_monitor;
   // Description : construct the components
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if (!uvm_config_db#(virtual peripheral_uvm_interface)::get(this, "", "intf", vif))
+    if (!uvm_config_db#(virtual peripheral_uvm_interface)::get(this, "", "intf", vif)) begin
       `uvm_fatal("NOVIF", {"virtual interface must be set for: ", get_full_name(), ".vif"});
+    end
   endfunction : build_phase
 
   // Method name : run_phase 
@@ -54,7 +51,4 @@ class peripheral_uvm_monitor extends uvm_monitor;
     `uvm_info(get_full_name(), $sformatf("TRANSACTION FROM MONITOR"), UVM_LOW);
     act_transaction.print();
   endtask
-
 endclass : peripheral_uvm_monitor
-
-`endif

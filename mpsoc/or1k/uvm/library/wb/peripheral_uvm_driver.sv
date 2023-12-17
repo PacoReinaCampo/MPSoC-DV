@@ -1,8 +1,6 @@
-`ifndef PERIPHERAL_UVM_DRIVER
-`define PERIPHERAL_UVM_DRIVER
+`include "peripheral_uvm_transaction.sv"
 
 class peripheral_uvm_driver extends uvm_driver #(peripheral_uvm_transaction);
-
   // Declaration of transaction item 
   peripheral_uvm_transaction       transaction;
 
@@ -11,6 +9,7 @@ class peripheral_uvm_driver extends uvm_driver #(peripheral_uvm_transaction);
 
   // Declaration of component utils to register with factory 
   `uvm_component_utils(peripheral_uvm_driver)
+
   uvm_analysis_port #(peripheral_uvm_transaction) driver2rm_port;
 
   // Method name : new 
@@ -23,8 +22,9 @@ class peripheral_uvm_driver extends uvm_driver #(peripheral_uvm_transaction);
   // Description : construct the components 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if (!uvm_config_db#(virtual peripheral_uvm_interface)::get(this, "", "intf", vif))
+    if (!uvm_config_db#(virtual peripheral_uvm_interface)::get(this, "", "intf", vif)) begin
       `uvm_fatal("NO_VIF", {"virtual interface must be set for: ", get_full_name(), ".vif"});
+    end
     driver2rm_port = new("driver2rm_port", this);
   endfunction : build_phase
 
@@ -63,7 +63,4 @@ class peripheral_uvm_driver extends uvm_driver #(peripheral_uvm_transaction);
     vif.dr_cb.y   <= 0;
     vif.dr_cb.cin <= 0;
   endtask
-
 endclass : peripheral_uvm_driver
-
-`endif

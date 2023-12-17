@@ -1,8 +1,5 @@
-`ifndef PERIPHERAL_UVM_REFERENCE_MODEL
-`define PERIPHERAL_UVM_REFERENCE_MODEL
-
 class peripheral_uvm_reference_model extends uvm_component;
-
+  // Declaration of component utils
   `uvm_component_utils(peripheral_uvm_reference_model)
 
   // Declaration of Local Signals 
@@ -50,7 +47,4 @@ class peripheral_uvm_reference_model extends uvm_component;
     {exp_transaction.cout, exp_transaction.sum} = exp_transaction.x + exp_transaction.y + exp_transaction.cin;
     rm2scoreboard_port.write(exp_transaction);
   endtask
-
 endclass
-
-`endif
