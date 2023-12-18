@@ -2,7 +2,7 @@ class peripheral_uvm_coverage #(type T = peripheral_uvm_transaction) extends uvm
   // Declaration of Local fields
   peripheral_uvm_transaction cov_transaction;
 
-  // Declaration of component utils to register with factory 
+  // Declaration of component utils to register with factory
   `uvm_component_utils(peripheral_uvm_coverage)
 
   // functional coverage: covergroup for peripheral_adder

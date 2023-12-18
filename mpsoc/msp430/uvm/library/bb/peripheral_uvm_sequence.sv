@@ -1,5 +1,5 @@
 class peripheral_uvm_sequence extends uvm_sequence #(peripheral_uvm_transaction);
-  // Declaration of Sequence utils
+  // Declaration of component utils to register with factory
   `uvm_object_utils(peripheral_uvm_sequence)
 
   // Method name : new
@@ -8,7 +8,7 @@ class peripheral_uvm_sequence extends uvm_sequence #(peripheral_uvm_transaction)
     super.new(name);
   endfunction
 
-  // Method name : body 
+  // Method name : body
   // Description : Body of sequence to send randomized transaction through
   // sequencer to driver
   virtual task body();

@@ -1,8 +1,8 @@
 class peripheral_uvm_reference_model extends uvm_component;
-  // Declaration of component utils
+  // Declaration of component utils to register with factory
   `uvm_component_utils(peripheral_uvm_reference_model)
 
-  // Declaration of Local Signals 
+  // Declaration of Local Signals
   uvm_analysis_export #(peripheral_uvm_transaction)   rm_export;
   uvm_analysis_port #(peripheral_uvm_transaction)     rm2scoreboard_port;
   peripheral_uvm_transaction                          exp_transaction,    rm_transaction;
@@ -13,7 +13,7 @@ class peripheral_uvm_reference_model extends uvm_component;
     super.new(name, parent);
   endfunction
 
-  // Method name : build-phase 
+  // Method name : build-phase
   // Description : construct the components such as.. driver, monitor, sequencer..etc
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
@@ -22,14 +22,14 @@ class peripheral_uvm_reference_model extends uvm_component;
     rm_exp_fifo        = new("rm_exp_fifo", this);
   endfunction : build_phase
 
-  // Method name : connect_phase 
-  // Description : connect tlm ports ande exports (ex: analysis port/exports) 
+  // Method name : connect_phase
+  // Description : connect tlm ports ande exports (ex: analysis port/exports)
   function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
     rm_export.connect(rm_exp_fifo.analysis_export);
   endfunction : connect_phase
 
-  // Method name : run 
+  // Method name : run
   // Description : Driving the dut inputs
   task run_phase(uvm_phase phase);
     forever begin
@@ -38,8 +38,8 @@ class peripheral_uvm_reference_model extends uvm_component;
     end
   endtask
 
-  // Method name : get_expected_transaction 
-  // Description : Expected transaction 
+  // Method name : get_expected_transaction
+  // Description : Expected transaction
   task get_expected_transaction(peripheral_uvm_transaction rm_transaction);
     this.exp_transaction = rm_transaction;
     `uvm_info(get_full_name(), $sformatf("EXPECTED TRANSACTION FROM REF MODEL"), UVM_LOW);

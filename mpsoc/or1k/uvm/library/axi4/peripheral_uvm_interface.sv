@@ -10,7 +10,7 @@ interface peripheral_uvm_interface (
   logic [3:0] sum;
   logic       cout;
 
-  // clocking block and modport declaration for driver 
+  // clocking block and modport declaration for driver
   clocking dr_cb @(posedge clk);
     output x;
     output y;
@@ -21,7 +21,7 @@ interface peripheral_uvm_interface (
 
   modport DRV(clocking dr_cb, input clk, reset);
 
-  // clocking block and modport declaration for monitor 
+  // clocking block and modport declaration for monitor
   clocking rc_cb @(negedge clk);
     input x;
     input y;

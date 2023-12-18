@@ -1,8 +1,8 @@
 class peripheral_uvm_scoreboard extends uvm_scoreboard;
-  // Declaration of component utils
+  // Declaration of component utils to register with factory
   `uvm_component_utils(peripheral_uvm_scoreboard)
 
-  // Declaration of Analysis ports and exports 
+  // Declaration of Analysis ports and exports
   uvm_analysis_export #(peripheral_uvm_transaction)   rm2scoreboard_export,          monitor2scoreboard_export;
   uvm_tlm_analysis_fifo #(peripheral_uvm_transaction) rm2scoreboard_export_fifo,     monitor2scoreboard_export_fifo;
   peripheral_uvm_transaction                          exp_transaction,               act_transaction;
@@ -10,13 +10,13 @@ class peripheral_uvm_scoreboard extends uvm_scoreboard;
   bit                                                 error;
 
   // Method name : new
-  // Description : Constructor 
+  // Description : Constructor
   function new(string name, uvm_component parent);
     super.new(name, parent);
   endfunction : new
 
-  // Method name : build phase 
-  // Description : Constructor 
+  // Method name : build phase
+  // Description : Constructor
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     rm2scoreboard_export           = new("rm2scoreboard_export", this);
@@ -25,15 +25,15 @@ class peripheral_uvm_scoreboard extends uvm_scoreboard;
     monitor2scoreboard_export_fifo = new("monitor2scoreboard_export_fifo", this);
   endfunction : build_phase
 
-  // Method name : build phase 
-  // Description : Constructor 
+  // Method name : build phase
+  // Description : Constructor
   function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
     rm2scoreboard_export.connect(rm2scoreboard_export_fifo.analysis_export);
     monitor2scoreboard_export.connect(monitor2scoreboard_export_fifo.analysis_export);
   endfunction : connect_phase
 
-  // Method name : run 
+  // Method name : run
   // Description : comparing peripheral_adder expected and actual transactions
   virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
@@ -48,7 +48,7 @@ class peripheral_uvm_scoreboard extends uvm_scoreboard;
     end
   endtask
 
-  // Method name : compare_trans 
+  // Method name : compare_trans
   // Description : comparing peripheral_adder expected and actual transactions
   task compare_trans();
     peripheral_uvm_transaction exp_transaction, act_transaction;
@@ -74,7 +74,7 @@ class peripheral_uvm_scoreboard extends uvm_scoreboard;
     end
   endtask
 
-  // Method name : report 
+  // Method name : report
   // Description : Report the testcase status PASS/FAIL
   function void report_phase(uvm_phase phase);
     if (error == 0) begin

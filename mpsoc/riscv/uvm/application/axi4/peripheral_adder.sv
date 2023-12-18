@@ -10,34 +10,34 @@ module peripheral_adder (
   wire c1, c2, c3;
 
   peripheral_full_adder fa1 (
-    x[0],
-    y[0],
-    cin,
-    sum[0],
-    c1
+    .x(x[0]),
+    .y(y[0]),
+    .cin(cin),
+    .s(sum[0]),
+    .cout(c1)
   );
 
   peripheral_full_adder fa2 (
-    x[1],
-    y[1],
-    c1,
-    sum[1],
-    c2
+    .x(x[1]),
+    .y(y[1]),
+    .cin(c1),
+    .s(sum[1]),
+    .cout(c2)
   );
 
   peripheral_full_adder fa3 (
-    x[2],
-    y[2],
-    c2,
-    sum[2],
-    c3
+    .x(x[2]),
+    .y(y[2]),
+    .cin(c2),
+    .s(sum[2]),
+    .cout(c3)
   );
 
   peripheral_full_adder fa4 (
-    x[3],
-    y[3],
-    c3,
-    sum[3],
-    cout
+    .x(x[3]),
+    .y(y[3]),
+    .cin(c3),
+    .s(sum[3]),
+    .cout(cout)
   );
 endmodule

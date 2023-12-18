@@ -2,16 +2,16 @@ class peripheral_uvm_monitor extends uvm_monitor;
   // Declaration of Virtual interface
   virtual peripheral_uvm_interface                vif;
 
-  // Declaration of Analysis ports and exports 
+  // Declaration of Analysis ports and exports
   uvm_analysis_port #(peripheral_uvm_transaction) monitor2scoreboard_port;
 
-  // Declaration of transaction item 
+  // Declaration of transaction item
   peripheral_uvm_transaction                      act_transaction;
 
-  // Declaration of component utils
+  // Declaration of component utils to register with factory
   `uvm_component_utils(peripheral_uvm_monitor)
 
-  // Method name : new 
+  // Method name : new
   // Description : constructor
   function new(string name, uvm_component parent);
     super.new(name, parent);
@@ -19,7 +19,7 @@ class peripheral_uvm_monitor extends uvm_monitor;
     monitor2scoreboard_port = new("monitor2scoreboard_port", this);
   endfunction : new
 
-  // Method name : build_phase 
+  // Method name : build_phase
   // Description : construct the components
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
@@ -28,8 +28,8 @@ class peripheral_uvm_monitor extends uvm_monitor;
     end
   endfunction : build_phase
 
-  // Method name : run_phase 
-  // Description : Extract the info from DUT via interface 
+  // Method name : run_phase
+  // Description : Extract the info from DUT via interface
   virtual task run_phase(uvm_phase phase);
     forever begin
       collect_trans();
@@ -37,7 +37,7 @@ class peripheral_uvm_monitor extends uvm_monitor;
     end
   endtask : run_phase
 
-  // Method name : collect_actual_trans 
+  // Method name : collect_actual_trans
   // Description : run task for collecting peripheral_adder transactions
   task collect_trans();
     wait (!vif.reset);

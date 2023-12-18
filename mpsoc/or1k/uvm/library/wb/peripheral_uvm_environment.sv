@@ -11,13 +11,13 @@ class peripheral_uvm_entironment extends uvm_env;
   // Declaration of component utils to register with factory
   `uvm_component_utils(peripheral_uvm_entironment)
 
-  // Method name : new 
+  // Method name : new
   // Description : constructor
   function new(string name, uvm_component parent);
     super.new(name, parent);
   endfunction : new
 
-  // Method name : build_phase 
+  // Method name : build_phase
   // Description : constructor
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
@@ -27,7 +27,7 @@ class peripheral_uvm_entironment extends uvm_env;
     scoreboard          = peripheral_uvm_scoreboard::type_id::create("scoreboard", this);
   endfunction : build_phase
 
-  // Method name : build_phase 
+  // Method name : build_phase
   // Description : constructor
   function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);

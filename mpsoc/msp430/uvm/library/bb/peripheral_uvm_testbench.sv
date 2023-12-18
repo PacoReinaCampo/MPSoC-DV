@@ -21,7 +21,7 @@ module peripheral_uvm_testbench;
     forever #(cycle / 2) clk = ~clk;
   end
 
-  // reset Generation : change may required while generating reset for 
+  // reset Generation : change may required while generating reset for
   //                    synchronous/Asynchronous or Active low/Active high
   initial begin
     reset = 1;
@@ -34,8 +34,8 @@ module peripheral_uvm_testbench;
     reset
   );
 
-  // peripheral_adder DUT Instantation 
-  peripheral_adder dut_inst (
+  // peripheral_adder DUT Instantation
+  peripheral_adder dut_instantiation (
     .x   (peripheral_uvm_intf.x),
     .y   (peripheral_uvm_intf.y),
     .cin (peripheral_uvm_intf.cin),
