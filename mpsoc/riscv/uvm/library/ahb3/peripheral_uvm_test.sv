@@ -2,8 +2,8 @@ class peripheral_uvm_test extends uvm_test;
   // Declaration of component utils to register with factory
   `uvm_component_utils(peripheral_uvm_test)
 
-  peripheral_uvm_entironment    env;
-  peripheral_uvm_sequence seq;
+  peripheral_uvm_entironment env;
+  peripheral_uvm_sequence    seq;
 
   // Method name : new
   // Decription: Constructor 

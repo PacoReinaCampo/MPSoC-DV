@@ -21,10 +21,10 @@ class peripheral_uvm_entironment extends uvm_env;
   // Description : constructor
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    agent = peripheral_uvm_agent::type_id::create("peripheral_uvm_agent", this);
-    reference_model     = peripheral_uvm_reference_model::type_id::create("reference_model", this);
-    coverage            = peripheral_uvm_coverage#(peripheral_uvm_transaction)::type_id::create("coverage", this);
-    scoreboard          = peripheral_uvm_scoreboard::type_id::create("scoreboard", this);
+    agent           = peripheral_uvm_agent::type_id::create("agent", this);
+    reference_model = peripheral_uvm_reference_model::type_id::create("reference_model", this);
+    coverage        = peripheral_uvm_coverage#(peripheral_uvm_transaction)::type_id::create("coverage", this);
+    scoreboard      = peripheral_uvm_scoreboard::type_id::create("scoreboard", this);
   endfunction : build_phase
 
   // Method name : build_phase

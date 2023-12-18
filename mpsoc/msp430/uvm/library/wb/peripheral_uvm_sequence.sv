@@ -10,7 +10,7 @@ class peripheral_uvm_sequence extends uvm_sequence #(peripheral_uvm_transaction)
 
   // Method name : body
   // Description : Body of sequence to send randomized transaction through
-  // sequencer to driver
+  // Sequencer to driver
   virtual task body();
     for (int i = 0; i < 20000; i++) begin
       req = peripheral_uvm_transaction::type_id::create("req");

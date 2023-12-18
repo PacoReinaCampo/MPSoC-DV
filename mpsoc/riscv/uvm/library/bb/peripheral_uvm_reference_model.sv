@@ -5,16 +5,17 @@ class peripheral_uvm_reference_model extends uvm_component;
   // Declaration of Local Signals
   uvm_analysis_export #(peripheral_uvm_transaction)   rm_export;
   uvm_analysis_port #(peripheral_uvm_transaction)     rm2scoreboard_port;
-  peripheral_uvm_transaction                          exp_transaction,    rm_transaction;
+  peripheral_uvm_transaction                          exp_transaction;
+  peripheral_uvm_transaction                          rm_transaction;
   uvm_tlm_analysis_fifo #(peripheral_uvm_transaction) rm_exp_fifo;
 
-  // constructor
+  // Constructor
   function new(string name = "peripheral_uvm_reference_model", uvm_component parent);
     super.new(name, parent);
   endfunction
 
   // Method name : build-phase
-  // Description : construct the components such as.. driver, monitor, sequencer..etc
+  // Description : construct the components: driver, monitor, sequencer
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     rm_export          = new("rm_export", this);

@@ -1,3 +1,4 @@
+// Adder RTL verified with UVM
 `include "uvm_macros.svh"
 import uvm_pkg::*;
 
@@ -15,26 +16,26 @@ module peripheral_uvm_testbench;
   bit clk;
   bit reset;
 
-  // clock generation
+  // Clock generation
   initial begin
     clk = 0;
     forever #(cycle / 2) clk = ~clk;
   end
 
-  // reset Generation : change may required while generating reset for
-  //                    synchronous/Asynchronous or Active low/Active high
+  // Reset Generation
+  // Change may required while generating reset for synchronous/Asynchronous or Active low/Active high
   initial begin
     reset = 1;
     #(cycle * 5) reset = 0;
   end
 
-  // creatinng instance of interface, inorder to connect DUT and testcase
+  // Creatinng instance of interface, in order to connect DUT and testcase
   peripheral_uvm_interface peripheral_uvm_intf (
     clk,
     reset
   );
 
-  // peripheral_adder DUT Instantation
+  // Peripheral_adder DUT Instantation
   peripheral_adder dut_instantiation (
     .x   (peripheral_uvm_intf.x),
     .y   (peripheral_uvm_intf.y),
@@ -43,7 +44,7 @@ module peripheral_uvm_testbench;
     .cout(peripheral_uvm_intf.cout)
   );
 
-  // starting the execution uvm phases
+  // Starting the execution uvm phases
   initial begin
     run_test();
   end

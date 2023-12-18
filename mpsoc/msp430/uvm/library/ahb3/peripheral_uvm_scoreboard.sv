@@ -3,11 +3,16 @@ class peripheral_uvm_scoreboard extends uvm_scoreboard;
   `uvm_component_utils(peripheral_uvm_scoreboard)
 
   // Declaration of Analysis ports and exports
-  uvm_analysis_export #(peripheral_uvm_transaction)   rm2scoreboard_export,          monitor2scoreboard_export;
-  uvm_tlm_analysis_fifo #(peripheral_uvm_transaction) rm2scoreboard_export_fifo,     monitor2scoreboard_export_fifo;
-  peripheral_uvm_transaction                          exp_transaction,               act_transaction;
-  peripheral_uvm_transaction                          exp_trans_fifo            [$], act_trans_fifo                 [$];
-  bit                                                 error;
+  uvm_analysis_export #(peripheral_uvm_transaction)   rm2scoreboard_export;
+  uvm_analysis_export #(peripheral_uvm_transaction)   monitor2scoreboard_export;
+  uvm_tlm_analysis_fifo #(peripheral_uvm_transaction) rm2scoreboard_export_fifo;
+  uvm_tlm_analysis_fifo #(peripheral_uvm_transaction) monitor2scoreboard_export_fifo;
+  peripheral_uvm_transaction                          exp_transaction;
+  peripheral_uvm_transaction                          act_transaction;
+  peripheral_uvm_transaction                          exp_trans_fifo [$];
+  peripheral_uvm_transaction                          act_trans_fifo [$];
+
+  bit error;
 
   // Method name : new
   // Description : Constructor
@@ -61,13 +66,14 @@ class peripheral_uvm_scoreboard extends uvm_scoreboard;
         if (exp_transaction.sum == act_transaction.sum) begin
           `uvm_info(get_full_name(), $sformatf("SUM MATCHES"), UVM_LOW);
         end else begin
-          `uvm_error(get_full_name(), $sformatf("SUM MIS-MATCHES"));
+          `uvm_error(get_full_name(), $sformatf("SUM DIS-MATCHES"));
           error = 1;
         end
+
         if (exp_transaction.cout == act_transaction.cout) begin
           `uvm_info(get_full_name(), $sformatf("COUT MATCHES"), UVM_LOW);
         end else begin
-          `uvm_error(get_full_name(), $sformatf("COUT MIS-MATCHES"));
+          `uvm_error(get_full_name(), $sformatf("COUT DIS-MATCHES"));
           error = 1;
         end
       end

@@ -3,7 +3,7 @@
 `include "peripheral_uvm_sequencer.sv"
 
 class peripheral_uvm_agent extends uvm_agent;
-  // Declaration of UVC components such as.. driver, monitor, sequencer
+  // Declaration of UVC components: driver, monitor, sequencer
   peripheral_uvm_driver    driver;
   peripheral_uvm_sequencer sequencer;
   peripheral_uvm_monitor   monitor;
@@ -18,7 +18,7 @@ class peripheral_uvm_agent extends uvm_agent;
   endfunction : new
 
   // Method name : build-phase
-  // Description : construct the components such as.. driver, monitor, sequencer
+  // Description : construct the components: driver, monitor, sequencer
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     driver    = peripheral_uvm_driver::type_id::create("driver", this);
