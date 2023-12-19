@@ -75,7 +75,7 @@ class ntm_uvm_scoreboard extends uvm_scoreboard;
         if (scoreboard_item.ip1 + scoreboard_item.ip2 == scoreboard_item.out) begin
           `uvm_info(get_type_name, $sformatf("Matched: ip1 = %0d, ip2 = %0d, out = %0d", scoreboard_item.ip1, scoreboard_item.ip2, scoreboard_item.out), UVM_LOW);
         end else begin
-          `uvm_error(get_name, $sformatf("NOT matched: ip1 = %0d, ip2 = %0d, out = %0d", scoreboard_item.ip1, scoreboard_item.ip2, scoreboard_item.out));
+          `uvm_error(get_name, $sformatf("Dis-Matched: ip1 = %0d, ip2 = %0d, out = %0d", scoreboard_item.ip1, scoreboard_item.ip2, scoreboard_item.out));
         end
         $display("----------------------------------------------------------------------------------------------------------");
       end
