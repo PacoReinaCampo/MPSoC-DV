@@ -42,11 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
--i ../../library/core
--i ../../library/example
--i ../../library/master
--i ../../library/slave
+sv work ../../application/peripheral_design.sv
 
--i ../../application
-
-../../library/core/peripheral_uvm_testbench.sv
+sv work ../../library/peripheral_uvm_testbench.sv

@@ -1,7 +1,6 @@
 `define PERIPHERAL_UVM_ADDR_WIDTH 16
 
 `include "peripheral_uvm_pkg.sv"
-`include "peripheral_design.sv"
 `include "peripheral_uvm_if.sv"
 
 module peripheral_uvm_testbench;

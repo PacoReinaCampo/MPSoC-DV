@@ -71,9 +71,8 @@ class ntm_uvm_agent extends uvm_agent;
 
   // Connect phase
   function void connect_phase(uvm_phase phase);
+    // Connecting the driver and sequencer port
     if (get_is_active == UVM_ACTIVE) begin
-
-      // Connecting the driver and sequencer port
       driver.seq_item_port.connect(sequencer.seq_item_export);
     end
   endfunction
