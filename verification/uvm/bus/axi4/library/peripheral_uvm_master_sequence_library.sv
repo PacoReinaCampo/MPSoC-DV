@@ -54,7 +54,7 @@ class read_byte_seq extends ubus_base_sequence;
 
   virtual task body();
     `uvm_do_with(req,
-                 { req.addr == start_addr;
+      { req.addr == start_addr;
         req.read_write == READ;
         req.size == 1;
         req.error_pos == 1000;
@@ -116,7 +116,7 @@ class read_word_seq extends ubus_base_sequence;
 
   virtual task body();
     `uvm_do_with(req,
-                 { req.addr == start_addr;
+      { req.addr == start_addr;
         req.read_write == READ;
         req.size == 4;
         req.error_pos == 1000;
@@ -147,7 +147,7 @@ class read_double_word_seq extends ubus_base_sequence;
 
   virtual task body();
     `uvm_do_with(req,
-                 { req.addr == start_addr;
+      { req.addr == start_addr;
         req.read_write == READ;
         req.size == 8;
         req.error_pos == 1000;

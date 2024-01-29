@@ -36,7 +36,9 @@ class peripheral_uvm_example_scoreboard extends uvm_scoreboard;
 
   // write
   virtual function void write(peripheral_uvm_transfer trans);
-    if (!disable_scoreboard) memory_verify(trans);
+    if (!disable_scoreboard) begin
+      memory_verify(trans);
+    end
   endfunction : write
 
   // memory_verify
@@ -69,8 +71,11 @@ class peripheral_uvm_example_scoreboard extends uvm_scoreboard;
         data = trans.data[i];
         `uvm_info(get_type_name(), $sformatf("%s to empty address...Updating address : %0h with data : %0h", trans.read_write.name(), trans.addr + i, data), UVM_LOW)
         m_mem_expected[trans.addr + i] = trans.data[i];
-        if (trans.read_write == READ) num_uninit_reads++;
-        else if (trans.read_write == WRITE) num_writes++;
+        if (trans.read_write == READ) begin
+          num_uninit_reads++;
+        end else if (trans.read_write == WRITE) begin
+          num_writes++;
+        end
       end
     end
   endfunction : memory_verify

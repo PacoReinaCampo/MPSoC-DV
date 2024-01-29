@@ -24,8 +24,9 @@ class peripheral_uvm_master_driver extends uvm_driver #(peripheral_uvm_transfer)
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if (!uvm_config_db#(virtual peripheral_uvm_if)::get(this, "", "vif", vif))
+    if (!uvm_config_db#(virtual peripheral_uvm_if)::get(this, "", "vif", vif)) begin
       `uvm_fatal("NOVIF", {"virtual interface must be set for: ", get_full_name(), ".vif"});
+    end
   endfunction : build_phase
 
   // run phase
@@ -98,8 +99,11 @@ class peripheral_uvm_master_driver extends uvm_driver #(peripheral_uvm_transfer)
   virtual protected task drive_data_phase(peripheral_uvm_transfer trans);
     bit err;
     for (int i = 0; i <= trans.size - 1; i++) begin
-      if (i == (trans.size - 1)) vif.sig_bip <= 0;
-      else vif.sig_bip <= 1;
+      if (i == (trans.size - 1)) begin
+        vif.sig_bip <= 0;
+      end else begin
+        vif.sig_bip <= 1;
+      end
       case (trans.read_write)
         READ:  read_byte(trans.data[i], err);
         WRITE: write_byte(trans.data[i], err);

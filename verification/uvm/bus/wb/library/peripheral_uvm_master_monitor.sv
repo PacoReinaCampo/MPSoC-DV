@@ -98,13 +98,19 @@ class peripheral_uvm_master_monitor extends uvm_monitor;
   virtual protected task collect_transactions();
     forever begin
       @(posedge vif.sig_clock);
-      if (m_parent != null) trans_collected.master = m_parent.get_name();
+      if (m_parent != null) begin
+        trans_collected.master = m_parent.get_name();
+      end
       collect_arbitration_phase();
       collect_address_phase();
       collect_data_phase();
       `uvm_info(get_full_name(), $sformatf("Transfer collected :\n%s", trans_collected.sprint()), UVM_MEDIUM)
-      if (checks_enable) perform_transfer_checks();
-      if (coverage_enable) perform_transfer_coverage();
+      if (checks_enable) begin
+        perform_transfer_checks();
+      end
+      if (coverage_enable) begin
+        perform_transfer_coverage();
+      end
       item_collected_port.write(trans_collected);
     end
   endtask : collect_transactions
@@ -139,11 +145,12 @@ class peripheral_uvm_master_monitor extends uvm_monitor;
   // collect_data_phase
   virtual protected task collect_data_phase();
     int i;
-    if (trans_collected.read_write != NOP)
+    if (trans_collected.read_write != NOP) begin
       for (i = 0; i < trans_collected.size; i++) begin
         @(posedge vif.sig_clock iff vif.sig_wait === 0);
         trans_collected.data[i] = vif.sig_data;
       end
+    end
     this.end_tr(trans_collected);
   endtask : collect_data_phase
 
@@ -164,7 +171,9 @@ class peripheral_uvm_master_monitor extends uvm_monitor;
 
   // check_transfer_data_size
   virtual protected function void check_transfer_data_size();
-    if (trans_collected.size != trans_collected.data.size()) `uvm_error(get_type_name(), "Transfer size field / data size mismatch.")
+    if (trans_collected.size != trans_collected.data.size()) begin
+      `uvm_error(get_type_name(), "Transfer size field / data size mismatch.")
+    end
   endfunction : check_transfer_data_size
 
   // perform_transfer_coverage

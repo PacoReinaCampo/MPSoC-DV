@@ -8,7 +8,8 @@ module peripheral_uvm_testbench;
   import peripheral_uvm_pkg::*;
   `include "peripheral_uvm_test_library.sv"
 
-peripheral_uvm_if vif ();  // SystemVerilog Interface
+  // SystemVerilog Interface
+  peripheral_uvm_if vif ();
 
   peripheral_design dut (
     vif.sig_request[0],
@@ -29,17 +30,31 @@ peripheral_uvm_if vif ();  // SystemVerilog Interface
   );
 
   initial begin
+    // Passing the interface handle to lower heirarchy using set method
     uvm_config_db#(virtual peripheral_uvm_if)::set(uvm_root::get(), "*", "vif", vif);
+
+    // Enable wave dump
+    $dumpfile("dump.vcd");
+    $dumpvars(0);
+  end
+
+  // Calling TestCase
+  initial begin
     run_test();
   end
 
+  // Generate Reset
   initial begin
     vif.sig_reset <= 1'b1;
-    vif.sig_clock <= 1'b1;
-    #51 vif.sig_reset = 1'b0;
+    #51;
+    vif.sig_reset <= 1'b0;
   end
 
   // Generate Clock
   always #5 vif.sig_clock = ~vif.sig_clock;
+
+  initial begin
+    vif.sig_clock <= 1'b1;
+  end
 
 endmodule

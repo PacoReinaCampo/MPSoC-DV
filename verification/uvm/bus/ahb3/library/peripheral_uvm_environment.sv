@@ -43,8 +43,9 @@ class peripheral_uvm_environment extends uvm_env;
     string inst_name;
     // set_phase_domain("uvm");
     super.build_phase(phase);
-     if(!uvm_config_db#(virtual peripheral_uvm_if)::get(this, "", "vif", vif))
+     if(!uvm_config_db#(virtual peripheral_uvm_if)::get(this, "", "vif", vif)) begin
        `uvm_fatal("NOVIF",{"virtual interface must be set for: ",get_full_name(),".vif"});
+     end
      
     if(has_bus_monitor == 1) begin
       bus_monitor = peripheral_uvm_bus_monitor::type_id::create("bus_monitor", this);

@@ -10,13 +10,13 @@ interface peripheral_uvm_if;
   logic       [15:0] sig_request;
   logic       [15:0] sig_grant;
   logic       [15:0] sig_addr;
-  logic        [1:0] sig_size;
+  logic       [ 1:0] sig_size;
   logic              sig_read;
   logic              sig_write;
   logic              sig_start;
   logic              sig_bip;
-  wire logic   [7:0] sig_data;
-  logic        [7:0] sig_data_out;
+  wire logic  [ 7:0] sig_data;
+  logic       [ 7:0] sig_data_out;
   logic              sig_wait;
   logic              sig_error;
 

@@ -164,8 +164,9 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
   endfunction : set_slave_configs
 
   function void build_phase(uvm_phase phase);
-    if (!uvm_config_db#(virtual peripheral_uvm_if)::get(this, "", "vif", vif))
+    if (!uvm_config_db#(virtual peripheral_uvm_if)::get(this, "", "vif", vif)) begin
       `uvm_fatal("NOVIF", {"virtual interface must be set for: ", get_full_name(), ".vif"});
+    end
   endfunction : build_phase
 
   // run phase
@@ -199,8 +200,12 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
       collect_address_phase();
       collect_data_phase();
       `uvm_info(get_type_name(), $sformatf("Transfer collected :\n%s", trans_collected.sprint()), UVM_HIGH)
-      if (checks_enable) perform_transfer_checks();
-      if (coverage_enable) perform_transfer_coverage();
+      if (checks_enable) begin
+        perform_transfer_checks();
+      end
+      if (coverage_enable) begin
+        perform_transfer_coverage();
+      end
       item_collected_port.write(trans_collected);
     end
   endtask : collect_transactions
@@ -287,7 +292,9 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
           trans_collected.slave = slave_name;
           slave_found           = 1'b1;
         end
-        if (slave_found == 1'b1) break;
+        if (slave_found == 1'b1) begin
+          break;
+        end
       end while (slave_addr_map.next(
         slave_name
       ));
@@ -316,7 +323,9 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
 
   // check_transfer_data_size
   function void check_transfer_data_size();
-    if (trans_collected.size != trans_collected.data.size()) `uvm_error(get_type_name(), "Transfer size field / data size mismatch.")
+    if (trans_collected.size != trans_collected.data.size()) begin
+      `uvm_error(get_type_name(), "Transfer size field / data size mismatch.")
+    end
   endfunction : check_transfer_data_size
 
   // perform_transfer_coverage

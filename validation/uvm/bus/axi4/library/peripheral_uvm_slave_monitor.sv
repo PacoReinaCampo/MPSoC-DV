@@ -93,8 +93,9 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
   endfunction : new
 
   function void build_phase(uvm_phase phase);
-    if (!uvm_config_db#(virtual peripheral_uvm_if)::get(this, "", "vif", vif))
+    if (!uvm_config_db#(virtual peripheral_uvm_if)::get(this, "", "vif", vif)) begin
       `uvm_fatal("NOVIF", {"virtual interface must be set for: ", get_full_name(), ".vif"});
+    end
   endfunction : build_phase
 
   // set the monitor's address range
@@ -124,7 +125,9 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
   virtual protected task collect_transactions();
     bit range_check;
     forever begin
-      if (m_parent != null) trans_collected.slave = m_parent.get_name();
+      if (m_parent != null) begin
+        trans_collected.slave = m_parent.get_name();
+      end
       collect_address_phase();
       range_check = check_addr_range();
       if (range_check) begin
@@ -132,8 +135,12 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
         ->address_phase_grabbed;
         collect_data_phase();
         `uvm_info(get_type_name(), $sformatf("Transfer collected :\n%s", trans_collected.sprint()), UVM_FULL)
-        if (checks_enable) perform_transfer_checks();
-        if (coverage_enable) perform_transfer_coverage();
+        if (checks_enable) begin
+          perform_transfer_checks();
+        end
+        if (coverage_enable) begin
+          perform_transfer_coverage();
+        end
         item_collected_port.write(trans_collected);
       end
     end
@@ -195,7 +202,9 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
 
   // check_transfer_data_size
   protected function void check_transfer_data_size();
-    if (trans_collected.size != trans_collected.data.size()) `uvm_error(get_type_name(), "Transfer size field / data size mismatch.")
+    if (trans_collected.size != trans_collected.data.size()) begin
+      `uvm_error(get_type_name(), "Transfer size field / data size mismatch.")
+    end
   endfunction : check_transfer_data_size
 
   // perform_transfer_coverage

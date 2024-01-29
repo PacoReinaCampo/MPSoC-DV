@@ -26,7 +26,9 @@ class peripheral_uvm_example_base_test extends uvm_test;
 
   function void end_of_elaboration_phase(uvm_phase phase);
     // Set verbosity for the bus monitor for this demo
-    if (peripheral_uvm_example_testbench0.ubus0.bus_monitor != null) peripheral_uvm_example_testbench0.ubus0.bus_monitor.set_report_verbosity_level(UVM_FULL);
+    if (peripheral_uvm_example_testbench0.ubus0.bus_monitor != null) begin
+      peripheral_uvm_example_testbench0.ubus0.bus_monitor.set_report_verbosity_level(UVM_FULL);
+    end
     `uvm_info(get_type_name(), $sformatf("Printing the test topology :\n%s", this.sprint(printer)), UVM_LOW)
   endfunction : end_of_elaboration_phase
 
@@ -36,7 +38,9 @@ class peripheral_uvm_example_base_test extends uvm_test;
   endtask : run_phase
 
   function void extract_phase(uvm_phase phase);
-    if (peripheral_uvm_example_testbench0.scoreboard0.sbd_error) test_pass = 1'b0;
+    if (peripheral_uvm_example_testbench0.scoreboard0.sbd_error) begin
+      test_pass = 1'b0;
+    end
   endfunction  // void
 
   function void report_phase(uvm_phase phase);
