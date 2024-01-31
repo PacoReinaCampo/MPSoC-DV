@@ -32,9 +32,9 @@ class peripheral_uvm_slave_driver extends uvm_driver #(peripheral_uvm_transfer);
 
   // get_and_drive
   virtual protected task get_and_drive();
-    @(negedge vif.sig_reset);
+    @(negedge vif.aresetn);
     forever begin
-      @(posedge vif.sig_clock);
+      @(posedge vif.aclk);
       seq_item_port.get_next_item(req);
       respond_to_transfer(req);
       seq_item_port.item_done();
@@ -44,7 +44,7 @@ class peripheral_uvm_slave_driver extends uvm_driver #(peripheral_uvm_transfer);
   // reset_signals
   virtual protected task reset_signals();
     forever begin
-      @(posedge vif.sig_reset);
+      @(posedge vif.aresetn);
       vif.sig_error <= 1'bz;
       vif.sig_wait  <= 1'bz;
       vif.rw        <= 1'b0;
@@ -58,19 +58,19 @@ class peripheral_uvm_slave_driver extends uvm_driver #(peripheral_uvm_transfer);
       for (int i = 0; i < resp.size; i++) begin
         case (resp.read_write)
           READ: begin
-            vif.rw           <= 1'b1;
-            vif.sig_data_out <= resp.data[i];
+            vif.rw    <= 1'b1;
+            vif.rdata <= resp.data[i];
           end
           WRITE: begin
           end
         endcase
         if (resp.wait_state[i] > 0) begin
           vif.sig_wait <= 1'b1;
-          repeat (resp.wait_state[i]) @(posedge vif.sig_clock);
+          repeat (resp.wait_state[i]) @(posedge vif.aclk);
         end
         vif.sig_wait <= 1'b0;
-        @(posedge vif.sig_clock);
-        resp.data[i] = vif.sig_data;
+        @(posedge vif.aclk);
+        resp.data[i] = vif.wrdata;
       end
       vif.rw        <= 1'b0;
       vif.sig_wait  <= 1'bz;

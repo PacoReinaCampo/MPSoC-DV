@@ -70,7 +70,7 @@ class peripheral_uvm_slave_driver extends uvm_driver #(peripheral_uvm_transfer);
         end
         vif.sig_wait <= 1'b0;
         @(posedge vif.sig_clock);
-        resp.data[i] = vif.sig_data;
+        resp.data[i] = vif.sig_data_in;
       end
       vif.rw        <= 1'b0;
       vif.sig_wait  <= 1'bz;

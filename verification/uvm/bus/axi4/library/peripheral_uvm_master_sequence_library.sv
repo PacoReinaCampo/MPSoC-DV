@@ -85,7 +85,7 @@ class read_half_word_seq extends ubus_base_sequence;
 
   virtual task body();
     `uvm_do_with(req,
-                 { req.addr == start_addr;
+      { req.addr == start_addr;
         req.read_write == READ;
         req.size == 2;
         req.error_pos == 1000;

@@ -82,8 +82,9 @@ class peripheral_uvm_master_monitor extends uvm_monitor;
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if (!uvm_config_db#(virtual peripheral_uvm_if)::get(this, "", "vif", vif))
+    if (!uvm_config_db#(virtual peripheral_uvm_if)::get(this, "", "vif", vif)) begin
       `uvm_fatal("NOVIF", {"virtual interface must be set for: ", get_full_name(), ".vif"});
+    end
   endfunction : build_phase
 
   // run phase
@@ -117,8 +118,7 @@ class peripheral_uvm_master_monitor extends uvm_monitor;
 
   // collect_arbitration_phase
   virtual protected task collect_arbitration_phase();
-    @(posedge vif.sig_request[master_id]);
-    @(posedge vif.sig_clock iff vif.sig_grant[master_id] === 1);
+    @(posedge vif.sig_clock);
     void'(this.begin_tr(trans_collected));
   endtask : collect_arbitration_phase
 
@@ -148,7 +148,7 @@ class peripheral_uvm_master_monitor extends uvm_monitor;
     if (trans_collected.read_write != NOP) begin
       for (i = 0; i < trans_collected.size; i++) begin
         @(posedge vif.sig_clock iff vif.sig_wait === 0);
-        trans_collected.data[i] = vif.sig_data;
+        trans_collected.data[i] = vif.sig_data_in;
       end
     end
     this.end_tr(trans_collected);

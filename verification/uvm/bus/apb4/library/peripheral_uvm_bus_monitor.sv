@@ -181,12 +181,12 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
   task observe_reset();
     fork
       forever begin
-        @(posedge vif.sig_reset);
+        @(posedge vif.presetn);
         status.bus_state = RST_START;
         state_port.write(status);
       end
       forever begin
-        @(negedge vif.sig_reset);
+        @(negedge vif.presetn);
         status.bus_state = RST_STOP;
         state_port.write(status);
       end
@@ -213,26 +213,23 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
   // collect_arbitration_phase
   task collect_arbitration_phase();
     string tmpStr;
-    @(posedge vif.sig_clock iff (vif.sig_grant != 0));
+    @(posedge vif.pclk);
     status.bus_state = ARBI;
     state_port.write(status);
     void'(this.begin_tr(trans_collected));
     // Check which grant is asserted to determine which master is performing
     // the transfer on the bus.
     for (int j = 0; j <= 15; j++) begin
-      if (vif.sig_grant[j] === 1) begin
-        $sformat(tmpStr, "masters[%0d]", j);
-        trans_collected.master = tmpStr;
-        break;
-      end
+      $sformat(tmpStr, "masters[%0d]", j);
+      trans_collected.master = tmpStr;
     end
   endtask : collect_arbitration_phase
 
   // collect_address_phase
   task collect_address_phase();
-    @(posedge vif.sig_clock);
-    trans_collected.addr = vif.sig_addr;
-    case (vif.sig_size)
+    @(posedge vif.pclk);
+    trans_collected.addr = vif.paddr;
+    case (vif.pstrb)
       2'b00: trans_collected.size = 1;
       2'b01: trans_collected.size = 2;
       2'b10: trans_collected.size = 4;
@@ -240,27 +237,17 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
     endcase
     trans_collected.data = new[trans_collected.size];
     case ({
-      vif.sig_read, vif.sig_write
+      vif.pwrite
     })
-      2'b00: begin
-        trans_collected.read_write = NOP;
-        status.bus_state           = NO_OP;
-        state_port.write(status);
-      end
-      2'b10: begin
+      1'b0: begin
         trans_collected.read_write = READ;
         status.bus_state           = ADDR_PH;
         state_port.write(status);
       end
-      2'b01: begin
+      1'b1: begin
         trans_collected.read_write = WRITE;
         status.bus_state           = ADDR_PH;
         state_port.write(status);
-      end
-      2'b11: begin
-        status.bus_state = ADDR_PH_ERROR;
-        state_port.write(status);
-        if (checks_enable) `uvm_error(get_type_name(), "Read and Write true at the same time")
       end
     endcase
   endtask : collect_address_phase
@@ -273,8 +260,8 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
       for (i = 0; i < trans_collected.size; i++) begin
         status.bus_state = DATA_PH;
         state_port.write(status);
-        @(posedge vif.sig_clock iff vif.sig_wait === 0);
-        trans_collected.data[i] = vif.sig_data;
+        @(posedge vif.pclk iff vif.penable === 0);
+        trans_collected.data[i] = vif.pwdata;
       end
       num_transactions++;
       this.end_tr(trans_collected);

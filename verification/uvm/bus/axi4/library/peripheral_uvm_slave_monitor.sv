@@ -156,7 +156,7 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
 
   // collect_address_phase
   virtual protected task collect_address_phase();
-    @(posedge vif.sig_clock iff ((vif.sig_read === 1) || (vif.sig_write === 1)));
+    @(posedge vif.aclk iff ((vif.sig_read === 1) || (vif.sig_write === 1)));
     trans_collected.addr = vif.sig_addr;
     case (vif.sig_size)
       2'b00: trans_collected.size = 1;
@@ -178,8 +178,8 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
   virtual protected task collect_data_phase();
     if (trans_collected.read_write != NOP) begin
       for (int i = 0; i < trans_collected.size; i++) begin
-        @(posedge vif.sig_clock iff vif.sig_wait === 0);
-        trans_collected.data[i] = vif.sig_data;
+        @(posedge vif.aclk iff vif.sig_wait === 0);
+        trans_collected.data[i] = vif.wrdata;
       end
     end
     this.end_tr(trans_collected);
