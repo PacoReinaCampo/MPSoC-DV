@@ -1,93 +1,40 @@
-module peripheral_design (
-  input  wire        ubus_req_master_0,
-  output reg         ubus_gnt_master_0,
-  input  wire        ubus_req_master_1,
-  output reg         ubus_gnt_master_1,
-  input  wire        ubus_clock,
-  input  wire        ubus_reset,
-  input  wire [15:0] ubus_addr,
-  input  wire [ 1:0] ubus_size,
-  output reg         ubus_read,
-  output reg         ubus_write,
-  output reg         ubus_start,
-  input  wire        ubus_bip,
-  inout  wire [ 7:0] ubus_data,
-  input  wire        ubus_wait,
-  input  wire        ubus_error
+module peripheral_design #(
+  parameter MEMORY_SIZE = 256  // Memory Size
+) (
+  input  wire        mclk,
+  input  wire        rst,
+
+  input  wire [ 1:0] wen,
+  input  wire        cen,
+  input  wire [15:0] addr,
+  input  wire [ 7:0] din,
+  output reg  [ 7:0] dout
 );
 
-  bit [2:0] st;
+  // RAM Memory
 
-  // Basic arbiter, supports two masters, 0 has priority over 1
+  reg  [7:0] memory [0:(MEMORY_SIZE/2)-1];
 
-  always @(posedge ubus_clock or posedge ubus_reset) begin
-    if (ubus_reset) begin
-      ubus_start <= 1'b0;
-      st         <= 3'h0;
-    end else begin
-      case (st)
-        0: begin  // Begin out of Reset
-          ubus_start <= 1'b1;
-          st         <= 3'h3;
-        end
-        3: begin  // Start state
-          ubus_start <= 1'b0;
-          if ((ubus_gnt_master_0 == 0) && (ubus_gnt_master_1 == 0)) begin
-            st <= 3'h4;
-          end else begin
-            st <= 3'h1;
-          end
-        end
-        4: begin  // No-op state
-          ubus_start <= 1'b1;
-          st         <= 3'h3;
-        end
-        1: begin  // Addr state
-          st         <= 3'h2;
-          ubus_start <= 1'b0;
-        end
-        2: begin  // Data state
-          if ((ubus_error == 1) || ((ubus_bip == 0) && (ubus_wait == 0))) begin
-            st         <= 3'h3;
-            ubus_start <= 1'b1;
-          end else begin
-            st         <= 3'h2;
-            ubus_start <= 1'b0;
-          end
-        end
-      endcase
-    end
-  end
+  reg  [15:0] ram_address_register;
 
-  always @(negedge ubus_clock or posedge ubus_reset) begin
-    if (ubus_reset == 1'b1) begin
-      ubus_gnt_master_0 <= 0;
-      ubus_gnt_master_1 <= 0;
-    end else begin
-      if (ubus_start && ubus_req_master_0) begin
-        ubus_gnt_master_0 <= 1;
-        ubus_gnt_master_1 <= 0;
-      end else if (ubus_start && !ubus_req_master_0 && ubus_req_master_1) begin
-        ubus_gnt_master_0 <= 0;
-        ubus_gnt_master_1 <= 1;
-      end else begin
-        ubus_gnt_master_0 <= 0;
-        ubus_gnt_master_1 <= 0;
+  wire [7:0] memory_value = memory[addr];
+
+  always @(posedge mclk) begin
+    if (~rst) begin
+      memory[addr] <= 0;
+    end else if (~cen & addr < (MEMORY_SIZE/2)) begin
+      if (wen == 2'b00) begin
+        memory[addr] <= din;
+      end else if (wen == 2'b01) begin
+        memory[addr] <= {din[7:4], memory_value[3:0]};
+      end else if (wen == 2'b10) begin
+        memory[addr] <= {memory_value[7:4], din[3:0]};
       end
+
+      ram_address_register <= addr;
     end
   end
 
-  always @(posedge ubus_clock or posedge ubus_reset) begin
-    if (ubus_reset) begin
-      ubus_read  <= 1'bZ;
-      ubus_write <= 1'bZ;
-    end else if (ubus_start && !ubus_gnt_master_0 && !ubus_gnt_master_1) begin
-      ubus_read  <= 1'b0;
-      ubus_write <= 1'b0;
-    end else begin
-      ubus_read  <= 1'bZ;
-      ubus_write <= 1'bZ;
-    end
-  end
+  assign dout = memory[ram_address_register];
 
 endmodule

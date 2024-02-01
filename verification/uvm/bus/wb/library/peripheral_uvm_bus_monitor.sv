@@ -18,12 +18,12 @@ class slave_address_map_info extends uvm_object;
   endfunction : set_address_map
 
   // get the min addr
-  function bit [15:0] get_min_addr();
+  function bit [31:0] get_min_addr();
     return min_addr;
   endfunction : get_min_addr
 
   // get the max addr
-  function bit [15:0] get_max_addr();
+  function bit [31:0] get_max_addr();
     return max_addr;
   endfunction : get_max_addr
 
@@ -42,9 +42,7 @@ typedef enum {
 } ubus_bus_state;
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // CLASS: ubus_status
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class ubus_status extends uvm_object;
@@ -62,9 +60,7 @@ class ubus_status extends uvm_object;
 endclass : ubus_status
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // CLASS: peripheral_uvm_bus_monitor
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class peripheral_uvm_bus_monitor extends uvm_monitor;
@@ -99,8 +95,8 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
   protected event                                     cov_transaction_beat;
 
   // Fields to hold trans data and wait_state.  No coverage of dynamic arrays.
-  protected bit                                [15:0] addr;
-  protected bit                                [ 7:0] data;
+  protected bit                                [31:0] addr;
+  protected bit                                [31:0] data;
   protected int unsigned                              wait_state;
 
   // Transfer collected covergroup
@@ -229,7 +225,7 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
   task collect_address_phase();
     @(posedge vif.clk);
     trans_collected.addr = vif.adr_i;
-    case (vif.sig_size)
+    case (vif.bte_i)
       2'b00: trans_collected.size = 1;
       2'b01: trans_collected.size = 2;
       2'b10: trans_collected.size = 4;
@@ -270,7 +266,7 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
       for (i = 0; i < trans_collected.size; i++) begin
         status.bus_state = DATA_PH;
         state_port.write(status);
-        @(posedge vif.clk iff vif.sig_wait === 0);
+        @(posedge vif.clk iff vif.cyc_i === 0);
         trans_collected.data[i] = vif.dat_i;
       end
       num_transactions++;

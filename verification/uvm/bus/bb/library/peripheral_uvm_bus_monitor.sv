@@ -42,9 +42,7 @@ typedef enum {
 } ubus_bus_state;
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // CLASS: ubus_status
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class ubus_status extends uvm_object;
@@ -62,9 +60,7 @@ class ubus_status extends uvm_object;
 endclass : ubus_status
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // CLASS: peripheral_uvm_bus_monitor
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class peripheral_uvm_bus_monitor extends uvm_monitor;
@@ -181,12 +177,12 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
   task observe_reset();
     fork
       forever begin
-        @(posedge vif.sig_reset);
+        @(posedge vif.rst);
         status.bus_state = RST_START;
         state_port.write(status);
       end
       forever begin
-        @(negedge vif.sig_reset);
+        @(negedge vif.rst);
         status.bus_state = RST_STOP;
         state_port.write(status);
       end
@@ -213,7 +209,7 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
   // collect_arbitration_phase
   task collect_arbitration_phase();
     string tmpStr;
-    @(posedge vif.sig_clock);
+    @(posedge vif.mclk);
     status.bus_state = ARBI;
     state_port.write(status);
     void'(this.begin_tr(trans_collected));
@@ -227,17 +223,11 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
 
   // collect_address_phase
   task collect_address_phase();
-    @(posedge vif.sig_clock);
-    trans_collected.addr = vif.sig_addr;
-    case (vif.sig_size)
-      2'b00: trans_collected.size = 1;
-      2'b01: trans_collected.size = 2;
-      2'b10: trans_collected.size = 4;
-      2'b11: trans_collected.size = 8;
-    endcase
+    @(posedge vif.mclk);
+    trans_collected.addr = vif.addr;
     trans_collected.data = new[trans_collected.size];
     case ({
-      vif.sig_read, vif.sig_write
+      vif.wen
     })
       2'b00: begin
         trans_collected.read_write = NOP;
@@ -270,8 +260,8 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
       for (i = 0; i < trans_collected.size; i++) begin
         status.bus_state = DATA_PH;
         state_port.write(status);
-        @(posedge vif.sig_clock iff vif.sig_wait === 0);
-        trans_collected.data[i] = vif.sig_data_in;
+        @(posedge vif.mclk);
+        trans_collected.data[i] = vif.din;
       end
       num_transactions++;
       this.end_tr(trans_collected);

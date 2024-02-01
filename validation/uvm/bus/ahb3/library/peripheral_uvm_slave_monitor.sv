@@ -1,7 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-//
 // CLASS: peripheral_uvm_slave_monitor
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class peripheral_uvm_slave_monitor extends uvm_monitor;
@@ -179,7 +177,7 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
     if (trans_collected.read_write != NOP) begin
       for (int i = 0; i < trans_collected.size; i++) begin
         @(posedge vif.sig_clock iff vif.sig_wait === 0);
-        trans_collected.data[i] = vif.sig_data;
+        trans_collected.data[i] = vif.sig_data_in;
       end
     end
     this.end_tr(trans_collected);

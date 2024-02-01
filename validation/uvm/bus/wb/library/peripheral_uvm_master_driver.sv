@@ -1,7 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-//
 // CLASS: peripheral_uvm_master_driver
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class peripheral_uvm_master_driver extends uvm_driver #(peripheral_uvm_transfer);
@@ -39,9 +37,9 @@ class peripheral_uvm_master_driver extends uvm_driver #(peripheral_uvm_transfer)
 
   // get_and_drive 
   virtual protected task get_and_drive();
-    @(negedge vif.sig_reset);
+    @(negedge vif.rst);
     forever begin
-      @(posedge vif.sig_clock);
+      @(posedge vif.clk);
       seq_item_port.get_next_item(req);
       $cast(rsp, req.clone());
       rsp.set_id_info(req);
@@ -54,43 +52,34 @@ class peripheral_uvm_master_driver extends uvm_driver #(peripheral_uvm_transfer)
   // reset_signals
   virtual protected task reset_signals();
     forever begin
-      @(posedge vif.sig_reset);
-      vif.sig_request[master_id] <= 0;
-      vif.rw                     <= 'h0;
-      vif.sig_addr               <= 'hz;
-      vif.sig_data_out           <= 'hz;
-      vif.sig_size               <= 'bz;
-      vif.sig_read               <= 'bz;
-      vif.sig_write              <= 'bz;
-      vif.sig_bip                <= 'bz;
+      @(posedge vif.rst);
+      vif.rw        <= 'h0;
+      vif.adr_i     <= 'hz;
+      vif.dat_o     <= 'hz;
+      vif.bte_i     <= 'bz;
+      vif.sig_read  <= 'bz;
+      vif.sig_write <= 'bz;
+      vif.stb_i     <= 'bz;
     end
   endtask : reset_signals
 
   // drive_transfer
   virtual protected task drive_transfer(peripheral_uvm_transfer trans);
     if (trans.transmit_delay > 0) begin
-      repeat (trans.transmit_delay) @(posedge vif.sig_clock);
+      repeat (trans.transmit_delay) @(posedge vif.clk);
     end
-    arbitrate_for_bus();
     drive_address_phase(trans);
     drive_data_phase(trans);
   endtask : drive_transfer
 
-  // arbitrate_for_bus
-  virtual protected task arbitrate_for_bus();
-    vif.sig_request[master_id] <= 1;
-    @(posedge vif.sig_clock iff vif.sig_grant[master_id] === 1);
-    vif.sig_request[master_id] <= 0;
-  endtask : arbitrate_for_bus
-
   // drive_address_phase
   virtual protected task drive_address_phase(peripheral_uvm_transfer trans);
-    vif.sig_addr <= trans.addr;
+    vif.adr_i <= trans.addr;
     drive_size(trans.size);
     drive_read_write(trans.read_write);
-    @(posedge vif.sig_clock);
-    vif.sig_addr  <= 32'bz;
-    vif.sig_size  <= 2'bz;
+    @(posedge vif.clk);
+    vif.adr_i  <= 32'bz;
+    vif.bte_i  <= 2'bz;
     vif.sig_read  <= 1'bz;
     vif.sig_write <= 1'bz;
   endtask : drive_address_phase
@@ -100,41 +89,41 @@ class peripheral_uvm_master_driver extends uvm_driver #(peripheral_uvm_transfer)
     bit err;
     for (int i = 0; i <= trans.size - 1; i++) begin
       if (i == (trans.size - 1)) begin
-        vif.sig_bip <= 0;
+        vif.stb_i <= 0;
       end else begin
-        vif.sig_bip <= 1;
+        vif.stb_i <= 1;
       end
       case (trans.read_write)
         READ:  read_byte(trans.data[i], err);
         WRITE: write_byte(trans.data[i], err);
       endcase
     end  // for loop
-    vif.sig_data_out <= 8'bz;
-    vif.sig_bip      <= 1'bz;
+    vif.dat_o   <= 32'bz;
+    vif.stb_i <= 1'bz;
   endtask : drive_data_phase
 
   // read_byte
-  virtual protected task read_byte(output bit [7:0] data, output bit error);
+  virtual protected task read_byte(output bit [31:0] data, output bit error);
     vif.rw <= 1'b0;
-    @(posedge vif.sig_clock iff vif.sig_wait === 0);
-    data = vif.sig_data;
+    @(posedge vif.clk iff vif.cyc_i === 0);
+    data = vif.dat_i;
   endtask : read_byte
 
   // write_byte
-  virtual protected task write_byte(bit [7:0] data, output bit error);
+  virtual protected task write_byte(bit [31:0] data, output bit error);
     vif.rw           <= 1'b1;
-    vif.sig_data_out <= data;
-    @(posedge vif.sig_clock iff vif.sig_wait === 0);
+    vif.dat_o <= data;
+    @(posedge vif.clk iff vif.cyc_i === 0);
     vif.rw <= 'h0;
   endtask : write_byte
 
   // drive_size
   virtual protected task drive_size(int size);
     case (size)
-      1: vif.sig_size <= 2'b00;
-      2: vif.sig_size <= 2'b01;
-      4: vif.sig_size <= 2'b10;
-      8: vif.sig_size <= 2'b11;
+      1: vif.bte_i <= 2'b00;
+      2: vif.bte_i <= 2'b01;
+      4: vif.bte_i <= 2'b10;
+      8: vif.bte_i <= 2'b11;
     endcase
   endtask : drive_size
 

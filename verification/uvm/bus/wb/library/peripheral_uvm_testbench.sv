@@ -14,16 +14,22 @@ module peripheral_uvm_testbench;
   peripheral_design dut (
     vif.clk,
     vif.rst,
+
     vif.adr_i,
-    vif.sig_size,
-    vif.sig_read,
-    vif.sig_write,
-    vif.sig_start,
-    vif.sig_bip,
     vif.dat_i,
+    vif.sel_i,
+    vif.we_i,
+    vif.bte_i,
+    vif.cti_i,
+    vif.cyc_i,
+    vif.stb_i,
+
+    vif.ack_o,
+    vif.err_o,
     vif.dat_o,
-    vif.sig_wait,
-    vif.sig_error
+
+    vif.sig_read,
+    vif.sig_write
   );
 
   initial begin

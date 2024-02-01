@@ -1,7 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-//
 // CLASS: peripheral_uvm_slave_driver
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class peripheral_uvm_slave_driver extends uvm_driver #(peripheral_uvm_transfer);
@@ -18,8 +16,9 @@ class peripheral_uvm_slave_driver extends uvm_driver #(peripheral_uvm_transfer);
   endfunction : new
 
   function void build_phase(uvm_phase phase);
-    if (!uvm_config_db#(virtual peripheral_uvm_if)::get(this, "", "vif", vif))
+    if (!uvm_config_db#(virtual peripheral_uvm_if)::get(this, "", "vif", vif)) begin
       `uvm_fatal("NOVIF", {"virtual interface must be set for: ", get_full_name(), ".vif"});
+    end
   endfunction : build_phase
 
   // run phase

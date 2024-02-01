@@ -1,7 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-//
 // CLASS: peripheral_uvm_master_driver
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class peripheral_uvm_master_driver extends uvm_driver #(peripheral_uvm_transfer);
@@ -55,14 +53,13 @@ class peripheral_uvm_master_driver extends uvm_driver #(peripheral_uvm_transfer)
   virtual protected task reset_signals();
     forever begin
       @(posedge vif.sig_reset);
-      vif.sig_request[master_id] <= 0;
-      vif.rw                     <= 'h0;
-      vif.sig_addr               <= 'hz;
-      vif.sig_data_out           <= 'hz;
-      vif.sig_size               <= 'bz;
-      vif.sig_read               <= 'bz;
-      vif.sig_write              <= 'bz;
-      vif.sig_bip                <= 'bz;
+      vif.rw           <= 'h0;
+      vif.sig_addr     <= 'hz;
+      vif.sig_data_out <= 'hz;
+      vif.sig_size     <= 'bz;
+      vif.sig_read     <= 'bz;
+      vif.sig_write    <= 'bz;
+      vif.sig_bip      <= 'bz;
     end
   endtask : reset_signals
 
@@ -71,17 +68,9 @@ class peripheral_uvm_master_driver extends uvm_driver #(peripheral_uvm_transfer)
     if (trans.transmit_delay > 0) begin
       repeat (trans.transmit_delay) @(posedge vif.sig_clock);
     end
-    arbitrate_for_bus();
     drive_address_phase(trans);
     drive_data_phase(trans);
   endtask : drive_transfer
-
-  // arbitrate_for_bus
-  virtual protected task arbitrate_for_bus();
-    vif.sig_request[master_id] <= 1;
-    @(posedge vif.sig_clock iff vif.sig_grant[master_id] === 1);
-    vif.sig_request[master_id] <= 0;
-  endtask : arbitrate_for_bus
 
   // drive_address_phase
   virtual protected task drive_address_phase(peripheral_uvm_transfer trans);
@@ -117,7 +106,7 @@ class peripheral_uvm_master_driver extends uvm_driver #(peripheral_uvm_transfer)
   virtual protected task read_byte(output bit [7:0] data, output bit error);
     vif.rw <= 1'b0;
     @(posedge vif.sig_clock iff vif.sig_wait === 0);
-    data = vif.sig_data;
+    data = vif.sig_data_in;
   endtask : read_byte
 
   // write_byte

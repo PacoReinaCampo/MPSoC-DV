@@ -1,7 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-//
 // SEQUENCE: ubus_base_sequence
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 // This sequence raises/drops objections in the pre/post_body so that root
@@ -35,9 +33,7 @@ virtual class ubus_base_sequence extends uvm_sequence #(peripheral_uvm_transfer)
 endclass : ubus_base_sequence
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // SEQUENCE: read_byte
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class read_byte_seq extends ubus_base_sequence;
@@ -48,7 +44,7 @@ class read_byte_seq extends ubus_base_sequence;
 
   `uvm_object_utils(read_byte_seq)
 
-  rand bit          [15:0] start_addr;
+  rand bit          [31:0] start_addr;
   rand int unsigned        transmit_del = 0;
   constraint transmit_del_ct {(transmit_del <= 10);}
 
@@ -66,9 +62,7 @@ class read_byte_seq extends ubus_base_sequence;
 endclass : read_byte_seq
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // SEQUENCE: read_half_word_seq
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class read_half_word_seq extends ubus_base_sequence;
@@ -79,13 +73,13 @@ class read_half_word_seq extends ubus_base_sequence;
 
   `uvm_object_utils(read_half_word_seq)
 
-  rand bit          [15:0] start_addr;
+  rand bit          [31:0] start_addr;
   rand int unsigned        transmit_del = 0;
   constraint transmit_del_ct {(transmit_del <= 10);}
 
   virtual task body();
     `uvm_do_with(req,
-                 { req.addr == start_addr;
+      { req.addr == start_addr;
         req.read_write == READ;
         req.size == 2;
         req.error_pos == 1000;
@@ -97,9 +91,7 @@ class read_half_word_seq extends ubus_base_sequence;
 endclass : read_half_word_seq
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // SEQUENCE: read_word_seq
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class read_word_seq extends ubus_base_sequence;
@@ -110,7 +102,7 @@ class read_word_seq extends ubus_base_sequence;
 
   `uvm_object_utils(read_word_seq)
 
-  rand bit          [15:0] start_addr;
+  rand bit          [31:0] start_addr;
   rand int unsigned        transmit_del = 0;
   constraint transmit_del_ct {(transmit_del <= 10);}
 
@@ -128,9 +120,7 @@ class read_word_seq extends ubus_base_sequence;
 endclass : read_word_seq
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // SEQUENCE: read_double_word_seq
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class read_double_word_seq extends ubus_base_sequence;
@@ -141,7 +131,7 @@ class read_double_word_seq extends ubus_base_sequence;
 
   `uvm_object_utils(read_double_word_seq)
 
-  rand bit          [15:0] start_addr;
+  rand bit          [31:0] start_addr;
   rand int unsigned        transmit_del = 0;
   constraint transmit_del_ct {(transmit_del <= 10);}
 
@@ -161,9 +151,7 @@ class read_double_word_seq extends ubus_base_sequence;
 endclass : read_double_word_seq
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // SEQUENCE: write_byte_seq
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class write_byte_seq extends ubus_base_sequence;
@@ -174,8 +162,8 @@ class write_byte_seq extends ubus_base_sequence;
 
   `uvm_object_utils(write_byte_seq)
 
-  rand bit          [15:0] start_addr;
-  rand bit          [ 7:0] data0;
+  rand bit          [31:0] start_addr;
+  rand bit          [31:0] data0;
   rand int unsigned        transmit_del = 0;
   constraint transmit_del_ct {(transmit_del <= 10);}
 
@@ -187,9 +175,7 @@ class write_byte_seq extends ubus_base_sequence;
 endclass : write_byte_seq
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // SEQUENCE: write_half_word_seq
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class write_half_word_seq extends ubus_base_sequence;
@@ -200,9 +186,9 @@ class write_half_word_seq extends ubus_base_sequence;
 
   `uvm_object_utils(write_half_word_seq)
 
-  rand bit          [15:0] start_addr;
-  rand bit          [ 7:0] data0;
-  rand bit          [ 7:0] data1;
+  rand bit          [31:0] start_addr;
+  rand bit          [31:0] data0;
+  rand bit          [31:0] data1;
   rand int unsigned        transmit_del = 0;
   constraint transmit_del_ct {transmit_del <= 10;}
 
@@ -214,9 +200,7 @@ class write_half_word_seq extends ubus_base_sequence;
 endclass : write_half_word_seq
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // SEQUENCE: write_word_seq
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class write_word_seq extends ubus_base_sequence;
@@ -227,11 +211,11 @@ class write_word_seq extends ubus_base_sequence;
 
   `uvm_object_utils(write_word_seq)
 
-  rand bit          [15:0] start_addr;
-  rand bit          [ 7:0] data0;
-  rand bit          [ 7:0] data1;
-  rand bit          [ 7:0] data2;
-  rand bit          [ 7:0] data3;
+  rand bit          [31:0] start_addr;
+  rand bit          [31:0] data0;
+  rand bit          [31:0] data1;
+  rand bit          [31:0] data2;
+  rand bit          [31:0] data3;
   rand int unsigned        transmit_del = 0;
   constraint transmit_del_ct {(transmit_del <= 10);}
 
@@ -243,9 +227,7 @@ class write_word_seq extends ubus_base_sequence;
 endclass : write_word_seq
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // SEQUENCE: write_double_word_seq
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class write_double_word_seq extends ubus_base_sequence;
@@ -256,15 +238,15 @@ class write_double_word_seq extends ubus_base_sequence;
 
   `uvm_object_utils(write_double_word_seq)
 
-  rand bit          [15:0] start_addr;
-  rand bit          [ 7:0] data0;
-  rand bit          [ 7:0] data1;
-  rand bit          [ 7:0] data2;
-  rand bit          [ 7:0] data3;
-  rand bit          [ 7:0] data4;
-  rand bit          [ 7:0] data5;
-  rand bit          [ 7:0] data6;
-  rand bit          [ 7:0] data7;
+  rand bit          [31:0] start_addr;
+  rand bit          [31:0] data0;
+  rand bit          [31:0] data1;
+  rand bit          [31:0] data2;
+  rand bit          [31:0] data3;
+  rand bit          [31:0] data4;
+  rand bit          [31:0] data5;
+  rand bit          [31:0] data6;
+  rand bit          [31:0] data7;
   rand int unsigned        transmit_del = 0;
   constraint transmit_del_ct {(transmit_del <= 10);}
 

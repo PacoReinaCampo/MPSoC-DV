@@ -1,93 +1,166 @@
+import peripheral_axi4_pkg::*;
+
 module peripheral_design (
-  input  wire        ubus_req_master_0,
-  output reg         ubus_gnt_master_0,
-  input  wire        ubus_req_master_1,
-  output reg         ubus_gnt_master_1,
-  input  wire        ubus_clock,
-  input  wire        ubus_reset,
-  input  wire [15:0] ubus_addr,
-  input  wire [ 1:0] ubus_size,
-  output reg         ubus_read,
-  output reg         ubus_write,
-  output reg         ubus_start,
-  input  wire        ubus_bip,
-  inout  wire [ 7:0] ubus_data,
-  input  wire        ubus_wait,
-  input  wire        ubus_error
+
+  // Global Signals
+  input wire aclk,
+  input wire aresetn, // Active LOW
+
+  // Write Address Channel
+  input  wire [ 3:0] awid,     // Address Write ID
+  input  wire [31:0] awadr,    // Write Address
+  input  wire [ 3:0] awlen,    // Burst Length
+  input  wire [ 2:0] awsize,   // Burst Size
+  input  wire [ 1:0] awburst,  // Burst Type
+  input  wire [ 1:0] awlock,   // Lock Type
+  input  wire [ 3:0] awcache,  // Cache Type
+  input  wire [ 2:0] awprot,   // Protection Type
+  input  wire        awvalid,  // Write Address Valid
+  output reg         awready,  // Write Address Ready
+
+  // Write Data Channel
+  input  wire [ 3:0] wid,     // Write ID
+  input  wire [31:0] wrdata,  // Write Data
+  input  wire [ 3:0] wstrb,   // Write Strobes
+  input  wire        wlast,   // Write Last
+  input  wire        wvalid,  // Write Valid
+  output reg         wready,  // Write Ready
+
+  // Write Response CHannel
+  output reg  [3:0] bid,     // Response ID
+  output reg  [1:0] bresp,   // Write Response
+  output reg        bvalid,  // Write Response Valid
+  input  wire       bready,  // Response Ready
+
+  // Read Address Channel
+  input  wire [ 3:0] arid,     // Read Address ID
+  input  wire [31:0] araddr,   // Read Address
+  input  wire [ 3:0] arlen,    // Burst Length
+  input  wire [ 2:0] arsize,   // Burst Size
+  input  wire [ 1:0] arlock,   // Lock Type
+  input  wire [ 3:0] arcache,  // Cache Type
+  input  wire [ 2:0] arprot,   // Protection Type
+  input  wire        arvalid,  // Read Address Valid
+  output reg         arready,  // Read Address Ready
+
+  // Read Data Channel
+  output reg  [ 3:0] rid,     // Read ID
+  output reg  [31:0] rdata,   // Read Data
+  output reg  [ 1:0] rresp,   // Read Response
+  output reg         rlast,   // Read Last
+  output reg         rvalid,  // Read Valid
+  input  wire        rready   // Read Ready
 );
 
-  bit [2:0] st;
+  // Internal Signals
+  reg     [31:0] memory [0:127];
 
-  // Basic arbiter, supports two masters, 0 has priority over 1
+  // Write Address Channel
+  reg     [31:0] write_address;
+  reg     [ 2:0] write_size;
 
-  always @(posedge ubus_clock or posedge ubus_reset) begin
-    if (ubus_reset) begin
-      ubus_start <= 1'b0;
-      st         <= 3'h0;
+  always @(posedge aclk)
+    if (~aresetn) begin
+      write_address <= 0;
+      awready       <= 1;
+      write_size    <= 0;
     end else begin
-      case (st)
-        0: begin  // Begin out of Reset
-          ubus_start <= 1'b1;
-          st         <= 3'h3;
-        end
-        3: begin  // Start state
-          ubus_start <= 1'b0;
-          if ((ubus_gnt_master_0 == 0) && (ubus_gnt_master_1 == 0)) begin
-            st <= 3'h4;
-          end else begin
-            st <= 3'h1;
-          end
-        end
-        4: begin  // No-op state
-          ubus_start <= 1'b1;
-          st         <= 3'h3;
-        end
-        1: begin  // Addr state
-          st         <= 3'h2;
-          ubus_start <= 1'b0;
-        end
-        2: begin  // Data state
-          if ((ubus_error == 1) || ((ubus_bip == 0) && (ubus_wait == 0))) begin
-            st         <= 3'h3;
-            ubus_start <= 1'b1;
-          end else begin
-            st         <= 3'h2;
-            ubus_start <= 1'b0;
-          end
-        end
+      if (awvalid) begin
+        write_address <= {2'b00, awadr[31:2]};
+        awready       <= 1;
+      end else begin
+        awready <= 0;
+      end
+    end
+
+  // Write Burst Counting
+  always @(posedge aclk)
+    if (~aresetn) begin
+      write_size <= 0;
+    end else begin
+      if (awvalid) begin
+        write_size <= awsize;
+      end
+    end
+
+  // Write Data Channel
+  reg [31:0] write_data;
+  reg [ 3:0] write_strobe;
+  always @(posedge aclk)
+    if (~aresetn) begin
+      write_data   <= 0;
+      wready       <= 1;
+      write_strobe <= 0;
+    end else begin
+      if (wvalid) begin
+        write_data   <= wrdata;
+        wready       <= 1;
+        write_strobe <= wstrb;
+      end else begin
+        wready <= 0;
+      end
+    end
+
+  // Write Response Channel
+  always @(posedge aclk)
+    if (~aresetn) begin
+      bid    <= 0;
+      bresp  <= AXI_RESPONSE_OKAY;
+      bvalid <= 0;
+    end else begin
+      if (bready & wlast) begin
+        bvalid <= 1;
+      end else begin
+        bvalid <= 0;
+      end
+    end
+
+  // Read Address Channel
+  reg [31:0] read_address;
+  always @(posedge aclk)
+    if (~aresetn) begin
+      read_address <= 0;
+      arready      <= 0;
+    end else begin
+      if (arvalid) begin
+        read_address <= {2'b00, araddr[31:2]};
+        arready      <= 1;
+      end else begin
+        arready <= 0;
+      end
+    end
+
+  // Read Data Channel
+  always @(posedge aclk)
+    if (~aresetn) begin
+      rdata  <= 0;
+      rvalid <= 0;
+      rresp  <= AXI_RESPONSE_OKAY;
+      rlast  <= 0;
+    end else begin
+      if (rready) begin
+        rdata  <= memory[read_address];
+        rvalid <= 1;
+      end else begin
+        rdata  <= 0;
+        rvalid <= 0;
+      end
+    end
+
+  // Memory Operations
+
+  // Memory Write
+  always @(posedge aclk) begin
+    if (wready) begin
+      case (write_strobe)
+        4'b0001: memory[write_address] <= {memory[write_address][31:8], write_data[7:0]};
+        4'b0010: memory[write_address] <= {memory[write_address][31:16], write_data[15:8], memory[write_address][7:0]};
+        4'b0100: memory[write_address] <= {memory[write_address][31:24], write_data[23:16], memory[write_address][15:0]};
+        4'b1000: memory[write_address] <= {write_data[31:24], memory[write_address][23:0]};
+        4'b0011: memory[write_address] <= {write_data[31:16], memory[write_address][15:0]};
+        4'b1100: memory[write_address] <= {memory[write_address][31:16], write_data[15:0]};
+        4'b1111: memory[write_address] <= write_data[31:0];
       endcase
     end
   end
-
-  always @(negedge ubus_clock or posedge ubus_reset) begin
-    if (ubus_reset == 1'b1) begin
-      ubus_gnt_master_0 <= 0;
-      ubus_gnt_master_1 <= 0;
-    end else begin
-      if (ubus_start && ubus_req_master_0) begin
-        ubus_gnt_master_0 <= 1;
-        ubus_gnt_master_1 <= 0;
-      end else if (ubus_start && !ubus_req_master_0 && ubus_req_master_1) begin
-        ubus_gnt_master_0 <= 0;
-        ubus_gnt_master_1 <= 1;
-      end else begin
-        ubus_gnt_master_0 <= 0;
-        ubus_gnt_master_1 <= 0;
-      end
-    end
-  end
-
-  always @(posedge ubus_clock or posedge ubus_reset) begin
-    if (ubus_reset) begin
-      ubus_read  <= 1'bZ;
-      ubus_write <= 1'bZ;
-    end else if (ubus_start && !ubus_gnt_master_0 && !ubus_gnt_master_1) begin
-      ubus_read  <= 1'b0;
-      ubus_write <= 1'b0;
-    end else begin
-      ubus_read  <= 1'bZ;
-      ubus_write <= 1'bZ;
-    end
-  end
-
-endmodule
+endmodule  // peripheral_design

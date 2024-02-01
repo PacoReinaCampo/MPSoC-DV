@@ -1,7 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-//
 // CLASS: peripheral_uvm_master_driver
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class peripheral_uvm_master_driver extends uvm_driver #(peripheral_uvm_transfer);
@@ -39,9 +37,9 @@ class peripheral_uvm_master_driver extends uvm_driver #(peripheral_uvm_transfer)
 
   // get_and_drive 
   virtual protected task get_and_drive();
-    @(negedge vif.sig_reset);
+    @(negedge vif.rst);
     forever begin
-      @(posedge vif.sig_clock);
+      @(posedge vif.mclk);
       seq_item_port.get_next_item(req);
       $cast(rsp, req.clone());
       rsp.set_id_info(req);
@@ -54,21 +52,19 @@ class peripheral_uvm_master_driver extends uvm_driver #(peripheral_uvm_transfer)
   // reset_signals
   virtual protected task reset_signals();
     forever begin
-      @(posedge vif.sig_reset);
-      vif.rw           <= 'h0;
-      vif.sig_addr     <= 'hz;
-      vif.sig_data_out <= 'hz;
-      vif.sig_size     <= 'bz;
-      vif.sig_read     <= 'bz;
-      vif.sig_write    <= 'bz;
-      vif.sig_bip      <= 'bz;
+      @(posedge vif.rst);
+      vif.rw   <= 'h0;
+      vif.addr <= 'hz;
+      vif.dout <= 'hz;
+      vif.wen  <= 'bz;
+      vif.cen  <= 'bz;
     end
   endtask : reset_signals
 
   // drive_transfer
   virtual protected task drive_transfer(peripheral_uvm_transfer trans);
     if (trans.transmit_delay > 0) begin
-      repeat (trans.transmit_delay) @(posedge vif.sig_clock);
+      repeat (trans.transmit_delay) @(posedge vif.mclk);
     end
     drive_address_phase(trans);
     drive_data_phase(trans);
@@ -76,14 +72,11 @@ class peripheral_uvm_master_driver extends uvm_driver #(peripheral_uvm_transfer)
 
   // drive_address_phase
   virtual protected task drive_address_phase(peripheral_uvm_transfer trans);
-    vif.sig_addr <= trans.addr;
-    drive_size(trans.size);
+    vif.addr <= trans.addr;
     drive_read_write(trans.read_write);
-    @(posedge vif.sig_clock);
-    vif.sig_addr  <= 32'bz;
-    vif.sig_size  <= 2'bz;
-    vif.sig_read  <= 1'bz;
-    vif.sig_write <= 1'bz;
+    @(posedge vif.mclk);
+    vif.addr <= 32'bz;
+    vif.wen  <= 2'bz;
   endtask : drive_address_phase
 
   // drive_data_phase
@@ -91,58 +84,45 @@ class peripheral_uvm_master_driver extends uvm_driver #(peripheral_uvm_transfer)
     bit err;
     for (int i = 0; i <= trans.size - 1; i++) begin
       if (i == (trans.size - 1)) begin
-        vif.sig_bip <= 0;
+        vif.cen <= 0;
       end else begin
-        vif.sig_bip <= 1;
+        vif.cen <= 1;
       end
       case (trans.read_write)
         READ:  read_byte(trans.data[i], err);
         WRITE: write_byte(trans.data[i], err);
       endcase
     end  // for loop
-    vif.sig_data_out <= 8'bz;
-    vif.sig_bip      <= 1'bz;
+    vif.dout <= 8'bz;
+    vif.cen <= 1'bz;
   endtask : drive_data_phase
 
   // read_byte
   virtual protected task read_byte(output bit [7:0] data, output bit error);
     vif.rw <= 1'b0;
-    @(posedge vif.sig_clock iff vif.sig_wait === 0);
-    data = vif.sig_data_in;
+    @(posedge vif.mclk);
+    data = vif.din;
   endtask : read_byte
 
   // write_byte
   virtual protected task write_byte(bit [7:0] data, output bit error);
-    vif.rw           <= 1'b1;
-    vif.sig_data_out <= data;
-    @(posedge vif.sig_clock iff vif.sig_wait === 0);
+    vif.rw   <= 1'b1;
+    vif.dout <= data;
+    @(posedge vif.mclk);
     vif.rw <= 'h0;
   endtask : write_byte
-
-  // drive_size
-  virtual protected task drive_size(int size);
-    case (size)
-      1: vif.sig_size <= 2'b00;
-      2: vif.sig_size <= 2'b01;
-      4: vif.sig_size <= 2'b10;
-      8: vif.sig_size <= 2'b11;
-    endcase
-  endtask : drive_size
 
   // drive_read_write            
   virtual protected task drive_read_write(ubus_read_write_enum rw);
     case (rw)
       NOP: begin
-        vif.sig_read  <= 0;
-        vif.sig_write <= 0;
+        vif.wen <= 2'b00;
       end
       READ: begin
-        vif.sig_read  <= 1;
-        vif.sig_write <= 0;
+        vif.wen <= 2'b10;
       end
       WRITE: begin
-        vif.sig_read  <= 0;
-        vif.sig_write <= 1;
+        vif.wen <= 2'b01;
       end
     endcase
   endtask : drive_read_write

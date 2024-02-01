@@ -1,7 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-//
 // CLASS: peripheral_uvm_slave_driver
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class peripheral_uvm_slave_driver extends uvm_driver #(peripheral_uvm_transfer);
@@ -18,8 +16,9 @@ class peripheral_uvm_slave_driver extends uvm_driver #(peripheral_uvm_transfer);
   endfunction : new
 
   function void build_phase(uvm_phase phase);
-    if (!uvm_config_db#(virtual peripheral_uvm_if)::get(this, "", "vif", vif))
+    if (!uvm_config_db#(virtual peripheral_uvm_if)::get(this, "", "vif", vif)) begin
       `uvm_fatal("NOVIF", {"virtual interface must be set for: ", get_full_name(), ".vif"});
+    end
   endfunction : build_phase
 
   // run phase
@@ -45,16 +44,14 @@ class peripheral_uvm_slave_driver extends uvm_driver #(peripheral_uvm_transfer);
   virtual protected task reset_signals();
     forever begin
       @(posedge vif.presetn);
-      vif.pslverr <= 1'bz;
-      vif.penable  <= 1'bz;
-      vif.rw        <= 1'b0;
+      vif.penable <= 1'bz;
+      vif.rw      <= 1'b0;
     end
   endtask : reset_signals
 
   // respond_to_transfer
   virtual protected task respond_to_transfer(peripheral_uvm_transfer resp);
     if (resp.read_write != NOP) begin
-      vif.pslverr <= 1'b0;
       for (int i = 0; i < resp.size; i++) begin
         case (resp.read_write)
           READ: begin
@@ -74,7 +71,6 @@ class peripheral_uvm_slave_driver extends uvm_driver #(peripheral_uvm_transfer);
       end
       vif.rw      <= 1'b0;
       vif.penable <= 1'bz;
-      vif.pslverr <= 1'bz;
     end
   endtask : respond_to_transfer
 

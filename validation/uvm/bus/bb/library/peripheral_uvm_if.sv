@@ -5,24 +5,18 @@ interface peripheral_uvm_if;
   bit                has_coverage = 1;
 
   // Actual Signals
-  logic              sig_clock;
-  logic              sig_reset;
-  logic       [15:0] sig_request;
-  logic       [15:0] sig_grant;
-  logic       [15:0] sig_addr;
-  logic       [ 1:0] sig_size;
-  logic              sig_read;
-  logic              sig_write;
-  logic              sig_start;
-  logic              sig_bip;
-  wire logic  [ 7:0] sig_data;
-  logic       [ 7:0] sig_data_out;
-  logic              sig_wait;
-  logic              sig_error;
+  logic              mclk;
+  logic              rst;
+
+  logic       [ 1:0] wen;
+  logic              cen;
+  logic       [15:0] addr;
+  wire logic  [ 7:0] din;
+  logic       [ 7:0] dout;
 
   logic              rw;
 
-  assign sig_data = rw ? sig_data_out : 8'bz;
+  assign din = rw ? dout : 8'bz;
 
   // Coverage and assertions to be implemented here.
 

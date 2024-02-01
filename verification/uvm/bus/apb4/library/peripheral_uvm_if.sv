@@ -7,6 +7,7 @@ interface peripheral_uvm_if;
   // Actual Signals
   logic              pclk;
   logic              presetn;
+
   logic       [15:0] paddr;
   logic       [ 1:0] pstrb;
   logic              pwrite;

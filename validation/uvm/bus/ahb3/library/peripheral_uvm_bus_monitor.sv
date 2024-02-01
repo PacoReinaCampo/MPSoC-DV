@@ -42,9 +42,7 @@ typedef enum {
 } ubus_bus_state;
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // CLASS: ubus_status
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class ubus_status extends uvm_object;
@@ -62,9 +60,7 @@ class ubus_status extends uvm_object;
 endclass : ubus_status
 
 ////////////////////////////////////////////////////////////////////////////////
-//
 // CLASS: peripheral_uvm_bus_monitor
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class peripheral_uvm_bus_monitor extends uvm_monitor;
@@ -213,18 +209,15 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
   // collect_arbitration_phase
   task collect_arbitration_phase();
     string tmpStr;
-    @(posedge vif.sig_clock iff (vif.sig_grant != 0));
+    @(posedge vif.sig_clock);
     status.bus_state = ARBI;
     state_port.write(status);
     void'(this.begin_tr(trans_collected));
     // Check which grant is asserted to determine which master is performing
     // the transfer on the bus.
     for (int j = 0; j <= 15; j++) begin
-      if (vif.sig_grant[j] === 1) begin
-        $sformat(tmpStr, "masters[%0d]", j);
-        trans_collected.master = tmpStr;
-        break;
-      end
+      $sformat(tmpStr, "masters[%0d]", j);
+      trans_collected.master = tmpStr;
     end
   endtask : collect_arbitration_phase
 
@@ -274,7 +267,7 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
         status.bus_state = DATA_PH;
         state_port.write(status);
         @(posedge vif.sig_clock iff vif.sig_wait === 0);
-        trans_collected.data[i] = vif.sig_data;
+        trans_collected.data[i] = vif.sig_data_in;
       end
       num_transactions++;
       this.end_tr(trans_collected);

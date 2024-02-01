@@ -14,6 +14,7 @@ module peripheral_uvm_testbench;
   peripheral_design dut (
     vif.pclk,
     vif.presetn,
+
     vif.paddr,
     vif.pstrb,
     vif.pwrite,

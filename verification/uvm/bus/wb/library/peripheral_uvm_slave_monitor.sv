@@ -1,7 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-//
 // CLASS: peripheral_uvm_slave_monitor
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class peripheral_uvm_slave_monitor extends uvm_monitor;
@@ -35,8 +33,8 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
   protected event                                                                       cov_transaction_beat;
 
   // Fields to hold trans data and wait_state.  No coverage of dynamic arrays.
-  protected bit                                                                  [15:0] addr;
-  protected bit                                                                  [ 7:0] data;
+  protected bit                                                                  [31:0] addr;
+  protected bit                                                                  [31:0] data;
   protected int unsigned                                                                wait_state;
 
   // Transfer collected covergroup
@@ -99,18 +97,18 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
   endfunction : build_phase
 
   // set the monitor's address range
-  function void set_addr_range(bit [15:0] min_addr, bit [15:0] max_addr);
+  function void set_addr_range(bit [31:0] min_addr, bit [31:0] max_addr);
     this.min_addr = min_addr;
     this.max_addr = max_addr;
   endfunction : set_addr_range
 
   // get the monitor's min addr
-  function bit [15:0] get_min_addr();
+  function bit [31:0] get_min_addr();
     return min_addr;
   endfunction : get_min_addr
 
   // get the monitor's max addr
-  function bit [15:0] get_max_addr();
+  function bit [31:0] get_max_addr();
     return max_addr;
   endfunction : get_max_addr
 
@@ -158,7 +156,7 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
   virtual protected task collect_address_phase();
     @(posedge vif.clk iff ((vif.sig_read === 1) || (vif.sig_write === 1)));
     trans_collected.addr = vif.adr_i;
-    case (vif.sig_size)
+    case (vif.bte_i)
       2'b00: trans_collected.size = 1;
       2'b01: trans_collected.size = 2;
       2'b10: trans_collected.size = 4;
@@ -178,7 +176,7 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
   virtual protected task collect_data_phase();
     if (trans_collected.read_write != NOP) begin
       for (int i = 0; i < trans_collected.size; i++) begin
-        @(posedge vif.clk iff vif.sig_wait === 0);
+        @(posedge vif.clk iff vif.cyc_i === 0);
         trans_collected.data[i] = vif.dat_i;
       end
     end

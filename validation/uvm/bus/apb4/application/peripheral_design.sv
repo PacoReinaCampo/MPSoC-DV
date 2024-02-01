@@ -1,92 +1,62 @@
 module peripheral_design (
-  input  wire        ubus_req_master_0,
-  output reg         ubus_gnt_master_0,
-  input  wire        ubus_req_master_1,
-  output reg         ubus_gnt_master_1,
-  input  wire        ubus_clock,
-  input  wire        ubus_reset,
-  input  wire [15:0] ubus_addr,
-  input  wire [ 1:0] ubus_size,
-  output reg         ubus_read,
-  output reg         ubus_write,
-  output reg         ubus_start,
-  input  wire        ubus_bip,
-  inout  wire [ 7:0] ubus_data,
-  input  wire        ubus_wait,
-  input  wire        ubus_error
+  input  wire        pclk,
+  input  wire        presetn,
+
+  input  wire [15:0] paddr,
+  input  wire [ 1:0] pstrb,
+  input  wire        pwrite,
+  output reg         pready,
+  input  wire        psel,
+  input  wire [ 7:0] pwdata,
+  output reg  [ 7:0] prdata,
+  input  wire        penable,
+  output reg         pslverr
 );
 
-  bit [2:0] st;
+  const logic [1:0] SETUP    = 0;
+  const logic [1:0] W_ENABLE = 1;
+  const logic [1:0] R_ENABLE = 2;
 
-  // Basic arbiter, supports two masters, 0 has priority over 1
+  // RAM Memory
 
-  always @(posedge ubus_clock or posedge ubus_reset) begin
-    if (ubus_reset) begin
-      ubus_start <= 1'b0;
-      st         <= 3'h0;
+  logic [7:0] memory [0:255];
+
+  logic [1:0] apb4_state;
+
+  always @(posedge pclk or negedge presetn) begin
+    if (presetn == 0) begin
+      prdata <= 0;
+      pready <= 1;
+ 
+      for (int i = 0; i < 256; i++) begin
+        memory[i] = 0;
+      end
+
+      apb4_state <= 0;
     end else begin
-      case (st)
-        0: begin  // Begin out of Reset
-          ubus_start <= 1'b1;
-          st         <= 3'h3;
-        end
-        3: begin  // Start state
-          ubus_start <= 1'b0;
-          if ((ubus_gnt_master_0 == 0) && (ubus_gnt_master_1 == 0)) begin
-            st <= 3'h4;
-          end else begin
-            st <= 3'h1;
+      case (apb4_state)
+        SETUP: begin
+          prdata <= 0;
+
+          if (psel && !penable) begin
+            if (pwrite) begin
+              apb4_state <= W_ENABLE;
+            end else begin
+              apb4_state <= R_ENABLE;
+              prdata <= memory[paddr];
+            end
           end
         end
-        4: begin  // No-op state
-          ubus_start <= 1'b1;
-          st         <= 3'h3;
-        end
-        1: begin  // Addr state
-          st         <= 3'h2;
-          ubus_start <= 1'b0;
-        end
-        2: begin  // Data state
-          if ((ubus_error == 1) || ((ubus_bip == 0) && (ubus_wait == 0))) begin
-            st         <= 3'h3;
-            ubus_start <= 1'b1;
-          end else begin
-            st         <= 3'h2;
-            ubus_start <= 1'b0;
+        W_ENABLE: begin
+          if (psel && penable && pwrite) begin
+            memory[paddr] <= pwdata;
           end
+          apb4_state <= SETUP;
+        end
+        R_ENABLE: begin
+          apb4_state <= SETUP;
         end
       endcase
-    end
-  end
-
-  always @(negedge ubus_clock or posedge ubus_reset) begin
-    if (ubus_reset == 1'b1) begin
-      ubus_gnt_master_0 <= 0;
-      ubus_gnt_master_1 <= 0;
-    end else begin
-      if (ubus_start && ubus_req_master_0) begin
-        ubus_gnt_master_0 <= 1;
-        ubus_gnt_master_1 <= 0;
-      end else if (ubus_start && !ubus_req_master_0 && ubus_req_master_1) begin
-        ubus_gnt_master_0 <= 0;
-        ubus_gnt_master_1 <= 1;
-      end else begin
-        ubus_gnt_master_0 <= 0;
-        ubus_gnt_master_1 <= 0;
-      end
-    end
-  end
-
-  always @(posedge ubus_clock or posedge ubus_reset) begin
-    if (ubus_reset) begin
-      ubus_read  <= 1'bZ;
-      ubus_write <= 1'bZ;
-    end else if (ubus_start && !ubus_gnt_master_0 && !ubus_gnt_master_1) begin
-      ubus_read  <= 1'b0;
-      ubus_write <= 1'b0;
-    end else begin
-      ubus_read  <= 1'bZ;
-      ubus_write <= 1'bZ;
     end
   end
 

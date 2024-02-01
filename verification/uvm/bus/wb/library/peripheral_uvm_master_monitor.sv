@@ -1,7 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-//
 // CLASS: peripheral_uvm_master_monitor
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 class peripheral_uvm_master_monitor extends uvm_monitor;
@@ -25,8 +23,8 @@ class peripheral_uvm_master_monitor extends uvm_monitor;
   protected peripheral_uvm_transfer                   trans_collected;
 
   // Fields to hold trans addr, data and wait_state.
-  protected bit                                [15:0] addr;
-  protected bit                                [ 7:0] data;
+  protected bit                                [31:0] addr;
+  protected bit                                [31:0] data;
   protected int unsigned                              wait_state;
 
   // Transfer collected covergroup
@@ -126,7 +124,7 @@ class peripheral_uvm_master_monitor extends uvm_monitor;
   virtual protected task collect_address_phase();
     @(posedge vif.clk);
     trans_collected.addr = vif.adr_i;
-    case (vif.sig_size)
+    case (vif.bte_i)
       2'b00: trans_collected.size = 1;
       2'b01: trans_collected.size = 2;
       2'b10: trans_collected.size = 4;
@@ -147,7 +145,7 @@ class peripheral_uvm_master_monitor extends uvm_monitor;
     int i;
     if (trans_collected.read_write != NOP) begin
       for (i = 0; i < trans_collected.size; i++) begin
-        @(posedge vif.clk iff vif.sig_wait === 0);
+        @(posedge vif.clk iff vif.cyc_i === 0);
         trans_collected.data[i] = vif.dat_i;
       end
     end
