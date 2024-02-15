@@ -42,7 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../application/peripheral_ahb3_pkg.sv
 sv work ../../application/peripheral_design.sv
 
 sv work ../../library/peripheral_uvm_testbench.sv

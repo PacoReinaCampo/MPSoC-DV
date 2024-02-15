@@ -2,8 +2,6 @@
 // SEQUENCE: ubus_base_sequence
 ////////////////////////////////////////////////////////////////////////////////
 
-import peripheral_ahb3_pkg::*;
-
 // This sequence raises/drops objections in the pre/post_body so that root
 // sequences raise objections but subsequences do not.
 
@@ -46,8 +44,8 @@ class read_byte_seq extends ubus_base_sequence;
 
   `uvm_object_utils(read_byte_seq)
 
-  rand bit          [HADDR_SIZE-1:0] start_addr;
-  rand int unsigned                  transmit_del = 0;
+  rand bit          [31:0] start_addr;
+  rand int unsigned        transmit_del = 0;
   constraint transmit_del_ct {(transmit_del <= 10);}
 
   virtual task body();
@@ -75,8 +73,8 @@ class read_half_word_seq extends ubus_base_sequence;
 
   `uvm_object_utils(read_half_word_seq)
 
-  rand bit          [HADDR_SIZE-1:0] start_addr;
-  rand int unsigned                  transmit_del = 0;
+  rand bit          [31:0] start_addr;
+  rand int unsigned        transmit_del = 0;
   constraint transmit_del_ct {(transmit_del <= 10);}
 
   virtual task body();
@@ -104,8 +102,8 @@ class read_word_seq extends ubus_base_sequence;
 
   `uvm_object_utils(read_word_seq)
 
-  rand bit          [HADDR_SIZE-1:0] start_addr;
-  rand int unsigned                  transmit_del = 0;
+  rand bit          [31:0] start_addr;
+  rand int unsigned        transmit_del = 0;
   constraint transmit_del_ct {(transmit_del <= 10);}
 
   virtual task body();
@@ -133,8 +131,8 @@ class read_double_word_seq extends ubus_base_sequence;
 
   `uvm_object_utils(read_double_word_seq)
 
-  rand bit          [HADDR_SIZE-1:0] start_addr;
-  rand int unsigned                  transmit_del = 0;
+  rand bit          [31:0] start_addr;
+  rand int unsigned        transmit_del = 0;
   constraint transmit_del_ct {(transmit_del <= 10);}
 
   virtual task body();
@@ -164,9 +162,9 @@ class write_byte_seq extends ubus_base_sequence;
 
   `uvm_object_utils(write_byte_seq)
 
-  rand bit          [HADDR_SIZE-1:0] start_addr;
-  rand bit          [HDATA_SIZE-1:0] data0;
-  rand int unsigned                  transmit_del = 0;
+  rand bit          [31:0] start_addr;
+  rand bit          [31:0] data0;
+  rand int unsigned        transmit_del = 0;
   constraint transmit_del_ct {(transmit_del <= 10);}
 
   virtual task body();
@@ -188,10 +186,10 @@ class write_half_word_seq extends ubus_base_sequence;
 
   `uvm_object_utils(write_half_word_seq)
 
-  rand bit          [HADDR_SIZE-1:0] start_addr;
-  rand bit          [HDATA_SIZE-1:0] data0;
-  rand bit          [HDATA_SIZE-1:0] data1;
-  rand int unsigned                  transmit_del = 0;
+  rand bit          [31:0] start_addr;
+  rand bit          [31:0] data0;
+  rand bit          [31:0] data1;
+  rand int unsigned        transmit_del = 0;
   constraint transmit_del_ct {transmit_del <= 10;}
 
   virtual task body();
@@ -213,12 +211,12 @@ class write_word_seq extends ubus_base_sequence;
 
   `uvm_object_utils(write_word_seq)
 
-  rand bit          [HADDR_SIZE-1:0] start_addr;
-  rand bit          [HDATA_SIZE-1:0] data0;
-  rand bit          [HDATA_SIZE-1:0] data1;
-  rand bit          [HDATA_SIZE-1:0] data2;
-  rand bit          [HDATA_SIZE-1:0] data3;
-  rand int unsigned                  transmit_del = 0;
+  rand bit          [31:0] start_addr;
+  rand bit          [31:0] data0;
+  rand bit          [31:0] data1;
+  rand bit          [31:0] data2;
+  rand bit          [31:0] data3;
+  rand int unsigned        transmit_del = 0;
   constraint transmit_del_ct {(transmit_del <= 10);}
 
   virtual task body();
@@ -240,16 +238,16 @@ class write_double_word_seq extends ubus_base_sequence;
 
   `uvm_object_utils(write_double_word_seq)
 
-  rand bit          [HADDR_SIZE-1:0] start_addr;
-  rand bit          [HDATA_SIZE-1:0] data0;
-  rand bit          [HDATA_SIZE-1:0] data1;
-  rand bit          [HDATA_SIZE-1:0] data2;
-  rand bit          [HDATA_SIZE-1:0] data3;
-  rand bit          [HDATA_SIZE-1:0] data4;
-  rand bit          [HDATA_SIZE-1:0] data5;
-  rand bit          [HDATA_SIZE-1:0] data6;
-  rand bit          [HDATA_SIZE-1:0] data7;
-  rand int unsigned                  transmit_del = 0;
+  rand bit          [31:0] start_addr;
+  rand bit          [31:0] data0;
+  rand bit          [31:0] data1;
+  rand bit          [31:0] data2;
+  rand bit          [31:0] data3;
+  rand bit          [31:0] data4;
+  rand bit          [31:0] data5;
+  rand bit          [31:0] data6;
+  rand bit          [31:0] data7;
+  rand int unsigned        transmit_del = 0;
   constraint transmit_del_ct {(transmit_del <= 10);}
 
   virtual task body();

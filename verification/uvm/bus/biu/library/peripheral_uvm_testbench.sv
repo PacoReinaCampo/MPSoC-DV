@@ -12,22 +12,24 @@ module peripheral_uvm_testbench;
   peripheral_uvm_if vif ();
 
   peripheral_design dut (
-    vif.hclk,
-    vif.hresetn,
+    vif.clk,
+    vif.rst,
 
-    vif.hsel,
-    vif.haddr,
-    vif.hwdata,
-    vif.hrdata,
-    vif.hwrite,
-    vif.hsize,
-    vif.hburst,
-    vif.hprot,
-    vif.htrans,
-    vif.hmastlock,
-    vif.hreadyout,
-    vif.hready,
-    vif.hresp
+    vif.adri_i,
+    vif.d_i,
+    vif.size_i,
+    vif.we_i,
+    vif.type_i,
+    vif.prot_i,
+    vif.lock_i,
+    vif.stb_i,
+
+    vif.ack_o,
+    vif.err_o,
+    vif.q_o,
+
+    vif.sig_read,
+    vif.sig_write
   );
 
   initial begin
@@ -46,16 +48,16 @@ module peripheral_uvm_testbench;
 
   // Generate Reset
   initial begin
-    vif.hresetn <= 1'b1;
+    vif.rst <= 1'b1;
     #50;
-    vif.hresetn <= 1'b0;
+    vif.rst <= 1'b0;
   end
 
   // Generate Clock
-  always #5 vif.hclk = ~vif.hclk;
+  always #5 vif.clk = ~vif.clk;
 
   initial begin
-    vif.hclk <= 1'b1;
+    vif.clk <= 1'b1;
   end
 
 endmodule

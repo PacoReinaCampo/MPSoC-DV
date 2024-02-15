@@ -1,26 +1,32 @@
+import peripheral_ahb3_pkg::*;
+
 interface peripheral_uvm_if;
 
   // Control flags
-  bit                has_checks = 1;
-  bit                has_coverage = 1;
+  bit                         has_checks = 1;
+  bit                         has_coverage = 1;
 
   // Actual Signals
-  logic              sig_clock;
-  logic              sig_reset;
-  logic       [15:0] sig_addr;
-  logic       [ 1:0] sig_size;
-  logic              sig_read;
-  logic              sig_write;
-  logic              sig_start;
-  logic              sig_bip;
-  wire logic  [ 7:0] sig_data_in;
-  logic       [ 7:0] sig_data_out;
-  logic              sig_wait;
-  logic              sig_error;
+  logic                       hclk;
+  logic                       hresetn;
 
-  logic              rw;
+  logic                       hsel;
+  logic      [HADDR_SIZE-1:0] haddr;
+  wire logic [HDATA_SIZE-1:0] hwdata;
+  logic      [HDATA_SIZE-1:0] hrdata;
+  logic                       hwrite;
+  logic      [           2:0] hburst;
+  logic      [           2:0] hsize;
+  logic      [           3:0] hprot;
+  logic      [           1:0] htrans;
+  logic                       hmastlock;
+  logic                       hreadyout;
+  logic                       hready;
+  logic                       hresp;
 
-  assign sig_data_in = rw ? sig_data_out : 8'bz;
+  logic                       rw;
+
+  assign hwdata = rw ? hrdata : 32'bz;
 
   // Coverage and assertions to be implemented here.
 

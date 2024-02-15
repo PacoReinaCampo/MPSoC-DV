@@ -2,8 +2,6 @@
 // peripheral_uvm transfer enums, parameters, and events
 ////////////////////////////////////////////////////////////////////////////////
 
-import peripheral_ahb3_pkg::*;
-
 typedef enum {
   NOP,
   READ,
@@ -16,15 +14,15 @@ typedef enum {
 
 class peripheral_uvm_transfer extends uvm_sequence_item;
 
-  rand bit                  [HADDR_SIZE-1:0] addr;
-  rand ubus_read_write_enum                  read_write;
-  rand int unsigned                          size;
-  rand bit                  [HDATA_SIZE-1:0] data          [];
-  rand bit                  [           3:0] wait_state    [];
-  rand int unsigned                          error_pos;
-  rand int unsigned                          transmit_delay    = 0;
-  string                                     master            = "";
-  string                                     slave             = "";
+  rand bit                  [31:0] addr;
+  rand ubus_read_write_enum        read_write;
+  rand int unsigned                size;
+  rand bit                  [31:0] data          [];
+  rand bit                  [ 3:0] wait_state    [];
+  rand int unsigned                error_pos;
+  rand int unsigned                transmit_delay    = 0;
+  string                           master            = "";
+  string                           slave             = "";
 
   constraint c_read_write {read_write inside {READ, WRITE};}
   constraint c_size {size inside {1, 2, 4, 8};}

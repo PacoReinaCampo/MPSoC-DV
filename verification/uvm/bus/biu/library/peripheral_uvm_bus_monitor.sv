@@ -18,12 +18,12 @@ class slave_address_map_info extends uvm_object;
   endfunction : set_address_map
 
   // get the min addr
-  function bit [15:0] get_min_addr();
+  function bit [31:0] get_min_addr();
     return min_addr;
   endfunction : get_min_addr
 
   // get the max addr
-  function bit [15:0] get_max_addr();
+  function bit [31:0] get_max_addr();
     return max_addr;
   endfunction : get_max_addr
 
@@ -95,8 +95,8 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
   protected event                                     cov_transaction_beat;
 
   // Fields to hold trans data and wait_state.  No coverage of dynamic arrays.
-  protected bit                      [HADDR_SIZE-1:0] addr;
-  protected bit                      [HDATA_SIZE-1:0] data;
+  protected bit                                [31:0] addr;
+  protected bit                                [31:0] data;
   protected int unsigned                              wait_state;
 
   // Transfer collected covergroup
@@ -177,12 +177,12 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
   task observe_reset();
     fork
       forever begin
-        @(posedge vif.hresetn);
+        @(posedge vif.rst);
         status.bus_state = RST_START;
         state_port.write(status);
       end
       forever begin
-        @(negedge vif.hresetn);
+        @(negedge vif.rst);
         status.bus_state = RST_STOP;
         state_port.write(status);
       end
@@ -209,7 +209,7 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
   // collect_arbitration_phase
   task collect_arbitration_phase();
     string tmpStr;
-    @(posedge vif.hclk);
+    @(posedge vif.clk);
     status.bus_state = ARBI;
     state_port.write(status);
     void'(this.begin_tr(trans_collected));
@@ -223,9 +223,9 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
 
   // collect_address_phase
   task collect_address_phase();
-    @(posedge vif.hclk);
-    trans_collected.addr = vif.haddr;
-    case (vif.hsize)
+    @(posedge vif.clk);
+    trans_collected.addr = vif.adri_i;
+    case (vif.type_i)
       2'b00: trans_collected.size = 1;
       2'b01: trans_collected.size = 2;
       2'b10: trans_collected.size = 4;
@@ -233,17 +233,27 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
     endcase
     trans_collected.data = new[trans_collected.size];
     case ({
-      vif.hwrite
+      vif.sig_read, vif.sig_write
     })
-      1'b0: begin
+      2'b00: begin
+        trans_collected.read_write = NOP;
+        status.bus_state           = NO_OP;
+        state_port.write(status);
+      end
+      2'b10: begin
         trans_collected.read_write = READ;
         status.bus_state           = ADDR_PH;
         state_port.write(status);
       end
-      1'b1: begin
+      2'b01: begin
         trans_collected.read_write = WRITE;
         status.bus_state           = ADDR_PH;
         state_port.write(status);
+      end
+      2'b11: begin
+        status.bus_state = ADDR_PH_ERROR;
+        state_port.write(status);
+        if (checks_enable) `uvm_error(get_type_name(), "Read and Write true at the same time")
       end
     endcase
   endtask : collect_address_phase
@@ -256,8 +266,8 @@ class peripheral_uvm_bus_monitor extends uvm_monitor;
       for (i = 0; i < trans_collected.size; i++) begin
         status.bus_state = DATA_PH;
         state_port.write(status);
-        @(posedge vif.hclk iff vif.hready === 0);
-        trans_collected.data[i] = vif.hwdata;
+        @(posedge vif.clk iff vif.lock_i === 0);
+        trans_collected.data[i] = vif.d_i;
       end
       num_transactions++;
       this.end_tr(trans_collected);

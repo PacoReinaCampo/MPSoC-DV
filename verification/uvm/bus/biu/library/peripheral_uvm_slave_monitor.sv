@@ -10,8 +10,8 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
 
   // The following two unsigned integer properties are used by
   // check_addr_range() method to detect if a transaction is for this target.
-  protected int unsigned                                                                min_addr               = 32'h00000000;
-  protected int unsigned                                                                max_addr               = 32'hFFFFFFFF;
+  protected int unsigned                                                                min_addr               = 16'h0000;
+  protected int unsigned                                                                max_addr               = 16'hFFFF;
 
   // The following two bits are used to control whether checks and coverage are
   // done both in the monitor class and the interface.
@@ -33,8 +33,8 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
   protected event                                                                       cov_transaction_beat;
 
   // Fields to hold trans data and wait_state.  No coverage of dynamic arrays.
-  protected bit                                                        [HADDR_SIZE-1:0] addr;
-  protected bit                                                        [HDATA_SIZE-1:0] data;
+  protected bit                                                                  [31:0] addr;
+  protected bit                                                                  [31:0] data;
   protected int unsigned                                                                wait_state;
 
   // Transfer collected covergroup
@@ -97,18 +97,18 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
   endfunction : build_phase
 
   // set the monitor's address range
-  function void set_addr_range(bit [15:0] min_addr, bit [15:0] max_addr);
+  function void set_addr_range(bit [31:0] min_addr, bit [31:0] max_addr);
     this.min_addr = min_addr;
     this.max_addr = max_addr;
   endfunction : set_addr_range
 
   // get the monitor's min addr
-  function bit [15:0] get_min_addr();
+  function bit [31:0] get_min_addr();
     return min_addr;
   endfunction : get_min_addr
 
   // get the monitor's max addr
-  function bit [15:0] get_max_addr();
+  function bit [31:0] get_max_addr();
     return max_addr;
   endfunction : get_max_addr
 
@@ -154,9 +154,9 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
 
   // collect_address_phase
   virtual protected task collect_address_phase();
-    @(posedge vif.hclk iff (vif.hwrite === 1));
-    trans_collected.addr = vif.haddr;
-    case (vif.hsize)
+    @(posedge vif.clk iff ((vif.sig_read === 1) || (vif.sig_write === 1)));
+    trans_collected.addr = vif.adri_i;
+    case (vif.type_i)
       2'b00: trans_collected.size = 1;
       2'b01: trans_collected.size = 2;
       2'b10: trans_collected.size = 4;
@@ -164,10 +164,11 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
     endcase
     trans_collected.data = new[trans_collected.size];
     case ({
-      vif.hwrite
+      vif.sig_read, vif.sig_write
     })
-      1'b0: trans_collected.read_write = READ;
-      1'b1: trans_collected.read_write = WRITE;
+      2'b00: trans_collected.read_write = NOP;
+      2'b10: trans_collected.read_write = READ;
+      2'b01: trans_collected.read_write = WRITE;
     endcase
   endtask : collect_address_phase
 
@@ -175,8 +176,8 @@ class peripheral_uvm_slave_monitor extends uvm_monitor;
   virtual protected task collect_data_phase();
     if (trans_collected.read_write != NOP) begin
       for (int i = 0; i < trans_collected.size; i++) begin
-        @(posedge vif.hclk iff vif.hready === 0);
-        trans_collected.data[i] = vif.hwdata;
+        @(posedge vif.clk iff vif.lock_i === 0);
+        trans_collected.data[i] = vif.d_i;
       end
     end
     this.end_tr(trans_collected);

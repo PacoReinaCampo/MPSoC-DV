@@ -31,9 +31,9 @@ class peripheral_uvm_slave_driver extends uvm_driver #(peripheral_uvm_transfer);
 
   // get_and_drive
   virtual protected task get_and_drive();
-    @(negedge vif.hresetn);
+    @(negedge vif.rst);
     forever begin
-      @(posedge vif.hclk);
+      @(posedge vif.clk);
       seq_item_port.get_next_item(req);
       respond_to_transfer(req);
       seq_item_port.item_done();
@@ -43,37 +43,34 @@ class peripheral_uvm_slave_driver extends uvm_driver #(peripheral_uvm_transfer);
   // reset_signals
   virtual protected task reset_signals();
     forever begin
-      @(posedge vif.hresetn);
-      vif.hmastlock <= 1'bz;
-      vif.hready    <= 1'bz;
-      vif.rw        <= 1'b0;
+      @(posedge vif.rst);
+      vif.lock_i <= 1'bz;
+      vif.rw    <= 1'b0;
     end
   endtask : reset_signals
 
   // respond_to_transfer
   virtual protected task respond_to_transfer(peripheral_uvm_transfer resp);
     if (resp.read_write != NOP) begin
-      vif.hmastlock <= 1'b0;
       for (int i = 0; i < resp.size; i++) begin
         case (resp.read_write)
           READ: begin
-            vif.rw     <= 1'b1;
-            vif.hrdata <= resp.data[i];
+            vif.rw    <= 1'b1;
+            vif.q_o <= resp.data[i];
           end
           WRITE: begin
           end
         endcase
         if (resp.wait_state[i] > 0) begin
-          vif.hready <= 1'b1;
-          repeat (resp.wait_state[i]) @(posedge vif.hclk);
+          vif.lock_i <= 1'b1;
+          repeat (resp.wait_state[i]) @(posedge vif.clk);
         end
-        vif.hready <= 1'b0;
-        @(posedge vif.hclk);
-        resp.data[i] = vif.hwdata;
+        vif.lock_i <= 1'b0;
+        @(posedge vif.clk);
+        resp.data[i] = vif.d_i;
       end
-      vif.rw        <= 1'b0;
-      vif.hready    <= 1'bz;
-      vif.hmastlock <= 1'bz;
+      vif.rw    <= 1'b0;
+      vif.lock_i <= 1'bz;
     end
   endtask : respond_to_transfer
 
