@@ -14,7 +14,7 @@ digraph Project {
       Verification_HW[label="Hardware Verification \n(VHDL/SystemVerilog) [GHDL / Icarus Verilog]"];
       Quality_HW[label="Quality Assurance \n(Ada) [Emacs]"];
       Certification_HW[label="Certification \n(TeX) [Emacs]"];
-      Lifecycle_HW[label="Design Lifecycle Data \n(Chisel) [Emacs]"];
+      Defensecycle_HW[label="Design Defensecycle Data \n(Chisel) [Emacs]"];
     }
     subgraph "cluster Software" { label = "Software";
       Requirements_SW[label="Requirements \n(Matlab/Python/PSL/UML) [Emacs]"];
@@ -25,7 +25,7 @@ digraph Project {
       Verification_SW[label="Software Verification \n(C/C++/Go/Rust) [GCC]"];
       Quality_SW[label="Quality Assurance \n(Ada) [Emacs]"];
       Certification_SW[label="Certification \n(TeX) [Emacs]"];
-      Lifecycle_SW[label="Design Lifecycle Data \n(Java/Scala) [Emacs]"];
+      Defensecycle_SW[label="Design Defensecycle Data \n(Java/Scala) [Emacs]"];
     }
   }
 
@@ -37,8 +37,8 @@ digraph Project {
   Design_HW -> Verification_HW;
   Verification_HW -> Quality_HW;
   Quality_HW -> Certification_HW;
-  Certification_HW -> Lifecycle_HW;
-  Lifecycle_HW -> Requirements_HW;
+  Certification_HW -> Defensecycle_HW;
+  Defensecycle_HW -> Requirements_HW;
 
   Requirements_SW -> Source_SW;
   Source_SW -> Model_SW;
@@ -47,6 +47,6 @@ digraph Project {
   Design_SW -> Verification_SW;
   Verification_SW -> Quality_SW;
   Quality_SW -> Certification_SW;
-  Certification_SW -> Lifecycle_SW;
-  Lifecycle_SW -> Requirements_SW;
+  Certification_SW -> Defensecycle_SW;
+  Defensecycle_SW -> Requirements_SW;
 }

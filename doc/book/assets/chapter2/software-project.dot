@@ -12,7 +12,7 @@ digraph Project {
   Verification[label="Software Verification \n(C/C++/Go/Rust) [GCC]"];
   Quality[label="Quality Assurance \n(Ada) [Emacs]"];
   Certification[label="Certification \n(TeX) [Emacs]"];
-  Lifecycle[label="Design Lifecycle Data \n(Java/Scala) [Emacs]"];
+  Defensecycle[label="Design Defensecycle Data \n(Java/Scala) [Emacs]"];
 
   // Sequence
   Requirements -> Source;
@@ -22,8 +22,8 @@ digraph Project {
   Design -> Verification;
   Verification -> Quality;
   Quality -> Certification;
-  Certification -> Lifecycle;
-  Lifecycle -> Requirements;
+  Certification -> Defensecycle;
+  Defensecycle -> Requirements;
 
   // Feedback
   Validation -> Model;

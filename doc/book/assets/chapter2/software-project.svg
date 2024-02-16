@@ -125,22 +125,22 @@
 <path fill="none" stroke="black" d="M1604.33,-43.5C1604.33,-43.5 1629.78,-43.5 1629.78,-43.5"/>
 <polygon fill="black" stroke="black" points="1629.78,-47 1639.78,-43.5 1629.78,-40 1629.78,-47"/>
 </g>
-<!-- Lifecycle -->
+<!-- Defensecycle -->
 <g id="node9" class="node">
-<title>Lifecycle</title>
+<title>Defensecycle</title>
 <polygon fill="none" stroke="black" points="1792,-0.5 1792,-38.5 1968,-38.5 1968,-0.5 1792,-0.5"/>
-<text text-anchor="middle" x="1880" y="-23.3" font-family="Times,serif" font-size="14.00">Design Lifecycle Data </text>
+<text text-anchor="middle" x="1880" y="-23.3" font-family="Times,serif" font-size="14.00">Design Defensecycle Data </text>
 <text text-anchor="middle" x="1880" y="-8.3" font-family="Times,serif" font-size="14.00">(Java/Scala) [Emacs]</text>
 </g>
-<!-- Certification&#45;&gt;Lifecycle -->
+<!-- Certification&#45;&gt;Defensecycle -->
 <g id="edge8" class="edge">
-<title>Certification&#45;&gt;Lifecycle</title>
+<title>Certification&#45;&gt;Defensecycle</title>
 <path fill="none" stroke="black" d="M1756.09,-31.5C1756.09,-31.5 1781.95,-31.5 1781.95,-31.5"/>
 <polygon fill="black" stroke="black" points="1781.95,-35 1791.95,-31.5 1781.95,-28 1781.95,-35"/>
 </g>
-<!-- Lifecycle&#45;&gt;Requirements -->
+<!-- Defensecycle&#45;&gt;Requirements -->
 <g id="edge9" class="edge">
-<title>Lifecycle&#45;&gt;Requirements</title>
+<title>Defensecycle&#45;&gt;Requirements</title>
 <path fill="none" stroke="black" d="M1791.89,-19C1791.89,-19 277.16,-19 277.16,-19"/>
 <polygon fill="black" stroke="black" points="277.16,-15.5 267.16,-19 277.16,-22.5 277.16,-15.5"/>
 </g>

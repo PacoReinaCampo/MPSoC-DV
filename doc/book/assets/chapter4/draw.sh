@@ -42,9 +42,9 @@
 ##                                                                               ##
 ###################################################################################
 
-dot -Tsvg dependences-mpsoc-lifetech.dot > dependences-mpsoc-lifetech.svg
-dot -Tsvg dependences-soc-lifetech.dot > dependences-soc-lifetech.svg
-dot -Tsvg dependences-pu-lifetech.dot > dependences-pu-lifetech.svg
+dot -Tsvg dependences-mpsoc-defensetech.dot > dependences-mpsoc-defensetech.svg
+dot -Tsvg dependences-soc-defensetech.dot > dependences-soc-defensetech.svg
+dot -Tsvg dependences-pu-defensetech.dot > dependences-pu-defensetech.svg
 
 dot -Tsvg dependences-mpsoc-fintech.dot > dependences-mpsoc-fintech.svg
 dot -Tsvg dependences-soc-fintech.dot > dependences-soc-fintech.svg

@@ -57,9 +57,9 @@ digraph Project {
     SoC_FinTech[label="SoC_FinTech \nAdvanced"];
     PU_FinTech[label="PU_FinTech \nAdvanced"];
 
-    MPSoC_LifeTech[label="MPSoC_LifeTech \nAdvanced"];
-    SoC_LifeTech[label="SoC_LifeTech \nAdvanced"];
-    PU_LifeTech[label="PU_LifeTech \nAdvanced"];
+    MPSoC_DefenseTech[label="MPSoC_DefenseTech \nAdvanced"];
+    SoC_DefenseTech[label="SoC_DefenseTech \nAdvanced"];
+    PU_DefenseTech[label="PU_DefenseTech \nAdvanced"];
   }
 
   // Peripheral -> Architecture
@@ -196,12 +196,12 @@ digraph Project {
   MPSoC_DNC -> MPSoC_FinTech;
 
 
-  PU_NTM -> PU_LifeTech;
-  PU_DNC -> PU_LifeTech;
+  PU_NTM -> PU_DefenseTech;
+  PU_DNC -> PU_DefenseTech;
 
-  SoC_NTM -> SoC_LifeTech;
-  SoC_DNC -> SoC_LifeTech;
+  SoC_NTM -> SoC_DefenseTech;
+  SoC_DNC -> SoC_DefenseTech;
 
-  MPSoC_NTM -> MPSoC_LifeTech;
-  MPSoC_DNC -> MPSoC_LifeTech;
+  MPSoC_NTM -> MPSoC_DefenseTech;
+  MPSoC_DNC -> MPSoC_DefenseTech;
 }

@@ -1123,7 +1123,13 @@ architecture simulation of ring_buffer_testbench is
 
   -- OSVVM variables
   shared variable rv : RandomPType;
-  shared variable bin1, bin2, bin3, bin4, bin5, bin6 : CovPType;
+
+  shared variable bin1  : CovPType;
+  shared variable bin2  : CovPType;
+  shared variable bin3  : CovPType;
+  shared variable bin4  : CovPType;
+  shared variable bin5  : CovPType;
+  shared variable bin6  : CovPType;
 
   -- Testbench FIFO that emulates the DUT
   shared variable fifo : LinkedList;
@@ -1335,16 +1341,6 @@ architecture rtl of ring_buffer is
 
   signal fill_count_i : integer range RAM_DEPTH - 1 downto 0;
 
-  -- Increment and wrap
-  procedure incr(signal index : inout index_type) is
-  begin
-    if index = index_type'high then
-      index <= index_type'low;
-    else
-      index <= index + 1;
-    end if;
-  end procedure;
-
 begin
 
   -- Copy internal signals to output
@@ -1366,11 +1362,13 @@ begin
       if rst = '1' then
         head <= 0;
       else
-
         if wr_en = '1' and full_i = '0' then
-          incr(head);
+          if head = index_type'high then
+            head <= index_type'low;
+          else
+            head <= head + 1;
+          end if;
         end if;
-
       end if;
     end if;
   end process;
@@ -1383,13 +1381,17 @@ begin
         tail <= 0;
         rd_valid <= '0';
       else
-        rd_valid <= '0';
-
         if rd_en = '1' and empty_i = '0' then
-          incr(tail);
-          rd_valid <= '1';
-        end if;
+          if tail = index_type'high then
+            tail <= index_type'low;
+          else
+            tail <= tail + 1;
+          end if;
 
+          rd_valid <= '1';
+        else
+          rd_valid <= '0';
+        end if;
       end if;
     end if;
   end process;
