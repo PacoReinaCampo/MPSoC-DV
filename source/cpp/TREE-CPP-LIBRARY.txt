@@ -12,6 +12,9 @@ library
 │   ├── bb
 │   │   ├── peripheral_design.cpp
 │   │   └── peripheral_design.hpp
+│   ├── biu
+│   │   ├── peripheral_design.cpp
+│   │   └── peripheral_design.hpp
 │   └── wb
 │       ├── peripheral_design.cpp
 │       └── peripheral_design.hpp
@@ -26,6 +29,9 @@ library
 │   │   ├── peripheral_design.cpp
 │   │   └── peripheral_design.hpp
 │   ├── bb
+│   │   ├── peripheral_design.cpp
+│   │   └── peripheral_design.hpp
+│   ├── biu
 │   │   ├── peripheral_design.cpp
 │   │   └── peripheral_design.hpp
 │   └── wb
@@ -44,6 +50,9 @@ library
 │   ├── bb
 │   │   ├── peripheral_design.cpp
 │   │   └── peripheral_design.hpp
+│   ├── biu
+│   │   ├── peripheral_design.cpp
+│   │   └── peripheral_design.hpp
 │   └── wb
 │       ├── peripheral_design.cpp
 │       └── peripheral_design.hpp
@@ -58,6 +67,9 @@ library
 │   │   ├── peripheral_design.cpp
 │   │   └── peripheral_design.hpp
 │   ├── bb
+│   │   ├── peripheral_design.cpp
+│   │   └── peripheral_design.hpp
+│   ├── biu
 │   │   ├── peripheral_design.cpp
 │   │   └── peripheral_design.hpp
 │   └── wb
@@ -76,8 +88,11 @@ library
     ├── bb
     │   ├── peripheral_design.cpp
     │   └── peripheral_design.hpp
+    ├── biu
+    │   ├── peripheral_design.cpp
+    │   └── peripheral_design.hpp
     └── wb
         ├── peripheral_design.cpp
         └── peripheral_design.hpp
 
-30 directories, 50 files
+35 directories, 60 files

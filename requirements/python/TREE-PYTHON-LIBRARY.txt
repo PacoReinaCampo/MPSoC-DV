@@ -8,6 +8,8 @@ library
 │   │   └── peripheral_design.py
 │   ├── bb
 │   │   └── peripheral_design.py
+│   ├── biu
+│   │   └── peripheral_design.py
 │   └── wb
 │       └── peripheral_design.py
 ├── core
@@ -18,6 +20,8 @@ library
 │   ├── axi4
 │   │   └── peripheral_design.py
 │   ├── bb
+│   │   └── peripheral_design.py
+│   ├── biu
 │   │   └── peripheral_design.py
 │   └── wb
 │       └── peripheral_design.py
@@ -30,6 +34,8 @@ library
 │   │   └── peripheral_design.py
 │   ├── bb
 │   │   └── peripheral_design.py
+│   ├── biu
+│   │   └── peripheral_design.py
 │   └── wb
 │       └── peripheral_design.py
 ├── pu
@@ -40,6 +46,8 @@ library
 │   ├── axi4
 │   │   └── peripheral_design.py
 │   ├── bb
+│   │   └── peripheral_design.py
+│   ├── biu
 │   │   └── peripheral_design.py
 │   └── wb
 │       └── peripheral_design.py
@@ -52,7 +60,9 @@ library
     │   └── peripheral_design.py
     ├── bb
     │   └── peripheral_design.py
+    ├── biu
+    │   └── peripheral_design.py
     └── wb
         └── peripheral_design.py
 
-30 directories, 25 files
+35 directories, 30 files

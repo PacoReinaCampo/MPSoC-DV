@@ -8,6 +8,8 @@ application
 │   │   └── peripheral_test.py
 │   ├── bb
 │   │   └── peripheral_test.py
+│   ├── biu
+│   │   └── peripheral_test.py
 │   └── wb
 │       └── peripheral_test.py
 ├── core
@@ -18,6 +20,8 @@ application
 │   ├── axi4
 │   │   └── peripheral_test.py
 │   ├── bb
+│   │   └── peripheral_test.py
+│   ├── biu
 │   │   └── peripheral_test.py
 │   └── wb
 │       └── peripheral_test.py
@@ -30,6 +34,8 @@ application
 │   │   └── peripheral_test.py
 │   ├── bb
 │   │   └── peripheral_test.py
+│   ├── biu
+│   │   └── peripheral_test.py
 │   └── wb
 │       └── peripheral_test.py
 ├── pu
@@ -40,6 +46,8 @@ application
 │   ├── axi4
 │   │   └── peripheral_test.py
 │   ├── bb
+│   │   └── peripheral_test.py
+│   ├── biu
 │   │   └── peripheral_test.py
 │   └── wb
 │       └── peripheral_test.py
@@ -52,7 +60,9 @@ application
     │   └── peripheral_test.py
     ├── bb
     │   └── peripheral_test.py
+    ├── biu
+    │   └── peripheral_test.py
     └── wb
         └── peripheral_test.py
 
-30 directories, 25 files
+35 directories, 30 files

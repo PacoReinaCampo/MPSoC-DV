@@ -8,6 +8,8 @@ library
 │   │   └── peripheral_design.psl
 │   ├── bb
 │   │   └── peripheral_design.psl
+│   ├── biu
+│   │   └── peripheral_design.psl
 │   └── wb
 │       └── peripheral_design.psl
 ├── core
@@ -18,6 +20,8 @@ library
 │   ├── axi4
 │   │   └── peripheral_design.psl
 │   ├── bb
+│   │   └── peripheral_design.psl
+│   ├── biu
 │   │   └── peripheral_design.psl
 │   └── wb
 │       └── peripheral_design.psl
@@ -30,6 +34,8 @@ library
 │   │   └── peripheral_design.psl
 │   ├── bb
 │   │   └── peripheral_design.psl
+│   ├── biu
+│   │   └── peripheral_design.psl
 │   └── wb
 │       └── peripheral_design.psl
 ├── pu
@@ -40,6 +46,8 @@ library
 │   ├── axi4
 │   │   └── peripheral_design.psl
 │   ├── bb
+│   │   └── peripheral_design.psl
+│   ├── biu
 │   │   └── peripheral_design.psl
 │   └── wb
 │       └── peripheral_design.psl
@@ -52,7 +60,9 @@ library
     │   └── peripheral_design.psl
     ├── bb
     │   └── peripheral_design.psl
+    ├── biu
+    │   └── peripheral_design.psl
     └── wb
         └── peripheral_design.psl
 
-30 directories, 25 files
+35 directories, 30 files

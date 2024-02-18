@@ -12,6 +12,9 @@ library
 │   ├── bb
 │   │   ├── peripheral.adb
 │   │   └── peripheral.ads
+│   ├── biu
+│   │   ├── peripheral.adb
+│   │   └── peripheral.ads
 │   └── wb
 │       ├── peripheral.adb
 │       └── peripheral.ads
@@ -26,6 +29,9 @@ library
 │   │   ├── peripheral.adb
 │   │   └── peripheral.ads
 │   ├── bb
+│   │   ├── peripheral.adb
+│   │   └── peripheral.ads
+│   ├── biu
 │   │   ├── peripheral.adb
 │   │   └── peripheral.ads
 │   └── wb
@@ -44,6 +50,9 @@ library
 │   ├── bb
 │   │   ├── peripheral.adb
 │   │   └── peripheral.ads
+│   ├── biu
+│   │   ├── peripheral.adb
+│   │   └── peripheral.ads
 │   └── wb
 │       ├── peripheral.adb
 │       └── peripheral.ads
@@ -58,6 +67,9 @@ library
 │   │   ├── peripheral.adb
 │   │   └── peripheral.ads
 │   ├── bb
+│   │   ├── peripheral.adb
+│   │   └── peripheral.ads
+│   ├── biu
 │   │   ├── peripheral.adb
 │   │   └── peripheral.ads
 │   └── wb
@@ -76,8 +88,11 @@ library
     ├── bb
     │   ├── peripheral.adb
     │   └── peripheral.ads
+    ├── biu
+    │   ├── peripheral.adb
+    │   └── peripheral.ads
     └── wb
         ├── peripheral.adb
         └── peripheral.ads
 
-30 directories, 50 files
+35 directories, 60 files

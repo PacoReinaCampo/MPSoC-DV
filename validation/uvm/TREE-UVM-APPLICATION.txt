@@ -12,6 +12,9 @@ application
 │   ├── bb
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
+│   ├── biu
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
 │   └── wb
 │       ├── peripheral_design.sv
 │       └── peripheral_testbench.sv
@@ -26,6 +29,9 @@ application
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
 │   ├── bb
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── biu
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
 │   └── wb
@@ -44,6 +50,9 @@ application
 │   ├── bb
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
+│   ├── biu
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
 │   └── wb
 │       ├── peripheral_design.sv
 │       └── peripheral_testbench.sv
@@ -58,6 +67,9 @@ application
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
 │   ├── bb
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── biu
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
 │   └── wb
@@ -76,8 +88,11 @@ application
     ├── bb
     │   ├── peripheral_design.sv
     │   └── peripheral_testbench.sv
+    ├── biu
+    │   ├── peripheral_design.sv
+    │   └── peripheral_testbench.sv
     └── wb
         ├── peripheral_design.sv
         └── peripheral_testbench.sv
 
-30 directories, 50 files
+35 directories, 60 files

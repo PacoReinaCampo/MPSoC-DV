@@ -12,6 +12,9 @@ library
 │   ├── bb
 │   │   ├── peripheral_design.c
 │   │   └── peripheral_design.h
+│   ├── biu
+│   │   ├── peripheral_design.c
+│   │   └── peripheral_design.h
 │   └── wb
 │       ├── peripheral_design.c
 │       └── peripheral_design.h
@@ -26,6 +29,9 @@ library
 │   │   ├── peripheral_design.c
 │   │   └── peripheral_design.h
 │   ├── bb
+│   │   ├── peripheral_design.c
+│   │   └── peripheral_design.h
+│   ├── biu
 │   │   ├── peripheral_design.c
 │   │   └── peripheral_design.h
 │   └── wb
@@ -44,6 +50,9 @@ library
 │   ├── bb
 │   │   ├── peripheral_design.c
 │   │   └── peripheral_design.h
+│   ├── biu
+│   │   ├── peripheral_design.c
+│   │   └── peripheral_design.h
 │   └── wb
 │       ├── peripheral_design.c
 │       └── peripheral_design.h
@@ -58,6 +67,9 @@ library
 │   │   ├── peripheral_design.c
 │   │   └── peripheral_design.h
 │   ├── bb
+│   │   ├── peripheral_design.c
+│   │   └── peripheral_design.h
+│   ├── biu
 │   │   ├── peripheral_design.c
 │   │   └── peripheral_design.h
 │   └── wb
@@ -76,8 +88,11 @@ library
     ├── bb
     │   ├── peripheral_design.c
     │   └── peripheral_design.h
+    ├── biu
+    │   ├── peripheral_design.c
+    │   └── peripheral_design.h
     └── wb
         ├── peripheral_design.c
         └── peripheral_design.h
 
-30 directories, 50 files
+35 directories, 60 files

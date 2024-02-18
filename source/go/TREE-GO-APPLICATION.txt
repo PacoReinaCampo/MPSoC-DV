@@ -8,6 +8,8 @@ application
 │   │   └── test_peripheral.go
 │   ├── bb
 │   │   └── test_peripheral.go
+│   ├── biu
+│   │   └── test_peripheral.go
 │   └── wb
 │       └── test_peripheral.go
 ├── core
@@ -18,6 +20,8 @@ application
 │   ├── axi4
 │   │   └── test_peripheral.go
 │   ├── bb
+│   │   └── test_peripheral.go
+│   ├── biu
 │   │   └── test_peripheral.go
 │   └── wb
 │       └── test_peripheral.go
@@ -30,6 +34,8 @@ application
 │   │   └── test_peripheral.go
 │   ├── bb
 │   │   └── test_peripheral.go
+│   ├── biu
+│   │   └── test_peripheral.go
 │   └── wb
 │       └── test_peripheral.go
 ├── pu
@@ -40,6 +46,8 @@ application
 │   ├── axi4
 │   │   └── test_peripheral.go
 │   ├── bb
+│   │   └── test_peripheral.go
+│   ├── biu
 │   │   └── test_peripheral.go
 │   └── wb
 │       └── test_peripheral.go
@@ -52,7 +60,9 @@ application
     │   └── test_peripheral.go
     ├── bb
     │   └── test_peripheral.go
+    ├── biu
+    │   └── test_peripheral.go
     └── wb
         └── test_peripheral.go
 
-30 directories, 25 files
+35 directories, 30 files

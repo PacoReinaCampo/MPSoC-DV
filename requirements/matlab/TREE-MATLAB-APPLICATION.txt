@@ -8,6 +8,8 @@ application
 │   │   └── peripheral_test.m
 │   ├── bb
 │   │   └── peripheral_test.m
+│   ├── biu
+│   │   └── peripheral_test.m
 │   └── wb
 │       └── peripheral_test.m
 └── core
@@ -19,7 +21,9 @@ application
     │   └── peripheral_test.m
     ├── bb
     │   └── peripheral_test.m
+    ├── biu
+    │   └── peripheral_test.m
     └── wb
         └── peripheral_test.m
 
-12 directories, 10 files
+14 directories, 12 files
