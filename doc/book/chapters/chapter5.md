@@ -584,7 +584,7 @@ sudo make install
 
 type:
 ```
-sudo apt install device-tree-compiler libglib2.0-dev libpixman-1-dev pkg-config
+sudo apt install device-tree-compiler libboost-all-dev libglib2.0-dev libpixman-1-dev pkg-config
 ```
 
 ##### Hardware Engineers Compiler: Spike
@@ -602,7 +602,7 @@ git clone --recursive https://github.com/riscv/riscv-pk
 cd riscv-pk
 mkdir build
 cd build
-../configure --prefix=/opt/riscv-elf-gcc --host=riscv64-unknown-elf
+../configure --prefix=/opt/riscv-elf-gcc --host=riscv64-unknown-elf --with-arch=rv64gc_zifencei
 make
 sudo make install
 ```
