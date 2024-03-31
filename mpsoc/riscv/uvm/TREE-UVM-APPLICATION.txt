@@ -15,9 +15,13 @@ application
 │   ├── peripheral_adder.sv
 │   ├── peripheral_full_adder.sv
 │   └── peripheral_half_adder.sv
+├── biu
+│   ├── peripheral_adder.sv
+│   ├── peripheral_full_adder.sv
+│   └── peripheral_half_adder.sv
 └── wb
     ├── peripheral_adder.sv
     ├── peripheral_full_adder.sv
     └── peripheral_half_adder.sv
 
-5 directories, 15 files
+6 directories, 18 files

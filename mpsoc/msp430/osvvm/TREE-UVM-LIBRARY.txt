@@ -15,9 +15,13 @@ library
 │   ├── peripheral_osvvm_model_pkg.vhd
 │   ├── peripheral_osvvm_model.vhd
 │   └── peripheral_osvvm_testbench.vhd
+├── biu
+│   ├── peripheral_osvvm_model_pkg.vhd
+│   ├── peripheral_osvvm_model.vhd
+│   └── peripheral_osvvm_testbench.vhd
 └── wb
     ├── peripheral_osvvm_model_pkg.vhd
     ├── peripheral_osvvm_model.vhd
     └── peripheral_osvvm_testbench.vhd
 
-5 directories, 15 files
+6 directories, 18 files
