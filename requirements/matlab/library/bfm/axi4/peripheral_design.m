@@ -1,4 +1,3 @@
-%{
 ###################################################################################
 ##                                            __ _      _     _                  ##
 ##                                           / _(_)    | |   | |                 ##
@@ -42,9 +41,8 @@
 ##   Paco Reina Campo <pacoreinacampo@queenfield.tech>                           ##
 ##                                                                               ##
 ###################################################################################
-%}
 
 function DATA_OUT = peripheral_design(DATA_A_IN, DATA_B_IN)
-  % Body
+  # Body
   DATA_OUT = DATA_A_IN + DATA_B_IN;
 end

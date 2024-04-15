@@ -1,4 +1,3 @@
-%{
 ###################################################################################
 ##                                            __ _      _     _                  ##
 ##                                           / _(_)    | |   | |                 ##
@@ -42,14 +41,13 @@
 ##   Paco Reina Campo <pacoreinacampo@queenfield.tech>                           ##
 ##                                                                               ##
 ###################################################################################
-%}
 
-% Package
+# Package
 addpath(genpath('../../../library/bfm/wb'));
   
-% Signals
+# Signals
 DATA_A_IN = rand(1);
 DATA_B_IN = rand(1);
 
-% DUT
+# DUT
 assert(peripheral_design(DATA_A_IN, DATA_B_IN), DATA_A_IN + DATA_B_IN);
