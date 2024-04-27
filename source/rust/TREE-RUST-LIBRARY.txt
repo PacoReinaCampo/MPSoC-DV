@@ -8,49 +8,34 @@ library
 │   │       └── lib.rs
 │   ├── apb4
 │   │   └── src
-│   │       ├── ahb3
-│   │       │   ├── mod.rs
-│   │       │   └── peripheral_design.rs
-│   │       ├── biu
+│   │       ├── apb4
 │   │       │   ├── mod.rs
 │   │       │   └── peripheral_design.rs
 │   │       └── lib.rs
 │   ├── axi4
 │   │   └── src
-│   │       ├── ahb3
-│   │       │   ├── mod.rs
-│   │       │   └── peripheral_design.rs
-│   │       ├── biu
+│   │       ├── axi4
 │   │       │   ├── mod.rs
 │   │       │   └── peripheral_design.rs
 │   │       └── lib.rs
 │   ├── bb
 │   │   └── src
-│   │       ├── ahb3
-│   │       │   ├── mod.rs
-│   │       │   └── peripheral_design.rs
-│   │       ├── biu
+│   │       ├── bb
 │   │       │   ├── mod.rs
 │   │       │   └── peripheral_design.rs
 │   │       └── lib.rs
 │   ├── biu
 │   │   └── src
-│   │       ├── ahb3
-│   │       │   ├── mod.rs
-│   │       │   └── peripheral_design.rs
 │   │       ├── biu
 │   │       │   ├── mod.rs
 │   │       │   └── peripheral_design.rs
 │   │       └── lib.rs
 │   └── wb
 │       └── src
-│           ├── ahb3
-│           │   ├── mod.rs
-│           │   └── peripheral_design.rs
-│           ├── biu
-│           │   ├── mod.rs
-│           │   └── peripheral_design.rs
-│           └── lib.rs
+│           ├── lib.rs
+│           └── wb
+│               ├── mod.rs
+│               └── peripheral_design.rs
 ├── core
 │   ├── ahb3
 │   │   └── src
@@ -60,49 +45,34 @@ library
 │   │       └── lib.rs
 │   ├── apb4
 │   │   └── src
-│   │       ├── ahb3
-│   │       │   ├── mod.rs
-│   │       │   └── peripheral_design.rs
-│   │       ├── biu
+│   │       ├── apb4
 │   │       │   ├── mod.rs
 │   │       │   └── peripheral_design.rs
 │   │       └── lib.rs
 │   ├── axi4
 │   │   └── src
-│   │       ├── ahb3
-│   │       │   ├── mod.rs
-│   │       │   └── peripheral_design.rs
-│   │       ├── biu
+│   │       ├── axi4
 │   │       │   ├── mod.rs
 │   │       │   └── peripheral_design.rs
 │   │       └── lib.rs
 │   ├── bb
 │   │   └── src
-│   │       ├── ahb3
-│   │       │   ├── mod.rs
-│   │       │   └── peripheral_design.rs
-│   │       ├── biu
+│   │       ├── bb
 │   │       │   ├── mod.rs
 │   │       │   └── peripheral_design.rs
 │   │       └── lib.rs
 │   ├── biu
 │   │   └── src
-│   │       ├── ahb3
-│   │       │   ├── mod.rs
-│   │       │   └── peripheral_design.rs
 │   │       ├── biu
 │   │       │   ├── mod.rs
 │   │       │   └── peripheral_design.rs
 │   │       └── lib.rs
 │   └── wb
 │       └── src
-│           ├── ahb3
-│           │   ├── mod.rs
-│           │   └── peripheral_design.rs
-│           ├── biu
-│           │   ├── mod.rs
-│           │   └── peripheral_design.rs
-│           └── lib.rs
+│           ├── lib.rs
+│           └── wb
+│               ├── mod.rs
+│               └── peripheral_design.rs
 ├── mpsoc
 │   ├── ahb3
 │   │   └── src
@@ -112,49 +82,34 @@ library
 │   │       └── lib.rs
 │   ├── apb4
 │   │   └── src
-│   │       ├── ahb3
-│   │       │   ├── mod.rs
-│   │       │   └── peripheral_design.rs
-│   │       ├── biu
+│   │       ├── apb4
 │   │       │   ├── mod.rs
 │   │       │   └── peripheral_design.rs
 │   │       └── lib.rs
 │   ├── axi4
 │   │   └── src
-│   │       ├── ahb3
-│   │       │   ├── mod.rs
-│   │       │   └── peripheral_design.rs
-│   │       ├── biu
+│   │       ├── axi4
 │   │       │   ├── mod.rs
 │   │       │   └── peripheral_design.rs
 │   │       └── lib.rs
 │   ├── bb
 │   │   └── src
-│   │       ├── ahb3
-│   │       │   ├── mod.rs
-│   │       │   └── peripheral_design.rs
-│   │       ├── biu
+│   │       ├── bb
 │   │       │   ├── mod.rs
 │   │       │   └── peripheral_design.rs
 │   │       └── lib.rs
 │   ├── biu
 │   │   └── src
-│   │       ├── ahb3
-│   │       │   ├── mod.rs
-│   │       │   └── peripheral_design.rs
 │   │       ├── biu
 │   │       │   ├── mod.rs
 │   │       │   └── peripheral_design.rs
 │   │       └── lib.rs
 │   └── wb
 │       └── src
-│           ├── ahb3
-│           │   ├── mod.rs
-│           │   └── peripheral_design.rs
-│           ├── biu
-│           │   ├── mod.rs
-│           │   └── peripheral_design.rs
-│           └── lib.rs
+│           ├── lib.rs
+│           └── wb
+│               ├── mod.rs
+│               └── peripheral_design.rs
 ├── pu
 │   ├── ahb3
 │   │   └── src
@@ -164,49 +119,34 @@ library
 │   │       └── lib.rs
 │   ├── apb4
 │   │   └── src
-│   │       ├── ahb3
-│   │       │   ├── mod.rs
-│   │       │   └── peripheral_design.rs
-│   │       ├── biu
+│   │       ├── apb4
 │   │       │   ├── mod.rs
 │   │       │   └── peripheral_design.rs
 │   │       └── lib.rs
 │   ├── axi4
 │   │   └── src
-│   │       ├── ahb3
-│   │       │   ├── mod.rs
-│   │       │   └── peripheral_design.rs
-│   │       ├── biu
+│   │       ├── axi4
 │   │       │   ├── mod.rs
 │   │       │   └── peripheral_design.rs
 │   │       └── lib.rs
 │   ├── bb
 │   │   └── src
-│   │       ├── ahb3
-│   │       │   ├── mod.rs
-│   │       │   └── peripheral_design.rs
-│   │       ├── biu
+│   │       ├── bb
 │   │       │   ├── mod.rs
 │   │       │   └── peripheral_design.rs
 │   │       └── lib.rs
 │   ├── biu
 │   │   └── src
-│   │       ├── ahb3
-│   │       │   ├── mod.rs
-│   │       │   └── peripheral_design.rs
 │   │       ├── biu
 │   │       │   ├── mod.rs
 │   │       │   └── peripheral_design.rs
 │   │       └── lib.rs
 │   └── wb
 │       └── src
-│           ├── ahb3
-│           │   ├── mod.rs
-│           │   └── peripheral_design.rs
-│           ├── biu
-│           │   ├── mod.rs
-│           │   └── peripheral_design.rs
-│           └── lib.rs
+│           ├── lib.rs
+│           └── wb
+│               ├── mod.rs
+│               └── peripheral_design.rs
 └── soc
     ├── ahb3
     │   └── src
@@ -216,48 +156,33 @@ library
     │       └── lib.rs
     ├── apb4
     │   └── src
-    │       ├── ahb3
-    │       │   ├── mod.rs
-    │       │   └── peripheral_design.rs
-    │       ├── biu
+    │       ├── apb4
     │       │   ├── mod.rs
     │       │   └── peripheral_design.rs
     │       └── lib.rs
     ├── axi4
     │   └── src
-    │       ├── ahb3
-    │       │   ├── mod.rs
-    │       │   └── peripheral_design.rs
-    │       ├── biu
+    │       ├── axi4
     │       │   ├── mod.rs
     │       │   └── peripheral_design.rs
     │       └── lib.rs
     ├── bb
     │   └── src
-    │       ├── ahb3
-    │       │   ├── mod.rs
-    │       │   └── peripheral_design.rs
-    │       ├── biu
+    │       ├── bb
     │       │   ├── mod.rs
     │       │   └── peripheral_design.rs
     │       └── lib.rs
     ├── biu
     │   └── src
-    │       ├── ahb3
-    │       │   ├── mod.rs
-    │       │   └── peripheral_design.rs
     │       ├── biu
     │       │   ├── mod.rs
     │       │   └── peripheral_design.rs
     │       └── lib.rs
     └── wb
         └── src
-            ├── ahb3
-            │   ├── mod.rs
-            │   └── peripheral_design.rs
-            ├── biu
-            │   ├── mod.rs
-            │   └── peripheral_design.rs
-            └── lib.rs
+            ├── lib.rs
+            └── wb
+                ├── mod.rs
+                └── peripheral_design.rs
 
-120 directories, 140 files
+95 directories, 90 files

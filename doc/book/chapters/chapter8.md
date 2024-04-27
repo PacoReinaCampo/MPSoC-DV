@@ -13,8 +13,6 @@
 |              | IEEE STD 1735-2014   |               |
 |source        | RTCA DO-254          |               |
 |              | RTCA DO-178C         |               |
-|bench         | IEEE STD 1076-2019   | VHDL          |
-|              | IEEE STD 1800-2017   | SystemVerilog |
 |model         | IEEE STD 1076-2019   | VHDL          |
 |              | IEEE STD 1800-2017   | SystemVerilog |
 |validation    | IEEE STD 1076-2019   | OSVVM         |
