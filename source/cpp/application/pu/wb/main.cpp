@@ -42,10 +42,10 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-#include<iostream>
-#include<cassert>
+#include <cassert>
+#include <iostream>
 
-#include"../../../library/bfm/ahb3/peripheral_design.hpp"
+#include "../../../library/bfm/ahb3/peripheral_design.hpp"
 
 using namespace std;
 

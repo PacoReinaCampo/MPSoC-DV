@@ -29,13 +29,13 @@ digraph Project {
 
   // Accelerator Blocks
   subgraph "cluster AcceleratorBlocks" { label = "Accelerator Blocks";
-    PU_NTM[label="PU_NTM \nAdvanced"];
-    PU_DNC[label="PU_DNC \nAdvanced"];
+    PU_NTM[label="PU_NTM \nTarget"];
+    PU_DNC[label="PU_DNC \nTarget"];
   }
 
-  // Advanced Blocks
-  subgraph "cluster AdvancedBlocks" { label = "Advanced Blocks";
-    PU_DefenseTech[label="PU_DefenseTech \nAdvanced"];
+  // Target Blocks
+  subgraph "cluster TargetBlocks" { label = "Target Blocks";
+    PU_DefenseTech[label="PU_DefenseTech \nTarget"];
   }
 
   MPSoC_DBG -> PU_MSP430;
@@ -74,7 +74,7 @@ digraph Project {
   PU_DV -> PU_NTM;
   PU_DV -> PU_DNC;
 
-  // Accelerator -> Advanced
+  // Accelerator -> Target
   PU_NTM -> PU_DefenseTech;
   PU_DNC -> PU_DefenseTech;
 }

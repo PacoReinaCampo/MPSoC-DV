@@ -42,9 +42,9 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-#include<iostream>
+#include "peripheral_design.hpp"
 
-#include"peripheral_design.hpp"
+#include <iostream>
 
 using namespace std;
 

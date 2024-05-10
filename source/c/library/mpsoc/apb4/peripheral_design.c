@@ -42,10 +42,10 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "peripheral_design.h"
+
 #include <stdio.h>
 #include <stdlib.h>
-
-#include "peripheral_design.h"
 
 double ntm_scalar_adder(double data_a_in, double data_b_in) {
   // calculating addition

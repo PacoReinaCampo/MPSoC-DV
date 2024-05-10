@@ -42,8 +42,8 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -52,11 +52,10 @@ double ntm_scalar_subtract(double, double);
 double ntm_scalar_multiplier(double, double);
 double ntm_scalar_divider(double, double);
 
-
 class ScalarArithmetic {
-  public:
-    double ntm_scalar_adder(double data_a_in, double data_b_in);
-    double ntm_scalar_subtract(double data_a_in, double data_b_in);
-    double ntm_scalar_multiplier(double data_a_in, double data_b_in);
-    double ntm_scalar_divider(double data_a_in, double data_b_in);
+ public:
+  double ntm_scalar_adder(double data_a_in, double data_b_in);
+  double ntm_scalar_subtract(double data_a_in, double data_b_in);
+  double ntm_scalar_multiplier(double data_a_in, double data_b_in);
+  double ntm_scalar_divider(double data_a_in, double data_b_in);
 };

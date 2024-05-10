@@ -45,21 +45,25 @@ digraph Project {
     MPSoC_DNC[label="MPSoC_DNC \nAccelerator"];
     SoC_DNC[label="SoC_DNC \nAccelerator"];
     PU_DNC[label="PU_DNC \nAccelerator"];
+
+    MPSoC_ANN[label="MPSoC_ANN \nAccelerator"];
+    SoC_ANN[label="SoC_ANN \nAccelerator"];
+    PU_ANN[label="PU_ANN \nAccelerator"];
   }
 
-  // Advanced Blocks
-  subgraph "cluster AdvancedBlocks" { label = "Advanced Blocks";
-    MPSoC_EnergyTech[label="MPSoC_EnergyTech \nAdvanced"];
-    SoC_EnergyTech[label="SoC_EnergyTech \nAdvanced"];
-    PU_EnergyTech[label="PU_EnergyTech \nAdvanced"];
+  // Target Blocks
+  subgraph "cluster TargetBlocks" { label = "Target Blocks";
+    MPSoC_EnergyTech[label="MPSoC_EnergyTech \nTarget"];
+    SoC_EnergyTech[label="SoC_EnergyTech \nTarget"];
+    PU_EnergyTech[label="PU_EnergyTech \nTarget"];
 
-    MPSoC_FinTech[label="MPSoC_FinTech \nAdvanced"];
-    SoC_FinTech[label="SoC_FinTech \nAdvanced"];
-    PU_FinTech[label="PU_FinTech \nAdvanced"];
+    MPSoC_FinTech[label="MPSoC_FinTech \nTarget"];
+    SoC_FinTech[label="SoC_FinTech \nTarget"];
+    PU_FinTech[label="PU_FinTech \nTarget"];
 
-    MPSoC_DefenseTech[label="MPSoC_DefenseTech \nAdvanced"];
-    SoC_DefenseTech[label="SoC_DefenseTech \nAdvanced"];
-    PU_DefenseTech[label="PU_DefenseTech \nAdvanced"];
+    MPSoC_DefenseTech[label="MPSoC_DefenseTech \nTarget"];
+    SoC_DefenseTech[label="SoC_DefenseTech \nTarget"];
+    PU_DefenseTech[label="PU_DefenseTech \nTarget"];
   }
 
   // Peripheral -> Architecture
@@ -168,40 +172,52 @@ digraph Project {
   // Environment -> Accelerator
   PU_DV -> PU_NTM;
   PU_DV -> PU_DNC;
+  PU_DV -> PU_ANN;
 
   SoC_DV -> SoC_NTM;
   SoC_DV -> SoC_DNC;
+  SoC_DV -> SoC_ANN;
 
   MPSoC_DV -> MPSoC_NTM;
   MPSoC_DV -> MPSoC_DNC;
+  MPSoC_DV -> MPSoC_ANN;
 
-  // Accelerator -> Advanced
+  // Accelerator -> Target
   PU_NTM -> PU_EnergyTech;
   PU_DNC -> PU_EnergyTech;
+  PU_ANN -> PU_EnergyTech;
 
   SoC_NTM -> SoC_EnergyTech;
   SoC_DNC -> SoC_EnergyTech;
+  SoC_ANN -> SoC_EnergyTech;
 
   MPSoC_NTM -> MPSoC_EnergyTech;
   MPSoC_DNC -> MPSoC_EnergyTech;
+  MPSoC_ANN -> MPSoC_EnergyTech;
 
 
   PU_NTM -> PU_FinTech;
   PU_DNC -> PU_FinTech;
+  PU_ANN -> PU_FinTech;
 
   SoC_NTM -> SoC_FinTech;
   SoC_DNC -> SoC_FinTech;
+  SoC_ANN -> SoC_FinTech;
 
   MPSoC_NTM -> MPSoC_FinTech;
   MPSoC_DNC -> MPSoC_FinTech;
+  MPSoC_ANN -> MPSoC_FinTech;
 
 
   PU_NTM -> PU_DefenseTech;
   PU_DNC -> PU_DefenseTech;
+  PU_ANN -> PU_DefenseTech;
 
   SoC_NTM -> SoC_DefenseTech;
   SoC_DNC -> SoC_DefenseTech;
+  SoC_ANN -> SoC_DefenseTech;
 
   MPSoC_NTM -> MPSoC_DefenseTech;
   MPSoC_DNC -> MPSoC_DefenseTech;
+  MPSoC_ANN -> MPSoC_DefenseTech;
 }

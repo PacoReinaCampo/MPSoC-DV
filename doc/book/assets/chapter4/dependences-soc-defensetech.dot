@@ -34,17 +34,17 @@ digraph Project {
 
   // Accelerator Blocks
   subgraph "cluster AcceleratorBlocks" { label = "Accelerator Blocks";
-    SoC_NTM[label="SoC_NTM \nAdvanced"];
-    PU_NTM[label="PU_NTM \nAdvanced"];
+    SoC_NTM[label="SoC_NTM \nTarget"];
+    PU_NTM[label="PU_NTM \nTarget"];
 
-    SoC_DNC[label="SoC_DNC \nAdvanced"];
-    PU_DNC[label="PU_DNC \nAdvanced"];
+    SoC_DNC[label="SoC_DNC \nTarget"];
+    PU_DNC[label="PU_DNC \nTarget"];
   }
 
-  // Advanced Blocks
-  subgraph "cluster AdvancedBlocks" { label = "Advanced Blocks";
-    SoC_DefenseTech[label="SoC_DefenseTech \nAdvanced"];
-    PU_DefenseTech[label="PU_DefenseTech \nAdvanced"];
+  // Target Blocks
+  subgraph "cluster TargetBlocks" { label = "Target Blocks";
+    SoC_DefenseTech[label="SoC_DefenseTech \nTarget"];
+    PU_DefenseTech[label="PU_DefenseTech \nTarget"];
   }
 
   // Peripheral -> Architecture
@@ -123,7 +123,7 @@ digraph Project {
   SoC_DV -> SoC_NTM;
   SoC_DV -> SoC_DNC;
 
-  // Accelerator -> Advanced
+  // Accelerator -> Target
   PU_NTM -> PU_DefenseTech;
   PU_DNC -> PU_DefenseTech;
 
