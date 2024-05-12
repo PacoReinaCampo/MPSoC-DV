@@ -475,7 +475,7 @@
 <title>SoC_NTM</title>
 <polygon fill="none" stroke="black" points="474,-314.5 474,-352.5 566,-352.5 566,-314.5 474,-314.5"/>
 <text text-anchor="middle" x="520" y="-337.3" font-family="Times,serif" font-size="14.00">SoC_NTM </text>
-<text text-anchor="middle" x="520" y="-322.3" font-family="Times,serif" font-size="14.00">Advanced</text>
+<text text-anchor="middle" x="520" y="-322.3" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- SoC_DV&#45;&gt;SoC_NTM -->
 <g id="edge60" class="edge">
@@ -488,7 +488,7 @@
 <title>SoC_DNC</title>
 <polygon fill="none" stroke="black" points="475,-257.5 475,-295.5 565,-295.5 565,-257.5 475,-257.5"/>
 <text text-anchor="middle" x="520" y="-280.3" font-family="Times,serif" font-size="14.00">SoC_DNC </text>
-<text text-anchor="middle" x="520" y="-265.3" font-family="Times,serif" font-size="14.00">Advanced</text>
+<text text-anchor="middle" x="520" y="-265.3" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- SoC_DV&#45;&gt;SoC_DNC -->
 <g id="edge61" class="edge">
@@ -501,7 +501,7 @@
 <title>PU_NTM</title>
 <polygon fill="none" stroke="black" points="477,-143.5 477,-181.5 563,-181.5 563,-143.5 477,-143.5"/>
 <text text-anchor="middle" x="520" y="-166.3" font-family="Times,serif" font-size="14.00">PU_NTM </text>
-<text text-anchor="middle" x="520" y="-151.3" font-family="Times,serif" font-size="14.00">Advanced</text>
+<text text-anchor="middle" x="520" y="-151.3" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- PU_DV&#45;&gt;PU_NTM -->
 <g id="edge58" class="edge">
@@ -514,7 +514,7 @@
 <title>PU_DNC</title>
 <polygon fill="none" stroke="black" points="477,-86.5 477,-124.5 563,-124.5 563,-86.5 477,-86.5"/>
 <text text-anchor="middle" x="520" y="-109.3" font-family="Times,serif" font-size="14.00">PU_DNC </text>
-<text text-anchor="middle" x="520" y="-94.3" font-family="Times,serif" font-size="14.00">Advanced</text>
+<text text-anchor="middle" x="520" y="-94.3" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- PU_DV&#45;&gt;PU_DNC -->
 <g id="edge59" class="edge">
@@ -527,7 +527,7 @@
 <title>SoC_FinTech</title>
 <polygon fill="none" stroke="black" points="602,-285.5 602,-323.5 715,-323.5 715,-285.5 602,-285.5"/>
 <text text-anchor="middle" x="658.5" y="-308.3" font-family="Times,serif" font-size="14.00">SoC_FinTech </text>
-<text text-anchor="middle" x="658.5" y="-293.3" font-family="Times,serif" font-size="14.00">Advanced</text>
+<text text-anchor="middle" x="658.5" y="-293.3" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- SoC_NTM&#45;&gt;SoC_FinTech -->
 <g id="edge64" class="edge">
@@ -540,7 +540,7 @@
 <title>PU_FinTech</title>
 <polygon fill="none" stroke="black" points="606,-115.5 606,-153.5 711,-153.5 711,-115.5 606,-115.5"/>
 <text text-anchor="middle" x="658.5" y="-138.3" font-family="Times,serif" font-size="14.00">PU_FinTech </text>
-<text text-anchor="middle" x="658.5" y="-123.3" font-family="Times,serif" font-size="14.00">Advanced</text>
+<text text-anchor="middle" x="658.5" y="-123.3" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- PU_NTM&#45;&gt;PU_FinTech -->
 <g id="edge62" class="edge">

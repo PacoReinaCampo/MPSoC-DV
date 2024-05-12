@@ -30,9 +30,9 @@
 <text text-anchor="middle" x="615.5" y="-413.8" font-family="Times,serif" font-size="14.00">Accelerator Blocks</text>
 </g>
 <g id="clust5" class="cluster">
-<title>cluster AdvancedBlocks</title>
+<title>cluster TargetBlocks</title>
 <polygon fill="none" stroke="black" points="710,-236 710,-372 873,-372 873,-236 710,-236"/>
-<text text-anchor="middle" x="791.5" y="-356.8" font-family="Times,serif" font-size="14.00">Advanced Blocks</text>
+<text text-anchor="middle" x="791.5" y="-356.8" font-family="Times,serif" font-size="14.00">Target Blocks</text>
 </g>
 <!-- MPSoC_DBG -->
 <g id="node1" class="node">
@@ -500,7 +500,7 @@
 <title>SoC_NTM</title>
 <polygon fill="none" stroke="black" points="569,-245 569,-283 661,-283 661,-245 569,-245"/>
 <text text-anchor="middle" x="615" y="-267.8" font-family="Times,serif" font-size="14.00">SoC_NTM </text>
-<text text-anchor="middle" x="615" y="-252.8" font-family="Times,serif" font-size="14.00">Advanced</text>
+<text text-anchor="middle" x="615" y="-252.8" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- SoC_DV&#45;&gt;SoC_NTM -->
 <g id="edge60" class="edge">
@@ -513,7 +513,7 @@
 <title>SoC_DNC</title>
 <polygon fill="none" stroke="black" points="570,-188 570,-226 660,-226 660,-188 570,-188"/>
 <text text-anchor="middle" x="615" y="-210.8" font-family="Times,serif" font-size="14.00">SoC_DNC </text>
-<text text-anchor="middle" x="615" y="-195.8" font-family="Times,serif" font-size="14.00">Advanced</text>
+<text text-anchor="middle" x="615" y="-195.8" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- SoC_DV&#45;&gt;SoC_DNC -->
 <g id="edge61" class="edge">
@@ -526,7 +526,7 @@
 <title>PU_NTM</title>
 <polygon fill="none" stroke="black" points="572,-359 572,-397 658,-397 658,-359 572,-359"/>
 <text text-anchor="middle" x="615" y="-381.8" font-family="Times,serif" font-size="14.00">PU_NTM </text>
-<text text-anchor="middle" x="615" y="-366.8" font-family="Times,serif" font-size="14.00">Advanced</text>
+<text text-anchor="middle" x="615" y="-366.8" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- PU_DV&#45;&gt;PU_NTM -->
 <g id="edge58" class="edge">
@@ -539,7 +539,7 @@
 <title>PU_DNC</title>
 <polygon fill="none" stroke="black" points="572,-302 572,-340 658,-340 658,-302 572,-302"/>
 <text text-anchor="middle" x="615" y="-324.8" font-family="Times,serif" font-size="14.00">PU_DNC </text>
-<text text-anchor="middle" x="615" y="-309.8" font-family="Times,serif" font-size="14.00">Advanced</text>
+<text text-anchor="middle" x="615" y="-309.8" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- PU_DV&#45;&gt;PU_DNC -->
 <g id="edge59" class="edge">
@@ -552,7 +552,7 @@
 <title>SoC_DefenseTech</title>
 <polygon fill="none" stroke="black" points="718,-245 718,-283 865,-283 865,-245 718,-245"/>
 <text text-anchor="middle" x="791.5" y="-267.8" font-family="Times,serif" font-size="14.00">SoC_DefenseTech </text>
-<text text-anchor="middle" x="791.5" y="-252.8" font-family="Times,serif" font-size="14.00">Advanced</text>
+<text text-anchor="middle" x="791.5" y="-252.8" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- SoC_NTM&#45;&gt;SoC_DefenseTech -->
 <g id="edge64" class="edge">
@@ -565,7 +565,7 @@
 <title>PU_DefenseTech</title>
 <polygon fill="none" stroke="black" points="721.5,-302 721.5,-340 861.5,-340 861.5,-302 721.5,-302"/>
 <text text-anchor="middle" x="791.5" y="-324.8" font-family="Times,serif" font-size="14.00">PU_DefenseTech </text>
-<text text-anchor="middle" x="791.5" y="-309.8" font-family="Times,serif" font-size="14.00">Advanced</text>
+<text text-anchor="middle" x="791.5" y="-309.8" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- PU_NTM&#45;&gt;PU_DefenseTech -->
 <g id="edge62" class="edge">

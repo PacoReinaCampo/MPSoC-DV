@@ -1,98 +1,68 @@
 application
 ├── bfm
 │   ├── ahb3
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   ├── apb4
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   ├── axi4
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   ├── bb
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   ├── biu
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   └── wb
-│       ├── peripheral_test.adb
-│       └── peripheral_test.ads
+│       └── peripheral_test.adb
 ├── core
 │   ├── ahb3
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   ├── apb4
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   ├── axi4
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   ├── bb
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   ├── biu
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   └── wb
-│       ├── peripheral_test.adb
-│       └── peripheral_test.ads
+│       └── peripheral_test.adb
 ├── mpsoc
 │   ├── ahb3
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   ├── apb4
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   ├── axi4
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   ├── bb
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   ├── biu
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   └── wb
-│       ├── peripheral_test.adb
-│       └── peripheral_test.ads
+│       └── peripheral_test.adb
 ├── pu
 │   ├── ahb3
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   ├── apb4
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   ├── axi4
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   ├── bb
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   ├── biu
-│   │   ├── peripheral_test.adb
-│   │   └── peripheral_test.ads
+│   │   └── peripheral_test.adb
 │   └── wb
-│       ├── peripheral_test.adb
-│       └── peripheral_test.ads
+│       └── peripheral_test.adb
 └── soc
     ├── ahb3
-    │   ├── peripheral_test.adb
-    │   └── peripheral_test.ads
+    │   └── peripheral_test.adb
     ├── apb4
-    │   ├── peripheral_test.adb
-    │   └── peripheral_test.ads
+    │   └── peripheral_test.adb
     ├── axi4
-    │   ├── peripheral_test.adb
-    │   └── peripheral_test.ads
+    │   └── peripheral_test.adb
     ├── bb
-    │   ├── peripheral_test.adb
-    │   └── peripheral_test.ads
+    │   └── peripheral_test.adb
     ├── biu
-    │   ├── peripheral_test.adb
-    │   └── peripheral_test.ads
+    │   └── peripheral_test.adb
     └── wb
-        ├── peripheral_test.adb
-        └── peripheral_test.ads
+        └── peripheral_test.adb
 
-35 directories, 60 files
+35 directories, 30 files

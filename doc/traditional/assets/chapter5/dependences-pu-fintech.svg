@@ -30,9 +30,9 @@
 <text text-anchor="middle" x="615.5" y="-299.8" font-family="Times,serif" font-size="14.00">Accelerator Blocks</text>
 </g>
 <g id="clust5" class="cluster">
-<title>cluster AdvancedBlocks</title>
+<title>cluster TargetBlocks</title>
 <polygon fill="none" stroke="black" points="710,-207 710,-286 847,-286 847,-207 710,-207"/>
-<text text-anchor="middle" x="778.5" y="-270.8" font-family="Times,serif" font-size="14.00">Advanced Blocks</text>
+<text text-anchor="middle" x="778.5" y="-270.8" font-family="Times,serif" font-size="14.00">Target Blocks</text>
 </g>
 <!-- MPSoC_DBG -->
 <g id="node1" class="node">
@@ -285,7 +285,7 @@
 <title>PU_NTM</title>
 <polygon fill="none" stroke="black" points="572,-245 572,-283 658,-283 658,-245 572,-245"/>
 <text text-anchor="middle" x="615" y="-267.8" font-family="Times,serif" font-size="14.00">PU_NTM </text>
-<text text-anchor="middle" x="615" y="-252.8" font-family="Times,serif" font-size="14.00">Advanced</text>
+<text text-anchor="middle" x="615" y="-252.8" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- PU_DV&#45;&gt;PU_NTM -->
 <g id="edge28" class="edge">
@@ -298,7 +298,7 @@
 <title>PU_DNC</title>
 <polygon fill="none" stroke="black" points="572,-188 572,-226 658,-226 658,-188 572,-188"/>
 <text text-anchor="middle" x="615" y="-210.8" font-family="Times,serif" font-size="14.00">PU_DNC </text>
-<text text-anchor="middle" x="615" y="-195.8" font-family="Times,serif" font-size="14.00">Advanced</text>
+<text text-anchor="middle" x="615" y="-195.8" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- PU_DV&#45;&gt;PU_DNC -->
 <g id="edge29" class="edge">
@@ -311,7 +311,7 @@
 <title>PU_FinTech</title>
 <polygon fill="none" stroke="black" points="726,-216 726,-254 831,-254 831,-216 726,-216"/>
 <text text-anchor="middle" x="778.5" y="-238.8" font-family="Times,serif" font-size="14.00">PU_FinTech </text>
-<text text-anchor="middle" x="778.5" y="-223.8" font-family="Times,serif" font-size="14.00">Advanced</text>
+<text text-anchor="middle" x="778.5" y="-223.8" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- PU_NTM&#45;&gt;PU_FinTech -->
 <g id="edge30" class="edge">
