@@ -6,17 +6,33 @@ digraph Project {
   // Blocks
   subgraph "cluster MPSoC" { label = "MPSoC";
     subgraph "cluster FPGA" { label = "FPGA";
-      FPGA3[shape=box, label="FPGA-3"];
-      FPGA2[shape=box, label="FPGA-2"];
-      FPGA1[shape=box, label="FPGA-1"];
-      FPGA0[shape=box, label="FPGA-0"];
+      subgraph "cluster SoC3" { label = "SoC-3";
+        subgraph "cluster Unit3" {label = "Unit-3";
+          Accelerator3[shape=box, label="Accelerator-3"];
+        }
+      }
+      subgraph "cluster SoC2" { label = "SoC-2";
+        subgraph "cluster Unit2" {label = "Unit-2";
+          Accelerator2[shape=box, label="Accelerator-2"];
+        }
+      }
+      subgraph "cluster SoC1" { label = "SoC-1";
+        subgraph "cluster Unit1" {label = "Unit-1";
+          Accelerator1[shape=box, label="Accelerator-1"];
+        }
+      }
+      subgraph "cluster SoC0" { label = "SoC-0";
+        subgraph "cluster Unit0" {label = "Unit-0";
+          Accelerator0[shape=box, label="Accelerator-0"];
+        }
+      }
     }
     subgraph "cluster ASIC" { label = "ASIC";
       subgraph "cluster SoC3" { label = "SoC-3";
         subgraph "cluster Memory3" {label = "Memory-3";
           MPRAM3[shape=box, label="MPRAM-3"];
         }
-        subgraph "cluster PU" { label = "PU-3";
+        subgraph "cluster PU3" { label = "PU-3";
           RISCV33[shape=box, label="RISC-V-3-3"];
           RISCV32[shape=box, label="RISC-V-3-2"];
           RISCV31[shape=box, label="RISC-V-3-1"];
@@ -27,7 +43,7 @@ digraph Project {
         subgraph "cluster Memory2" {label = "Memory-2";
           MPRAM2[shape=box, label="MPRAM-2"];
         }
-        subgraph "cluster PU" { label = "PU-2";
+        subgraph "cluster PU2" { label = "PU-2";
           RISCV23[shape=box, label="RISC-V-2-3"];
           RISCV22[shape=box, label="RISC-V-2-2"];
           RISCV21[shape=box, label="RISC-V-2-1"];
@@ -38,7 +54,7 @@ digraph Project {
         subgraph "cluster Memory1" {label = "Memory-1";
           MPRAM1[shape=box, label="MPRAM-1"];
         }
-        subgraph "cluster PU" { label = "PU-1";
+        subgraph "cluster PU1" { label = "PU-1";
           RISCV13[shape=box, label="RISC-V-1-3"];
           RISCV12[shape=box, label="RISC-V-1-2"];
           RISCV11[shape=box, label="RISC-V-1-1"];

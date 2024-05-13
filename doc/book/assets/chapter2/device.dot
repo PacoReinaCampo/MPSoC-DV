@@ -1,0 +1,28 @@
+digraph Project {
+  // Introduction
+  graph [splines=ortho];
+  node[shape=record];
+
+  // Blocks
+  subgraph "cluster MPSoC" { label = "MPSoC";
+    subgraph "cluster FPGA" { label = "FPGA";
+      subgraph "cluster SoC" { label = "SoC";
+        subgraph "cluster Unit" {label = "Unit";
+          Accelerator[shape=box, label="Accelerator"];
+        }
+      }
+    }
+    subgraph "cluster ASIC" { label = "ASIC";
+      subgraph "cluster SoC" { label = "SoC";
+        subgraph "cluster Peripheral" {label = "Peripheral";
+          Noc[shape=box, label="Noc"];
+        }
+        subgraph "cluster PU" { label = "PU";
+          RISCV[shape=box, label="RISC-V"];
+        }
+      }
+    }
+  }
+
+  // Sequence
+}

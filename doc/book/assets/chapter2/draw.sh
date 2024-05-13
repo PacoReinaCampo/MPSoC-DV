@@ -53,4 +53,5 @@ dot -Tsvg software-project.dot > software-project.svg
 dot -Tpng hardware-project.dot > hardware-project.png
 dot -Tpng software-project.dot > software-project.png
 
+dot -Tsvg device.dot > device.svg
 dot -Tsvg prototype.dot > prototype.svg
