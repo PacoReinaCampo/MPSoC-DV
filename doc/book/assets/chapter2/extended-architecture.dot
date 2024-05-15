@@ -5,30 +5,21 @@ digraph Project {
 
   // Blocks
   subgraph "cluster Architecture" { label = "Architecture";
-    subgraph "cluster NTMDNC" { label = "NTM/DNC";
+    subgraph "cluster NTMDNC" { label = "Accelerator";
       subgraph "cluster TrainerState" { label = "Trainer/State";
-        subgraph "cluster Transformer" { label = "Transformer";
-          FNNLSTM[shape=box, label="FNN/LSTM"];
+        subgraph "cluster Neural_Network" { label = "Neural Network";
+          NN[shape=box, label="PNN/FNN/LSTM/NTM/DNC/ANN"];
         }
       }
     }
     subgraph "cluster MPSoC" { label = "MPSoC";
-      subgraph "cluster SoC_0" { label = "SoC_0";
-        subgraph "cluster PU_0" { label = "PU_0";
-          Core_0[shape=box, label="Core_0"];
-          Peripheral_0[shape=box, label="Peripheral_0"];
+      subgraph "cluster SoC_3" { label = "SoC_3";
+        subgraph "cluster PU_3" { label = "PU_3";
+          Core_3[shape=box, label="Core_3"];
+          Peripheral_3[shape=box, label="Peripheral_3"];
         }
-        subgraph "cluster NoC_0" { label = "NoC_0";
-          NoC_0[shape=box, label="NoC_0"];
-        }
-      }
-      subgraph "cluster SoC_1" { label = "SoC_1";
-        subgraph "cluster PU_1" { label = "PU_1";
-          Core_1[shape=box, label="Core_1"];
-          Peripheral_1[shape=box, label="Peripheral_1"];
-        }
-        subgraph "cluster NoC_1" { label = "NoC_1";
-          NoC_1[shape=box, label="NoC_1"];
+        subgraph "cluster NoC_3" { label = "NoC_3";
+          NoC_3[shape=box, label="NoC_3"];
         }
       }
       subgraph "cluster SoC_2" { label = "SoC_2";
@@ -40,13 +31,22 @@ digraph Project {
           NoC_2[shape=box, label="NoC_2"];
         }
       }
-      subgraph "cluster SoC_3" { label = "SoC_3";
-        subgraph "cluster PU_3" { label = "PU_3";
-          Core_3[shape=box, label="Core_3"];
-          Peripheral_3[shape=box, label="Peripheral_3"];
+      subgraph "cluster SoC_1" { label = "SoC_1";
+        subgraph "cluster PU_1" { label = "PU_1";
+          Core_1[shape=box, label="Core_1"];
+          Peripheral_1[shape=box, label="Peripheral_1"];
         }
-        subgraph "cluster NoC_3" { label = "NoC_3";
-          NoC_3[shape=box, label="NoC_3"];
+        subgraph "cluster NoC_1" { label = "NoC_1";
+          NoC_1[shape=box, label="NoC_1"];
+        }
+      }
+      subgraph "cluster SoC_0" { label = "SoC_0";
+        subgraph "cluster PU_0" { label = "PU_0";
+          Core_0[shape=box, label="Core_0"];
+          Peripheral_0[shape=box, label="Peripheral_0"];
+        }
+        subgraph "cluster NoC_0" { label = "NoC_0";
+          NoC_0[shape=box, label="NoC_0"];
         }
       }
     }

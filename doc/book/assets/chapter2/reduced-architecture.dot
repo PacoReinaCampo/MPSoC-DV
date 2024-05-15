@@ -16,13 +16,11 @@ digraph Project {
       }
     }
     subgraph "cluster Accelerator" { label = "Accelerator";
-      subgraph "cluster NTM/DNC" { label = "NTM/DNC";
-        subgraph "cluster Trainer/State" { label = "Trainer/State";
-          subgraph "cluster Transformer" { label = "Transformer";
-            subgraph "cluster FNN/LSTM" { label = "FNN/LSTM";
-              subgraph "cluster Math" { label = "Math";
-                arithmetic[shape=box, label="Arithmetic IEEE 754"];
-              }
+      subgraph "cluster Trainer/State" { label = "Trainer/State";
+        subgraph "cluster Neural_Network" { label = "Neural Network";
+          subgraph "cluster NN" { label = "PNN/FNN/LSTM/NTM/DNC/ANN";
+            subgraph "cluster Math" { label = "Math";
+              arithmetic[shape=box, label="Arithmetic IEEE 754"];
             }
           }
         }

@@ -6,19 +6,19 @@ digraph Project {
   // Blocks
   subgraph "cluster MPSoC" { label = "MPSoC";
     subgraph "cluster FPGA" { label = "FPGA";
-      subgraph "cluster SoC" { label = "SoC";
-        subgraph "cluster Unit" {label = "Unit";
-          Accelerator[shape=box, label="Accelerator"];
+      subgraph "cluster Accelerator" { label = "Accelerator";
+        subgraph "cluster Complex" {label = "Complex";
+          Real[shape=box, label="Real"];
         }
       }
     }
     subgraph "cluster ASIC" { label = "ASIC";
       subgraph "cluster SoC" { label = "SoC";
-        subgraph "cluster Peripheral" {label = "Peripheral";
-          Noc[shape=box, label="Noc"];
+        subgraph "cluster PRF" {label = "PRF";
+          BFM_PRF[shape=box, label="BFM-PRF"];
         }
         subgraph "cluster PU" { label = "PU";
-          RISCV[shape=box, label="RISC-V"];
+          BFM_PU[shape=box, label="BFM-PU"];
         }
       }
     }
