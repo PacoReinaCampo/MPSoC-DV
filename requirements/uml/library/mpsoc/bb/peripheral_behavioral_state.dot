@@ -1,22 +1,76 @@
-digraph finite_state_machine {
-	fontname="Helvetica,Arial,sans-serif"
-	node [fontname="Helvetica,Arial,sans-serif"]
-	edge [fontname="Helvetica,Arial,sans-serif"]
-	rankdir=LR;
-	node [shape = doublecircle]; 0 3 4 8;
-	node [shape = circle];
-	0 -> 2 [label = "SS(B)"];
-	0 -> 1 [label = "SS(S)"];
-	1 -> 3 [label = "S($end)"];
-	2 -> 6 [label = "SS(b)"];
-	2 -> 5 [label = "SS(a)"];
-	2 -> 4 [label = "S(A)"];
-	5 -> 7 [label = "S(b)"];
-	5 -> 5 [label = "S(a)"];
-	6 -> 6 [label = "S(b)"];
-	6 -> 5 [label = "S(a)"];
-	7 -> 8 [label = "S(b)"];
-	7 -> 5 [label = "S(a)"];
-	8 -> 6 [label = "S(b)"];
-	8 -> 5 [label = "S(a)"];
+digraph behavioral_state_bb {
+  node [shape = circle, style=filled, fillcolor=lightblue];
+  
+  // Estados
+  IDLE [label="IDLE"];
+  ADDRESS [label="ADDRESS"];
+  WRITE [label="WRITE"];
+  READ [label="READ"];
+  RESPONSE [label="RESPONSE"];
+  ERROR [label="ERROR"];
+
+  // Transiciones
+  IDLE -> ADDRESS [label="Address\nRequest"];
+  ADDRESS -> WRITE [label="Write\nRequest"];
+  ADDRESS -> READ [label="Read\nRequest"];
+  ADDRESS -> RESPONSE [label="Address\nAcknowledge"];
+  ADDRESS -> ERROR [label="Address\nError"];
+  WRITE -> RESPONSE [label="Write\nAcknowledge"];
+  WRITE -> ERROR [label="Write\nError"];
+  READ -> RESPONSE [label="Read\nResponse"];
+  READ -> ERROR [label="Read\nError"];
+  RESPONSE -> IDLE [label="Reset"];
+  ERROR -> IDLE [label="Reset"];
+  
+  // Subestados para la fase de respuesta
+  subgraph cluster_response {
+    label = " RESPONSE PHASE";
+    style = rounded;
+    color = lightgrey;
+    node [shape=ellipse, style=filled, fillcolor=lightgrey];
+    WAIT_RESPONSE [label="WAIT"];
+    ACKNOWLEDGE [label="ACKNOWLEDGE"];
+    WAIT_RESPONSE -> ACKNOWLEDGE [label="Response\nAcknowledge"];
+    ACKNOWLEDGE -> IDLE [label="ACK"];
+    ACKNOWLEDGE -> ERROR [label="Error"];
+  }
+
+  // Subestados para la fase de dirección
+  subgraph cluster_address {
+    label = " ADDRESS PHASE";
+    style = rounded;
+    color = lightgrey;
+    node [shape=ellipse, style=filled, fillcolor=lightgrey];
+    WAIT_ADDRESS [label="WAIT"];
+    ADDRESS_REQUEST [label="ADDRESS\nREQUEST"];
+    WAIT_ADDRESS -> ADDRESS_REQUEST [label="Start"];
+    ADDRESS_REQUEST -> ADDRESS [label="Address\nRequest"];
+    ADDRESS -> WAIT_ADDRESS [label="Reset"];
+  }
+
+  // Subestados para la fase de escritura
+  subgraph cluster_write {
+    label = " WRITE PHASE";
+    style = rounded;
+    color = lightgrey;
+    node [shape=ellipse, style=filled, fillcolor=lightgrey];
+    WAIT_WRITE [label="WAIT"];
+    WRITE_REQUEST [label="WRITE\nREQUEST"];
+    WAIT_WRITE -> WRITE_REQUEST [label="Start"];
+    WRITE_REQUEST -> WRITE [label="Write\nRequest"];
+    WRITE -> WAIT_WRITE [label="Reset"];
+  }
+
+  // Subestados para la fase de lectura
+  subgraph cluster_read {
+    label = " READ PHASE";
+    style = rounded;
+    color = lightgrey;
+    node [shape=ellipse, style=filled, fillcolor=lightgrey];
+    WAIT_READ [label="WAIT"];
+    READ_REQUEST [label="READ\nREQUEST"];
+    WAIT_READ -> READ_REQUEST [label="Start"];
+    READ_REQUEST -> READ [label="Read\nRequest"];
+    READ -> WAIT_READ [label="Reset"];
+  }
 }

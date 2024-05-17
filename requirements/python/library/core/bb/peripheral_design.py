@@ -42,8 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-import random
-
 class ScalarArithmetic:
   def __init__(self, data_a_in, data_b_in):
     self.data_a_in = data_a_in
@@ -52,6 +50,10 @@ class ScalarArithmetic:
   def ntm_scalar_adder(self):
     # calculating addition
     return (self.data_a_in + self.data_b_in)
+
+  def ntm_scalar_subtractor(self):
+    # calculating addition
+    return (self.data_a_in - self.data_b_in)
 
   def ntm_scalar_multiplier(self):
     # calculating multiplication

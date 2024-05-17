@@ -4,11 +4,11 @@ digraph Project {
   node[shape=record];
 
   // Blocks
-  subgraph "cluster Architecture" { label = "Architecture";
-    subgraph "cluster NTMDNC" { label = "Accelerator";
-      subgraph "cluster TrainerState" { label = "Trainer/State";
-        subgraph "cluster Neural_Network" { label = "Neural Network";
-          NN[shape=box, label="PNN/FNN/LSTM/NTM/DNC/ANN"];
+  subgraph "cluster FPGA Architecture" { label = "FPGA Architecture";
+    subgraph "cluster Accelerator" { label = "Accelerator";
+      subgraph "cluster Complex" { label = "Complex";
+        subgraph "cluster Real" { label = "Real";
+          Standard[shape=box, label="Standard"];
         }
       }
     }

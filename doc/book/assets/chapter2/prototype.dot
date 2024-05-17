@@ -4,72 +4,82 @@ digraph Project {
   node[shape=record];
 
   // Blocks
-  subgraph "cluster MPSoC" { label = "MPSoC";
+  subgraph "cluster Prototype" { label = "Prototype";
     subgraph "cluster FPGA" { label = "FPGA";
-      subgraph "cluster SoC3" { label = "SoC-3";
-        subgraph "cluster Unit3" {label = "Unit-3";
-          Accelerator3[shape=box, label="Accelerator-3"];
+      subgraph "cluster Accelerator3" { label = "Accelerator-3";
+        subgraph "cluster Complex3" {label = "Complex-3";
+          subgraph "cluster Real3" {label = "Real-3";
+            Standard3[shape=box, label="Standard-3"];
+          }
         }
       }
-      subgraph "cluster SoC2" { label = "SoC-2";
-        subgraph "cluster Unit2" {label = "Unit-2";
-          Accelerator2[shape=box, label="Accelerator-2"];
+      subgraph "cluster Accelerator2" { label = "Accelerator-2";
+        subgraph "cluster Complex2" {label = "Complex-2";
+          subgraph "cluster Real2" {label = "Real-2";
+            Standard2[shape=box, label="Standard-2"];
+          }
         }
       }
-      subgraph "cluster SoC1" { label = "SoC-1";
-        subgraph "cluster Unit1" {label = "Unit-1";
-          Accelerator1[shape=box, label="Accelerator-1"];
+      subgraph "cluster Accelerator1" { label = "Accelerator-1";
+        subgraph "cluster Complex1" {label = "Complex-1";
+          subgraph "cluster Real1" {label = "Real-1";
+            Standard1[shape=box, label="Standard-1"];
+          }
         }
       }
-      subgraph "cluster SoC0" { label = "SoC-0";
-        subgraph "cluster Unit0" {label = "Unit-0";
-          Accelerator0[shape=box, label="Accelerator-0"];
+      subgraph "cluster Accelerator0" { label = "Accelerator-0";
+        subgraph "cluster Complex0" {label = "Complex-0";
+          subgraph "cluster Real0" {label = "Real-0";
+            Standard0[shape=box, label="Standard-0"];
+          }
         }
       }
     }
     subgraph "cluster ASIC" { label = "ASIC";
-      subgraph "cluster SoC3" { label = "SoC-3";
-        subgraph "cluster Memory3" {label = "Memory-3";
-          MPRAM3[shape=box, label="MPRAM-3"];
+      subgraph "cluster MPSoC" { label = "MPSoC";
+        subgraph "cluster SoC3" { label = "SoC-3";
+          subgraph "cluster PRF3" {label = "PRF-3";
+            BFM_PRF3[shape=box, label="BFM-PRF-3"];
+          }
+          subgraph "cluster PU3" { label = "PU-3";
+            BFM_PU33[shape=box, label="BFM-PU-3-3"];
+            BFM_PU32[shape=box, label="BFM-PU-3-2"];
+            BFM_PU31[shape=box, label="BFM-PU-3-1"];
+            BFM_PU30[shape=box, label="BFM-PU-3-0"];
+          }
         }
-        subgraph "cluster PU3" { label = "PU-3";
-          RISCV33[shape=box, label="RISC-V-3-3"];
-          RISCV32[shape=box, label="RISC-V-3-2"];
-          RISCV31[shape=box, label="RISC-V-3-1"];
-          RISCV30[shape=box, label="RISC-V-3-0"];
+        subgraph "cluster SoC2" { label = "SoC-2";
+          subgraph "cluster PRF2" {label = "PRF-2";
+            BFM_PRF2[shape=box, label="BFM-PRF-2"];
+          }
+          subgraph "cluster PU2" { label = "PU-2";
+            BFM_PU23[shape=box, label="BFM-PU-2-3"];
+            BFM_PU22[shape=box, label="BFM-PU-2-2"];
+            BFM_PU21[shape=box, label="BFM-PU-2-1"];
+            BFM_PU20[shape=box, label="BFM-PU-2-0"];
+          }
         }
-      }
-      subgraph "cluster SoC2" { label = "SoC-2";
-        subgraph "cluster Memory2" {label = "Memory-2";
-          MPRAM2[shape=box, label="MPRAM-2"];
+        subgraph "cluster SoC1" { label = "SoC-1";
+          subgraph "cluster PRF1" {label = "PRF-1";
+            BFM_PRF1[shape=box, label="BFM-PRF-1"];
+          }
+          subgraph "cluster PU1" { label = "PU-1";
+            BFM_PU13[shape=box, label="BFM-PU-1-3"];
+            BFM_PU12[shape=box, label="BFM-PU-1-2"];
+            BFM_PU11[shape=box, label="BFM-PU-1-1"];
+            BFM_PU10[shape=box, label="BFM-PU-1-0"];
+          }
         }
-        subgraph "cluster PU2" { label = "PU-2";
-          RISCV23[shape=box, label="RISC-V-2-3"];
-          RISCV22[shape=box, label="RISC-V-2-2"];
-          RISCV21[shape=box, label="RISC-V-2-1"];
-          RISCV20[shape=box, label="RISC-V-2-0"];
-        }
-      }
-      subgraph "cluster SoC1" { label = "SoC-1";
-        subgraph "cluster Memory1" {label = "Memory-1";
-          MPRAM1[shape=box, label="MPRAM-1"];
-        }
-        subgraph "cluster PU1" { label = "PU-1";
-          RISCV13[shape=box, label="RISC-V-1-3"];
-          RISCV12[shape=box, label="RISC-V-1-2"];
-          RISCV11[shape=box, label="RISC-V-1-1"];
-          RISCV10[shape=box, label="RISC-V-1-0"];
-        }
-      }
-      subgraph "cluster SoC0" { label = "SoC-0";
-        subgraph "cluster Memory0" { label = "Memory-0";
-          MPRAM0[shape=box, label="MPRAM-0"];
-        }
-        subgraph "cluster PU0" { label = "PU-0";
-          RISCV03[shape=box, label="RISC-V-0-3"];
-          RISCV02[shape=box, label="RISC-V-0-2"];
-          RISCV01[shape=box, label="RISC-V-0-1"];
-          RISCV00[shape=box, label="RISC-V-0-0"];
+        subgraph "cluster SoC0" { label = "SoC-0";
+          subgraph "cluster PRF0" { label = "PRF-0";
+            BFM_PRF0[shape=box, label="BFM-PRF-0"];
+          }
+          subgraph "cluster PU0" { label = "PU-0";
+            BFM_PU03[shape=box, label="BFM-PU-0-3"];
+            BFM_PU02[shape=box, label="BFM-PU-0-2"];
+            BFM_PU01[shape=box, label="BFM-PU-0-1"];
+            BFM_PU00[shape=box, label="BFM-PU-0-0"];
+          }
         }
       }
     }

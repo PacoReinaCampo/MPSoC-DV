@@ -1,22 +1,47 @@
-digraph finite_state_machine {
-	fontname="Helvetica,Arial,sans-serif"
-	node [fontname="Helvetica,Arial,sans-serif"]
-	edge [fontname="Helvetica,Arial,sans-serif"]
-	rankdir=LR;
-	node [shape = doublecircle]; 0 3 4 8;
-	node [shape = circle];
-	0 -> 2 [label = "SS(B)"];
-	0 -> 1 [label = "SS(S)"];
-	1 -> 3 [label = "S($end)"];
-	2 -> 6 [label = "SS(b)"];
-	2 -> 5 [label = "SS(a)"];
-	2 -> 4 [label = "S(A)"];
-	5 -> 7 [label = "S(b)"];
-	5 -> 5 [label = "S(a)"];
-	6 -> 6 [label = "S(b)"];
-	6 -> 5 [label = "S(a)"];
-	7 -> 8 [label = "S(b)"];
-	7 -> 5 [label = "S(a)"];
-	8 -> 6 [label = "S(b)"];
-	8 -> 5 [label = "S(a)"];
+digraph behavioral_state_biu {
+  node [shape = circle, style=filled, fillcolor=lightblue];
+  
+  // Estados
+  IDLE [label="IDLE"];
+  REQUEST [label="REQUEST"];
+  ADDRESS_PHASE [label="ADDRESS\nPHASE"];
+  DATA_PHASE [label="DATA\nPHASE"];
+  RESPONSE [label="RESPONSE"];
+  ERROR [label="ERROR"];
+
+  // Transiciones
+  IDLE -> REQUEST [label="Request\nFrom CPU"];
+  REQUEST -> ADDRESS_PHASE [label="Address\nPhase"];
+  ADDRESS_PHASE -> DATA_PHASE [label="Address\nAcknowledge"];
+  ADDRESS_PHASE -> ERROR [label="Address\nError"];
+  DATA_PHASE -> RESPONSE [label="Data\nAcknowledge"];
+  DATA_PHASE -> ERROR [label="Data\nError"];
+  RESPONSE -> IDLE [label="Reset"];
+  ERROR -> IDLE [label="Reset"];
+  
+  // Subestados de la fase de dirección
+  subgraph cluster_address_phase {
+    label = " ADDRESS PHASE";
+    style = rounded;
+    color = lightgrey;
+    node [shape=ellipse, style=filled, fillcolor=lightgrey];
+    WAIT_ADDRESS [label="WAIT"];
+    ADDRESS_REQUEST [label="ADDRESS\nREQUEST"];
+    WAIT_ADDRESS -> ADDRESS_REQUEST [label="Start"];
+    ADDRESS_REQUEST -> ADDRESS_PHASE [label="Address\nRequest"];
+    ADDRESS_PHASE -> WAIT_ADDRESS [label="Reset"];
+  }
+
+  // Subestados de la fase de datos
+  subgraph cluster_data_phase {
+    label = " DATA PHASE";
+    style = rounded;
+    color = lightgrey;
+    node [shape=ellipse, style=filled, fillcolor=lightgrey];
+    WAIT_DATA [label="WAIT"];
+    DATA_REQUEST [label="DATA\nREQUEST"];
+    WAIT_DATA -> DATA_REQUEST [label="Start"];
+    DATA_REQUEST -> DATA_PHASE [label="Data\nRequest"];
+    DATA_PHASE -> WAIT_DATA [label="Reset"];
+  }
 }

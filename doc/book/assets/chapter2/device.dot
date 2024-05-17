@@ -4,21 +4,32 @@ digraph Project {
   node[shape=record];
 
   // Blocks
-  subgraph "cluster MPSoC" { label = "MPSoC";
+  subgraph "cluster Device" { label = "Device";
     subgraph "cluster FPGA" { label = "FPGA";
+      subgraph "cluster Trainer" { label = "Trainer";
+        subgraph "cluster ComplexTrainer" { label = "Complex Trainer";
+          subgraph "cluster RealTrainer" { label = "Real Trainer";
+            StandardTrainer[shape=box, label="Standard Trainer"];
+          }
+        }
+      }
       subgraph "cluster Accelerator" { label = "Accelerator";
-        subgraph "cluster Complex" {label = "Complex";
-          Real[shape=box, label="Real"];
+        subgraph "cluster ComplexAccelerator" { label = "Complex Accelerator";
+          subgraph "cluster RealAccelerator" { label = "Real Accelerator";
+            StandardAccelerator[shape=box, label="Standard Accelerator"];
+          }
         }
       }
     }
     subgraph "cluster ASIC" { label = "ASIC";
-      subgraph "cluster SoC" { label = "SoC";
-        subgraph "cluster PRF" {label = "PRF";
-          BFM_PRF[shape=box, label="BFM-PRF"];
-        }
-        subgraph "cluster PU" { label = "PU";
-          BFM_PU[shape=box, label="BFM-PU"];
+      subgraph "cluster MPSoC" { label = "MPSoC";
+        subgraph "cluster SoC" { label = "SoC";
+          subgraph "cluster PRF" {label = "PRF";
+            BFM_PRF[shape=box, label="BFM-PRF"];
+          }
+          subgraph "cluster PU" { label = "PU";
+            BFM_PU[shape=box, label="BFM-PU"];
+          }
         }
       }
     }

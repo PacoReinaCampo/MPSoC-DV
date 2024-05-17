@@ -1,22 +1,64 @@
-digraph finite_state_machine {
-	fontname="Helvetica,Arial,sans-serif"
-	node [fontname="Helvetica,Arial,sans-serif"]
-	edge [fontname="Helvetica,Arial,sans-serif"]
-	rankdir=LR;
-	node [shape = doublecircle]; 0 3 4 8;
-	node [shape = circle];
-	0 -> 2 [label = "SS(B)"];
-	0 -> 1 [label = "SS(S)"];
-	1 -> 3 [label = "S($end)"];
-	2 -> 6 [label = "SS(b)"];
-	2 -> 5 [label = "SS(a)"];
-	2 -> 4 [label = "S(A)"];
-	5 -> 7 [label = "S(b)"];
-	5 -> 5 [label = "S(a)"];
-	6 -> 6 [label = "S(b)"];
-	6 -> 5 [label = "S(a)"];
-	7 -> 8 [label = "S(b)"];
-	7 -> 5 [label = "S(a)"];
-	8 -> 6 [label = "S(b)"];
-	8 -> 5 [label = "S(a)"];
+digraph behavioral_state_wb {
+  node [shape = circle, style=filled, fillcolor=lightblue];
+  
+  // Estados
+  IDLE [label="IDLE"];
+  ADDRESS_PHASE [label="ADDRESSESS\nPHASE"];
+  DATA_PHASE [label="DATA\nPHASE"];
+  ACK_PHASE [label="ACKNOWLEDGE\nPHASE"];
+  ERROR [label="ERROR"];
+
+  // Transiciones
+  IDLE -> ADDRESS_PHASE [label="Address\nRequest"];
+  ADDRESS_PHASE -> DATA_PHASE [label="Address\nAcknowledge"];
+  ADDRESS_PHASE -> ERROR [label="Address\nError"];
+  DATA_PHASE -> ACK_PHASE [label="Data\nAcknowledge"];
+  DATA_PHASE -> ERROR [label="Data\nError"];
+  ACK_PHASE -> IDLE [label="ACK"];
+  ACK_PHASE -> ERROR [label="ACK\nError"];
+  ERROR -> IDLE [label="Reset"];
+
+  // Subestados de la fase de datos
+  subgraph cluster_data_phase {
+    label = " DATA PHASE";
+    style = rounded;
+    color = lightgrey;
+    node [shape=ellipse, style=filled, fillcolor=lightgrey];
+    WAIT [label="WAIT"];
+    WRITE [label="WRITE"];
+    READ [label="READ"];
+    ERROR -> WAIT [label="Reset"];
+    DATA_PHASE -> WAIT [label="Start"];
+    WAIT -> WRITE [label="Write\nRequest"];
+    WAIT -> READ [label="Read\nRequest"];
+    WRITE -> WAIT [label="Write\nAcknowledge"];
+    READ -> WAIT [label="Read\nAcknowledge"];
+  }
+
+  // Subestados de la fase de dirección
+  subgraph cluster_address_phase {
+    label = " ADDRESS PHASE";
+    style = rounded;
+    color = lightgrey;
+    node [shape=ellipse, style=filled, fillcolor=lightgrey];
+    WAIT_ADDRESS [label="WAIT"];
+    ADDRESS [label="ADDRESSESS"];
+    ERROR -> WAIT_ADDRESS [label="Reset"];
+    ADDRESS_PHASE -> WAIT_ADDRESS [label="Start"];
+    WAIT_ADDRESS -> ADDRESS [label="Address\nRequest"];
+    ADDRESS -> ADDRESS_PHASE [label="Address\nAcknowledge"];
+  }
+
+  // Subestados de la fase de ACK
+  subgraph cluster_ack_phase {
+    label = " DATA PHASE";
+    style = rounded;
+    color = lightgrey;
+    node [shape=ellipse, style=filled, fillcolor=lightgrey];
+    WAIT_ACK [label="WAIT"];
+    ACK [label="ACKNOWLEDGE"];
+    ERROR -> WAIT_ACK [label="Reset"];
+    ACK_PHASE -> WAIT_ACK [label="Start"];
+    WAIT_ACK -> ACK [label="ACK"];
+  }
 }

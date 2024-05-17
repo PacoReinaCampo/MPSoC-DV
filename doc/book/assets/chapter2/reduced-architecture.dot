@@ -1,28 +1,24 @@
 digraph Project {
   // Introduction
-  graph [rankdir = LR, splines=ortho];
+  graph [rankdir = TB, splines=ortho];
   node[shape=record];
 
   // Blocks
-  subgraph "cluster Architecture" { label = "Architecture";
-    subgraph "cluster MPSoC" { label = "MPSoC";
-      subgraph "cluster SoC" { label = "SoC";
-        subgraph "cluster PU" { label = "PU";
-          Peripheral[shape=box, label="Peripheral"];
-        }
-        subgraph "cluster NoC" { label = "NoC";
-          NoC[shape=box, label="NoC"];
+  subgraph "cluster FPGA Architecture" { label = "FPGA Architecture";
+    subgraph "cluster Accelerator" { label = "Accelerator";
+      subgraph "cluster Complex" { label = "Complex";
+        subgraph "cluster Real" { label = "Real";
+          Standard[shape=box, label="Standard"];
         }
       }
     }
-    subgraph "cluster Accelerator" { label = "Accelerator";
-      subgraph "cluster Trainer/State" { label = "Trainer/State";
-        subgraph "cluster Neural_Network" { label = "Neural Network";
-          subgraph "cluster NN" { label = "PNN/FNN/LSTM/NTM/DNC/ANN";
-            subgraph "cluster Math" { label = "Math";
-              arithmetic[shape=box, label="Arithmetic IEEE 754"];
-            }
-          }
+    subgraph "cluster MPSoC" { label = "MPSoC";
+      subgraph "cluster SoC" { label = "SoC";
+        subgraph "cluster PU" { label = "PU";
+          PU_PRF[shape=box, label="PU-PRF"];
+        }
+        subgraph "cluster PRF" { label = "PRF";
+          BFM_PRF[shape=box, label="BFM-PRF"];
         }
       }
     }
