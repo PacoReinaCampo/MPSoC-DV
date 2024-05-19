@@ -57,6 +57,15 @@ fn main() {
 
     assert_eq!(addition.ntm_scalar_adder(), addition.data_out);
 
+    let subtraction = ScalarArithmetic {
+        data_a_in: 48.0,
+        data_b_in: 16.0,
+
+        data_out: 32.0
+    };
+
+    assert_eq!(subtraction.ntm_scalar_subtractor(), subtraction.data_out);
+
     let multiplication = ScalarArithmetic {
         data_a_in: 48.0,
         data_b_in: 16.0,

@@ -55,6 +55,11 @@ impl ScalarArithmetic {
         return self.data_a_in + self.data_b_in
     }
 
+    pub fn ntm_scalar_subtractor(&self) -> f64 {
+        // calculating subtraction
+        return self.data_a_in - self.data_b_in
+    }
+
     pub fn ntm_scalar_multiplier(&self) -> f64 {
         // calculating multiplication
         return self.data_a_in * self.data_b_in

@@ -35,64 +35,64 @@
 <text text-anchor="middle" x="658" y="-153.8" font-family="Times,serif" font-size="14.00">MPSoC</text>
 </g>
 <g id="clust6" class="cluster">
-<title>cluster SoC_3</title>
+<title>cluster SoC-3</title>
 <polygon fill="none" stroke="black" points="981,-24 981,-138 1292,-138 1292,-24 981,-24"/>
-<text text-anchor="middle" x="1136.5" y="-122.8" font-family="Times,serif" font-size="14.00">SoC_3</text>
+<text text-anchor="middle" x="1136.5" y="-122.8" font-family="Times,serif" font-size="14.00">SoC-3</text>
 </g>
 <g id="clust7" class="cluster">
-<title>cluster PU_3</title>
+<title>cluster PU-3</title>
 <polygon fill="none" stroke="black" points="1077,-32 1077,-107 1284,-107 1284,-32 1077,-32"/>
-<text text-anchor="middle" x="1180.5" y="-91.8" font-family="Times,serif" font-size="14.00">PU_3</text>
+<text text-anchor="middle" x="1180.5" y="-91.8" font-family="Times,serif" font-size="14.00">PU-3</text>
 </g>
 <g id="clust8" class="cluster">
-<title>cluster NoC_3</title>
+<title>cluster NoC-3</title>
 <polygon fill="none" stroke="black" points="989,-32 989,-107 1069,-107 1069,-32 989,-32"/>
-<text text-anchor="middle" x="1029" y="-91.8" font-family="Times,serif" font-size="14.00">NoC_3</text>
+<text text-anchor="middle" x="1029" y="-91.8" font-family="Times,serif" font-size="14.00">NoC-3</text>
 </g>
 <g id="clust9" class="cluster">
-<title>cluster SoC_2</title>
+<title>cluster SoC-2</title>
 <polygon fill="none" stroke="black" points="662,-24 662,-138 973,-138 973,-24 662,-24"/>
-<text text-anchor="middle" x="817.5" y="-122.8" font-family="Times,serif" font-size="14.00">SoC_2</text>
+<text text-anchor="middle" x="817.5" y="-122.8" font-family="Times,serif" font-size="14.00">SoC-2</text>
 </g>
 <g id="clust10" class="cluster">
-<title>cluster PU_2</title>
+<title>cluster PU-2</title>
 <polygon fill="none" stroke="black" points="758,-32 758,-107 965,-107 965,-32 758,-32"/>
-<text text-anchor="middle" x="861.5" y="-91.8" font-family="Times,serif" font-size="14.00">PU_2</text>
+<text text-anchor="middle" x="861.5" y="-91.8" font-family="Times,serif" font-size="14.00">PU-2</text>
 </g>
 <g id="clust11" class="cluster">
-<title>cluster NoC_2</title>
+<title>cluster NoC-2</title>
 <polygon fill="none" stroke="black" points="670,-32 670,-107 750,-107 750,-32 670,-32"/>
-<text text-anchor="middle" x="710" y="-91.8" font-family="Times,serif" font-size="14.00">NoC_2</text>
+<text text-anchor="middle" x="710" y="-91.8" font-family="Times,serif" font-size="14.00">NoC-2</text>
 </g>
 <g id="clust12" class="cluster">
-<title>cluster SoC_1</title>
+<title>cluster SoC-1</title>
 <polygon fill="none" stroke="black" points="343,-24 343,-138 654,-138 654,-24 343,-24"/>
-<text text-anchor="middle" x="498.5" y="-122.8" font-family="Times,serif" font-size="14.00">SoC_1</text>
+<text text-anchor="middle" x="498.5" y="-122.8" font-family="Times,serif" font-size="14.00">SoC-1</text>
 </g>
 <g id="clust13" class="cluster">
-<title>cluster PU_1</title>
+<title>cluster PU-1</title>
 <polygon fill="none" stroke="black" points="439,-32 439,-107 646,-107 646,-32 439,-32"/>
-<text text-anchor="middle" x="542.5" y="-91.8" font-family="Times,serif" font-size="14.00">PU_1</text>
+<text text-anchor="middle" x="542.5" y="-91.8" font-family="Times,serif" font-size="14.00">PU-1</text>
 </g>
 <g id="clust14" class="cluster">
-<title>cluster NoC_1</title>
+<title>cluster NoC-1</title>
 <polygon fill="none" stroke="black" points="351,-32 351,-107 431,-107 431,-32 351,-32"/>
-<text text-anchor="middle" x="391" y="-91.8" font-family="Times,serif" font-size="14.00">NoC_1</text>
+<text text-anchor="middle" x="391" y="-91.8" font-family="Times,serif" font-size="14.00">NoC-1</text>
 </g>
 <g id="clust15" class="cluster">
-<title>cluster SoC_0</title>
+<title>cluster SoC-0</title>
 <polygon fill="none" stroke="black" points="24,-24 24,-138 335,-138 335,-24 24,-24"/>
-<text text-anchor="middle" x="179.5" y="-122.8" font-family="Times,serif" font-size="14.00">SoC_0</text>
+<text text-anchor="middle" x="179.5" y="-122.8" font-family="Times,serif" font-size="14.00">SoC-0</text>
 </g>
 <g id="clust16" class="cluster">
-<title>cluster PU_0</title>
+<title>cluster PU-0</title>
 <polygon fill="none" stroke="black" points="120,-32 120,-107 327,-107 327,-32 120,-32"/>
-<text text-anchor="middle" x="223.5" y="-91.8" font-family="Times,serif" font-size="14.00">PU_0</text>
+<text text-anchor="middle" x="223.5" y="-91.8" font-family="Times,serif" font-size="14.00">PU-0</text>
 </g>
 <g id="clust17" class="cluster">
-<title>cluster NoC_0</title>
+<title>cluster NoC-0</title>
 <polygon fill="none" stroke="black" points="32,-32 32,-107 112,-107 112,-32 32,-32"/>
-<text text-anchor="middle" x="72" y="-91.8" font-family="Times,serif" font-size="14.00">NoC_0</text>
+<text text-anchor="middle" x="72" y="-91.8" font-family="Times,serif" font-size="14.00">NoC-0</text>
 </g>
 <!-- Standard -->
 <g id="node1" class="node">
@@ -100,77 +100,77 @@
 <polygon fill="none" stroke="black" points="1415.5,-76 1332.5,-76 1332.5,-40 1415.5,-40 1415.5,-76"/>
 <text text-anchor="middle" x="1374" y="-54.3" font-family="Times,serif" font-size="14.00">Standard</text>
 </g>
-<!-- Core_3 -->
+<!-- Core-3 -->
 <g id="node2" class="node">
-<title>Core_3</title>
+<title>Core-3</title>
 <polygon fill="none" stroke="black" points="1276,-76 1210,-76 1210,-40 1276,-40 1276,-76"/>
-<text text-anchor="middle" x="1243" y="-54.3" font-family="Times,serif" font-size="14.00">Core_3</text>
+<text text-anchor="middle" x="1243" y="-54.3" font-family="Times,serif" font-size="14.00">Core-3</text>
 </g>
-<!-- Peripheral_3 -->
+<!-- Peripheral-3 -->
 <g id="node3" class="node">
-<title>Peripheral_3</title>
+<title>Peripheral-3</title>
 <polygon fill="none" stroke="black" points="1191.5,-76 1084.5,-76 1084.5,-40 1191.5,-40 1191.5,-76"/>
-<text text-anchor="middle" x="1138" y="-54.3" font-family="Times,serif" font-size="14.00">Peripheral_3</text>
+<text text-anchor="middle" x="1138" y="-54.3" font-family="Times,serif" font-size="14.00">Peripheral-3</text>
 </g>
-<!-- NoC_3 -->
+<!-- NoC-3 -->
 <g id="node4" class="node">
-<title>NoC_3</title>
+<title>NoC-3</title>
 <polygon fill="none" stroke="black" points="1060.5,-76 997.5,-76 997.5,-40 1060.5,-40 1060.5,-76"/>
-<text text-anchor="middle" x="1029" y="-54.3" font-family="Times,serif" font-size="14.00">NoC_3</text>
+<text text-anchor="middle" x="1029" y="-54.3" font-family="Times,serif" font-size="14.00">NoC-3</text>
 </g>
-<!-- Core_2 -->
+<!-- Core-2 -->
 <g id="node5" class="node">
-<title>Core_2</title>
+<title>Core-2</title>
 <polygon fill="none" stroke="black" points="957,-76 891,-76 891,-40 957,-40 957,-76"/>
-<text text-anchor="middle" x="924" y="-54.3" font-family="Times,serif" font-size="14.00">Core_2</text>
+<text text-anchor="middle" x="924" y="-54.3" font-family="Times,serif" font-size="14.00">Core-2</text>
 </g>
-<!-- Peripheral_2 -->
+<!-- Peripheral-2 -->
 <g id="node6" class="node">
-<title>Peripheral_2</title>
+<title>Peripheral-2</title>
 <polygon fill="none" stroke="black" points="872.5,-76 765.5,-76 765.5,-40 872.5,-40 872.5,-76"/>
-<text text-anchor="middle" x="819" y="-54.3" font-family="Times,serif" font-size="14.00">Peripheral_2</text>
+<text text-anchor="middle" x="819" y="-54.3" font-family="Times,serif" font-size="14.00">Peripheral-2</text>
 </g>
-<!-- NoC_2 -->
+<!-- NoC-2 -->
 <g id="node7" class="node">
-<title>NoC_2</title>
+<title>NoC-2</title>
 <polygon fill="none" stroke="black" points="741.5,-76 678.5,-76 678.5,-40 741.5,-40 741.5,-76"/>
-<text text-anchor="middle" x="710" y="-54.3" font-family="Times,serif" font-size="14.00">NoC_2</text>
+<text text-anchor="middle" x="710" y="-54.3" font-family="Times,serif" font-size="14.00">NoC-2</text>
 </g>
-<!-- Core_1 -->
+<!-- Core-1 -->
 <g id="node8" class="node">
-<title>Core_1</title>
+<title>Core-1</title>
 <polygon fill="none" stroke="black" points="638,-76 572,-76 572,-40 638,-40 638,-76"/>
-<text text-anchor="middle" x="605" y="-54.3" font-family="Times,serif" font-size="14.00">Core_1</text>
+<text text-anchor="middle" x="605" y="-54.3" font-family="Times,serif" font-size="14.00">Core-1</text>
 </g>
-<!-- Peripheral_1 -->
+<!-- Peripheral-1 -->
 <g id="node9" class="node">
-<title>Peripheral_1</title>
+<title>Peripheral-1</title>
 <polygon fill="none" stroke="black" points="553.5,-76 446.5,-76 446.5,-40 553.5,-40 553.5,-76"/>
-<text text-anchor="middle" x="500" y="-54.3" font-family="Times,serif" font-size="14.00">Peripheral_1</text>
+<text text-anchor="middle" x="500" y="-54.3" font-family="Times,serif" font-size="14.00">Peripheral-1</text>
 </g>
-<!-- NoC_1 -->
+<!-- NoC-1 -->
 <g id="node10" class="node">
-<title>NoC_1</title>
+<title>NoC-1</title>
 <polygon fill="none" stroke="black" points="422.5,-76 359.5,-76 359.5,-40 422.5,-40 422.5,-76"/>
-<text text-anchor="middle" x="391" y="-54.3" font-family="Times,serif" font-size="14.00">NoC_1</text>
+<text text-anchor="middle" x="391" y="-54.3" font-family="Times,serif" font-size="14.00">NoC-1</text>
 </g>
-<!-- Core_0 -->
+<!-- Core-0 -->
 <g id="node11" class="node">
-<title>Core_0</title>
+<title>Core-0</title>
 <polygon fill="none" stroke="black" points="319,-76 253,-76 253,-40 319,-40 319,-76"/>
-<text text-anchor="middle" x="286" y="-54.3" font-family="Times,serif" font-size="14.00">Core_0</text>
+<text text-anchor="middle" x="286" y="-54.3" font-family="Times,serif" font-size="14.00">Core-0</text>
 </g>
-<!-- Peripheral_0 -->
+<!-- Peripheral-0 -->
 <g id="node12" class="node">
-<title>Peripheral_0</title>
+<title>Peripheral-0</title>
 <polygon fill="none" stroke="black" points="234.5,-76 127.5,-76 127.5,-40 234.5,-40 234.5,-76"/>
-<text text-anchor="middle" x="181" y="-54.3" font-family="Times,serif" font-size="14.00">Peripheral_0</text>
+<text text-anchor="middle" x="181" y="-54.3" font-family="Times,serif" font-size="14.00">Peripheral-0</text>
 </g>
-<!-- NoC_0 -->
+<!-- NoC-0 -->
 <g id="node13" class="node">
-<title>NoC_0</title>
+<title>NoC-0</title>
 <polygon fill="none" stroke="black" points="103.5,-76 40.5,-76 40.5,-40 103.5,-40 103.5,-76"/>
-<text text-anchor="middle" x="72" y="-54.3" font-family="Times,serif" font-size="14.00">NoC_0</text>
+<text text-anchor="middle" x="72" y="-54.3" font-family="Times,serif" font-size="14.00">NoC-0</text>
 </g>
 </g>
 </svg>
