@@ -42,12 +42,16 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
+import java.util.Random;
+
 import apb4.peripheral_design;
 
 class peripheral_apb4_test {
   public static void main(String[] args) {
-    double data_a_in = 20.0;
-    double data_b_in = 10.0;
+    Random random = new Random();
+
+    double data_a_in = random.nextDouble();
+    double data_b_in = random.nextDouble();
 
     assert peripheral_design.ntm_scalar_adder(data_a_in, data_b_in) == data_a_in + data_b_in;
 

@@ -47,6 +47,7 @@ package main
 // fmt package provides the function to print anything
 import (
   "fmt"
+  "math/rand"
 
   "go/library/bfm/ahb3"
 )
@@ -61,8 +62,8 @@ func main() {
   var divider_output float64
 
   // initializing the variables
-  data_a_in = 48.0
-  data_b_in = 16.0
+  data_a_in = rand.Float64()
+  data_b_in = rand.Float64()
 
   // calling the function and storing the result
   adder_output = peripheral_design.ScalarAdder(data_a_in, data_b_in)

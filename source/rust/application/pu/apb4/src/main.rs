@@ -43,43 +43,54 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 extern crate bfm;
+extern crate rand;
 
 use bfm::ahb3::peripheral_design::*;
+use rand::Rng;
 
 fn main() {
+    let mut rng = rand::thread_rng();
+
+    let data_a_input: f64 = rng.gen();
+    let data_b_input: f64 = rng.gen();
+
+    let data_addition_output: f64 = data_a_input + data_b_input;
+    let data_subtraction_output: f64 = data_a_input - data_b_input;
+    let data_multiplication_output: f64 = data_a_input * data_b_input;
+    let data_division_output: f64 = data_a_input / data_b_input;
 
     let addition = ScalarArithmetic {
-        data_a_in: 48.0,
-        data_b_in: 16.0,
+        data_a_in: data_a_input,
+        data_b_in: data_b_input,
 
-        data_out: 64.0
+        data_out: data_addition_output
     };
 
     assert_eq!(addition.ntm_scalar_adder(), addition.data_out);
 
     let subtraction = ScalarArithmetic {
-        data_a_in: 48.0,
-        data_b_in: 16.0,
+        data_a_in: data_a_input,
+        data_b_in: data_b_input,
 
-        data_out: 32.0
+        data_out: data_subtraction_output
     };
 
     assert_eq!(subtraction.ntm_scalar_subtractor(), subtraction.data_out);
 
     let multiplication = ScalarArithmetic {
-        data_a_in: 48.0,
-        data_b_in: 16.0,
+        data_a_in: data_a_input,
+        data_b_in: data_b_input,
 
-        data_out: 768.0
+        data_out: data_multiplication_output
     };
 
     assert_eq!(multiplication.ntm_scalar_multiplier(), multiplication.data_out);
 
     let division = ScalarArithmetic {
-        data_a_in: 48.0,
-        data_b_in: 16.0,
+        data_a_in: data_a_input,
+        data_b_in: data_b_input,
 
-        data_out: 3.0
+        data_out: data_division_output
     };
 
     assert_eq!(division.ntm_scalar_divider(), division.data_out);
