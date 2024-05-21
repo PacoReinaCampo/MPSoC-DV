@@ -20,11 +20,10 @@
 
 | CONTROL       | DEVELOP      | OPERATION   |
 |:--------------|:-------------|:------------|
-| certification | bench        | sim         |
-| doc           | model        | compilation |
-| quality       | validation   | synthesis   |
-| requirements  | rtl/src      |             |
-|               | source       |             |
+| certification | model        | sim         |
+| doc           | validation   | compilation |
+| quality       | rtl/src      | synthesis   |
+| requirements  | source       |             |
 |               | verification |             |
 : Hardware DevOps
 
@@ -41,8 +40,6 @@
 |              | IEEE STD 1735-2014   |               |
 |source        | RTCA DO-254          |               |
 |              | RTCA DO-178C         |               |
-|bench         | IEEE STD 1076-2019   | VHDL          |
-|              | IEEE STD 1800-2017   | SystemVerilog |
 |model         | IEEE STD 1076-2019   | VHDL          |
 |              | IEEE STD 1800-2017   | SystemVerilog |
 |validation    | IEEE STD 1076-2019   | OSVVM         |

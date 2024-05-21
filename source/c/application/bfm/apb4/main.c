@@ -45,28 +45,33 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "../../../library/bfm/ahb3/peripheral_design.h"
 
 int main() {
-  double data_a_in = 48.0;
-  double data_b_in = 16.0;
+  srand(time(NULL));
+
+  int random_integer = rand();
+
+  double data_a_in = (double)random_integer / RAND_MAX;
+  double data_b_in = (double)random_integer / RAND_MAX;
 
   double data_out;
 
-  data_out = 64.0;
+  data_out = data_a_in + data_b_in;
 
   assert(ntm_scalar_adder(data_a_in, data_b_in) == data_out);
 
-  data_out = 32.0;
+  data_out = data_a_in - data_b_in;
 
   assert(ntm_scalar_subtractor(data_a_in, data_b_in) == data_out);
 
-  data_out = 768.0;
+  data_out = data_a_in * data_b_in;
 
   assert(ntm_scalar_multiplier(data_a_in, data_b_in) == data_out);
 
-  data_out = 3.0;
+  data_out = data_a_in / data_b_in;
 
   assert(ntm_scalar_divider(data_a_in, data_b_in) == data_out);
 

@@ -56,7 +56,7 @@ digraph Project {
       ram_queue[shape=box, label="ram_queue"];
     }
     subgraph "cluster interface" { label = "interface";
-      wb[shape=box, label="wb"];
+      bus_wb[shape=box, label="wb"];
     }
   }
 }
