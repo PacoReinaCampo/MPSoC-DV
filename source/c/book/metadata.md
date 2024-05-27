@@ -1,6 +1,6 @@
 ---
 title: 'The C Programming Language'
-subtitle: 'QueenField ![](../../../icon.jpg){width=17cm}'
+subtitle: 'QueenField ![](  ../../../../icon.jpg){width=17cm}'
 
 author: Paco Reina Campo
 

@@ -1,1 +1,0 @@
-# Hardware Process Assurance Records

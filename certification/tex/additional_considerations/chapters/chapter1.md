@@ -1,3 +1,10 @@
 # Use of Previously Developed Hardware
 
-*This section discusses the issues associated with the use of previously developed hardware. Guidance includes the assessment of modifications to the hardware, to the aircraft installation, to the application environment, or to the design environment and upgrading design baselines. Guidance for COTS component usage, a special case of previously developed hardware, is covered. Configuration Management and Process Assurance considerations should also be addressed for each use of previously developed hardware.*
+**Description**: The use of previously developed hardware refers to the practice of incorporating existing hardware designs, components, or modules into new hardware projects.
+
+**Importance**: Leveraging previously developed hardware can reduce development time, cost, and risk, especially for components or systems that have been proven to meet similar requirements in previous projects.
+
+**Considerations**:
+- **Legacy Compatibility**: Ensure compatibility with existing systems, interfaces, and standards when integrating previously developed hardware.
+- **Documentation Review**: Conduct a thorough review of documentation, test results, and validation data from previous projects to verify the suitability and compliance of reused hardware.
+- **Configuration Management**: Implement robust configuration management practices to track and manage changes to reused hardware components or designs.

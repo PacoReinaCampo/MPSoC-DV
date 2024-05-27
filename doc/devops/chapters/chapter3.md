@@ -1,6 +1,22 @@
 # BUILD
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+In DevOps, the "BUILD" phase refers to the process of transforming source code into a deployable artifact, such as a compiled binary, executable, or container image. This phase is essential for automating the creation of software components and ensuring consistency across different environments. Here's a breakdown of what typically happens during the BUILD phase:
+
+1. **Compilation**: For applications written in compiled languages like Java, C++, or Go, the BUILD phase involves compiling the source code into executable binaries or libraries. This step ensures that the code is translated into machine-readable instructions that can be executed on the target platform.
+
+2. **Packaging**: Once the source code is compiled, it needs to be packaged into a deployable format. This could involve creating JAR files for Java applications, executable files for native applications, or Docker images for containerized applications. Packaging ensures that the application and its dependencies are bundled together in a portable format.
+
+3. **Dependency Management**: Managing dependencies is crucial during the BUILD phase to ensure that the application runs correctly in different environments. Dependency management tools like Maven, Gradle, or npm are used to download and manage libraries and frameworks required by the application. This helps maintain consistency and reproducibility across builds.
+
+4. **Containerization**: In modern DevOps practices, containerization has become increasingly popular for packaging and deploying applications. During the BUILD phase, developers create Docker images containing the application code, runtime environment, and dependencies. These images can then be deployed consistently across different environments, from development to production.
+
+5. **Automated Build Pipelines**: Automated build pipelines are used to orchestrate the BUILD phase as part of the CI/CD process. Continuous integration (CI) tools like Jenkins, GitLab CI/CD, or GitHub Actions automate the build process, triggering builds whenever new code is pushed to the version control repository. These pipelines typically include steps for compilation, testing, packaging, and artifact generation.
+
+6. **Build Optimization**: Optimizing the build process is important for reducing build times and improving developer productivity. Techniques such as caching dependencies, parallelizing build tasks, and optimizing Dockerfile instructions can help speed up the BUILD phase and enable faster feedback loops.
+
+7. **Build Artifacts Management**: Once the build is complete, the resulting artifacts need to be stored and managed. Artifact repositories like Nexus, Artifactory, or Docker Hub are used to store build artifacts securely and version them for future reference. These artifacts can then be deployed to various environments as part of the continuous delivery (CD) process.
+
+By automating and standardizing the BUILD phase, DevOps teams can accelerate the software delivery process, improve code quality, and enable faster and more reliable deployments.
 
 ![User and Developer](assets/chapter3/user-developer.svg)
 

@@ -1,6 +1,6 @@
 ---
 title: 'The UML Programming Language'
-subtitle: 'QueenField ![](../../../icon.jpg)'
+subtitle: 'QueenField ![](../../../../icon.jpg)'
 
 author: Paco Reina Campo
 
