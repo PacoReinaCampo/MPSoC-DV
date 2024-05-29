@@ -1,6 +1,10 @@
-# Managing Growing Projects with Packages, Crates, and Modules
-## Packages and Crates
-## Defining Modules to Control Scope and Privacy
-## Paths for Referring to an Item in the Module Tree
-## Bringing Paths Into Scope with the use Keyword
-## Separating Modules into Different Files
+# Packages
+## Package Specifications and Declarations
+## Package Bodies
+## Private Types and Private Extensions
+### Private Operations
+### Type Invariants
+## Deferred Constants
+## Limited Types
+## Assignment and Finalization
+### Completion and Finalization
