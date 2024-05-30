@@ -1,67 +1,125 @@
 # UBus Specification
 
 ## Introduction
-The UBus Specification provides a detailed description of the UBus, a bus protocol designed for communication between components within a digital system.
 
 ### Motivation
-The motivation behind the UBus protocol is to establish a standardized and efficient means of data transfer and control signals between various components in a digital system.
+
+The UBus (Universal Bus) protocol is designed to provide a flexible and efficient means of communication between different components in a system. It supports various types of data transfers and can be extended to include optional pipelining for improved performance.
 
 ### Bus Overview
-The UBus facilitates communication between components such as processors, memory modules, and peripheral devices by defining a set of signals and protocols for data exchange.
+
+UBus is a synchronous bus protocol that includes arbitration, address, and data phases. It supports multiple masters and slaves, ensuring fair access to shared resources through an arbitration mechanism.
 
 ## Bus Description
-The UBus protocol defines the behavior of various bus signals, clocking mechanisms, and reset procedures to ensure reliable and efficient communication.
 
 ### Bus Signals
-The UBus specification outlines the different signals used for communication, including data lines, address lines, control signals, and clock signals.
+
+UBus consists of several signals that manage data transfer, address selection, and control functions:
+
+- `clk`: The clock signal driving the synchronous operation of the bus.
+- `reset`: Resets the bus and all connected devices.
+- `addr[31:0]`: The 32-bit address bus.
+- `data[31:0]`: The 32-bit data bus.
+- `control[3:0]`: Control signals for various bus operations.
+- `ready`: Indicates the slave's readiness to accept or provide data.
+- `valid`: Indicates the master's validity of the address or data on the bus.
 
 ### Clocking
-Clocking mechanisms in the UBus regulate the timing of bus transactions and ensure synchronous operation between transmitting and receiving components.
+
+UBus is a synchronous protocol driven by a single clock signal. All bus transactions occur on the rising edge of the clock.
 
 ### Reset
-The reset procedure in the UBus protocol initializes the bus and associated components to a known state, ensuring proper functionality during system startup or recovery.
+
+The `reset` signal is used to initialize the bus and all connected devices to a known state. It is an active-high signal.
 
 ## Arbitration Phase
-During the arbitration phase, multiple bus masters compete for control of the bus to initiate transactions. The UBus specification defines the arbitration mechanism to resolve conflicts and determine the bus master.
+
+The arbitration phase determines which master gains control of the bus. Each master competes for bus access, and a centralized arbiter grants access based on a predefined policy, such as round-robin or priority-based.
 
 ## Address Phase
-The address phase of the UBus protocol involves transmitting address information to select a specific target device or register for data transfer.
+
+During the address phase, the master places the address of the target slave on the address bus.
 
 ### NOP Cycle
-In the NOP cycle, no actual data transfer occurs, allowing bus masters to relinquish control of the bus without performing a transaction.
+
+A No Operation (NOP) cycle occurs when no master is driving the bus, and all signals remain in their idle state.
 
 ### Normal Address Phase
-During the normal address phase, bus masters transmit address information to specify the target device or register for subsequent data transfer operations.
+
+In a normal address phase, the master asserts the address on the bus and sets the control signals to indicate the type of operation (read/write).
 
 ## Data Phase
-The data phase of the UBus protocol involves the actual transfer of data between bus masters and target devices.
+
+The data phase follows the address phase and involves the actual data transfer between the master and the slave.
 
 ### Write Transfer
-In a write transfer, bus masters transmit data to target devices for storage or processing, following the address phase.
+
+In a write transfer, the master places the data on the data bus, and the slave latches the data when the `ready` signal is asserted.
 
 ### Error during Write Transfer
-The UBus specification defines error-handling mechanisms for detecting and handling errors that may occur during write transfers.
+
+If an error occurs during a write transfer, the slave can assert an error signal to indicate the failure.
 
 ### Read Transfer
-In a read transfer, target devices transmit data to bus masters in response to read requests, following the address phase.
+
+In a read transfer, the master places the address on the address bus, and the slave returns the data on the data bus when the `ready` signal is asserted.
 
 ### Error during Read Transfer
-Error-handling mechanisms in the UBus protocol address potential errors that may occur during read transfers, ensuring data integrity and reliability.
+
+If an error occurs during a read transfer, the slave can assert an error signal to indicate the failure.
 
 ## How Data is Driven
-The UBus specification outlines the mechanisms for driving data on the bus, including data setup and hold times, to ensure proper data capture by receiving devices.
+
+Data is driven on the bus by the master during write operations and by the slave during read operations. The `valid` signal indicates that the data on the bus is valid and can be latched by the receiving device.
 
 ## Optional Pipelining Scheme
-The UBus protocol optionally supports a pipelining scheme to improve bus efficiency and throughput by overlapping different phases of bus transactions.
+
+Pipelining improves bus performance by overlapping the arbitration, address, and data phases of multiple transactions.
 
 ### Pipelined Arbitration Phase
-Pipelined arbitration allows bus masters to initiate arbitration for subsequent transactions while ongoing transactions are in progress, reducing latency and maximizing bus utilization.
+
+In the pipelined arbitration phase, the next master to gain control of the bus is determined while the current data transfer is still in progress.
 
 ### Pipelined Address Phase
-Pipelined address phase enables bus masters to transmit address information for upcoming transactions while ongoing transactions are still in progress, further reducing latency and improving throughput.
+
+The pipelined address phase allows the next address to be placed on the bus before the current data transfer is completed.
 
 ### Pipelined Data Phase
-Pipelined data phase allows for the concurrent transmission of data for multiple transactions, overlapping with arbitration and address phases, to maximize bus efficiency.
+
+In the pipelined data phase, data transfers for different transactions overlap, with each phase (arbitration, address, data) occurring simultaneously for different transactions.
 
 ## Example Timing Diagrams
-The UBus specification provides example timing diagrams to illustrate the timing relationships between different bus signals and phases during typical bus transactions, aiding in understanding and implementation.
+
+Below are example timing diagrams illustrating different phases and operations in the UBus protocol.
+
+### Normal Write Transfer
+```
+clk:    |____|‾‾‾‾|____|‾‾‾‾|____|‾‾‾‾|____|‾‾‾‾|
+addr:   |--------| ADDR1 |--------| ADDR2 |----|
+data:   |--------| DATA1 |--------| DATA2 |----|
+control:|--------|WRITE|--------|WRITE|--------|
+ready:  |--------|_____|‾‾‾‾|--------|_____|‾‾‾‾|
+valid:  |--------|‾‾‾‾|_____|‾‾‾‾|--------|‾‾‾‾|
+```
+
+### Normal Read Transfer
+```
+clk:    |____|‾‾‾‾|____|‾‾‾‾|____|‾‾‾‾|____|‾‾‾‾|
+addr:   |--------| ADDR1 |--------| ADDR2 |----|
+data:   |--------|--------| DATA1 |--------| DATA2 |
+control:|--------| READ |--------| READ |--------|
+ready:  |--------|_____|‾‾‾‾|--------|_____|‾‾‾‾|
+valid:  |--------|‾‾‾‾|_____|‾‾‾‾|--------|‾‾‾‾|
+```
+
+### Pipelined Transfers
+```
+clk:    |____|‾‾‾‾|____|‾‾‾‾|____|‾‾‾‾|____|‾‾‾‾|____|‾‾‾‾|____|‾‾‾‾|
+addr:   |--------| ADDR1 |--------| ADDR2 |--------| ADDR3 |----|
+data:   |--------|--------| DATA1 |--------| DATA2 |--------| DATA3 |
+control:|--------|WRITE|--------|READ|--------|WRITE|--------|
+ready:  |--------|_____|‾‾‾‾|_____|‾‾‾‾|_____|‾‾‾‾|--------|‾‾‾‾|
+valid:  |--------|‾‾‾‾|_____|‾‾‾‾|_____|‾‾‾‾|________|‾‾‾‾|
+```
+
+This document outlines the UBus protocol, its phases, signal descriptions, and example timing diagrams, providing a comprehensive guide for implementing and verifying UBus in a hardware design.

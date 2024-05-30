@@ -144,8 +144,6 @@ MIMD architecture is the most versatile and widely used parallel computing model
 
 - **Example:** Cluster computing, multi-core CPUs, and distributed computing systems, where each processing unit executes its own program on different data sets, enabling parallel execution of diverse tasks.
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
 ## System on Chip
 
 A System on Chip (SoC) is a complete integrated circuit (IC) that encapsulates most or all of the components of a computer or electronic system on a single chip. SoC integrates various hardware components such as the central processing unit (CPU), memory, input/output (I/O) interfaces, digital signal processors (DSPs), graphics processing units (GPUs), and other specialized components onto a single silicon die. Let's delve into the details of System on Chip architecture:

@@ -5510,8 +5510,6 @@ gcc ntm_controller.c -o ntm_controller.run
 
 ### C++ Language
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
 Hello QueenField in C++ Language:
 ```cpp
 #include <iostream>
@@ -5522,13 +5520,516 @@ int main() {
 }
 ```
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+#### Language
 
 ```
 g++ ntm_controller.cpp -o ntm_controller.run
 ```
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+##### Preprocessor
+The preprocessor in C++ is responsible for handling directives that begin with a hash sign (#). These directives are processed before the actual compilation of the program begins. Common preprocessor directives include `#include` to include header files, `#define` to define macros, and `#ifdef`/`#ifndef` for conditional compilation.
+
+##### ASCII chart
+ASCII (American Standard Code for Information Interchange) is a character encoding standard that assigns numeric values to characters. In C++, characters are represented as integers according to the ASCII chart. For example, the ASCII value for 'A' is 65, 'B' is 66, and so on.
+
+##### Basic Concepts
+###### Comments
+Comments in C++ are used to annotate code and are ignored by the compiler. There are two types of comments: single-line comments, which start with `//`, and multi-line comments, which are enclosed between `/*` and `*/`.
+
+###### Names (lookup)
+In C++, names are used to identify variables, functions, classes, and other entities in the program. The process of finding the declaration of a name in the program is called name lookup.
+
+###### Types (fundamental types)
+C++ has several fundamental data types, including `int`, `float`, `double`, `char`, `bool`, etc. These types represent basic data values that can be manipulated in the program.
+
+###### The main function
+The `main()` function is the entry point of C++ programs. Execution of a C++ program starts from the `main()` function. It can have a return type of `int` and optionally take arguments from the command line.
+
+##### Expressions
+###### Value categories
+In C++, expressions can have different value categories, such as lvalues and rvalues. An lvalue refers to an object that has a persistent memory location, while an rvalue refers to a temporary value that does not necessarily have a persistent memory location.
+
+###### Evaluation order
+The order in which subexpressions within an expression are evaluated is determined by the compiler. In some cases, the order of evaluation is unspecified, which can lead to undefined behavior if the expression relies on a specific order.
+
+###### Operators (precedence)
+Operators in C++ have precedence rules that determine the order in which they are evaluated within an expression. For example, multiplication (`*`) has higher precedence than addition (`+`), so `a * b + c` is evaluated as `(a * b) + c`, not `a * (b + c)`.
+
+###### Conversions − Literals
+C++ supports implicit and explicit type conversions, which allow literals of one type to be converted to another type. For example, an `int` literal can be implicitly converted to a `double` if necessary.
+
+##### Statements
+###### if − switch
+The `if` statement is used for conditional branching in C++. It allows the execution of a block of code based on a condition. The `switch` statement provides another form of conditional branching based on the value of an expression.
+
+###### for − range-for (C++11)
+The `for` loop in C++ is used for iterating over a range of values. The range-based `for` loop introduced in C++11 simplifies iterating over elements of a container, such as arrays or containers from the standard library.
+
+###### while − do-while
+The `while` loop is used to repeatedly execute a block of code as long as a condition is true. The `do-while` loop is similar to the `while` loop but guarantees that the block of code is executed at least once before checking the condition.
+
+##### Declarations − Initialization
+Declarations in C++ are used to introduce names into the program and specify their types. Initialization refers to the process of assigning an initial value to a variable at the time of declaration.
+
+##### Functions − Overloading
+Function overloading in C++ allows multiple functions with the same name to be defined, as long as they have different parameter lists. The appropriate function to call is determined based on the number and types of arguments provided.
+
+##### Classes (unions)
+Classes in C++ are used to define user-defined data types with properties and behaviors. They can contain member variables and member functions. Unions are a special type of class where all members share the same memory location.
+
+##### Templates − Exceptions
+Templates in C++ allow for generic programming by defining functions or classes with generic types. This enables writing code that works with any data type. Exceptions are used for handling runtime errors or exceptional conditions that may occur during program execution.
+
+##### Freestanding implementations
+Freestanding implementations refer to the ability to write C++ programs without relying on the full standard library provided by the implementation. This is particularly useful in embedded systems or other environments where the standard library may not be available or suitable.
+
+#### Standard library (headers)
+In C++, the Standard Library provides a rich set of functionalities encapsulated in various header files. Here's an explanation of some commonly used headers in the Standard Library:
+
+1. **iostream**: This header provides input and output streams, including `cin`, `cout`, `cerr`, and `clog`, for handling input and output operations. It also includes functionalities for formatting output.
+
+2. **vector**: The vector header provides the `std::vector` class, which is a dynamic array that can resize itself automatically when needed. It supports random access and efficient insertion/removal of elements at the end.
+
+3. **string**: This header provides the `std::string` class for handling strings of characters. It offers various operations such as concatenation, substring extraction, searching, and comparison.
+
+4. **algorithm**: The algorithm header contains a collection of functions for performing common algorithms on containers, such as sorting (`std::sort`), searching (`std::find`), and manipulating ranges (`std::copy`, `std::transform`).
+
+5. **utility**: This header provides various utility functions and classes, including `std::pair` for storing pairs of values, `std::move` for enabling move semantics, and `std::swap` for swapping values.
+
+6. **cmath**: This header provides mathematical functions for floating-point numbers, such as trigonometric functions (`sin`, `cos`, `tan`), logarithmic functions (`log`, `log10`), and exponential functions (`exp`, `pow`).
+
+7. **fstream**: The fstream header provides classes for file input and output operations, including `std::ifstream` for reading from files, `std::ofstream` for writing to files, and `std::fstream` for both reading and writing.
+
+8. **iomanip**: This header provides manipulators for formatting input and output operations, such as `std::setw` for setting the width of output fields, `std::setprecision` for setting the precision of floating-point numbers, and `std::fixed` for fixed-point notation.
+
+9. **sstream**: The sstream header provides classes for string-based input and output operations, including `std::stringstream` and `std::istringstream` for parsing and formatting strings.
+
+10. **ctime**: This header provides functions for working with date and time, such as `std::time` for getting the current time, `std::localtime` for converting a time value to a local time representation, and `std::strftime` for formatting time as a string.
+
+These are just a few examples of the headers available in the C++ Standard Library. Each header provides a set of functionalities related to a specific aspect of programming, making it easier for developers to write efficient and portable code.
+
+#### Named requirements
+In C++, "Named Requirements" refer to a set of specifications or constraints placed on template parameters in order to use certain standard library algorithms and components effectively. Named requirements help ensure that template parameters meet specific criteria, allowing them to be used interchangeably in generic code without sacrificing functionality or efficiency. Here are some commonly used Named Requirements in C++:
+
+1. **EqualityComparable**: A type that supports the `==` and `!=` operators for comparison. This requirement allows objects of the type to be compared for equality.
+
+2. **LessThanComparable**: A type that supports the `<` operator for comparison. This requirement allows objects of the type to be ordered in a sequence.
+
+3. **CopyAssignable**: A type that can be assigned to from another object of the same type. This requirement allows objects of the type to be copied.
+
+4. **CopyConstructible**: A type that can be constructed from another object of the same type. This requirement allows objects of the type to be copied using copy constructors.
+
+5. **MoveAssignable**: A type that can be assigned to from an rvalue of the same type. This requirement allows objects of the type to be moved.
+
+6. **MoveConstructible**: A type that can be constructed from an rvalue of the same type. This requirement allows objects of the type to be moved using move constructors.
+
+7. **Destructible**: A type that can be destroyed using its destructor. This requirement ensures that objects of the type can be properly cleaned up when they are no longer needed.
+
+8. **DefaultConstructible**: A type that can be constructed without any arguments. This requirement allows objects of the type to be default-initialized.
+
+9. **Swappable**: A type that can be swapped with another object of the same type using the `std::swap` function. This requirement allows objects of the type to be efficiently exchanged.
+
+10. **Hashable**: A type for which a hash function is defined, typically required for types used as keys in associative containers like `std::unordered_map` or `std::unordered_set`.
+
+These Named Requirements serve as contracts that template parameters must fulfill in order to be compatible with various standard library algorithms and containers. By adhering to these requirements, C++ programmers can write generic code that is both flexible and efficient, leveraging the full power of the standard library.
+
+#### Feature test macros (C++20)
+In C++, feature test macros are preprocessor directives used to check for the availability of specific language and library features at compile-time. They allow programmers to conditionally compile code based on the availability of certain features, ensuring compatibility across different compilers and versions of the language standard.
+
+With the introduction of C++20, feature test macros have become increasingly important due to the continuous evolution of the language. Here's how feature test macros work in C++20:
+
+1. **Header Files**: Feature test macros are typically defined before including any standard library headers. This ensures that the macros are evaluated before any feature-dependent code is encountered.
+
+2. **Standard Macros**: C++20 introduces a set of standard macros that can be used to check for the availability of specific language and library features. These macros are defined in the `<version>` header.
+
+3. **__cplusplus Macro**: The `__cplusplus` macro is commonly used to check the version of the C++ standard being used by the compiler. In C++20, its value is `202002L`.
+
+4. **Feature Test Macros**: C++20 introduces new macros for checking the availability of features introduced in the standard. For example:
+   - `__cpp_concepts` to check for Concepts support.
+   - `__cpp_modules` to check for Modules support.
+   - `__cpp_coroutines` to check for Coroutines support.
+   - `__cpp_constexpr_dynamic_alloc` to check for dynamic memory allocation support in constexpr functions.
+
+5. **Usage**: Feature test macros are typically used in conditional compilation directives such as `#ifdef` and `#if`. For example:
+   ```cpp
+   #include <iostream>
+   #ifdef __cpp_concepts
+   // Code that uses Concepts
+   #else
+   // Fallback code for compilers without Concepts support
+   #endif
+   ```
+
+6. **Compiler Flags**: In addition to feature test macros, compiler flags can also be used to enable or disable specific features. Feature test macros provide a more granular and portable way of checking for feature availability.
+
+By using feature test macros, C++ programmers can write code that gracefully handles variations in compiler support for language and library features. This helps ensure that code remains compatible across different environments and versions of the language standard, facilitating easier maintenance and portability.
+
+#### Language support library
+##### Program Utilities
+The program utilities in the C++ language support library provide various functionalities that help in program execution and management. This includes utilities for program termination (`std::exit`, `std::abort`), environment access (`std::getenv`, `std::setenv`), program termination handlers (`std::atexit`, `std::at_quick_exit`), and more.
+
+##### source_location (C++20)
+`std::source_location` is a new feature introduced in C++20. It provides information about the current source code location, including file name, line number, and column number. This can be useful for debugging, logging, and error reporting, allowing developers to easily identify the origin of code execution.
+
+##### Coroutine Support (C++20)
+Coroutines are a new language feature introduced in C++20 that allows functions to be suspended and resumed at certain points without losing their state. This enables asynchronous programming paradigms, such as generators, cooperative multitasking, and asynchronous I/O operations, to be implemented more efficiently and elegantly.
+
+##### Three-Way Comparison (C++20)
+Three-way comparison, also known as spaceship operator (`<=>`), is a new feature introduced in C++20 that provides a standardized way to perform three-way comparisons between objects. It returns a value that indicates whether the first object is less than, equal to, or greater than the second object. This simplifies code and improves readability, especially when working with user-defined types.
+
+##### Type Support
+The type support features in the C++ language support library provide utilities for working with types at runtime. This includes functionalities such as querying type information (`std::type_info`), determining the characteristics of numeric types (`std::numeric_limits`), and more.
+
+##### numeric_limits - type_info
+- `std::numeric_limits`: This template class provides information about the properties of arithmetic types, such as the minimum and maximum representable values, precision, and characteristics like whether the type is signed or floating-point.
+- `std::type_info`: This class provides information about types at runtime. It is commonly used with features like dynamic casting and RTTI (Run-Time Type Information) to determine the types of objects dynamically.
+
+##### initializer_list (C++11)
+`std::initializer_list` is a template class introduced in C++11 that provides a convenient way to initialize containers and other objects with a list of elements. It allows brace-enclosed lists of elements to be passed as arguments to constructors and functions, enabling uniform initialization syntax in C++. This is particularly useful for initializing standard library containers like `std::vector`, `std::array`, and `std::initializer_list`.
+
+These language support library features enhance the capabilities of C++ by providing utilities for program management, debugging, asynchronous programming, type information, and more. They contribute to making C++ code more expressive, efficient, and maintainable.
+
+#### Concepts library (C++20)
+In C++20, the Concepts library introduces a powerful feature that allows programmers to define constraints on template parameters. These constraints specify requirements that template arguments must satisfy for the template to be instantiated. Here's an explanation of the Concepts library in C++20:
+
+1. **Purpose**: The primary purpose of the Concepts library is to improve template metaprogramming by enabling more expressive and readable code. Instead of relying solely on comments or documentation to describe template requirements, Concepts allow constraints to be explicitly stated within the code.
+
+2. **Syntax**: Concepts are defined using the `concept` keyword followed by a name and a set of requirements enclosed in curly braces. For example:
+   ```cpp
+   template <typename T>
+   concept Integral = std::is_integral<T>::value;
+   ```
+
+3. **Requirements**: Concepts specify the requirements that template arguments must meet in order to be valid. These requirements can include type traits, member function signatures, valid expressions, and more. For example:
+   ```cpp
+   template <typename T>
+   concept Incrementable = requires (T x) {
+       { ++x } -> std::convertible_to<T>;
+   };
+   ```
+
+4. **Usage**: Concepts are used in template declarations to restrict the types that can be used as template arguments. They appear in the `requires` clause following the template parameter list. For example:
+   ```cpp
+   template <Incrementable T>
+   void increment(T& value) {
+       ++value;
+   }
+   ```
+
+5. **Compiler Feedback**: If a template argument does not satisfy the requirements specified by a Concept, the compiler provides clear error messages indicating the violation. This helps in debugging and understanding template-related errors.
+
+6. **Standard Concepts**: C++20 introduces several standard Concepts, such as `Regular`, `EqualityComparable`, `TotallyOrdered`, `Integral`, and `FloatingPoint`, which define common requirements for types used in generic programming.
+
+7. **Custom Concepts**: Programmers can also define their own Concepts tailored to specific requirements of their codebase. This allows for greater flexibility and abstraction in template design.
+
+8. **Benefits**: Concepts improve code readability, maintainability, and error handling in template-based code. They provide a standardized way to express template requirements and enable more efficient and reliable code reuse.
+
+Overall, the Concepts library in C++20 revolutionizes template metaprogramming by providing a formal mechanism for specifying and enforcing constraints on template parameters. It enhances the expressiveness and safety of generic code, making C++ programming more robust and efficient.
+
+#### Diagnostics library
+The Diagnostics library in C++ provides functionalities for handling errors, exceptions, and diagnostic information within programs. Let's delve into the components you've mentioned:
+
+##### exception − System error
+The `exception` component of the Diagnostics library deals with error handling in C++. It provides a standardized way to represent and handle exceptional conditions that may arise during program execution. This includes the definition of standard exception classes such as `std::exception` and its derived classes like `std::runtime_error`, `std::logic_error`, etc.
+
+- **std::exception**: The base class for all standard C++ exceptions. It defines the virtual function `what()` which returns a C-style string describing the exception.
+- **std::runtime_error**: Represents errors detected during runtime, typically due to conditions beyond the program's control (e.g., file not found).
+- **std::logic_error**: Represents errors caused by logical errors in the program's logic (e.g., invalid argument).
+
+Additionally, the `system_error` component allows for handling errors reported by the operating system or the C++ Standard Library functions. It wraps error codes returned by system calls or library functions and provides information about the error condition.
+
+##### basic_stacktrace (C++23)
+The `basic_stacktrace` component, introduced in C++23, provides a mechanism to capture and represent stack traces in C++ programs. Stack traces contain information about the call stack at a given point in program execution, including function names, file names, and line numbers. This information is invaluable for debugging and diagnosing runtime errors and exceptions.
+
+- **std::basic_stacktrace**: A template class representing a stack trace. It provides methods to capture the current stack trace and query information about individual stack frames.
+
+Together, these components of the Diagnostics library empower C++ developers with robust tools for error handling, exception management, and runtime diagnostics, enhancing the reliability and maintainability of C++ programs.
+
+#### Memory management library
+The Memory Management library in C++ offers a set of tools for efficient and safe management of memory resources. Let's explore the components you've mentioned:
+
+##### unique_ptr (C++11)
+`std::unique_ptr` is a smart pointer introduced in C++11 that provides exclusive ownership semantics. It manages dynamically allocated objects and automatically releases the memory when the pointer goes out of scope or is explicitly reset. Unique pointers cannot be copied but can be moved, ensuring exclusive ownership of the managed resource.
+
+##### shared_ptr (C++11)
+`std::shared_ptr` is another smart pointer introduced in C++11 that implements shared ownership semantics. Multiple `shared_ptr` instances can point to the same dynamically allocated object, and the memory is automatically deallocated when the last `shared_ptr` pointing to it is destroyed. It keeps track of the number of references through a control block, allowing for safe sharing of resources.
+
+##### weak_ptr (C++11)
+`std::weak_ptr` is a companion to `std::shared_ptr` introduced in C++11. It provides a non-owning weak reference to an object managed by `std::shared_ptr`. Unlike `std::shared_ptr`, `std::weak_ptr` does not contribute to the reference count of the managed object, preventing cyclic dependencies and memory leaks. It is typically used to break circular references in data structures.
+
+##### Memory resources (C++17)
+The Memory Resources feature introduced in C++17 provides a flexible mechanism for customizing memory allocation behavior. It allows developers to specify custom memory allocation strategies, such as memory pools or specialized allocators, to better suit the requirements of their applications. Memory resources are used in conjunction with memory containers like `std::pmr::vector` and `std::pmr::string`.
+
+##### Allocators - Low level management
+Allocators in C++ provide a low-level interface for managing memory allocation and deallocation. They abstract away the details of memory management and allow containers and other data structures to be decoupled from specific memory allocation strategies. C++ standard library containers can be customized with user-defined allocators to control how memory is allocated and deallocated for their elements.
+
+Together, these components of the Memory Management library in C++ offer a comprehensive suite of tools for managing memory efficiently, safely, and flexibly in C++ programs. They promote best practices such as resource ownership semantics, memory sharing, and customizable allocation strategies, contributing to robust and reliable software development.
+
+#### Metaprogramming library (C++11)
+The Metaprogramming library in C++ provides facilities for compile-time computation and type manipulation. Let's explore the components you've mentioned:
+
+##### Type traits − ratio
+Type traits in C++ are templates that provide information about types at compile-time. They allow programmers to query properties of types and perform conditional compilation based on those properties. In C++11, the `<ratio>` header introduces the `std::ratio` template, which represents a rational number with a numerator and a denominator. It is commonly used in conjunction with other facilities like `std::chrono` to specify time durations and ratios.
+
+##### integer_sequence (C++14)
+`std::integer_sequence` is a utility introduced in C++14 that represents a sequence of integers. It is often used in conjunction with variadic templates to generate sequences of indices or to expand parameter packs into multiple function arguments. `std::integer_sequence` simplifies the implementation of certain metaprogramming tasks, such as tuple manipulation, function parameter unpacking, and loop unrolling.
+
+Together, these components of the Metaprogramming library in C++ provide powerful tools for performing computations and manipulations at compile-time. They enable developers to write more expressive, efficient, and flexible code by leveraging the capabilities of the C++ compiler to perform complex transformations and optimizations during the compilation process.
+
+#### General utilities library
+The General Utilities library in C++ provides a wide range of utilities to enhance the functionality and expressiveness of C++ programs. Let's discuss the components you've mentioned:
+
+##### Function objects − hash (C++11)
+Function objects, also known as functors, are objects that can be invoked as if they were functions. In C++11, the `<functional>` header introduces the `std::hash` template, which provides a hash function for generating hash values of objects. It is commonly used in conjunction with unordered containers like `std::unordered_map` and `std::unordered_set` to enable efficient lookup and storage of objects based on their hash values.
+
+##### Swap − Type operations (C++11)
+The `swap` function in C++11, defined in the `<algorithm>` header, allows for the efficient swapping of values between two objects of the same type. It is commonly used to implement efficient swap operations for user-defined types and to optimize certain algorithms by minimizing unnecessary copies.
+
+##### Integer comparison (C++20)
+In C++20, the `<compare>` header introduces standardized comparison categories for integers, including strong ordering, weak ordering, and partial ordering. This facilitates consistent and efficient comparison operations for integer types, enabling more reliable and predictable behavior in generic code.
+
+##### pair − tuple (C++11)
+The `std::pair` template, introduced in C++11, represents a pair of values. It is commonly used to store two related values together, such as key-value pairs in associative containers. Similarly, the `std::tuple` template, also introduced in C++11, represents a fixed-size collection of heterogeneous values. It provides compile-time indexing and enables functions to return multiple values.
+
+##### optional (C++17)
+`std::optional` is a template introduced in C++17 that represents an optional value. It encapsulates an object that may or may not exist, providing a safe and expressive way to handle potentially missing values. It is commonly used to indicate optional function parameters, return values, or container elements.
+
+##### expected (C++23)
+`std::expected` is a proposed addition to the C++ standard library, expected to be introduced in C++23. It represents a value that may be either an expected value or an error. It provides a more expressive and type-safe alternative to traditional error handling mechanisms such as error codes or exceptions.
+
+##### variant (C++17) − any (C++17)
+`std::variant` is a template introduced in C++17 that represents a type-safe union of alternative types. It provides a type-safe way to work with values that may be of different types at runtime. Similarly, `std::any` is a template introduced in C++17 that represents a type-safe container for single values of any type.
+
+##### String conversions (C++17)
+The `<string_view>` header introduced in C++17 provides the `std::to_string` and `std::from_string` functions, which enable conversion between strings and numeric types. It allows for easy and efficient conversion of numeric values to and from string representations.
+
+##### Formatting (C++20)
+C++20 introduces the `<format>` header, which provides facilities for string formatting using a format string syntax similar to Python's `str.format`. It allows for more expressive and flexible string formatting, supporting a wide range of formatting options and customization features.
+
+##### bitset − Bit manipulation (C++20)
+The `std::bitset` template, introduced in C++20, represents a fixed-size sequence of bits. It provides efficient operations for setting, clearing, and querying individual bits, as well as bitwise operations such as AND, OR, XOR, and shifting.
+
+##### Debugging support (C++26)
+While specific details about debugging support in C++26 are not available as of my last update, it's likely that further enhancements and improvements to debugging facilities will be introduced in this version of the language. This may include features such as enhanced debugging information, improved debugging tools, and better integration with development environments and debuggers.
+
+Overall, the General Utilities library in C++ provides a comprehensive set of utilities for common programming tasks, ranging from basic data structures and algorithms to advanced features like error handling, string manipulation, and debugging support. These utilities enhance the expressiveness, efficiency, and reliability of C++ programs, making development easier and more productive.
+
+#### Strings library
+The Strings library in C++ offers a collection of classes and utilities for working with character sequences. Let's delve into the components you've mentioned:
+
+##### basic_string − char_traits
+The `basic_string` template, often referred to as `std::basic_string`, is a fundamental component of the Strings library. It represents a sequence of characters, where the character type and allocator type are customizable. The `char_traits` template provides traits and operations for manipulating characters within the `basic_string` class. These traits include comparison, copying, and searching operations, which are tailored to the specific character type used in the string.
+
+##### basic_string_view (C++17)
+`std::basic_string_view`, introduced in C++17, is a lightweight, non-owning view into a sequence of characters. It does not own the underlying data but provides a read-only view into it. This allows for efficient string processing without the overhead of memory allocation and copying. `basic_string_view` is useful for passing substrings or portions of strings to functions without incurring unnecessary copying.
+
+##### Null-terminated strings: byte − multibyte − wide
+C++ supports three types of null-terminated strings, each representing a sequence of characters terminated by a null character (`'\0'`). These types differ in the character encoding used and the size of each character:
+
+- **Byte Strings**: Byte strings use the `char` type and are encoded using the system's default character encoding (usually ASCII or UTF-8). They are suitable for representing text in most cases and are commonly used for basic string manipulation.
+
+- **Multibyte Strings**: Multibyte strings use the `char` type and support multibyte character encodings such as UTF-8. They are necessary for handling characters outside the ASCII range and are commonly used in internationalization and localization.
+
+- **Wide Strings**: Wide strings use the `wchar_t` type and are encoded using a fixed-width encoding such as UTF-16 or UTF-32. They are suitable for representing text in a wide range of languages and are commonly used in Windows programming and other environments where wide character support is required.
+
+Each type of null-terminated string has its own set of functions and utilities for manipulating and processing strings of that type. In general, byte strings are the most commonly used type of string in C++, but multibyte and wide strings are necessary for handling international text and wide character sets.
+
+#### Containers library
+The Containers library in C++ provides a wide range of data structures for storing and organizing collections of elements. Let's explore each component you've mentioned:
+
+##### vector − deque − array (C++11)
+- **vector**: `std::vector` is a dynamic array that provides fast random access and efficient insertion/removal at the end. It dynamically allocates memory to store its elements and automatically resizes when necessary.
+- **deque**: `std::deque` (double-ended queue) is a sequence container that allows efficient insertion and deletion at both ends. It provides constant time complexity for adding or removing elements at the beginning or end.
+- **array**: `std::array` is a fixed-size array with a size known at compile-time. It provides similar functionality to built-in arrays but adds some additional features such as bounds checking.
+
+##### list − forward_list (C++11)
+- **list**: `std::list` is a doubly linked list that allows efficient insertion and removal of elements anywhere in the container. It provides constant time complexity for insertion and removal but does not support random access.
+- **forward_list**: `std::forward_list` is a singly linked list that allows efficient insertion and removal of elements at the beginning or after a specified element. It consumes less memory than `std::list` but provides similar functionality.
+
+##### map − multimap − set − multiset
+- **map**: `std::map` is an associative container that stores key-value pairs in sorted order based on the keys. It allows fast lookup, insertion, and deletion of elements based on their keys.
+- **multimap**: `std::multimap` is similar to `std::map` but allows duplicate keys. It maintains elements in sorted order based on keys.
+- **set**: `std::set` is an associative container that stores unique elements in sorted order. It provides fast lookup, insertion, and deletion of elements.
+- **multiset**: `std::multiset` is similar to `std::set` but allows duplicate elements.
+
+##### unordered_map (C++11) - unordered_multimap (C++11) - unordered_set (C++11) - unordered_multiset (C++11)
+- **unordered_map**: `std::unordered_map` is an associative container that stores key-value pairs in an unordered manner, based on a hash table. It provides fast average constant-time complexity for lookup, insertion, and deletion.
+- **unordered_multimap**: `std::unordered_multimap` is similar to `std::unordered_map` but allows duplicate keys.
+- **unordered_set**: `std::unordered_set` is an unordered associative container that stores unique elements. It provides fast average constant-time complexity for lookup, insertion, and deletion.
+- **unordered_multiset**: `std::unordered_multiset` is similar to `std::unordered_set` but allows duplicate elements.
+
+##### Container adaptors
+Container adaptors are classes that provide a different interface to underlying containers, typically to restrict the operations that can be performed or to provide additional functionality. Examples include `std::stack`, `std::queue`, and `std::priority_queue`.
+
+##### span (C++20) - mdspan (C++23)
+- **span**: `std::span` is a non-owning reference to a contiguous sequence of elements. It allows efficient access to elements of arrays, vectors, or other contiguous containers without owning the memory. It is useful for passing arrays to functions and for range-based operations.
+- **mdspan**: `std::mdspan` (multi-dimensional span) is a proposed extension to C++ that provides support for multi-dimensional arrays. It extends the functionality of `std::span` to handle multi-dimensional arrays in a uniform and efficient manner.
+
+These containers and adaptors in the C++ Containers library offer a wide range of choices for storing and organizing data, each with its own strengths and trade-offs. They provide efficient and flexible solutions for various programming tasks, enabling developers to write efficient and maintainable code.
+
+#### Iterators library
+The Iterators library in C++ provides a mechanism for traversing and accessing elements in sequences, such as arrays, containers, or ranges. Iterators act as pointers to elements within a range, allowing for generic algorithms to operate on different data structures in a uniform manner. Here's an explanation of the Iterators library and the Ranges library introduced in C++20:
+
+- **Iterator Concepts**: The Iterators library defines a set of iterator concepts that categorize iterators based on their capabilities and behavior. These concepts include input iterators, output iterators, forward iterators, bidirectional iterators, random access iterators, and more. They provide a standardized way to classify and reason about iterators, enabling generic algorithms to work with different types of iterators.
+
+- **Iterator Adapters**: Iterator adapters are utility classes that transform iterators into different types or modify their behavior. Examples include `std::reverse_iterator`, which reverses the direction of traversal, and `std::move_iterator`, which converts iterators to move iterators for use with move semantics.
+
+- **Iterator Functions**: The Iterators library also provides a set of functions for working with iterators, such as `std::advance`, `std::distance`, and `std::next`, which allow for advancing iterators, calculating distances between iterators, and obtaining iterators at specified offsets, respectively.
+
+##### Ranges library (C++20)
+The Ranges library introduced in C++20 builds upon the concepts and functionality of the Iterators library, providing a more expressive and composable way to work with sequences of elements. It introduces range-based abstractions that encapsulate both the data and the operations performed on it. Here are some key features of the Ranges library:
+
+- **Range Concepts**: The Ranges library defines a set of range concepts that categorize ranges based on their capabilities and behavior. These concepts include range, view, sized range, input range, forward range, bidirectional range, random access range, and more. They provide a standardized way to classify and reason about ranges, similar to iterator concepts.
+
+- **Range Adapters**: Range adapters are composable transformations that modify or extend ranges in a declarative manner. Examples include `std::views::filter`, `std::views::transform`, `std::views::take`, and `std::views::drop`, which filter, transform, take, and drop elements from a range, respectively.
+
+- **Range Algorithms**: The Ranges library provides a set of range-based algorithms that operate on ranges instead of iterators. These algorithms are designed to work seamlessly with range-based abstractions and offer improved readability, expressiveness, and performance compared to their iterator-based counterparts.
+
+- **Pipelines**: Ranges support pipeline-style composition of operations, where multiple transformations are chained together to form a pipeline. This allows for concise and expressive code that describes the entire data processing workflow in a single expression.
+
+Overall, the Iterators library provides a foundation for working with sequences of elements using iterators, while the Ranges library builds upon this foundation to offer more powerful and expressive abstractions for working with ranges of elements in a composable and declarative manner. Together, these libraries enable developers to write more readable, efficient, and maintainable code for processing sequences of data in C++.
+
+#### Algorithms library
+The Algorithms library in C++ provides a comprehensive set of functions for performing various operations on sequences of elements, such as searching, sorting, and transforming. Let's explore two key features introduced in recent versions of C++:
+
+##### Execution policies (C++17)
+Execution policies were introduced in C++17 to enable parallel execution of standard algorithms. They provide a mechanism for specifying the execution mode of algorithms, allowing developers to take advantage of parallelism when processing large datasets. There are three execution policies defined in C++17:
+
+- **`std::execution::seq`**: Specifies sequential execution. Algorithms executed with this policy will run sequentially, without parallelization.
+  
+- **`std::execution::par`**: Specifies parallel execution. Algorithms executed with this policy may run in parallel, potentially speeding up computation on multi-core systems.
+  
+- **`std::execution::par_unseq`**: Specifies parallel execution with vectorization. Algorithms executed with this policy may run in parallel and vectorized, exploiting both parallelism and SIMD (Single Instruction, Multiple Data) capabilities of modern processors.
+
+Execution policies provide a high-level interface for specifying the desired execution mode of algorithms, abstracting away the details of parallelization and allowing the implementation to choose the most efficient execution strategy based on the available hardware and workload.
+
+##### Constrained algorithms (C++20)
+Constrained algorithms were introduced in C++20 to provide more expressive and flexible algorithms that can handle constrained ranges of elements. Constrained algorithms offer similar functionality to standard algorithms but operate only on elements that meet specific criteria or constraints. They are designed to work with ranges that satisfy certain requirements, such as being sorted or partitioned.
+
+Constrained algorithms use the concepts introduced in the Ranges library to express requirements on ranges and elements, making them more composable and generic. They allow developers to write code that is both more expressive and efficient by leveraging the properties of constrained ranges.
+
+Overall, the Algorithms library in C++ continues to evolve, introducing new features like execution policies and constrained algorithms to improve the expressiveness, efficiency, and parallelism of standard algorithms. These features enable developers to write more concise, readable, and performant code for processing sequences of elements in C++.
+
+#### Numerics library
+The Numerics library in C++ provides a range of functionalities for numerical computations and operations. Let's explore each component you've mentioned
+
+##### Common math functions
+The Numerics library includes common mathematical functions such as trigonometric functions (`sin`, `cos`, `tan`), exponential and logarithmic functions (`exp`, `log`, `log10`), and other elementary functions (`sqrt`, `pow`, `abs`). These functions operate on numerical data types like `float`, `double`, and `long double`.
+
+##### Mathematical special functions (C++17)
+C++17 introduced support for mathematical special functions, which include a variety of functions beyond elementary ones. These special functions encompass a wide range of mathematical concepts such as Bessel functions (`j0`, `j1`, `jn`), elliptic integrals (`ellint_1`, `ellint_2`, `ellint_3`), gamma functions (`tgamma`, `lgamma`), and many more. They are essential in various scientific and engineering applications.
+
+##### Mathematical constants (C++20)
+C++20 introduced support for mathematical constants like π (pi) and e (Euler's number). These constants are provided as predefined values (`std::numbers::pi`, `std::numbers::e`) and are useful for mathematical computations requiring precise values of these constants.
+
+##### Basic linear algebra algorithms (C++26)
+C++26 is expected to introduce basic linear algebra algorithms, providing functionalities for common linear algebra operations like matrix addition, multiplication, decomposition, and solving systems of linear equations. These algorithms will be crucial for numerical simulations, scientific computing, and machine learning applications.
+
+##### Numeric algorithms
+The Numerics library includes a wide range of numeric algorithms for various tasks such as sorting (`std::sort`), searching (`std::binary_search`), mathematical accumulation (`std::accumulate`), and statistical computations (`std::mean`, `std::median`, `std::variance`). These algorithms operate on ranges of elements and are essential for numerical computations and data analysis.
+
+##### Pseudo-random number generation
+C++ provides utilities for generating pseudo-random numbers using the `<random>` header. It includes various random number generators (such as `std::mt19937` and `std::default_random_engine`) and distributions (such as uniform distribution, normal distribution, and discrete distribution) for generating random numbers with different characteristics.
+
+##### Floating-point environment (C++11)
+C++11 introduced facilities for managing and querying the floating-point environment, including functions like `std::fetestexcept` for testing floating-point exceptions and macros like `FLT_EVAL_METHOD` for querying the floating-point evaluation method used by the compiler.
+
+##### complex − valarray
+The Numerics library includes support for complex numbers (`std::complex`) and numerical arrays (`std::valarray`). Complex numbers are useful for representing and manipulating complex mathematical entities, while valarrays provide facilities for numerical array operations like element-wise arithmetic operations and mathematical functions.
+
+Overall, the Numerics library in C++ provides a rich set of functionalities for numerical computations, mathematical operations, and statistical analysis, making C++ a versatile language for scientific computing, engineering, and data analysis tasks.
+
+#### Date and time library
+The Date and Time library in C++ provides functionalities for handling dates, times, and time zones, facilitating the manipulation and management of temporal data. Let's explore the components you've mentioned:
+
+##### Calendar (C++20) − Time zone (C++20)
+
+###### Calendar (C++20)
+The Calendar feature introduced in C++20 provides a standardized mechanism for working with dates and calendars. It includes functionalities for representing and manipulating dates, determining the day of the week, calculating the difference between dates, and converting between different calendar systems (e.g., Gregorian, Julian). The Calendar feature enhances the expressiveness and robustness of date-related operations in C++, providing a consistent interface for working with dates across different platforms and locales.
+
+###### Time zone (C++20)
+The Time Zone feature introduced in C++20 addresses the complexities of handling time zones and daylight saving time (DST) transitions. It provides functionalities for representing time zones, converting between different time zones, and handling DST transitions. With the Time Zone feature, developers can accurately represent and manipulate time zone-aware datetime values, ensuring correct behavior when dealing with temporal data across different geographical regions and time zones. Additionally, the Time Zone feature helps address issues related to time zone ambiguity and DST transitions, providing a more reliable and standardized approach to handling time zone-related operations in C++ applications.
+
+Overall, the Date and Time library enhancements introduced in C++20, including the Calendar and Time Zone features, improve the capabilities and usability of date and time functionalities in C++. They provide standardized mechanisms for working with dates, calendars, and time zones, enabling developers to write more robust and reliable applications that deal with temporal data accurately and efficiently.
+#### Localization library
+The Localization library in C++ provides functionalities for handling locale-specific operations, such as character classification, text formatting, and language-specific behavior. Let's explore the components you've mentioned:
+
+##### locale − Character classification
+The `std::locale` class in C++ represents a locale, which defines a set of language- and region-specific conventions for formatting dates, times, numbers, and currency, as well as character classification and collation rules. Locales allow developers to tailor the behavior of their programs to the preferences and conventions of different locales, enabling applications to support internationalization and localization.
+
+The `std::locale` class provides methods for querying and setting locale-specific facets, which are specialized classes responsible for various locale-specific operations. For character classification, the `std::ctype` facet is used to define character classification and conversion rules specific to a locale. This allows developers to perform locale-sensitive operations such as case conversion, character classification (e.g., `isalpha`, `isdigit`), and string comparison according to the rules of a specific locale.
+
+##### text_encoding (C++26)
+The `text_encoding` feature introduced in C++26 aims to provide support for text encoding and decoding operations in a standardized manner. Text encoding refers to the process of converting characters from their internal representation (e.g., Unicode code points) to an external representation suitable for storage or transmission (e.g., UTF-8, UTF-16). Similarly, text decoding involves converting external representations of characters back to their internal representation.
+
+The `text_encoding` feature is expected to provide functionalities for converting between different text encodings, detecting and handling encoding errors, and working with text encoded in various formats. It aims to simplify and standardize text encoding and decoding operations, making it easier for developers to handle text data in their applications, especially in scenarios involving internationalization, text processing, and data interchange across different systems and platforms.
+
+Overall, the Localization library in C++ plays a crucial role in enabling applications to support internationalization and localization by providing functionalities for locale-specific operations such as character classification and text encoding. These features empower developers to write applications that can adapt to the preferences and conventions of different locales, ensuring a consistent and culturally appropriate user experience across different regions and languages.
+
+#### Input/output library
+The Input/Output (I/O) library in C++ provides a comprehensive set of functionalities for performing input and output operations, including console I/O, file I/O, and stream-based I/O. Let's explore each component you've mentioned:
+
+##### Print functions (C++23)
+The Print functions feature, expected to be introduced in C++23, aims to enhance the standard library's capabilities for printing formatted output to the console or other output devices. It may introduce new functions or improvements to existing functions for printing data with enhanced formatting options, improved performance, or better integration with other library features.
+
+##### Stream-based I/O − I/O manipulators
+C++ provides stream-based I/O facilities through the `std::basic_istream` and `std::basic_ostream` classes, which serve as base classes for input and output streams, respectively. These classes are templated on the character type (`char` or `wchar_t`) and provide a flexible and extensible framework for performing formatted I/O operations.
+
+I/O manipulators are special functions or objects that modify the behavior of input and output streams. They can be used to control formatting options such as field width, precision, alignment, and decimal point placement. Common manipulators include `std::setw`, `std::setprecision`, `std::left`, `std::right`, `std::fixed`, and `std::scientific`.
+
+##### basic_istream − basic_ostream
+`std::basic_istream` and `std::basic_ostream` are template classes representing input and output streams, respectively. They provide a common interface for performing formatted input and output operations on sequences of characters. These classes serve as base classes for more specialized stream classes like `std::istream` and `std::ostream`, which use `char` as the character type, and `std::wistream` and `std::wostream`, which use `wchar_t` as the character type.
+
+##### Synchronized output (C++20)
+The Synchronized output feature introduced in C++20 provides mechanisms for ensuring thread-safe output to standard output streams (`std::cout`, `std::cerr`, `std::clog`) in multi-threaded programs. It ensures that output from multiple threads is properly synchronized and interleaved in a predictable manner, preventing garbled or out-of-order output.
+
+##### File systems (C++17)
+The File Systems library introduced in C++17 provides functionalities for performing file system operations such as querying file attributes, manipulating paths, iterating over directory contents, and creating, deleting, and renaming files and directories. It aims to standardize and simplify file system-related operations, making it easier for developers to work with files and directories in a platform-independent manner.
+
+Overall, the Input/Output library in C++ offers a rich set of functionalities for performing input and output operations, including stream-based I/O, file I/O, formatted I/O, and thread-safe output. These features enable developers to build robust and efficient applications that can handle various input and output scenarios, from simple console-based interaction to complex file system operations and multi-threaded output synchronization.
+
+#### Regular expressions library (C++11)
+The Regular Expressions library introduced in C++11 provides a powerful and flexible mechanism for pattern matching and text processing. Let's delve into the components you've mentioned:
+
+##### basic_regex − Algorithms
+`std::basic_regex` is a template class representing a compiled regular expression pattern. It serves as the foundation for working with regular expressions in C++, allowing developers to create, compile, and use regular expression patterns for searching, matching, and replacing text within strings.
+
+The Regular Expressions library in C++ provides a range of algorithms for working with regular expressions, including searching for matches (`std::regex_search`), matching entire strings (`std::regex_match`), finding and replacing matches (`std::regex_replace`), and splitting strings based on matching patterns (`std::regex_split`).
+
+These algorithms operate on `std::basic_string` or `std::string_view` objects and allow developers to perform various text processing tasks efficiently and conveniently using regular expressions.
+
+##### Default regular expression grammar
+The Regular Expressions library in C++11 adopts the ECMAScript regular expression grammar as the default syntax for defining regular expression patterns. This grammar is widely used and familiar to developers from other programming languages, making it easy to write and understand regular expressions in C++.
+
+The ECMAScript regular expression grammar supports a wide range of features, including character classes (`[...]`), quantifiers (`*`, `+`, `?`), alternation (`|`), grouping (`(...)`) and backreferences (`\1`, `\2`), allowing developers to create complex and expressive patterns for matching text.
+
+Overall, the Regular Expressions library in C++11 provides a robust and efficient framework for working with regular expressions, allowing developers to perform sophisticated text processing tasks with ease and confidence. It leverages the widely-used ECMAScript regular expression grammar and provides a range of algorithms for searching, matching, and manipulating text using regular expressions.
+
+#### Concurrency support library (C++11)
+The Concurrency Support library in C++11 provides functionalities for writing multithreaded and concurrent programs, allowing developers to leverage the full potential of modern hardware with multiple CPU cores. Let's explore the components you've mentioned
+
+##### thread − jthread (C++20)
+The `std::thread` class in C++11 allows developers to create and manage threads of execution. Threads are lightweight processes that run concurrently with other threads in a program. They are useful for parallelizing tasks and utilizing multiple CPU cores effectively. C++20 introduced the `std::jthread` class, which is a joinable thread with automatic cleanup upon destruction, providing safer and more convenient thread management compared to `std::thread`.
+
+##### atomic − atomic_flag
+The `std::atomic` template class in C++11 provides atomic operations for shared variables accessed by multiple threads concurrently. Atomic operations ensure that operations on shared variables are performed atomically, without the risk of data races or undefined behavior. `std::atomic_flag` is a specialization of `std::atomic` for boolean flags, providing lock-free atomic operations for simple synchronization primitives.
+
+##### atomic_ref (C++20) − memory_order
+C++20 introduced `std::atomic_ref`, which allows atomic operations on non-atomic variables by providing a reference wrapper to the variable. This enables atomic operations on existing variables without the need to make them atomic. Additionally, C++11 introduced the `memory_order` enumeration, which allows developers to specify the memory ordering constraints for atomic operations, ensuring correct synchronization and consistency between threads.
+
+##### Mutual exclusion − Semaphores (C++20)
+Mutual exclusion mechanisms such as mutexes and semaphores are essential for coordinating access to shared resources among multiple threads. C++11 provides `std::mutex` for mutual exclusion and `std::unique_lock` for scoped locking. C++20 introduced `std::binary_semaphore` and `std::counting_semaphore`, which provide semaphore-based synchronization primitives for coordinating access to shared resources.
+
+##### Condition variables − Futures
+Condition variables (`std::condition_variable`) allow threads to wait for certain conditions to become true before proceeding. They are often used in combination with mutexes to implement complex synchronization patterns. Futures (`std::future`) represent asynchronous computations and provide a mechanism for retrieving the result of a computation that may be running concurrently in another thread.
+
+##### latch (C++20) − barrier (C++20)
+C++20 introduced `std::latch` and `std::barrier`, which are synchronization primitives for coordinating the execution of multiple threads. A latch is a synchronization primitive that allows a fixed number of threads to wait until a certain condition is satisfied before proceeding. A barrier is a synchronization primitive that allows a group of threads to synchronize at a predefined point in their execution, ensuring that all threads reach the barrier before any thread proceeds further.
+
+##### Safe Reclamation (C++26)
+C++26 is expected to introduce safe reclamation mechanisms for managing memory and resources in multithreaded environments. These mechanisms aim to provide efficient and safe memory reclamation for lock-free data structures and algorithms, enabling developers to write concurrent code with better performance and reliability.
+
+Overall, the Concurrency Support library in C++ provides a rich set of functionalities for writing multithreaded and concurrent programs, including thread management, atomic operations, mutual exclusion, synchronization primitives, and safe memory reclamation mechanisms. These features enable developers to write efficient and scalable concurrent code while ensuring correct behavior and avoiding common concurrency pitfalls such as data races and deadlocks.
 
 ### Go Language
 

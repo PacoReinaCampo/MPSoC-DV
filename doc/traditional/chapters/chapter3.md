@@ -94,6 +94,8 @@ Here’s a more detailed explanation:
 
 In summary, while the Perceptron Neural Network represents a simple and foundational concept in neural network theory, its limitations have spurred the development of more sophisticated architectures capable of handling complex patterns and non-linear relationships in data.
 
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+
 $h_{t} = \sigma_{g}(W_{h} \cdot x_{t}+U_{h} \cdot h_{t-1}+b_{h})$
 
 $y_{t} = \sigma_{g}(W_{y} \cdot h_{t}+b_{y})$
@@ -161,6 +163,8 @@ Here’s a deeper dive into how LSTMs work:
    - **Versatility**: LSTMs can handle various types of sequential data, including text, audio, and time series, making them widely applicable across different domains.
 
 Overall, LSTMs have become a cornerstone in the field of deep learning, enabling the development of more powerful and sophisticated models for sequential data processing and prediction.
+
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 $a_{t} = \sigma_{g}(W_{a} \cdot x_{t}+U_{a} \cdot h_{t-1}+b_{a})$
 
