@@ -1,6 +1,7 @@
 # Expressions and Operators
 
 ## Expressions
+
 Expressions in C are combinations of variables, constants, operators, and function calls that are evaluated to produce a value.
 
 Examples:
@@ -10,6 +11,7 @@ float y = sin(3.14);
 ```
 
 ## Assignment Operators
+
 Assignment operators assign values to variables. The basic assignment operator is `=`, but there are compound assignment operators that combine an arithmetic operation with assignment.
 
 Examples:
@@ -23,6 +25,7 @@ a %= 3;  // Equivalent to a = a % 3;
 ```
 
 ## Incrementing and Decrementing
+
 The increment (`++`) and decrement (`--`) operators increase or decrease the value of a variable by one, respectively. They can be used in prefix or postfix form.
 
 Examples:
@@ -33,6 +36,7 @@ int c = a--;  // Postfix: c is 6, a is 5
 ```
 
 ## Arithmetic Operators
+
 Arithmetic operators perform mathematical operations on numeric values.
 
 Examples:
@@ -45,16 +49,19 @@ int remainder = 10 % 3; // Modulus (remainder of division)
 ```
 
 ## Complex Conjugation
+
 Complex conjugation is not directly supported in C. However, with `<complex.h>`, you can use the `conj` function.
 
 Example:
 ```c
 #include <complex.h>
+
 double complex z = 1.0 + 2.0*I;
 double complex z_conj = conj(z);  // Complex conjugate of z
 ```
 
 ## Comparison Operators
+
 Comparison operators compare two values and return either true (1) or false (0).
 
 Examples:
@@ -71,6 +78,7 @@ result = (a <= b);  // Less than or equal to
 ```
 
 ## Logical Operators
+
 Logical operators are used to combine multiple conditions.
 
 Examples:
@@ -84,6 +92,7 @@ result = (!a);      // Logical NOT
 ```
 
 ## Bit Shifting
+
 Bit shifting operators shift the bits of a number to the left or right.
 
 Examples:
@@ -94,6 +103,7 @@ int c = a >> 1;     // Right shift: 0010 (2 in decimal)
 ```
 
 ## Bitwise Logical Operators
+
 Bitwise operators perform operations on the individual bits of integer values.
 
 Examples:
@@ -110,6 +120,7 @@ result = ~a;      // NOT: 1010 (Two's complement)
 ```
 
 ## Pointer Operators
+
 Pointer operators are used to work with pointers.
 
 Examples:
@@ -122,6 +133,7 @@ int value = *ptr; // Dereference operator
 ```
 
 ## The sizeof Operator
+
 The `sizeof` operator returns the size, in bytes, of a data type or object.
 
 Examples:
@@ -134,6 +146,7 @@ size = sizeof(ptr);     // Size of pointer
 ```
 
 ## Type Casts
+
 Type casting allows you to convert a value from one data type to another.
 
 Examples:
@@ -145,6 +158,7 @@ b = (float)a;  // Cast integer to float
 ```
 
 ## Array Subscripts
+
 Array subscripts are used to access elements of an array.
 
 Examples:
@@ -154,6 +168,7 @@ int value = arr[2];  // Access the third element
 ```
 
 ## Function Calls as Expressions
+
 Function calls can be used as expressions where the return value is used.
 
 Examples:
@@ -166,6 +181,7 @@ int result = sum(10, 20);  // Function call as expression
 ```
 
 ## The Comma Operator
+
 The comma operator allows multiple expressions to be evaluated in a single statement, with the value of the last expression being the result.
 
 Examples:
@@ -175,6 +191,7 @@ c = (a += 2, b += 3, a + b);  // c is 8
 ```
 
 ## Member Access Expressions
+
 Member access expressions are used to access members of structures or unions.
 
 Examples:
@@ -192,6 +209,7 @@ p->age = 30;  // Member access with arrow operator
 ```
 
 ## Conditional Expressions
+
 The conditional (ternary) operator evaluates a condition and returns one of two values based on the condition.
 
 Examples:
@@ -203,6 +221,7 @@ max = (a > b) ? a : b;  // If a > b, max is a; otherwise, max is b
 ```
 
 ## Statements and Declarations in Expressions
+
 C allows statements and declarations within expressions using the comma operator.
 
 Examples:
@@ -212,6 +231,7 @@ y = (x = 3, x + 2);  // y is 5
 ```
 
 ## Operator Precedence
+
 Operator precedence determines the order in which operators are evaluated in expressions.
 
 Examples:
@@ -220,9 +240,11 @@ int result = 5 + 3 * 2;  // Multiplication has higher precedence than addition, 
 ```
 
 ## Order of Evaluation
+
 The order of evaluation specifies the sequence in which the sub-expressions of an expression are evaluated.
 
 ### Side Effects
+
 Side effects are changes in the state of the execution environment (e.g., modifying a variable).
 
 Examples:
@@ -232,9 +254,11 @@ x = x + 1;  // The assignment has a side effect of changing x
 ```
 
 ### Sequence Points
+
 Sequence points define points in the program where all side effects of previous evaluations are complete.
 
 ### Sequence Points Constrain Expressions
+
 Certain operations must occur in a specific order due to sequence points.
 
 Examples:
@@ -244,6 +268,7 @@ i = i++ + 1;  // Undefined behavior due to lack of sequence point between i++ an
 ```
 
 ### Sequence Points and Signal Delivery
+
 Sequence points are critical for determining the behavior of signal handling in C programs.
 
 Examples:

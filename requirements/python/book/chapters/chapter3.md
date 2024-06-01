@@ -1,7 +1,9 @@
 # Data Model
+
 The Python data model describes the structure of Python programs. It defines how objects behave, how they interact, and how various operations are performed. This model underpins many of Python's features, making it essential to understand for writing effective and idiomatic Python code.
 
 ## Objects, Values, and Types
+
 In Python, everything is an object. Each object has:
 
 - **Identity**: A unique identifier for the object, which can be obtained using the `id()` function.
@@ -16,6 +18,7 @@ print(x)        # Value: 42
 ```
 
 ## The Standard Type Hierarchy
+
 Python's type system is organized into a hierarchy of built-in types. Some of the key categories include:
 
 1. **None Type**: Represents the absence of a value.
@@ -76,6 +79,7 @@ Python's type system is organized into a hierarchy of built-in types. Some of th
     ```
 
 ## Special Method Names
+
 Special method names (also known as "magic methods" or "dunder methods") enable the customization of object behavior in Python. They are surrounded by double underscores. Some common special methods include:
 
 - **`__init__`**: Constructor, called when a new instance is created.
@@ -139,6 +143,7 @@ Special method names (also known as "magic methods" or "dunder methods") enable 
     ```
 
 ## Coroutines
+
 Coroutines are a type of function that allow for cooperative multitasking, enabling a function to pause its execution and yield control back to the caller, potentially resuming at a later point. They are defined using `async def` and can use `await` to pause execution until a result is available.
 
 1. **Defining a Coroutine**:

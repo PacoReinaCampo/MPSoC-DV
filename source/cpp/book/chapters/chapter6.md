@@ -1,4 +1,5 @@
 # Concepts library (C++20)
+
 In C++20, the Concepts library introduces a powerful feature that allows programmers to define constraints on template parameters. These constraints specify requirements that template arguments must satisfy for the template to be instantiated. Here's an explanation of the Concepts library in C++20:
 
 1. **Purpose**: The primary purpose of the Concepts library is to improve template metaprogramming by enabling more expressive and readable code. Instead of relying solely on comments or documentation to describe template requirements, Concepts allow constraints to be explicitly stated within the code.

@@ -1,4 +1,5 @@
 # Feature test macros (C++20)
+
 In C++, feature test macros are preprocessor directives used to check for the availability of specific language and library features at compile-time. They allow programmers to conditionally compile code based on the availability of certain features, ensuring compatibility across different compilers and versions of the language standard.
 
 With the introduction of C++20, feature test macros have become increasingly important due to the continuous evolution of the language. Here's how feature test macros work in C++20:

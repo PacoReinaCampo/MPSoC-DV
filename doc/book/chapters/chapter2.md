@@ -799,21 +799,27 @@ In summary, standard profiles in UML provide a means to extend the basic UML met
 The PSL (Property Specification Language) is a formal language used to specify properties of hardware designs, particularly for functional verification in electronic design automation (EDA). Here's a detailed explanation based on the PSL framework:
 
 #### Overview
+
 PSL is primarily used to describe and verify the behavior of digital circuits. It helps designers ensure that their hardware designs meet specified properties and behave as expected under all possible scenarios.
 
 ##### Scope
+
 The scope of PSL covers the entire lifecycle of hardware design verification, from the initial specification of design properties to the final verification of these properties against the implemented design. PSL can be applied to various hardware description languages (HDLs) such as VHDL, Verilog, SystemVerilog, and more.
 
 ##### Purpose
+
 PSL's purpose is to provide a standardized way to describe properties and assertions about hardware designs. It facilitates the verification process by enabling the automatic checking of these properties, thus ensuring the correctness and reliability of the design.
 
 ###### Background
+
 PSL was developed to address the need for a more expressive and standardized language for property specification in hardware verification. Before PSL, various proprietary and less expressive languages were used, leading to inefficiencies and inconsistencies in the verification process.
 
 ###### Motivation
+
 The motivation behind PSL is to improve the efficiency and effectiveness of hardware design verification. By providing a powerful and standardized language for specifying properties, PSL helps designers catch design errors early in the development process, reducing the time and cost associated with hardware development.
 
 ###### Goals
+
 The goals of PSL are to:
 - Provide a clear and expressive syntax for specifying properties.
 - Enable automatic and formal verification of hardware designs.
@@ -821,12 +827,15 @@ The goals of PSL are to:
 - Improve the accuracy and reliability of hardware design verification.
 
 ##### Usage
+
 PSL is used throughout the hardware design verification process, from writing specifications to verifying the final design. It allows designers to write assertions and properties that describe the expected behavior of the design, which can then be checked using formal verification tools.
 
 ###### Functional specification
+
 The functional specification in PSL involves writing properties that describe the expected behavior of the hardware design. These properties are expressed using PSL's syntax and constructs, such as sequences, assertions, and temporal operators. For example, a designer might specify that a certain signal should always be high whenever another signal is low.
 
 ###### Functional verification
+
 Functional verification with PSL involves checking the specified properties against the actual hardware design. This can be done using various formal verification tools that support PSL. These tools automatically analyze the design and check whether the specified properties hold true in all possible scenarios. If any property fails, the tool provides counterexamples to help the designer identify and fix the issue.
 
 In summary, PSL plays a crucial role in ensuring the correctness and reliability of hardware designs by providing a standardized and expressive language for property specification and verification. Its usage spans the entire design verification process, helping designers catch errors early and reduce development costs.
@@ -849,12 +858,15 @@ The primary purpose of normative references is to:
 ##### Characteristics
 
 ###### Essentiality
+
 Normative references are not merely suggestions or optional resources; they are considered essential for the complete understanding and application of the primary document. Users must consult these references to fully comply with or implement the requirements of the primary document.
 
 ###### Binding Nature
+
 The content referred to in normative references is binding within the context of the primary document. Compliance with the primary document typically necessitates compliance with the referenced documents as well.
 
 ###### Authoritativeness
+
 Normative references usually include documents from recognized standards organizations, regulatory bodies, or other authoritative entities. This ensures that the primary document is grounded in widely accepted practices and knowledge.
 
 ##### Examples
@@ -896,14 +908,17 @@ This section of a technical document is crucial for ensuring that all readers ha
 ##### Definitions
 
 ###### Purpose
+
 The definitions subsection provides clear and precise explanations of terms used in the document. These definitions ensure that all readers, regardless of their background or expertise, can understand the specific meanings of terms as intended by the authors.
 
 ###### Characteristics
+
 - **Clarity:** Definitions should be written in simple and clear language to be easily understood.
 - **Specificity:** Each term should be defined as specifically as possible to avoid broad interpretations.
 - **Relevance:** Only include terms that are relevant to understanding the document.
 
 ###### Example
+
 Here is an example of a definitions subsection:
 
 **Definitions:**
@@ -914,14 +929,17 @@ Here is an example of a definitions subsection:
 ##### Acronyms and Abbreviations
 
 ###### Purpose
+
 This subsection lists all acronyms and abbreviations used in the document along with their full forms. This helps readers quickly find the meaning of short forms used throughout the text.
 
 ###### Characteristics
+
 - **Alphabetical Order:** Acronyms and abbreviations are typically listed in alphabetical order for easy reference.
 - **Consistency:** Ensure that each acronym or abbreviation is used consistently throughout the document.
 - **Expansion:** Provide the expanded form of each acronym or abbreviation the first time it is used in the document, followed by the acronym in parentheses.
 
 ###### Example
+
 Here is an example of an acronyms and abbreviations subsection:
 
 **Acronyms and Abbreviations:**
@@ -933,14 +951,17 @@ Here is an example of an acronyms and abbreviations subsection:
 ##### Special Terms
 
 ###### Purpose
+
 This subsection includes any special terms that have specific meanings within the context of the document. These terms might not be commonly understood outside of the specific domain or industry.
 
 ###### Characteristics
+
 - **Context-Specific:** The terms included here have meanings that are specific to the context of the document.
 - **Detailed Explanations:** Provide detailed explanations to ensure clarity and understanding.
 - **Illustrative Examples:** When possible, include examples to illustrate how the terms are used.
 
 ###### Example
+
 Here is an example of a special terms subsection:
 
 **Special Terms:**
@@ -1674,22 +1695,24 @@ In summary, scope and visibility rules in PSL and similar languages ensure that 
 ### Python Language
 
 #### Introduction
+
 Python is a versatile and widely-used programming language known for its simplicity and readability. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming. Python's extensive standard library and community-contributed modules make it suitable for various applications, from web development to data science and machine learning.
 
 ##### Alternate Implementations
+
 Python has several implementations, each designed to meet different needs:
 
 1. **CPython**: The default and most widely-used implementation of Python, written in C. It compiles Python code to bytecode, which is then interpreted by a virtual machine. CPython is known for its stability and extensive support for C extensions.
 
     ```python
-    #### Example of CPython usage
+    # Example of CPython usage
     print("Hello from CPython")
     ```
 
 2. **Jython**: An implementation of Python that runs on the Java platform. It allows seamless integration with Java libraries and code, making it a good choice for Java-centric environments.
 
     ```python
-    #### Example of Jython usage
+    # Example of Jython usage
     from java.util import ArrayList
 
     array_list = ArrayList()
@@ -1700,7 +1723,7 @@ Python has several implementations, each designed to meet different needs:
 3. **IronPython**: An implementation of Python running on the .NET framework, allowing integration with .NET libraries and applications.
 
     ```python
-    #### Example of IronPython usage
+    # Example of IronPython usage
     import clr
     clr.AddReference("System.Windows.Forms")
     from System.Windows.Forms import MessageBox
@@ -1711,7 +1734,7 @@ Python has several implementations, each designed to meet different needs:
 4. **PyPy**: An implementation focused on performance, featuring a Just-In-Time (JIT) compiler. PyPy aims to execute Python code faster than CPython by compiling Python code into machine code at runtime.
 
     ```python
-    #### Example of PyPy usage
+    # Example of PyPy usage
     def compute_sum(n):
         return sum(range(n))
 
@@ -1721,7 +1744,7 @@ Python has several implementations, each designed to meet different needs:
 5. **MicroPython**: A lean and efficient implementation of Python 3 for microcontrollers and constrained environments. It is optimized to run with minimal resources.
 
     ```python
-    #### Example of MicroPython usage
+    # Example of MicroPython usage
     import machine
     import time
 
@@ -1735,12 +1758,13 @@ Python has several implementations, each designed to meet different needs:
     ```
 
 ##### Notation
+
 Python code often uses specific notations and conventions to improve readability and maintainability. Some key notations include:
 
 1. **PEP 8**: The style guide for Python code, emphasizing readability. PEP 8 covers aspects like indentation, variable naming, and line length.
 
     ```python
-    #### Example following PEP 8 conventions
+    # Example following PEP 8 conventions
     def calculate_area(radius):
         pi = 3.14159
         return pi * (radius ** 2)
@@ -1787,34 +1811,34 @@ Python code often uses specific notations and conventions to improve readability
     print(result)
     ```
 
-These notations and conventions help Python programmers write clean, understandable, and maintainable code. 
- 
+These notations and conventions help Python programmers write clean, understandable, and maintainable code.
+
 #### Lexical Analysis
+
 Lexical analysis is the first phase of a compiler or interpreter, where the input code is transformed into a sequence of tokens. Each token is a syntactic unit that can be identified as keywords, identifiers, literals, operators, delimiters, etc. In Python, the lexical analysis is performed by the tokenizer, which converts the source code into tokens that the parser can understand.
 
 ##### Line Structure
+
 Python source code is organized into lines, each containing one or more statements. The line structure in Python is significant, particularly due to its use of indentation to define code blocks.
 
 - **Logical Lines**: Python code is generally written in logical lines. Each logical line corresponds to a statement.
 - **Physical Lines**: These are the actual lines in the file. A logical line can span multiple physical lines using backslashes (`\`) or parentheses, brackets, and braces.
 
-```python 
- 
-#### Single logical line
+```python
+# Single logical line
 print("Hello, World!")
- 
- 
-#### Logical line spanning multiple physical lines using parentheses
+
+# Logical line spanning multiple physical lines using parentheses
 result = (1 + 2 + 3 +
           4 + 5 + 6)
- 
- 
-#### Logical line spanning multiple physical lines using backslash
+
+# Logical line spanning multiple physical lines using backslash
 total = 1 + 2 + 3 + \
         4 + 5 + 6
 ```
 
 ##### Other Tokens
+
 In Python, tokens are categorized into several types:
 
 - **Keywords**: Reserved words with special meaning, such as `if`, `for`, `while`, `def`, etc.
@@ -1824,34 +1848,33 @@ In Python, tokens are categorized into several types:
 - **Delimiters**: Characters used to separate tokens.
 
 ##### Identifiers and Keywords
+
 **Identifiers** are names given to variables, functions, classes, and other objects. Identifiers must follow these rules:
 
 - Must start with a letter (a-z, A-Z) or an underscore (`_`).
 - Followed by letters, digits (0-9), or underscores.
 - Case-sensitive (e.g., `Variable` and `variable` are different).
 
-```python 
- 
-#### Valid identifiers
+```python
+# Valid identifiers
 my_variable = 10
 _function = lambda x: x * 2
 ClassName = "Example"
- 
- 
-#### Invalid identifier (starts with a digit) 
- 
-#### 1st_var = 5
+
+# Invalid identifier (starts with a digit)
+# 1st_var = 5
 ```
 
 **Keywords** are predefined, reserved words in Python that have special meanings and cannot be used as identifiers. Some keywords include:
 
-```python 
- 
-#### Examples of Python keywords
+```python
+# Examples of Python keywords
+
 if, else, elif, for, while, break, continue, return, def, class, import, from, as, pass, lambda, global, nonlocal, assert, try, except, finally, raise, with, yield, async, await, etc.
 ```
 
 ##### Literals
+
 Literals represent constant values in Python. There are several types of literals:
 
 - **String Literals**: Enclosed in single quotes (`'`), double quotes (`"`), triple single quotes (`'''`), or triple double quotes (`"""`).
@@ -1885,6 +1908,7 @@ Literals represent constant values in Python. There are several types of literal
     ```
 
 ##### Operators
+
 Operators are symbols that perform operations on variables and values. Python has several types of operators:
 
 - **Arithmetic Operators**: `+`, `-`, `*`, `/`, `%`, `**`, `//`
@@ -1922,10 +1946,10 @@ Operators are symbols that perform operations on variables and values. Python ha
 
     ```python
     x = 10
-    x += 5  #### x = x + 5
-    x -= 3  #### x = x - 3
-    x *= 2  #### x = x * 2
-    x /= 2  #### x = x / 2
+    x += 5  # x = x + 5
+    x -= 3  # x = x - 3
+    x *= 2  # x = x * 2
+    x /= 2  # x = x / 2
     ```
 
 - **Bitwise Operators**: `&`, `|`, `^`, `~`, `<<`, `>>`
@@ -1940,6 +1964,7 @@ Operators are symbols that perform operations on variables and values. Python ha
     ```
 
 ##### Delimiters
+
 Delimiters are characters or sequences of characters that separate tokens. In Python, delimiters include:
 
 - **Parentheses**: `(` and `)`
@@ -1953,21 +1978,22 @@ Delimiters are characters or sequences of characters that separate tokens. In Py
 - **Equal signs**: `=`
 - **Arrow (for lambda expressions)**: `->`
 
-```python 
- 
-#### Examples using delimiters
+```python
+# Examples using delimiters
 list_example = [1, 2, 3]
 tuple_example = (4, 5, 6)
 dict_example = {'key': 'value'}
 lambda_example = lambda x: x * 2
 ```
 
-Understanding these components of lexical analysis in Python helps in writing syntactically correct and readable code. 
- 
+Understanding these components of lexical analysis in Python helps in writing syntactically correct and readable code.
+
 #### Data Model
+
 The Python data model describes the structure of Python programs. It defines how objects behave, how they interact, and how various operations are performed. This model underpins many of Python's features, making it essential to understand for writing effective and idiomatic Python code.
 
 ##### Objects, Values, and Types
+
 In Python, everything is an object. Each object has:
 
 - **Identity**: A unique identifier for the object, which can be obtained using the `id()` function.
@@ -1976,12 +2002,13 @@ In Python, everything is an object. Each object has:
 
 ```python
 x = 42
-print(id(x))    #### Identity: unique identifier of the object
-print(type(x))  #### Type: <class 'int'>
-print(x)        #### Value: 42
+print(id(x))    # Identity: unique identifier of the object
+print(type(x))  # Type: <class 'int'>
+print(x)        # Value: 42
 ```
 
 ##### The Standard Type Hierarchy
+
 Python's type system is organized into a hierarchy of built-in types. Some of the key categories include:
 
 1. **None Type**: Represents the absence of a value.
@@ -2042,6 +2069,7 @@ Python's type system is organized into a hierarchy of built-in types. Some of th
     ```
 
 ##### Special Method Names
+
 Special method names (also known as "magic methods" or "dunder methods") enable the customization of object behavior in Python. They are surrounded by double underscores. Some common special methods include:
 
 - **`__init__`**: Constructor, called when a new instance is created.
@@ -2105,6 +2133,7 @@ Special method names (also known as "magic methods" or "dunder methods") enable 
     ```
 
 ##### Coroutines
+
 Coroutines are a type of function that allow for cooperative multitasking, enabling a function to pause its execution and yield control back to the caller, potentially resuming at a later point. They are defined using `async def` and can use `await` to pause execution until a result is available.
 
 1. **Defining a Coroutine**:
@@ -2150,8 +2179,8 @@ Coroutines are a type of function that allow for cooperative multitasking, enabl
     asyncio.run(main())
     ```
 
-Understanding Python's data model, including its object types, type hierarchy, special method names, and coroutines, provides a solid foundation for writing powerful and flexible code. 
- 
+Understanding Python's data model, including its object types, type hierarchy, special method names, and coroutines, provides a solid foundation for writing powerful and flexible code.
+
 #### Execution Model
 
 Python's execution model describes how code is structured, how names are associated with objects, and how exceptions are handled during program execution.
@@ -2168,27 +2197,23 @@ A Python program consists of various components organized in a specific manner. 
 
 ###### Example of Program Structure
 
-```python 
- 
-#### Module-level variables and imports
+```python
+# Module-level variables and imports
 import math
- 
- 
-#### Function definition
+
+# Function definition
 def calculate_area(radius):
     return math.pi * radius * radius
- 
- 
-#### Class definition
+
+# Class definition
 class Circle:
     def __init__(self, radius):
         self.radius = radius
 
     def area(self):
         return calculate_area(self.radius)
- 
- 
-#### Main block
+
+# Main block
 if __name__ == "__main__":
     circle = Circle(5)
     print(f"Area of the circle: {circle.area()}")
@@ -2222,21 +2247,21 @@ Binding names to objects occurs through assignments, function definitions, class
 
 - **Assignments**:
     ```python
-    x = 10  #### Binds the name 'x' to the integer object 10
+    x = 10  # Binds the name 'x' to the integer object 10
     ```
 
 - **Function and Class Definitions**:
     ```python
     def func():
-        pass  #### Binds the name 'func' to the function object
+        pass  # Binds the name 'func' to the function object
 
     class MyClass:
-        pass  #### Binds the name 'MyClass' to the class object
+        pass  # Binds the name 'MyClass' to the class object
     ```
 
 - **Imports**:
     ```python
-    import math  #### Binds the name 'math' to the imported module
+    import math  # Binds the name 'math' to the imported module
     ```
 
 ###### Name Resolution
@@ -2246,20 +2271,20 @@ Python resolves names using the LEGB rule, searching through each namespace in o
 ###### Example
 
 ```python
-x = 10  #### Global scope
+x = 10  # Global scope
 
 def outer():
-    x = 20  #### Enclosing scope
+    x = 20  # Enclosing scope
 
     def inner():
-        x = 30  #### Local scope
-        print(x)  #### Prints 30
+        x = 30  # Local scope
+        print(x)  # Prints 30
 
     inner()
-    print(x)  #### Prints 20
+    print(x)  # Prints 20
 
 outer()
-print(x)  #### Prints 10
+print(x)  # Prints 10
 ```
 
 ##### Exceptions
@@ -2341,8 +2366,8 @@ Exceptions propagate up the call stack until they are caught by an exception han
         print("Division successful!")
     ```
 
-Understanding the execution model, including program structure, naming and binding, and exception handling, is crucial for writing robust and maintainable Python code. 
- 
+Understanding the execution model, including program structure, naming and binding, and exception handling, is crucial for writing robust and maintainable Python code.
+
 #### The Import System
 
 Python's import system allows you to include and reuse code from different modules and packages, promoting modularity and code organization. The import system involves searching for and loading modules and packages, and it provides mechanisms for customizing this process.
@@ -2357,7 +2382,7 @@ Python's import system allows you to include and reuse code from different modul
 
     module_name = 'math'
     math = importlib.import_module(module_name)
-    print(math.sqrt(16))  #### Output: 4.0
+    print(math.sqrt(16))  # Output: 4.0
     ```
 
 - **Reloading a module**:
@@ -2451,13 +2476,13 @@ Relative imports use the `.` notation to import modules relative to the current 
 
 - **Relative import within a package**:
     ```python
-    #### Inside my_package/module1.py
+    # Inside my_package/module1.py
     from .module2 import some_function
     ```
 
 - **Using relative imports**:
     ```python
-    #### Inside my_package/__init__.py
+    # Inside my_package/__init__.py
     from .module1 import some_function
     ```
 
@@ -2467,7 +2492,7 @@ When a module is run as the main program, its `__name__` attribute is set to `'_
 
 - **Using `__main__`**:
     ```python
-    #### Inside my_module.py
+    # Inside my_module.py
     def main():
         print("Running as main program")
 
@@ -2484,8 +2509,8 @@ For further reading and deeper understanding, you can refer to:
 - [PEP 451 - A ModuleSpec Type for the Import System](https://www.python.org/dev/peps/pep-0451/)
 - [importlib module](https://docs.python.org/3/library/importlib.html)
 
-Understanding Python's import system allows you to effectively manage and organize code, leveraging both built-in and custom modules and packages. 
- 
+Understanding Python's import system allows you to effectively manage and organize code, leveraging both built-in and custom modules and packages.
+
 #### Expressions
 
 Expressions in Python are constructs that can be evaluated to produce a value. They form the building blocks of any Python program.
@@ -2496,12 +2521,12 @@ Python performs implicit type conversions (also known as coercion) in arithmetic
 
 - **Integer and Float**: When an integer is combined with a float, the result is a float.
     ```python
-    result = 5 + 3.0  #### result is 8.0
+    result = 5 + 3.0  # result is 8.0
     ```
 
 - **Float and Complex**: When a float is combined with a complex number, the result is a complex number.
     ```python
-    result = 2.0 + 3j  #### result is (2+3j)
+    result = 2.0 + 3j  # result is (2+3j)
     ```
 
 ##### Atoms
@@ -2521,7 +2546,7 @@ Atoms are the most basic elements of expressions. They include identifiers, lite
 
 - **Parenthesized Expressions**: Expressions within parentheses.
     ```python
-    value = (5 + 3) * 2  #### value is 16
+    value = (5 + 3) * 2  # value is 16
     ```
 
 - **List, Dict, Set Displays**: 
@@ -2570,9 +2595,8 @@ import asyncio
 async def example():
     await asyncio.sleep(1)
     return "Done"
- 
- 
-#### Running the coroutine
+
+# Running the coroutine
 asyncio.run(example())
 ```
 
@@ -2581,7 +2605,7 @@ asyncio.run(example())
 The power operator `**` raises the left-hand operand to the power of the right-hand operand.
 
 ```python
-result = 2 ** 3  #### result is 8
+result = 2 ** 3  # result is 8
 ```
 
 ##### Unary Arithmetic and Bitwise Operations
@@ -2596,7 +2620,7 @@ Unary operations apply to a single operand.
 
 - **Unary Bitwise**: `~` (bitwise NOT)
     ```python
-    bitwise_not = ~5  #### result is -6
+    bitwise_not = ~5  # result is -6
     ```
 
 ##### Binary Arithmetic Operations
@@ -2605,32 +2629,32 @@ Binary arithmetic operations involve two operands.
 
 - **Addition**: `+`
     ```python
-    result = 5 + 3  #### result is 8
+    result = 5 + 3  # result is 8
     ```
 
 - **Subtraction**: `-`
     ```python
-    result = 5 - 3  #### result is 2
+    result = 5 - 3  # result is 2
     ```
 
 - **Multiplication**: `*`
     ```python
-    result = 5 * 3  #### result is 15
+    result = 5 * 3  # result is 15
     ```
 
 - **Division**: `/`
     ```python
-    result = 5 / 2  #### result is 2.5
+    result = 5 / 2  # result is 2.5
     ```
 
 - **Floor Division**: `//`
     ```python
-    result = 5 // 2  #### result is 2
+    result = 5 // 2  # result is 2
     ```
 
 - **Modulus**: `%`
     ```python
-    result = 5 % 2  #### result is 1
+    result = 5 % 2  # result is 1
     ```
 
 ##### Shifting Operations
@@ -2639,12 +2663,12 @@ Shifting operations move the bits of an integer left or right.
 
 - **Left Shift**: `<<`
     ```python
-    result = 5 << 1  #### result is 10
+    result = 5 << 1  # result is 10
     ```
 
 - **Right Shift**: `>>`
     ```python
-    result = 5 >> 1  #### result is 2
+    result = 5 >> 1  # result is 2
     ```
 
 ##### Binary Bitwise Operations
@@ -2653,17 +2677,17 @@ Binary bitwise operations operate on the binary representations of integers.
 
 - **AND**: `&`
     ```python
-    result = 5 & 3  #### result is 1
+    result = 5 & 3  # result is 1
     ```
 
 - **OR**: `|`
     ```python
-    result = 5 | 3  #### result is 7
+    result = 5 | 3  # result is 7
     ```
 
 - **XOR**: `^`
     ```python
-    result = 5 ^ 3  #### result is 6
+    result = 5 ^ 3  # result is 6
     ```
 
 ##### Comparisons
@@ -2680,8 +2704,8 @@ Comparison operators compare two values and return a boolean result.
 - **Membership**: `in`, `not in`
 
 ```python
-result = 5 == 5  #### result is True
-result = 5 > 3   #### result is True
+result = 5 == 5  # result is True
+result = 5 > 3   # result is True
 ```
 
 ##### Boolean Operations
@@ -2689,9 +2713,9 @@ result = 5 > 3   #### result is True
 Boolean operations `and`, `or`, and `not` are used to combine conditional expressions.
 
 ```python
-result = (5 > 3) and (3 < 5)  #### result is True
-result = (5 > 3) or (3 > 5)   #### result is True
-result = not (5 > 3)          #### result is False
+result = (5 > 3) and (3 < 5)  # result is True
+result = (5 > 3) or (3 > 5)   # result is True
+result = not (5 > 3)          # result is False
 ```
 
 ##### Assignment Expressions
@@ -2718,27 +2742,24 @@ Lambda expressions define anonymous functions using the `lambda` keyword.
 
 ```python
 square = lambda x: x * x
-result = square(5)  #### result is 25
+result = square(5)  # result is 25
 ```
 
 ##### Expression Lists
 
 Expression lists are used in various constructs, such as function arguments, tuple packing, and unpacking.
 
-```python 
- 
-#### Function arguments
+```python
+# Function arguments
 def func(a, b, c):
     return a + b + c
 
-result = func(1, 2, 3)  #### result is 6
- 
- 
-#### Tuple packing
+result = func(1, 2, 3)  # result is 6
+
+# Tuple packing
 my_tuple = 1, 2, 3
- 
- 
-#### Tuple unpacking
+
+# Tuple unpacking
 a, b, c = my_tuple
 ```
 
@@ -2772,23 +2793,17 @@ Precedence Table (highest to lowest)
 Example:
 
 ```python
-result = 3 + 4 * 2 ** 2 / (1 - 5) // 2 
- 
-#### Evaluates as: 
- 
-#### 3 + 4 * 4 / (-4) // 2 
- 
-#### 3 + 16 / -4 // 2 
- 
-#### 3 + -4 // 2 
- 
-#### 3 + -2 
- 
-#### 1
+result = 3 + 4 * 2 ** 2 / (1 - 5) // 2
+# Evaluates as:
+# 3 + 4 * 4 / (-4) // 2
+# 3 + 16 / -4 // 2
+# 3 + -4 // 2
+# 3 + -2
+# 1
 ```
 
-Understanding expressions and their evaluation in Python is crucial for writing correct and efficient code. 
- 
+Understanding expressions and their evaluation in Python is crucial for writing correct and efficient code.
+
 #### Simple Statements
 
 Simple statements are single-line statements that perform various operations. They are typically followed by a newline or a semicolon if multiple statements are on the same line.
@@ -2798,8 +2813,8 @@ Simple statements are single-line statements that perform various operations. Th
 Expression statements evaluate an expression and discard the result. They are often used to call functions or methods.
 
 ```python
-print("Hello, World!")  #### Expression statement
-x + y  #### An expression statement with no effect
+print("Hello, World!")  # Expression statement
+x + y  # An expression statement with no effect
 ```
 
 ##### Assignment Statements
@@ -2807,9 +2822,9 @@ x + y  #### An expression statement with no effect
 Assignment statements bind a name to an object or assign a new value to an existing name.
 
 ```python
-x = 10  #### Simple assignment
-x, y = 5, 7  #### Multiple assignment
-x += 1  #### Augmented assignment
+x = 10  # Simple assignment
+x, y = 5, 7  # Multiple assignment
+x += 1  # Augmented assignment
 ```
 
 ##### The `assert` Statement
@@ -2817,8 +2832,8 @@ x += 1  #### Augmented assignment
 The `assert` statement is used for debugging purposes. It tests an expression and triggers an `AssertionError` if the expression evaluates to `False`.
 
 ```python
-assert 2 + 2 == 4  #### No error
-assert 2 + 2 == 5  #### AssertionError
+assert 2 + 2 == 4  # No error
+assert 2 + 2 == 5  # AssertionError
 ```
 
 ##### The `pass` Statement
@@ -2827,7 +2842,7 @@ The `pass` statement is a no-operation statement. It is used as a placeholder in
 
 ```python
 def empty_function():
-    pass  #### Placeholder for future code
+    pass  # Placeholder for future code
 ```
 
 ##### The `del` Statement
@@ -2836,10 +2851,10 @@ The `del` statement deletes names or items from a collection.
 
 ```python
 x = [1, 2, 3]
-del x[1]  #### Deletes the second item, x becomes [1, 3]
+del x[1]  # Deletes the second item, x becomes [1, 3]
 
 y = 10
-del y  #### Deletes the name 'y'
+del y  # Deletes the name 'y'
 ```
 
 ##### The `return` Statement
@@ -2850,7 +2865,7 @@ The `return` statement exits a function and optionally returns a value.
 def add(a, b):
     return a + b
 
-result = add(3, 4)  #### result is 7
+result = add(3, 4)  # result is 7
 ```
 
 ##### The `yield` Statement
@@ -2883,7 +2898,7 @@ The `break` statement exits the nearest enclosing loop.
 for i in range(10):
     if i == 5:
         break
-    print(i)  #### Prints 0 to 4
+    print(i)  # Prints 0 to 4
 ```
 
 ##### The `continue` Statement
@@ -2894,7 +2909,7 @@ The `continue` statement skips the rest of the current loop iteration and moves 
 for i in range(10):
     if i % 2 == 0:
         continue
-    print(i)  #### Prints odd numbers from 0 to 9
+    print(i)  # Prints odd numbers from 0 to 9
 ```
 
 ##### The `import` Statement
@@ -2903,10 +2918,10 @@ The `import` statement is used to include modules in the current namespace.
 
 ```python
 import math
-print(math.sqrt(16))  #### Prints 4.0
+print(math.sqrt(16))  # Prints 4.0
 
 from math import sqrt
-print(sqrt(16))  #### Prints 4.0
+print(sqrt(16))  # Prints 4.0
 ```
 
 ##### The `global` Statement
@@ -2921,7 +2936,7 @@ def modify_global():
     x = 20
 
 modify_global()
-print(x)  #### Prints 20
+print(x)  # Prints 20
 ```
 
 ##### The `nonlocal` Statement
@@ -2937,7 +2952,7 @@ def outer():
         x = 20
 
     inner()
-    print(x)  #### Prints 20
+    print(x)  # Prints 20
 
 outer()
 ```
@@ -2948,21 +2963,21 @@ While there isn't a `type` statement in Python, the `type` function is used to d
 
 - **Determining the type**:
     ```python
-    print(type(42))  #### <class 'int'>
-    print(type('Hello'))  #### <class 'str'>
+    print(type(42))  # <class 'int'>
+    print(type('Hello'))  # <class 'str'>
     ```
 
 - **Creating a new type**:
     ```python
     MyClass = type('MyClass', (object,), {'attr': 42})
     instance = MyClass()
-    print(instance.attr)  #### Prints 42
+    print(instance.attr)  # Prints 42
     ```
 
 Understanding simple statements and their usage is crucial for writing clear and effective Python code. These statements form the core constructs for controlling the flow and behavior of your programs.
+
 Compound statements in Python are blocks of code that control the flow of execution through conditional branching, looping, exception handling, context management, and defining new functions and classes. Let's explore each type of compound statement.
- 
- 
+
 #### Compound Statements
 
 ##### The `if` Statement
@@ -2971,11 +2986,11 @@ The `if` statement allows conditional execution of code blocks.
 
 ```python
 if condition:
-    #### Code block to execute if condition is true
+    # Code block to execute if condition is true
 elif another_condition:
-    #### Code block to execute if another_condition is true
+    # Code block to execute if another_condition is true
 else:
-    #### Code block to execute if no condition is true
+    # Code block to execute if no condition is true
 ```
 
 ```python
@@ -2994,7 +3009,7 @@ The `while` statement repeatedly executes a block of code as long as a condition
 
 ```python
 while condition:
-    #### Code block to execute repeatedly
+    # Code block to execute repeatedly
 ```
 
 ```python
@@ -3010,7 +3025,7 @@ The `for` statement iterates over the elements of a sequence (such as a list, tu
 
 ```python
 for variable in sequence:
-    #### Code block to execute for each element in sequence
+    # Code block to execute for each element in sequence
 ```
 
 ```python
@@ -3024,13 +3039,13 @@ The `try` statement handles exceptions that may occur in a block of code.
 
 ```python
 try:
-    #### Code block where exceptions might occur
+    # Code block where exceptions might occur
 except ExceptionType as e:
-    #### Code block to handle the exception
+    # Code block to handle the exception
 else:
-    #### Code block to execute if no exceptions occur
+    # Code block to execute if no exceptions occur
 finally:
-    #### Code block to execute no matter what
+    # Code block to execute no matter what
 ```
 
 ```python
@@ -3050,7 +3065,7 @@ The `with` statement is used to wrap the execution of a block of code with metho
 
 ```python
 with context_manager as variable:
-    #### Code block to execute within the context
+    # Code block to execute within the context
 ```
 
 ```python
@@ -3066,11 +3081,11 @@ Introduced in Python 3.10, the `match` statement provides a way to perform patte
 ```python
 match value:
     case pattern1:
-        #### Code block to execute if value matches pattern1
+        # Code block to execute if value matches pattern1
     case pattern2:
-        #### Code block to execute if value matches pattern2
+        # Code block to execute if value matches pattern2
     case _:
-        #### Code block to execute if no pattern matches (default case)
+        # Code block to execute if no pattern matches (default case)
 ```
 
 ```python
@@ -3085,7 +3100,7 @@ def http_status(status):
         case _:
             return "Unknown Status"
 
-print(http_status(200))  #### Prints "OK"
+print(http_status(200))  # Prints "OK"
 ```
 
 ##### Function Definitions
@@ -3094,7 +3109,7 @@ Functions are defined using the `def` keyword. They can take arguments and retur
 
 ```python
 def function_name(parameters):
-    #### Code block to execute
+    # Code block to execute
     return value
 ```
 
@@ -3103,7 +3118,7 @@ def add(a, b):
     return a + b
 
 result = add(3, 4)
-print(result)  #### Prints 7
+print(result)  # Prints 7
 ```
 
 ##### Class Definitions
@@ -3113,11 +3128,11 @@ Classes are defined using the `class` keyword and can include methods (functions
 ```python
 class ClassName:
     def __init__(self, parameters):
-        #### Initialization code
+        # Initialization code
         self.attribute = value
 
     def method(self, parameters):
-        #### Method code
+        # Method code
         return value
 ```
 
@@ -3131,7 +3146,7 @@ class Person:
         return f"Hello, my name is {self.name} and I am {self.age} years old."
 
 person = Person("Alice", 30)
-print(person.greet())  #### Prints "Hello, my name is Alice and I am 30 years old."
+print(person.greet())  # Prints "Hello, my name is Alice and I am 30 years old."
 ```
 
 ##### Coroutines
@@ -3142,7 +3157,7 @@ Coroutines are special functions defined with `async def` and used for asynchron
 import asyncio
 
 async def coroutine_name(parameters):
-    #### Code block to execute
+    # Code block to execute
     await another_coroutine()
 ```
 
@@ -3190,11 +3205,11 @@ class Box(Generic[T]):
         return self.content
 
 box = Box 
-print(box.get_content())  #### Prints 123
+print(box.get_content())  # Prints 123
 ```
 
-Understanding compound statements is essential for managing the flow of execution and organizing code in a readable and efficient manner. These statements form the core control structures and definition mechanisms in Python. 
- 
+Understanding compound statements is essential for managing the flow of execution and organizing code in a readable and efficient manner. These statements form the core control structures and definition mechanisms in Python.
+
 #### Top-level Components
 
 In Python, top-level components refer to the various ways in which Python code can be executed and interacted with, including complete programs, file input, interactive input, and expression input. Let’s explore each of these components.
@@ -3213,9 +3228,8 @@ python script.py
 
 Example Script
 
-```python 
- 
-#### script.py
+```python
+# script.py
 def main():
     print("Hello, World!")
 
@@ -3233,15 +3247,13 @@ Reading and Executing a File
 
 You can use the `exec` function to read and execute Python code from a file.
 
-```python 
- 
-#### content of example.py
+```python
+# content of example.py
 print("This code is from a file.")
 ```
 
-```python 
- 
-#### main script
+```python
+# main script
 with open('example.py', 'r') as file:
     code = file.read()
     exec(code)
@@ -3283,7 +3295,7 @@ The `eval` function takes a string containing a Python expression and evaluates 
 ```python
 expression = "3 + 4 * 2"
 result = eval(expression)
-print(result)  #### Prints 11
+print(result)  # Prints 11
 ```
 
 Interactive Expression Evaluation
@@ -3301,9 +3313,8 @@ You can combine these top-level components to create versatile and interactive P
 
 Example Combined Script
 
-```python 
- 
-#### combined_script.py
+```python
+# combined_script.py
 def read_and_execute(filename):
     with open(filename, 'r') as file:
         code = file.read()
@@ -3322,8 +3333,8 @@ if __name__ == "__main__":
 
 In this combined script, the user is prompted to enter a filename, which is then read and executed. The user can then input an expression to be evaluated.
 
-Understanding these top-level components is essential for effectively running and interacting with Python code in various contexts, from complete programs to interactive sessions. 
- 
+Understanding these top-level components is essential for effectively running and interacting with Python code in various contexts, from complete programs to interactive sessions.
+
 #### Full Grammar Specification
 
 The full grammar specification for Python defines the syntax rules for the language. This specification is detailed and covers all aspects of Python syntax, including expressions, statements, and other language constructs. Below is an overview of key elements in Python's grammar specification, focusing on the main categories.
@@ -3570,6 +3581,7 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 ##### Installing MATLAB
 
 ###### Download and Installation
+
 1. **Obtain a License**: Ensure you have a valid MATLAB license. This could be a personal, academic, or enterprise license.
 2. **Download MATLAB**: Visit the [MathWorks website](https://www.mathworks.com/) and log in to your account. Navigate to the download section and download the installer for your operating system.
 3. **Run the Installer**: Follow the installation prompts. You may need to log in to your MathWorks account and enter your license key.
@@ -3577,9 +3589,11 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 ##### MATLAB Environment
 
 ###### Starting MATLAB
+
 - **Launch MATLAB**: Open MATLAB from your desktop or start menu. The main MATLAB window will appear.
 
 ###### MATLAB Desktop Components
+
 1. **Command Window**: For entering commands and running scripts.
 2. **Workspace**: Displays variables currently in memory.
 3. **Command History**: Logs all commands entered in the Command Window.
@@ -3587,12 +3601,14 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 5. **Editor**: For writing and editing scripts and functions.
 
 ###### Basic Navigation
+
 - **Current Folder Navigation**: Use the file browser on the left to navigate directories.
 - **Path Management**: Use `pathtool` or `addpath` to manage the MATLAB search path.
 
 ##### Basic Commands and Operations
 
 ###### Command Syntax
+
 - **Basic Arithmetic**: Use operators like `+`, `-`, `*`, `/`, and `^`.
   ```matlab
   a = 5 + 3;
@@ -3601,6 +3617,7 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
   ```
 
 ###### Variables
+
 - **Creating Variables**: Assign values to variables using the `=` operator.
   ```matlab
   x = 10;
@@ -3608,6 +3625,7 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
   ```
 
 ###### Arrays and Matrices
+
 - **Creating Arrays**:
   ```matlab
   A = [1, 2, 3; 4, 5, 6; 7, 8, 9];  % 3x3 matrix
@@ -3622,6 +3640,7 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
   ```
 
 ###### Functions and Scripts
+
 - **Scripts**: Files with a sequence of commands. Create a new script using the Editor and save it with a `.m` extension.
 - **Functions**: Reusable blocks of code with inputs and outputs.
   ```matlab
@@ -3631,6 +3650,7 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
   ```
 
 ###### Plotting
+
 - **Basic Plot**:
   ```matlab
   x = linspace(0, 2*pi, 100);
@@ -3644,16 +3664,19 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 ##### Advanced Features
 
 ###### Toolboxes
+
 - **Toolbox Installation**: MATLAB offers specialized toolboxes for various applications (e.g., Signal Processing, Image Processing). Install via the Add-Ons menu.
 - **Using Toolboxes**: Access functions and features provided by the toolboxes after installation.
 
 ###### Simulink
+
 - **Simulink Environment**: For model-based design. Launch using the `simulink` command.
 - **Creating Models**: Drag and drop blocks to create models and run simulations.
 
 ##### Documentation and Help
 
 ###### Built-in Help
+
 - **Help Command**: Use `help functionName` to get help on specific functions.
   ```matlab
   help plot
@@ -3664,12 +3687,14 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
   ```
 
 ###### Online Resources
+
 - **MATLAB Documentation**: Extensive online documentation available on the MathWorks website.
 - **MATLAB Central**: Community forum for questions, file exchange, and blogs.
 
 ##### Example Workflow
 
 ###### Step-by-Step Example
+
 1. **Open MATLAB**.
 2. **Create a New Script**: In the Editor, type the following code and save as `example.m`.
   ```matlab
@@ -3686,10 +3711,12 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 ##### Learning More
 
 ###### Tutorials and Courses
+
 - **MATLAB Onramp**: A free, interactive tutorial available on the MathWorks website.
 - **MOOCs and Online Courses**: Courses on platforms like Coursera, edX, and Udacity.
 
 ###### Books and References
+
 - **Official Guides**: Books published by MathWorks.
 - **Third-Party Books**: Numerous MATLAB books for different expertise levels and applications.
 
@@ -4086,6 +4113,7 @@ MATLAB is a powerful tool for performing mathematical computations. Here's a det
 Elementary math operations in MATLAB include basic arithmetic, exponentiation, logarithms, and trigonometric functions.
 
 ###### Arithmetic Operations
+
 ```matlab
 a = 10;
 b = 5;
@@ -4097,6 +4125,7 @@ remainder = mod(a, b);
 ```
 
 ###### Exponentiation and Logarithms
+
 ```matlab
 exp_val = exp(1);  % e^1
 log_val = log(10);  % Natural logarithm
@@ -4104,6 +4133,7 @@ log10_val = log10(100);  % Base-10 logarithm
 ```
 
 ###### Trigonometric Functions
+
 ```matlab
 theta = pi / 4;
 sine_val = sin(theta);
@@ -4116,6 +4146,7 @@ tangent_val = tan(theta);
 MATLAB is particularly strong in linear algebra, offering extensive functionality for matrix operations.
 
 ###### Matrix Operations
+
 ```matlab
 A = [1, 2; 3, 4];
 B = [5, 6; 7, 8];
@@ -4126,6 +4157,7 @@ inverse_A = inv(A);
 ```
 
 ###### Solving Linear Systems
+
 ```matlab
 A = [1, 2; 3, 4];
 b = [5; 6];
@@ -4133,6 +4165,7 @@ x = A \ b;  % Solution to Ax = b
 ```
 
 ###### Eigenvalues and Singular Value Decomposition
+
 ```matlab
 eig_vals = eig(A);
 [U, S, V] = svd(A);  % Singular value decomposition
@@ -4143,12 +4176,14 @@ eig_vals = eig(A);
 Generating random numbers is essential for simulations and statistical analysis.
 
 ###### Basic Random Numbers
+
 ```matlab
 rand_val = rand();  % Uniformly distributed random number in (0,1)
 randn_val = randn();  % Normally distributed random number with mean 0 and variance 1
 ```
 
 ###### Random Numbers with Specific Distributions
+
 ```matlab
 uniform_rand = rand(1, 100);  % 1x100 array of uniform random numbers
 normal_rand = randn(1, 100);  % 1x100 array of normal random numbers
@@ -4159,6 +4194,7 @@ normal_rand = randn(1, 100);  % 1x100 array of normal random numbers
 Interpolation is used to estimate values between data points.
 
 ###### Linear Interpolation
+
 ```matlab
 x = [1, 2, 3, 4, 5];
 y = [2, 4, 6, 8, 10];
@@ -4167,6 +4203,7 @@ yi = interp1(x, y, xi);  % Linear interpolation
 ```
 
 ###### Spline Interpolation
+
 ```matlab
 yi_spline = interp1(x, y, xi, 'spline');  % Spline interpolation
 ```
@@ -4176,6 +4213,7 @@ yi_spline = interp1(x, y, xi, 'spline');  % Spline interpolation
 Optimization involves finding the minimum or maximum of functions.
 
 ###### Finding Minima and Maxima
+
 ```matlab
 f = @(x) (x-2).^2 + 3;
 [x_min, fval_min] = fminbnd(f, 0, 4);  % Find minimum in the interval [0,4]
@@ -4185,6 +4223,7 @@ g = @(x) -((x-2).^2 + 3);
 ```
 
 ###### Nonlinear Optimization
+
 ```matlab
 fun = @(x) x(1)^2 + x(2)^2;  % Objective function
 x0 = [1, 2];  % Initial guess
@@ -4196,12 +4235,14 @@ x_opt = fminunc(fun, x0);  % Find minimum
 MATLAB provides functions for numerical integration and solving differential equations.
 
 ###### Numerical Integration
+
 ```matlab
 f = @(x) sin(x);
 integral_val = integral(f, 0, pi);  % Definite integral of sin(x) from 0 to pi
 ```
 
 ###### Solving Ordinary Differential Equations (ODEs)
+
 ```matlab
 ode_fun = @(t, y) -2*y;  % dy/dt = -2y
 tspan = [0 5];
@@ -4214,6 +4255,7 @@ y0 = 1;
 Fourier analysis is used for frequency domain analysis of signals.
 
 ###### Fourier Transform
+
 ```matlab
 x = linspace(0, 2*pi, 100);
 y = sin(x);
@@ -4221,6 +4263,7 @@ y_fft = fft(y);  % Compute the Fast Fourier Transform
 ```
 
 ###### Filtering
+
 ```matlab
 fs = 1000;  % Sampling frequency
 t = 0:1/fs:1-1/fs;
@@ -4234,6 +4277,7 @@ filtered_x = filter(b, a, x);  % Apply filter
 Sparse matrices are used for efficiently storing and manipulating large, sparse datasets.
 
 ###### Creating and Manipulating Sparse Matrices
+
 ```matlab
 A = sparse([1, 2, 3], [1, 2, 3], [10, 20, 30], 5, 5);  % Create a sparse matrix
 full_A = full(A);  % Convert to full matrix
@@ -4244,6 +4288,7 @@ full_A = full(A);  % Convert to full matrix
 MATLAB supports graph theory and network analysis.
 
 ###### Creating and Analyzing Graphs
+
 ```matlab
 s = [1, 2, 3];
 t = [2, 3, 4];
@@ -4259,6 +4304,7 @@ degree = degree(G);  % Degree of each node
 MATLAB provides tools for computational geometry tasks like convex hulls, Delaunay triangulation, etc.
 
 ###### Convex Hull
+
 ```matlab
 points = rand(10, 2);
 k = convhull(points(:,1), points(:,2));
@@ -4266,6 +4312,7 @@ plot(points(:,1), points(:,2), 'o', points(k,1), points(k,2), '-');
 ```
 
 ###### Delaunay Triangulation
+
 ```matlab
 tri = delaunay(points(:,1), points(:,2));
 triplot(tri, points(:,1), points(:,2));
@@ -4276,6 +4323,7 @@ triplot(tri, points(:,1), points(:,2));
 MATLAB offers support for quantum computing, including quantum algorithms and simulation of quantum systems.
 
 ###### Quantum Gates and Circuits
+
 ```matlab
 H = [1, 1; 1, -1]/sqrt(2);  % Hadamard gate
 X = [0, 1; 1, 0];  % Pauli-X gate
@@ -4287,6 +4335,7 @@ result_state = H * initial_state;  % Apply Hadamard gate
 ```
 
 ###### Quantum Algorithms
+
 ```matlab
 % Example: Grover's algorithm or Shor's algorithm implementation (requires specialized functions and toolboxes)
 ```
@@ -5527,63 +5576,85 @@ g++ ntm_controller.cpp -o ntm_controller.run
 ```
 
 ##### Preprocessor
+
 The preprocessor in C++ is responsible for handling directives that begin with a hash sign (#). These directives are processed before the actual compilation of the program begins. Common preprocessor directives include `#include` to include header files, `#define` to define macros, and `#ifdef`/`#ifndef` for conditional compilation.
 
 ##### ASCII chart
+
 ASCII (American Standard Code for Information Interchange) is a character encoding standard that assigns numeric values to characters. In C++, characters are represented as integers according to the ASCII chart. For example, the ASCII value for 'A' is 65, 'B' is 66, and so on.
 
 ##### Basic Concepts
+
 ###### Comments
+
 Comments in C++ are used to annotate code and are ignored by the compiler. There are two types of comments: single-line comments, which start with `//`, and multi-line comments, which are enclosed between `/*` and `*/`.
 
 ###### Names (lookup)
+
 In C++, names are used to identify variables, functions, classes, and other entities in the program. The process of finding the declaration of a name in the program is called name lookup.
 
 ###### Types (fundamental types)
+
 C++ has several fundamental data types, including `int`, `float`, `double`, `char`, `bool`, etc. These types represent basic data values that can be manipulated in the program.
 
 ###### The main function
+
 The `main()` function is the entry point of C++ programs. Execution of a C++ program starts from the `main()` function. It can have a return type of `int` and optionally take arguments from the command line.
 
 ##### Expressions
+
 ###### Value categories
+
 In C++, expressions can have different value categories, such as lvalues and rvalues. An lvalue refers to an object that has a persistent memory location, while an rvalue refers to a temporary value that does not necessarily have a persistent memory location.
 
 ###### Evaluation order
+
 The order in which subexpressions within an expression are evaluated is determined by the compiler. In some cases, the order of evaluation is unspecified, which can lead to undefined behavior if the expression relies on a specific order.
 
 ###### Operators (precedence)
+
 Operators in C++ have precedence rules that determine the order in which they are evaluated within an expression. For example, multiplication (`*`) has higher precedence than addition (`+`), so `a * b + c` is evaluated as `(a * b) + c`, not `a * (b + c)`.
 
 ###### Conversions − Literals
+
 C++ supports implicit and explicit type conversions, which allow literals of one type to be converted to another type. For example, an `int` literal can be implicitly converted to a `double` if necessary.
 
 ##### Statements
+
 ###### if − switch
+
 The `if` statement is used for conditional branching in C++. It allows the execution of a block of code based on a condition. The `switch` statement provides another form of conditional branching based on the value of an expression.
 
 ###### for − range-for (C++11)
+
 The `for` loop in C++ is used for iterating over a range of values. The range-based `for` loop introduced in C++11 simplifies iterating over elements of a container, such as arrays or containers from the standard library.
 
 ###### while − do-while
+
 The `while` loop is used to repeatedly execute a block of code as long as a condition is true. The `do-while` loop is similar to the `while` loop but guarantees that the block of code is executed at least once before checking the condition.
 
 ##### Declarations − Initialization
+
 Declarations in C++ are used to introduce names into the program and specify their types. Initialization refers to the process of assigning an initial value to a variable at the time of declaration.
 
 ##### Functions − Overloading
+
 Function overloading in C++ allows multiple functions with the same name to be defined, as long as they have different parameter lists. The appropriate function to call is determined based on the number and types of arguments provided.
 
 ##### Classes (unions)
+
 Classes in C++ are used to define user-defined data types with properties and behaviors. They can contain member variables and member functions. Unions are a special type of class where all members share the same memory location.
 
 ##### Templates − Exceptions
+
 Templates in C++ allow for generic programming by defining functions or classes with generic types. This enables writing code that works with any data type. Exceptions are used for handling runtime errors or exceptional conditions that may occur during program execution.
 
 ##### Freestanding implementations
+
 Freestanding implementations refer to the ability to write C++ programs without relying on the full standard library provided by the implementation. This is particularly useful in embedded systems or other environments where the standard library may not be available or suitable.
 
 #### Standard library (headers)
+
 In C++, the Standard Library provides a rich set of functionalities encapsulated in various header files. Here's an explanation of some commonly used headers in the Standard Library:
 
 1. **iostream**: This header provides input and output streams, including `cin`, `cout`, `cerr`, and `clog`, for handling input and output operations. It also includes functionalities for formatting output.
@@ -5609,6 +5680,7 @@ In C++, the Standard Library provides a rich set of functionalities encapsulated
 These are just a few examples of the headers available in the C++ Standard Library. Each header provides a set of functionalities related to a specific aspect of programming, making it easier for developers to write efficient and portable code.
 
 #### Named requirements
+
 In C++, "Named Requirements" refer to a set of specifications or constraints placed on template parameters in order to use certain standard library algorithms and components effectively. Named requirements help ensure that template parameters meet specific criteria, allowing them to be used interchangeably in generic code without sacrificing functionality or efficiency. Here are some commonly used Named Requirements in C++:
 
 1. **EqualityComparable**: A type that supports the `==` and `!=` operators for comparison. This requirement allows objects of the type to be compared for equality.
@@ -5634,6 +5706,7 @@ In C++, "Named Requirements" refer to a set of specifications or constraints pla
 These Named Requirements serve as contracts that template parameters must fulfill in order to be compatible with various standard library algorithms and containers. By adhering to these requirements, C++ programmers can write generic code that is both flexible and efficient, leveraging the full power of the standard library.
 
 #### Feature test macros (C++20)
+
 In C++, feature test macros are preprocessor directives used to check for the availability of specific language and library features at compile-time. They allow programmers to conditionally compile code based on the availability of certain features, ensuring compatibility across different compilers and versions of the language standard.
 
 With the introduction of C++20, feature test macros have become increasingly important due to the continuous evolution of the language. Here's how feature test macros work in C++20:
@@ -5665,31 +5738,40 @@ With the introduction of C++20, feature test macros have become increasingly imp
 By using feature test macros, C++ programmers can write code that gracefully handles variations in compiler support for language and library features. This helps ensure that code remains compatible across different environments and versions of the language standard, facilitating easier maintenance and portability.
 
 #### Language support library
+
 ##### Program Utilities
+
 The program utilities in the C++ language support library provide various functionalities that help in program execution and management. This includes utilities for program termination (`std::exit`, `std::abort`), environment access (`std::getenv`, `std::setenv`), program termination handlers (`std::atexit`, `std::at_quick_exit`), and more.
 
 ##### source_location (C++20)
+
 `std::source_location` is a new feature introduced in C++20. It provides information about the current source code location, including file name, line number, and column number. This can be useful for debugging, logging, and error reporting, allowing developers to easily identify the origin of code execution.
 
 ##### Coroutine Support (C++20)
+
 Coroutines are a new language feature introduced in C++20 that allows functions to be suspended and resumed at certain points without losing their state. This enables asynchronous programming paradigms, such as generators, cooperative multitasking, and asynchronous I/O operations, to be implemented more efficiently and elegantly.
 
 ##### Three-Way Comparison (C++20)
+
 Three-way comparison, also known as spaceship operator (`<=>`), is a new feature introduced in C++20 that provides a standardized way to perform three-way comparisons between objects. It returns a value that indicates whether the first object is less than, equal to, or greater than the second object. This simplifies code and improves readability, especially when working with user-defined types.
 
 ##### Type Support
+
 The type support features in the C++ language support library provide utilities for working with types at runtime. This includes functionalities such as querying type information (`std::type_info`), determining the characteristics of numeric types (`std::numeric_limits`), and more.
 
 ##### numeric_limits - type_info
+
 - `std::numeric_limits`: This template class provides information about the properties of arithmetic types, such as the minimum and maximum representable values, precision, and characteristics like whether the type is signed or floating-point.
 - `std::type_info`: This class provides information about types at runtime. It is commonly used with features like dynamic casting and RTTI (Run-Time Type Information) to determine the types of objects dynamically.
 
 ##### initializer_list (C++11)
+
 `std::initializer_list` is a template class introduced in C++11 that provides a convenient way to initialize containers and other objects with a list of elements. It allows brace-enclosed lists of elements to be passed as arguments to constructors and functions, enabling uniform initialization syntax in C++. This is particularly useful for initializing standard library containers like `std::vector`, `std::array`, and `std::initializer_list`.
 
 These language support library features enhance the capabilities of C++ by providing utilities for program management, debugging, asynchronous programming, type information, and more. They contribute to making C++ code more expressive, efficient, and maintainable.
 
 #### Concepts library (C++20)
+
 In C++20, the Concepts library introduces a powerful feature that allows programmers to define constraints on template parameters. These constraints specify requirements that template arguments must satisfy for the template to be instantiated. Here's an explanation of the Concepts library in C++20:
 
 1. **Purpose**: The primary purpose of the Concepts library is to improve template metaprogramming by enabling more expressive and readable code. Instead of relying solely on comments or documentation to describe template requirements, Concepts allow constraints to be explicitly stated within the code.
@@ -5727,9 +5809,11 @@ In C++20, the Concepts library introduces a powerful feature that allows program
 Overall, the Concepts library in C++20 revolutionizes template metaprogramming by providing a formal mechanism for specifying and enforcing constraints on template parameters. It enhances the expressiveness and safety of generic code, making C++ programming more robust and efficient.
 
 #### Diagnostics library
+
 The Diagnostics library in C++ provides functionalities for handling errors, exceptions, and diagnostic information within programs. Let's delve into the components you've mentioned:
 
 ##### exception − System error
+
 The `exception` component of the Diagnostics library deals with error handling in C++. It provides a standardized way to represent and handle exceptional conditions that may arise during program execution. This includes the definition of standard exception classes such as `std::exception` and its derived classes like `std::runtime_error`, `std::logic_error`, etc.
 
 - **std::exception**: The base class for all standard C++ exceptions. It defines the virtual function `what()` which returns a C-style string describing the exception.
@@ -5739,6 +5823,7 @@ The `exception` component of the Diagnostics library deals with error handling i
 Additionally, the `system_error` component allows for handling errors reported by the operating system or the C++ Standard Library functions. It wraps error codes returned by system calls or library functions and provides information about the error condition.
 
 ##### basic_stacktrace (C++23)
+
 The `basic_stacktrace` component, introduced in C++23, provides a mechanism to capture and represent stack traces in C++ programs. Stack traces contain information about the call stack at a given point in program execution, including function names, file names, and line numbers. This information is invaluable for debugging and diagnosing runtime errors and exceptions.
 
 - **std::basic_stacktrace**: A template class representing a stack trace. It provides methods to capture the current stack trace and query information about individual stack frames.
@@ -5746,84 +5831,109 @@ The `basic_stacktrace` component, introduced in C++23, provides a mechanism to c
 Together, these components of the Diagnostics library empower C++ developers with robust tools for error handling, exception management, and runtime diagnostics, enhancing the reliability and maintainability of C++ programs.
 
 #### Memory management library
+
 The Memory Management library in C++ offers a set of tools for efficient and safe management of memory resources. Let's explore the components you've mentioned:
 
 ##### unique_ptr (C++11)
+
 `std::unique_ptr` is a smart pointer introduced in C++11 that provides exclusive ownership semantics. It manages dynamically allocated objects and automatically releases the memory when the pointer goes out of scope or is explicitly reset. Unique pointers cannot be copied but can be moved, ensuring exclusive ownership of the managed resource.
 
 ##### shared_ptr (C++11)
+
 `std::shared_ptr` is another smart pointer introduced in C++11 that implements shared ownership semantics. Multiple `shared_ptr` instances can point to the same dynamically allocated object, and the memory is automatically deallocated when the last `shared_ptr` pointing to it is destroyed. It keeps track of the number of references through a control block, allowing for safe sharing of resources.
 
 ##### weak_ptr (C++11)
+
 `std::weak_ptr` is a companion to `std::shared_ptr` introduced in C++11. It provides a non-owning weak reference to an object managed by `std::shared_ptr`. Unlike `std::shared_ptr`, `std::weak_ptr` does not contribute to the reference count of the managed object, preventing cyclic dependencies and memory leaks. It is typically used to break circular references in data structures.
 
 ##### Memory resources (C++17)
+
 The Memory Resources feature introduced in C++17 provides a flexible mechanism for customizing memory allocation behavior. It allows developers to specify custom memory allocation strategies, such as memory pools or specialized allocators, to better suit the requirements of their applications. Memory resources are used in conjunction with memory containers like `std::pmr::vector` and `std::pmr::string`.
 
 ##### Allocators - Low level management
+
 Allocators in C++ provide a low-level interface for managing memory allocation and deallocation. They abstract away the details of memory management and allow containers and other data structures to be decoupled from specific memory allocation strategies. C++ standard library containers can be customized with user-defined allocators to control how memory is allocated and deallocated for their elements.
 
 Together, these components of the Memory Management library in C++ offer a comprehensive suite of tools for managing memory efficiently, safely, and flexibly in C++ programs. They promote best practices such as resource ownership semantics, memory sharing, and customizable allocation strategies, contributing to robust and reliable software development.
 
 #### Metaprogramming library (C++11)
+
 The Metaprogramming library in C++ provides facilities for compile-time computation and type manipulation. Let's explore the components you've mentioned:
 
 ##### Type traits − ratio
+
 Type traits in C++ are templates that provide information about types at compile-time. They allow programmers to query properties of types and perform conditional compilation based on those properties. In C++11, the `<ratio>` header introduces the `std::ratio` template, which represents a rational number with a numerator and a denominator. It is commonly used in conjunction with other facilities like `std::chrono` to specify time durations and ratios.
 
 ##### integer_sequence (C++14)
+
 `std::integer_sequence` is a utility introduced in C++14 that represents a sequence of integers. It is often used in conjunction with variadic templates to generate sequences of indices or to expand parameter packs into multiple function arguments. `std::integer_sequence` simplifies the implementation of certain metaprogramming tasks, such as tuple manipulation, function parameter unpacking, and loop unrolling.
 
 Together, these components of the Metaprogramming library in C++ provide powerful tools for performing computations and manipulations at compile-time. They enable developers to write more expressive, efficient, and flexible code by leveraging the capabilities of the C++ compiler to perform complex transformations and optimizations during the compilation process.
 
 #### General utilities library
+
 The General Utilities library in C++ provides a wide range of utilities to enhance the functionality and expressiveness of C++ programs. Let's discuss the components you've mentioned:
 
 ##### Function objects − hash (C++11)
+
 Function objects, also known as functors, are objects that can be invoked as if they were functions. In C++11, the `<functional>` header introduces the `std::hash` template, which provides a hash function for generating hash values of objects. It is commonly used in conjunction with unordered containers like `std::unordered_map` and `std::unordered_set` to enable efficient lookup and storage of objects based on their hash values.
 
 ##### Swap − Type operations (C++11)
+
 The `swap` function in C++11, defined in the `<algorithm>` header, allows for the efficient swapping of values between two objects of the same type. It is commonly used to implement efficient swap operations for user-defined types and to optimize certain algorithms by minimizing unnecessary copies.
 
 ##### Integer comparison (C++20)
+
 In C++20, the `<compare>` header introduces standardized comparison categories for integers, including strong ordering, weak ordering, and partial ordering. This facilitates consistent and efficient comparison operations for integer types, enabling more reliable and predictable behavior in generic code.
 
 ##### pair − tuple (C++11)
+
 The `std::pair` template, introduced in C++11, represents a pair of values. It is commonly used to store two related values together, such as key-value pairs in associative containers. Similarly, the `std::tuple` template, also introduced in C++11, represents a fixed-size collection of heterogeneous values. It provides compile-time indexing and enables functions to return multiple values.
 
 ##### optional (C++17)
+
 `std::optional` is a template introduced in C++17 that represents an optional value. It encapsulates an object that may or may not exist, providing a safe and expressive way to handle potentially missing values. It is commonly used to indicate optional function parameters, return values, or container elements.
 
 ##### expected (C++23)
+
 `std::expected` is a proposed addition to the C++ standard library, expected to be introduced in C++23. It represents a value that may be either an expected value or an error. It provides a more expressive and type-safe alternative to traditional error handling mechanisms such as error codes or exceptions.
 
 ##### variant (C++17) − any (C++17)
+
 `std::variant` is a template introduced in C++17 that represents a type-safe union of alternative types. It provides a type-safe way to work with values that may be of different types at runtime. Similarly, `std::any` is a template introduced in C++17 that represents a type-safe container for single values of any type.
 
 ##### String conversions (C++17)
+
 The `<string_view>` header introduced in C++17 provides the `std::to_string` and `std::from_string` functions, which enable conversion between strings and numeric types. It allows for easy and efficient conversion of numeric values to and from string representations.
 
 ##### Formatting (C++20)
+
 C++20 introduces the `<format>` header, which provides facilities for string formatting using a format string syntax similar to Python's `str.format`. It allows for more expressive and flexible string formatting, supporting a wide range of formatting options and customization features.
 
 ##### bitset − Bit manipulation (C++20)
+
 The `std::bitset` template, introduced in C++20, represents a fixed-size sequence of bits. It provides efficient operations for setting, clearing, and querying individual bits, as well as bitwise operations such as AND, OR, XOR, and shifting.
 
 ##### Debugging support (C++26)
+
 While specific details about debugging support in C++26 are not available as of my last update, it's likely that further enhancements and improvements to debugging facilities will be introduced in this version of the language. This may include features such as enhanced debugging information, improved debugging tools, and better integration with development environments and debuggers.
 
 Overall, the General Utilities library in C++ provides a comprehensive set of utilities for common programming tasks, ranging from basic data structures and algorithms to advanced features like error handling, string manipulation, and debugging support. These utilities enhance the expressiveness, efficiency, and reliability of C++ programs, making development easier and more productive.
 
 #### Strings library
+
 The Strings library in C++ offers a collection of classes and utilities for working with character sequences. Let's delve into the components you've mentioned:
 
 ##### basic_string − char_traits
+
 The `basic_string` template, often referred to as `std::basic_string`, is a fundamental component of the Strings library. It represents a sequence of characters, where the character type and allocator type are customizable. The `char_traits` template provides traits and operations for manipulating characters within the `basic_string` class. These traits include comparison, copying, and searching operations, which are tailored to the specific character type used in the string.
 
 ##### basic_string_view (C++17)
+
 `std::basic_string_view`, introduced in C++17, is a lightweight, non-owning view into a sequence of characters. It does not own the underlying data but provides a read-only view into it. This allows for efficient string processing without the overhead of memory allocation and copying. `basic_string_view` is useful for passing substrings or portions of strings to functions without incurring unnecessary copying.
 
 ##### Null-terminated strings: byte − multibyte − wide
+
 C++ supports three types of null-terminated strings, each representing a sequence of characters terminated by a null character (`'\0'`). These types differ in the character encoding used and the size of each character:
 
 - **Byte Strings**: Byte strings use the `char` type and are encoded using the system's default character encoding (usually ASCII or UTF-8). They are suitable for representing text in most cases and are commonly used for basic string manipulation.
@@ -5835,39 +5945,47 @@ C++ supports three types of null-terminated strings, each representing a sequenc
 Each type of null-terminated string has its own set of functions and utilities for manipulating and processing strings of that type. In general, byte strings are the most commonly used type of string in C++, but multibyte and wide strings are necessary for handling international text and wide character sets.
 
 #### Containers library
+
 The Containers library in C++ provides a wide range of data structures for storing and organizing collections of elements. Let's explore each component you've mentioned:
 
 ##### vector − deque − array (C++11)
+
 - **vector**: `std::vector` is a dynamic array that provides fast random access and efficient insertion/removal at the end. It dynamically allocates memory to store its elements and automatically resizes when necessary.
 - **deque**: `std::deque` (double-ended queue) is a sequence container that allows efficient insertion and deletion at both ends. It provides constant time complexity for adding or removing elements at the beginning or end.
 - **array**: `std::array` is a fixed-size array with a size known at compile-time. It provides similar functionality to built-in arrays but adds some additional features such as bounds checking.
 
 ##### list − forward_list (C++11)
+
 - **list**: `std::list` is a doubly linked list that allows efficient insertion and removal of elements anywhere in the container. It provides constant time complexity for insertion and removal but does not support random access.
 - **forward_list**: `std::forward_list` is a singly linked list that allows efficient insertion and removal of elements at the beginning or after a specified element. It consumes less memory than `std::list` but provides similar functionality.
 
 ##### map − multimap − set − multiset
+
 - **map**: `std::map` is an associative container that stores key-value pairs in sorted order based on the keys. It allows fast lookup, insertion, and deletion of elements based on their keys.
 - **multimap**: `std::multimap` is similar to `std::map` but allows duplicate keys. It maintains elements in sorted order based on keys.
 - **set**: `std::set` is an associative container that stores unique elements in sorted order. It provides fast lookup, insertion, and deletion of elements.
 - **multiset**: `std::multiset` is similar to `std::set` but allows duplicate elements.
 
 ##### unordered_map (C++11) - unordered_multimap (C++11) - unordered_set (C++11) - unordered_multiset (C++11)
+
 - **unordered_map**: `std::unordered_map` is an associative container that stores key-value pairs in an unordered manner, based on a hash table. It provides fast average constant-time complexity for lookup, insertion, and deletion.
 - **unordered_multimap**: `std::unordered_multimap` is similar to `std::unordered_map` but allows duplicate keys.
 - **unordered_set**: `std::unordered_set` is an unordered associative container that stores unique elements. It provides fast average constant-time complexity for lookup, insertion, and deletion.
 - **unordered_multiset**: `std::unordered_multiset` is similar to `std::unordered_set` but allows duplicate elements.
 
 ##### Container adaptors
+
 Container adaptors are classes that provide a different interface to underlying containers, typically to restrict the operations that can be performed or to provide additional functionality. Examples include `std::stack`, `std::queue`, and `std::priority_queue`.
 
 ##### span (C++20) - mdspan (C++23)
+
 - **span**: `std::span` is a non-owning reference to a contiguous sequence of elements. It allows efficient access to elements of arrays, vectors, or other contiguous containers without owning the memory. It is useful for passing arrays to functions and for range-based operations.
 - **mdspan**: `std::mdspan` (multi-dimensional span) is a proposed extension to C++ that provides support for multi-dimensional arrays. It extends the functionality of `std::span` to handle multi-dimensional arrays in a uniform and efficient manner.
 
 These containers and adaptors in the C++ Containers library offer a wide range of choices for storing and organizing data, each with its own strengths and trade-offs. They provide efficient and flexible solutions for various programming tasks, enabling developers to write efficient and maintainable code.
 
 #### Iterators library
+
 The Iterators library in C++ provides a mechanism for traversing and accessing elements in sequences, such as arrays, containers, or ranges. Iterators act as pointers to elements within a range, allowing for generic algorithms to operate on different data structures in a uniform manner. Here's an explanation of the Iterators library and the Ranges library introduced in C++20:
 
 - **Iterator Concepts**: The Iterators library defines a set of iterator concepts that categorize iterators based on their capabilities and behavior. These concepts include input iterators, output iterators, forward iterators, bidirectional iterators, random access iterators, and more. They provide a standardized way to classify and reason about iterators, enabling generic algorithms to work with different types of iterators.
@@ -5877,6 +5995,7 @@ The Iterators library in C++ provides a mechanism for traversing and accessing e
 - **Iterator Functions**: The Iterators library also provides a set of functions for working with iterators, such as `std::advance`, `std::distance`, and `std::next`, which allow for advancing iterators, calculating distances between iterators, and obtaining iterators at specified offsets, respectively.
 
 ##### Ranges library (C++20)
+
 The Ranges library introduced in C++20 builds upon the concepts and functionality of the Iterators library, providing a more expressive and composable way to work with sequences of elements. It introduces range-based abstractions that encapsulate both the data and the operations performed on it. Here are some key features of the Ranges library:
 
 - **Range Concepts**: The Ranges library defines a set of range concepts that categorize ranges based on their capabilities and behavior. These concepts include range, view, sized range, input range, forward range, bidirectional range, random access range, and more. They provide a standardized way to classify and reason about ranges, similar to iterator concepts.
@@ -5890,9 +6009,11 @@ The Ranges library introduced in C++20 builds upon the concepts and functionalit
 Overall, the Iterators library provides a foundation for working with sequences of elements using iterators, while the Ranges library builds upon this foundation to offer more powerful and expressive abstractions for working with ranges of elements in a composable and declarative manner. Together, these libraries enable developers to write more readable, efficient, and maintainable code for processing sequences of data in C++.
 
 #### Algorithms library
+
 The Algorithms library in C++ provides a comprehensive set of functions for performing various operations on sequences of elements, such as searching, sorting, and transforming. Let's explore two key features introduced in recent versions of C++:
 
 ##### Execution policies (C++17)
+
 Execution policies were introduced in C++17 to enable parallel execution of standard algorithms. They provide a mechanism for specifying the execution mode of algorithms, allowing developers to take advantage of parallelism when processing large datasets. There are three execution policies defined in C++17:
 
 - **`std::execution::seq`**: Specifies sequential execution. Algorithms executed with this policy will run sequentially, without parallelization.
@@ -5904,6 +6025,7 @@ Execution policies were introduced in C++17 to enable parallel execution of stan
 Execution policies provide a high-level interface for specifying the desired execution mode of algorithms, abstracting away the details of parallelization and allowing the implementation to choose the most efficient execution strategy based on the available hardware and workload.
 
 ##### Constrained algorithms (C++20)
+
 Constrained algorithms were introduced in C++20 to provide more expressive and flexible algorithms that can handle constrained ranges of elements. Constrained algorithms offer similar functionality to standard algorithms but operate only on elements that meet specific criteria or constraints. They are designed to work with ranges that satisfy certain requirements, such as being sorted or partitioned.
 
 Constrained algorithms use the concepts introduced in the Ranges library to express requirements on ranges and elements, making them more composable and generic. They allow developers to write code that is both more expressive and efficient by leveraging the properties of constrained ranges.
@@ -5911,55 +6033,70 @@ Constrained algorithms use the concepts introduced in the Ranges library to expr
 Overall, the Algorithms library in C++ continues to evolve, introducing new features like execution policies and constrained algorithms to improve the expressiveness, efficiency, and parallelism of standard algorithms. These features enable developers to write more concise, readable, and performant code for processing sequences of elements in C++.
 
 #### Numerics library
+
 The Numerics library in C++ provides a range of functionalities for numerical computations and operations. Let's explore each component you've mentioned
 
 ##### Common math functions
+
 The Numerics library includes common mathematical functions such as trigonometric functions (`sin`, `cos`, `tan`), exponential and logarithmic functions (`exp`, `log`, `log10`), and other elementary functions (`sqrt`, `pow`, `abs`). These functions operate on numerical data types like `float`, `double`, and `long double`.
 
 ##### Mathematical special functions (C++17)
+
 C++17 introduced support for mathematical special functions, which include a variety of functions beyond elementary ones. These special functions encompass a wide range of mathematical concepts such as Bessel functions (`j0`, `j1`, `jn`), elliptic integrals (`ellint_1`, `ellint_2`, `ellint_3`), gamma functions (`tgamma`, `lgamma`), and many more. They are essential in various scientific and engineering applications.
 
 ##### Mathematical constants (C++20)
+
 C++20 introduced support for mathematical constants like π (pi) and e (Euler's number). These constants are provided as predefined values (`std::numbers::pi`, `std::numbers::e`) and are useful for mathematical computations requiring precise values of these constants.
 
 ##### Basic linear algebra algorithms (C++26)
+
 C++26 is expected to introduce basic linear algebra algorithms, providing functionalities for common linear algebra operations like matrix addition, multiplication, decomposition, and solving systems of linear equations. These algorithms will be crucial for numerical simulations, scientific computing, and machine learning applications.
 
 ##### Numeric algorithms
+
 The Numerics library includes a wide range of numeric algorithms for various tasks such as sorting (`std::sort`), searching (`std::binary_search`), mathematical accumulation (`std::accumulate`), and statistical computations (`std::mean`, `std::median`, `std::variance`). These algorithms operate on ranges of elements and are essential for numerical computations and data analysis.
 
 ##### Pseudo-random number generation
+
 C++ provides utilities for generating pseudo-random numbers using the `<random>` header. It includes various random number generators (such as `std::mt19937` and `std::default_random_engine`) and distributions (such as uniform distribution, normal distribution, and discrete distribution) for generating random numbers with different characteristics.
 
 ##### Floating-point environment (C++11)
+
 C++11 introduced facilities for managing and querying the floating-point environment, including functions like `std::fetestexcept` for testing floating-point exceptions and macros like `FLT_EVAL_METHOD` for querying the floating-point evaluation method used by the compiler.
 
 ##### complex − valarray
+
 The Numerics library includes support for complex numbers (`std::complex`) and numerical arrays (`std::valarray`). Complex numbers are useful for representing and manipulating complex mathematical entities, while valarrays provide facilities for numerical array operations like element-wise arithmetic operations and mathematical functions.
 
 Overall, the Numerics library in C++ provides a rich set of functionalities for numerical computations, mathematical operations, and statistical analysis, making C++ a versatile language for scientific computing, engineering, and data analysis tasks.
 
 #### Date and time library
+
 The Date and Time library in C++ provides functionalities for handling dates, times, and time zones, facilitating the manipulation and management of temporal data. Let's explore the components you've mentioned:
 
 ##### Calendar (C++20) − Time zone (C++20)
 
 ###### Calendar (C++20)
+
 The Calendar feature introduced in C++20 provides a standardized mechanism for working with dates and calendars. It includes functionalities for representing and manipulating dates, determining the day of the week, calculating the difference between dates, and converting between different calendar systems (e.g., Gregorian, Julian). The Calendar feature enhances the expressiveness and robustness of date-related operations in C++, providing a consistent interface for working with dates across different platforms and locales.
 
 ###### Time zone (C++20)
+
 The Time Zone feature introduced in C++20 addresses the complexities of handling time zones and daylight saving time (DST) transitions. It provides functionalities for representing time zones, converting between different time zones, and handling DST transitions. With the Time Zone feature, developers can accurately represent and manipulate time zone-aware datetime values, ensuring correct behavior when dealing with temporal data across different geographical regions and time zones. Additionally, the Time Zone feature helps address issues related to time zone ambiguity and DST transitions, providing a more reliable and standardized approach to handling time zone-related operations in C++ applications.
 
 Overall, the Date and Time library enhancements introduced in C++20, including the Calendar and Time Zone features, improve the capabilities and usability of date and time functionalities in C++. They provide standardized mechanisms for working with dates, calendars, and time zones, enabling developers to write more robust and reliable applications that deal with temporal data accurately and efficiently.
 #### Localization library
+
 The Localization library in C++ provides functionalities for handling locale-specific operations, such as character classification, text formatting, and language-specific behavior. Let's explore the components you've mentioned:
 
 ##### locale − Character classification
+
 The `std::locale` class in C++ represents a locale, which defines a set of language- and region-specific conventions for formatting dates, times, numbers, and currency, as well as character classification and collation rules. Locales allow developers to tailor the behavior of their programs to the preferences and conventions of different locales, enabling applications to support internationalization and localization.
 
 The `std::locale` class provides methods for querying and setting locale-specific facets, which are specialized classes responsible for various locale-specific operations. For character classification, the `std::ctype` facet is used to define character classification and conversion rules specific to a locale. This allows developers to perform locale-sensitive operations such as case conversion, character classification (e.g., `isalpha`, `isdigit`), and string comparison according to the rules of a specific locale.
 
 ##### text_encoding (C++26)
+
 The `text_encoding` feature introduced in C++26 aims to provide support for text encoding and decoding operations in a standardized manner. Text encoding refers to the process of converting characters from their internal representation (e.g., Unicode code points) to an external representation suitable for storage or transmission (e.g., UTF-8, UTF-16). Similarly, text decoding involves converting external representations of characters back to their internal representation.
 
 The `text_encoding` feature is expected to provide functionalities for converting between different text encodings, detecting and handling encoding errors, and working with text encoded in various formats. It aims to simplify and standardize text encoding and decoding operations, making it easier for developers to handle text data in their applications, especially in scenarios involving internationalization, text processing, and data interchange across different systems and platforms.
@@ -5967,31 +6104,39 @@ The `text_encoding` feature is expected to provide functionalities for convertin
 Overall, the Localization library in C++ plays a crucial role in enabling applications to support internationalization and localization by providing functionalities for locale-specific operations such as character classification and text encoding. These features empower developers to write applications that can adapt to the preferences and conventions of different locales, ensuring a consistent and culturally appropriate user experience across different regions and languages.
 
 #### Input/output library
+
 The Input/Output (I/O) library in C++ provides a comprehensive set of functionalities for performing input and output operations, including console I/O, file I/O, and stream-based I/O. Let's explore each component you've mentioned:
 
 ##### Print functions (C++23)
+
 The Print functions feature, expected to be introduced in C++23, aims to enhance the standard library's capabilities for printing formatted output to the console or other output devices. It may introduce new functions or improvements to existing functions for printing data with enhanced formatting options, improved performance, or better integration with other library features.
 
 ##### Stream-based I/O − I/O manipulators
+
 C++ provides stream-based I/O facilities through the `std::basic_istream` and `std::basic_ostream` classes, which serve as base classes for input and output streams, respectively. These classes are templated on the character type (`char` or `wchar_t`) and provide a flexible and extensible framework for performing formatted I/O operations.
 
 I/O manipulators are special functions or objects that modify the behavior of input and output streams. They can be used to control formatting options such as field width, precision, alignment, and decimal point placement. Common manipulators include `std::setw`, `std::setprecision`, `std::left`, `std::right`, `std::fixed`, and `std::scientific`.
 
 ##### basic_istream − basic_ostream
+
 `std::basic_istream` and `std::basic_ostream` are template classes representing input and output streams, respectively. They provide a common interface for performing formatted input and output operations on sequences of characters. These classes serve as base classes for more specialized stream classes like `std::istream` and `std::ostream`, which use `char` as the character type, and `std::wistream` and `std::wostream`, which use `wchar_t` as the character type.
 
 ##### Synchronized output (C++20)
+
 The Synchronized output feature introduced in C++20 provides mechanisms for ensuring thread-safe output to standard output streams (`std::cout`, `std::cerr`, `std::clog`) in multi-threaded programs. It ensures that output from multiple threads is properly synchronized and interleaved in a predictable manner, preventing garbled or out-of-order output.
 
 ##### File systems (C++17)
+
 The File Systems library introduced in C++17 provides functionalities for performing file system operations such as querying file attributes, manipulating paths, iterating over directory contents, and creating, deleting, and renaming files and directories. It aims to standardize and simplify file system-related operations, making it easier for developers to work with files and directories in a platform-independent manner.
 
 Overall, the Input/Output library in C++ offers a rich set of functionalities for performing input and output operations, including stream-based I/O, file I/O, formatted I/O, and thread-safe output. These features enable developers to build robust and efficient applications that can handle various input and output scenarios, from simple console-based interaction to complex file system operations and multi-threaded output synchronization.
 
 #### Regular expressions library (C++11)
+
 The Regular Expressions library introduced in C++11 provides a powerful and flexible mechanism for pattern matching and text processing. Let's delve into the components you've mentioned:
 
 ##### basic_regex − Algorithms
+
 `std::basic_regex` is a template class representing a compiled regular expression pattern. It serves as the foundation for working with regular expressions in C++, allowing developers to create, compile, and use regular expression patterns for searching, matching, and replacing text within strings.
 
 The Regular Expressions library in C++ provides a range of algorithms for working with regular expressions, including searching for matches (`std::regex_search`), matching entire strings (`std::regex_match`), finding and replacing matches (`std::regex_replace`), and splitting strings based on matching patterns (`std::regex_split`).
@@ -5999,6 +6144,7 @@ The Regular Expressions library in C++ provides a range of algorithms for workin
 These algorithms operate on `std::basic_string` or `std::string_view` objects and allow developers to perform various text processing tasks efficiently and conveniently using regular expressions.
 
 ##### Default regular expression grammar
+
 The Regular Expressions library in C++11 adopts the ECMAScript regular expression grammar as the default syntax for defining regular expression patterns. This grammar is widely used and familiar to developers from other programming languages, making it easy to write and understand regular expressions in C++.
 
 The ECMAScript regular expression grammar supports a wide range of features, including character classes (`[...]`), quantifiers (`*`, `+`, `?`), alternation (`|`), grouping (`(...)`) and backreferences (`\1`, `\2`), allowing developers to create complex and expressive patterns for matching text.
@@ -6006,27 +6152,35 @@ The ECMAScript regular expression grammar supports a wide range of features, inc
 Overall, the Regular Expressions library in C++11 provides a robust and efficient framework for working with regular expressions, allowing developers to perform sophisticated text processing tasks with ease and confidence. It leverages the widely-used ECMAScript regular expression grammar and provides a range of algorithms for searching, matching, and manipulating text using regular expressions.
 
 #### Concurrency support library (C++11)
+
 The Concurrency Support library in C++11 provides functionalities for writing multithreaded and concurrent programs, allowing developers to leverage the full potential of modern hardware with multiple CPU cores. Let's explore the components you've mentioned
 
 ##### thread − jthread (C++20)
+
 The `std::thread` class in C++11 allows developers to create and manage threads of execution. Threads are lightweight processes that run concurrently with other threads in a program. They are useful for parallelizing tasks and utilizing multiple CPU cores effectively. C++20 introduced the `std::jthread` class, which is a joinable thread with automatic cleanup upon destruction, providing safer and more convenient thread management compared to `std::thread`.
 
 ##### atomic − atomic_flag
+
 The `std::atomic` template class in C++11 provides atomic operations for shared variables accessed by multiple threads concurrently. Atomic operations ensure that operations on shared variables are performed atomically, without the risk of data races or undefined behavior. `std::atomic_flag` is a specialization of `std::atomic` for boolean flags, providing lock-free atomic operations for simple synchronization primitives.
 
 ##### atomic_ref (C++20) − memory_order
+
 C++20 introduced `std::atomic_ref`, which allows atomic operations on non-atomic variables by providing a reference wrapper to the variable. This enables atomic operations on existing variables without the need to make them atomic. Additionally, C++11 introduced the `memory_order` enumeration, which allows developers to specify the memory ordering constraints for atomic operations, ensuring correct synchronization and consistency between threads.
 
 ##### Mutual exclusion − Semaphores (C++20)
+
 Mutual exclusion mechanisms such as mutexes and semaphores are essential for coordinating access to shared resources among multiple threads. C++11 provides `std::mutex` for mutual exclusion and `std::unique_lock` for scoped locking. C++20 introduced `std::binary_semaphore` and `std::counting_semaphore`, which provide semaphore-based synchronization primitives for coordinating access to shared resources.
 
 ##### Condition variables − Futures
+
 Condition variables (`std::condition_variable`) allow threads to wait for certain conditions to become true before proceeding. They are often used in combination with mutexes to implement complex synchronization patterns. Futures (`std::future`) represent asynchronous computations and provide a mechanism for retrieving the result of a computation that may be running concurrently in another thread.
 
 ##### latch (C++20) − barrier (C++20)
+
 C++20 introduced `std::latch` and `std::barrier`, which are synchronization primitives for coordinating the execution of multiple threads. A latch is a synchronization primitive that allows a fixed number of threads to wait until a certain condition is satisfied before proceeding. A barrier is a synchronization primitive that allows a group of threads to synchronize at a predefined point in their execution, ensuring that all threads reach the barrier before any thread proceeds further.
 
 ##### Safe Reclamation (C++26)
+
 C++26 is expected to introduce safe reclamation mechanisms for managing memory and resources in multithreaded environments. These mechanisms aim to provide efficient and safe memory reclamation for lock-free data structures and algorithms, enabling developers to write concurrent code with better performance and reliability.
 
 Overall, the Concurrency Support library in C++ provides a rich set of functionalities for writing multithreaded and concurrent programs, including thread management, atomic operations, mutual exclusion, synchronization primitives, and safe memory reclamation mechanisms. These features enable developers to write efficient and scalable concurrent code while ensuring correct behavior and avoiding common concurrency pitfalls such as data races and deadlocks.
@@ -7245,12 +7399,15 @@ This example demonstrates the basic structure of a web server in Go. However, Go
 ### Rust Language
 
 #### Getting Started
+
 Here's a breakdown of each section based on the Rust programming language:
 
 ##### Installation
+
 To get started with Rust, you first need to install the Rust toolchain. You can do this by visiting the official Rust website and following the installation instructions specific to your operating system. Rustup is the recommended tool for managing Rust installations. Once installed, you'll have access to the Rust compiler (`rustc`) and package manager (`cargo`).
 
 ##### Hello, World!
+
 Once Rust is installed, you can create your first Rust program, typically the traditional "Hello, World!" program. Create a new file with a `.rs` extension (e.g., `hello.rs`) and write the following code:
 
 ```rust
@@ -7262,6 +7419,7 @@ fn main() {
 This program defines a function named `main`, which serves as the entry point of the program. Inside `main`, it calls the `println!` macro to print the string "Hello, World!" to the console.
 
 ##### Hello, Cargo!
+
 `Cargo` is Rust's package manager and build system. It simplifies the process of managing Rust projects, including dependencies, building, and running your code. To create a new Rust project with Cargo, navigate to your desired directory in the terminal and run:
 
 ```
@@ -7278,12 +7436,15 @@ cargo run
 This will compile and execute the `main.rs` file, printing "Hello, World!" to the console. Cargo handles the compilation, dependency management, and other project-related tasks for you, making it easier to manage Rust projects.
 
 #### Programming a Guessing Game
+
 "Programming a Guessing Game" is a common introductory project used to teach programming concepts, and it's often used as a starting point for learning Rust. Here's a basic breakdown:
 
 ##### The Objective
+
 The objective of the guessing game is for the computer to generate a random number within a specified range and challenge the player to guess that number. The player keeps guessing until they correctly guess the number. After each guess, the computer provides feedback to the player, informing them whether their guess was too high, too low, or correct.
 
 ##### Steps to Implement the Game
+
 1. **Generate a Random Number**: The game starts by generating a random number within a specified range. In Rust, you can use the `rand` crate to generate random numbers.
 
 2. **Prompt the Player for Input**: The game prompts the player to input their guess.
@@ -7299,6 +7460,7 @@ The objective of the guessing game is for the computer to generate a random numb
 7. **End Game**: Once the player guesses the correct number, end the game and display a congratulatory message.
 
 ##### Implementing in Rust
+
 Here's a simplified version of how you might implement this game in Rust:
 
 ```rust
@@ -7340,6 +7502,7 @@ fn main() {
 ```
 
 ###### Explanation
+
 - We import necessary crates (`rand` for random number generation) and modules (`io` for input/output, `cmp` for comparison).
 - We generate a random number between 1 and 100 using `rand::thread_rng().gen_range(1..101)`.
 - We enter a loop where the player can make guesses until they guess the correct number.
@@ -7348,9 +7511,11 @@ fn main() {
 - If the guess is correct, we break out of the loop and end the game with a congratulatory message.
 
 #### Common Programming Concepts
+
 Here's an explanation of each of these common programming concepts in Rust:
 
 ##### Variables and Mutability
+
 In Rust, variables are immutable by default, meaning their value cannot be changed once set. However, you can explicitly declare a variable as mutable using the `mut` keyword, allowing its value to be changed. For example:
 
 ```rust
@@ -7363,6 +7528,7 @@ y = 20; // Valid
 ```
 
 ##### Data Types
+
 Rust has several built-in primitive data types, including integers, floating-point numbers, booleans, characters, and compound types like tuples, arrays, and structs. Rust also supports user-defined data types through enums and structs. Here are a few examples:
 
 ```rust
@@ -7386,6 +7552,7 @@ let array: [i32; 3] = [1, 2, 3];
 ```
 
 ##### Functions
+
 Functions in Rust are declared using the `fn` keyword. They can have parameters and return values. Rust functions must declare the type of each parameter and the return type. Here's a simple function declaration:
 
 ```rust
@@ -7395,6 +7562,7 @@ fn add(a: i32, b: i32) -> i32 {
 ```
 
 ##### Comments
+
 Rust supports both single-line (`//`) and multi-line (`/* */`) comments. Comments are ignored by the compiler and are used to document code or temporarily disable portions of code. For example:
 
 ```rust
@@ -7408,6 +7576,7 @@ comment
 ```
 
 ##### Control Flow
+
 Rust provides various control flow constructs like `if`, `else`, `match`, `loop`, `while`, and `for`. Here's a basic example using `if`:
 
 ```rust
@@ -7435,9 +7604,11 @@ match number {
 This code matches the value of `number` against different patterns and executes corresponding code blocks. The `_` is a placeholder for any value not explicitly matched.
 
 #### Understanding Ownership
+
 Let's delve into each concept:
 
 ##### What is Ownership?
+
 Ownership is one of Rust's most unique and powerful features for memory safety. In Rust, each value has a variable that's called its "owner". There can only be one owner at a time, and when the owner goes out of scope, the value is dropped. This means that Rust doesn't rely on garbage collection for memory management; it uses ownership to determine when to free memory.
 
 Ownership rules:
@@ -7446,6 +7617,7 @@ Ownership rules:
 3. Values can be transferred or borrowed, but not both simultaneously.
    
 ##### References and Borrowing
+
 References in Rust allow you to "borrow" a value without taking ownership of it. This allows multiple parts of the code to read the value without issue. Borrowing can be either mutable or immutable. 
 
 ```rust
@@ -7476,6 +7648,7 @@ In the example above:
 - `change_string` borrows `s_mut` mutably.
 
 ##### The Slice Type
+
 Slices are a reference to a contiguous sequence of elements in a collection. They don't have ownership and allow you to reference a portion of a collection without copying. Slices are denoted using `[start..end]` syntax.
 
 ```rust
@@ -7491,9 +7664,11 @@ fn main() {
 In this example, `slice` is a reference to a portion of the string `s` containing the characters from index `0` to `1`. It's important to note that slices don't have ownership, so the original data remains valid as long as the slice is in scope.
 
 #### Using Structs to Structure Related Data
+
 Let's explore each of these topics:
 
 ##### Defining and Instantiating Structs
+
 In Rust, structs are used to create custom data types to structure related data. Here's how you define and instantiate a struct:
 
 ```rust
@@ -7522,6 +7697,7 @@ In this example:
 - We access the fields of the struct using dot notation.
 
 ##### An Example Program Using Structs
+
 Here's an example program that demonstrates using structs to represent rectangles and calculating their area:
 
 ```rust
@@ -7557,6 +7733,7 @@ In this example:
 - We call the `area` method on `rectangle1` to calculate and print its area.
 
 ##### Method Syntax
+
 In Rust, methods are functions associated with a particular struct or enum. They allow you to define behavior specific to a type. Here's the syntax for defining methods:
 
 ```rust
@@ -7574,9 +7751,11 @@ In this example:
 - The method returns the calculated area of the rectangle as a `u32`.
 
 #### Enums and Pattern Matching
+
 Let's dive into each topic:
 
 ##### Defining an Enum
+
 Enums, short for "enumerations," allow you to define a type by enumerating its possible variants. Each variant can optionally hold data of its own type. Here's how you define an enum in Rust:
 
 ```rust
@@ -7606,6 +7785,7 @@ In this example:
 - We define a `UsState` struct, which can be used as associated data for the `Quarter` variant.
 
 ##### The match Control Flow Construct
+
 `match` is a powerful control flow construct in Rust that allows you to compare a value against a series of patterns and execute code based on which pattern matches. Here's how `match` works:
 
 ```rust
@@ -7632,6 +7812,7 @@ In this example:
 - Inside the function, we use `match` to match the `coin` argument against different variants of `Coin` and return the corresponding value in cents.
 
 ##### Concise Control Flow with if let
+
 `if let` is a concise syntax for handling values that match one pattern and ignoring the rest. It's often used when you're interested in handling only one specific case and don't need to cover all possible variants like `match`. Here's how `if let` works:
 
 ```rust
@@ -7650,12 +7831,15 @@ In this example:
 - If `some_value` is `Some`, it prints the value; otherwise, it prints "No value".
 
 #### Managing Growing Projects with Packages, Crates, and Modules
+
 Let's break down each of these topics:
 
 ##### Packages and Crates
+
 In Rust, a package is a collection of one or more crates. A crate is a binary or library project. A package must contain at least one crate, known as the package's root crate. A package can contain multiple binaries and/or libraries.
 
 ##### Defining Modules to Control Scope and Privacy
+
 Modules allow you to organize code within a crate into logical groups, control the visibility of items (such as functions, structs, enums, and modules), and manage the scope of names. You can define modules using the `mod` keyword. Here's an example:
 
 ```rust
@@ -7665,6 +7849,7 @@ mod my_module {
 ```
 
 ##### Paths for Referring to an Item in the Module Tree
+
 In Rust, a path is a way to refer to an item (such as a function, struct, or module) within the module tree. There are two types of paths:
 - **Absolute Path**: Starts from the crate root by using a crate name or a literal `crate` keyword.
 - **Relative Path**: Starts from the current module and uses `self`, `super`, or an identifier in the current module.
@@ -7680,6 +7865,7 @@ super::parent_module::my_function();
 ```
 
 ##### Bringing Paths Into Scope with the use Keyword
+
 The `use` keyword in Rust allows you to bring paths into scope, making it easier to refer to items within modules. You can use `use` with both absolute and relative paths. Here's an example:
 
 ```rust
@@ -7691,6 +7877,7 @@ use crate::my_module::my_function;
 ```
 
 ##### Separating Modules into Different Files
+
 In Rust, you can define modules in separate files and organize your code more effectively. Each file should represent a module by placing it in a directory with the same name as the module and using a `mod.rs` file for its contents. Here's an example project structure:
 
 ```
@@ -7708,9 +7895,11 @@ In this structure:
 - Additional submodules like `my_submodule.rs` can be added in the same directory and referenced using the `mod.rs` file.
 
 #### Common Collections
+
 Let's discuss each of these topics:
 
 ##### Storing Lists of Values with Vectors
+
 In Rust, vectors are a dynamic array type provided by the standard library. They allow you to store a variable number of values of the same type in contiguous memory. Vectors are resizable and efficient for adding, removing, and accessing elements.
 
 ```rust
@@ -7733,6 +7922,7 @@ for i in &v {
 ```
 
 ##### Storing UTF-8 Encoded Text with Strings
+
 In Rust, the `String` type represents a growable, mutable, UTF-8 encoded string. It is implemented as a vector of bytes (`Vec<u8>`) that represent a valid UTF-8 encoded string. Rust also has the `&str` type, which is an immutable reference to a string slice.
 
 ```rust
@@ -7753,6 +7943,7 @@ for c in s3.chars() {
 ```
 
 ##### Storing Keys with Associated Values in Hash Maps
+
 Hash maps in Rust are collections of key-value pairs, where each key must be unique. They are implemented using a hash table, providing fast insertion, deletion, and lookup operations. Rust's standard library provides the `HashMap` type for working with hash maps.
 
 ```rust
@@ -7779,9 +7970,11 @@ for (key, value) in &scores {
 In this example, `scores` is a `HashMap` mapping `String` keys to `i32` values. We insert key-value pairs into the map using the `insert` method and access values using the `get` method. We can also iterate over key-value pairs using a `for` loop.
 
 #### Error Handling
+
 Let's discuss each of these aspects of error handling in Rust:
 
 ##### Unrecoverable Errors with `panic!`
+
 In Rust, `panic!` is a macro used to indicate that the program has reached an unrecoverable state and should terminate immediately. It can be used to handle situations such as index out of bounds, division by zero, or other critical errors.
 
 ```rust
@@ -7796,6 +7989,7 @@ fn main() {
 When `panic!` is encountered, the program prints an error message and unwinds the stack, cleaning up memory and resources allocated by the program before terminating.
 
 ##### Recoverable Errors with `Result`
+
 In situations where errors can be recovered from, Rust provides the `Result` enum to handle recoverable errors. `Result` has two variants: `Ok`, representing success and containing the result, and `Err`, representing an error and containing an error value.
 
 ```rust
@@ -7814,6 +8008,7 @@ fn main() {
 In this example, `File::open` returns a `Result` that may contain a `File` if successful or an error if unsuccessful. We use pattern matching (`match`) to handle both cases.
 
 ##### To `panic!` or Not to `panic!`
+
 Deciding whether to use `panic!` or `Result` depends on the nature of the error and the context of the code. Use `panic!` for unrecoverable errors that indicate bugs or critical failures, where the program cannot continue safely. Use `Result` for recoverable errors where the program can gracefully handle the error and continue execution.
 
 In general:
@@ -7821,9 +8016,11 @@ In general:
 - Use `Result` for expected errors that can be handled gracefully by the program.
 
 #### Generic Types, Traits, and Lifetimes
+
 Let's delve into each of these concepts:
 
 ##### Generic Data Types
+
 In Rust, generic data types allow you to define functions, structs, enums, and methods that work with any data type, thus increasing code reuse and flexibility. You can create generic functions, structs, and enums using type parameters.
 
 ```rust
@@ -7845,6 +8042,7 @@ fn main() {
 In this example, `max` is a generic function that takes two parameters of type `T`, which must implement the `PartialOrd` trait. This allows `max` to work with any data type that supports comparison.
 
 ##### Traits: Defining Shared Behavior
+
 Traits in Rust define shared behavior for types. They allow you to specify methods that a type must implement to be considered as implementing that trait. Traits are similar to interfaces in other languages but are more powerful because they support default implementations and can be implemented for types outside of your crate.
 
 ```rust
@@ -7877,6 +8075,7 @@ fn main() {
 In this example, we define a trait named `Summary` with a single method `summarize`. We then implement `Summary` for the `NewsArticle` struct, providing a custom implementation for `summarize`.
 
 ##### Validating References with Lifetimes
+
 Lifetimes in Rust ensure that references remain valid for the duration they are used. Lifetimes are annotations that describe the relationship between the lifetimes of various references in your code. They are denoted by single quotes (`'`). Lifetimes are important for preventing dangling references and memory safety.
 
 ```rust
@@ -7901,14 +8100,17 @@ fn main() {
 In this example, the `longest` function has a lifetime parameter `'a`, which indicates that the returned reference will live at least as long as the shorter of the two input references. This ensures that the returned reference is valid for the duration it is used.
 
 #### Writing Automated Tests
+
 Here's an explanation of each topic:
 
 ##### How to Write Tests
+
 In Rust, tests are written using the built-in testing framework provided by the standard library (`std::test`). Tests are written as functions annotated with the `#[test]` attribute. You can write tests for functions, methods, or any other code that you want to verify behaves correctly.
 
 ```rust
 // Test function to verify the behavior of add function
 #[test]
+
 fn test_add() {
     assert_eq!(add(2, 3), 5);
 }
@@ -7922,6 +8124,7 @@ fn add(a: i32, b: i32) -> i32 {
 In this example, we define a test function `test_add` annotated with `#[test]`. Inside the test function, we use assertions like `assert_eq!` to verify the behavior of the `add` function.
 
 ##### Controlling How Tests Are Run
+
 Rust provides several command-line options to control how tests are run. You can use these options to filter tests, run tests in parallel, display additional information, and more. Some common options include:
 - `--test`: Run tests.
 - `--test-threads`: Number of threads used for running tests in parallel.
@@ -7930,6 +8133,7 @@ Rust provides several command-line options to control how tests are run. You can
 - `--nocapture`: Do not capture stdout/stderr from tests.
 
 ##### Test Organization
+
 In Rust, you can organize tests into different modules and files just like regular code. Each file containing tests should be placed in the `tests` directory of your project, and Rust's test runner will automatically discover and run these tests.
 
 For example, you might have the following directory structure:
@@ -7949,9 +8153,11 @@ When running tests with `cargo test`, Rust will compile and execute all test fil
 By organizing tests into separate files and modules, you can keep your tests organized and maintainable, making it easier to write, understand, and maintain your test suite as your project grows.
 
 #### An I/O Project: Building a Command Line Program
+
 Here's an explanation of each topic:
 
 ##### Accepting Command Line Arguments
+
 In Rust, you can accept command-line arguments using the `std::env::args` function. This function returns an iterator over the command-line arguments passed to the program.
 
 ```rust
@@ -7966,6 +8172,7 @@ fn main() {
 In this example, `env::args()` returns an iterator over the command-line arguments. We collect the iterator into a vector of strings (`Vec<String>`) for easier handling.
 
 ##### Reading a File
+
 To read a file in Rust, you can use the `std::fs::File` type to open the file, and then use `std::io::Read` or `std::io::BufRead` traits to read its contents.
 
 ```rust
@@ -7987,6 +8194,7 @@ fn main() -> io::Result<()> {
 In this example, we open the file named "example.txt" using `File::open`. We then wrap the file in a `BufReader` to efficiently read the file line by line. Finally, we iterate over each line and print it to the console.
 
 ##### Refactoring to Improve Modularity and Error Handling
+
 When building a command-line program, it's essential to structure your code in a modular and error-handling-friendly way. This often involves refactoring your code into smaller, more focused functions, handling errors gracefully using `Result`, and separating concerns into different modules.
 
 ```rust
@@ -7994,6 +8202,7 @@ When building a command-line program, it's essential to structure your code in a
 ```
 
 ##### Developing the Library’s Functionality with Test Driven Development
+
 Test-Driven Development (TDD) is an iterative development process where you write tests before writing the actual implementation code. In Rust, you can use the built-in testing framework to write tests for your functions, modules, and libraries.
 
 ```rust
@@ -8001,6 +8210,7 @@ Test-Driven Development (TDD) is an iterative development process where you writ
 ```
 
 ##### Working with Environment Variables
+
 Rust provides access to environment variables through the `std::env::var` function. This function returns a `Result<String, std::env::VarError>` representing the value of the environment variable.
 
 ```rust
@@ -8017,6 +8227,7 @@ fn main() {
 In this example, we use `env::var("HOME")` to retrieve the value of the "HOME" environment variable. We then match on the result to handle both success and error cases.
 
 ##### Writing Error Messages to Standard Error Instead of Standard Output
+
 In Rust, you can write error messages to standard error (stderr) instead of standard output (stdout) using the `eprintln!` macro. This is useful for printing error messages, warnings, or other diagnostic information that should not be redirected or piped with normal program output.
 
 ```rust
@@ -8034,9 +8245,11 @@ fn main() -> io::Result<()> {
 In this example, `eprintln!` is used to print an error message to standard error. This ensures that the error message is displayed separately from the normal program output and can be easily distinguished by users and redirected or piped independently.
 
 #### Functional Language Features: Iterators and Closures
+
 Let's dive into each topic:
 
 ##### Closures: Anonymous Functions that Capture Their Environment
+
 Closures in Rust are anonymous functions that can capture variables from their surrounding environment. They are similar to lambdas or anonymous functions in other languages. Closures can capture variables by reference (`&`), by mutable reference (`&mut`), or by value (`move`). They are defined using the `|args| { body }` syntax.
 
 ```rust
@@ -8049,6 +8262,7 @@ fn main() {
 In this example, `add` is a closure that captures its environment and adds two numbers.
 
 ##### Processing a Series of Items with Iterators
+
 Iterators in Rust provide a way to iterate over collections of items. They are a fundamental part of Rust's functional programming capabilities. You can chain multiple iterator adaptors together to perform complex operations on collections.
 
 ```rust
@@ -8062,6 +8276,7 @@ fn main() {
 In this example, `iter()` creates an iterator over the vector, `map()` applies a closure to each element of the iterator, and `collect()` collects the results into a new vector.
 
 ##### Improving Our I/O Project
+
 You can improve an I/O project in Rust by using iterators and closures to make the code more concise, expressive, and efficient. For example, you can use iterator adaptors like `lines()` to read lines from a file, `map()` to transform each line, and `filter()` to select specific lines based on a predicate.
 
 ```rust
@@ -8080,6 +8295,7 @@ fn main() {
 In this example, `read_to_string()` reads the contents of a file into a string, `lines()` splits the string into lines, `filter()` removes empty lines, `map()` trims whitespace from each line, and `collect()` collects the results into a vector.
 
 ##### Comparing Performance: Loops vs Iterators
+
 In Rust, iterators are generally as efficient as traditional loops, and in many cases, they can even be more efficient due to optimizations performed by the compiler. However, there might be specific cases where loops are more suitable, such as when you need explicit control over iteration or when performance is critical.
 
 ```rust
@@ -8102,9 +8318,11 @@ fn main() {
 In this example, both the loop and iterator versions produce the same result, but the iterator version is more concise. Depending on the context, you may choose to use iterators for their expressiveness and clarity, or loops for their explicit control and performance.
 
 #### More about Cargo and Crates.io
+
 Let's dive into each of these topics:
 
 ##### Customizing Builds with Release Profiles
+
 Release profiles in Cargo allow you to customize the build settings for different scenarios, such as `debug` and `release` builds. You can specify different compiler optimizations, debug information, and other settings for each profile. This is useful for optimizing your code for performance in release builds while retaining debug information in debug builds.
 
 ```toml
@@ -8118,6 +8336,7 @@ opt-level = 3
 In this example, we set the optimization level to 3 for the `release` profile, which enables aggressive optimizations to improve performance.
 
 ##### Publishing a Crate to Crates.io
+
 Crates.io is the official package registry for Rust crates. To publish a crate to Crates.io, you need to create a Cargo.toml file with the necessary metadata, such as the crate name, version, and description. Then, you can use the `cargo publish` command to upload your crate to Crates.io.
 
 ```bash
@@ -8127,6 +8346,7 @@ cargo publish
 Before publishing, make sure you've logged in to crates.io using `cargo login` and that your crate's version has been incremented appropriately.
 
 ##### Cargo Workspaces
+
 Cargo workspaces allow you to manage multiple related packages (crates) within the same directory structure. This is useful for organizing large projects with multiple crates that depend on each other. Workspaces use a `Cargo.toml` file at the root of the workspace to define dependencies and settings for all crates in the workspace.
 
 ```bash
@@ -8139,6 +8359,7 @@ cargo new crate2 --lib
 In this example, we create a workspace with two libraries (`crate1` and `crate2`) and one binary (`my_workspace`). The `Cargo.toml` file at the root of the workspace defines dependencies and settings that apply to all crates in the workspace.
 
 ##### Installing Binaries from Crates.io with cargo install
+
 You can use the `cargo install` command to install Rust binaries from Crates.io. This command downloads the specified crate and installs its binary into the Cargo bin directory, making it available for execution from any directory.
 
 ```bash
@@ -8148,6 +8369,7 @@ cargo install my_crate
 In this example, `my_crate` is the name of the crate you want to install. After installation, you can run the crate's binary by typing its name in the terminal.
 
 ##### Extending Cargo with Custom Commands
+
 Cargo allows you to extend its functionality with custom commands called "Cargo subcommands." Subcommands are standalone executables that follow the naming convention `cargo-<name>`, and Cargo automatically recognizes them as subcommands.
 
 To create a custom subcommand, you need to implement a binary crate with the desired functionality and publish it to Crates.io. Once published, users can install and use your subcommand just like any other Cargo command.
@@ -8159,9 +8381,11 @@ cargo my_subcommand
 In this example, `my_subcommand` is the name of the custom subcommand you've created and installed. You can distribute custom subcommands for specific tasks or workflows to enhance the capabilities of Cargo.
 
 #### Smart Pointers
+
 Here's a breakdown of each topic:
 
 ##### Using `Box<T>` to Point to Data on the Heap
+
 In Rust, `Box<T>` is a smart pointer that points to data stored on the heap. It provides a way to allocate memory on the heap and ensures that the memory is freed when the `Box` goes out of scope. `Box` is commonly used when you need to:
 - Have a value with a known size at compile time.
 - Transfer ownership of a large amount of data.
@@ -8177,6 +8401,7 @@ fn main() {
 In this example, `Box::new(5)` allocates memory on the heap to store the value `5`, and `b` is a smart pointer (box) that points to this memory location.
 
 ##### Treating Smart Pointers Like Regular References with the `Deref` Trait
+
 In Rust, the `Deref` trait allows you to customize the behavior of the dereference operator (`*`). It enables smart pointers to be used like regular references, allowing you to access the inner value of the smart pointer as if it were a reference.
 
 ```rust
@@ -8201,6 +8426,7 @@ fn main() {
 In this example, `MyBox` is a custom smart pointer that implements the `Deref` trait, allowing you to dereference it using the `*` operator.
 
 ##### Running Code on Cleanup with the `Drop` Trait
+
 The `Drop` trait in Rust allows you to run code when a value goes out of scope. It is similar to a destructor in other languages and is commonly used to perform cleanup tasks such as releasing resources or closing file handles.
 
 ```rust
@@ -8225,6 +8451,7 @@ fn main() {
 In this example, when `c` goes out of scope at the end of `main()`, the `drop()` method of the `Drop` trait is automatically called, printing a message indicating that the smart pointer is being dropped.
 
 ##### `Rc<T>`, the Reference Counted Smart Pointer
+
 `Rc<T>` (Reference Counted) is a smart pointer in Rust that enables multiple ownership of the same data. It keeps track of the number of references to the data it points to and automatically frees the memory when the last reference is dropped.
 
 ```rust
@@ -8242,6 +8469,7 @@ fn main() {
 In this example, `Rc::new(5)` creates an `Rc` smart pointer to the value `5`. Using `Rc::clone()`, we can create additional references to the same data.
 
 ##### `RefCell<T>` and the Interior Mutability Pattern
+
 `RefCell<T>` is a smart pointer in Rust that enables interior mutability, allowing you to mutate the value it holds even when it's behind an immutable reference. It enforces Rust's borrowing rules at runtime rather than compile time.
 
 ```rust
@@ -8257,6 +8485,7 @@ fn main() {
 In this example, `RefCell::new(5)` creates a `RefCell` containing the value `5`. We can borrow a mutable reference to the value using `borrow_mut()`, even though `data` is immutable. This is possible because `RefCell` enforces borrowing rules at runtime.
 
 ##### Reference Cycles Can Leak Memory
+
 In Rust, reference cycles occur when two or more smart pointers reference each other, creating a cycle. Reference cycles can lead to memory leaks because the reference counts of the smart pointers never reach zero, preventing the memory from being deallocated.
 
 ```rust
@@ -8277,9 +8506,11 @@ fn main() {
 In this example, `a` and `b` reference each other through `Rc` and `RefCell`, creating a reference cycle. Since the reference counts of `a` and `b` will never reach zero, the memory they point to will never be deallocated, leading to a memory leak.
 
 #### Fearless Concurrency
+
 Let's delve into each of these aspects:
 
 ##### Using Threads to Run Code Simultaneously
+
 In Rust, you can create threads to run code concurrently using the `std::thread` module. Threads allow you to execute multiple pieces of code simultaneously, taking advantage of multi-core CPUs. Rust's ownership and borrowing rules ensure thread safety and prevent data races.
 
 ```rust
@@ -8304,6 +8535,7 @@ fn main() {
 In this example, `thread::spawn()` creates a new thread that executes the provided closure concurrently with the main thread.
 
 ##### Using Message Passing to Transfer Data Between Threads
+
 In Rust, you can use channels for message passing between threads. Channels provide a way for threads to communicate by sending and receiving messages. Rust's ownership system ensures thread safety and prevents data races when using channels.
 
 ```rust
@@ -8326,6 +8558,7 @@ fn main() {
 In this example, `mpsc::channel()` creates a channel, and `sender.send(val)` sends a message (`val`) through the channel. The main thread receives the message using `receiver.recv()`.
 
 ##### Shared-State Concurrency
+
 In Rust, shared-state concurrency refers to multiple threads accessing and modifying shared data concurrently. Rust ensures thread safety and prevents data races by using ownership and borrowing rules, as well as synchronization primitives like mutexes (`std::sync::Mutex`) and atomic types (`std::sync::atomic`).
 
 ```rust
@@ -8356,6 +8589,7 @@ fn main() {
 In this example, `Arc::new(Mutex::new(0))` creates a shared counter protected by a mutex. Each thread increments the counter by locking the mutex (`counter.lock().unwrap()`) and modifying the shared data.
 
 ##### Extensible Concurrency with the Sync and Send Traits
+
 In Rust, the `Sync` and `Send` traits ensure that types can be safely shared between threads (`Send`) and accessed concurrently (`Sync`). By default, types are `Send` and `Sync` if they are thread-safe. You can implement these traits manually for custom types to make them thread-safe.
 
 ```rust
@@ -8381,9 +8615,11 @@ fn main() {
 In this example, `MyStruct` implements the `Send` and `Sync` traits manually to make it thread-safe for sharing between threads. Then, `Arc::new(MyStruct {})` creates an atomic reference-counted pointer to `MyStruct`, allowing it to be safely shared between threads.
 
 #### Object Oriented Programming Features of Rust
+
 Let's delve into each aspect:
 
 ##### Characteristics of Object-Oriented Languages
+
 Object-oriented programming (OOP) languages typically exhibit several key characteristics, including:
 - **Encapsulation:** Bundling data and methods that operate on that data into a single unit, called an object.
 - **Inheritance:** Defining relationships between classes where one class can inherit properties and behavior from another.
@@ -8392,6 +8628,7 @@ Object-oriented programming (OOP) languages typically exhibit several key charac
 While Rust is not a purely object-oriented language like Java or C++, it does support some object-oriented features. However, it takes a different approach to achieve similar goals using traits and trait objects.
 
 ##### Using Trait Objects That Allow for Values of Different Types
+
 In Rust, trait objects allow for dynamic dispatch, enabling you to work with values of different types that implement a common trait. This is similar to polymorphism in traditional OOP languages.
 
 ```rust
@@ -8436,6 +8673,7 @@ fn main() {
 In this example, both `Circle` and `Rectangle` implement the `Shape` trait, allowing them to be passed to the `print_area` function as trait objects (`&dyn Shape`).
 
 ##### Implementing an Object-Oriented Design Pattern
+
 Rust supports implementing object-oriented design patterns using traits and composition. For example, you can use the builder pattern to construct objects with complex initialization logic in a fluent and readable manner.
 
 ```rust
@@ -8488,9 +8726,11 @@ fn main() {
 In this example, the builder pattern is implemented using a builder struct (`PersonBuilder`) with methods to set each attribute of the target struct (`Person`). The `build` method constructs the final object with the specified attributes. This pattern allows for flexible and expressive object creation.
 
 #### Patterns and Matching
+
 Let's explore these aspects of patterns and matching in Rust:
 
 ##### All the Places Patterns Can Be Used
+
 In Rust, patterns can be used in various contexts, including:
 - `match` expressions: Patterns are used to match against the value being evaluated.
 - `if let` expressions: Patterns are used to match against the value and execute code if the pattern matches.
@@ -8526,6 +8766,7 @@ fn main() {
 ```
 
 ##### Refutability: Whether a Pattern Might Fail to Match
+
 Patterns in Rust can be either refutable or irrefutable, depending on whether they might fail to match. Refutable patterns can fail to match, while irrefutable patterns always match.
 
 ```rust
@@ -8549,6 +8790,7 @@ fn main() {
 In this example, `x = 5` uses an irrefutable pattern because it always matches. However, `if let Some(value) = Some(5)` and `fn foo(Some(x): Option<i32>)` use refutable patterns because they might fail to match if the value is `None`.
 
 ##### Pattern Syntax
+
 Patterns in Rust can take various forms, including:
 - Literals: Match against specific values.
 - Variables: Bind values to variables.
@@ -8572,9 +8814,11 @@ fn main() {
 In this example, `(0, _)`, `(_, "world")`, `(x, y)`, and `_` are different patterns used in the `match` expression. Additionally, `(x, y) if x > 0` is a pattern with a guard clause.
 
 #### Advanced Features
+
 Let's break down each of these advanced features:
 
 ##### Unsafe Rust
+
 Rust's safety guarantees are one of its core strengths, but there are situations where you need to bypass these guarantees for performance reasons or to interact with low-level system features. Rust provides the `unsafe` keyword for writing unsafe code blocks where you can:
 - Dereference raw pointers.
 - Call unsafe functions or methods.
@@ -8596,6 +8840,7 @@ fn main() {
 ```
 
 ##### Advanced Traits
+
 Traits in Rust are powerful tools for defining shared behavior between types. Advanced traits extend this capability with features such as:
 - Associated types: Allowing types to be associated with a trait.
 - Default implementations: Providing default behavior for trait methods.
@@ -8617,6 +8862,7 @@ impl MyTrait for i32 {
 ```
 
 ##### Advanced Types
+
 Rust's type system is rich and expressive, allowing for the creation of complex types and data structures. Advanced types include:
 - Associated types: Types associated with traits.
 - Type aliases: Defining aliases for existing types.
@@ -8637,6 +8883,7 @@ fn diverging_function() -> ! {
 ```
 
 ##### Advanced Functions and Closures
+
 Rust's functions and closures support a variety of advanced features, including:
 - Higher-order functions: Functions that take other functions as arguments or return functions.
 - Function pointers: Pointers that can be used to call functions directly.
@@ -8660,6 +8907,7 @@ fn main() {
 ```
 
 ##### Macros
+
 Macros in Rust provide a way to define and invoke custom syntax extensions. They allow you to write code that generates other code at compile time. Rust supports two types of macros: declarative macros (`macro_rules!`) and procedural macros. Procedural macros are further divided into custom derive macros, attribute macros, and function-like macros.
 
 ```rust
@@ -8677,9 +8925,11 @@ fn main() {
 In this example, `my_macro!` is a declarative macro that prints "Hello, macro!" when invoked. Macros are powerful tools for metaprogramming and code generation in Rust.
 
 #### Final Project: Building a Multithreaded Web Server
+
 Let's delve into each aspect of building a multithreaded web server in Rust:
 
 ##### Building a Single-Threaded Web Server
+
 To build a web server in Rust, you typically use a library like `hyper`, which provides an ergonomic and efficient foundation for building HTTP servers. In a single-threaded implementation, the server listens for incoming connections and processes each request sequentially.
 
 ```rust
@@ -8692,6 +8942,7 @@ async fn handle_request(_: Request<Body>) -> Result<Response<Body>, Infallible> 
 }
 
 #[tokio::main]
+
 async fn main() {
     let addr = ([127, 0, 0, 1], 8080).into();
     let make_svc = make_service_fn(|_conn| async { Ok::<_, Infallible>(service_fn(handle_request)) });
@@ -8708,6 +8959,7 @@ async fn main() {
 In this example, `handle_request` is a function that processes HTTP requests and returns a response. We use `hyper::Server` to bind to a socket address and serve incoming connections using the `handle_request` function.
 
 ##### Turning Our Single-Threaded Server into a Multithreaded Server
+
 To improve the performance and scalability of our web server, we can make it multithreaded. This involves spawning multiple threads to handle incoming connections concurrently, allowing the server to process multiple requests simultaneously.
 
 ```rust
@@ -8722,6 +8974,7 @@ async fn handle_request(_: Request<Body>) -> Result<Response<Body>, Infallible> 
 }
 
 #[tokio::main]
+
 async fn main() {
     let addr = SocketAddr::from(([127, 0, 0, 1], 8080));
     let make_svc = make_service_fn(|_conn| {
@@ -8750,6 +9003,7 @@ async fn shutdown_signal() {
 In this example, we use the `tokio` library to spawn a new task for each incoming connection, allowing the server to handle multiple requests concurrently. We also implement graceful shutdown using a signal handler to gracefully stop the server when a shutdown signal is received (e.g., pressing Ctrl+C).
 
 ##### Graceful Shutdown and Cleanup
+
 Graceful shutdown is an essential feature for web servers to ensure that existing connections are completed before shutting down. In Rust, we can implement graceful shutdown using asynchronous signal handling.
 
 ```rust
@@ -8764,6 +9018,7 @@ async fn handle_request(_: Request<Body>) -> Result<Response<Body>, Infallible> 
 }
 
 #[tokio::main]
+
 async fn main() {
     let addr = SocketAddr::from(([127, 0, 0, 1], 8080));
     let make_svc = make_service_fn(|_conn| {

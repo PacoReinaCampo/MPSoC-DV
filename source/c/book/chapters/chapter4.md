@@ -1,6 +1,7 @@
 # Statements in C
 
 ## Labels
+
 Labels are identifiers followed by a colon (`:`) and are used to name a location in the code. They are primarily used with the `goto` statement.
 
 Example:
@@ -17,6 +18,7 @@ int main() {
 ```
 
 ## Expression Statements
+
 An expression statement is an expression followed by a semicolon (`;`). It can include assignments, function calls, or other expressions.
 
 Example:
@@ -30,6 +32,7 @@ int main() {
 ```
 
 ## The if Statement
+
 The `if` statement executes a block of code if a specified condition is true.
 
 Example:
@@ -44,6 +47,7 @@ int main() {
 ```
 
 ## The switch Statement
+
 The `switch` statement allows multi-way branching based on the value of an expression. Each `case` label represents a branch.
 
 Example:
@@ -66,6 +70,7 @@ int main() {
 ```
 
 ## The while Statement
+
 The `while` statement executes a block of code repeatedly as long as a condition is true.
 
 Example:
@@ -81,6 +86,7 @@ int main() {
 ```
 
 ## The do Statement
+
 The `do` statement is similar to the `while` statement, but the condition is checked after the loop body is executed.
 
 Example:
@@ -96,6 +102,7 @@ int main() {
 ```
 
 ## The for Statement
+
 The `for` statement is used for iterating over a range of values. It includes initialization, condition, and increment expressions.
 
 Example:
@@ -109,6 +116,7 @@ int main() {
 ```
 
 ## Blocks
+
 A block is a set of statements enclosed in braces `{}`. Blocks are used to group multiple statements together.
 
 Example:
@@ -124,6 +132,7 @@ int main() {
 ```
 
 ## The Null Statement
+
 A null statement is just a semicolon (`;`). It does nothing and is often used in loops where the body is empty.
 
 Example:
@@ -137,6 +146,7 @@ int main() {
 ```
 
 ## The goto Statement
+
 The `goto` statement transfers control to the labeled statement. It can make the code harder to understand and maintain.
 
 Example:
@@ -152,6 +162,7 @@ int main() {
 ```
 
 ## The break Statement
+
 The `break` statement terminates the nearest enclosing loop or `switch` statement.
 
 Example:
@@ -168,6 +179,7 @@ int main() {
 ```
 
 ## The continue Statement
+
 The `continue` statement skips the rest of the loop iteration and proceeds with the next iteration.
 
 Example:
@@ -184,6 +196,7 @@ int main() {
 ```
 
 ## The return Statement
+
 The `return` statement exits a function and optionally returns a value to the calling function.
 
 Example:
@@ -200,6 +213,7 @@ int main() {
 ```
 
 ## The typedef Statement
+
 The `typedef` statement creates an alias for a data type, making the code easier to read and maintain.
 
 Example:

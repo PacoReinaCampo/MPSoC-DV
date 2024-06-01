@@ -1,4 +1,5 @@
 # Program Structure and Scope
+
 Understanding the structure and scope of a C program is crucial for writing clear, maintainable, and efficient code. Let's delve into these concepts in detail.
 
 ## Program Structure
@@ -16,7 +17,9 @@ Preprocessor directives are instructions processed by the preprocessor before th
 Example:
 ```c
 #include <stdio.h>
+
 #define PI 3.14159
+
 ```
 
 ### Global Declarations

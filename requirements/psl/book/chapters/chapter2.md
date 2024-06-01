@@ -16,12 +16,15 @@ The primary purpose of normative references is to:
 ## Characteristics
 
 ### Essentiality
+
 Normative references are not merely suggestions or optional resources; they are considered essential for the complete understanding and application of the primary document. Users must consult these references to fully comply with or implement the requirements of the primary document.
 
 ### Binding Nature
+
 The content referred to in normative references is binding within the context of the primary document. Compliance with the primary document typically necessitates compliance with the referenced documents as well.
 
 ### Authoritativeness
+
 Normative references usually include documents from recognized standards organizations, regulatory bodies, or other authoritative entities. This ensures that the primary document is grounded in widely accepted practices and knowledge.
 
 ## Examples

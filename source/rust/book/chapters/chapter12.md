@@ -1,7 +1,9 @@
 # An I/O Project: Building a Command Line Program
+
 Here's an explanation of each topic:
 
 ## Accepting Command Line Arguments
+
 In Rust, you can accept command-line arguments using the `std::env::args` function. This function returns an iterator over the command-line arguments passed to the program.
 
 ```rust
@@ -16,6 +18,7 @@ fn main() {
 In this example, `env::args()` returns an iterator over the command-line arguments. We collect the iterator into a vector of strings (`Vec<String>`) for easier handling.
 
 ## Reading a File
+
 To read a file in Rust, you can use the `std::fs::File` type to open the file, and then use `std::io::Read` or `std::io::BufRead` traits to read its contents.
 
 ```rust
@@ -37,6 +40,7 @@ fn main() -> io::Result<()> {
 In this example, we open the file named "example.txt" using `File::open`. We then wrap the file in a `BufReader` to efficiently read the file line by line. Finally, we iterate over each line and print it to the console.
 
 ## Refactoring to Improve Modularity and Error Handling
+
 When building a command-line program, it's essential to structure your code in a modular and error-handling-friendly way. This often involves refactoring your code into smaller, more focused functions, handling errors gracefully using `Result`, and separating concerns into different modules.
 
 ```rust
@@ -44,6 +48,7 @@ When building a command-line program, it's essential to structure your code in a
 ```
 
 ## Developing the Library’s Functionality with Test Driven Development
+
 Test-Driven Development (TDD) is an iterative development process where you write tests before writing the actual implementation code. In Rust, you can use the built-in testing framework to write tests for your functions, modules, and libraries.
 
 ```rust
@@ -51,6 +56,7 @@ Test-Driven Development (TDD) is an iterative development process where you writ
 ```
 
 ## Working with Environment Variables
+
 Rust provides access to environment variables through the `std::env::var` function. This function returns a `Result<String, std::env::VarError>` representing the value of the environment variable.
 
 ```rust
@@ -67,6 +73,7 @@ fn main() {
 In this example, we use `env::var("HOME")` to retrieve the value of the "HOME" environment variable. We then match on the result to handle both success and error cases.
 
 ## Writing Error Messages to Standard Error Instead of Standard Output
+
 In Rust, you can write error messages to standard error (stderr) instead of standard output (stdout) using the `eprintln!` macro. This is useful for printing error messages, warnings, or other diagnostic information that should not be redirected or piped with normal program output.
 
 ```rust

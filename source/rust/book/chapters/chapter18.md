@@ -1,7 +1,9 @@
 # Patterns and Matching
+
 Let's explore these aspects of patterns and matching in Rust:
 
 ## All the Places Patterns Can Be Used
+
 In Rust, patterns can be used in various contexts, including:
 - `match` expressions: Patterns are used to match against the value being evaluated.
 - `if let` expressions: Patterns are used to match against the value and execute code if the pattern matches.
@@ -37,6 +39,7 @@ fn main() {
 ```
 
 ## Refutability: Whether a Pattern Might Fail to Match
+
 Patterns in Rust can be either refutable or irrefutable, depending on whether they might fail to match. Refutable patterns can fail to match, while irrefutable patterns always match.
 
 ```rust
@@ -60,6 +63,7 @@ fn main() {
 In this example, `x = 5` uses an irrefutable pattern because it always matches. However, `if let Some(value) = Some(5)` and `fn foo(Some(x): Option<i32>)` use refutable patterns because they might fail to match if the value is `None`.
 
 ## Pattern Syntax
+
 Patterns in Rust can take various forms, including:
 - Literals: Match against specific values.
 - Variables: Bind values to variables.

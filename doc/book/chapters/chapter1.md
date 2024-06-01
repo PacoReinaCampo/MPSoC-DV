@@ -827,7 +827,6 @@ Modeling information includes details about the simulation and behavioral models
       <spirit:envIdentifier>VHDL</spirit:envIdentifier>
       <spirit:language>VHDL</spirit:language>
 
-
     </spirit:view>
   </spirit:views>
 </spirit:modeling>

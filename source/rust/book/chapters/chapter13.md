@@ -1,7 +1,9 @@
 # Functional Language Features: Iterators and Closures
+
 Let's dive into each topic:
 
 ## Closures: Anonymous Functions that Capture Their Environment
+
 Closures in Rust are anonymous functions that can capture variables from their surrounding environment. They are similar to lambdas or anonymous functions in other languages. Closures can capture variables by reference (`&`), by mutable reference (`&mut`), or by value (`move`). They are defined using the `|args| { body }` syntax.
 
 ```rust
@@ -14,6 +16,7 @@ fn main() {
 In this example, `add` is a closure that captures its environment and adds two numbers.
 
 ## Processing a Series of Items with Iterators
+
 Iterators in Rust provide a way to iterate over collections of items. They are a fundamental part of Rust's functional programming capabilities. You can chain multiple iterator adaptors together to perform complex operations on collections.
 
 ```rust
@@ -27,6 +30,7 @@ fn main() {
 In this example, `iter()` creates an iterator over the vector, `map()` applies a closure to each element of the iterator, and `collect()` collects the results into a new vector.
 
 ## Improving Our I/O Project
+
 You can improve an I/O project in Rust by using iterators and closures to make the code more concise, expressive, and efficient. For example, you can use iterator adaptors like `lines()` to read lines from a file, `map()` to transform each line, and `filter()` to select specific lines based on a predicate.
 
 ```rust
@@ -45,6 +49,7 @@ fn main() {
 In this example, `read_to_string()` reads the contents of a file into a string, `lines()` splits the string into lines, `filter()` removes empty lines, `map()` trims whitespace from each line, and `collect()` collects the results into a vector.
 
 ## Comparing Performance: Loops vs Iterators
+
 In Rust, iterators are generally as efficient as traditional loops, and in many cases, they can even be more efficient due to optimizations performed by the compiler. However, there might be specific cases where loops are more suitable, such as when you need explicit control over iteration or when performance is critical.
 
 ```rust

@@ -1,7 +1,9 @@
 # Using Structs to Structure Related Data
+
 Let's explore each of these topics:
 
 ## Defining and Instantiating Structs
+
 In Rust, structs are used to create custom data types to structure related data. Here's how you define and instantiate a struct:
 
 ```rust
@@ -30,6 +32,7 @@ In this example:
 - We access the fields of the struct using dot notation.
 
 ## An Example Program Using Structs
+
 Here's an example program that demonstrates using structs to represent rectangles and calculating their area:
 
 ```rust
@@ -65,6 +68,7 @@ In this example:
 - We call the `area` method on `rectangle1` to calculate and print its area.
 
 ## Method Syntax
+
 In Rust, methods are functions associated with a particular struct or enum. They allow you to define behavior specific to a type. Here's the syntax for defining methods:
 
 ```rust

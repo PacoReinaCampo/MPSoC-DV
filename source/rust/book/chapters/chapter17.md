@@ -1,7 +1,9 @@
 # Object Oriented Programming Features of Rust
+
 Let's delve into each aspect:
 
 ## Characteristics of Object-Oriented Languages
+
 Object-oriented programming (OOP) languages typically exhibit several key characteristics, including:
 - **Encapsulation:** Bundling data and methods that operate on that data into a single unit, called an object.
 - **Inheritance:** Defining relationships between classes where one class can inherit properties and behavior from another.
@@ -10,6 +12,7 @@ Object-oriented programming (OOP) languages typically exhibit several key charac
 While Rust is not a purely object-oriented language like Java or C++, it does support some object-oriented features. However, it takes a different approach to achieve similar goals using traits and trait objects.
 
 ## Using Trait Objects That Allow for Values of Different Types
+
 In Rust, trait objects allow for dynamic dispatch, enabling you to work with values of different types that implement a common trait. This is similar to polymorphism in traditional OOP languages.
 
 ```rust
@@ -54,6 +57,7 @@ fn main() {
 In this example, both `Circle` and `Rectangle` implement the `Shape` trait, allowing them to be passed to the `print_area` function as trait objects (`&dyn Shape`).
 
 ## Implementing an Object-Oriented Design Pattern
+
 Rust supports implementing object-oriented design patterns using traits and composition. For example, you can use the builder pattern to construct objects with complex initialization logic in a fluent and readable manner.
 
 ```rust

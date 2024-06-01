@@ -1,6 +1,7 @@
 # Lexical Elements
 
 ## Identifiers
+
 Identifiers are names used to identify variables, functions, arrays, structures, and other user-defined items. An identifier in C must adhere to the following rules:
 - Can include letters (both uppercase and lowercase), digits (0-9), and underscores (_).
 - Must begin with a letter or an underscore. Digits cannot be the first character.
@@ -15,6 +16,7 @@ char firstName[50];
 ```
 
 ## Keywords
+
 Keywords are reserved words predefined by the C language. They have special meanings and cannot be used as identifiers. Some commonly used keywords include:
 - Data types: `int`, `float`, `char`, `double`
 - Control statements: `if`, `else`, `switch`, `case`, `for`, `while`, `do`, `break`, `continue`
@@ -30,9 +32,11 @@ int main() {
 ```
 
 ## Constants
+
 Constants are fixed values that do not change during the execution of a program. They are divided into several types:
 
 ### Integer Constants
+
 Integer constants represent whole numbers without any fractional or decimal part. They can be written in different number systems:
 - Decimal (base 10): `0`, `123`, `-456`
 - Octal (base 8): prefixed with `0` (zero), e.g., `0123`
@@ -46,6 +50,7 @@ int hex = 0x1A3F;
 ```
 
 ### Character Constants
+
 Character constants represent single characters enclosed in single quotes. They can be any character from the C character set, including escape sequences.
 - Example: `'a'`, `'1'`, `'\n'` (newline), `'\t'` (tab)
 
@@ -56,6 +61,7 @@ char newline = '\n';
 ```
 
 ### Real Number Constants
+
 Real number constants (floating-point constants) represent numbers with a fractional part. They can be expressed in:
 - Decimal notation: `3.14`, `-0.001`
 - Exponential notation: `1.23e3` (1.23 × 10^3), `5.67E-2` (5.67 × 10^-2)
@@ -67,6 +73,7 @@ double exp = 1.23e3;
 ```
 
 ### String Constants
+
 String constants (string literals) are sequences of characters enclosed in double quotes. They are null-terminated, meaning they end with a special character `'\0'`.
 - Example: `"Hello, World!"`, `"C programming"`
 
@@ -76,6 +83,7 @@ char greeting[] = "Hello, World!";
 ```
 
 ## Operators
+
 Operators are symbols that specify operations to be performed on operands. C has several categories of operators:
 - Arithmetic: `+`, `-`, `*`, `/`, `%`
 - Relational: `==`, `!=`, `<`, `>`, `<=`, `>=`
@@ -94,6 +102,7 @@ int andResult = a & b;  // Bitwise
 ```
 
 ## Separators
+
 Separators (also called delimiters) are used to separate different elements in a program. In C, the following characters are used as separators:
 - Comma `,`: separates items in a list
 - Semicolon `;`: marks the end of a statement
@@ -110,6 +119,7 @@ if (a < b) {
 ```
 
 ## White Space
+
 White space in C includes spaces, tabs, and newline characters. White space is generally ignored by the compiler but is essential for separating tokens and making the code readable. It is used to:
 - Separate keywords, identifiers, constants, and operators
 - Indent code for better readability

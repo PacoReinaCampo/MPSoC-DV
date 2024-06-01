@@ -1,7 +1,9 @@
 # Functions
+
 Functions in C are fundamental units of code that perform specific tasks. Let's explore the various aspects of functions in detail.
 
 ## Function Declarations
+
 A function declaration, also known as a function prototype, specifies the function's name, return type, and parameters without providing the body.
 
 Example:
@@ -11,6 +13,7 @@ void printMessage(void);
 ```
 
 ## Function Definitions
+
 A function definition includes the function header and the body, where the actual code resides.
 
 Example:
@@ -25,6 +28,7 @@ void printMessage(void) {
 ```
 
 ## Calling Functions
+
 Functions are called by using their name followed by parentheses enclosing any arguments.
 
 Example:
@@ -37,6 +41,7 @@ int main() {
 ```
 
 ## Function Parameters
+
 Function parameters are variables declared in the function declaration and definition to accept values passed during a function call.
 
 Example:
@@ -52,11 +57,13 @@ int main() {
 ```
 
 ## Variable Length Parameter Lists
+
 C allows functions to accept a variable number of arguments using the `stdarg.h` library.
 
 Example:
 ```c
 #include <stdarg.h>
+
 #include <stdio.h>
 
 void printNumbers(int count, ...) {
@@ -77,6 +84,7 @@ int main() {
 ```
 
 ## Calling Functions Through Function Pointers
+
 Function pointers allow storing addresses of functions and calling them indirectly.
 
 Example:
@@ -96,6 +104,7 @@ int main() {
 ```
 
 ## The main Function
+
 The `main` function is the entry point of a C program. It can return an integer to the operating system and can take arguments.
 
 Example:
@@ -114,6 +123,7 @@ int main(int argc, char *argv[]) {
 ```
 
 ## Recursive Functions
+
 A recursive function calls itself to solve smaller instances of the same problem.
 
 Example:
@@ -134,6 +144,7 @@ int main() {
 ```
 
 ## Static Functions
+
 A static function in C has internal linkage, meaning it can only be called within the file it is defined in.
 
 Example:
@@ -149,6 +160,7 @@ int main() {
 ```
 
 ## Nested Functions
+
 C does not support nested functions (functions defined within other functions) directly. However, some compilers, like GCC, provide this as an extension.
 
 Example with GCC:

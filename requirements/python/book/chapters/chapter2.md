@@ -1,7 +1,9 @@
 # Lexical Analysis
+
 Lexical analysis is the first phase of a compiler or interpreter, where the input code is transformed into a sequence of tokens. Each token is a syntactic unit that can be identified as keywords, identifiers, literals, operators, delimiters, etc. In Python, the lexical analysis is performed by the tokenizer, which converts the source code into tokens that the parser can understand.
 
 ## Line Structure
+
 Python source code is organized into lines, each containing one or more statements. The line structure in Python is significant, particularly due to its use of indentation to define code blocks.
 
 - **Logical Lines**: Python code is generally written in logical lines. Each logical line corresponds to a statement.
@@ -21,6 +23,7 @@ total = 1 + 2 + 3 + \
 ```
 
 ## Other Tokens
+
 In Python, tokens are categorized into several types:
 
 - **Keywords**: Reserved words with special meaning, such as `if`, `for`, `while`, `def`, etc.
@@ -30,6 +33,7 @@ In Python, tokens are categorized into several types:
 - **Delimiters**: Characters used to separate tokens.
 
 ## Identifiers and Keywords
+
 **Identifiers** are names given to variables, functions, classes, and other objects. Identifiers must follow these rules:
 
 - Must start with a letter (a-z, A-Z) or an underscore (`_`).
@@ -50,10 +54,12 @@ ClassName = "Example"
 
 ```python
 # Examples of Python keywords
+
 if, else, elif, for, while, break, continue, return, def, class, import, from, as, pass, lambda, global, nonlocal, assert, try, except, finally, raise, with, yield, async, await, etc.
 ```
 
 ## Literals
+
 Literals represent constant values in Python. There are several types of literals:
 
 - **String Literals**: Enclosed in single quotes (`'`), double quotes (`"`), triple single quotes (`'''`), or triple double quotes (`"""`).
@@ -87,6 +93,7 @@ Literals represent constant values in Python. There are several types of literal
     ```
 
 ## Operators
+
 Operators are symbols that perform operations on variables and values. Python has several types of operators:
 
 - **Arithmetic Operators**: `+`, `-`, `*`, `/`, `%`, `**`, `//`
@@ -142,6 +149,7 @@ Operators are symbols that perform operations on variables and values. Python ha
     ```
 
 ## Delimiters
+
 Delimiters are characters or sequences of characters that separate tokens. In Python, delimiters include:
 
 - **Parentheses**: `(` and `)`

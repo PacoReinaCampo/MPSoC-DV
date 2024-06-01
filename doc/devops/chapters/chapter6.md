@@ -24,31 +24,39 @@ By automating and standardizing the deployment process, DevOps teams can acceler
 
 ```
 # Install FuseSoC
+
 pip3 install --upgrade --user fusesoc
 
 # Uninstall FuseSoC
+
 pip3 uninstall fusesoc
 
 # Environment FuseSoC
+
 export PATH=~/.local/bin:$PATH
 
 # Check FuseSoC version
+
 fusesoc --version
 
 # Folder
+
 rm -rf workspace
 mkdir workspace
 cd workspace
 
 # Start
+
 fusesoc library add fusesoc-cores https://github.com/fusesoc/fusesoc-cores
 fusesoc core list
 
 # Simulation FuseSoC < 2.0
+
 fusesoc sim --sim=verilator mor1kx-generic
 fusesoc sim --sim=verilator mor1kx-generic --elf-load hello.elf
 
 # Simulation FuseSoC 2.0
+
 fusesoc run --target=sim i2c
 ```
 

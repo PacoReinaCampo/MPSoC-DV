@@ -1,7 +1,9 @@
 # Introduction
+
 Python is a versatile and widely-used programming language known for its simplicity and readability. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming. Python's extensive standard library and community-contributed modules make it suitable for various applications, from web development to data science and machine learning.
 
 ## Alternate Implementations
+
 Python has several implementations, each designed to meet different needs:
 
 1. **CPython**: The default and most widely-used implementation of Python, written in C. It compiles Python code to bytecode, which is then interpreted by a virtual machine. CPython is known for its stability and extensive support for C extensions.
@@ -60,6 +62,7 @@ Python has several implementations, each designed to meet different needs:
     ```
 
 ## Notation
+
 Python code often uses specific notations and conventions to improve readability and maintainability. Some key notations include:
 
 1. **PEP 8**: The style guide for Python code, emphasizing readability. PEP 8 covers aspects like indentation, variable naming, and line length.

@@ -1,10 +1,13 @@
 # Programming a Guessing Game
+
 "Programming a Guessing Game" is a common introductory project used to teach programming concepts, and it's often used as a starting point for learning Rust. Here's a basic breakdown:
 
 ## The Objective
+
 The objective of the guessing game is for the computer to generate a random number within a specified range and challenge the player to guess that number. The player keeps guessing until they correctly guess the number. After each guess, the computer provides feedback to the player, informing them whether their guess was too high, too low, or correct.
 
 ## Steps to Implement the Game
+
 1. **Generate a Random Number**: The game starts by generating a random number within a specified range. In Rust, you can use the `rand` crate to generate random numbers.
 
 2. **Prompt the Player for Input**: The game prompts the player to input their guess.
@@ -20,6 +23,7 @@ The objective of the guessing game is for the computer to generate a random numb
 7. **End Game**: Once the player guesses the correct number, end the game and display a congratulatory message.
 
 ## Implementing in Rust
+
 Here's a simplified version of how you might implement this game in Rust:
 
 ```rust
@@ -61,6 +65,7 @@ fn main() {
 ```
 
 ### Explanation
+
 - We import necessary crates (`rand` for random number generation) and modules (`io` for input/output, `cmp` for comparison).
 - We generate a random number between 1 and 100 using `rand::thread_rng().gen_range(1..101)`.
 - We enter a loop where the player can make guesses until they guess the correct number.

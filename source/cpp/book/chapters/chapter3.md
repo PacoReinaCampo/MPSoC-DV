@@ -1,4 +1,5 @@
 # Named requirements
+
 In C++, "Named Requirements" refer to a set of specifications or constraints placed on template parameters in order to use certain standard library algorithms and components effectively. Named requirements help ensure that template parameters meet specific criteria, allowing them to be used interchangeably in generic code without sacrificing functionality or efficiency. Here are some commonly used Named Requirements in C++:
 
 1. **EqualityComparable**: A type that supports the `==` and `!=` operators for comparison. This requirement allows objects of the type to be compared for equality.

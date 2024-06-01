@@ -1,4 +1,5 @@
 # Iterators library
+
 The Iterators library in C++ provides a mechanism for traversing and accessing elements in sequences, such as arrays, containers, or ranges. Iterators act as pointers to elements within a range, allowing for generic algorithms to operate on different data structures in a uniform manner. Here's an explanation of the Iterators library and the Ranges library introduced in C++20:
 
 - **Iterator Concepts**: The Iterators library defines a set of iterator concepts that categorize iterators based on their capabilities and behavior. These concepts include input iterators, output iterators, forward iterators, bidirectional iterators, random access iterators, and more. They provide a standardized way to classify and reason about iterators, enabling generic algorithms to work with different types of iterators.
@@ -8,6 +9,7 @@ The Iterators library in C++ provides a mechanism for traversing and accessing e
 - **Iterator Functions**: The Iterators library also provides a set of functions for working with iterators, such as `std::advance`, `std::distance`, and `std::next`, which allow for advancing iterators, calculating distances between iterators, and obtaining iterators at specified offsets, respectively.
 
 ## Ranges library (C++20)
+
 The Ranges library introduced in C++20 builds upon the concepts and functionality of the Iterators library, providing a more expressive and composable way to work with sequences of elements. It introduces range-based abstractions that encapsulate both the data and the operations performed on it. Here are some key features of the Ranges library:
 
 - **Range Concepts**: The Ranges library defines a set of range concepts that categorize ranges based on their capabilities and behavior. These concepts include range, view, sized range, input range, forward range, bidirectional range, random access range, and more. They provide a standardized way to classify and reason about ranges, similar to iterator concepts.

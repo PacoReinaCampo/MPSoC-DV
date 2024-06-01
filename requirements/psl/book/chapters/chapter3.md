@@ -5,14 +5,17 @@ This section of a technical document is crucial for ensuring that all readers ha
 ## Definitions
 
 ### Purpose
+
 The definitions subsection provides clear and precise explanations of terms used in the document. These definitions ensure that all readers, regardless of their background or expertise, can understand the specific meanings of terms as intended by the authors.
 
 ### Characteristics
+
 - **Clarity:** Definitions should be written in simple and clear language to be easily understood.
 - **Specificity:** Each term should be defined as specifically as possible to avoid broad interpretations.
 - **Relevance:** Only include terms that are relevant to understanding the document.
 
 ### Example
+
 Here is an example of a definitions subsection:
 
 **Definitions:**
@@ -23,14 +26,17 @@ Here is an example of a definitions subsection:
 ## Acronyms and Abbreviations
 
 ### Purpose
+
 This subsection lists all acronyms and abbreviations used in the document along with their full forms. This helps readers quickly find the meaning of short forms used throughout the text.
 
 ### Characteristics
+
 - **Alphabetical Order:** Acronyms and abbreviations are typically listed in alphabetical order for easy reference.
 - **Consistency:** Ensure that each acronym or abbreviation is used consistently throughout the document.
 - **Expansion:** Provide the expanded form of each acronym or abbreviation the first time it is used in the document, followed by the acronym in parentheses.
 
 ### Example
+
 Here is an example of an acronyms and abbreviations subsection:
 
 **Acronyms and Abbreviations:**
@@ -42,14 +48,17 @@ Here is an example of an acronyms and abbreviations subsection:
 ## Special Terms
 
 ### Purpose
+
 This subsection includes any special terms that have specific meanings within the context of the document. These terms might not be commonly understood outside of the specific domain or industry.
 
 ### Characteristics
+
 - **Context-Specific:** The terms included here have meanings that are specific to the context of the document.
 - **Detailed Explanations:** Provide detailed explanations to ensure clarity and understanding.
 - **Illustrative Examples:** When possible, include examples to illustrate how the terms are used.
 
 ### Example
+
 Here is an example of a special terms subsection:
 
 **Special Terms:**
