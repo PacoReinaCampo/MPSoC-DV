@@ -18,3 +18,7 @@ chapters/chapter17.md
 chapters/chapter18.md
 chapters/chapter19.md
 chapters/chapter20.md
+chapters/chapter21.md
+chapters/chapter22.md
+chapters/chapter23.md
+chapters/chapter24.md

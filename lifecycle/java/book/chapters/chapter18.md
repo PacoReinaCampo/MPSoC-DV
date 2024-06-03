@@ -1,4 +1,7 @@
-# Patterns and Matching
-## All the Places Patterns Can Be Used
-## Refutability: Whether a Pattern Might Fail to Match
-## Pattern Syntax
+# Packages
+## Package Naming
+## Type Imports
+## Package Access
+## Package Contents
+## Package Annotations
+## Package Objects and Specifications

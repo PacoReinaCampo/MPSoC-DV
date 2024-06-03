@@ -1,4 +1,7 @@
-# Error Handling
-## Unrecoverable Errors with panic!
-## Recoverable Errors with Result
-## To panic! or Not to panic!
+# Operators and Expressions
+## Arithmetic Operations
+## General Operators
+## Expressions
+## Type Conversions
+## Operator Precedence and Associativity
+## Member Access

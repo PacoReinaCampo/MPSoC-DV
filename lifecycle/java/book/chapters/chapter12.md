@@ -1,7 +1,11 @@
-# An I/O Project: Building a Command Line Program
-## Accepting Command Line Arguments
-## Reading a File
-## Refactoring to Improve Modularity and Error Handling
-## Developing the Library’s Functionality with Test Driven Development
-## Working with Environment Variables
-## Writing Error Messages to Standard Error Instead of Standard Output
+# Exceptions and Assertions
+## Creating Exception Types
+## throw
+## The throws Clause
+## try, catch, and finally
+## Exception Chaining
+## Stack Traces
+## When to Use Exceptions
+## Assertions
+## When to Use Assertions
+## Turning Assertions On and Off

@@ -1,4 +1,7 @@
-# Understanding Ownership
-## What is Ownership?
-## References and Borrowing
-## The Slice Type
+# Interfaces
+## A Simple Interface Example
+## Interface Declarations
+## Extending Interfaces
+## Working with Interfaces
+## Marker Interfaces
+## When to Use Interfaces

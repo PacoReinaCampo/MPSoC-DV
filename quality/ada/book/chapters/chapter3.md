@@ -39,9 +39,4 @@
 ### Incomplete Type Declarations
 ### Operations of Access Types
 ## Declarative Parts
-### Completions of Declarations# Common Programming Concepts
-## Variables and Mutability
-## Data Types
-## Functions
-## Comments
-## Control Flow
+### Completions of Declarations

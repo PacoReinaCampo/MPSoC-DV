@@ -1,5 +1,6 @@
-# Functional Language Features: Iterators and Closures
-## Closures: Anonymous Functions that Capture Their Environment
-## Processing a Series of Items with Iterators
-## Improving Our I/O Project
-## Comparing Performance: Loops vs Iterators
+# Strings and Regular Expressions
+## Character Sequences
+## The String Class
+## Regular Expression Matching
+## The StringBuilder Class
+## Working with UTF-
