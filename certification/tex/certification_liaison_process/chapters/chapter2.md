@@ -2,7 +2,7 @@
 
 **Objective**: Provide evidence and documentation to demonstrate that the hardware design and development processes meet all regulatory requirements and standards.
 
-## Key Activities:
+Key Activities:
 
 1. **Collect Compliance Evidence**:
    - **Objective**: Gather all necessary evidence that demonstrates compliance with regulatory requirements.

@@ -2,7 +2,7 @@
 
 **Objective**: To define and document the hardware requirements based on system-level requirements and safety assessments.
 
-## Key Activities:
+Key Activities:
 
 1. **Gathering Requirements**: Collect requirements from various sources, including system specifications, safety assessments, and stakeholder inputs.
 2. **Analyzing Requirements**: Ensure that the requirements are clear, complete, and feasible. This involves assessing their technical and safety implications.

@@ -228,7 +228,7 @@ The hardware design process in DO-254 encompasses a series of structured and ite
 
 **Objective**: To define and document the hardware requirements based on system-level requirements and safety assessments.
 
-##### Key Activities:
+Key Activities:
 
 1. **Gathering Requirements**: Collect requirements from various sources, including system specifications, safety assessments, and stakeholder inputs.
 2. **Analyzing Requirements**: Ensure that the requirements are clear, complete, and feasible. This involves assessing their technical and safety implications.
@@ -240,7 +240,7 @@ The hardware design process in DO-254 encompasses a series of structured and ite
 
 **Objective**: To develop high-level design concepts that meet the specified hardware requirements.
 
-##### Key Activities:
+Key Activities:
 
 1. **Creating Architectural Models**: Develop block diagrams and architectural models to represent the high-level design of the hardware.
 2. **Component Selection**: Identify and select key components and technologies that will be used in the design.
@@ -253,7 +253,7 @@ The hardware design process in DO-254 encompasses a series of structured and ite
 
 **Objective**: To translate the conceptual design into detailed specifications and schematics.
 
-##### Key Activities:
+Key Activities:
 
 1. **Developing Schematics**: Create detailed schematics, layout diagrams, and wiring diagrams based on the conceptual design.
 2. **Detailed Analysis**: Perform detailed analyses, such as worst-case analysis, thermal analysis, and signal integrity analysis, to ensure the design meets all requirements.
@@ -265,7 +265,7 @@ The hardware design process in DO-254 encompasses a series of structured and ite
 
 **Objective**: To realize the detailed design in physical hardware.
 
-##### Key Activities:
+Key Activities:
 
 1. **Manufacturing Prototypes**: Produce initial prototypes or small-scale production units based on the detailed design.
 2. **Assembly and Integration**: Assemble and integrate the hardware components to create functional units.
@@ -277,7 +277,7 @@ The hardware design process in DO-254 encompasses a series of structured and ite
 
 **Objective**: To transition the hardware from development to full-scale production.
 
-##### Key Activities:
+Key Activities:
 
 1. **Pilot Production Runs**: Conduct pilot production runs to validate manufacturing processes and identify any potential production issues.
 2. **Production Planning**: Develop detailed production plans, including resource allocation, production schedules, and quality control measures.
@@ -289,7 +289,7 @@ The hardware design process in DO-254 encompasses a series of structured and ite
 
 **Objective**: To verify that the hardware meets all specified requirements and is ready for operational deployment.
 
-##### Key Activities:
+Key Activities:
 
 1. **Developing Test Plans**: Create detailed acceptance test plans that outline the test procedures, criteria, and environments.
 2. **Conducting Tests**: Perform acceptance tests to validate hardware functionality, performance, and compliance with requirements.
@@ -302,7 +302,7 @@ The hardware design process in DO-254 encompasses a series of structured and ite
 
 **Objective**: To produce hardware units in large quantities for operational use.
 
-##### Key Activities:
+Key Activities:
 
 1. **Scaling Production**: Scale up production processes to produce hardware units in the required quantities.
 2. **Quality Control**: Implement rigorous quality control measures to ensure consistency and reliability in mass production.
@@ -350,7 +350,7 @@ Validation and verification are critical processes in the development of airborn
 
 **Objective**: To confirm that the hardware performs correctly in its intended operational environment and meets the needs and expectations of the end users.
 
-##### Key Activities:
+Key Activities:
 
 1. **Requirements Validation**: Ensure that all hardware requirements are correctly derived from the system requirements and reflect the intended functionality.
    - Review requirements documentation.
@@ -380,7 +380,7 @@ Validation and verification are critical processes in the development of airborn
 
 **Objective**: To ensure that the hardware design and implementation meet all specified requirements and are free from defects.
 
-##### Key Activities:
+Key Activities:
 
 1. **Requirements Verification**: Confirm that the hardware requirements are correctly and completely implemented.
    - Trace hardware requirements to design and test cases.
@@ -408,7 +408,7 @@ Validation and verification are critical processes in the development of airborn
 
 #### Validation and Verification Methods
 
-##### Key Methods:
+Key Methods:
 
 1. **Inspection**:
    - **Purpose**: Identify defects by visually examining hardware components and documentation.
@@ -511,7 +511,7 @@ Configuration management involves several key activities to achieve its objectiv
 
 Data control categories are classifications of data that help manage and control the various types of information involved in hardware design and development. These categories help ensure that each type of data is handled appropriately according to its importance and sensitivity.
 
-##### Key Data Control Categories:
+Key Data Control Categories:
 
 1. **Design Data**: 
    - **Description**: Includes all information related to the design of the hardware, such as schematics, diagrams, models, and specifications.
@@ -661,7 +661,7 @@ The certification liaison process is essential for ensuring that airborne electr
 
 **Objective**: Define and plan the methods by which compliance with regulatory requirements will be demonstrated throughout the hardware development lifecycle.
 
-##### Key Activities:
+Key Activities:
 
 1. **Identify Regulatory Requirements**:
    - **Objective**: Determine the specific regulatory requirements and standards applicable to the hardware.
@@ -687,7 +687,7 @@ The certification liaison process is essential for ensuring that airborne electr
 
 **Objective**: Provide evidence and documentation to demonstrate that the hardware design and development processes meet all regulatory requirements and standards.
 
-##### Key Activities:
+Key Activities:
 
 1. **Collect Compliance Evidence**:
    - **Objective**: Gather all necessary evidence that demonstrates compliance with regulatory requirements.
@@ -1057,7 +1057,7 @@ The software design process in DO-178C encompasses a series of structured and it
 
 **Objective**: To define and document the software requirements based on system-level requirements and safety assessments.
 
-##### Key Activities:
+Key Activities:
 
 1. **Gathering Requirements**: Collect requirements from various sources, including system specifications, safety assessments, and stakeholder inputs.
 2. **Analyzing Requirements**: Ensure that the requirements are clear, complete, and feasible. This involves assessing their technical and safety implications.
@@ -1069,7 +1069,7 @@ The software design process in DO-178C encompasses a series of structured and it
 
 **Objective**: To develop high-level design concepts that meet the specified software requirements.
 
-##### Key Activities:
+Key Activities:
 
 1. **Creating Architectural Models**: Develop block diagrams and architectural models to represent the high-level design of the software.
 2. **Component Selection**: Identify and select key components and technologies that will be used in the design.
@@ -1082,7 +1082,7 @@ The software design process in DO-178C encompasses a series of structured and it
 
 **Objective**: To translate the conceptual design into detailed specifications and schematics.
 
-##### Key Activities:
+Key Activities:
 
 1. **Developing Schematics**: Create detailed schematics, layout diagrams, and wiring diagrams based on the conceptual design.
 2. **Detailed Analysis**: Perform detailed analyses, such as worst-case analysis, thermal analysis, and signal integrity analysis, to ensure the design meets all requirements.
@@ -1094,7 +1094,7 @@ The software design process in DO-178C encompasses a series of structured and it
 
 **Objective**: To realize the detailed design in physical software.
 
-##### Key Activities:
+Key Activities:
 
 1. **Manufacturing Prototypes**: Produce initial prototypes or small-scale production units based on the detailed design.
 2. **Assembly and Integration**: Assemble and integrate the software components to create functional units.
@@ -1106,7 +1106,7 @@ The software design process in DO-178C encompasses a series of structured and it
 
 **Objective**: To transition the software from development to full-scale production.
 
-##### Key Activities:
+Key Activities:
 
 1. **Pilot Production Runs**: Conduct pilot production runs to validate manufacturing processes and identify any potential production issues.
 2. **Production Planning**: Develop detailed production plans, including resource allocation, production schedules, and quality control measures.
@@ -1118,7 +1118,7 @@ The software design process in DO-178C encompasses a series of structured and it
 
 **Objective**: To verify that the software meets all specified requirements and is ready for operational deployment.
 
-##### Key Activities:
+Key Activities:
 
 1. **Developing Test Plans**: Create detailed acceptance test plans that outline the test procedures, criteria, and environments.
 2. **Conducting Tests**: Perform acceptance tests to validate software functionality, performance, and compliance with requirements.
@@ -1131,7 +1131,7 @@ The software design process in DO-178C encompasses a series of structured and it
 
 **Objective**: To produce software units in large quantities for operational use.
 
-##### Key Activities:
+Key Activities:
 
 1. **Scaling Production**: Scale up production processes to produce software units in the required quantities.
 2. **Quality Control**: Implement rigorous quality control measures to ensure consistency and reliability in mass production.
@@ -1179,7 +1179,7 @@ Validation and verification are critical processes in the development of airborn
 
 **Objective**: To confirm that the software performs correctly in its intended operational environment and meets the needs and expectations of the end users.
 
-##### Key Activities:
+Key Activities:
 
 1. **Requirements Validation**: Ensure that all software requirements are correctly derived from the system requirements and reflect the intended functionality.
    - Review requirements documentation.
@@ -1209,7 +1209,7 @@ Validation and verification are critical processes in the development of airborn
 
 **Objective**: To ensure that the software design and implementation meet all specified requirements and are free from defects.
 
-##### Key Activities:
+Key Activities:
 
 1. **Requirements Verification**: Confirm that the software requirements are correctly and completely implemented.
    - Trace software requirements to design and test cases.
@@ -1237,7 +1237,7 @@ Validation and verification are critical processes in the development of airborn
 
 #### Validation and Verification Methods
 
-##### Key Methods:
+Key Methods:
 
 1. **Inspection**:
    - **Purpose**: Identify defects by visually examining software components and documentation.
@@ -1340,7 +1340,7 @@ Configuration management involves several key activities to achieve its objectiv
 
 Data control categories are classifications of data that help manage and control the various types of information involved in software design and development. These categories help ensure that each type of data is handled appropriately according to its importance and sensitivity.
 
-##### Key Data Control Categories:
+Key Data Control Categories:
 
 1. **Design Data**: 
    - **Description**: Includes all information related to the design of the software, such as schematics, diagrams, models, and specifications.
@@ -1490,7 +1490,7 @@ The certification liaison process is essential for ensuring that airborne electr
 
 **Objective**: Define and plan the methods by which compliance with regulatory requirements will be demonstrated throughout the software development lifecycle.
 
-##### Key Activities:
+Key Activities:
 
 1. **Identify Regulatory Requirements**:
    - **Objective**: Determine the specific regulatory requirements and standards applicable to the software.
@@ -1516,7 +1516,7 @@ The certification liaison process is essential for ensuring that airborne electr
 
 **Objective**: Provide evidence and documentation to demonstrate that the software design and development processes meet all regulatory requirements and standards.
 
-##### Key Activities:
+Key Activities:
 
 1. **Collect Compliance Evidence**:
    - **Objective**: Gather all necessary evidence that demonstrates compliance with regulatory requirements.

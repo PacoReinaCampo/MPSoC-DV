@@ -2,7 +2,7 @@
 
 **Objective**: To develop high-level design concepts that meet the specified hardware requirements.
 
-## Key Activities:
+Key Activities:
 
 1. **Creating Architectural Models**: Develop block diagrams and architectural models to represent the high-level design of the hardware.
 2. **Component Selection**: Identify and select key components and technologies that will be used in the design.

@@ -2,7 +2,7 @@
 
 **Objective**: To confirm that the hardware performs correctly in its intended operational environment and meets the needs and expectations of the end users.
 
-## Key Activities:
+Key Activities:
 
 1. **Requirements Validation**: Ensure that all hardware requirements are correctly derived from the system requirements and reflect the intended functionality.
    - Review requirements documentation.

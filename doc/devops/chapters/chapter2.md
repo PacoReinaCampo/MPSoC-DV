@@ -134,36 +134,38 @@ find . -type f -name '*.vhd' -exec vhdl2verilog {} \;
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-* Create file
-* Define libraries
-* Define entity
-  * Define generics
-  * Define ports
-* Define architecture
-  * Define types
-  * Define constants
-  * Define signals
-  * Instantiate components
-  * Define FSM processes
-    * Implement asynchronous restart
-      * Assign architecture output control signals
-      * Assign architecture output data signals
-      * Assign internal control signals
-        * Vector, matrix, tensor parameters (index)
-        * Segmentation control (pipeline)
-        * Input control
-      * Assign internal data signals
-        * Component registration signals
-    * Implement synchronous drive
-      * Set FSM states
-      * Assign FSM control signals
-      * Assign internal control signals
-      * Assign internal data signals
-      * Assign input control signals to component (multiple instance)
-      * Assign input data signals to component (multiple instance)
-      * Assign architecture output data signals
-  * Assign input control signals to component (single instance)
-  * Assign input data signals to component (single instance)
+```
+· Create file
+· Define libraries
+· Define entity
+  · Define generics
+  · Define ports
+· Define architecture
+  · Define types
+  · Define constants
+  · Define signals
+  · Instantiate components
+  · Define FSM processes
+    · Implement asynchronous restart
+      · Assign architecture output control signals
+      · Assign architecture output data signals
+      · Assign internal control signals
+        · Vector, matrix, tensor parameters (index)
+        · Segmentation control (pipeline)
+        · Input control
+      · Assign internal data signals
+        · Component registration signals
+    · Implement synchronous drive
+      · Set FSM states
+      · Assign FSM control signals
+      · Assign internal control signals
+      · Assign internal data signals
+      · Assign input control signals to component (multiple instance)
+      · Assign input data signals to component (multiple instance)
+      · Assign architecture output data signals
+  · Assign input control signals to component (single instance)
+  · Assign input data signals to component (single instance)
+```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -201,36 +203,38 @@ find . -type f -name '*.sv' -exec verilog2vhdl {} \;
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-* Create file
-* Define libraries
-* Define entity
-  * Define generics
-  * Define ports
-* Define architecture
-  * Define types
-  * Define constants
-  * Define signals
-  * Instantiate components
-  * Define FSM processes
-    * Implement asynchronous restart
-      * Assign architecture output control signals
-      * Assign architecture output data signals
-      * Assign internal control signals
-        * Vector, matrix, tensor parameters (index)
-        * Segmentation control (pipeline)
-        * Input control
-      * Assign internal data signals
-        * Component registration signals
-    * Implement synchronous drive
-      * Set FSM states
-      * Assign FSM control signals
-      * Assign internal control signals
-      * Assign internal data signals
-      * Assign input control signals to component (multiple instance)
-      * Assign input data signals to component (multiple instance)
-      * Assign architecture output data signals
-  * Assign input control signals to component (single instance)
-  * Assign input data signals to component (single instance)
+```
+· Create file
+· Define libraries
+· Define entity
+  · Define generics
+  · Define ports
+· Define architecture
+  · Define types
+  · Define constants
+  · Define signals
+  · Instantiate components
+  · Define FSM processes
+    · Implement asynchronous restart
+      · Assign architecture output control signals
+      · Assign architecture output data signals
+      · Assign internal control signals
+        · Vector, matrix, tensor parameters (index)
+        · Segmentation control (pipeline)
+        · Input control
+      · Assign internal data signals
+        · Component registration signals
+    · Implement synchronous drive
+      · Set FSM states
+      · Assign FSM control signals
+      · Assign internal control signals
+      · Assign internal data signals
+      · Assign input control signals to component (multiple instance)
+      · Assign input data signals to component (multiple instance)
+      · Assign architecture output data signals
+  · Assign input control signals to component (single instance)
+  · Assign input data signals to component (single instance)
+```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -278,36 +282,38 @@ find . -type f -name '*.vhd' -exec vhdl2verilog {} \;
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-* Create file
-* Define libraries
-* Define entity
-  * Define generics
-  * Define ports
-* Define architecture
-  * Define types
-  * Define constants
-  * Define signals
-  * Instantiate components
-  * Define FSM processes
-    * Implement asynchronous restart
-      * Assign architecture output control signals
-      * Assign architecture output data signals
-      * Assign internal control signals
-        * Vector, matrix, tensor parameters (index)
-        * Segmentation control (pipeline)
-        * Input control
-      * Assign internal data signals
-        * Component registration signals
-    * Implement synchronous drive
-      * Set FSM states
-      * Assign FSM control signals
-      * Assign internal control signals
-      * Assign internal data signals
-      * Assign input control signals to component (multiple instance)
-      * Assign input data signals to component (multiple instance)
-      * Assign architecture output data signals
-  * Assign input control signals to component (single instance)
-  * Assign input data signals to component (single instance)
+```
+· Create file
+· Define libraries
+· Define entity
+  · Define generics
+  · Define ports
+· Define architecture
+  · Define types
+  · Define constants
+  · Define signals
+  · Instantiate components
+  · Define FSM processes
+    · Implement asynchronous restart
+      · Assign architecture output control signals
+      · Assign architecture output data signals
+      · Assign internal control signals
+        · Vector, matrix, tensor parameters (index)
+        · Segmentation control (pipeline)
+        · Input control
+      · Assign internal data signals
+        · Component registration signals
+    · Implement synchronous drive
+      · Set FSM states
+      · Assign FSM control signals
+      · Assign internal control signals
+      · Assign internal data signals
+      · Assign input control signals to component (multiple instance)
+      · Assign input data signals to component (multiple instance)
+      · Assign architecture output data signals
+  · Assign input control signals to component (single instance)
+  · Assign input data signals to component (single instance)
+```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -345,36 +351,38 @@ find . -type f -name '*.sv' -exec verilog2vhdl {} \;
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-* Create file
-* Define libraries
-* Define entity
-  * Define generics
-  * Define ports
-* Define architecture
-  * Define types
-  * Define constants
-  * Define signals
-  * Instantiate components
-  * Define FSM processes
-    * Implement asynchronous restart
-      * Assign architecture output control signals
-      * Assign architecture output data signals
-      * Assign internal control signals
-        * Vector, matrix, tensor parameters (index)
-        * Segmentation control (pipeline)
-        * Input control
-      * Assign internal data signals
-        * Component registration signals
-    * Implement synchronous drive
-      * Set FSM states
-      * Assign FSM control signals
-      * Assign internal control signals
-      * Assign internal data signals
-      * Assign input control signals to component (multiple instance)
-      * Assign input data signals to component (multiple instance)
-      * Assign architecture output data signals
-  * Assign input control signals to component (single instance)
-  * Assign input data signals to component (single instance)
+```
+· Create file
+· Define libraries
+· Define entity
+  · Define generics
+  · Define ports
+· Define architecture
+  · Define types
+  · Define constants
+  · Define signals
+  · Instantiate components
+  · Define FSM processes
+    · Implement asynchronous restart
+      · Assign architecture output control signals
+      · Assign architecture output data signals
+      · Assign internal control signals
+        · Vector, matrix, tensor parameters (index)
+        · Segmentation control (pipeline)
+        · Input control
+      · Assign internal data signals
+        · Component registration signals
+    · Implement synchronous drive
+      · Set FSM states
+      · Assign FSM control signals
+      · Assign internal control signals
+      · Assign internal data signals
+      · Assign input control signals to component (multiple instance)
+      · Assign input data signals to component (multiple instance)
+      · Assign architecture output data signals
+  · Assign input control signals to component (single instance)
+  · Assign input data signals to component (single instance)
+```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 

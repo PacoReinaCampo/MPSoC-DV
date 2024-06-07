@@ -22,6 +22,7 @@ Process assurance involves a range of activities to achieve its objectives:
 **Objective**: Develop comprehensive plans that outline the process assurance activities and ensure they are documented effectively.
 
 **Key Activities**:
+
 - Develop a Process Assurance Plan (PAP) that outlines the scope, objectives, activities, responsibilities, and schedules.
 - Ensure that all process documentation, including plans, procedures, and standards, is complete, accurate, and up-to-date.
 
@@ -30,6 +31,7 @@ Process assurance involves a range of activities to achieve its objectives:
 **Objective**: Conduct reviews and audits to verify that processes are being followed correctly and consistently.
 
 **Key Activities**:
+
 - Perform regular process reviews to ensure compliance with plans, standards, and regulations.
 - Conduct internal and external audits to assess the effectiveness and compliance of processes.
 - Document audit findings and ensure that any non-conformances are addressed and corrected.
@@ -39,6 +41,7 @@ Process assurance involves a range of activities to achieve its objectives:
 **Objective**: Monitor and control processes to ensure they are performed correctly and efficiently.
 
 **Key Activities**:
+
 - Implement process monitoring mechanisms to track the performance and adherence of processes.
 - Use key performance indicators (KPIs) and metrics to evaluate process effectiveness.
 - Identify any deviations from the defined processes and implement corrective actions.
@@ -48,6 +51,7 @@ Process assurance involves a range of activities to achieve its objectives:
 **Objective**: Verify that all defined processes are implemented correctly and achieve their intended outcomes.
 
 **Key Activities**:
+
 - Perform process verification activities to ensure that processes are executed as planned.
 - Use checklists and verification criteria to assess process implementation.
 - Document the results of process verification and address any discrepancies.
@@ -57,6 +61,7 @@ Process assurance involves a range of activities to achieve its objectives:
 **Objective**: Ensure that all personnel involved in hardware development are aware of the processes and trained in their implementation.
 
 **Key Activities**:
+
 - Develop and deliver training programs to educate team members on process assurance activities and requirements.
 - Maintain training records and ensure that all personnel are up-to-date with their training.
 - Promote awareness of process assurance practices and their importance.
@@ -66,6 +71,7 @@ Process assurance involves a range of activities to achieve its objectives:
 **Objective**: Identify and manage risks associated with the processes to ensure the quality and reliability of the hardware.
 
 **Key Activities**:
+
 - Perform risk assessments to identify potential process-related risks.
 - Develop and implement risk mitigation strategies to address identified risks.
 - Monitor and review risks throughout the hardware development lifecycle.
@@ -75,6 +81,7 @@ Process assurance involves a range of activities to achieve its objectives:
 **Objective**: Continuously improve processes to enhance their effectiveness and efficiency.
 
 **Key Activities**:
+
 - Collect feedback from process participants and stakeholders to identify areas for improvement.
 - Implement process improvements based on feedback and lessons learned.
 - Review and update process documentation to reflect improvements and changes.
@@ -84,6 +91,7 @@ Process assurance involves a range of activities to achieve its objectives:
 **Objective**: Maintain thorough documentation of all process assurance activities and report on their outcomes.
 
 **Key Activities**:
+
 - Document all process assurance activities, including reviews, audits, monitoring, and verification.
 - Prepare and distribute regular reports on process assurance findings, including compliance status, issues identified, and corrective actions taken.
 - Ensure that all documentation is accessible and organized to facilitate audits and reviews.

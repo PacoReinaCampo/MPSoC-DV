@@ -33,20 +33,26 @@ digraph Project {
   Requirements_HW -> Source_HW;
   Source_HW -> Model_HW;
   Model_HW -> Validation_HW;
+  Validation_HW -> Model_HW;
   Validation_HW -> Design_HW;
   Design_HW -> Verification_HW;
+  Verification_HW -> Design_HW;
   Verification_HW -> Quality_HW;
   Quality_HW -> Certification_HW;
+  Quality_HW -> Requirements_HW;
   Certification_HW -> Lifecycle_HW;
   Lifecycle_HW -> Requirements_HW;
 
   Requirements_SW -> Source_SW;
   Source_SW -> Model_SW;
   Model_SW -> Validation_SW;
+  Validation_SW -> Model_SW;
   Validation_SW -> Design_SW;
   Design_SW -> Verification_SW;
+  Verification_SW -> Design_SW;
   Verification_SW -> Quality_SW;
   Quality_SW -> Certification_SW;
+  Quality_SW -> Requirements_SW;
   Certification_SW -> Lifecycle_SW;
   Lifecycle_SW -> Requirements_SW;
 }

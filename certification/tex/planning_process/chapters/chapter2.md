@@ -7,6 +7,7 @@ The planning process involves several key activities to achieve its objectives:
 **Activity**: Create a comprehensive Hardware Development Plan that outlines the overall strategy for hardware development.
 
 **Key Elements**:
+
 - Project scope and objectives
 - Development methodologies and processes
 - Roles and responsibilities of team members
@@ -17,6 +18,7 @@ The planning process involves several key activities to achieve its objectives:
 **Activity**: Define the verification activities, methodologies, and criteria to ensure that the hardware meets all specified requirements.
 
 **Key Elements**:
+
 - Verification objectives and scope
 - Test plans and procedures
 - Verification tools and environments
@@ -27,6 +29,7 @@ The planning process involves several key activities to achieve its objectives:
 **Activity**: Develop a plan to manage and control changes to the hardware design and associated documentation.
 
 **Key Elements**:
+
 - Configuration identification and control processes
 - Change management procedures
 - Version control and tracking mechanisms
@@ -37,6 +40,7 @@ The planning process involves several key activities to achieve its objectives:
 **Activity**: Define the processes and activities to ensure that the hardware development adheres to the defined plans and standards.
 
 **Key Elements**:
+
 - Process assurance objectives and scope
 - Auditing and review processes
 - Non-compliance handling procedures
@@ -47,6 +51,7 @@ The planning process involves several key activities to achieve its objectives:
 **Activity**: Identify potential risks to the project and develop strategies to mitigate them.
 
 **Key Elements**:
+
 - Risk identification and assessment
 - Risk mitigation strategies and actions
 - Monitoring and reporting mechanisms
@@ -57,6 +62,7 @@ The planning process involves several key activities to achieve its objectives:
 **Activity**: Identify and allocate the necessary resources, including personnel, tools, and facilities.
 
 **Key Elements**:
+
 - Resource requirements and availability
 - Budget and cost estimates
 - Resource scheduling and allocation
@@ -67,6 +73,7 @@ The planning process involves several key activities to achieve its objectives:
 **Activity**: Establish metrics and criteria to monitor project progress and ensure that objectives are met.
 
 **Key Elements**:
+
 - Key performance indicators (KPIs)
 - Success criteria for milestones and deliverables
 - Monitoring and reporting processes
@@ -77,6 +84,7 @@ The planning process involves several key activities to achieve its objectives:
 **Activity**: Ensure comprehensive documentation of all planning activities and maintain regular reporting to stakeholders.
 
 **Key Elements**:
+
 - Documentation standards and templates
 - Regular progress reports and reviews
 - Communication protocols
@@ -87,6 +95,7 @@ The planning process involves several key activities to achieve its objectives:
 **Activity**: Conduct reviews and obtain approvals for all planning documents and plans.
 
 **Key Elements**:
+
 - Review procedures and criteria
 - Approval workflows
 - Stakeholder engagement

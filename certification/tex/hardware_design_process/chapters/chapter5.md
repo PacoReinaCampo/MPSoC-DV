@@ -2,7 +2,7 @@
 
 **Objective**: To transition the hardware from development to full-scale production.
 
-## Key Activities:
+Key Activities:
 
 1. **Pilot Production Runs**: Conduct pilot production runs to validate manufacturing processes and identify any potential production issues.
 2. **Production Planning**: Develop detailed production plans, including resource allocation, production schedules, and quality control measures.

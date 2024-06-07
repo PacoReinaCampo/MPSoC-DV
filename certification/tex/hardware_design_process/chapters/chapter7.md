@@ -2,7 +2,7 @@
 
 **Objective**: To produce hardware units in large quantities for operational use.
 
-## Key Activities:
+Key Activities:
 
 1. **Scaling Production**: Scale up production processes to produce hardware units in the required quantities.
 2. **Quality Control**: Implement rigorous quality control measures to ensure consistency and reliability in mass production.

@@ -2,7 +2,7 @@
 
 **Objective**: To ensure that the hardware design and implementation meet all specified requirements and are free from defects.
 
-## Key Activities:
+Key Activities:
 
 1. **Requirements Verification**: Confirm that the hardware requirements are correctly and completely implemented.
    - Trace hardware requirements to design and test cases.

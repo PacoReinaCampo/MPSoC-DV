@@ -2,7 +2,7 @@
 
 **Objective**: To verify that the hardware meets all specified requirements and is ready for operational deployment.
 
-## Key Activities:
+Key Activities:
 
 1. **Developing Test Plans**: Create detailed acceptance test plans that outline the test procedures, criteria, and environments.
 2. **Conducting Tests**: Perform acceptance tests to validate hardware functionality, performance, and compliance with requirements.

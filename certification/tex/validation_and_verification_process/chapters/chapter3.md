@@ -1,6 +1,6 @@
 # Validation and Verification Methods
 
-## Key Methods:
+Key Methods:
 
 1. **Inspection**:
    - **Purpose**: Identify defects by visually examining hardware components and documentation.

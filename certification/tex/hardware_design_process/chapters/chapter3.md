@@ -2,7 +2,7 @@
 
 **Objective**: To translate the conceptual design into detailed specifications and schematics.
 
-## Key Activities:
+Key Activities:
 
 1. **Developing Schematics**: Create detailed schematics, layout diagrams, and wiring diagrams based on the conceptual design.
 2. **Detailed Analysis**: Perform detailed analyses, such as worst-case analysis, thermal analysis, and signal integrity analysis, to ensure the design meets all requirements.

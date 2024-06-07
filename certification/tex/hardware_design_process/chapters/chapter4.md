@@ -2,7 +2,7 @@
 
 **Objective**: To realize the detailed design in physical hardware.
 
-## Key Activities:
+Key Activities:
 
 1. **Manufacturing Prototypes**: Produce initial prototypes or small-scale production units based on the detailed design.
 2. **Assembly and Integration**: Assemble and integrate the hardware components to create functional units.

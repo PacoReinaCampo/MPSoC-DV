@@ -28,7 +28,7 @@ The certification liaison process is essential for ensuring that airborne electr
 
 **Objective**: Define and plan the methods by which compliance with regulatory requirements will be demonstrated throughout the hardware development lifecycle.
 
-### Key Activities:
+Key Activities:
 
 1. **Identify Regulatory Requirements**:
    - **Objective**: Determine the specific regulatory requirements and standards applicable to the hardware.
@@ -54,7 +54,7 @@ The certification liaison process is essential for ensuring that airborne electr
 
 **Objective**: Provide evidence and documentation to demonstrate that the hardware design and development processes meet all regulatory requirements and standards.
 
-### Key Activities:
+Key Activities:
 
 1. **Collect Compliance Evidence**:
    - **Objective**: Gather all necessary evidence that demonstrates compliance with regulatory requirements.

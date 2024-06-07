@@ -2,7 +2,7 @@
 
 **Objective**: Define and plan the methods by which compliance with regulatory requirements will be demonstrated throughout the hardware development lifecycle.
 
-## Key Activities:
+Key Activities:
 
 1. **Identify Regulatory Requirements**:
    - **Objective**: Determine the specific regulatory requirements and standards applicable to the hardware.
