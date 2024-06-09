@@ -5,12 +5,15 @@ In the context of standards such as ISO 9001:2015, a **normative reference** is 
 ## Role and Purpose of Normative References in ISO 9001:2015
 
 1. **Ensuring Consistency and Uniformity**:
+
    - Normative references help maintain consistency and uniformity across various standards by providing common definitions, terms, and methodologies. This ensures that all users of the standard interpret and implement it in a similar manner.
 
 2. **Providing Additional Requirements and Guidance**:
+
    - These references often include additional requirements, guidelines, or detailed explanations that are necessary to understand and implement the primary standard fully. For instance, they might elaborate on specific procedures, methods of measurement, or testing techniques.
 
 3. **Facilitating Compliance and Certification**:
+
    - By referring to normative documents, organizations can ensure that they meet all necessary criteria for compliance and certification. This can simplify the certification process as it provides a clear set of documents that must be adhered to.
 
 ## Example of Normative References in ISO 9001:2015
@@ -18,22 +21,27 @@ In the context of standards such as ISO 9001:2015, a **normative reference** is 
 ISO 9001:2015 includes the following normative reference:
 
 - **ISO 9000:2015, Quality management systems — Fundamentals and vocabulary**:
-  - ISO 9000:2015 provides the fundamental concepts, principles, and vocabulary used in the ISO 9001:2015 standard. It is critical for understanding the terminology and principles that underpin the quality management system requirements outlined in ISO 9001:2015.
+
+   - ISO 9000:2015 provides the fundamental concepts, principles, and vocabulary used in the ISO 9001:2015 standard. It is critical for understanding the terminology and principles that underpin the quality management system requirements outlined in ISO 9001:2015.
 
 This normative reference is crucial because:
-  - It defines the key terms and concepts used in ISO 9001:2015, ensuring that all users have a common understanding of the language and principles of quality management systems.
-  - It lays the foundation for the implementation and interpretation of ISO 9001:2015, offering essential background information that supports the requirements of the standard.
+
+   - It defines the key terms and concepts used in ISO 9001:2015, ensuring that all users have a common understanding of the language and principles of quality management systems.
+   - It lays the foundation for the implementation and interpretation of ISO 9001:2015, offering essential background information that supports the requirements of the standard.
 
 ## Importance of Normative References
 
 - **Clarity and Precision**:
-  - Normative references provide clarity and precision, reducing ambiguity in the interpretation of the standard. This is essential for ensuring that all organizations implement the standard consistently.
+
+   - Normative references provide clarity and precision, reducing ambiguity in the interpretation of the standard. This is essential for ensuring that all organizations implement the standard consistently.
   
 - **Standardization Across Industries**:
-  - They help achieve standardization across different industries and sectors, as all entities referring to the primary standard will also refer to the same set of normative documents.
+
+   - They help achieve standardization across different industries and sectors, as all entities referring to the primary standard will also refer to the same set of normative documents.
 
 - **Support for Auditors and Assessors**:
-  - Normative references support auditors and assessors by providing a clear framework and criteria for evaluating compliance with the primary standard.
+
+   - Normative references support auditors and assessors by providing a clear framework and criteria for evaluating compliance with the primary standard.
 
 In summary, normative references in ISO 9001:2015, such as ISO 9000:2015, are essential components that provide necessary definitions, guidelines, and additional requirements. They ensure the proper and uniform application of the standard, facilitating consistency, clarity, and comprehensive understanding for all users.
 

@@ -50,12 +50,12 @@ In Rust, you can define modules in separate files and organize your code more ef
 
 ```
 my_project/
-  ├── src/
-  │   ├── main.rs
-  │   ├── my_module/
-  │   │   ├── mod.rs
-  │   │   ├── my_submodule.rs
-  │   ├── another_module.rs
+    src/
+        main.rs
+        my_module/
+            mod.rs
+            my_submodule.rs
+        another_module.rs
 ```
 
 In this structure:

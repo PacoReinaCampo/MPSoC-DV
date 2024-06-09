@@ -9,18 +9,22 @@ The **Performance Evaluation** section of ISO 9001:2015 focuses on the methods a
 The organization must determine:
 
 1. **What needs to be monitored and measured**:
+
    - Identify key performance indicators (KPIs) and other relevant metrics.
    - Determine what aspects of the QMS, processes, and product/service quality will be monitored.
 
 2. **Methods for monitoring, measurement, analysis, and evaluation**:
+
    - Establish appropriate methods for gathering and analyzing data.
    - Ensure methods are reliable and provide accurate results.
 
 3. **When monitoring and measuring will be performed**:
+
    - Define the frequency and timing of monitoring and measurement activities.
    - Ensure that these activities are conducted regularly and at appropriate intervals.
 
 4. **When results from monitoring and measurement will be analyzed and evaluated**:
+
    - Specify how often data will be reviewed and who will conduct the analysis.
    - Ensure timely evaluation to support decision-making and improvements.
 
@@ -31,10 +35,12 @@ Documented information must be retained as evidence of the results of these acti
 Customer satisfaction is a key measure of the QMS’s effectiveness. The organization must monitor customers’ perceptions of the degree to which their needs and expectations have been fulfilled. This involves:
 
 1. **Methods for obtaining customer feedback**:
+
    - Use surveys, interviews, and feedback forms.
    - Monitor social media, reviews, and other online platforms.
 
 2. **Analyzing customer satisfaction data**:
+
    - Regularly review feedback to identify trends and areas for improvement.
    - Take corrective actions based on customer complaints and suggestions.
 
@@ -43,18 +49,23 @@ Customer satisfaction is a key measure of the QMS’s effectiveness. The organiz
 The organization must analyze and evaluate data and information arising from monitoring and measurement. This analysis should provide insights into:
 
 1. **QMS performance and effectiveness**:
+
    - Evaluate how well the QMS is achieving its objectives and meeting requirements.
 
 2. **Process performance**:
+
    - Assess the efficiency and effectiveness of processes.
 
 3. **Product/service conformity**:
+
    - Check whether products and services meet specified requirements.
 
 4. **Customer satisfaction trends**:
+
    - Identify changes in customer satisfaction levels and underlying causes.
 
 5. **Opportunities for improvement**:
+
    - Highlight areas where performance can be enhanced and risks mitigated.
 
 ## Internal Audit
@@ -67,18 +78,22 @@ The organization must conduct internal audits at planned intervals to provide in
 **Internal audit process** involves:
 
 1. **Planning the audit program**:
+
    - Define the scope, frequency, and methods for audits.
    - Ensure audits cover all aspects of the QMS and are conducted regularly.
 
 2. **Selecting and training auditors**:
+
    - Choose auditors who are impartial and objective.
    - Provide training to ensure they are competent.
 
 3. **Conducting audits and reporting findings**:
+
    - Carry out audits according to the plan, gather evidence, and report nonconformities.
    - Ensure findings are documented and communicated to relevant management.
 
 4. **Taking corrective actions**:
+
    - Address nonconformities and their causes.
    - Verify the effectiveness of corrective actions.
 
@@ -95,6 +110,7 @@ Inputs to the management review must include:
 1. **Status of actions from previous management reviews**.
 2. **Changes in external and internal issues relevant to the QMS**.
 3. **Information on QMS performance and effectiveness**, including:
+
    - Trends in customer satisfaction and feedback.
    - Extent of quality objectives achieved.
    - Process performance and product conformity.

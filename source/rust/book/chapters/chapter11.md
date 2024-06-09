@@ -36,13 +36,14 @@ Rust provides several command-line options to control how tests are run. You can
 In Rust, you can organize tests into different modules and files just like regular code. Each file containing tests should be placed in the `tests` directory of your project, and Rust's test runner will automatically discover and run these tests.
 
 For example, you might have the following directory structure:
+
 ```
 my_project/
-  ├── src/
-  │   ├── lib.rs
-  └── tests/
-      ├── integration_tests.rs
-      └── unit_tests.rs
+    src/
+        lib.rs
+    tests/
+        integration_tests.rs
+        unit_tests.rs
 ```
 
 In this structure, `unit_tests.rs` might contain unit tests for individual functions or modules, while `integration_tests.rs` might contain higher-level integration tests that test the interaction between different parts of your code.

@@ -81,6 +81,7 @@ In DO-254, hardware plans are critical documents that outline the strategies, me
 **Description**: The PHAC is a comprehensive document that outlines the approach to achieving certification for airborne electronic hardware.
 
 **Key Elements**:
+
 - **Certification Basis**: Identify applicable regulations, standards, and guidelines.
 - **Compliance Strategy**: Describe the methods and activities to demonstrate compliance with certification requirements.
 - **Roles and Responsibilities**: Define the roles of personnel and their responsibilities in the certification process.
@@ -94,6 +95,7 @@ In DO-254, hardware plans are critical documents that outline the strategies, me
 **Description**: The HDP details the approach to designing the hardware, including methodologies, tools, and techniques.
 
 **Key Elements**:
+
 - **Design Objectives**: Outline the goals and requirements of the hardware design.
 - **Design Methodology**: Describe the processes and techniques used in the design, including modeling, simulation, and analysis.
 - **Tools and Environment**: Identify the design tools, software, and hardware used in the design process.
@@ -106,6 +108,7 @@ In DO-254, hardware plans are critical documents that outline the strategies, me
 **Description**: The HValP outlines the strategy for validating that the hardware meets its intended requirements and functions correctly in its operational environment.
 
 **Key Elements**:
+
 - **Validation Objectives**: Define the goals and criteria for validation.
 - **Validation Methods**: Specify the methods and techniques used for validation, including testing, analysis, and inspection.
 - **Validation Environment**: Describe the environment and conditions under which validation will be conducted.
@@ -119,6 +122,7 @@ In DO-254, hardware plans are critical documents that outline the strategies, me
 **Description**: The HVerP details the approach to verifying that the hardware design meets its specified requirements and design criteria.
 
 **Key Elements**:
+
 - **Verification Objectives**: Define the goals and criteria for verification.
 - **Verification Methods**: Specify the methods and techniques used for verification, such as inspections, tests, and reviews.
 - **Verification Tools**: Identify the tools and equipment used in verification activities.
@@ -132,6 +136,7 @@ In DO-254, hardware plans are critical documents that outline the strategies, me
 **Description**: The HCMP outlines the processes and procedures for managing the configuration of hardware throughout its lifecycle.
 
 **Key Elements**:
+
 - **Configuration Identification**: Define and document all configuration items and their relationships.
 - **Configuration Control**: Establish procedures for managing changes to configuration items, including approval and documentation processes.
 - **Configuration Status Accounting**: Track and report the status of configuration items and changes.
@@ -144,6 +149,7 @@ In DO-254, hardware plans are critical documents that outline the strategies, me
 **Description**: The HPAP outlines the processes and activities to ensure that all hardware development processes meet quality standards and regulatory requirements.
 
 **Key Elements**:
+
 - **Process Assurance Objectives**: Define the goals and criteria for process assurance.
 - **Process Monitoring**: Establish procedures for monitoring and controlling development processes.
 - **Process Audits and Reviews**: Plan and conduct audits and reviews to ensure process compliance and effectiveness.

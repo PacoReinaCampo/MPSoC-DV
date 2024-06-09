@@ -18,6 +18,7 @@ IP-XACT is an XML schema that defines and describes IP components and their inte
 
     a. **Component Description**
 Each IP block is described in a `component` element, which includes:
+
 - **Vendor, Library, Name, Version (VLNV):** Unique identifiers for the IP.
 - **Model:** This describes the underlying implementation of the IP, which could be RTL (Register Transfer Level), behavioral model, or structural netlist.
 - **Parameters:** Configurable parameters for the IP, such as data width, address size, and others.
@@ -29,6 +30,7 @@ Each IP block is described in a `component` element, which includes:
 
     b. **Design Description**
 This element captures the system-level design using multiple IP components, specifying how they interconnect:
+
 - **Component Instances:** Instances of IP components used in the design.
 - **Interconnections:** Connections between ports and interfaces of different IP blocks.
 - **Hierarchical Designs:** Support for hierarchical designs, allowing the creation of complex systems from simpler sub-components.
@@ -39,6 +41,7 @@ Specifies the tools and scripts necessary to process the IP, such as synthesis, 
 3. **Packaging Process**
 
 The IP packaging process involves encapsulating the IP along with its metadata and associated files into a standardized format. The key steps are:
+
 - **Metadata Creation:** Using IP-XACT to describe the IP’s properties, interfaces, and structure.
 - **File Association:** Linking all relevant files (source, simulation, synthesis, documentation) to the IP-XACT description.
 - **Validation:** Ensuring the IP package is complete and conforms to the IP-XACT schema, often using EDA tool validators.
@@ -46,6 +49,7 @@ The IP packaging process involves encapsulating the IP along with its metadata a
 4. **Integration Process**
 
 Integration of IP blocks into a larger system design involves:
+
 - **Importing IP:** Using EDA tools to import IP-XACT described IP blocks.
 - **Configuring IP:** Adjusting parameters and settings as per the system requirements.
 - **Connecting IP:** Establishing connections between different IP blocks using bus interfaces and signal ports, facilitated by the standard descriptions in IP-XACT.
@@ -54,6 +58,7 @@ Integration of IP blocks into a larger system design involves:
 5. **Reuse**
 
 IP reuse is maximized by:
+
 - **Standardization:** Adhering to IP-XACT ensures IP blocks can be easily reused across different projects and toolchains.
 - **Documentation:** Detailed metadata and documentation within the IP package make it easier to understand and integrate the IP into new designs.
 - **Configurability:** Parameterized IP blocks can be adapted for different use cases without significant redesign effort.
@@ -61,6 +66,7 @@ IP reuse is maximized by:
 6. **Tool Support**
 
 Several EDA tools support the IP-XACT standard, providing features such as:
+
 - **IP Catalogs:** Browsing and selecting IP blocks from a repository.
 - **Automated Integration:** Tools can automatically generate interconnect logic and configuration files based on the IP-XACT descriptions.
 - **Verification Support:** Integration with simulation and formal verification tools to ensure the integrated design functions correctly.
@@ -79,6 +85,7 @@ IP-XACT is an XML schema that defines and describes IP components and their inte
 
     a. **Component Description**
 Each IP block is described in a `component` element, which includes:
+
 - **Vendor, Library, Name, Version (VLNV):** Unique identifiers for the IP.
 - **Model:** This describes the underlying implementation of the IP, which could be RTL (Register Transfer Level), behavioral model, or structural netlist.
 - **Parameters:** Configurable parameters for the IP, such as data width, address size, and others.
@@ -90,6 +97,7 @@ Each IP block is described in a `component` element, which includes:
 
     b. **Design Description**
 This element captures the system-level design using multiple IP components, specifying how they interconnect:
+
 - **Component Instances:** Instances of IP components used in the design.
 - **Interconnections:** Connections between ports and interfaces of different IP blocks.
 - **Hierarchical Designs:** Support for hierarchical designs, allowing the creation of complex systems from simpler sub-components.
@@ -100,6 +108,7 @@ Specifies the tools and scripts necessary to process the IP, such as synthesis, 
 3. **Packaging Process**
 
 The IP packaging process involves encapsulating the IP along with its metadata and associated files into a standardized format. The key steps are:
+
 - **Metadata Creation:** Using IP-XACT to describe the IP’s properties, interfaces, and structure.
 - **File Association:** Linking all relevant files (source, simulation, synthesis, documentation) to the IP-XACT description.
 - **Validation:** Ensuring the IP package is complete and conforms to the IP-XACT schema, often using EDA tool validators.
@@ -107,6 +116,7 @@ The IP packaging process involves encapsulating the IP along with its metadata a
 4. **Integration Process**
 
 Integration of IP blocks into a larger system design involves:
+
 - **Importing IP:** Using EDA tools to import IP-XACT described IP blocks.
 - **Configuring IP:** Adjusting parameters and settings as per the system requirements.
 - **Connecting IP:** Establishing connections between different IP blocks using bus interfaces and signal ports, facilitated by the standard descriptions in IP-XACT.
@@ -115,6 +125,7 @@ Integration of IP blocks into a larger system design involves:
 5. **Reuse**
 
 IP reuse is maximized by:
+
 - **Standardization:** Adhering to IP-XACT ensures IP blocks can be easily reused across different projects and toolchains.
 - **Documentation:** Detailed metadata and documentation within the IP package make it easier to understand and integrate the IP into new designs.
 - **Configurability:** Parameterized IP blocks can be adapted for different use cases without significant redesign effort.
@@ -122,6 +133,7 @@ IP reuse is maximized by:
 6. **Tool Support**
 
 Several EDA tools support the IP-XACT standard, providing features such as:
+
 - **IP Catalogs:** Browsing and selecting IP blocks from a repository.
 - **Automated Integration:** Tools can automatically generate interconnect logic and configuration files based on the IP-XACT descriptions.
 - **Verification Support:** Integration with simulation and formal verification tools to ensure the integrated design functions correctly.
@@ -135,6 +147,7 @@ IEEE STD 1685, commonly known as IP-XACT, is an IEEE standard that defines an XM
 ##### Objectives of IEEE STD 1685
 
 The primary objectives of IP-XACT are:
+
 - **Standardization:** To create a uniform method for documenting IP that can be understood and utilized by various EDA tools.
 - **Interoperability:** To ensure IP components can seamlessly interact with one another within different design environments.
 - **Automation:** To facilitate automated design flows and reduce manual intervention in IP integration and verification processes.
@@ -144,18 +157,18 @@ The primary objectives of IP-XACT are:
 
 1. **Component**
    - **Component Description:** This element encapsulates the detailed description of the IP component, including its metadata, interfaces, and configuration parameters.
-     - **VLNV (Vendor, Library, Name, Version):** Unique identifier for the IP block.
-     - **Ports:** Lists all the input and output ports with their attributes such as direction, type, and width.
-     - **Parameters:** Configurable attributes of the IP, allowing customization for different use cases.
-     - **Bus Interfaces:** Specifies the bus protocols supported by the IP, such as AXI, AHB, or custom protocols.
-     - **Memory Maps:** Defines the addressable memory spaces and registers within the IP.
-     - **Filesets:** Grouping of all files associated with the IP, including source code, synthesis scripts, and documentation.
+      - **VLNV (Vendor, Library, Name, Version):** Unique identifier for the IP block.
+      - **Ports:** Lists all the input and output ports with their attributes such as direction, type, and width.
+      - **Parameters:** Configurable attributes of the IP, allowing customization for different use cases.
+      - **Bus Interfaces:** Specifies the bus protocols supported by the IP, such as AXI, AHB, or custom protocols.
+      - **Memory Maps:** Defines the addressable memory spaces and registers within the IP.
+      - **Filesets:** Grouping of all files associated with the IP, including source code, synthesis scripts, and documentation.
 
 2. **Design**
    - **Design Description:** This section details how multiple IP components are instantiated and interconnected to form a complete system or subsystem.
-     - **Component Instances:** Instances of individual IP blocks within the design.
-     - **Interconnections:** Connections between ports and bus interfaces of different IP instances.
-     - **Hierarchical Design:** Support for complex, hierarchical designs that build larger systems from smaller subcomponents.
+      - **Component Instances:** Instances of individual IP blocks within the design.
+      - **Interconnections:** Connections between ports and bus interfaces of different IP instances.
+      - **Hierarchical Design:** Support for complex, hierarchical designs that build larger systems from smaller subcomponents.
 
 3. **Generator Chain**
    - **Generators:** Describes the tools and scripts necessary to process the IP block, such as synthesis, simulation, and verification scripts.
@@ -172,6 +185,7 @@ The primary objectives of IP-XACT are:
 ##### Adoption and Tool Support
 
 Several major EDA vendors support IP-XACT, incorporating it into their tools to enhance IP management and integration:
+
 - **IP Catalogs:** Tools offer IP catalogs where designers can browse and select IP blocks described in IP-XACT.
 - **Automated Integration:** EDA tools can automatically generate necessary interconnects and configuration files based on the IP-XACT descriptions.
 - **Verification Tools:** Integration with simulation and formal verification tools is streamlined using IP-XACT, ensuring the correct functionality of integrated designs.
@@ -185,6 +199,7 @@ Normative references are essential parts of standards documents like IEEE STD 16
 ##### Purpose of Normative References
 
 Normative references in IEEE STD 1685 serve several important purposes:
+
 - **Standardization Consistency:** Ensure alignment with other relevant standards, promoting uniformity across different standards and practices.
 - **Clarification and Detail:** Provide additional details and clarifications that are essential for the correct implementation of the IP-XACT standard.
 - **Interoperability:** Enhance interoperability by linking IP-XACT with other standards that might be used in conjunction with it.
@@ -317,7 +332,7 @@ Understanding the specific terminology, acronyms, and abbreviations used in IEEE
    - **Usage:** Generators are scripts or tools specified within IP-XACT to automate processes like synthesis or simulation. For example, a synthesis generator might run a script that compiles the RTL code into a netlist.
 
 10. **Design:**
-    - **Usage:** A design in IP-XACT refers to the top-level configuration of multiple interconnected IP components. It details how components are instantiated, connected, and configured to form a complete system.
+   - **Usage:** A design in IP-XACT refers to the top-level configuration of multiple interconnected IP components. It details how components are instantiated, connected, and configured to form a complete system.
 
 Understanding the definitions, acronyms, and abbreviations used in IEEE STD 1685 (IP-XACT) is fundamental for effectively applying the standard. These terms provide the necessary vocabulary for describing and working with IP components in a consistent and standardized manner, facilitating better communication, interoperability, and efficiency in electronic design processes.
 
@@ -336,9 +351,11 @@ Interoperability is a cornerstone of the IP-XACT standard, ensuring that IP comp
 1. Standardized Metadata Description
 
 **IP-XACT Schema:**
+
 - IP-XACT uses an XML schema to describe the metadata of IP components. This includes information about interfaces, parameters, memory maps, and other critical attributes. The standardized schema ensures that any IP described using IP-XACT can be interpreted uniformly by different tools and platforms.
 
 **Component Descriptions:**
+
 - Each IP component is described using a standard format, including its ports, bus interfaces, parameters, and memory maps. This consistent description allows different EDA tools to understand and use the IP correctly.
 
 **Example:**
@@ -366,45 +383,57 @@ Interoperability is a cornerstone of the IP-XACT standard, ensuring that IP comp
 2. IP Packaging and Exchange
 
 **IP Packaging:**
+
 - IP-XACT defines a method for packaging IP components along with their metadata and associated files (such as HDL source files, documentation, and scripts). This package can be easily shared and imported into different design environments.
 
 **Exchange Formats:**
+
 - The standardized packaging format ensures that IP can be exchanged between teams, projects, or organizations without losing any critical information. This promotes reuse and reduces the need for re-verification.
 
 **Example:**
+
 - An IP block might include a `component.xml` file containing the IP-XACT description, along with directories for source files (`src/`), documentation (`doc/`), and testbenches (`tb/`).
 
 3. Tool-Chain Integration
 
 **EDA Tool Support:**
+
 - IP-XACT is supported by a wide range of EDA tools from different vendors. These tools can import IP-XACT descriptions to automate tasks like design assembly, parameter configuration, and connection generation.
 
 **Automated Integration:**
+
 - Tools can automatically generate interconnect logic based on the bus interfaces and connections described in the IP-XACT metadata. This reduces manual errors and speeds up the integration process.
 
 **Example:**
+
 - A design tool might read an IP-XACT description and automatically generate the necessary HDL code to connect a UART component to a system bus.
 
 4. Verification and Validation
 
 **Consistency Checks:**
+
 - EDA tools can use the IP-XACT descriptions to perform consistency checks, ensuring that IP components are correctly integrated and configured. This includes checking for mismatched bus widths, incorrect parameter values, and other potential issues.
 
 **Simulation and Testing:**
+
 - IP-XACT supports the inclusion of simulation models and testbenches within the IP package. This allows for thorough verification of the IP in the context of the larger system.
 
 **Example:**
+
 - A verification tool can use the included testbenches to simulate the IP component and validate its behavior against the specified functionality.
 
 5. Versioning and Configuration Management
 
 **VLNV (Vendor, Library, Name, Version):**
+
 - Each IP component is uniquely identified using a VLNV identifier. This helps manage different versions of IP components and ensures that the correct version is used in a design.
 
 **Parameterization:**
+
 - IP-XACT supports parameterized IP components, allowing designers to configure IP according to specific requirements. This flexibility is crucial for adapting IP to different projects.
 
 **Example:**
+
 - A memory controller IP might have parameters for data width and address width, allowing it to be configured for different system requirements.
 
 ##### Benefits of the Interoperability Use Model
@@ -435,6 +464,7 @@ The interface definition descriptions in IEEE STD 1685 (IP-XACT) play a critical
 Ports are the fundamental connection points for IP components, through which they communicate with other components or systems. They are defined with attributes such as direction, type, and size.
 
 **Attributes:**
+
 - **Name:** The unique identifier of the port.
 - **Direction:** Indicates whether the port is an input, output, or bidirectional (inout).
 - **Type:** Specifies the data type of the port, such as `wire` or `reg` in Verilog.
@@ -472,6 +502,7 @@ Ports are the fundamental connection points for IP components, through which the
 Bus interfaces describe the higher-level communication protocols used by IP components to interact with each other. They encapsulate the protocol details, making it easier to connect IP blocks that follow the same protocol.
 
 **Attributes:**
+
 - **Name:** The identifier for the bus interface.
 - **Bus Type:** Specifies the protocol (e.g., AXI, AHB).
 - **Abstraction Type:** Defines the abstraction level of the bus interface (e.g., transaction-level, register-transfer level).
@@ -503,6 +534,7 @@ Bus interfaces describe the higher-level communication protocols used by IP comp
 Parameters allow for the customization and configuration of IP components. They can control various aspects of the IP, such as data width, address size, and operating modes.
 
 **Attributes:**
+
 - **Name:** The identifier of the parameter.
 - **Data Type:** Specifies the type of the parameter (e.g., integer, string).
 - **Value:** The value assigned to the parameter.
@@ -530,6 +562,7 @@ Parameters allow for the customization and configuration of IP components. They 
 Memory maps describe the addressable memory regions and registers within an IP component. This is crucial for understanding how to access and control the IP block.
 
 **Attributes:**
+
 - **Name:** The identifier of the memory map.
 - **Address Block:** Defines a contiguous address space within the memory map.
 - **Register:** Specifies individual registers within the address block, including their address, width, and access type (e.g., read-only, write-only, read-write).
@@ -565,6 +598,7 @@ Memory maps describe the addressable memory regions and registers within an IP c
 Interconnections describe how different IP components are connected within a system design. This includes connections between ports and bus interfaces, facilitating proper communication and data flow.
 
 **Attributes:**
+
 - **Name:** The identifier of the interconnection.
 - **Source and Destination Ports:** Specifies which ports are connected.
 - **Connection Details:** Additional details such as signal mapping and constraints.
@@ -615,6 +649,7 @@ In IEEE STD 1685 (IP-XACT), component descriptions are fundamental to ensuring t
 General information provides basic metadata about the IP component, including its unique identifier, version, and vendor information.
 
 **Attributes:**
+
 - **Vendor:** The organization or entity that created the IP component.
 - **Library:** A logical grouping for the component, often used for categorization.
 - **Name:** The specific name of the component.
@@ -637,6 +672,7 @@ General information provides basic metadata about the IP component, including it
 Ports define the input, output, and bidirectional signals for the IP component. They are crucial for connecting the component to other IP blocks or the system's top level.
 
 **Attributes:**
+
 - **Name:** The identifier for the port.
 - **Direction:** Specifies whether the port is an input (`in`), output (`out`), or bidirectional (`inout`).
 - **Type:** The data type of the port (e.g., `wire`).
@@ -674,6 +710,7 @@ Ports define the input, output, and bidirectional signals for the IP component. 
 Parameters allow the customization of IP components by setting various attributes that can affect their behavior and configuration.
 
 **Attributes:**
+
 - **Name:** The identifier of the parameter.
 - **Data Type:** Specifies the type of the parameter (e.g., `integer`, `string`).
 - **Value:** The default or assigned value of the parameter.
@@ -701,6 +738,7 @@ Parameters allow the customization of IP components by setting various attribute
 Bus interfaces describe how the IP component connects to various bus protocols, facilitating communication between different IP blocks.
 
 **Attributes:**
+
 - **Name:** The identifier for the bus interface.
 - **Bus Type:** Specifies the protocol (e.g., AXI, AHB).
 - **Abstraction Type:** Defines the abstraction level of the bus interface (e.g., transaction-level, register-transfer level).
@@ -732,6 +770,7 @@ Bus interfaces describe how the IP component connects to various bus protocols, 
 Memory maps define the addressable memory regions and registers within an IP component, specifying how different parts of the IP can be accessed.
 
 **Attributes:**
+
 - **Name:** The identifier of the memory map.
 - **Address Block:** Defines a contiguous address space within the memory map.
 - **Register:** Specifies individual registers within the address block, including their address, width, and access type (e.g., read-only, write-only, read-write).
@@ -767,6 +806,7 @@ Memory maps define the addressable memory regions and registers within an IP com
 Filesets group all files associated with the IP component, including HDL source files, scripts, documentation, and other relevant resources.
 
 **Attributes:**
+
 - **Name:** The identifier of the fileset.
 - **File Type:** Specifies the type of files included (e.g., `source`, `simulation`).
 - **File Paths:** Paths to the actual files within the package.
@@ -794,6 +834,7 @@ Filesets group all files associated with the IP component, including HDL source 
 Documentation provides human-readable information about the IP component, including its purpose, usage, and design details.
 
 **Attributes:**
+
 - **Description:** A detailed description of the IP component.
 - **Reference Documents:** Links to additional documentation, datasheets, or user manuals.
 
@@ -814,6 +855,7 @@ Documentation provides human-readable information about the IP component, includ
 Modeling information includes details about the simulation and behavioral models of the IP component.
 
 **Attributes:**
+
 - **Model Type:** Specifies the type of model (e.g., `simulation`, `synthesis`).
 - **Language:** The programming language used for the model (e.g., VHDL, Verilog).
 - **Tool Compatibility:** Information about compatible EDA tools.
@@ -838,6 +880,7 @@ Modeling information includes details about the simulation and behavioral models
 Generators are tools or scripts associated with the IP component that automate various design tasks, such as code generation or configuration.
 
 **Attributes:**
+
 - **Name:** The identifier of the generator.
 - **Type:** Specifies the type of generator (e.g., `code generator`, `script`).
 - **Executable Path:** The path to the executable or script file.
@@ -880,6 +923,7 @@ In IEEE STD 1685 (IP-XACT), design descriptions are a key aspect that defines ho
 Design metadata provides basic information about the design, such as its name, version, and the design environment for which it is intended.
 
 **Attributes:**
+
 - **Name:** The unique identifier for the design.
 - **Version:** Specifies the version of the design, important for tracking revisions and updates.
 - **Vendor:** The organization or entity that created the design.
@@ -902,6 +946,7 @@ Design metadata provides basic information about the design, such as its name, v
 Component instances refer to the specific occurrences of IP components within the design. Each instance is associated with a particular component description.
 
 **Attributes:**
+
 - **Instance Name:** A unique name for the component instance within the design.
 - **Component Reference:** The VLNV (Vendor, Library, Name, Version) reference to the component description.
 - **Configuration Parameters:** Parameters specific to this instance, allowing customization of the component within the design context.
@@ -932,6 +977,7 @@ Component instances refer to the specific occurrences of IP components within th
 Interconnections describe how the component instances are connected to each other within the design. This includes connections between ports, bus interfaces, and hierarchical connections.
 
 **Attributes:**
+
 - **Name:** The unique identifier for the interconnection.
 - **Source and Destination Ports:** Specifies which ports or interfaces are connected.
 - **Mapping:** Detailed mapping information, if necessary, such as signal mapping or bit-width adaptation.
@@ -959,6 +1005,7 @@ Interconnections describe how the component instances are connected to each othe
 Hierarchical designs allow the inclusion of sub-designs within a top-level design, supporting modularity and reuse of complex design blocks.
 
 **Attributes:**
+
 - **Instance Name:** The unique name for the hierarchical instance.
 - **Design Reference:** The VLNV reference to the sub-design description.
 - **Interface Connections:** Describes how the interfaces of the sub-design are connected to the parent design.
@@ -982,6 +1029,7 @@ Hierarchical designs allow the inclusion of sub-designs within a top-level desig
 Configurations describe how different instances and parameters are set up for various design scenarios, such as different operating modes or target environments.
 
 **Attributes:**
+
 - **Name:** The name of the configuration.
 - **Parameter Settings:** Specific parameter values and configurations applied in this scenario.
 - **Instance Selections:** Indicates which component or design instances are included in this configuration.
@@ -1036,6 +1084,7 @@ In IEEE STD 1685 (IP-XACT), abstractor descriptions are crucial for defining and
 Abstractor metadata provides basic information about the abstractor, including its unique identifier, version, and vendor details.
 
 **Attributes:**
+
 - **Vendor:** The organization or entity that created the abstractor.
 - **Library:** A logical grouping for the abstractor, often used for categorization.
 - **Name:** The specific name of the abstractor.
@@ -1058,6 +1107,7 @@ Abstractor metadata provides basic information about the abstractor, including i
 Ports define the input, output, and bidirectional signals for the abstractor. They are crucial for connecting the abstractor to other IP blocks or the system's top level.
 
 **Attributes:**
+
 - **Name:** The identifier for the port.
 - **Direction:** Specifies whether the port is an input (`in`), output (`out`), or bidirectional (`inout`).
 - **Type:** The data type of the port (e.g., `wire`).
@@ -1095,6 +1145,7 @@ Ports define the input, output, and bidirectional signals for the abstractor. Th
 Parameters allow the customization of the abstractor by setting various attributes that can affect its behavior and configuration.
 
 **Attributes:**
+
 - **Name:** The identifier of the parameter.
 - **Data Type:** Specifies the type of the parameter (e.g., `integer`, `string`).
 - **Value:** The default or assigned value of the parameter.
@@ -1122,6 +1173,7 @@ Parameters allow the customization of the abstractor by setting various attribut
 Bus interfaces describe how the abstractor connects to various bus protocols, facilitating communication between different abstraction levels or bus protocols.
 
 **Attributes:**
+
 - **Name:** The identifier for the bus interface.
 - **Bus Type:** Specifies the protocol (e.g., AXI, AHB).
 - **Abstraction Type:** Defines the abstraction level of the bus interface (e.g., transaction-level, register-transfer level).
@@ -1153,6 +1205,7 @@ Bus interfaces describe how the abstractor connects to various bus protocols, fa
 Views provide information about different perspectives of the abstractor, such as the structural view, behavioral view, or documentation view.
 
 **Attributes:**
+
 - **View Name:** The name of the view.
 - **Environment:** Specifies the design environment or tool for which the view is intended.
 - **Language:** The programming language used for the view (e.g., VHDL, Verilog).
@@ -1174,6 +1227,7 @@ Views provide information about different perspectives of the abstractor, such a
 File sets group all files associated with the abstractor, including HDL source files, scripts, documentation, and other relevant resources.
 
 **Attributes:**
+
 - **Name:** The identifier of the file set.
 - **File Type:** Specifies the type of files included (e.g., `source`, `simulation`).
 - **File Paths:** Paths to the actual files within the package.
@@ -1197,6 +1251,7 @@ File sets group all files associated with the abstractor, including HDL source f
 Documentation provides human-readable information about the abstractor, including its purpose, usage, and design details.
 
 **Attributes:**
+
 - **Description:** A detailed description of the abstractor.
 - **Reference Documents:** Links to additional documentation, datasheets, or user manuals.
 
@@ -1239,6 +1294,7 @@ Generator chain descriptions in IEEE STD 1685 (IP-XACT) outline the sequence and
 Generator chain metadata provides basic information about the generator chain, including its unique identifier, version, and vendor details.
 
 **Attributes:**
+
 - **Vendor:** The organization or entity that created the generator chain.
 - **Library:** A logical grouping for the generator chain, often used for categorization.
 - **Name:** The specific name of the generator chain.
@@ -1261,6 +1317,7 @@ Generator chain metadata provides basic information about the generator chain, i
 Generator instances refer to the specific occurrences of generators within the chain. Each instance is associated with a particular generator description.
 
 **Attributes:**
+
 - **Instance Name:** A unique name for the generator instance within the chain.
 - **Generator Reference:** The VLNV (Vendor, Library, Name, Version) reference to the generator description.
 - **Configuration Parameters:** Parameters specific to this instance, allowing customization of the generator within the chain context.
@@ -1284,6 +1341,7 @@ Generator instances refer to the specific occurrences of generators within the c
 Parameters allow the customization of generators by setting various attributes that can affect their behavior and configuration.
 
 **Attributes:**
+
 - **Name:** The identifier of the parameter.
 - **Data Type:** Specifies the type of the parameter (e.g., `integer`, `string`).
 - **Value:** The default or assigned value of the parameter.
@@ -1306,6 +1364,7 @@ Parameters allow the customization of generators by setting various attributes t
 Dependencies specify the order in which generators are executed within the chain. They ensure that generators are executed in a sequential manner, with proper initialization and configuration.
 
 **Attributes:**
+
 - **Dependency Type:** Specifies the type of dependency (e.g., `sequential`, `parallel`).
 - **Dependency List:** Lists the dependencies of each generator instance, ensuring proper execution order.
 
@@ -1326,6 +1385,7 @@ Dependencies specify the order in which generators are executed within the chain
 Execution order defines the overall sequence in which generators within the chain are executed. It ensures that the design flow proceeds in a structured manner, with proper initialization and cleanup.
 
 **Attributes:**
+
 - **Order:** Specifies the order of execution for each generator instance within the chain.
 
 **Example:**
@@ -1364,6 +1424,7 @@ Design configuration descriptions in IEEE STD 1685 (IP-XACT) provide a standardi
 Configuration metadata provides basic information about the configuration, including its unique identifier, version, and vendor details.
 
 **Attributes:**
+
 - **Vendor:** The organization or entity that created the configuration.
 - **Library:** A logical grouping for the configuration, often used for categorization.
 - **Name:** The specific name of the configuration.
@@ -1388,6 +1449,7 @@ Configuration metadata provides basic information about the configuration, inclu
 Component configuration specifies the instances of IP components and their configurations within the design.
 
 **Attributes:**
+
 - **Instance Name:** The unique name for the component instance within the configuration.
 - **Component Reference:** The VLNV (Vendor, Library, Name, Version) reference to the component description.
 - **Configuration Parameters:** Parameters specific to this instance, allowing customization of the component within the configuration context.
@@ -1411,6 +1473,7 @@ Component configuration specifies the instances of IP components and their confi
 Parameter settings allow the customization of various design parameters within the configuration.
 
 **Attributes:**
+
 - **Parameter Name:** The identifier of the parameter.
 - **Parameter Value:** The assigned value of the parameter for this configuration.
 
@@ -1430,6 +1493,7 @@ Parameter settings allow the customization of various design parameters within t
 Conditional configuration defines configurations that are activated based on certain conditions or criteria.
 
 **Attributes:**
+
 - **Condition:** Specifies the condition under which the configuration is activated.
 - **Configuration:** References the configuration to be applied if the condition is met.
 
@@ -1449,6 +1513,7 @@ Conditional configuration defines configurations that are activated based on cer
 Design constraints specify additional constraints or requirements for the configuration, such as timing, power, or area constraints.
 
 **Attributes:**
+
 - **Constraint Type:** Specifies the type of constraint (e.g., timing, power, area).
 - **Constraint Value:** Specifies the value or threshold of the constraint.
 
@@ -1490,6 +1555,7 @@ Catalog descriptions in IEEE STD 1685 (IP-XACT) serve as a standardized format f
 Catalog metadata provides basic information about the catalog, including its unique identifier, version, and vendor details.
 
 **Attributes:**
+
 - **Vendor:** The organization or entity that created the catalog.
 - **Library:** A logical grouping for the catalog, often used for categorization.
 - **Name:** The specific name of the catalog.
@@ -1512,6 +1578,7 @@ Catalog metadata provides basic information about the catalog, including its uni
 IP component listings contain detailed information about each IP component available in the catalog. This includes its name, description, interfaces, parameters, and configuration options.
 
 **Attributes:**
+
 - **Name:** The name or identifier of the IP component.
 - **Description:** A brief description of the IP component's functionality and purpose.
 - **Interfaces:** Specifies the input, output, and bidirectional interfaces of the IP component.
@@ -1533,6 +1600,7 @@ IP component listings contain detailed information about each IP component avail
 Catalog descriptions may include search and filtering options to help designers quickly find relevant IP components based on their requirements or criteria.
 
 **Attributes:**
+
 - **Search Criteria:** Specifies the parameters or attributes used for searching (e.g., name, functionality).
 - **Filtering Options:** Provides options for filtering IP components based on specific criteria (e.g., interface type, supported protocols).
 
@@ -1550,6 +1618,7 @@ Catalog descriptions may include search and filtering options to help designers 
 Documentation links provide access to additional documentation, datasheets, or user manuals for each IP component, enabling designers to obtain detailed information about its usage and configuration.
 
 **Attributes:**
+
 - **Documentation Type:** Specifies the type of documentation (e.g., datasheet, user manual).
 - **Documentation Link:** Provides the URL or file path to the documentation resource.
 
@@ -1567,6 +1636,7 @@ Documentation links provide access to additional documentation, datasheets, or u
 Vendor information provides details about the organization or entity responsible for creating and maintaining the IP component, including contact information and support resources.
 
 **Attributes:**
+
 - **Vendor Name:** The name of the IP component vendor.
 - **Contact Information:** Provides contact details such as email, phone number, or website.
 - **Support Resources:** Links to support resources such as forums, knowledge bases, or support tickets.
@@ -1837,6 +1907,7 @@ In technical documents like IEEE Std 1735, "Definitions, acronyms, and abbreviat
 **Importance:** Definitions clarify the technical vocabulary and concepts employed in the standard, reducing ambiguity and misinterpretation. They provide a common reference point for all stakeholders involved in implementing, complying with, or evaluating the standard.
 
 **Examples:** Definitions may include terms specific to the domain of electronic design IP, encryption, key management, and related technologies. For instance:
+
 - **Electronic Design Intellectual Property (IP):** Design elements or components (e.g., HDL code, IP blocks) used in electronic designs.
 - **Encryption:** The process of encoding data to prevent unauthorized access or disclosure.
 - **Key Management:** The administration of cryptographic keys used in encryption, including generation, distribution, storage, and rotation.
@@ -1848,6 +1919,7 @@ In technical documents like IEEE Std 1735, "Definitions, acronyms, and abbreviat
 **Importance:** Acronyms help reduce verbosity and improve readability by replacing lengthy phrases or terms with concise abbreviations. However, they can introduce confusion if not defined clearly, hence the need for an "Acronyms" section.
 
 **Examples:** Acronyms used in IEEE Std 1735 may include abbreviations for common terms, organizations, protocols, and technologies. For instance:
+
 - **AES:** Advanced Encryption Standard
 - **HDL:** Hardware Description Language
 - **TLS:** Transport Layer Security
@@ -1859,6 +1931,7 @@ In technical documents like IEEE Std 1735, "Definitions, acronyms, and abbreviat
 **Importance:** Abbreviations, like acronyms, help improve readability and conciseness in technical documents. They are especially useful for frequently occurring terms or phrases that can be expressed more efficiently in abbreviated form.
 
 **Examples:** Abbreviations found in IEEE Std 1735 may include shortened forms of common terms, units of measurement, or technical concepts. For instance:
+
 - **IP:** Intellectual Property
 - **MB:** Megabyte
 - **CPU:** Central Processing Unit

@@ -821,6 +821,7 @@ The motivation behind PSL is to improve the efficiency and effectiveness of hard
 ###### Goals
 
 The goals of PSL are to:
+
 - Provide a clear and expressive syntax for specifying properties.
 - Enable automatic and formal verification of hardware designs.
 - Support a wide range of HDLs and verification tools.
@@ -851,6 +852,7 @@ Normative references are documents, standards, or other resources that are essen
 ##### Purpose
 
 The primary purpose of normative references is to:
+
 - **Ensure Consistency:** By referring to established standards and documents, normative references help maintain consistency across different documents and standards within a particular field or industry.
 - **Provide Authority:** Normative references lend credibility and authority to the primary document by linking it to recognized and authoritative sources.
 - **Facilitate Understanding:** They provide additional context and detailed information that may be too extensive to include in the primary document but are crucial for understanding and implementing its content.
@@ -872,6 +874,7 @@ Normative references usually include documents from recognized standards organiz
 ##### Examples
 
 Normative references can include:
+
 - **International Standards:** Such as those published by the International Organization for Standardization (ISO) or the International Electrotechnical Commission (IEC).
 - **National Standards:** Standards developed by national bodies like the American National Standards Institute (ANSI) or the British Standards Institution (BSI).
 - **Industry Standards:** Developed by industry-specific organizations, such as the Institute of Electrical and Electronics Engineers (IEEE).
@@ -886,6 +889,7 @@ When a document cites normative references, it typically includes a section expl
 Here’s an example of how a normative references section might look in a technical document:
 
 **Normative References:**
+
 1. **ISO/IEC 9899:2018** - Information technology — Programming languages — C.
 2. **IEEE 802.3-2018** - IEEE Standard for Ethernet.
 3. **ISO 9001:2015** - Quality management systems — Requirements.
@@ -895,6 +899,7 @@ In this example, the primary document requires adherence to specific standards f
 ##### Importance in Standards Development
 
 Normative references are crucial in the development and implementation of standards because they:
+
 - **Ensure Interoperability:** By referencing common standards, documents ensure that different systems and components can work together seamlessly.
 - **Promote Best Practices:** They encourage the adoption of best practices established by leading organizations and experts in the field.
 - **Simplify Compliance:** By centralizing and referencing existing standards, they reduce redundancy and make it easier for users to understand and meet requirements.
@@ -922,6 +927,7 @@ The definitions subsection provides clear and precise explanations of terms used
 Here is an example of a definitions subsection:
 
 **Definitions:**
+
 1. **Latency:** The time delay between the initiation of an operation and its completion.
 2. **Bandwidth:** The maximum rate of data transfer across a given path.
 3. **Throughput:** The amount of data processed by a system in a given amount of time.
@@ -943,6 +949,7 @@ This subsection lists all acronyms and abbreviations used in the document along 
 Here is an example of an acronyms and abbreviations subsection:
 
 **Acronyms and Abbreviations:**
+
 1. **API:** Application Programming Interface
 2. **HTTP:** HyperText Transfer Protocol
 3. **RAM:** Random Access Memory
@@ -965,6 +972,7 @@ This subsection includes any special terms that have specific meanings within th
 Here is an example of a special terms subsection:
 
 **Special Terms:**
+
 1. **Race Condition:** A situation in which the behavior of a software system depends on the relative timing of events, such as the sequence of execution of operations.
 2. **Deadlock:** A state in which two or more processes are unable to proceed because each is waiting for the other to release a resource.
 3. **Semaphore:** A variable or abstract data type used to control access to a common resource in concurrent programming and multitasking.
@@ -972,6 +980,7 @@ Here is an example of a special terms subsection:
 ##### Importance in Technical Documents
 
 Including definitions, acronyms, abbreviations, and special terms in technical documents is important for several reasons:
+
 - **Improves Understanding:** Ensures all readers, regardless of their background, can understand the document.
 - **Reduces Ambiguity:** Clarifies the exact meaning of terms, reducing the risk of misinterpretation.
 - **Enhances Clarity:** Helps maintain clarity and consistency throughout the document.
@@ -990,6 +999,7 @@ The abstract structure provides an overview of the main components and organizat
 ###### Layers
 
 The language might be organized into multiple layers, each serving a different purpose or abstraction level:
+
 - **Core Layer:** The fundamental constructs and rules that form the basis of the language.
 - **Application Layer:** Higher-level constructs built on top of the core layer, used for more complex operations or domain-specific functionalities.
 - **Verification Layer:** Constructs specifically used for verification purposes, such as assertions and temporal logic.
@@ -997,6 +1007,7 @@ The language might be organized into multiple layers, each serving a different p
 ###### Flavors
 
 Different "flavors" or variants of the language might be defined to cater to various use cases or target different domains. For example:
+
 - **Formal Verification Flavor:** Tailored for rigorous, mathematical verification of properties.
 - **Simulation Flavor:** Designed for use in simulation environments where certain pragmatic considerations might apply.
 
@@ -1007,6 +1018,7 @@ The lexical structure defines the basic building blocks of the language, such as
 ###### Identifiers
 
 Identifiers are names used to represent variables, functions, modules, etc. They must follow specific rules, such as:
+
 - **Naming Conventions:** Allowed characters, case sensitivity, and length limits.
 - **Scope:** Visibility and lifetime of identifiers within the code.
 
@@ -1017,6 +1029,7 @@ Keywords are reserved words that have special meanings in the language and canno
 ###### Operators
 
 Operators are symbols that perform operations on variables and values. These include:
+
 - **Arithmetic Operators:** +, -, *, /, etc.
 - **Logical Operators:** &&, ||, !, etc.
 - **Comparison Operators:** ==, !=, <, >, etc.
@@ -1036,6 +1049,7 @@ The syntax defines the rules for how valid statements and expressions are formed
 ###### Conventions
 
 Syntax conventions include the general rules and guidelines for writing code, such as:
+
 - **Code Structure:** How to structure programs, including indentation and line breaks.
 - **Statement Termination:** Rules for ending statements, such as using a semicolon.
 
@@ -1074,6 +1088,7 @@ A simplified subset of the language that contains the core features and construc
 ###### The Concept of Strength
 
 In PSL, the concept of strength refers to the precedence and binding power of operators and constructs:
+
 - **Strong Operators:** Bind more tightly and have higher precedence.
 - **Weak Operators:** Bind less tightly and have lower precedence.
 
@@ -2400,9 +2415,9 @@ Packages are a way of structuring Python’s module namespace by using "dotted m
 1. **Directory structure**:
     ```
     my_package/
-    ├── __init__.py
-    ├── module1.py
-    └── module2.py
+         __init__.py
+         module1.py
+         module2.py
     ```
 
 2. **Using the package**:
@@ -4476,9 +4491,9 @@ MATLAB graphics are object-oriented, allowing detailed control over each compone
 Efficient rendering of graphics is important for large datasets and complex plots.
 
 - **Improving Performance**:
-  - **Use `LineSpec` and `MarkerSpec`** efficiently to reduce rendering time.
-  - **Limit the amount of data points** plotted in a single figure.
-  - **Use lower-level graphics functions** (`line`, `patch`) for complex customizations.
+   - **Use `LineSpec` and `MarkerSpec`** efficiently to reduce rendering time.
+   - **Limit the amount of data points** plotted in a single figure.
+   - **Use lower-level graphics functions** (`line`, `patch`) for complex customizations.
 
 - **Updating Plots Efficiently**:
   ```matlab
@@ -4509,9 +4524,9 @@ Scripts are files containing a sequence of MATLAB commands. They are useful for 
 ###### Creating and Running Scripts
 
 - **Creating a Script**:
-  - Open MATLAB Editor.
-  - Type the series of commands.
-  - Save the file with a `.m` extension, e.g., `myScript.m`.
+   - Open MATLAB Editor.
+   - Type the series of commands.
+   - Save the file with a `.m` extension, e.g., `myScript.m`.
 
 - **Running a Script**:
   ```matlab
@@ -4534,9 +4549,9 @@ Functions are files that accept input arguments and return output arguments. The
 ###### Creating and Using Functions
 
 - **Defining a Function**:
-  - Open MATLAB Editor.
-  - Define the function using the `function` keyword.
-  - Save the file with the function name and a `.m` extension, e.g., `myFunction.m`.
+   - Open MATLAB Editor.
+   - Define the function using the `function` keyword.
+   - Save the file with the function name and a `.m` extension, e.g., `myFunction.m`.
 
 - **Function Syntax**:
   ```matlab
@@ -4565,9 +4580,9 @@ Live scripts and functions combine code, output, and formatted text in an intera
 ###### Creating Live Scripts and Functions
 
 - **Creating a Live Script**:
-  - Open MATLAB.
-  - Select "New Live Script" from the Home tab.
-  - Enter code, text, and equations interactively.
+   - Open MATLAB.
+   - Select "New Live Script" from the Home tab.
+   - Enter code, text, and equations interactively.
 
 Example:
 ```matlab
@@ -4585,9 +4600,9 @@ MATLAB supports object-oriented programming through classes, enabling the defini
 ###### Defining and Using Classes
 
 - **Defining a Class**:
-  - Open MATLAB Editor.
-  - Define the class using the `classdef` keyword.
-  - Save the file with the class name and a `.m` extension, e.g., `MyClass.m`.
+   - Open MATLAB Editor.
+   - Define the class using the `classdef` keyword.
+   - Save the file with the class name and a `.m` extension, e.g., `MyClass.m`.
 
 - **Class Syntax**:
   ```matlab
@@ -4756,26 +4771,26 @@ App Designer is a drag-and-drop environment for creating professional apps witho
 ###### Getting Started with App Designer
 
 - **Open App Designer**:
-  - In the MATLAB Home tab, click on "App Designer".
+   - In the MATLAB Home tab, click on "App Designer".
 
 - **Creating a New App**:
-  - Select "New App".
-  - Choose a template or start with a blank app.
+   - Select "New App".
+   - Choose a template or start with a blank app.
 
 ###### Designing the App Interface
 
 - **Drag and Drop Components**:
-  - Use the Component Library to drag components (e.g., buttons, sliders, axes) onto the canvas.
+   - Use the Component Library to drag components (e.g., buttons, sliders, axes) onto the canvas.
 
 - **Arrange and Customize Components**:
-  - Arrange components using alignment tools.
-  - Customize properties (e.g., labels, colors) through the Component Browser.
+   - Arrange components using alignment tools.
+   - Customize properties (e.g., labels, colors) through the Component Browser.
 
 ###### Writing Callbacks
 
 - **Add Callbacks**:
-  - Click on a component, and in the "Callbacks" section, add a callback function.
-  - Write the function code to define the component's behavior.
+   - Click on a component, and in the "Callbacks" section, add a callback function.
+   - Write the function code to define the component's behavior.
 
 Example:
 ```matlab
@@ -4788,7 +4803,7 @@ end
 ###### Running the App
 
 - **Run the App**:
-  - Click the "Run" button in the App Designer toolstrip to test the app.
+   - Click the "Run" button in the App Designer toolstrip to test the app.
 
 ##### Develop Apps Programmatically
 
@@ -4839,12 +4854,12 @@ Live Editor tasks allow you to create interactive controls within Live Scripts.
 ###### Creating Live Editor Tasks
 
 - **Create a New Live Editor Task**:
-  - Open a Live Script (`.mlx` file).
-  - From the "Live Editor" tab, select "Insert Task".
+   - Open a Live Script (`.mlx` file).
+   - From the "Live Editor" tab, select "Insert Task".
 
 - **Customizing the Task**:
-  - Define the task's inputs and outputs.
-  - Write the code to execute when the task is run.
+   - Define the task's inputs and outputs.
+   - Write the code to execute when the task is run.
 
 Example:
 ```matlab
@@ -4887,12 +4902,12 @@ Packaging apps allows you to share your applications with others.
 ###### Creating an App Installer
 
 - **Package the App**:
-  - In MATLAB, go to the "Apps" tab and click "Package App".
-  - Follow the wizard to include all necessary files and dependencies.
+   - In MATLAB, go to the "Apps" tab and click "Package App".
+   - Follow the wizard to include all necessary files and dependencies.
 
 - **Generate the Installer**:
-  - MATLAB will create an installer file (`.mlappinstall`).
-  - Share the installer with others, who can install the app directly from the MATLAB Apps tab.
+   - MATLAB will create an installer file (`.mlappinstall`).
+   - Share the installer with others, who can install the app directly from the MATLAB Apps tab.
 
 ##### Migrate GUIDE Apps
 
@@ -4991,8 +5006,8 @@ MATLAB offers a variety of debugging tools to identify and fix issues in your co
   ```
 
 - **Efficient Memory Usage**:
-  - Preallocate arrays to avoid dynamic resizing.
-  - Use appropriate data types to minimize memory footprint.
+   - Preallocate arrays to avoid dynamic resizing.
+   - Use appropriate data types to minimize memory footprint.
 
 ##### Background Processing
 
@@ -5029,15 +5044,15 @@ MATLAB supports parallel computing to speed up computations by utilizing multipl
 MATLAB projects help organize files, manage paths, and streamline workflows.
 
 - **Creating a Project**:
-  - Go to the "Home" tab and select "New Project".
-  - Follow the wizard to set up the project structure.
+   - Go to the "Home" tab and select "New Project".
+   - Follow the wizard to set up the project structure.
 
 - **Managing Project Paths**:
-  - Define project-specific paths to ensure correct file resolution.
+   - Define project-specific paths to ensure correct file resolution.
 
 - **Project Shortcuts and Tasks**:
-  - Create shortcuts for frequently used commands.
-  - Define tasks to automate repetitive processes.
+   - Create shortcuts for frequently used commands.
+   - Define tasks to automate repetitive processes.
 
 ##### Source Control Integration
 
@@ -5046,11 +5061,11 @@ MATLAB integrates with popular version control systems like Git and Subversion.
 ###### Using Git
 
 - **Setting Up Git**:
-  - Initialize a repository:
+   - Initialize a repository:
     ```matlab
     !git init
     ```
-  - Add files to the repository:
+   - Add files to the repository:
     ```matlab
     !git add .
     !git commit -m "Initial commit"
@@ -5072,7 +5087,7 @@ MATLAB provides tools for creating and running tests to ensure code correctness.
 ###### Unit Testing
 
 - **Creating Tests**:
-  - Define test cases using the `matlab.unittest.TestCase` class.
+   - Define test cases using the `matlab.unittest.TestCase` class.
   ```matlab
   classdef myTest < matlab.unittest.TestCase
       methods (Test)
@@ -5114,8 +5129,8 @@ Integrate MATLAB with CI systems to automate testing and deployment.
 ###### Setting Up CI
 
 - **Using MATLAB with Jenkins, GitHub Actions, etc.**:
-  - Configure CI pipelines to run MATLAB tests and scripts automatically.
-  - Use the `matlab` command in CI scripts to run MATLAB code.
+   - Configure CI pipelines to run MATLAB tests and scripts automatically.
+   - Use the `matlab` command in CI scripts to run MATLAB code.
   ```sh
   matlab -batch "runtests('testFolder')"
   ```
@@ -5127,12 +5142,12 @@ Distribute MATLAB code and apps as toolboxes for easy sharing and reuse.
 ###### Creating a Toolbox
 
 - **Package Toolbox**:
-  - In MATLAB, go to the "Home" tab and click "Package Toolbox".
-  - Follow the wizard to include files and set metadata.
+   - In MATLAB, go to the "Home" tab and click "Package Toolbox".
+   - Follow the wizard to include files and set metadata.
 
 - **Installing Toolboxes**:
-  - Distribute the `.mltbx` file.
-  - Users can install toolboxes via the "Add-Ons" menu.
+   - Distribute the `.mltbx` file.
+   - Users can install toolboxes via the "Add-Ons" menu.
 
 ##### Tool Qualification and Certification
 
@@ -5141,11 +5156,11 @@ Ensure your MATLAB tools meet industry standards and regulations.
 ###### Qualification and Certification
 
 - **Verification and Validation**:
-  - Implement rigorous testing to verify code correctness.
-  - Document testing procedures and results for certification.
+   - Implement rigorous testing to verify code correctness.
+   - Document testing procedures and results for certification.
 
 - **Complying with Standards**:
-  - Follow industry-specific guidelines (e.g., ISO, FDA) for software development and validation.
+   - Follow industry-specific guidelines (e.g., ISO, FDA) for software development and validation.
 
 By utilizing these software development tools and practices, you can enhance the quality, efficiency, and reliability of your MATLAB projects, ensuring they meet both technical and regulatory requirements.
 
@@ -5448,11 +5463,11 @@ MATLAB provides various tools and settings to customize your development environ
 ###### Customizing the MATLAB Desktop
 
 - **Layout**:
-  - Arrange and resize tool windows to suit your workflow.
-  - Save layouts for different tasks using the "Layouts" menu.
+   - Arrange and resize tool windows to suit your workflow.
+   - Save layouts for different tasks using the "Layouts" menu.
 
 - **Toolbars and Panes**:
-  - Customize toolbars and panes for quick access to frequently used tools.
+   - Customize toolbars and panes for quick access to frequently used tools.
 
 ###### Shortcuts and Quick Access
 
@@ -5518,8 +5533,8 @@ MATLAB provides various tools and settings to customize your development environ
   ```
 
 - **Online Resources**:
-  - Visit the MathWorks website for additional resources, including examples, tutorials, and community forums.
-  - Use the `web` function to open web pages directly from MATLAB.
+   - Visit the MathWorks website for additional resources, including examples, tutorials, and community forums.
+   - Use the `web` function to open web pages directly from MATLAB.
 
 ###### Technical Support
 
@@ -6046,7 +6061,7 @@ C++17 introduced support for mathematical special functions, which include a var
 
 ##### Mathematical constants (C++20)
 
-C++20 introduced support for mathematical constants like π (pi) and e (Euler's number). These constants are provided as predefined values (`std::numbers::pi`, `std::numbers::e`) and are useful for mathematical computations requiring precise values of these constants.
+C++20 introduced support for mathematical constants like pi (pi) and e (Euler's number). These constants are provided as predefined values (`std::numbers::pi`, `std::numbers::e`) and are useful for mathematical computations requiring precise values of these constants.
 
 ##### Basic linear algebra algorithms (C++26)
 
@@ -6484,10 +6499,10 @@ In Go language, semicolons are used as statement terminators, similar to many ot
 
 1. **Implicit Semicolons**: The Go compiler automatically inserts semicolons at the end of a line if the line break occurs after one of the following tokens:
 
-  - Keywords: `break`, `continue`, `fallthrough`, `return`, `goto`
-  - Operators: `++`, `--`, `)`
-  - Literals: Integer, floating-point, imaginary, rune, string, and others.
-  - Identifiers: Variable names, function names, and others.
+   - Keywords: `break`, `continue`, `fallthrough`, `return`, `goto`
+   - Operators: `++`, `--`, `)`
+   - Literals: Integer, floating-point, imaginary, rune, string, and others.
+   - Identifiers: Variable names, function names, and others.
 
   ```go
   // Semicolons are implicitly inserted at the end of each line.
@@ -6945,8 +6960,8 @@ In Go, methods are functions that operate on specific types. They allow you to a
 ##### Pointers vs Values
 
 1. **Value Receivers**:
-  - When a method is defined with a value receiver, the method operates on a copy of the value. Changes made to the value inside the method are local to that method and do not affect the original value.
-  - Value receivers are typically used when the method does not need to modify the original value or when the value is small and inexpensive to copy.
+   - When a method is defined with a value receiver, the method operates on a copy of the value. Changes made to the value inside the method are local to that method and do not affect the original value.
+   - Value receivers are typically used when the method does not need to modify the original value or when the value is small and inexpensive to copy.
 
   ```go
   type Counter struct {
@@ -6960,8 +6975,8 @@ In Go, methods are functions that operate on specific types. They allow you to a
   ```
 
 2. **Pointer Receivers**:
-  - When a method is defined with a pointer receiver, the method operates directly on the original value. Changes made to the value inside the method affect the original value.
-  - Pointer receivers are typically used when the method needs to modify the original value or when the value is large and expensive to copy.
+   - When a method is defined with a pointer receiver, the method operates directly on the original value. Changes made to the value inside the method affect the original value.
+   - Pointer receivers are typically used when the method needs to modify the original value or when the value is large and expensive to copy.
 
   ```go
   type Counter struct {
@@ -6977,14 +6992,14 @@ In Go, methods are functions that operate on specific types. They allow you to a
 ###### Choosing Between Pointers and Values
 
 - Use **value receivers**:
-  - When the method does not need to modify the original value.
-  - When the value is small and inexpensive to copy.
-  - When you want to ensure that the method operates on a copy of the value, preserving the original.
+   - When the method does not need to modify the original value.
+   - When the value is small and inexpensive to copy.
+   - When you want to ensure that the method operates on a copy of the value, preserving the original.
 
 - Use **pointer receivers**:
-  - When the method needs to modify the original value.
-  - When the value is large or complex, and copying it would be inefficient.
-  - When you want changes made by the method to reflect in the original value.
+   - When the method needs to modify the original value.
+   - When the value is large or complex, and copying it would be inefficient.
+   - When you want changes made by the method to reflect in the original value.
 
 ###### Example
 
@@ -7644,6 +7659,7 @@ fn change_string(s: &mut String) {
 ```
 
 In the example above:
+
 - `calculate_length` borrows `s` immutably.
 - `change_string` borrows `s_mut` mutably.
 
@@ -7692,6 +7708,7 @@ fn main() {
 ```
 
 In this example:
+
 - We define a struct named `Person` with two fields: `name` of type `String` and `age` of type `u32`.
 - We instantiate a `Person` struct named `person1` with values for its fields.
 - We access the fields of the struct using dot notation.
@@ -7727,6 +7744,7 @@ fn main() {
 ```
 
 In this example:
+
 - We define a struct named `Rectangle` with two fields: `width` and `height`.
 - We implement a method named `area` for the `Rectangle` struct, which calculates the area of the rectangle.
 - We instantiate a `Rectangle` struct named `rectangle1` with values for its fields.
@@ -7745,6 +7763,7 @@ impl Rectangle {
 ```
 
 In this example:
+
 - `impl Rectangle` introduces the implementation block for the `Rectangle` struct.
 - `fn area(&self) -> u32 { ... }` defines a method named `area` for the `Rectangle` struct.
 - `&self` is a reference to the instance of the struct on which the method is called.
@@ -7780,6 +7799,7 @@ struct UsState {
 ```
 
 In this example:
+
 - We define an enum named `TrafficLight` with three variants: `Red`, `Green`, and `Yellow`.
 - We define another enum named `Coin` with four variants: `Penny`, `Nickel`, `Dime`, and `Quarter`, where `Quarter` variant can hold associated data of type `UsState`.
 - We define a `UsState` struct, which can be used as associated data for the `Quarter` variant.
@@ -7807,6 +7827,7 @@ fn value_in_cents(coin: Coin) -> u32 {
 ```
 
 In this example:
+
 - We define an enum `Coin` representing different types of coins.
 - We define a function `value_in_cents` that takes a `Coin` enum as an argument.
 - Inside the function, we use `match` to match the `coin` argument against different variants of `Coin` and return the corresponding value in cents.
@@ -7826,6 +7847,7 @@ if let Some(value) = some_value {
 ```
 
 In this example:
+
 - We have an `Option` enum with a `Some` variant containing a value.
 - We use `if let` to check if `some_value` matches the `Some` variant and bind the inner value to `value`.
 - If `some_value` is `Some`, it prints the value; otherwise, it prints "No value".
@@ -7851,6 +7873,7 @@ mod my_module {
 ##### Paths for Referring to an Item in the Module Tree
 
 In Rust, a path is a way to refer to an item (such as a function, struct, or module) within the module tree. There are two types of paths:
+
 - **Absolute Path**: Starts from the crate root by using a crate name or a literal `crate` keyword.
 - **Relative Path**: Starts from the current module and uses `self`, `super`, or an identifier in the current module.
 
@@ -7882,15 +7905,16 @@ In Rust, you can define modules in separate files and organize your code more ef
 
 ```
 my_project/
-  ├── src/
-  │   ├── main.rs
-  │   ├── my_module/
-  │   │   ├── mod.rs
-  │   │   ├── my_submodule.rs
-  │   ├── another_module.rs
+    src/
+        main.rs
+        my_module/
+            mod.rs
+            my_submodule.rs
+        another_module.rs
 ```
 
 In this structure:
+
 - `my_module` is a module defined in `mod.rs` inside the `my_module` directory.
 - Additional submodules like `my_submodule.rs` can be added in the same directory and referenced using the `mod.rs` file.
 
@@ -8012,6 +8036,7 @@ In this example, `File::open` returns a `Result` that may contain a `File` if su
 Deciding whether to use `panic!` or `Result` depends on the nature of the error and the context of the code. Use `panic!` for unrecoverable errors that indicate bugs or critical failures, where the program cannot continue safely. Use `Result` for recoverable errors where the program can gracefully handle the error and continue execution.
 
 In general:
+
 - Use `panic!` for unexpected conditions that indicate programming errors or critical failures.
 - Use `Result` for expected errors that can be handled gracefully by the program.
 
@@ -8126,6 +8151,7 @@ In this example, we define a test function `test_add` annotated with `#[test]`. 
 ##### Controlling How Tests Are Run
 
 Rust provides several command-line options to control how tests are run. You can use these options to filter tests, run tests in parallel, display additional information, and more. Some common options include:
+
 - `--test`: Run tests.
 - `--test-threads`: Number of threads used for running tests in parallel.
 - `--ignored`: Run only ignored tests.
@@ -8137,13 +8163,14 @@ Rust provides several command-line options to control how tests are run. You can
 In Rust, you can organize tests into different modules and files just like regular code. Each file containing tests should be placed in the `tests` directory of your project, and Rust's test runner will automatically discover and run these tests.
 
 For example, you might have the following directory structure:
+
 ```
 my_project/
-  ├── src/
-  │   ├── lib.rs
-  └── tests/
-      ├── integration_tests.rs
-      └── unit_tests.rs
+    src/
+        lib.rs
+    tests/
+        integration_tests.rs
+        unit_tests.rs
 ```
 
 In this structure, `unit_tests.rs` might contain unit tests for individual functions or modules, while `integration_tests.rs` might contain higher-level integration tests that test the interaction between different parts of your code.
@@ -8387,6 +8414,7 @@ Here's a breakdown of each topic:
 ##### Using `Box<T>` to Point to Data on the Heap
 
 In Rust, `Box<T>` is a smart pointer that points to data stored on the heap. It provides a way to allocate memory on the heap and ensures that the memory is freed when the `Box` goes out of scope. `Box` is commonly used when you need to:
+
 - Have a value with a known size at compile time.
 - Transfer ownership of a large amount of data.
 - Have data that you want to have a known lifetime.
@@ -8621,6 +8649,7 @@ Let's delve into each aspect:
 ##### Characteristics of Object-Oriented Languages
 
 Object-oriented programming (OOP) languages typically exhibit several key characteristics, including:
+
 - **Encapsulation:** Bundling data and methods that operate on that data into a single unit, called an object.
 - **Inheritance:** Defining relationships between classes where one class can inherit properties and behavior from another.
 - **Polymorphism:** The ability for objects of different types to be treated as objects of a common superclass.
@@ -8732,6 +8761,7 @@ Let's explore these aspects of patterns and matching in Rust:
 ##### All the Places Patterns Can Be Used
 
 In Rust, patterns can be used in various contexts, including:
+
 - `match` expressions: Patterns are used to match against the value being evaluated.
 - `if let` expressions: Patterns are used to match against the value and execute code if the pattern matches.
 - `while let` loops: Similar to `if let`, patterns are used to match against the value and execute the loop if the pattern matches.
@@ -8792,6 +8822,7 @@ In this example, `x = 5` uses an irrefutable pattern because it always matches. 
 ##### Pattern Syntax
 
 Patterns in Rust can take various forms, including:
+
 - Literals: Match against specific values.
 - Variables: Bind values to variables.
 - Wildcards (`_`): Ignore values.
@@ -8820,6 +8851,7 @@ Let's break down each of these advanced features:
 ##### Unsafe Rust
 
 Rust's safety guarantees are one of its core strengths, but there are situations where you need to bypass these guarantees for performance reasons or to interact with low-level system features. Rust provides the `unsafe` keyword for writing unsafe code blocks where you can:
+
 - Dereference raw pointers.
 - Call unsafe functions or methods.
 - Mutate static variables.
@@ -8842,6 +8874,7 @@ fn main() {
 ##### Advanced Traits
 
 Traits in Rust are powerful tools for defining shared behavior between types. Advanced traits extend this capability with features such as:
+
 - Associated types: Allowing types to be associated with a trait.
 - Default implementations: Providing default behavior for trait methods.
 - Negative trait bounds: Specifying types that do not implement a trait.
@@ -8864,6 +8897,7 @@ impl MyTrait for i32 {
 ##### Advanced Types
 
 Rust's type system is rich and expressive, allowing for the creation of complex types and data structures. Advanced types include:
+
 - Associated types: Types associated with traits.
 - Type aliases: Defining aliases for existing types.
 - Never type (`!`): Representing values that never exist.
@@ -8885,6 +8919,7 @@ fn diverging_function() -> ! {
 ##### Advanced Functions and Closures
 
 Rust's functions and closures support a variety of advanced features, including:
+
 - Higher-order functions: Functions that take other functions as arguments or return functions.
 - Function pointers: Pointers that can be used to call functions directly.
 - Capturing: Closures capturing variables from their enclosing scope.

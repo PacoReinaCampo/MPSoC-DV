@@ -7,6 +7,7 @@ In DO-254, hardware design standards and guidance are crucial for ensuring consi
 **Description**: Requirements standards define how to capture, document, and manage hardware requirements throughout the development lifecycle.
 
 **Key Elements**:
+
 - **Requirements Capture**: Processes for gathering and documenting functional, performance, and environmental requirements.
 - **Requirements Documentation**: Standardized formats and templates for documenting requirements to ensure clarity and consistency.
 - **Requirements Traceability**: Methods for linking requirements to design elements, verification activities, and validation results to ensure all requirements are addressed.
@@ -19,6 +20,7 @@ In DO-254, hardware design standards and guidance are crucial for ensuring consi
 **Description**: Hardware design standards provide guidelines for the design process, ensuring consistency, quality, and compliance with regulatory requirements and industry best practices.
 
 **Key Elements**:
+
 - **Design Principles**: Fundamental principles and practices for creating robust and reliable hardware designs.
 - **Design Methodologies**: Standardized methods for design activities, such as schematic capture, circuit design, and layout.
 - **Design Documentation**: Formats and templates for documenting design outputs, including schematics, block diagrams, and design descriptions.
@@ -31,6 +33,7 @@ In DO-254, hardware design standards and guidance are crucial for ensuring consi
 **Description**: Validation and verification (V&V) standards outline the processes and methodologies for validating and verifying that the hardware meets its specified requirements and performs as intended.
 
 **Key Elements**:
+
 - **Validation Processes**: Procedures for confirming that the hardware fulfills its intended use and meets operational requirements.
 - **Verification Processes**: Methods for ensuring that the hardware design accurately implements specified requirements.
 - **Testing Standards**: Guidelines for designing, conducting, and documenting tests to validate and verify hardware performance and functionality.
@@ -44,6 +47,7 @@ In DO-254, hardware design standards and guidance are crucial for ensuring consi
 **Description**: Hardware archive standards define the processes and requirements for archiving hardware data and documentation throughout and after the development lifecycle.
 
 **Key Elements**:
+
 - **Archiving Procedures**: Processes for storing and managing hardware documentation, design data, test results, and other relevant information.
 - **Data Retention Policies**: Guidelines for how long different types of hardware data should be retained.
 - **Data Integrity and Security**: Measures to ensure the integrity and security of archived data, including access controls and data protection methods.

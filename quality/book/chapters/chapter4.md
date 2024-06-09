@@ -7,12 +7,14 @@ The **Context of the Organization** section in ISO 9001:2015 is about understand
 **Understanding the organization and its context** involves identifying and analyzing various factors that can impact the QMS. This includes:
 
 1. **Internal Factors**:
+
    - **Values, culture, knowledge, and performance of the organization**.
    - **Organizational structure and roles**.
    - **Capabilities in terms of resources and technology**.
    - **Information systems and decision-making processes**.
 
 2. **External Factors**:
+
    - **Legal, regulatory, and statutory requirements**.
    - **Economic and competitive environment**.
    - **Technological advancements and innovation**.

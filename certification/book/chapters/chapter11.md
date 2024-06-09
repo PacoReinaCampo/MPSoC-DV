@@ -10,9 +10,9 @@ In addition to the primary processes and activities outlined in DO-254 for airbo
 
 **Considerations**:
 
-- **Legacy Compatibility**: Ensure compatibility with existing systems, interfaces, and standards when integrating previously developed hardware.
-- **Documentation Review**: Conduct a thorough review of documentation, test results, and validation data from previous projects to verify the suitability and compliance of reused hardware.
-- **Configuration Management**: Implement robust configuration management practices to track and manage changes to reused hardware components or designs.
+   - **Legacy Compatibility**: Ensure compatibility with existing systems, interfaces, and standards when integrating previously developed hardware.
+   - **Documentation Review**: Conduct a thorough review of documentation, test results, and validation data from previous projects to verify the suitability and compliance of reused hardware.
+   - **Configuration Management**: Implement robust configuration management practices to track and manage changes to reused hardware components or designs.
 
 ## Commercial Components Usage
 
@@ -22,9 +22,9 @@ In addition to the primary processes and activities outlined in DO-254 for airbo
 
 **Considerations**:
 
-- **Component Selection**: Evaluate commercial components based on their suitability for the intended application, environmental conditions, reliability requirements, and compliance with regulatory standards.
-- **Obsolescence Management**: Develop strategies to mitigate the risks associated with component obsolescence, including identifying alternative sources, implementing lifecycle management plans, and designing for component interchangeability.
-- **Testing and Qualification**: Perform thorough testing and qualification of commercial components to verify their performance, reliability, and compliance with requirements.
+   - **Component Selection**: Evaluate commercial components based on their suitability for the intended application, environmental conditions, reliability requirements, and compliance with regulatory standards.
+   - **Obsolescence Management**: Develop strategies to mitigate the risks associated with component obsolescence, including identifying alternative sources, implementing lifecycle management plans, and designing for component interchangeability.
+   - **Testing and Qualification**: Perform thorough testing and qualification of commercial components to verify their performance, reliability, and compliance with requirements.
 
 ## Product Service Experience
 
@@ -34,9 +34,9 @@ In addition to the primary processes and activities outlined in DO-254 for airbo
 
 **Considerations**:
 
-- **Data Collection**: Collect and analyze service and maintenance data, including field performance, reliability statistics, failure analysis reports, and customer feedback.
-- **Root Cause Analysis**: Conduct root cause analysis of hardware failures and service incidents to identify underlying issues, design weaknesses, or operational challenges.
-- **Continuous Improvement**: Use service experience insights to drive continuous improvement initiatives, including design updates, reliability enhancements, and maintenance optimizations.
+   - **Data Collection**: Collect and analyze service and maintenance data, including field performance, reliability statistics, failure analysis reports, and customer feedback.
+   - **Root Cause Analysis**: Conduct root cause analysis of hardware failures and service incidents to identify underlying issues, design weaknesses, or operational challenges.
+   - **Continuous Improvement**: Use service experience insights to drive continuous improvement initiatives, including design updates, reliability enhancements, and maintenance optimizations.
 
 ## Tool Assessment and Qualification
 
@@ -46,8 +46,8 @@ In addition to the primary processes and activities outlined in DO-254 for airbo
 
 **Considerations**:
 
-- **Tool Selection**: Choose tools and software that are appropriate for the intended application, compliant with industry standards, and capable of meeting regulatory requirements.
-- **Tool Validation**: Validate tools and software to ensure they produce accurate and reliable results consistent with the intended use and regulatory expectations.
-- **Tool Qualification**: Qualify tools and software for use in safety-critical applications, such as airborne electronic hardware, by demonstrating their suitability, reliability, and compliance with certification standards.
+   - **Tool Selection**: Choose tools and software that are appropriate for the intended application, compliant with industry standards, and capable of meeting regulatory requirements.
+   - **Tool Validation**: Validate tools and software to ensure they produce accurate and reliable results consistent with the intended use and regulatory expectations.
+   - **Tool Qualification**: Qualify tools and software for use in safety-critical applications, such as airborne electronic hardware, by demonstrating their suitability, reliability, and compliance with certification standards.
 
 By addressing these additional considerations, organizations can enhance the efficiency, reliability, and safety of their airborne electronic hardware development efforts, ultimately delivering high-quality products that meet regulatory requirements and customer expectations.

@@ -23,9 +23,9 @@ Configuration management involves several key activities to achieve its objectiv
 
 **Key Activities**:
 
-- Define and list all CIs, including hardware components, design documents, specifications, test procedures, and tools.
-- Assign unique identifiers to each CI.
-- Establish baselines for each stage of the development process, capturing the state of CIs at specific points in time.
+   - Define and list all CIs, including hardware components, design documents, specifications, test procedures, and tools.
+   - Assign unique identifiers to each CI.
+   - Establish baselines for each stage of the development process, capturing the state of CIs at specific points in time.
 
 2. Configuration Control
 
@@ -33,10 +33,10 @@ Configuration management involves several key activities to achieve its objectiv
 
 **Key Activities**:
 
-- Implement a change control process to evaluate, approve, and document changes.
-- Establish a Configuration Control Board (CCB) to review and approve proposed changes.
-- Document change requests, impact assessments, approvals, and implementation actions.
-- Track and manage changes to ensure they are accurately reflected in the design data and documentation.
+   - Implement a change control process to evaluate, approve, and document changes.
+   - Establish a Configuration Control Board (CCB) to review and approve proposed changes.
+   - Document change requests, impact assessments, approvals, and implementation actions.
+   - Track and manage changes to ensure they are accurately reflected in the design data and documentation.
 
 3. Configuration Status Accounting
 
@@ -44,9 +44,9 @@ Configuration management involves several key activities to achieve its objectiv
 
 **Key Activities**:
 
-- Maintain records of the status of each CI, including its current configuration and any changes made.
-- Provide regular reports on the status of configurations, changes, and baselines.
-- Ensure that configuration records are updated and accurate.
+   - Maintain records of the status of each CI, including its current configuration and any changes made.
+   - Provide regular reports on the status of configurations, changes, and baselines.
+   - Ensure that configuration records are updated and accurate.
 
 4. Configuration Audits
 
@@ -54,9 +54,9 @@ Configuration management involves several key activities to achieve its objectiv
 
 **Key Activities**:
 
-- Conduct configuration audits to ensure compliance with configuration management policies and procedures.
-- Perform functional and physical configuration audits to verify that the hardware and documentation match the approved configurations.
-- Document audit findings and ensure that any discrepancies are resolved.
+   - Conduct configuration audits to ensure compliance with configuration management policies and procedures.
+   - Perform functional and physical configuration audits to verify that the hardware and documentation match the approved configurations.
+   - Document audit findings and ensure that any discrepancies are resolved.
 
 5. Configuration Documentation
 
@@ -64,9 +64,9 @@ Configuration management involves several key activities to achieve its objectiv
 
 **Key Activities**:
 
-- Create and maintain a Configuration Management Plan (CMP) that outlines CM processes, roles, responsibilities, and tools.
-- Document configuration identification, control processes, status accounting, and audit results.
-- Maintain accurate and up-to-date configuration records and documentation.
+   - Create and maintain a Configuration Management Plan (CMP) that outlines CM processes, roles, responsibilities, and tools.
+   - Document configuration identification, control processes, status accounting, and audit results.
+   - Maintain accurate and up-to-date configuration records and documentation.
 
 ## Data Control Categories
 
