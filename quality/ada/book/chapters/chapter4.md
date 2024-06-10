@@ -1,18 +1,18 @@
-# Names and Expressions
-## Names
+# NAMES AND EXPRESSIONS
+## NAMES
 ### Indexed Components
 ### Slices
 ### Selected Components
 ### Attributes
 ### User-Defined References
 ### User-Defined Indexing
-## Literals
-## Aggregates
+## LITERALS
+## AGGREGATES
 ### Record Aggregates
 ### Extension Aggregates
 ### Array Aggregates
-## Expressions
-## Operators and Expression Evaluation
+## EXPRESSIONS
+## OPERATORS AND EXPRESSION EVALUATION
 ### Logical Operators and Short-circuit Control Forms
 ### Relational Operators and Membership Tests
 ### Binary Adding Operators
@@ -21,8 +21,8 @@
 ### Highest Precedence Operators
 ### Conditional Expressions
 ### Quantified Expressions
-## Type Conversions
-## Qualified Expressions
-## Allocators
-## Static Expressions and Static Subtypes
+## TYPE CONVERSIONS
+## QUALIFIED EXPRESSIONS
+## ALLOCATORS
+## STATIC EXPRESSIONS AND STATIC SUBTYPES
 ### Statically Matching Constraints and Subtypes

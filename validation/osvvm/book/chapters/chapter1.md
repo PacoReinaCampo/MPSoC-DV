@@ -1,4 +1,4 @@
-# What is OSVVM?
+# WHAT IS OSVVM?
 
 OSVVM, which stands for Open Source VHDL Verification Methodology, is a comprehensive set of libraries and utilities for VHDL (VHSIC Hardware Description Language) aimed at improving the verification process for FPGA and ASIC designs. Developed by SynthWorks Design Inc., OSVVM provides a structured approach to verification, enhancing the efficiency, reliability, and scalability of VHDL-based verification environments.
 

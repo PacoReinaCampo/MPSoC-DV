@@ -1,21 +1,21 @@
-# Tasks and Synchronization
-## Task Units and Task Objects
-## Task Execution - Task Activation
-## Task Dependence - Termination of Tasks
-## Protected Units and Protected Objects
-## Intertask Communication
+# TASKS AND SYNCHRONIZATION
+## TASK UNITS AND TASK OBJECTS
+## TASK EXECUTION - TASK ACTIVATION
+## TASK DEPENDENCE - TERMINATION OF TASKS
+## PROTECTED UNITS AND PROTECTED OBJECTS
+## INTERTASK COMMUNICATION
 ### Protected Subprograms and Protected Actions
 ### Entries and Accept Statements
 ### Entry Calls
 ### Requeue Statements
-## Delay Statements, Duration, and Time
+## DELAY STATEMENTS, DURATION, AND TIME
 ### Formatting, Time Zones, and other operations for Time
-## Select Statements
+## SELECT STATEMENTS
 ### Selective Accept
 ### Timed Entry Calls
 ### Conditional Entry Calls
 ### Asynchronous Transfer of Control
-## Abort of a Task - Abort of a Sequence of Statements
-## Task and Entry Attributes
-## Shared Variables
-## Example of Tasking and Synchronization
+## ABORT OF A TASK - ABORT OF A SEQUENCE OF STATEMENTS
+## TASK AND ENTRY ATTRIBUTES
+## SHARED VARIABLES
+## EXAMPLE OF TASKING AND SYNCHRONIZATION

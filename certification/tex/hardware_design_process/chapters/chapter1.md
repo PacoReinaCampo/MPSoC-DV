@@ -1,4 +1,4 @@
-# Requirements Capture Process
+# REQUIREMENTS CAPTURE PROCESS
 
 **Objective**: To define and document the hardware requirements based on system-level requirements and safety assessments.
 

@@ -1,4 +1,4 @@
-# Use of Previously Developed Hardware
+# USE OF PREVIOUSLY DEVELOPED HARDWARE
 
 **Description**: The use of previously developed hardware refers to the practice of incorporating existing hardware designs, components, or modules into new hardware projects.
 

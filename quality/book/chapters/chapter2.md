@@ -2,7 +2,7 @@
 
 In the context of standards such as ISO 9001:2015, a **normative reference** is a document or a standard that is referred to within the text of the primary standard and is indispensable for its application. Normative references are integral to the understanding and implementation of the standard, providing essential guidance, definitions, or additional requirements that must be followed to comply with the primary standard.
 
-## Role and Purpose of Normative References in ISO 9001:2015
+## ROLE AND PURPOSE OF NORMATIVE REFERENCES IN ISO 9001:2015
 
 1. **Ensuring Consistency and Uniformity**:
 
@@ -16,7 +16,7 @@ In the context of standards such as ISO 9001:2015, a **normative reference** is 
 
    - By referring to normative documents, organizations can ensure that they meet all necessary criteria for compliance and certification. This can simplify the certification process as it provides a clear set of documents that must be adhered to.
 
-## Example of Normative References in ISO 9001:2015
+## EXAMPLE OF NORMATIVE REFERENCES IN ISO 9001:2015
 
 ISO 9001:2015 includes the following normative reference:
 
@@ -29,7 +29,7 @@ This normative reference is crucial because:
    - It defines the key terms and concepts used in ISO 9001:2015, ensuring that all users have a common understanding of the language and principles of quality management systems.
    - It lays the foundation for the implementation and interpretation of ISO 9001:2015, offering essential background information that supports the requirements of the standard.
 
-## Importance of Normative References
+## IMPORTANCE OF NORMATIVE REFERENCES
 
 - **Clarity and Precision**:
 
@@ -45,7 +45,7 @@ This normative reference is crucial because:
 
 In summary, normative references in ISO 9001:2015, such as ISO 9000:2015, are essential components that provide necessary definitions, guidelines, and additional requirements. They ensure the proper and uniform application of the standard, facilitating consistency, clarity, and comprehensive understanding for all users.
 
-## Ada Language
+## ADA LANGUAGE
 
 Quality assurance (QA) in software development, including projects involving the Ada programming language, focuses on ensuring that software products and processes meet defined quality standards and customer requirements. Ada is a high-level programming language known for its strong typing, modular approach, and suitability for developing large, complex, and mission-critical systems, particularly in safety-critical domains such as aerospace, defense, and healthcare.
 

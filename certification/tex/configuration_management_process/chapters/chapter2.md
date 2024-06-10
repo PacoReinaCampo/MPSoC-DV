@@ -1,4 +1,4 @@
-# Configuration Management Activities
+# CONFIGURATION MANAGEMENT ACTIVITIES
 
 Configuration management involves several key activities to achieve its objectives:
 

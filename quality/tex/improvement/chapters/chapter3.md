@@ -1,4 +1,4 @@
-# Continual Improvement
+# CONTINUAL IMPROVEMENT
 
 Continual improvement is an ongoing effort to enhance the organization’s processes, products, and services. It is a core principle of ISO 9001:2015 and involves systematic activities to achieve higher performance levels.
 

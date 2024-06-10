@@ -1,10 +1,10 @@
-# Overview
+# OVERVIEW
 
 The Universal Verification Methodology (UVM) is a standardized methodology for verifying integrated circuits, particularly in the field of System-on-Chip (SoC) design. UVM is built on SystemVerilog and provides a robust framework for creating reusable and modular verification environments. Below is a detailed explanation of UVM and its components.
 
 UVM aims to provide a structured and reusable approach to verification, facilitating the development of testbenches that can be easily maintained and adapted to various verification scenarios. Its key features include the ability to create complex verification environments, stimulate designs under test (DUT) with various scenarios, and check the DUT's behavior against expected results.
 
-## The Typical UVM Testbench Architecture
+## THE TYPICAL UVM TESTBENCH ARCHITECTURE
 
 The typical UVM testbench architecture is composed of several key components, each with a specific role in the verification process. The hierarchy of a UVM testbench is designed to be modular, allowing each component to be developed, tested, and reused independently.
 
@@ -44,7 +44,7 @@ The UVM driver receives sequences from the sequencer and drives them onto the DU
 
 The UVM monitor observes the DUT's interface, capturing data for analysis by the scoreboard and other components. It is typically passive, meaning it does not influence the DUT's behavior. The monitor class inherits from `uvm_monitor`.
 
-## The UVM Class Library
+## THE UVM CLASS LIBRARY
 
 The UVM class library provides a comprehensive set of base classes and utilities for building verification environments. It includes classes for components (such as the test, environment, agent, sequencer, sequence, driver, and monitor), as well as utilities for configuration, reporting, messaging, and more.
 

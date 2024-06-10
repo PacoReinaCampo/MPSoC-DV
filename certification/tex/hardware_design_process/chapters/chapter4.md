@@ -1,4 +1,4 @@
-# Implementation Process
+# IMPLEMENTATION PROCESS
 
 **Objective**: To realize the detailed design in physical hardware.
 

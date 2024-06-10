@@ -1,7 +1,7 @@
-# Interfaces
-## A Simple Interface Example
-## Interface Declarations
-## Extending Interfaces
-## Working with Interfaces
-## Marker Interfaces
-## When to Use Interfaces
+# INTERFACES
+## A SIMPLE INTERFACE EXAMPLE
+## INTERFACE DECLARATIONS
+## EXTENDING INTERFACES
+## WORKING WITH INTERFACES
+## MARKER INTERFACES
+## WHEN TO USE INTERFACES

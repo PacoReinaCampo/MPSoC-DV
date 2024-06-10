@@ -2,7 +2,7 @@
 
 The **Support** section of ISO 9001:2015 focuses on the resources, competence, awareness, communication, and documented information necessary to implement and maintain an effective Quality Management System (QMS). This section ensures that all the necessary support mechanisms are in place to achieve the intended outcomes of the QMS.
 
-## Resources
+## RESOURCES
 
 ### General
 
@@ -54,7 +54,7 @@ Organizational knowledge is the information necessary for the operation of proce
 - Learning from lessons learned, both successes and failures.
 - Ensuring the availability of this knowledge to those who need it.
 
-## Competence
+## COMPETENCE
 
 The organization must ensure that employees performing work affecting the quality of products and services are competent based on appropriate education, training, skills, and experience. This involves:
 
@@ -63,7 +63,7 @@ The organization must ensure that employees performing work affecting the qualit
 - Evaluating the effectiveness of these actions.
 - Retaining documented information as evidence of competence.
 
-## Awareness
+## AWARENESS
 
 Employees must be aware of:
 
@@ -72,7 +72,7 @@ Employees must be aware of:
 - Their contribution to the effectiveness of the QMS, including the benefits of improved performance.
 - The implications of not conforming to QMS requirements.
 
-## Communication
+## COMMUNICATION
 
 The organization must determine the internal and external communications relevant to the QMS, including:
 
@@ -81,7 +81,7 @@ The organization must determine the internal and external communications relevan
 - With whom to communicate.
 - How to communicate.
 
-## Documented Information
+## DOCUMENTED INFORMATION
 
 ### General
 

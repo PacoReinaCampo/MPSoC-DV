@@ -1,4 +1,4 @@
-# Internal Audit
+# INTERNAL AUDIT
 
 The organization must conduct internal audits at planned intervals to provide information on whether the QMS:
 

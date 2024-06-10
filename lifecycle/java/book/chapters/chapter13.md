@@ -1,6 +1,6 @@
-# Strings and Regular Expressions
-## Character Sequences
-## The String Class
-## Regular Expression Matching
-## The StringBuilder Class
-## Working with UTF-
+# STRINGS AND REGULAR EXPRESSIONS
+## CHARACTER SEQUENCES
+## THE STRING CLASS
+## REGULAR EXPRESSION MATCHING
+## THE STRINGBUILDER CLASS
+## WORKING WITH UTF-

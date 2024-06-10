@@ -35,7 +35,7 @@ The hardware design process in DO-254 encompasses a series of structured and ite
 | Hardware Tool Qualification Data                     |
 :Data Required for the Hardware Development Object
 
-## Requirements Capture Process
+## REQUIREMENTS CAPTURE PROCESS
 
 **Objective**: To define and document the hardware requirements based on system-level requirements and safety assessments.
 
@@ -47,7 +47,7 @@ Key Activities:
 4. **Traceability**: Establish traceability between system-level requirements and hardware requirements to ensure all system needs are addressed.
 5. **Review and Approval**: Conduct reviews to verify the completeness and accuracy of the requirements document and obtain necessary approvals from stakeholders.
 
-## Conceptual Design Process
+## CONCEPTUAL DESIGN PROCESS
 
 **Objective**: To develop high-level design concepts that meet the specified hardware requirements.
 
@@ -60,7 +60,7 @@ Key Activities:
 5. **Documentation**: Document the conceptual design, including design rationale, component choices, and preliminary safety assessments.
 6. **Review and Approval**: Review the conceptual design with stakeholders and obtain approvals to proceed to detailed design.
 
-## Detailed Design Process
+## DETAILED DESIGN PROCESS
 
 **Objective**: To translate the conceptual design into detailed specifications and schematics.
 
@@ -72,7 +72,7 @@ Key Activities:
 4. **Design Documentation**: Document all aspects of the detailed design, including specifications, design decisions, and analysis results.
 5. **Design Reviews**: Conduct formal design reviews to verify the detailed design against requirements and obtain stakeholder approvals.
 
-## Implementation Process
+## IMPLEMENTATION PROCESS
 
 **Objective**: To realize the detailed design in physical hardware.
 
@@ -84,7 +84,7 @@ Key Activities:
 4. **Issue Resolution**: Identify and resolve any issues discovered during initial testing and assembly.
 5. **Documentation**: Document the implementation process, including assembly instructions, test results, and any changes made during implementation.
 
-## Production Transition
+## PRODUCTION TRANSITION
 
 **Objective**: To transition the hardware from development to full-scale production.
 
@@ -96,7 +96,7 @@ Key Activities:
 4. **Documentation**: Finalize production documentation, including manufacturing instructions, quality control procedures, and compliance requirements.
 5. **Production Approval**: Obtain approvals from stakeholders and regulatory authorities to commence full-scale production.
 
-## Acceptance Test
+## ACCEPTANCE TEST
 
 **Objective**: To verify that the hardware meets all specified requirements and is ready for operational deployment.
 
@@ -109,7 +109,7 @@ Key Activities:
 5. **Documentation**: Document the acceptance test process, including test plans, results, and any corrective actions taken.
 6. **Final Approval**: Obtain final approvals from stakeholders and regulatory authorities for the hardware to be used operationally.
 
-## Series Production
+## SERIES PRODUCTION
 
 **Objective**: To produce hardware units in large quantities for operational use.
 

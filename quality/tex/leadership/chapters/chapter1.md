@@ -1,6 +1,6 @@
-# Leadership and Commitment
+# LEADERSHIP AND COMMITMENT
 
-## General
+## GENERAL
 
 In the general context, leadership and commitment require top management to:
 
@@ -10,7 +10,7 @@ In the general context, leadership and commitment require top management to:
 4. **Engage, Direct, and Support People**: Motivate and support employees to contribute to the effectiveness of the QMS.
 5. **Continual Improvement**: Promote the use of the process approach and risk-based thinking to enhance the QMS continuously.
 
-## Customer Focus
+## CUSTOMER FOCUS
 
 Top management must demonstrate a strong commitment to understanding and meeting customer needs and enhancing customer satisfaction. This involves:
 

@@ -1,4 +1,4 @@
-# Control of Nonconforming Outputs
+# CONTROL OF NONCONFORMING OUTPUTS
 
 The organization must establish procedures for identifying, segregating, and controlling nonconforming products and services to prevent their unintended use or delivery. This includes:
 

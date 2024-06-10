@@ -2,7 +2,7 @@
 
 The **Improvement** section of ISO 9001:2015 focuses on the processes and practices an organization must implement to enhance its Quality Management System (QMS) continually. This section emphasizes the need to identify and act on opportunities for improvement, address nonconformities, and drive continual improvement efforts.
 
-## General
+## GENERAL
 
 The organization must determine and select opportunities for improvement and implement necessary actions to meet customer requirements and enhance customer satisfaction. This involves:
 
@@ -20,7 +20,7 @@ The organization must determine and select opportunities for improvement and imp
 
    - Using feedback from audits, customer complaints, data analysis, and performance metrics to identify improvement opportunities.
 
-## Nonconformity and Corrective Action
+## NONCONFORMITY AND CORRECTIVE ACTION
 
 Nonconformities are instances where processes or outputs do not meet specified requirements. The organization must address these through a structured approach involving corrective actions.
 
@@ -42,7 +42,7 @@ Nonconformities are instances where processes or outputs do not meet specified r
    - Periodically review nonconformities and corrective actions to identify trends.
    - Update processes and QMS documentation to reflect improvements and changes.
 
-## Continual Improvement
+## CONTINUAL IMPROVEMENT
 
 Continual improvement is an ongoing effort to enhance the organization’s processes, products, and services. It is a core principle of ISO 9001:2015 and involves systematic activities to achieve higher performance levels.
 

@@ -1,7 +1,7 @@
-# Primitives as Types
-## Common Fields and Methods
-## Void
-## Boolean
-## Number
-## Character
-## Boxing Conversions
+# PRIMITIVES AS TYPES
+## COMMON FIELDS AND METHODS
+## VOID
+## BOOLEAN
+## NUMBER
+## CHARACTER
+## BOXING CONVERSIONS

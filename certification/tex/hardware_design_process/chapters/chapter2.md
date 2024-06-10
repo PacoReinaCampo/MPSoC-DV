@@ -1,4 +1,4 @@
-# Conceptual Design Process
+# CONCEPTUAL DESIGN PROCESS
 
 **Objective**: To develop high-level design concepts that meet the specified hardware requirements.
 

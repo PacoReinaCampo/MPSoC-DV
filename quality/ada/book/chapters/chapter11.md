@@ -1,10 +1,10 @@
-# Exceptions
-## Exception Declarations
-## Exception Handlers
-## Raise Statements and Raise Expressions
-## Exception Handling
+# EXCEPTIONS
+## EXCEPTION DECLARATIONS
+## EXCEPTION HANDLERS
+## RAISE STATEMENTS AND RAISE EXPRESSIONS
+## EXCEPTION HANDLING
 ### The Package Exceptions
 ### Pragmas Assert and Assertion_Policy
 ### Example of Exception Handling
-## Suppressing Checks
-## Exceptions and Optimization
+## SUPPRESSING CHECKS
+## EXCEPTIONS AND OPTIMIZATION

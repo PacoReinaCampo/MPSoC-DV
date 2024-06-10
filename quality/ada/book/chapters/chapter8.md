@@ -1,13 +1,13 @@
-# Visibility Rules
-## Declarative Region
-## Scope of Declarations
-## Visibility
+# VISIBILITY RULES
+## DECLARATIVE REGION
+## SCOPE OF DECLARATIONS
+## VISIBILITY
 ### Overriding Indicators
-## Use Clauses
-## Renaming Declarations
+## USE CLAUSES
+## RENAMING DECLARATIONS
 ### Object Renaming Declarations
 ### Exception Renaming Declarations
 ### Package Renaming Declarations
 ### Subprogram Renaming Declarations
 ### Generic Renaming Declarations
-## The Context of Overload Resolution
+## THE CONTEXT OF OVERLOAD RESOLUTION

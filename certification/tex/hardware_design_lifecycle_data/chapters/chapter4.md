@@ -1,4 +1,4 @@
-# Validation and Verification Data
+# VALIDATION AND VERIFICATION DATA
 
 **Description**: Validation and verification data comprise test plans, procedures, results, analyses, and reports used to validate and verify the hardware design.
 

@@ -1,4 +1,4 @@
-# Determining the Scope of the Quality Management System
+# DETERMINING THE SCOPE OF THE QUALITY MANAGEMENT SYSTEM
 
 **Determining the scope of the quality management system** is about defining the boundaries and applicability of the QMS within the organization. This involves:
 

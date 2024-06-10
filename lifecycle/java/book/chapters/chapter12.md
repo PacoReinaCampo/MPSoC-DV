@@ -1,11 +1,11 @@
-# Exceptions and Assertions
-## Creating Exception Types
-## throw
-## The throws Clause
-## try, catch, and finally
-## Exception Chaining
-## Stack Traces
-## When to Use Exceptions
-## Assertions
-## When to Use Assertions
-## Turning Assertions On and Off
+# EXCEPTIONS AND ASSERTIONS
+## CREATING EXCEPTION TYPES
+## THROW
+## THE THROWS CLAUSE
+## TRY, CATCH, AND FINALLY
+## EXCEPTION CHAINING
+## STACK TRACES
+## WHEN TO USE EXCEPTIONS
+## ASSERTIONS
+## WHEN TO USE ASSERTIONS
+## TURNING ASSERTIONS ON AND OFF

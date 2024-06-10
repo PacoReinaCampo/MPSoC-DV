@@ -1,6 +1,6 @@
-# Monitoring, Measurement, Analysis, and Evaluation
+# MONITORING, MEASUREMENT, ANALYSIS, AND EVALUATION
 
-## General
+## GENERAL
 
 The organization must determine:
 
@@ -22,7 +22,7 @@ The organization must determine:
 
 Documented information must be retained as evidence of the results of these activities, supporting transparency and accountability.
 
-## Customer Satisfaction
+## CUSTOMER SATISFACTION
 
 Customer satisfaction is a key measure of the QMS’s effectiveness. The organization must monitor customers’ perceptions of the degree to which their needs and expectations have been fulfilled. This involves:
 
@@ -34,7 +34,7 @@ Customer satisfaction is a key measure of the QMS’s effectiveness. The organiz
    - Regularly review feedback to identify trends and areas for improvement.
    - Take corrective actions based on customer complaints and suggestions.
 
-## Analysis and Evaluation
+## ANALYSIS AND EVALUATION
 
 The organization must analyze and evaluate data and information arising from monitoring and measurement. This analysis should provide insights into:
 

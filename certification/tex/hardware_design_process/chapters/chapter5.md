@@ -1,4 +1,4 @@
-# Production Transition
+# PRODUCTION TRANSITION
 
 **Objective**: To transition the hardware from development to full-scale production.
 

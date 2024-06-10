@@ -1,12 +1,12 @@
-# Using the Register Layer Classes
+# USING THE REGISTER LAYER CLASSES
 
 The Register Layer in UVM provides a robust framework for modeling and verifying the configuration and state registers of a design. It offers a structured way to define, access, and verify the registers and memories in a device under test (DUT).
 
-## Overview
+## OVERVIEW
 
 The UVM register layer simplifies the modeling of registers and memories, offering mechanisms for defining the structure, accessing the values, and verifying the correctness of the data. It supports both front-door (via bus transactions) and back-door (direct access) mechanisms for register operations.
 
-## Usage Model
+## USAGE MODEL
 
 ### Mirroring
 
@@ -16,7 +16,7 @@ Mirroring refers to keeping a software model (the register model) synchronized w
 
 Unlike registers, memories are typically not mirrored. This is because memory contents can be large and constantly changing, making it impractical to maintain an exact software copy. Instead, specific memory locations can be accessed and verified as needed.
 
-## Access API
+## ACCESS API
 
 The UVM register layer provides a rich API for accessing and manipulating register and memory contents.
 
@@ -75,7 +75,7 @@ reg_model.REG1.mirror(status);
 
 The UVM register layer handles concurrent accesses by serializing them, ensuring data integrity.
 
-## Coverage Models
+## COVERAGE MODELS
 
 ### Predefined Coverage Identifiers
 
@@ -85,7 +85,7 @@ The register layer provides predefined coverage identifiers for register and fie
 
 Coverage model construction and sampling can be controlled through UVM configuration settings, enabling users to focus on specific areas of interest.
 
-## Constructing a Register Model
+## CONSTRUCTING A REGISTER MODEL
 
 ### Field Types
 
@@ -115,7 +115,7 @@ A register model is packaged by defining all its components (fields, registers, 
 
 The maximum data size for register fields and memories is determined by the specific implementation and limitations of the hardware and software tools used.
 
-## Back-door Access
+## BACK-DOOR ACCESS
 
 ### Back-door read/write vs. peek/poke
 
@@ -141,7 +141,7 @@ Protected memories require special handling to ensure security and data integrit
 
 Active monitoring involves continuously checking the DUT's state to detect and report any discrepancies between the register model and the actual hardware.
 
-## Special Registers
+## SPECIAL REGISTERS
 
 ### Pre-defined Special Registers
 
@@ -163,9 +163,9 @@ Unimplemented registers are placeholders for future expansion or optional featur
 
 Read-only (RO) and write-only (WO) registers can share the same address if they represent different aspects of the same hardware location.
 
-## Integrating a Register Model in a Verification Environment
+## INTEGRATING A REGISTER MODEL IN A VERIFICATION ENVIRONMENT
 
-## Integrating a Register Model
+## INTEGRATING A REGISTER MODEL
 
 ### Transaction Adapter
 
@@ -179,7 +179,7 @@ Bus sequencers control the sequence of bus transactions, coordinating with the r
 
 A bus monitor observes bus transactions and updates the register model to reflect changes in the DUT's state, ensuring consistency and correctness.
 
-## Randomizing Field Values
+## RANDOMIZING FIELD VALUES
 
 Randomizing field values allows for extensive testing of different register states and transitions, uncovering edge cases and potential issues.
 
@@ -187,7 +187,7 @@ Randomizing field values allows for extensive testing of different register stat
 reg_model.REG1.randomize();
 ```
 
-## Pre-defined Sequences
+## PRE-DEFINED SEQUENCES
 
 Pre-defined sequences provide common register access patterns and scenarios, facilitating efficient and thorough verification.
 

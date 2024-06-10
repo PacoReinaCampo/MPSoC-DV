@@ -1,6 +1,6 @@
-# Using Verification Components
+# USING VERIFICATION COMPONENTS
 
-## Creating a Top-Level Environment
+## CREATING A TOP-LEVEL ENVIRONMENT
 
 A top-level environment encapsulates all the components needed for verification. This environment includes agents, scoreboards, monitors, and other verification components. It provides a cohesive structure to manage the interactions between these components.
 
@@ -28,11 +28,11 @@ class top_env extends uvm_env;
 endclass
 ```
 
-## Instantiating Verification Components
+## INSTANTIATING VERIFICATION COMPONENTS
 
 Verification components such as drivers, sequencers, monitors, and agents are instantiated within the top-level environment. These components are configured and connected during the build and connect phases.
 
-## Creating Test Classes
+## CREATING TEST CLASSES
 
 Test classes define specific verification scenarios. Each test class inherits from `uvm_test` and configures the environment, sequences, and other parameters needed for the test.
 
@@ -59,7 +59,7 @@ class base_test extends uvm_test;
 endclass
 ```
 
-## Verification Component Configuration
+## VERIFICATION COMPONENT CONFIGURATION
 
 ### Verification Component Configurable Parameters
 
@@ -101,7 +101,7 @@ class my_agent extends uvm_agent;
 endclass
 ```
 
-## Creating and Selecting a User-Defined Test
+## CREATING AND SELECTING A USER-DEFINED TEST
 
 ### Creating the Base Test
 
@@ -128,7 +128,7 @@ endclass
 
 Tests are selected at runtime, typically through command-line arguments or a test management framework.
 
-## Creating Meaningful Tests
+## CREATING MEANINGFUL TESTS
 
 ### Constraining Data Items
 
@@ -142,7 +142,7 @@ Data items are defined using `uvm_sequence_item` and constrained using SystemVer
 
 Test-specific frames define the context and conditions for the test, ensuring meaningful verification scenarios.
 
-## Virtual Sequences
+## VIRTUAL SEQUENCES
 
 ### Creating a Virtual Sequencer
 
@@ -193,11 +193,11 @@ The virtual sequencer controls other sequencers by starting and managing their s
 
 Virtual sequencers are connected to subsequencers during the build phase.
 
-## Checking for DUT Correctness
+## CHECKING FOR DUT CORRECTNESS
 
 Correctness checks ensure the DUT behaves as expected. These checks are implemented in scoreboards and monitors.
 
-## Scoreboards
+## SCOREBOARDS
 
 ### Creating the Scoreboard
 
@@ -236,7 +236,7 @@ The action taken by the scoreboard involves comparing actual results with expect
 
 The scoreboard is instantiated and connected in the environment.
 
-## Implementing a Coverage Model
+## IMPLEMENTING A COVERAGE MODEL
 
 ### Selecting a Coverage Method
 

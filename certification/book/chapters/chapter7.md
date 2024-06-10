@@ -2,7 +2,7 @@
 
 Configuration management (CM) in the context of DO-254 involves a systematic process to ensure the consistency, accuracy, and control of all hardware design data throughout the development lifecycle. This process is critical for maintaining traceability, managing changes, and supporting certification efforts.
 
-## Configuration Management Objectives
+## CONFIGURATION MANAGEMENT OBJECTIVES
 
 The main objectives of the configuration management process are:
 
@@ -13,7 +13,7 @@ The main objectives of the configuration management process are:
 5. **Facilitate Communication**: Improve communication among team members and stakeholders by providing a clear and organized record of design data and changes.
 6. **Preserve History**: Maintain a historical record of changes and configurations to support future reference, maintenance, and troubleshooting.
 
-## Configuration Management Activities
+## CONFIGURATION MANAGEMENT ACTIVITIES
 
 Configuration management involves several key activities to achieve its objectives:
 
@@ -68,33 +68,39 @@ Configuration management involves several key activities to achieve its objectiv
    - Document configuration identification, control processes, status accounting, and audit results.
    - Maintain accurate and up-to-date configuration records and documentation.
 
-## Data Control Categories
+## DATA CONTROL CATEGORIES
 
 Data control categories are classifications of data that help manage and control the various types of information involved in hardware design and development. These categories help ensure that each type of data is handled appropriately according to its importance and sensitivity.
 
 Key Data Control Categories:
 
 1. **Design Data**: 
+
    - **Description**: Includes all information related to the design of the hardware, such as schematics, diagrams, models, and specifications.
    - **Control Measures**: Version control, access restrictions, and change tracking.
 
 2. **Requirements Data**:
+
    - **Description**: Comprises the hardware requirements derived from system-level requirements and safety assessments.
    - **Control Measures**: Traceability to system requirements, change control, and approval processes.
 
 3. **Verification and Validation Data**:
+
    - **Description**: Includes test plans, procedures, results, and analysis reports used to verify and validate the hardware design.
    - **Control Measures**: Documentation of test outcomes, traceability to requirements, and review/approval workflows.
 
 4. **Configuration Management Records**:
+
    - **Description**: Consists of records of configuration items, change requests, approval records, and status accounting logs.
    - **Control Measures**: Maintenance of accurate records, regular updates, and audit trails.
 
 5. **Manufacturing Data**:
+
    - **Description**: Encompasses data related to the production of hardware, such as manufacturing instructions, assembly procedures, and quality control measures.
    - **Control Measures**: Controlled release of manufacturing documents, version control, and process audits.
 
 6. **Maintenance and Support Data**:
+
    - **Description**: Includes information necessary for the ongoing maintenance and support of the hardware, such as maintenance schedules, repair procedures, and support documentation.
    - **Control Measures**: Regular updates, access control, and documentation of maintenance actions.
 

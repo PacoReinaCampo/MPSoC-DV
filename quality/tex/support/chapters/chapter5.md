@@ -1,12 +1,12 @@
-# Documented Information
+# DOCUMENTED INFORMATION
 
-## General
+## GENERAL
 
 Documented information required by the QMS and by ISO 9001:2015 must be controlled to ensure it is available and suitable for use where and when it is needed. This includes:
 
 - Creating, updating, and maintaining documents and records.
 
-## Creating and Updating
+## CREATING AND UPDATING
 
 When creating and updating documented information, the organization must ensure appropriate:
 
@@ -14,7 +14,7 @@ When creating and updating documented information, the organization must ensure 
 - Format (e.g., language, software version) and media (e.g., paper, electronic).
 - Review and approval for suitability and adequacy.
 
-## Control of Documented Information
+## CONTROL OF DOCUMENTED INFORMATION
 
 Documented information must be controlled to ensure it is:
 

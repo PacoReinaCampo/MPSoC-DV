@@ -1,4 +1,4 @@
-# Hardware Acceptance Test Criteria
+# HARDWARE ACCEPTANCE TEST CRITERIA
 
 **Description**: Hardware acceptance test criteria define the conditions, procedures, and criteria for accepting the hardware as meeting specified requirements.
 

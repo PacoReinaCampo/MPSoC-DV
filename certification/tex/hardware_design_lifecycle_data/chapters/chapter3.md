@@ -1,4 +1,4 @@
-# Hardware Design Data
+# HARDWARE DESIGN DATA
 
 **Description**: Hardware design data include all documentation, schematics, diagrams, models, and specifications related to the design of the hardware.
 

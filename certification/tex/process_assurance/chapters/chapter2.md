@@ -1,4 +1,4 @@
-# Process Assurance Activities
+# PROCESS ASSURANCE ACTIVITIES
 
 Process assurance involves a range of activities to achieve its objectives:
 

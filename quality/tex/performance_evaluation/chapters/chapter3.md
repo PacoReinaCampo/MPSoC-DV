@@ -1,10 +1,10 @@
-# Management Review
+# MANAGEMENT REVIEW
 
-## General
+## GENERAL
 
 Top management must review the organization’s QMS at planned intervals to ensure its continuing suitability, adequacy, effectiveness, and alignment with the strategic direction of the organization. Management reviews should be conducted regularly and documented.
 
-## Management Review Inputs
+## MANAGEMENT REVIEW INPUTS
 
 Inputs to the management review must include:
 
@@ -22,7 +22,7 @@ Inputs to the management review must include:
 5. **Effectiveness of actions taken to address risks and opportunities**.
 6. **Opportunities for improvement**.
 
-## Management Review Outputs
+## MANAGEMENT REVIEW OUTPUTS
 
 Outputs of the management review must include decisions and actions related to:
 

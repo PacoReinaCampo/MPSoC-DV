@@ -1,7 +1,7 @@
-# Internationalization and Localization
-## Locale
-## Resource Bundles
-## Currency
-## Time, Dates, and Calendars
-## Formatting and Parsing Dates and Times
-## Internationalization and Localization for Text
+# INTERNATIONALIZATION AND LOCALIZATION
+## LOCALE
+## RESOURCE BUNDLES
+## CURRENCY
+## TIME, DATES, AND CALENDARS
+## FORMATTING AND PARSING DATES AND TIMES
+## INTERNATIONALIZATION AND LOCALIZATION FOR TEXT

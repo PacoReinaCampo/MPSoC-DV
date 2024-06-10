@@ -1,6 +1,6 @@
-# Advanced Topics
+# ADVANCED TOPICS
 
-## The `uvm_component` Base Class
+## THE `UVM_COMPONENT` BASE CLASS
 
 The `uvm_component` base class is a fundamental building block in UVM, providing a framework for building modular, reusable verification components. It serves as the base class for all hierarchical components in a UVM testbench.
 
@@ -32,7 +32,7 @@ class my_component extends uvm_component;
 endclass
 ```
 
-## The Built-In Factory and Overrides
+## THE BUILT-IN FACTORY AND OVERRIDES
 
 ### About the Factory
 
@@ -57,7 +57,7 @@ Overrides allow one component or object type to be replaced with another at runt
 uvm_factory::set_type_override_by_type(original_type::get_type(), override_type::get_type());
 ```
 
-## Callbacks
+## CALLBACKS
 
 ### Use Model
 
@@ -95,11 +95,11 @@ class my_component extends uvm_component;
 endclass
 ```
 
-## The Sequence Library
+## THE SEQUENCE LIBRARY
 
 The UVM sequence library provides a framework for creating, managing, and executing sequences. It allows for defining complex transaction flows and reuse across different tests and environments.
 
-## Advanced Sequence Control
+## ADVANCED SEQUENCE CONTROL
 
 ### Implementing Complex Scenarios
 
@@ -124,7 +124,7 @@ task body();
 endtask
 ```
 
-## Command Line Interface (CLI)
+## COMMAND LINE INTERFACE (CLI)
 
 ### Introduction
 
@@ -144,7 +144,7 @@ if ($test$plusargs("enable_feature")) begin
 end
 ```
 
-## Macros in UVM
+## MACROS IN UVM
 
 UVM provides a variety of macros to simplify the creation and management of verification components. Some commonly used macros include:
 

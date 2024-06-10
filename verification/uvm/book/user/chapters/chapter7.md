@@ -1,10 +1,10 @@
-# UBus Verification Component Example
+# UBUS VERIFICATION COMPONENT EXAMPLE
 
-## UBus Example
+## UBUS EXAMPLE
 
 The UBus example demonstrates a complete UVM testbench for verifying a simple bus protocol called UBus. This example showcases the architecture, components, and interactions necessary for verifying a bus protocol.
 
-## UBus Example Architecture
+## UBUS EXAMPLE ARCHITECTURE
 
 The UBus example architecture consists of several components that work together to verify the UBus protocol. These components include:
 
@@ -19,7 +19,7 @@ The UBus example architecture consists of several components that work together 
 - UBus Bus Monitor
 - UBus Interface
 
-## UBus Top Module
+## UBUS TOP MODULE
 
 The top module instantiates the DUT and connects it to the UVM testbench components. It provides the necessary signals and interfaces for the UBus protocol.
 
@@ -54,7 +54,7 @@ module ubus_top;
 endmodule
 ```
 
-## The Test
+## THE TEST
 
 A UVM test sets up the environment and specifies the sequences to be executed. It configures the UBus environment and starts the verification process.
 
@@ -86,7 +86,7 @@ class ubus_test extends uvm_test;
 endclass
 ```
 
-## Testbench Environment
+## TESTBENCH ENVIRONMENT
 
 The testbench environment instantiates and connects all the necessary components for verifying the UBus protocol. It includes agents, monitors, and scoreboards.
 
@@ -111,7 +111,7 @@ class ubus_env extends uvm_env;
 endclass
 ```
 
-## UBus Environment
+## UBUS ENVIRONMENT
 
 The UBus environment is a specialized environment for the UBus protocol, integrating specific agents and monitors required for UBus verification.
 
@@ -139,7 +139,7 @@ class ubus_env extends uvm_env;
 endclass
 ```
 
-## UBus Master Agent
+## UBUS MASTER AGENT
 
 The UBus master agent contains the sequencer, driver, and monitor components necessary for generating and monitoring bus transactions from the master perspective.
 
@@ -169,7 +169,7 @@ class ubus_master_agent extends uvm_agent;
 endclass
 ```
 
-## UBus Master Sequencer
+## UBUS MASTER SEQUENCER
 
 The UBus master sequencer is responsible for managing sequences and providing transactions to the driver.
 
@@ -183,7 +183,7 @@ class ubus_master_sequencer extends uvm_sequencer #(ubus_transaction);
 endclass
 ```
 
-## UBus Driver
+## UBUS DRIVER
 
 The UBus driver converts sequence items into pin-level activity on the bus interface.
 
@@ -207,7 +207,7 @@ class ubus_driver extends uvm_driver #(ubus_transaction);
 endclass
 ```
 
-## UBus Agent Monitor
+## UBUS AGENT MONITOR
 
 The UBus agent monitor observes bus transactions and converts them into analysis transactions for further processing.
 
@@ -228,7 +228,7 @@ class ubus_monitor extends uvm_monitor;
 endclass
 ```
 
-## UBus Bus Monitor
+## UBUS BUS MONITOR
 
 ### Collecting Transfers from the Bus
 
@@ -246,7 +246,7 @@ The monitor can emit notifications for specific events, such as errors or protoc
 
 The monitor performs protocol checks and collects coverage information, ensuring comprehensive verification of the bus protocol.
 
-## UBus Interface
+## UBUS INTERFACE
 
 The UBus interface defines the signals and structure of the UBus protocol.
 

@@ -1,32 +1,32 @@
-# Representation Issues
-## Operational and Representation Aspects
+# REPRESENTATION ISSUES
+## OPERATIONAL AND REPRESENTATION ASPECTS
 ### Aspect Specifications
-## Packed Types
-## Operational and Representation Attributes
-## Enumeration Representation Clauses
-## Record Layout
+## PACKED TYPES
+## OPERATIONAL AND REPRESENTATION ATTRIBUTES
+## ENUMERATION REPRESENTATION CLAUSES
+## RECORD LAYOUT
 ### Record Representation Clauses
 ### Storage Place Attributes
 ### Bit Ordering
-## Change of Representation
-## The Package System
+## CHANGE OF REPRESENTATION
+## THE PACKAGE SYSTEM
 ### The Package System. Storage_Elements
 ### The Package System. Address_To_Access_Conversions
-## Machine Code Insertions
-## Unchecked Type Conversions
+## MACHINE CODE INSERTIONS
+## UNCHECKED TYPE CONVERSIONS
 ### Data Validity
 ### The Valid Attribute
-## Unchecked Access Value Creation
-## Storage Management
+## UNCHECKED ACCESS VALUE CREATION
+## STORAGE MANAGEMENT
 ### Storage Allocation Attributes
 ### Unchecked Storage Deallocation
 ### Default Storage Pools
 ### Storage Subpools
 ### Subpool Reclamation
 ### Storage Subpool Example
-## Pragma Restrictions and Pragma Profile
+## PRAGMA RESTRICTIONS AND PRAGMA PROFILE
 ### Language-Defined Restrictions and Profiles
-## Streams
+## STREAMS
 ### The Package Streams
 ### Stream-Oriented Attributes
-## Freezing Rules
+## FREEZING RULES

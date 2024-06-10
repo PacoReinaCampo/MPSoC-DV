@@ -1,4 +1,4 @@
-# Organizational Roles, Responsibilities and Authorities
+# ORGANIZATIONAL ROLES, RESPONSIBILITIES AND AUTHORITIES
 
 Top management must ensure that roles, responsibilities, and authorities related to the QMS are clearly defined, communicated, and understood within the organization. This involves:
 

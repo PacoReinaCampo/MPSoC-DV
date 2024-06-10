@@ -1,19 +1,19 @@
-# A Quick Tour
-## Getting Started
-## Variables
-## Comments in Code
-## Named Constants
-## Unicode Characters
-## Flow of Control
-## Classes and Objects
-## Methods and Parameters
-## Arrays
-## String Objects
-## Extending a Class
-## Interfaces
-## Generic Types
-## Exceptions
-## Annotations
-## Packages
-## The Java Platform
-## Other Topics Briefly Noted
+# A QUICK TOUR
+## GETTING STARTED
+## VARIABLES
+## COMMENTS IN CODE
+## NAMED CONSTANTS
+## UNICODE CHARACTERS
+## FLOW OF CONTROL
+## CLASSES AND OBJECTS
+## METHODS AND PARAMETERS
+## ARRAYS
+## STRING OBJECTS
+## EXTENDING A CLASS
+## INTERFACES
+## GENERIC TYPES
+## EXCEPTIONS
+## ANNOTATIONS
+## PACKAGES
+## THE JAVA PLATFORM
+## OTHER TOPICS BRIEFLY NOTED

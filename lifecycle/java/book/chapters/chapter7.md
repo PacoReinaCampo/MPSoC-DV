@@ -1,6 +1,6 @@
-# Tokens, Values, and Variables
-## Lexical Elements
-## Types and Literals
-## Variables
-## Array Variables
-## The Meanings of Names
+# TOKENS, VALUES, AND VARIABLES
+## LEXICAL ELEMENTS
+## TYPES AND LITERALS
+## VARIABLES
+## ARRAY VARIABLES
+## THE MEANINGS OF NAMES

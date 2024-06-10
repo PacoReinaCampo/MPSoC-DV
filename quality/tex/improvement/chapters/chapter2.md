@@ -1,4 +1,4 @@
-# Nonconformity and Corrective Action
+# NONCONFORMITY AND CORRECTIVE ACTION
 
 Nonconformities are instances where processes or outputs do not meet specified requirements. The organization must address these through a structured approach involving corrective actions.
 

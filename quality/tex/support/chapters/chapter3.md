@@ -1,4 +1,4 @@
-# Awareness
+# AWARENESS
 
 Employees must be aware of:
 

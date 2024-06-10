@@ -1,5 +1,5 @@
-# Enumeration Types
-## A Simple Enum Example
-## Enum Declarations## Enum Constant Declarations
-## java.lang.Enum
-## To Enum or Not
+# ENUMERATION TYPES
+## A SIMPLE ENUM EXAMPLE
+## ENUM DECLARATIONS## ENUM CONSTANT DECLARATIONS
+## JAVA.LANG.ENUM
+## TO ENUM OR NOT

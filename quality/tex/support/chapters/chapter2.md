@@ -1,4 +1,4 @@
-# Competence
+# COMPETENCE
 
 The organization must ensure that employees performing work affecting the quality of products and services are competent based on appropriate education, training, skills, and experience. This involves:
 

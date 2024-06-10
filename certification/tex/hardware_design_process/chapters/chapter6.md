@@ -1,4 +1,4 @@
-# Acceptance Test
+# ACCEPTANCE TEST
 
 **Objective**: To verify that the hardware meets all specified requirements and is ready for operational deployment.
 

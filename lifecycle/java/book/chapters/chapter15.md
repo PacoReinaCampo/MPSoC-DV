@@ -1,7 +1,7 @@
-# Annotations
-## A Simple Annotation Example
-## Annotation Types
-## Annotating Elements
-## Restricting Annotation Applicability
-## Retention Policies
-## Working with Annotations
+# ANNOTATIONS
+## A SIMPLE ANNOTATION EXAMPLE
+## ANNOTATION TYPES
+## ANNOTATING ELEMENTS
+## RESTRICTING ANNOTATION APPLICABILITY
+## RETENTION POLICIES
+## WORKING WITH ANNOTATIONS

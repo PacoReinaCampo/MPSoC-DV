@@ -1,6 +1,6 @@
-# Policy
+# POLICY
 
-## Establishing the Quality Policy
+## ESTABLISHING THE QUALITY POLICY
 
 The quality policy is a formal statement from top management that outlines the organization's commitment to quality. Establishing the quality policy involves:
 
@@ -8,7 +8,7 @@ The quality policy is a formal statement from top management that outlines the o
 2. **Commitment to Requirements and Improvement**: Including a commitment to satisfy applicable requirements and to continual improvement of the QMS.
 3. **Framework for Objectives**: Providing a framework for setting quality objectives.
 
-## Communicating the Quality Policy
+## COMMUNICATING THE QUALITY POLICY
 
 Once established, the quality policy must be communicated effectively. This includes:
 

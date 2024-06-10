@@ -1,11 +1,11 @@
-# Control Flow
-## Statements and Blocks
-## ifelse
-## switch
-## while and dowhile
-## for
-## Labels
-## break
-## continue
-## return
-## What, No goto?
+# CONTROL FLOW
+## STATEMENTS AND BLOCKS
+## IFELSE
+## SWITCH
+## WHILE AND DOWHILE
+## FOR
+## LABELS
+## BREAK
+## CONTINUE
+## RETURN
+## WHAT, NO GOTO?

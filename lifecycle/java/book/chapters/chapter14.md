@@ -1,15 +1,15 @@
-# Threads
-## Creating Threads
-## Using Runnable
-## Synchronization
-## wait, notifyAll, and notify
-## Details of Waiting and Notification
-## Thread Scheduling
-## Deadlocks
-## Ending Thread Execution
-## Ending Application Execution
-## The Memory Model: Synchronization and volatile
-## Thread Management, Security, and ThreadGroup
-## Threads and Exceptions
-## ThreadLocal Variables
-## Debugging Threads
+# THREADS
+## CREATING THREADS
+## USING RUNNABLE
+## SYNCHRONIZATION
+## WAIT, NOTIFYALL, AND NOTIFY
+## DETAILS OF WAITING AND NOTIFICATION
+## THREAD SCHEDULING
+## DEADLOCKS
+## ENDING THREAD EXECUTION
+## ENDING APPLICATION EXECUTION
+## THE MEMORY MODEL: SYNCHRONIZATION AND VOLATILE
+## THREAD MANAGEMENT, SECURITY, AND THREADGROUP
+## THREADS AND EXCEPTIONS
+## THREADLOCAL VARIABLES
+## DEBUGGING THREADS

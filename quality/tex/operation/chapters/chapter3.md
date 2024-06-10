@@ -1,6 +1,6 @@
-# Design and Development of Products and Services
+# DESIGN AND DEVELOPMENT OF PRODUCTS AND SERVICES
 
-## General
+## GENERAL
 
 Design and development processes ensure that products and services meet customer requirements and are fit for their intended purpose. This includes:
 
@@ -8,7 +8,7 @@ Design and development processes ensure that products and services meet customer
 - Ensuring that design and development activities are conducted by qualified personnel.
 - Documenting design and development processes and outcomes.
 
-## Design and Development Planning
+## DESIGN AND DEVELOPMENT PLANNING
 
 The organization must plan the design and development process, including:
 
@@ -16,7 +16,7 @@ The organization must plan the design and development process, including:
 - Identifying resources needed for design and development activities.
 - Establishing timelines and milestones for design and development projects.
 
-## Design and Development Inputs
+## DESIGN AND DEVELOPMENT INPUTS
 
 Inputs to the design and development process include:
 
@@ -24,7 +24,7 @@ Inputs to the design and development process include:
 - Legal, regulatory, and contractual requirements.
 - Lessons learned from previous design and development projects.
 
-## Design and Development Controls
+## DESIGN AND DEVELOPMENT CONTROLS
 
 Controls must be implemented to ensure that design and development activities are carried out effectively and produce the desired outcomes. This includes:
 
@@ -32,7 +32,7 @@ Controls must be implemented to ensure that design and development activities ar
 - Verification and validation activities to ensure that designs meet requirements.
 - Configuration management to control changes to design documents and specifications.
 
-## Design and Development Outputs
+## DESIGN AND DEVELOPMENT OUTPUTS
 
 The outputs of the design and development process include:
 

@@ -1,4 +1,4 @@
-# Actions to Address Risks and Opportunities
+# ACTIONS TO ADDRESS RISKS AND OPPORTUNITIES
 
 **Purpose**:
 - To ensure that the QMS can achieve its intended results.

@@ -1,4 +1,4 @@
-# Tool Assessment and Qualification
+# TOOL ASSESSMENT AND QUALIFICATION
 
 **Description**: Tool assessment and qualification involve evaluating and qualifying the tools, software, and methodologies used in the hardware development process.
 

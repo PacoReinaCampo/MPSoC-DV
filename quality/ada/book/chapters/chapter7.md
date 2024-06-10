@@ -1,10 +1,10 @@
-# Packages
-## Package Specifications and Declarations
-## Package Bodies
-## Private Types and Private Extensions
+# PACKAGES
+## PACKAGE SPECIFICATIONS AND DECLARATIONS
+## PACKAGE BODIES
+## PRIVATE TYPES AND PRIVATE EXTENSIONS
 ### Private Operations
 ### Type Invariants
-## Deferred Constants
-## Limited Types
-## Assignment and Finalization
+## DEFERRED CONSTANTS
+## LIMITED TYPES
+## ASSIGNMENT AND FINALIZATION
 ### Completion and Finalization

@@ -1,6 +1,6 @@
-# Garbage Collection and Memory
-## Garbage Collection
-## A Simple Model
-## Finalization
-## Interacting with the Garbage Collector
-## Reachability States and Reference Objects
+# GARBAGE COLLECTION AND MEMORY
+## GARBAGE COLLECTION
+## A SIMPLE MODEL
+## FINALIZATION
+## INTERACTING WITH THE GARBAGE COLLECTOR
+## REACHABILITY STATES AND REFERENCE OBJECTS

@@ -1,4 +1,4 @@
-# Hardware Accomplishment Summary
+# HARDWARE ACCOMPLISHMENT SUMMARY
 
 **Description**: The Hardware Accomplishment Summary (HAS) is a comprehensive document that summarizes the hardware development process, compliance activities, verification and validation results, and overall achievement of hardware objectives.
 

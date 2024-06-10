@@ -2,14 +2,16 @@
 
 The **Planning** section of ISO 9001:2015 focuses on how an organization should approach planning to ensure that its quality management system (QMS) is effective and can achieve its intended outcomes. This involves proactive measures to address risks and opportunities, set and achieve quality objectives, and plan for changes in a controlled manner.
 
-## Actions to Address Risks and Opportunities
+## ACTIONS TO ADDRESS RISKS AND OPPORTUNITIES
 
 **Purpose**:
+
 - To ensure that the QMS can achieve its intended results.
 - To enhance desirable effects and prevent or reduce undesired effects.
 - To achieve continual improvement.
 
 **Approach**:
+
 1. **Identify Risks and Opportunities**:
 
    - Analyze the internal and external context of the organization to identify potential risks and opportunities that could impact the QMS.
@@ -25,15 +27,18 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
    - Ensure that these actions are managed, monitored, and reviewed for effectiveness.
 
 **Examples**:
+
 - **Risk Mitigation**: Implementing quality control measures to reduce the risk of product defects.
 - **Opportunity Exploitation**: Investing in new technology to improve product quality and operational efficiency.
 
-## Quality Objectives and Planning to Achieve Them
+## QUALITY OBJECTIVES AND PLANNING TO ACHIEVE THEM
 
 **Purpose**:
+
 - To establish measurable and achievable quality objectives that are aligned with the organization's quality policy and strategic direction.
 
 **Approach**:
+
 1. **Setting Quality Objectives**:
 
    - Objectives should be specific, measurable, achievable, relevant, and time-bound (SMART).
@@ -47,15 +52,18 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
    - Establish timeframes and milestones to monitor progress.
 
 **Examples**:
+
 - **Objective**: Reduce the defect rate by 10% within the next year.
 - **Plan**: Implement additional quality checks at key stages of the production process, provide training for quality inspectors, and monitor defect rates monthly.
 
-## Planning of Changes
+## PLANNING OF CHANGES
 
 **Purpose**:
+
 - To ensure that any changes to the QMS are conducted in a controlled manner and do not negatively impact the system's integrity or the quality of products and services.
 
 **Approach**:
+
 1. **Identifying Changes**:
 
    - Recognize the need for changes that may arise from internal or external factors, such as new regulations, technological advancements, or market conditions.
@@ -76,6 +84,7 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
    - Evaluate the effectiveness of the changes and make adjustments as necessary.
 
 **Examples**:
+
 - **Change**: Introducing a new software system for managing quality records.
 - **Plan**: Develop a rollout plan that includes training for users, migrating existing records to the new system, and establishing support procedures.
 

@@ -3,6 +3,7 @@
 **Quality Assurance (QA)** refers to the systematic processes and procedures implemented within an organization to ensure that the products or services provided meet specified requirements and standards. QA aims to enhance customer satisfaction through consistent delivery of quality products and services, reducing errors and defects, and continuous improvement.
 
 Key aspects of Quality Assurance include:
+
 1. **Process Control**: Establishing and maintaining well-defined processes to ensure that products/services are developed consistently.
 
 2. **Documentation**: Creating detailed documentation for processes, procedures, and standards to ensure clarity and consistency.
@@ -351,6 +352,7 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 - To achieve continual improvement.
 
 **Approach**:
+
 1. **Identify Risks and Opportunities**:
 
    - Analyze the internal and external context of the organization to identify potential risks and opportunities that could impact the QMS.
@@ -377,6 +379,7 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 - To establish measurable and achievable quality objectives that are aligned with the organization's quality policy and strategic direction.
 
 **Approach**:
+
 1. **Setting Quality Objectives**:
 
    - Objectives should be specific, measurable, achievable, relevant, and time-bound (SMART).
@@ -401,6 +404,7 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 - To ensure that any changes to the QMS are conducted in a controlled manner and do not negatively impact the system's integrity or the quality of products and services.
 
 **Approach**:
+
 1. **Identifying Changes**:
 
    - Recognize the need for changes that may arise from internal or external factors, such as new regulations, technological advancements, or market conditions.
@@ -809,7 +813,9 @@ Top management must review the organization’s QMS at planned intervals to ensu
 Inputs to the management review must include:
 
 1. **Status of actions from previous management reviews**.
+
 2. **Changes in external and internal issues relevant to the QMS**.
+
 3. **Information on QMS performance and effectiveness**, including:
 
    - Trends in customer satisfaction and feedback.
@@ -820,7 +826,9 @@ Inputs to the management review must include:
    - Performance of external providers.
 
 4. **Adequacy of resources**.
+
 5. **Effectiveness of actions taken to address risks and opportunities**.
+
 6. **Opportunities for improvement**.
 
 #### Management Review Outputs
@@ -844,6 +852,7 @@ The **Improvement** section of ISO 9001:2015 focuses on the processes and practi
 The organization must determine and select opportunities for improvement and implement necessary actions to meet customer requirements and enhance customer satisfaction. This involves:
 
 1. **Continual Improvement**: 
+
    - Actively seeking opportunities for improvement.
    - Making systematic efforts to improve processes, products, and services.
    - Enhancing overall performance and effectiveness of the QMS.

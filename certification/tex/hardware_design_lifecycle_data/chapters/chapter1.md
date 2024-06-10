@@ -1,4 +1,4 @@
-# Hardware Plans
+# HARDWARE PLANS
 
 **Description**: Hardware plans detail the strategies, methodologies, schedules, and resources allocated for various aspects of hardware development, verification, and validation.
 

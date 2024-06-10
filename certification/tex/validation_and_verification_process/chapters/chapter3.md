@@ -1,4 +1,4 @@
-# Validation and Verification Methods
+# VALIDATION AND VERIFICATION METHODS
 
 Key Methods:
 

@@ -1,4 +1,4 @@
-# General
+# GENERAL
 
 The organization must determine and select opportunities for improvement and implement necessary actions to meet customer requirements and enhance customer satisfaction. This involves:
 

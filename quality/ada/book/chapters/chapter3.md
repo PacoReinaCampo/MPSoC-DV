@@ -1,16 +1,16 @@
-# Declarations and Types
-## Declarations
-## Types and Subtypes
+# DECLARATIONS AND TYPES
+## DECLARATIONS
+## TYPES AND SUBTYPES
 ### Type Declarations
 ### Subtype Declarations
 ### Classification of Operations
 ### Subtype Predicates
-## Objects and Named Numbers
+## OBJECTS AND NAMED NUMBERS
 ### Object Declarations
 ### Number Declarations
-## Derived Types and Classes
+## DERIVED TYPES AND CLASSES
 ### Derivation Classes
-## Scalar Types
+## SCALAR TYPES
 ### Enumeration Types
 ### Character Types
 ### Boolean Types
@@ -21,22 +21,22 @@
 ### Operations of Floating Point Types
 ### Fixed Point Types
 ### Operations of Fixed Point Types
-## Array Types
+## ARRAY TYPES
 ### Index Constraints and Discrete Ranges
 ### Operations of Array Types
 ### String Types
-## Discriminants
+## DISCRIMINANTS
 ### Discriminant Constraints
 ### Operations of Discriminated Types
-## Record Types
+## RECORD TYPES
 ### Variant Parts and Discrete Choices
-## Tagged Types and Type Extensions
+## TAGGED TYPES AND TYPE EXTENSIONS
 ### Type Extensions
 ### Dispatching Operations of Tagged Types
 ### Abstract Types and Subprograms
 ### Interface Types
-## Access Types
+## ACCESS TYPES
 ### Incomplete Type Declarations
 ### Operations of Access Types
-## Declarative Parts
+## DECLARATIVE PARTS
 ### Completions of Declarations

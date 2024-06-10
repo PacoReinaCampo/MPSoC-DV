@@ -1,4 +1,4 @@
-# Means of Compliance and Planning
+# MEANS OF COMPLIANCE AND PLANNING
 
 **Objective**: Define and plan the methods by which compliance with regulatory requirements will be demonstrated throughout the hardware development lifecycle.
 

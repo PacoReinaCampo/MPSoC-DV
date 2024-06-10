@@ -30,7 +30,7 @@ The planning process in DO-254 is a critical phase that establishes the foundati
 | Supplier Management Plan                                                                  |
 :Data Required for the Hardware Planning Object
 
-## Planning Process Objectives
+## PLANNING PROCESS OBJECTIVES
 
 The objectives of the planning process are to:
 
@@ -42,7 +42,7 @@ The objectives of the planning process are to:
 6. **Ensure Compliance**: Ensure that all planning activities comply with relevant standards, regulations, and certification requirements.
 7. **Set Performance Metrics**: Define performance metrics and criteria for success to monitor progress and ensure that project objectives are met.
 
-## Planning Process Activities
+## PLANNING PROCESS ACTIVITIES
 
 The planning process involves several key activities to achieve its objectives:
 

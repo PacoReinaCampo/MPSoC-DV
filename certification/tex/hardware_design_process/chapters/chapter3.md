@@ -1,4 +1,4 @@
-# Detailed Design Process
+# DETAILED DESIGN PROCESS
 
 **Objective**: To translate the conceptual design into detailed specifications and schematics.
 

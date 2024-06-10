@@ -1,8 +1,8 @@
-# Problem Reports
+# PROBLEM REPORTS
 
 Problem reports are crucial documents in the hardware development and maintenance lifecycle. They record any issues, defects, or anomalies discovered during the design, testing, production, or operational phases of hardware. Effective problem reporting is essential for identifying, tracking, resolving, and preventing issues, ensuring the reliability and quality of the hardware.
 
-## Purpose of Problem Reports
+## PURPOSE OF PROBLEM REPORTS
 
 **Description**: The primary purpose of problem reports is to systematically document issues encountered with the hardware, facilitate their resolution, and prevent recurrence. They serve as a tool for continuous improvement and quality assurance.
 
@@ -14,7 +14,7 @@ Problem reports are crucial documents in the hardware development and maintenanc
 - **Quality Assurance**: Helps maintain the quality and reliability of the hardware by addressing defects and issues promptly.
 - **Regulatory Compliance**: Ensures compliance with industry standards and regulatory requirements for documentation and issue management.
 
-## Key Elements of Problem Reports
+## KEY ELEMENTS OF PROBLEM REPORTS
 
 ### Identification Information
 
@@ -80,6 +80,6 @@ Problem reports are crucial documents in the hardware development and maintenanc
 - **Supporting Documentation**: Any additional documents, such as test logs, design documents, and analysis reports.
 - **Historical Data**: Archive of the problem report for future reference and traceability.
 
-## Conclusion
+## CONCLUSION
 
 Problem reports are an essential part of the hardware development and maintenance process. They ensure that issues are systematically identified, tracked, resolved, and documented. By maintaining comprehensive and detailed problem reports, organizations can enhance the quality and reliability of their hardware products, facilitate continuous improvement, and ensure compliance with industry standards and regulatory requirements.

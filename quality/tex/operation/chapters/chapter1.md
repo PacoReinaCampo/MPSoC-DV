@@ -1,4 +1,4 @@
-# Operational Planning and Control
+# OPERATIONAL PLANNING AND CONTROL
 
 **Operational planning and control** involve defining processes and procedures to ensure that products and services are delivered in accordance with customer requirements and applicable standards. This includes:
 

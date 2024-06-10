@@ -1,4 +1,4 @@
-# Commercial Components Usage
+# COMMERCIAL COMPONENTS USAGE
 
 **Description**: Commercial components usage involves incorporating off-the-shelf electronic components, such as processors, memory modules, sensors, and communication interfaces, into hardware designs.
 

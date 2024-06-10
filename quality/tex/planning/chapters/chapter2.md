@@ -1,4 +1,4 @@
-# Quality Objectives and Planning to Achieve Them
+# QUALITY OBJECTIVES AND PLANNING TO ACHIEVE THEM
 
 **Purpose**:
 - To establish measurable and achievable quality objectives that are aligned with the organization's quality policy and strategic direction.

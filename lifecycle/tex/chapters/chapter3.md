@@ -1,4 +1,4 @@
-# Hardware Design Data
+# HARDWARE DESIGN DATA
 
 Hardware design data encompasses all the information generated and used during the hardware development lifecycle. This data ensures that hardware is designed, verified, validated, and documented according to requirements and standards, facilitating effective communication, traceability, and compliance.
 
@@ -36,7 +36,7 @@ Hardware design data encompasses all the information generated and used during t
 | Hardware Tool Qualification Data                     |
 :Data Required for the Hardware Development Object
 
-## Hardware Requirements
+## HARDWARE REQUIREMENTS
 
 **Description**: Hardware requirements are the documented specifications that the hardware must meet. These requirements cover functional, performance, environmental, and regulatory aspects.
 
@@ -50,7 +50,7 @@ Hardware design data encompasses all the information generated and used during t
 
 **Importance**: Accurate and comprehensive hardware requirements are essential for guiding the design process and ensuring that the final product meets all necessary specifications.
 
-## Hardware Design Representation Data
+## HARDWARE DESIGN REPRESENTATION DATA
 
 ### Conceptual Design Data
 

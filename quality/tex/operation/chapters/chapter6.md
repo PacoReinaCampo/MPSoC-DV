@@ -1,4 +1,4 @@
-# Release of Products and Services
+# RELEASE OF PRODUCTS AND SERVICES
 
 The organization must establish procedures for the release of products and services to ensure that they meet specified requirements before delivery to customers. This includes:
 

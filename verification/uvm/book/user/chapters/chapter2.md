@@ -1,12 +1,12 @@
-# Transaction-Level Modeling (TLM)
+# TRANSACTION-LEVEL MODELING (TLM)
 
 Transaction-Level Modeling (TLM) is a high-level approach to modeling the communication between components in a system, focusing on the transactions rather than the lower-level signal details. TLM abstracts the details of the communication, making it easier to develop, understand, and simulate complex systems.
 
-## Overview
+## OVERVIEW
 
 TLM is widely used in system-level design and verification, providing a higher abstraction level than traditional register-transfer level (RTL) modeling. It allows for faster simulations and easier debugging, as well as better reuse of models. TLM is particularly beneficial in early stages of design for architectural exploration and software development.
 
-## TLM, TLM-1, and TLM-2.0
+## TLM, TLM-1, AND TLM-2.0
 
 TLM has evolved over time, leading to different versions with varying levels of abstraction and capabilities:
 
@@ -14,7 +14,7 @@ TLM has evolved over time, leading to different versions with varying levels of 
 - **TLM-1**: The first standard version, providing basic mechanisms for transaction-level communication, focusing on the communication itself rather than timing accuracy.
 - **TLM-2.0**: An advanced version that introduces standardized interfaces and protocols, supporting more detailed timing and communication mechanisms. TLM-2.0 is more comprehensive and includes features for interoperability and more accurate modeling of timing and synchronization.
 
-## TLM-1 Implementation
+## TLM-1 IMPLEMENTATION
 
 ### Basics
 
@@ -28,7 +28,7 @@ In TLM-1, components are typically encapsulated in a hierarchical manner. This e
 
 Analysis communication in TLM-1 involves observing and analyzing transactions as they pass through the system. Monitors or analysis components can be attached to observe transactions, enabling the collection of statistics, performance analysis, and functional verification without affecting the communication itself.
 
-## TLM-2.0 Implementation
+## TLM-2.0 IMPLEMENTATION
 
 TLM-2.0 builds on the concepts introduced in TLM-1, adding more detailed and standardized features for improved modeling accuracy and interoperability.
 

@@ -2,7 +2,7 @@
 
 The **Operation** section of ISO 9001:2015 outlines the requirements for effectively planning, controlling, and executing various operational processes within an organization to ensure the consistent provision of products and services that meet customer requirements. This section covers operational planning and control, requirements for products and services, design and development, control of externally provided processes, production and service provision, release of products and services, and control of nonconforming outputs.
 
-## Operational Planning and Control
+## OPERATIONAL PLANNING AND CONTROL
 
 **Operational planning and control** involve defining processes and procedures to ensure that products and services are delivered in accordance with customer requirements and applicable standards. This includes:
 
@@ -11,7 +11,7 @@ The **Operation** section of ISO 9001:2015 outlines the requirements for effecti
 - Planning and scheduling activities to meet customer demands and deadlines.
 - Implementing controls to ensure that operations are carried out effectively and efficiently.
 
-## Requirements for Products and Services
+## REQUIREMENTS FOR PRODUCTS AND SERVICES
 
 ### Customer Communication
 
@@ -37,7 +37,7 @@ Before accepting customer orders or contracts, the organization must review the 
 
 The organization must review and agree on any changes to customer requirements, including changes to specifications, schedules, or delivery requirements. This ensures that the organization can accommodate changes without compromising quality or delivery deadlines.
 
-## Design and Development of Products and Services
+## DESIGN AND DEVELOPMENT OF PRODUCTS AND SERVICES
 
 ### General
 
@@ -79,7 +79,7 @@ The outputs of the design and development process include:
 - Prototypes or samples for testing and validation.
 - Plans for production, testing, and implementation.
 
-## Control of Externally Provided Processes, Products, and Services
+## CONTROL OF EXTERNALLY PROVIDED PROCESSES, PRODUCTS, AND SERVICES
 
 ### General
 
@@ -97,7 +97,7 @@ The organization must determine the type and extent of control needed for extern
 
 The organization must communicate its requirements to external providers, including specifications, delivery schedules, and quality standards. This ensures that external providers understand and can meet the organization's expectations.
 
-## Production and Service Provision
+## PRODUCTION AND SERVICE PROVISION
 
 ### Control of Production and Service Provision
 
@@ -139,14 +139,14 @@ The organization must establish procedures for controlling changes to production
 - Assessing the impact of proposed changes on product conformity and customer requirements.
 - Obtaining authorization before implementing changes.
 
-## Release of Products and Services
+## RELEASE OF PRODUCTS AND SERVICES
 
 The organization must establish procedures for the release of products and services to ensure that they meet specified requirements before delivery to customers. This includes:
 
 - Conducting final inspections and tests to verify product and service conformity.
 - Obtaining customer approval or acceptance before delivering products and services.
 
-## Control of Nonconforming Outputs
+## CONTROL OF NONCONFORMING OUTPUTS
 
 The organization must establish procedures for identifying, segregating, and controlling nonconforming products and services to prevent their unintended use or delivery. This includes:
 

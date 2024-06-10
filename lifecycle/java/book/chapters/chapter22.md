@@ -1,10 +1,10 @@
-# Miscellaneous Utilities
-## Formatter
-## BitSet
-## Observer/Observable
-## Random
-## Scanner
-## StringTokenizer
-## Timer and TimerTask
+# MISCELLANEOUS UTILITIES
+## FORMATTER
+## BITSET
+## OBSERVER/OBSERVABLE
+## RANDOM
+## SCANNER
+## STRINGTOKENIZER
+## TIMER AND TIMERTASK
 ## UUID
-## Math and StrictMath
+## MATH AND STRICTMATH

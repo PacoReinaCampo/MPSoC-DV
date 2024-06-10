@@ -1,8 +1,8 @@
-# Developing Reusable Verification Components
+# DEVELOPING REUSABLE VERIFICATION COMPONENTS
 
 Creating reusable verification components is crucial for an efficient and effective verification process. This involves building modular, flexible, and highly configurable components that can be reused across different projects and verification environments.
 
-## Modeling Data Items for Generation
+## MODELING DATA ITEMS FOR GENERATION
 
 ### Inheritance and Constraint Layering
 
@@ -56,11 +56,11 @@ class transaction_knobs extends uvm_object;
 endclass
 ```
 
-## Transaction-Level Components
+## TRANSACTION-LEVEL COMPONENTS
 
 Transaction-level components are responsible for generating, processing, and monitoring transactions. These components include drivers, sequencers, and monitors.
 
-## Creating the Driver
+## CREATING THE DRIVER
 
 The driver is responsible for driving the transactions onto the DUT's interface. It extends from `uvm_driver` and implements the `run_phase` method to fetch transactions from the sequencer and drive them onto the interface.
 
@@ -93,7 +93,7 @@ class my_driver extends uvm_driver<base_transaction>;
 endclass
 ```
 
-## Creating the Sequencer
+## CREATING THE SEQUENCER
 
 The sequencer manages the flow of transactions. It generates or selects transactions to be sent to the driver.
 
@@ -107,7 +107,7 @@ class my_sequencer extends uvm_sequencer<base_transaction>;
 endclass
 ```
 
-## Connecting the Driver and Sequencer
+## CONNECTING THE DRIVER AND SEQUENCER
 
 ### Basic Sequencer and Driver Interaction
 
@@ -129,7 +129,7 @@ Processed data can be sent back to the sequencer if needed, typically using TLM 
 
 TLM-based drivers use TLM interfaces for more abstract communication.
 
-## Creating the Monitor
+## CREATING THE MONITOR
 
 The monitor observes the DUT's interface and collects data for analysis. It extends from `uvm_monitor` and typically implements the `run_phase` method to capture transactions from the DUT.
 
@@ -164,11 +164,11 @@ class my_monitor extends uvm_monitor;
 endclass
 ```
 
-## Instantiating Components
+## INSTANTIATING COMPONENTS
 
 Components are instantiated in the testbench, and their connections are configured using the UVM configuration database.
 
-## Creating the Agent
+## CREATING THE AGENT
 
 ### Operating Modes
 
@@ -204,7 +204,7 @@ class my_agent extends uvm_agent;
 endclass
 ```
 
-## Creating the Environment
+## CREATING THE ENVIRONMENT
 
 ### The Environment Class
 
@@ -231,7 +231,7 @@ endclass
 
 The `build_phase` method is used to instantiate and configure components.
 
-## Enabling Scenario Creation
+## ENABLING SCENARIO CREATION
 
 ### Declaring User-Defined Sequences
 
@@ -249,11 +249,11 @@ Sequences are started on the sequencer using the `start` method.
 
 Sequence items and sequences can be overridden to customize the scenarios.
 
-## Managing End of Test
+## MANAGING END OF TEST
 
 Managing the end of the test involves detecting when all transactions are complete and stopping the simulation.
 
-## Implementing Checks and Coverage
+## IMPLEMENTING CHECKS AND COVERAGE
 
 ### Implementing Checks and Coverage in Classes
 

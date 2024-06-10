@@ -1,4 +1,4 @@
-# Quality Management System and Its Processes
+# QUALITY MANAGEMENT SYSTEM AND ITS PROCESSES
 
 **Quality management system and its processes** involve establishing, implementing, maintaining, and continually improving the QMS and its processes. This includes:
 

@@ -1,4 +1,4 @@
-# Compliance Substantiation
+# COMPLIANCE SUBSTANTIATION
 
 **Objective**: Provide evidence and documentation to demonstrate that the hardware design and development processes meet all regulatory requirements and standards.
 

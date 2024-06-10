@@ -1,4 +1,4 @@
-# Communication
+# COMMUNICATION
 
 The organization must determine the internal and external communications relevant to the QMS, including:
 

@@ -1,12 +1,12 @@
-# Classes and Objects
-## A Simple Class 
-## Fields
-## Access Control
-## Creating Objects
-## Construction and Initialization
-## Methods
-## this
-## Overloading Methods
-## Importing Static Member Names
-## The main Method
-## Native Methods
+# CLASSES AND OBJECTS
+## A SIMPLE CLASS 
+## FIELDS
+## ACCESS CONTROL
+## CREATING OBJECTS
+## CONSTRUCTION AND INITIALIZATION
+## METHODS
+## THIS
+## OVERLOADING METHODS
+## IMPORTING STATIC MEMBER NAMES
+## THE MAIN METHOD
+## NATIVE METHODS

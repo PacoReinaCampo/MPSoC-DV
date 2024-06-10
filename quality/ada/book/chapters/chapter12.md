@@ -1,14 +1,14 @@
-# Generic Units
-## Generic Declarations
-## Generic Bodies
-## Generic Instantiation
-## Formal Objects
-## Formal Types
+# GENERIC UNITS
+## GENERIC DECLARATIONS
+## GENERIC BODIES
+## GENERIC INSTANTIATION
+## FORMAL OBJECTS
+## FORMAL TYPES
 ### Formal Private and Derived Types
 ### Formal Scalar Types
 ### Formal Array Types
 ### Formal Access Types
 ### Formal Interface Types
-## Formal Subprograms
-## Formal Packages
-## Example of a Generic Package
+## FORMAL SUBPROGRAMS
+## FORMAL PACKAGES
+## EXAMPLE OF A GENERIC PACKAGE

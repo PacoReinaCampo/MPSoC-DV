@@ -1,4 +1,4 @@
-# Understanding the Organization and Its Context
+# UNDERSTANDING THE ORGANIZATION AND ITS CONTEXT
 
 **Understanding the organization and its context** involves identifying and analyzing various factors that can impact the QMS. This includes:
 

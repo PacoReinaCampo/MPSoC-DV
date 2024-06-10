@@ -1,6 +1,6 @@
 # SYSTEM ASPECTS OF HARDWARE DESIGN ASSURANCE
 
-## Information Flow
+## INFORMATION FLOW
 
 In the context of DO-254, information flow refers to the structured and systematic exchange of data and information among various processes and stakeholders involved in the development and assurance of airborne electronic hardware. Effective information flow ensures that all parties have access to the necessary information at the right time to make informed decisions, maintain consistency, and traceability throughout the hardware development lifecycle.
 
@@ -12,7 +12,7 @@ Key aspects of information flow include:
 4. **Documentation and Reporting**: Maintaining comprehensive documentation of all processes, decisions, and changes throughout the hardware lifecycle to ensure traceability and support certification efforts.
 5. **Cross-Disciplinary Communication**: Facilitating communication between hardware, software, and system engineering teams to ensure that all components work together seamlessly and meet overall system requirements.
 
-## System Safety Assessment Processes
+## SYSTEM SAFETY ASSESSMENT PROCESSES
 
 The system safety assessment (SSA) processes involve evaluating the entire system, including its hardware and software components, to ensure that it meets the required safety standards and does not pose unacceptable risks. SSA processes are integral to the overall system development and are typically guided by standards such as ARP 4761.
 
@@ -30,7 +30,7 @@ Key components of the system safety assessment processes include:
    - Particular Risk Analysis (PRA): Identifying risks associated with specific hazards, such as fire or electromagnetic interference.
 6. **System Safety Analysis (SSA)**: A comprehensive assessment conducted later in the development process, incorporating results from PSSA, FHA, FMEA, FTA, and CCA to ensure that all identified hazards have been adequately mitigated and that the system meets safety objectives.
 
-## Hardware Safety Assessment
+## HARDWARE SAFETY ASSESSMENT
 
 Hardware safety assessment is a subset of the overall system safety assessment, focusing specifically on the electronic hardware components of the system. The goal is to ensure that the hardware does not contribute to unacceptable safety risks and that it performs reliably under all operational conditions.
 

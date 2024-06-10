@@ -1,17 +1,17 @@
-# Collections
-## Collections
-## Iteration
-## Ordering with Comparable and Comparator
-## The Collection Interface
-## Set and SortedSet
-## List
-## Queue
-## Map and SortedMap
-## enum Collections
-## Wrapped Collections and the Collections Class
-## Synchronized Wrappers and Concurrent Collections
-## The Arrays Utility Class
-## Writing Iterator Implementations
-## Writing Collection Implementations
-## The Legacy Collection Types
-## Properties
+# COLLECTIONS
+## COLLECTIONS
+## ITERATION
+## ORDERING WITH COMPARABLE AND COMPARATOR
+## THE COLLECTION INTERFACE
+## SET AND SORTEDSET
+## LIST
+## QUEUE
+## MAP AND SORTEDMAP
+## ENUM COLLECTIONS
+## WRAPPED COLLECTIONS AND THE COLLECTIONS CLASS
+## SYNCHRONIZED WRAPPERS AND CONCURRENT COLLECTIONS
+## THE ARRAYS UTILITY CLASS
+## WRITING ITERATOR IMPLEMENTATIONS
+## WRITING COLLECTION IMPLEMENTATIONS
+## THE LEGACY COLLECTION TYPES
+## PROPERTIES

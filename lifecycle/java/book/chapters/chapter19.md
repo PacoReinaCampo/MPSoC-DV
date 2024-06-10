@@ -1,7 +1,7 @@
-# Documentation Comments
-## The Anatomy of a Doc Comment
-## Tags
-## Inheriting Method Documentation Comments
-## A Simple Example
-## External Conventions
-## Notes on Usage
+# DOCUMENTATION COMMENTS
+## THE ANATOMY OF A DOC COMMENT
+## TAGS
+## INHERITING METHOD DOCUMENTATION COMMENTS
+## A SIMPLE EXAMPLE
+## EXTERNAL CONVENTIONS
+## NOTES ON USAGE

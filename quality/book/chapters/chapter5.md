@@ -2,7 +2,7 @@
 
 The **Leadership** section of ISO 9001:2015 emphasizes the critical role of top management in establishing and maintaining an effective quality management system (QMS). It underscores the necessity for leadership and commitment to ensure that the QMS achieves its intended outcomes and fosters a culture of continuous improvement.
 
-## Leadership and Commitment
+## LEADERSHIP AND COMMITMENT
 
 ### General
 
@@ -22,7 +22,7 @@ Top management must demonstrate a strong commitment to understanding and meeting
 2. **Risks and Opportunities**: Addressing risks and opportunities that can affect the conformity of products and services and the ability to enhance customer satisfaction.
 3. **Customer Satisfaction**: Ensuring that the focus on enhancing customer satisfaction is maintained.
 
-## Policy
+## POLICY
 
 ### Establishing the Quality Policy
 
@@ -40,7 +40,7 @@ Once established, the quality policy must be communicated effectively. This incl
 2. **Availability**: Making the quality policy available to relevant interested parties as appropriate.
 3. **Review and Update**: Regularly reviewing and updating the quality policy to reflect any changes in the organization or its context.
 
-## Organizational Roles, Responsibilities and Authorities
+## ORGANIZATIONAL ROLES, RESPONSIBILITIES AND AUTHORITIES
 
 Top management must ensure that roles, responsibilities, and authorities related to the QMS are clearly defined, communicated, and understood within the organization. This involves:
 

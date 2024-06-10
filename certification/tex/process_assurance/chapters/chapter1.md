@@ -1,4 +1,4 @@
-# Process Assurance Objectives
+# PROCESS ASSURANCE OBJECTIVES
 
 The primary objectives of process assurance are:
 

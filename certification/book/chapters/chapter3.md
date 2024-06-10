@@ -1,6 +1,6 @@
 # HARDWARE DESIGN LIFE CYCLE
 
-## Hardware Design Life Cycle Processes
+## HARDWARE DESIGN LIFE CYCLE PROCESSES
 
 The hardware design life cycle as outlined in DO-254 encompasses a series of structured processes that guide the development of airborne electronic hardware from initial concept through to certification and deployment. These processes ensure that the hardware meets the required safety, reliability, and performance standards.
 
@@ -104,7 +104,7 @@ The hardware design life cycle as outlined in DO-254 encompasses a series of str
    - Perform regular maintenance, updates, and repairs as needed.
    - Address any issues or failures through corrective actions.
 
-## Transition Criteria
+## TRANSITION CRITERIA
 
 Transition criteria are predefined conditions that must be met before moving from one phase of the hardware design life cycle to the next. These criteria ensure that each phase is completed satisfactorily and that the project progresses in a controlled and traceable manner.
 

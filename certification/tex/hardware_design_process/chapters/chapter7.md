@@ -1,4 +1,4 @@
-# Series Production
+# SERIES PRODUCTION
 
 **Objective**: To produce hardware units in large quantities for operational use.
 

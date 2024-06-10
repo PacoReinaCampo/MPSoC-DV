@@ -1,10 +1,10 @@
-# The I/O Package
-## Streams Overview
-## Byte Streams
-## Character Streams
-## InputStreamReader and OutputStreamWriter
-## A Quick Tour of the Stream Classes
-## The Data Byte Streams## Working with Files
-## Object Serialization
-## The IOException Classes
-## A Taste of New I/O
+# THE I/O PACKAGE
+## STREAMS OVERVIEW
+## BYTE STREAMS
+## CHARACTER STREAMS
+## INPUTSTREAMREADER AND OUTPUTSTREAMWRITER
+## A QUICK TOUR OF THE STREAM CLASSES
+## THE DATA BYTE STREAMS## WORKING WITH FILES
+## OBJECT SERIALIZATION
+## THE IOEXCEPTION CLASSES
+## A TASTE OF NEW I/O

@@ -1,6 +1,6 @@
-# System Programming
-## The System Class
-## Creating Processes
-## Shutdown
-## The Rest of Runtime
-## Security
+# SYSTEM PROGRAMMING
+## THE SYSTEM CLASS
+## CREATING PROCESSES
+## SHUTDOWN
+## THE REST OF RUNTIME
+## SECURITY

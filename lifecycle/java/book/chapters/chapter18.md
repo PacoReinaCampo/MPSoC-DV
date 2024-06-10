@@ -1,7 +1,7 @@
-# Packages
-## Package Naming
-## Type Imports
-## Package Access
-## Package Contents
-## Package Annotations
-## Package Objects and Specifications
+# PACKAGES
+## PACKAGE NAMING
+## TYPE IMPORTS
+## PACKAGE ACCESS
+## PACKAGE CONTENTS
+## PACKAGE ANNOTATIONS
+## PACKAGE OBJECTS AND SPECIFICATIONS

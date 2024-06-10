@@ -1,12 +1,12 @@
-# Lexical Elements
-## Character Set
-## Lexical Elements, Separators, and Delimiters
-## Identifiers
-## Numeric Literals
+# LEXICAL ELEMENTS
+## CHARACTER SET
+## LEXICAL ELEMENTS, SEPARATORS, AND DELIMITERS
+## IDENTIFIERS
+## NUMERIC LITERALS
 ### Decimal Literals
 ### Based Literals
-## Character Literals
-## String Literals
-## Comments
-## Pragmas
-## Reserved Words
+## CHARACTER LITERALS
+## STRING LITERALS
+## COMMENTS
+## PRAGMAS
+## RESERVED WORDS

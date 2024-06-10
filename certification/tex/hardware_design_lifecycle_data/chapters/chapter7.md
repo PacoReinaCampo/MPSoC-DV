@@ -1,4 +1,4 @@
-# Hardware Configuration Management Records
+# HARDWARE CONFIGURATION MANAGEMENT RECORDS
 
 **Description**: Hardware configuration management records document the configuration items, changes, versions, baselines, and status of hardware components and documentation.
 

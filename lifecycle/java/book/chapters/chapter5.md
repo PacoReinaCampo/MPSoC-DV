@@ -1,8 +1,8 @@
-# Nested Classes and Interfaces
-## Static Nested Types
-## Inner Classes
-## Local Inner Classes
-## Anonymous Inner Classes
-## Inheriting Nested Types
-## Nesting in Interfaces
-## Implementation of Nested Types
+# NESTED CLASSES AND INTERFACES
+## STATIC NESTED TYPES
+## INNER CLASSES
+## LOCAL INNER CLASSES
+## ANONYMOUS INNER CLASSES
+## INHERITING NESTED TYPES
+## NESTING IN INTERFACES
+## IMPLEMENTATION OF NESTED TYPES

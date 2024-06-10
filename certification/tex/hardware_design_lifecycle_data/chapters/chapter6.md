@@ -1,4 +1,4 @@
-# Problem Reports
+# PROBLEM REPORTS
 
 **Description**: Problem reports document issues, defects, anomalies, and discrepancies identified during hardware development, verification, or validation.
 

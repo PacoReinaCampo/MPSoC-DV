@@ -1,4 +1,4 @@
-# Hardware Process Assurance Records
+# HARDWARE PROCESS ASSURANCE RECORDS
 
 **Description**: Hardware process assurance records document process plans, reviews, audits, verifications, and other process-related activities conducted during hardware development.
 

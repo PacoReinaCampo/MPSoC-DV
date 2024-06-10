@@ -1,4 +1,4 @@
-# Configuration Management Objectives
+# CONFIGURATION MANAGEMENT OBJECTIVES
 
 The main objectives of the configuration management process are:
 

@@ -1,14 +1,14 @@
-# Subprograms
-## Subprogram Declarations
+# SUBPROGRAMS
+## SUBPROGRAM DECLARATIONS
 ### Preconditions and Postconditions
-## Formal Parameter Modes
-## Subprogram Bodies
+## FORMAL PARAMETER MODES
+## SUBPROGRAM BODIES
 ### Conformance Rules
 ### Inline Expansion of Subprograms
-## Subprogram Calls
+## SUBPROGRAM CALLS
 ### Parameter Associations
-## Return Statements
+## RETURN STATEMENTS
 ### Nonreturning Procedures
-## Overloading of Operators
-## Null Procedures
-## Expression Functions
+## OVERLOADING OF OPERATORS
+## NULL PROCEDURES
+## EXPRESSION FUNCTIONS

@@ -1,4 +1,4 @@
-# Planning Process Objectives
+# PLANNING PROCESS OBJECTIVES
 
 The objectives of the planning process are to:
 

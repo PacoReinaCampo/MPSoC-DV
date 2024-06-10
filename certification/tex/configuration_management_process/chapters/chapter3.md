@@ -1,10 +1,11 @@
-# Data Control Categories
+# DATA CONTROL CATEGORIES
 
 Data control categories are classifications of data that help manage and control the various types of information involved in hardware design and development. These categories help ensure that each type of data is handled appropriately according to its importance and sensitivity.
 
 Key Data Control Categories:
 
 1. **Design Data**: 
+
    - **Description**: Includes all information related to the design of the hardware, such as schematics, diagrams, models, and specifications.
    - **Control Measures**: Version control, access restrictions, and change tracking.
 

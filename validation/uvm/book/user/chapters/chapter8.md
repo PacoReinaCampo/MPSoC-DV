@@ -1,6 +1,6 @@
-# UBus Specification
+# UBUS SPECIFICATION
 
-## Introduction
+## INTRODUCTION
 
 ### Motivation
 
@@ -10,7 +10,7 @@ The UBus (Universal Bus) protocol is designed to provide a flexible and efficien
 
 UBus is a synchronous bus protocol that includes arbitration, address, and data phases. It supports multiple masters and slaves, ensuring fair access to shared resources through an arbitration mechanism.
 
-## Bus Description
+## BUS DESCRIPTION
 
 ### Bus Signals
 
@@ -32,11 +32,11 @@ UBus is a synchronous protocol driven by a single clock signal. All bus transact
 
 The `reset` signal is used to initialize the bus and all connected devices to a known state. It is an active-high signal.
 
-## Arbitration Phase
+## ARBITRATION PHASE
 
 The arbitration phase determines which master gains control of the bus. Each master competes for bus access, and a centralized arbiter grants access based on a predefined policy, such as round-robin or priority-based.
 
-## Address Phase
+## ADDRESS PHASE
 
 During the address phase, the master places the address of the target slave on the address bus.
 
@@ -48,7 +48,7 @@ A No Operation (NOP) cycle occurs when no master is driving the bus, and all sig
 
 In a normal address phase, the master asserts the address on the bus and sets the control signals to indicate the type of operation (read/write).
 
-## Data Phase
+## DATA PHASE
 
 The data phase follows the address phase and involves the actual data transfer between the master and the slave.
 
@@ -68,11 +68,11 @@ In a read transfer, the master places the address on the address bus, and the sl
 
 If an error occurs during a read transfer, the slave can assert an error signal to indicate the failure.
 
-## How Data is Driven
+## HOW DATA IS DRIVEN
 
 Data is driven on the bus by the master during write operations and by the slave during read operations. The `valid` signal indicates that the data on the bus is valid and can be latched by the receiving device.
 
-## Optional Pipelining Scheme
+## OPTIONAL PIPELINING SCHEME
 
 Pipelining improves bus performance by overlapping the arbitration, address, and data phases of multiple transactions.
 
@@ -88,7 +88,7 @@ The pipelined address phase allows the next address to be placed on the bus befo
 
 In the pipelined data phase, data transfers for different transactions overlap, with each phase (arbitration, address, data) occurring simultaneously for different transactions.
 
-## Example Timing Diagrams
+## EXAMPLE TIMING DIAGRAMS
 
 Below are example timing diagrams illustrating different phases and operations in the UBus protocol.
 

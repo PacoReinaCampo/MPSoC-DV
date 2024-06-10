@@ -1,4 +1,4 @@
-# Planning Process Activities
+# PLANNING PROCESS ACTIVITIES
 
 The planning process involves several key activities to achieve its objectives:
 

@@ -1,4 +1,4 @@
-# Hardware Design Standards and Guidance
+# HARDWARE DESIGN STANDARDS AND GUIDANCE
 
 **Description**: Hardware design standards and guidance documents outline the principles, methodologies, and best practices to be followed during hardware design.
 

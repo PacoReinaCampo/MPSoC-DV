@@ -1,4 +1,4 @@
-# Product Service Experience
+# PRODUCT SERVICE EXPERIENCE
 
 **Description**: Product service experience involves leveraging data and insights from the operational performance, maintenance, and support of previously deployed hardware products.
 

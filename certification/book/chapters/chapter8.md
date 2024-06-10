@@ -2,7 +2,7 @@
 
 Process assurance in the context of DO-254 involves activities designed to ensure that all processes used in the development, verification, and validation of airborne electronic hardware are performed in accordance with established standards, plans, and regulatory requirements. This ensures the quality, safety, and reliability of the hardware.
 
-## Process Assurance Objectives
+## PROCESS ASSURANCE OBJECTIVES
 
 The primary objectives of process assurance are:
 
@@ -13,7 +13,7 @@ The primary objectives of process assurance are:
 5. **Provide Transparency**: Maintain clear and comprehensive documentation of all processes, activities, and results to provide transparency and facilitate audits and reviews.
 6. **Support Certification**: Provide evidence that all processes have been followed correctly to support the certification of the hardware.
 
-## Process Assurance Activities
+## PROCESS ASSURANCE ACTIVITIES
 
 Process assurance involves a range of activities to achieve its objectives:
 

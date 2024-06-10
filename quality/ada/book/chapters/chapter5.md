@@ -1,11 +1,11 @@
-# Statements
-## Simple and Compound Statements - Sequences of Statements
-## Assignment Statements
-## If Statements
-## Case Statements
-## Loop Statements
+# STATEMENTS
+## SIMPLE AND COMPOUND STATEMENTS - SEQUENCES OF STATEMENTS
+## ASSIGNMENT STATEMENTS
+## IF STATEMENTS
+## CASE STATEMENTS
+## LOOP STATEMENTS
 ### User-Defined Iterator Types
 ### Generalized Loop Iteration
-## Block Statements
-## Exit Statements
-## Goto Statements
+## BLOCK STATEMENTS
+## EXIT STATEMENTS
+## GOTO STATEMENTS

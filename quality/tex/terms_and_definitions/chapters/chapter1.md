@@ -2,7 +2,7 @@
 
 In the context of ISO 9001:2015, the section on **Terms and Definitions** is crucial for ensuring a clear and consistent understanding of the terminology used throughout the standard. This section typically references ISO 9000:2015, which provides detailed definitions and explanations of the key concepts and terms relevant to quality management systems (QMS).
 
-## Importance of Terms and Definitions
+## IMPORTANCE OF TERMS AND DEFINITIONS
 
 1. **Consistency**:
    - Standardized terms ensure that everyone involved in implementing, auditing, and certifying a QMS has a consistent understanding of the key concepts and requirements.
@@ -13,7 +13,7 @@ In the context of ISO 9001:2015, the section on **Terms and Definitions** is cru
 3. **Foundation for Implementation**:
    - Understanding the specific terms used in the standard is essential for correctly applying the requirements and principles of ISO 9001:2015 within an organization.
 
-## Key Terms and Definitions in ISO 9001:2015
+## KEY TERMS AND DEFINITIONS IN ISO 9001:2015
 
 While ISO 9001:2015 itself doesn't provide an exhaustive list of terms and definitions within the standard, it heavily relies on ISO 9000:2015 for this purpose. Here are some critical terms defined in ISO 9000:2015 that are essential for ISO 9001:2015:
 
@@ -47,7 +47,7 @@ While ISO 9001:2015 itself doesn't provide an exhaustive list of terms and defin
 10. **Audit**:
     - A systematic, independent, and documented process for obtaining audit evidence and evaluating it objectively to determine the extent to which the audit criteria are fulfilled.
 
-## Application in ISO 9001:2015
+## APPLICATION IN ISO 9001:2015
 
 - **Context of the Organization**:
   - Understanding the environment in which the organization operates, including internal and external factors that can affect its ability to achieve the intended outcomes of its QMS.
@@ -58,7 +58,7 @@ While ISO 9001:2015 itself doesn't provide an exhaustive list of terms and defin
 - **Risk-Based Thinking**:
   - Considering risk as a basis for the QMS and applying it throughout the organization to prevent or reduce undesired effects.
 
-## Reference to ISO 9000:2015
+## REFERENCE TO ISO 9000:2015
 
 ISO 9001:2015 explicitly states that for the purposes of this document, the terms and definitions given in ISO 9000:2015 apply. This cross-reference ensures that all users of ISO 9001:2015 have a common understanding of the essential terms, facilitating consistent implementation and assessment of quality management systems.
 

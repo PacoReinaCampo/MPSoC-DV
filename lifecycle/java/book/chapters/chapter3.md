@@ -1,13 +1,13 @@
-# Extending Classes
-## An Extended Class
-## Constructors in Extended Classes
-## Inheriting and Redefining Members
-## Type Compatibility and Conversion
-## What protected Really Means
-## Marking Methods and Classes final
-## Abstract Classes and Methods
-## The Object Class
-## Cloning Objects
-## Extending Classes: How and When
-## Designing a Class to Be Extended
-## Single Inheritance versus Multiple Inheritance
+# EXTENDING CLASSES
+## AN EXTENDED CLASS
+## CONSTRUCTORS IN EXTENDED CLASSES
+## INHERITING AND REDEFINING MEMBERS
+## TYPE COMPATIBILITY AND CONVERSION
+## WHAT PROTECTED REALLY MEANS
+## MARKING METHODS AND CLASSES FINAL
+## ABSTRACT CLASSES AND METHODS
+## THE OBJECT CLASS
+## CLONING OBJECTS
+## EXTENDING CLASSES: HOW AND WHEN
+## DESIGNING A CLASS TO BE EXTENDED
+## SINGLE INHERITANCE VERSUS MULTIPLE INHERITANCE
