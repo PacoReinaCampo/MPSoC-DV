@@ -1,8 +1,8 @@
-# Initialization
+# INITIALIZATION
 
 Here's an explanation of initialization concepts in Go, covering constants, variables, and the `init` function:
 
-## Constants
+## CONSTANTS
 
 Constants in Go are declared using the `const` keyword and have a fixed value that cannot be changed after declaration. They provide a way to define named values that remain constant throughout the execution of a program.
 
@@ -16,7 +16,7 @@ const (
 
 Constants can be of various types, including numeric, string, boolean, and more. They are typically used for values that are known at compile-time and won't change during the execution of the program.
 
-## Variables
+## VARIABLES
 
 Variables in Go are declared using the `var` keyword and represent storage locations that hold values of a specific type. Unlike constants, variables can be reassigned to new values during the execution of the program.
 
@@ -37,7 +37,7 @@ Or using type inference:
 z := 5 // Inferred type int
 ```
 
-## The `init` Function
+## THE `INIT` FUNCTION
 
 The `init` function in Go is a special function that is automatically called before the `main` function at program startup. It is commonly used for initialization tasks such as setting up global variables, initializing data structures, or performing configuration.
 

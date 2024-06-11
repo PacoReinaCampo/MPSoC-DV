@@ -1,4 +1,4 @@
-# Primitive Types
+# PRIMITIVE TYPES
 
 In Unified Modeling Language (UML), "primitive types" refer to the basic data types that are predefined by the language and are not composed of other types. These primitive types are typically used to represent simple values such as integers, floating-point numbers, characters, and Boolean values. Primitive types serve as the building blocks for defining more complex data structures and are fundamental to modeling the structure and behavior of systems in UML.
 

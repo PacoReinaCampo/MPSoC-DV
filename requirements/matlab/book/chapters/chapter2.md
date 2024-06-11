@@ -1,6 +1,6 @@
-# Language Fundamentals in MATLAB
+# LANGUAGE FUNDAMENTALS IN MATLAB
 
-## Entering Commands
+## ENTERING COMMANDS
 
 In MATLAB, commands can be entered directly into the Command Window or written in scripts and functions. Here's a guide on how to enter and execute commands effectively:
 
@@ -21,7 +21,7 @@ In MATLAB, commands can be entered directly into the Command Window or written i
       + 4 + 5;
   ```
 
-## Matrices and Arrays
+## MATRICES AND ARRAYS
 
 MATLAB excels at matrix and array operations. Here’s how to create and manipulate them:
 
@@ -53,7 +53,7 @@ MATLAB excels at matrix and array operations. Here’s how to create and manipul
   D = A * B';  % Matrix multiplication, B' is the transpose of B
   ```
 
-## Data Types
+## DATA TYPES
 
 MATLAB supports various data types:
 
@@ -92,7 +92,7 @@ MATLAB supports various data types:
   structVar.age = 30;
   ```
 
-## Operators and Elementary Operations
+## OPERATORS AND ELEMENTARY OPERATIONS
 
 MATLAB provides a variety of operators for performing calculations and data manipulations:
 
@@ -132,7 +132,7 @@ isEqual = (a == b);  % Returns false
 logicalAnd = (a > 4) && (b < 4);  % Returns true
 ```
 
-## Loops and Conditional Statements
+## LOOPS AND CONDITIONAL STATEMENTS
 
 Control flow in MATLAB is managed through loops and conditional statements.
 

@@ -1,8 +1,8 @@
-# Diagnostics library
+# DIAGNOSTICS LIBRARY
 
 The Diagnostics library in C++ provides functionalities for handling errors, exceptions, and diagnostic information within programs. Let's delve into the components you've mentioned:
 
-## exception − System error
+## EXCEPTION − SYSTEM ERROR
 
 The `exception` component of the Diagnostics library deals with error handling in C++. It provides a standardized way to represent and handle exceptional conditions that may arise during program execution. This includes the definition of standard exception classes such as `std::exception` and its derived classes like `std::runtime_error`, `std::logic_error`, etc.
 
@@ -12,7 +12,7 @@ The `exception` component of the Diagnostics library deals with error handling i
 
 Additionally, the `system_error` component allows for handling errors reported by the operating system or the C++ Standard Library functions. It wraps error codes returned by system calls or library functions and provides information about the error condition.
 
-## basic_stacktrace (C++23)
+## BASIC_STACKTRACE (C++23)
 
 The `basic_stacktrace` component, introduced in C++23, provides a mechanism to capture and represent stack traces in C++ programs. Stack traces contain information about the call stack at a given point in program execution, including function names, file names, and line numbers. This information is invaluable for debugging and diagnosing runtime errors and exceptions.
 

@@ -1,8 +1,8 @@
-# Simple Statements
+# SIMPLE STATEMENTS
 
 Simple statements are single-line statements that perform various operations. They are typically followed by a newline or a semicolon if multiple statements are on the same line.
 
-## Expression Statements
+## EXPRESSION STATEMENTS
 
 Expression statements evaluate an expression and discard the result. They are often used to call functions or methods.
 
@@ -11,7 +11,7 @@ print("Hello, World!")  # Expression statement
 x + y  # An expression statement with no effect
 ```
 
-## Assignment Statements
+## ASSIGNMENT STATEMENTS
 
 Assignment statements bind a name to an object or assign a new value to an existing name.
 
@@ -21,7 +21,7 @@ x, y = 5, 7  # Multiple assignment
 x += 1  # Augmented assignment
 ```
 
-## The `assert` Statement
+## THE `ASSERT` STATEMENT
 
 The `assert` statement is used for debugging purposes. It tests an expression and triggers an `AssertionError` if the expression evaluates to `False`.
 
@@ -30,7 +30,7 @@ assert 2 + 2 == 4  # No error
 assert 2 + 2 == 5  # AssertionError
 ```
 
-## The `pass` Statement
+## THE `PASS` STATEMENT
 
 The `pass` statement is a no-operation statement. It is used as a placeholder in control structures or functions where code is syntactically required but not yet implemented.
 
@@ -39,7 +39,7 @@ def empty_function():
     pass  # Placeholder for future code
 ```
 
-## The `del` Statement
+## THE `DEL` STATEMENT
 
 The `del` statement deletes names or items from a collection.
 
@@ -51,7 +51,7 @@ y = 10
 del y  # Deletes the name 'y'
 ```
 
-## The `return` Statement
+## THE `RETURN` STATEMENT
 
 The `return` statement exits a function and optionally returns a value.
 
@@ -62,7 +62,7 @@ def add(a, b):
 result = add(3, 4)  # result is 7
 ```
 
-## The `yield` Statement
+## THE `YIELD` STATEMENT
 
 The `yield` statement is used in a function to return a generator iterator. It allows the function to yield values one at a time, suspending its state between each yield.
 
@@ -76,7 +76,7 @@ for number in generate_numbers():
     print(number)
 ```
 
-## The `raise` Statement
+## THE `RAISE` STATEMENT
 
 The `raise` statement is used to trigger an exception.
 
@@ -84,7 +84,7 @@ The `raise` statement is used to trigger an exception.
 raise ValueError("An error occurred")
 ```
 
-## The `break` Statement
+## THE `BREAK` STATEMENT
 
 The `break` statement exits the nearest enclosing loop.
 
@@ -95,7 +95,7 @@ for i in range(10):
     print(i)  # Prints 0 to 4
 ```
 
-## The `continue` Statement
+## THE `CONTINUE` STATEMENT
 
 The `continue` statement skips the rest of the current loop iteration and moves to the next iteration.
 
@@ -106,7 +106,7 @@ for i in range(10):
     print(i)  # Prints odd numbers from 0 to 9
 ```
 
-## The `import` Statement
+## THE `IMPORT` STATEMENT
 
 The `import` statement is used to include modules in the current namespace.
 
@@ -118,7 +118,7 @@ from math import sqrt
 print(sqrt(16))  # Prints 4.0
 ```
 
-## The `global` Statement
+## THE `GLOBAL` STATEMENT
 
 The `global` statement declares that a variable inside a function refers to a globally defined variable.
 
@@ -133,7 +133,7 @@ modify_global()
 print(x)  # Prints 20
 ```
 
-## The `nonlocal` Statement
+## THE `NONLOCAL` STATEMENT
 
 The `nonlocal` statement is used to declare that a variable refers to a variable in the nearest enclosing scope that is not global.
 
@@ -151,7 +151,7 @@ def outer():
 outer()
 ```
 
-## The `type` Statement
+## THE `TYPE` STATEMENT
 
 While there isn't a `type` statement in Python, the `type` function is used to determine the type of an object or create a new type dynamically.
 

@@ -1,8 +1,8 @@
 Compound statements in Python are blocks of code that control the flow of execution through conditional branching, looping, exception handling, context management, and defining new functions and classes. Let's explore each type of compound statement.
 
-# Compound Statements
+# COMPOUND STATEMENTS
 
-## The `if` Statement
+## THE `IF` STATEMENT
 
 The `if` statement allows conditional execution of code blocks.
 
@@ -25,7 +25,7 @@ else:
     print("Negative")
 ```
 
-## The `while` Statement
+## THE `WHILE` STATEMENT
 
 The `while` statement repeatedly executes a block of code as long as a condition is true.
 
@@ -41,7 +41,7 @@ while count < 5:
     count += 1
 ```
 
-## The `for` Statement
+## THE `FOR` STATEMENT
 
 The `for` statement iterates over the elements of a sequence (such as a list, tuple, or string).
 
@@ -55,7 +55,7 @@ for i in range(5):
     print(i)
 ```
 
-## The `try` Statement
+## THE `TRY` STATEMENT
 
 The `try` statement handles exceptions that may occur in a block of code.
 
@@ -81,7 +81,7 @@ finally:
     print("This will always execute")
 ```
 
-## The `with` Statement
+## THE `WITH` STATEMENT
 
 The `with` statement is used to wrap the execution of a block of code with methods defined by a context manager.
 
@@ -96,7 +96,7 @@ with open('file.txt', 'r') as file:
     print(content)
 ```
 
-## The `match` Statement
+## THE `MATCH` STATEMENT
 
 Introduced in Python 3.10, the `match` statement provides a way to perform pattern matching on values.
 
@@ -125,7 +125,7 @@ def http_status(status):
 print(http_status(200))  # Prints "OK"
 ```
 
-## Function Definitions
+## FUNCTION DEFINITIONS
 
 Functions are defined using the `def` keyword. They can take arguments and return values.
 
@@ -143,7 +143,7 @@ result = add(3, 4)
 print(result)  # Prints 7
 ```
 
-## Class Definitions
+## CLASS DEFINITIONS
 
 Classes are defined using the `class` keyword and can include methods (functions defined within the class) and attributes (variables defined within the class).
 
@@ -171,7 +171,7 @@ person = Person("Alice", 30)
 print(person.greet())  # Prints "Hello, my name is Alice and I am 30 years old."
 ```
 
-## Coroutines
+## COROUTINES
 
 Coroutines are special functions defined with `async def` and used for asynchronous programming. They allow execution to be paused and resumed.
 
@@ -197,7 +197,7 @@ async def main():
 asyncio.run(main())
 ```
 
-## Type Parameter Lists
+## TYPE PARAMETER LISTS
 
 Type parameter lists are used in the context of generic programming to specify type parameters for classes or functions.
 

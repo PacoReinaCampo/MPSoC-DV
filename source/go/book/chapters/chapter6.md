@@ -1,6 +1,6 @@
-# Control Structures
+# CONTROL STRUCTURES
 
-## If Statements
+## IF STATEMENTS
 
 The `if` statement in Go is used for conditional execution. It allows you to execute a block of code if a specified condition is true. The basic syntax of the `if` statement is as follows:
 
@@ -24,7 +24,7 @@ if condition1 {
 }
 ```
 
-## Redeclaration and Reassignment
+## REDECLARATION AND REASSIGNMENT
 
 In Go, you cannot declare a variable with the same name in the same scope. However, you can reassign a value to an existing variable. Redeclaring a variable in the same scope will result in a compilation error.
 
@@ -39,7 +39,7 @@ var x int = 20
 x = 20
 ```
 
-## For Loops
+## FOR LOOPS
 
 The `for` loop in Go is used to execute a block of code repeatedly until a specified condition is false. There are several ways to use the `for` loop in Go:
 

@@ -1,8 +1,8 @@
-# Switch
+# SWITCH
 
 In Go, the `switch` statement provides a way to compare an expression against multiple values and execute different blocks of code based on the matching value. The `switch` statement can be more concise and readable than multiple `if-else` statements, especially when dealing with multiple conditions.
 
-## Basic Switch Statement:
+## BASIC SWITCH STATEMENT:
 
 The basic syntax of the `switch` statement in Go is as follows:
 
@@ -42,7 +42,7 @@ func main() {
 }
 ```
 
-## Type Switch
+## TYPE SWITCH
 
 A type switch is a special form of switch statement that compares the type of an expression against a set of types. It allows you to perform different actions based on the type of the expression.
 

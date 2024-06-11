@@ -1,14 +1,14 @@
-# Overview
+# OVERVIEW
 
 The PSL (Property Specification Language) is a formal language used to specify properties of hardware designs, particularly for functional verification in electronic design automation (EDA). Here's a detailed explanation based on the PSL framework:
 
 PSL is primarily used to describe and verify the behavior of digital circuits. It helps designers ensure that their hardware designs meet specified properties and behave as expected under all possible scenarios.
 
-## Scope
+## SCOPE
 
 The scope of PSL covers the entire lifecycle of hardware design verification, from the initial specification of design properties to the final verification of these properties against the implemented design. PSL can be applied to various hardware description languages (HDLs) such as VHDL, Verilog, SystemVerilog, and more.
 
-## Purpose
+## PURPOSE
 
 PSL's purpose is to provide a standardized way to describe properties and assertions about hardware designs. It facilitates the verification process by enabling the automatic checking of these properties, thus ensuring the correctness and reliability of the design.
 
@@ -28,7 +28,7 @@ The goals of PSL are to:
 - Support a wide range of HDLs and verification tools.
 - Improve the accuracy and reliability of hardware design verification.
 
-## Usage
+## USAGE
 
 PSL is used throughout the hardware design verification process, from writing specifications to verifying the final design. It allows designers to write assertions and properties that describe the expected behavior of the design, which can then be checked using formal verification tools.
 

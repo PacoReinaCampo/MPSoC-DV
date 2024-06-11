@@ -1,8 +1,8 @@
-# Advanced Features
+# ADVANCED FEATURES
 
 Let's break down each of these advanced features:
 
-## Unsafe Rust
+## UNSAFE RUST
 
 Rust's safety guarantees are one of its core strengths, but there are situations where you need to bypass these guarantees for performance reasons or to interact with low-level system features. Rust provides the `unsafe` keyword for writing unsafe code blocks where you can:
 - Dereference raw pointers.
@@ -24,7 +24,7 @@ fn main() {
 }
 ```
 
-## Advanced Traits
+## ADVANCED TRAITS
 
 Traits in Rust are powerful tools for defining shared behavior between types. Advanced traits extend this capability with features such as:
 - Associated types: Allowing types to be associated with a trait.
@@ -46,7 +46,7 @@ impl MyTrait for i32 {
 }
 ```
 
-## Advanced Types
+## ADVANCED TYPES
 
 Rust's type system is rich and expressive, allowing for the creation of complex types and data structures. Advanced types include:
 - Associated types: Types associated with traits.
@@ -67,7 +67,7 @@ fn diverging_function() -> ! {
 }
 ```
 
-## Advanced Functions and Closures
+## ADVANCED FUNCTIONS AND CLOSURES
 
 Rust's functions and closures support a variety of advanced features, including:
 - Higher-order functions: Functions that take other functions as arguments or return functions.
@@ -91,7 +91,7 @@ fn main() {
 }
 ```
 
-## Macros
+## MACROS
 
 Macros in Rust provide a way to define and invoke custom syntax extensions. They allow you to write code that generates other code at compile time. Rust supports two types of macros: declarative macros (`macro_rules!`) and procedural macros. Procedural macros are further divided into custom derive macros, attribute macros, and function-like macros.
 

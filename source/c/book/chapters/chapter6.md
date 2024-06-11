@@ -1,8 +1,8 @@
-# Program Structure and Scope
+# PROGRAM STRUCTURE AND SCOPE
 
 Understanding the structure and scope of a C program is crucial for writing clear, maintainable, and efficient code. Let's delve into these concepts in detail.
 
-## Program Structure
+## PROGRAM STRUCTURE
 
 A typical C program consists of the following parts:
 1. **Preprocessor Directives**
@@ -64,7 +64,7 @@ int main() {
 }
 ```
 
-## Scope
+## SCOPE
 
 Scope in C refers to the visibility and lifetime of variables and functions within a program. There are several types of scope:
 

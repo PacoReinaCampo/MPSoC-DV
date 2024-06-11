@@ -1,8 +1,8 @@
-# Interfaces and other Types
+# INTERFACES AND OTHER TYPES
 
 Certainly! Here's an explanation of interfaces and other related concepts in Go:
 
-## Interfaces
+## INTERFACES
 
 In Go, an interface is a type that specifies a set of method signatures. Any type that implements all the methods of an interface is said to satisfy or implement that interface implicitly. Interfaces allow for polymorphism and decoupling between code that defines behavior and code that uses it.
 
@@ -15,7 +15,7 @@ type Shape interface {
 
 Here, `Shape` is an interface with two methods: `Area()` and `Perimeter()`. Any type that implements both of these methods implicitly satisfies the `Shape` interface.
 
-## Conversions
+## CONVERSIONS
 
 Conversions in Go are used to convert values between different types. They can be explicit or implicit, depending on the context. Explicit conversions are performed using type conversion syntax.
 
@@ -26,7 +26,7 @@ var y float64 = float64(x)
 
 Here, `x` is explicitly converted from `int` to `float64` before assigning it to `y`.
 
-## Interface Conversions and Type Assertions
+## INTERFACE CONVERSIONS AND TYPE ASSERTIONS
 
 Interface conversions in Go are used to convert interface values to their underlying types. They are performed using type assertion syntax.
 
@@ -37,11 +37,11 @@ s := i.(string)
 
 Here, `i.(string)` asserts that the interface value `i` contains a string, and assigns it to `s`.
 
-## Generality
+## GENERALITY
 
 Interfaces in Go provide a way to write general-purpose code that can work with different types as long as they satisfy the required interface. This promotes code reusability and flexibility.
 
-## Interfaces and Methods
+## INTERFACES AND METHODS
 
 In Go, interfaces are implicitly implemented. A type satisfies an interface if it implements all the methods declared by that interface. Interfaces in Go are satisfied implicitly, meaning you don't need to explicitly declare that a type implements an interface.
 

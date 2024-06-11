@@ -1,8 +1,8 @@
-# Names
+# NAMES
 
 Certainly! Let's delve into each of these topics:
 
-## Package Names
+## PACKAGE NAMES
 
 In Go, packages are used to organize and encapsulate code. Package names should be concise and indicative of the functionality they provide. Some best practices for package names include:
 
@@ -15,7 +15,7 @@ Example:
 package math
 ```
 
-## Getters
+## GETTERS
 
 Getters are methods used to retrieve the values of private fields in Go structs. They follow a naming convention where the method name starts with "Get" followed by the name of the field being retrieved. Some considerations for naming getters include:
 
@@ -34,7 +34,7 @@ func (p *Person) GetName() string {
 }
 ```
 
-## Interface Names
+## INTERFACE NAMES
 
 Interfaces in Go define sets of methods that a type must implement to satisfy the interface. Interface names should be descriptive and typically end with the suffix "er" to indicate that it represents a behavior or capability. Some guidelines for naming interfaces include:
 
@@ -49,7 +49,7 @@ type Logger interface {
 }
 ```
 
-## MixedCaps
+## MIXEDCAPS
 
 MixedCaps, also known as CamelCase, is a naming convention used in Go for naming variables, functions, types, and constants. MixedCaps involves capitalizing the first letter of each word in the name, except for the first word, which starts with a lowercase letter. Some guidelines for using MixedCaps include:
 

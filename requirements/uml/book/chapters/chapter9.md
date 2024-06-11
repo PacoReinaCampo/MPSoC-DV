@@ -1,4 +1,4 @@
-# Classification
+# CLASSIFICATION
 
 In the Unified Modeling Language (UML), "Classification" refers to the categorization and organization of model elements into hierarchical structures based on their common characteristics, behaviors, or properties. Classification is fundamental to UML modeling, as it helps in structuring and managing complex systems by grouping related elements and defining their relationships. Let's delve into the concept of classification in more detail:
 

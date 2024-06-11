@@ -1,8 +1,8 @@
-# Algorithms library
+# ALGORITHMS LIBRARY
 
 The Algorithms library in C++ provides a comprehensive set of functions for performing various operations on sequences of elements, such as searching, sorting, and transforming. Let's explore two key features introduced in recent versions of C++:
 
-## Execution policies (C++17)
+## EXECUTION POLICIES (C++17)
 
 Execution policies were introduced in C++17 to enable parallel execution of standard algorithms. They provide a mechanism for specifying the execution mode of algorithms, allowing developers to take advantage of parallelism when processing large datasets. There are three execution policies defined in C++17:
 
@@ -14,7 +14,7 @@ Execution policies were introduced in C++17 to enable parallel execution of stan
 
 Execution policies provide a high-level interface for specifying the desired execution mode of algorithms, abstracting away the details of parallelization and allowing the implementation to choose the most efficient execution strategy based on the available hardware and workload.
 
-## Constrained algorithms (C++20)
+## CONSTRAINED ALGORITHMS (C++20)
 
 Constrained algorithms were introduced in C++20 to provide more expressive and flexible algorithms that can handle constrained ranges of elements. Constrained algorithms offer similar functionality to standard algorithms but operate only on elements that meet specific criteria or constraints. They are designed to work with ranges that satisfy certain requirements, such as being sorted or partitioned.
 

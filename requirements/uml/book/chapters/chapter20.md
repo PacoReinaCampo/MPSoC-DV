@@ -1,4 +1,4 @@
-# Information Flows
+# INFORMATION FLOWS
 
 In Unified Modeling Language (UML), "information flow"s represent the movement of data or information between various elements within a system. Information flows are used to model the exchange of data, messages, or signals between components, actors, processes, or other elements of a system. They help to visualize and analyze how information is passed between different parts of the system and how it influences the behavior and functionality of the system as a whole.
 

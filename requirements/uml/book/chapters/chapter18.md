@@ -1,4 +1,4 @@
-# Use Cases
+# USE CASES
 
 In Unified Modeling Language (UML), a "use case" is a representation of a discrete piece of functionality or a specific interaction between a system (or a part of a system) and an external actor. Use cases are essential for capturing the functional requirements of a system from the perspective of its users or external entities. They describe what the system does from the user's point of view and are used to define the scope and behavior of the system in a user-centric manner.
 

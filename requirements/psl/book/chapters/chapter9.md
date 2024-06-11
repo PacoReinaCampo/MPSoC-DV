@@ -1,8 +1,8 @@
-# Scope and Visibility Rules
+# SCOPE AND VISIBILITY RULES
 
 In programming and specification languages like PSL (Property Specification Language), scope and visibility rules define where and how identifiers (such as variables, properties, and functions) can be accessed. Understanding these rules is essential for writing clear, maintainable, and error-free code or specifications.
 
-## Immediate Scope
+## IMMEDIATE SCOPE
 
 ### Definition
 
@@ -29,7 +29,7 @@ endmodule
 
 In this example, `a` is in the immediate scope of the `example` module, while `b` is in the immediate scope of the `always` block.
 
-## Extended Scope
+## EXTENDED SCOPE
 
 ### Definition
 
@@ -57,7 +57,7 @@ endmodule
 
 In this example, `x` is defined in the `parent` module and is accessible in the `child` module due to inheritance, extending its scope.
 
-## Direct and Indirect Name References
+## DIRECT AND INDIRECT NAME REFERENCES
 
 ### Direct Name References
 

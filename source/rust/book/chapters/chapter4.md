@@ -1,8 +1,8 @@
-# Understanding Ownership
+# UNDERSTANDING OWNERSHIP
 
 Let's delve into each concept:
 
-## What is Ownership?
+## WHAT IS OWNERSHIP?
 
 Ownership is one of Rust's most unique and powerful features for memory safety. In Rust, each value has a variable that's called its "owner". There can only be one owner at a time, and when the owner goes out of scope, the value is dropped. This means that Rust doesn't rely on garbage collection for memory management; it uses ownership to determine when to free memory.
 
@@ -11,7 +11,7 @@ Ownership rules:
 2. Values are dropped (memory is freed) when their owner goes out of scope.
 3. Values can be transferred or borrowed, but not both simultaneously.
    
-## References and Borrowing
+## REFERENCES AND BORROWING
 
 References in Rust allow you to "borrow" a value without taking ownership of it. This allows multiple parts of the code to read the value without issue. Borrowing can be either mutable or immutable. 
 
@@ -42,7 +42,7 @@ In the example above:
 - `calculate_length` borrows `s` immutably.
 - `change_string` borrows `s_mut` mutably.
 
-## The Slice Type
+## THE SLICE TYPE
 
 Slices are a reference to a contiguous sequence of elements in a collection. They don't have ownership and allow you to reference a portion of a collection without copying. Slices are denoted using `[start..end]` syntax.
 

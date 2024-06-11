@@ -1,4 +1,4 @@
-# Activities
+# ACTIVITIES
 
 In Unified Modeling Language (UML), "Activities" represent the dynamic aspects of a system, focusing on the flow of control and the sequence of actions or behaviors performed by objects or components in response to events or stimuli. Activities provide a visual representation of procedural logic, including decision-making, iteration, concurrency, and exception handling. Let's explore the concept of activities in more detail:
 

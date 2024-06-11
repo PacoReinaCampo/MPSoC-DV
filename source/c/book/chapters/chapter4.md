@@ -1,6 +1,6 @@
-# Statements in C
+# STATEMENTS IN C
 
-## Labels
+## LABELS
 
 Labels are identifiers followed by a colon (`:`) and are used to name a location in the code. They are primarily used with the `goto` statement.
 
@@ -17,7 +17,7 @@ int main() {
 }
 ```
 
-## Expression Statements
+## EXPRESSION STATEMENTS
 
 An expression statement is an expression followed by a semicolon (`;`). It can include assignments, function calls, or other expressions.
 
@@ -31,7 +31,7 @@ int main() {
 }
 ```
 
-## The if Statement
+## THE IF STATEMENT
 
 The `if` statement executes a block of code if a specified condition is true.
 
@@ -46,7 +46,7 @@ int main() {
 }
 ```
 
-## The switch Statement
+## THE SWITCH STATEMENT
 
 The `switch` statement allows multi-way branching based on the value of an expression. Each `case` label represents a branch.
 
@@ -69,7 +69,7 @@ int main() {
 }
 ```
 
-## The while Statement
+## THE WHILE STATEMENT
 
 The `while` statement executes a block of code repeatedly as long as a condition is true.
 
@@ -85,7 +85,7 @@ int main() {
 }
 ```
 
-## The do Statement
+## THE DO STATEMENT
 
 The `do` statement is similar to the `while` statement, but the condition is checked after the loop body is executed.
 
@@ -101,7 +101,7 @@ int main() {
 }
 ```
 
-## The for Statement
+## THE FOR STATEMENT
 
 The `for` statement is used for iterating over a range of values. It includes initialization, condition, and increment expressions.
 
@@ -115,7 +115,7 @@ int main() {
 }
 ```
 
-## Blocks
+## BLOCKS
 
 A block is a set of statements enclosed in braces `{}`. Blocks are used to group multiple statements together.
 
@@ -131,7 +131,7 @@ int main() {
 }
 ```
 
-## The Null Statement
+## THE NULL STATEMENT
 
 A null statement is just a semicolon (`;`). It does nothing and is often used in loops where the body is empty.
 
@@ -145,7 +145,7 @@ int main() {
 }
 ```
 
-## The goto Statement
+## THE GOTO STATEMENT
 
 The `goto` statement transfers control to the labeled statement. It can make the code harder to understand and maintain.
 
@@ -161,7 +161,7 @@ int main() {
 }
 ```
 
-## The break Statement
+## THE BREAK STATEMENT
 
 The `break` statement terminates the nearest enclosing loop or `switch` statement.
 
@@ -178,7 +178,7 @@ int main() {
 }
 ```
 
-## The continue Statement
+## THE CONTINUE STATEMENT
 
 The `continue` statement skips the rest of the loop iteration and proceeds with the next iteration.
 
@@ -195,7 +195,7 @@ int main() {
 }
 ```
 
-## The return Statement
+## THE RETURN STATEMENT
 
 The `return` statement exits a function and optionally returns a value to the calling function.
 
@@ -212,7 +212,7 @@ int main() {
 }
 ```
 
-## The typedef Statement
+## THE TYPEDEF STATEMENT
 
 The `typedef` statement creates an alias for a data type, making the code easier to read and maintain.
 

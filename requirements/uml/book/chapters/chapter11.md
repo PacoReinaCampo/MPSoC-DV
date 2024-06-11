@@ -1,4 +1,4 @@
-# Structured Classifiers
+# STRUCTURED CLASSIFIERS
 
 In Unified Modeling Language (UML), "Structured Classifiers" are elements used to represent complex, structured types that may contain internal components, such as attributes, operations, parts, or ports. They allow for the modeling of composite structures where elements are composed of other elements in a hierarchical manner. Structured classifiers provide a way to represent complex data types, classes, components, or subsystems within UML models. Let's explore structured classifiers in more detail:
 

@@ -1,4 +1,4 @@
-# Formatting
+# FORMATTING
 
 In Go Language, formatting refers to the presentation style and structure of code. Consistent formatting enhances readability and maintainability, making it easier for developers to understand and work with the codebase. Go has a recommended formatting style called "gofmt" or "gofumpt," which is enforced by tools like `gofmt` and `go fmt`. Let's delve into the key aspects of formatting in Go:
 

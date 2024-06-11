@@ -1,6 +1,6 @@
-# Expressions and Operators
+# EXPRESSIONS AND OPERATORS
 
-## Expressions
+## EXPRESSIONS
 
 Expressions in C are combinations of variables, constants, operators, and function calls that are evaluated to produce a value.
 
@@ -10,7 +10,7 @@ int x = 5 + 3;
 float y = sin(3.14);
 ```
 
-## Assignment Operators
+## ASSIGNMENT OPERATORS
 
 Assignment operators assign values to variables. The basic assignment operator is `=`, but there are compound assignment operators that combine an arithmetic operation with assignment.
 
@@ -24,7 +24,7 @@ a /= 2;  // Equivalent to a = a / 2;
 a %= 3;  // Equivalent to a = a % 3;
 ```
 
-## Incrementing and Decrementing
+## INCREMENTING AND DECREMENTING
 
 The increment (`++`) and decrement (`--`) operators increase or decrease the value of a variable by one, respectively. They can be used in prefix or postfix form.
 
@@ -35,7 +35,7 @@ int b = ++a;  // Prefix: b is 6, a is 6
 int c = a--;  // Postfix: c is 6, a is 5
 ```
 
-## Arithmetic Operators
+## ARITHMETIC OPERATORS
 
 Arithmetic operators perform mathematical operations on numeric values.
 
@@ -48,7 +48,7 @@ int quotient = 10 / 5; // Division
 int remainder = 10 % 3; // Modulus (remainder of division)
 ```
 
-## Complex Conjugation
+## COMPLEX CONJUGATION
 
 Complex conjugation is not directly supported in C. However, with `<complex.h>`, you can use the `conj` function.
 
@@ -60,7 +60,7 @@ double complex z = 1.0 + 2.0*I;
 double complex z_conj = conj(z);  // Complex conjugate of z
 ```
 
-## Comparison Operators
+## COMPARISON OPERATORS
 
 Comparison operators compare two values and return either true (1) or false (0).
 
@@ -77,7 +77,7 @@ result = (a >= b);  // Greater than or equal to
 result = (a <= b);  // Less than or equal to
 ```
 
-## Logical Operators
+## LOGICAL OPERATORS
 
 Logical operators are used to combine multiple conditions.
 
@@ -91,7 +91,7 @@ result = (a || b);  // Logical OR
 result = (!a);      // Logical NOT
 ```
 
-## Bit Shifting
+## BIT SHIFTING
 
 Bit shifting operators shift the bits of a number to the left or right.
 
@@ -102,7 +102,7 @@ int b = a << 1;     // Left shift: 1010 (10 in decimal)
 int c = a >> 1;     // Right shift: 0010 (2 in decimal)
 ```
 
-## Bitwise Logical Operators
+## BITWISE LOGICAL OPERATORS
 
 Bitwise operators perform operations on the individual bits of integer values.
 
@@ -119,7 +119,7 @@ result = a ^ b;   // XOR: 0110 (6 in decimal)
 result = ~a;      // NOT: 1010 (Two's complement)
 ```
 
-## Pointer Operators
+## POINTER OPERATORS
 
 Pointer operators are used to work with pointers.
 
@@ -132,7 +132,7 @@ ptr = &var;  // Address-of operator
 int value = *ptr; // Dereference operator
 ```
 
-## The sizeof Operator
+## THE SIZEOF OPERATOR
 
 The `sizeof` operator returns the size, in bytes, of a data type or object.
 
@@ -145,7 +145,7 @@ size = sizeof(var);     // Size of var
 size = sizeof(ptr);     // Size of pointer
 ```
 
-## Type Casts
+## TYPE CASTS
 
 Type casting allows you to convert a value from one data type to another.
 
@@ -157,7 +157,7 @@ float b;
 b = (float)a;  // Cast integer to float
 ```
 
-## Array Subscripts
+## ARRAY SUBSCRIPTS
 
 Array subscripts are used to access elements of an array.
 
@@ -167,7 +167,7 @@ int arr[5] = {10, 20, 30, 40, 50};
 int value = arr[2];  // Access the third element
 ```
 
-## Function Calls as Expressions
+## FUNCTION CALLS AS EXPRESSIONS
 
 Function calls can be used as expressions where the return value is used.
 
@@ -180,7 +180,7 @@ int sum(int x, int y) {
 int result = sum(10, 20);  // Function call as expression
 ```
 
-## The Comma Operator
+## THE COMMA OPERATOR
 
 The comma operator allows multiple expressions to be evaluated in a single statement, with the value of the last expression being the result.
 
@@ -190,7 +190,7 @@ int a = 1, b = 2, c;
 c = (a += 2, b += 3, a + b);  // c is 8
 ```
 
-## Member Access Expressions
+## MEMBER ACCESS EXPRESSIONS
 
 Member access expressions are used to access members of structures or unions.
 
@@ -208,7 +208,7 @@ struct Person *p = &person;
 p->age = 30;  // Member access with arrow operator
 ```
 
-## Conditional Expressions
+## CONDITIONAL EXPRESSIONS
 
 The conditional (ternary) operator evaluates a condition and returns one of two values based on the condition.
 
@@ -220,7 +220,7 @@ int max;
 max = (a > b) ? a : b;  // If a > b, max is a; otherwise, max is b
 ```
 
-## Statements and Declarations in Expressions
+## STATEMENTS AND DECLARATIONS IN EXPRESSIONS
 
 C allows statements and declarations within expressions using the comma operator.
 
@@ -230,7 +230,7 @@ int x, y;
 y = (x = 3, x + 2);  // y is 5
 ```
 
-## Operator Precedence
+## OPERATOR PRECEDENCE
 
 Operator precedence determines the order in which operators are evaluated in expressions.
 
@@ -239,7 +239,7 @@ Examples:
 int result = 5 + 3 * 2;  // Multiplication has higher precedence than addition, so result is 11
 ```
 
-## Order of Evaluation
+## ORDER OF EVALUATION
 
 The order of evaluation specifies the sequence in which the sub-expressions of an expression are evaluated.
 

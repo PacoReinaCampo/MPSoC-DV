@@ -1,8 +1,8 @@
-# Get Started with MATLAB
+# GET STARTED WITH MATLAB
 
 Getting started with MATLAB (Matrix Laboratory) involves understanding its environment, basic commands, and how to perform fundamental tasks. Here’s a detailed guide to help you get started:
 
-## Installing MATLAB
+## INSTALLING MATLAB
 
 ### Download and Installation
 
@@ -10,7 +10,7 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 2. **Download MATLAB**: Visit the [MathWorks website](https://www.mathworks.com/) and log in to your account. Navigate to the download section and download the installer for your operating system.
 3. **Run the Installer**: Follow the installation prompts. You may need to log in to your MathWorks account and enter your license key.
 
-## MATLAB Environment
+## MATLAB ENVIRONMENT
 
 ### Starting MATLAB
 
@@ -29,7 +29,7 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 - **Current Folder Navigation**: Use the file browser on the left to navigate directories.
 - **Path Management**: Use `pathtool` or `addpath` to manage the MATLAB search path.
 
-## Basic Commands and Operations
+## BASIC COMMANDS AND OPERATIONS
 
 ### Command Syntax
 
@@ -85,7 +85,7 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
   ylabel('sin(x)');
   ```
 
-## Advanced Features
+## ADVANCED FEATURES
 
 ### Toolboxes
 
@@ -97,7 +97,7 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 - **Simulink Environment**: For model-based design. Launch using the `simulink` command.
 - **Creating Models**: Drag and drop blocks to create models and run simulations.
 
-## Documentation and Help
+## DOCUMENTATION AND HELP
 
 ### Built-in Help
 
@@ -115,7 +115,7 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 - **MATLAB Documentation**: Extensive online documentation available on the MathWorks website.
 - **MATLAB Central**: Community forum for questions, file exchange, and blogs.
 
-## Example Workflow
+## EXAMPLE WORKFLOW
 
 ### Step-by-Step Example
 
@@ -132,7 +132,7 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
   ```
 3. **Run the Script**: Click the Run button or type `example` in the Command Window.
 
-## Learning More
+## LEARNING MORE
 
 ### Tutorials and Courses
 

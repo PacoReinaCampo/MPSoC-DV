@@ -1,8 +1,8 @@
-# The Import System
+# THE IMPORT SYSTEM
 
 Python's import system allows you to include and reuse code from different modules and packages, promoting modularity and code organization. The import system involves searching for and loading modules and packages, and it provides mechanisms for customizing this process.
 
-## `importlib`
+## `IMPORTLIB`
 
 `importlib` is a module in Python that provides an implementation of the import statement. It allows for the dynamic import of modules and packages.
 
@@ -23,7 +23,7 @@ Python's import system allows you to include and reuse code from different modul
     importlib.reload(my_module)
     ```
 
-## Packages
+## PACKAGES
 
 Packages are a way of structuring Python’s module namespace by using "dotted module names". A package is essentially a directory that contains a special `__init__.py` file and can contain multiple modules or sub-packages.
 
@@ -44,7 +44,7 @@ Packages are a way of structuring Python’s module namespace by using "dotted m
     my_package.module2.another_function()
     ```
 
-## Searching
+## SEARCHING
 
 When you import a module, Python searches for it in the directories listed in `sys.path`.
 
@@ -60,7 +60,7 @@ When you import a module, Python searches for it in the directories listed in `s
     print(sys.path)
     ```
 
-## Loading
+## LOADING
 
 After finding the module, Python loads it by executing its code within a new namespace. This process creates module objects.
 
@@ -70,7 +70,7 @@ After finding the module, Python loads it by executing its code within a new nam
     print(math.pi)
     ```
 
-## The Path Based Finder
+## THE PATH BASED FINDER
 
 The Path Based Finder is the default mechanism for locating modules and packages. It searches the directories listed in `sys.path` for the specified module or package.
 
@@ -78,7 +78,7 @@ The Path Based Finder is the default mechanism for locating modules and packages
 2. **Finding the module**: The finder looks for a suitable loader to load the module.
 3. **Loading the module**: If found, the loader loads the module and adds it to `sys.modules`.
 
-## Replacing the Standard Import System
+## REPLACING THE STANDARD IMPORT SYSTEM
 
 Python allows you to customize the import system by modifying `sys.meta_path`, a list of finder objects.
 
@@ -100,7 +100,7 @@ Python allows you to customize the import system by modifying `sys.meta_path`, a
 - **Handling the found module**:
     You would need to implement a loader if `loader=None` is not suitable.
 
-## Package Relative Imports
+## PACKAGE RELATIVE IMPORTS
 
 Relative imports use the `.` notation to import modules relative to the current package.
 
@@ -116,7 +116,7 @@ Relative imports use the `.` notation to import modules relative to the current 
     from .module1 import some_function
     ```
 
-## Special Considerations for `__main__`
+## SPECIAL CONSIDERATIONS FOR `__MAIN__`
 
 When a module is run as the main program, its `__name__` attribute is set to `'__main__'`. This can be used to conditionally execute code only when the module is run directly, not when imported.
 
@@ -130,7 +130,7 @@ When a module is run as the main program, its `__name__` attribute is set to `'_
         main()
     ```
 
-## References
+## REFERENCES
 
 For further reading and deeper understanding, you can refer to:
 

@@ -1,8 +1,8 @@
-# Generic Types, Traits, and Lifetimes
+# GENERIC TYPES, TRAITS, AND LIFETIMES
 
 Let's delve into each of these concepts:
 
-## Generic Data Types
+## GENERIC DATA TYPES
 
 In Rust, generic data types allow you to define functions, structs, enums, and methods that work with any data type, thus increasing code reuse and flexibility. You can create generic functions, structs, and enums using type parameters.
 
@@ -24,7 +24,7 @@ fn main() {
 
 In this example, `max` is a generic function that takes two parameters of type `T`, which must implement the `PartialOrd` trait. This allows `max` to work with any data type that supports comparison.
 
-## Traits: Defining Shared Behavior
+## TRAITS: DEFINING SHARED BEHAVIOR
 
 Traits in Rust define shared behavior for types. They allow you to specify methods that a type must implement to be considered as implementing that trait. Traits are similar to interfaces in other languages but are more powerful because they support default implementations and can be implemented for types outside of your crate.
 
@@ -57,7 +57,7 @@ fn main() {
 
 In this example, we define a trait named `Summary` with a single method `summarize`. We then implement `Summary` for the `NewsArticle` struct, providing a custom implementation for `summarize`.
 
-## Validating References with Lifetimes
+## VALIDATING REFERENCES WITH LIFETIMES
 
 Lifetimes in Rust ensure that references remain valid for the duration they are used. Lifetimes are annotations that describe the relationship between the lifetimes of various references in your code. They are denoted by single quotes (`'`). Lifetimes are important for preventing dangling references and memory safety.
 

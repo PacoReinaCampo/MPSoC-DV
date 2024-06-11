@@ -1,4 +1,4 @@
-# Values
+# VALUES
 
 In the Unified Modeling Language (UML), "Values" refer to the instances or concrete data that populate attributes, parameters, and other properties of UML elements. Values provide specific, tangible information that defines the characteristics, states, and behaviors of elements within a UML model. Let's explore the concept of values in more detail:
 

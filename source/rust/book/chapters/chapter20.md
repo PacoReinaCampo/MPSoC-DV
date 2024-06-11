@@ -1,8 +1,8 @@
-# Final Project: Building a Multithreaded Web Server
+# FINAL PROJECT: BUILDING A MULTITHREADED WEB SERVER
 
 Let's delve into each aspect of building a multithreaded web server in Rust:
 
-## Building a Single-Threaded Web Server
+## BUILDING A SINGLE-THREADED WEB SERVER
 
 To build a web server in Rust, you typically use a library like `hyper`, which provides an ergonomic and efficient foundation for building HTTP servers. In a single-threaded implementation, the server listens for incoming connections and processes each request sequentially.
 
@@ -32,7 +32,7 @@ async fn main() {
 
 In this example, `handle_request` is a function that processes HTTP requests and returns a response. We use `hyper::Server` to bind to a socket address and serve incoming connections using the `handle_request` function.
 
-## Turning Our Single-Threaded Server into a Multithreaded Server
+## TURNING OUR SINGLE-THREADED SERVER INTO A MULTITHREADED SERVER
 
 To improve the performance and scalability of our web server, we can make it multithreaded. This involves spawning multiple threads to handle incoming connections concurrently, allowing the server to process multiple requests simultaneously.
 
@@ -76,7 +76,7 @@ async fn shutdown_signal() {
 
 In this example, we use the `tokio` library to spawn a new task for each incoming connection, allowing the server to handle multiple requests concurrently. We also implement graceful shutdown using a signal handler to gracefully stop the server when a shutdown signal is received (e.g., pressing Ctrl+C).
 
-## Graceful Shutdown and Cleanup
+## GRACEFUL SHUTDOWN AND CLEANUP
 
 Graceful shutdown is an essential feature for web servers to ensure that existing connections are completed before shutting down. In Rust, we can implement graceful shutdown using asynchronous signal handling.
 

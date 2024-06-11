@@ -1,8 +1,8 @@
-# Error Handling
+# ERROR HANDLING
 
 Let's discuss each of these aspects of error handling in Rust:
 
-## Unrecoverable Errors with `panic!`
+## UNRECOVERABLE ERRORS WITH `PANIC!`
 
 In Rust, `panic!` is a macro used to indicate that the program has reached an unrecoverable state and should terminate immediately. It can be used to handle situations such as index out of bounds, division by zero, or other critical errors.
 
@@ -17,7 +17,7 @@ fn main() {
 
 When `panic!` is encountered, the program prints an error message and unwinds the stack, cleaning up memory and resources allocated by the program before terminating.
 
-## Recoverable Errors with `Result`
+## RECOVERABLE ERRORS WITH `RESULT`
 
 In situations where errors can be recovered from, Rust provides the `Result` enum to handle recoverable errors. `Result` has two variants: `Ok`, representing success and containing the result, and `Err`, representing an error and containing an error value.
 
@@ -36,7 +36,7 @@ fn main() {
 
 In this example, `File::open` returns a `Result` that may contain a `File` if successful or an error if unsuccessful. We use pattern matching (`match`) to handle both cases.
 
-## To `panic!` or Not to `panic!`
+## TO `PANIC!` OR NOT TO `PANIC!`
 
 Deciding whether to use `panic!` or `Result` depends on the nature of the error and the context of the code. Use `panic!` for unrecoverable errors that indicate bugs or critical failures, where the program cannot continue safely. Use `Result` for recoverable errors where the program can gracefully handle the error and continue execution.
 

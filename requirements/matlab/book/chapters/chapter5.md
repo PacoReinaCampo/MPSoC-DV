@@ -1,8 +1,8 @@
-# Graphics in MATLAB
+# GRAPHICS IN MATLAB
 
 MATLAB offers powerful tools for creating, formatting, and saving 2-D and 3-D plots, as well as handling images and graphics objects. Here's a comprehensive guide to MATLAB graphics:
 
-## 2-D and 3-D Plots
+## 2-D AND 3-D PLOTS
 
 ### 2-D Plots
 
@@ -52,7 +52,7 @@ MATLAB offers powerful tools for creating, formatting, and saving 2-D and 3-D pl
   title('3-D Surface Plot');
   ```
 
-## Formatting and Annotation
+## FORMATTING AND ANNOTATION
 
 Customizing plots enhances readability and presentation quality.
 
@@ -79,7 +79,7 @@ Customizing plots enhances readability and presentation quality.
   plot(x, y, '--r', 'LineWidth', 2);  % Dashed red line with width 2
   ```
 
-## Images
+## IMAGES
 
 MATLAB supports image processing and display.
 
@@ -95,7 +95,7 @@ MATLAB supports image processing and display.
   imshow(gray_img);
   ```
 
-## Printing and Saving
+## PRINTING AND SAVING
 
 Exporting plots and figures is essential for documentation and presentation.
 
@@ -111,7 +111,7 @@ Exporting plots and figures is essential for documentation and presentation.
   print('myPlot', '-dpdf');  % Print to PDF file
   ```
 
-## Graphics Objects
+## GRAPHICS OBJECTS
 
 MATLAB graphics are object-oriented, allowing detailed control over each component.
 
@@ -127,7 +127,7 @@ MATLAB graphics are object-oriented, allowing detailed control over each compone
   linewidth = get(p, 'LineWidth');  % Get specific property
   ```
 
-## Graphics Performance
+## GRAPHICS PERFORMANCE
 
 Efficient rendering of graphics is important for large datasets and complex plots.
 

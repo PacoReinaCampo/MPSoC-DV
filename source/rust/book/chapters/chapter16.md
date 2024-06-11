@@ -1,8 +1,8 @@
-# Fearless Concurrency
+# FEARLESS CONCURRENCY
 
 Let's delve into each of these aspects:
 
-## Using Threads to Run Code Simultaneously
+## USING THREADS TO RUN CODE SIMULTANEOUSLY
 
 In Rust, you can create threads to run code concurrently using the `std::thread` module. Threads allow you to execute multiple pieces of code simultaneously, taking advantage of multi-core CPUs. Rust's ownership and borrowing rules ensure thread safety and prevent data races.
 
@@ -27,7 +27,7 @@ fn main() {
 
 In this example, `thread::spawn()` creates a new thread that executes the provided closure concurrently with the main thread.
 
-## Using Message Passing to Transfer Data Between Threads
+## USING MESSAGE PASSING TO TRANSFER DATA BETWEEN THREADS
 
 In Rust, you can use channels for message passing between threads. Channels provide a way for threads to communicate by sending and receiving messages. Rust's ownership system ensures thread safety and prevents data races when using channels.
 
@@ -50,7 +50,7 @@ fn main() {
 
 In this example, `mpsc::channel()` creates a channel, and `sender.send(val)` sends a message (`val`) through the channel. The main thread receives the message using `receiver.recv()`.
 
-## Shared-State Concurrency
+## SHARED-STATE CONCURRENCY
 
 In Rust, shared-state concurrency refers to multiple threads accessing and modifying shared data concurrently. Rust ensures thread safety and prevents data races by using ownership and borrowing rules, as well as synchronization primitives like mutexes (`std::sync::Mutex`) and atomic types (`std::sync::atomic`).
 
@@ -81,7 +81,7 @@ fn main() {
 
 In this example, `Arc::new(Mutex::new(0))` creates a shared counter protected by a mutex. Each thread increments the counter by locking the mutex (`counter.lock().unwrap()`) and modifying the shared data.
 
-## Extensible Concurrency with the Sync and Send Traits
+## EXTENSIBLE CONCURRENCY WITH THE SYNC AND SEND TRAITS
 
 In Rust, the `Sync` and `Send` traits ensure that types can be safely shared between threads (`Send`) and accessed concurrently (`Sync`). By default, types are `Send` and `Sync` if they are thread-safe. You can implement these traits manually for custom types to make them thread-safe.
 

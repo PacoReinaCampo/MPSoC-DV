@@ -1,4 +1,4 @@
-# Notational Conventions
+# NOTATIONAL CONVENTIONS
 
 In the Unified Modeling Language (UML), "Notational Conventions" refer to the standardized symbols, icons, and graphical representations used to depict various modeling elements and relationships within UML diagrams. These conventions provide a visual language for communicating complex system structures, behaviors, and interactions effectively. Let's explore the concept of notational conventions in detail:
 

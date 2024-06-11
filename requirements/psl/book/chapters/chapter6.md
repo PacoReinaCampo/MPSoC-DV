@@ -1,8 +1,8 @@
-# Temporal Layer
+# TEMPORAL LAYER
 
 The temporal layer in languages like PSL (Property Specification Language) is designed to describe and specify the temporal relationships between events in hardware designs. This layer is crucial for expressing how signals and states evolve over time, which is essential for verifying the dynamic behavior of digital systems.
 
-## Sequential Expressions
+## SEQUENTIAL EXPRESSIONS
 
 Sequential expressions describe the order and timing of events. They are used to specify how sequences of events unfold over time.
 
@@ -28,7 +28,7 @@ endsequence
 ```
 This sequence specifies that `a` is followed by `b` one clock cycle later, and then `c` two clock cycles after `b`.
 
-## Properties
+## PROPERTIES
 
 Properties are assertions about the behavior of the system. They describe conditions that should always hold true.
 
@@ -62,7 +62,7 @@ assert always {a; b}[*];
 ```
 This property asserts that the sequence `{a; b}` repeats indefinitely.
 
-## Local Variables
+## LOCAL VARIABLES
 
 Local variables are used within properties and sequences to store intermediate values or states. They help in capturing and reusing values within a scope.
 
@@ -75,7 +75,7 @@ endsequence
 ```
 Here, `x` is a local variable used within the sequence `s`.
 
-## Procedural Blocks
+## PROCEDURAL BLOCKS
 
 Procedural blocks define blocks of code that execute sequentially, similar to procedural code in traditional programming languages. They are used to describe complex temporal behaviors.
 
@@ -91,7 +91,7 @@ end
 ```
 This procedural block executes on the rising edge of the clock.
 
-## Property and Sequence Declarations
+## PROPERTY AND SEQUENCE DECLARATIONS
 
 Properties and sequences can be declared and reused throughout the design, promoting modularity and reusability.
 

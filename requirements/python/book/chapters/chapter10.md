@@ -1,8 +1,8 @@
-# Full Grammar Specification
+# FULL GRAMMAR SPECIFICATION
 
 The full grammar specification for Python defines the syntax rules for the language. This specification is detailed and covers all aspects of Python syntax, including expressions, statements, and other language constructs. Below is an overview of key elements in Python's grammar specification, focusing on the main categories.
 
-## Tokens
+## TOKENS
 
 Python source code consists of tokens. The lexical analysis phase breaks the source code into these tokens.
 
@@ -33,7 +33,7 @@ Python source code consists of tokens. The lexical analysis phase breaks the sou
     delimiter ::= "(" | ")" | "[" | "]" | "{" | "}" | "," | ":" | "." | ";" | "@" | "=" | "->" | "+=" | "-=" | "*=" | "/=" | "//=" | "%=" | "@=" | "&=" | "|=" | "^=" | ">>=" | "<<=" | "**="
     ```
 
-## Program Structure
+## PROGRAM STRUCTURE
 
 ### Modules
 
@@ -168,7 +168,7 @@ compound_stmt ::= if_stmt | while_stmt | for_stmt | try_stmt | with_stmt | funcd
     async_stmt ::= "async" (funcdef | with_stmt | for_stmt)
     ```
 
-## Expressions
+## EXPRESSIONS
 
 Expressions represent values or computations.
 
@@ -205,7 +205,7 @@ Lambdas are anonymous functions.
 lambda_expr ::= "lambda" [parameter_list] ":" expression
 ```
 
-## Other Elements
+## OTHER ELEMENTS
 
 ### Imports
 

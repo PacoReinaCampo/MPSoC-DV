@@ -1,4 +1,4 @@
-# Normative References
+# NORMATIVE REFERENCES
 
 In the context of the Unified Modeling Language (UML), "normative references" refer to external documents or specifications that are considered authoritative and essential for understanding and implementing the UML standard. These references provide additional context, definitions, rules, and guidelines that complement and support the UML specification. Let's explore the concept of normative references in detail:
 

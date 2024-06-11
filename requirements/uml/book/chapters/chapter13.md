@@ -1,4 +1,4 @@
-# Common Behavior
+# COMMON BEHAVIOR
 
 In Unified Modeling Language (UML), "Common Behavior" refers to the standardized patterns of behavior that are shared among different types of model elements. These behaviors define how model elements interact, behave, and respond to events within the system being modeled. Understanding common behavior in UML is crucial for designing, analyzing, and communicating system dynamics effectively. Let's explore the concept of common behavior in more detail:
 

@@ -1,4 +1,4 @@
-# Standard Profile
+# STANDARD PROFILE
 
 In Unified Modeling Language (UML), a "standard profile" is a predefined set of stereotypes, tagged values, and constraints that extend the basic UML metamodel to support specific modeling domains, industries, or methodologies. Standard profiles provide a standardized way to extend UML to meet the requirements of particular application domains, making it easier to model systems in those domains while ensuring consistency and interoperability across different modeling tools and environments.
 

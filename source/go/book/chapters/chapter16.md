@@ -1,8 +1,8 @@
-# Errors
+# ERRORS
 
 Let's delve into errors, panic, and recover in Go:
 
-## Errors
+## ERRORS
 
 Errors in Go are values that represent abnormal conditions or situations that occur during the execution of a program. They are used to signal that something unexpected or undesired has happened, such as file I/O errors, network errors, or invalid input.
 
@@ -16,7 +16,7 @@ func divide(x, y float64) (float64, error) {
 }
 ```
 
-## Panic
+## PANIC
 
 `panic` is a built-in function in Go that is used to terminate the program abruptly when an unrecoverable error occurs. It is typically called when something unexpected happens or when the program encounters a situation that it cannot recover from.
 
@@ -30,7 +30,7 @@ func doSomething() {
 
 When `panic` is called, the program stops execution immediately, unwinding the stack and executing any deferred functions. If no deferred function recovers from the panic, the program terminates with a runtime error.
 
-## Recover
+## RECOVER
 
 `recover` is another built-in function in Go that is used to handle panics and recover from them gracefully. It is only useful when called from within a deferred function.
 
@@ -49,7 +49,7 @@ func main() {
 
 In this example, if `doSomething` panics, the `recoverFromPanic` function is called, and it prints a message indicating that the panic has been recovered from.
 
-## When to Use Panic and Recover
+## WHEN TO USE PANIC AND RECOVER
 
 - **Panic**: Use `panic` to signal that the program has encountered a critical error or unrecoverable situation. Examples include out-of-memory errors, unexpected runtime conditions, or violations of program invariants.
 

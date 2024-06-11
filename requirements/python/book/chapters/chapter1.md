@@ -1,8 +1,8 @@
-# Introduction
+# INTRODUCTION
 
 Python is a versatile and widely-used programming language known for its simplicity and readability. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming. Python's extensive standard library and community-contributed modules make it suitable for various applications, from web development to data science and machine learning.
 
-## Alternate Implementations
+## ALTERNATE IMPLEMENTATIONS
 
 Python has several implementations, each designed to meet different needs:
 
@@ -61,7 +61,7 @@ Python has several implementations, each designed to meet different needs:
         time.sleep(1)
     ```
 
-## Notation
+## NOTATION
 
 Python code often uses specific notations and conventions to improve readability and maintainability. Some key notations include:
 

@@ -1,8 +1,8 @@
-# Lexical Analysis
+# LEXICAL ANALYSIS
 
 Lexical analysis is the first phase of a compiler or interpreter, where the input code is transformed into a sequence of tokens. Each token is a syntactic unit that can be identified as keywords, identifiers, literals, operators, delimiters, etc. In Python, the lexical analysis is performed by the tokenizer, which converts the source code into tokens that the parser can understand.
 
-## Line Structure
+## LINE STRUCTURE
 
 Python source code is organized into lines, each containing one or more statements. The line structure in Python is significant, particularly due to its use of indentation to define code blocks.
 
@@ -10,19 +10,19 @@ Python source code is organized into lines, each containing one or more statemen
 - **Physical Lines**: These are the actual lines in the file. A logical line can span multiple physical lines using backslashes (`\`) or parentheses, brackets, and braces.
 
 ```python
-# Single logical line
+# SINGLE LOGICAL LINE
 print("Hello, World!")
 
-# Logical line spanning multiple physical lines using parentheses
+# LOGICAL LINE SPANNING MULTIPLE PHYSICAL LINES USING PARENTHESES
 result = (1 + 2 + 3 +
           4 + 5 + 6)
 
-# Logical line spanning multiple physical lines using backslash
+# LOGICAL LINE SPANNING MULTIPLE PHYSICAL LINES USING BACKSLASH
 total = 1 + 2 + 3 + \
         4 + 5 + 6
 ```
 
-## Other Tokens
+## OTHER TOKENS
 
 In Python, tokens are categorized into several types:
 
@@ -32,7 +32,7 @@ In Python, tokens are categorized into several types:
 - **Operators**: Symbols representing computations or operations.
 - **Delimiters**: Characters used to separate tokens.
 
-## Identifiers and Keywords
+## IDENTIFIERS AND KEYWORDS
 
 **Identifiers** are names given to variables, functions, classes, and other objects. Identifiers must follow these rules:
 
@@ -41,24 +41,24 @@ In Python, tokens are categorized into several types:
 - Case-sensitive (e.g., `Variable` and `variable` are different).
 
 ```python
-# Valid identifiers
+# VALID IDENTIFIERS
 my_variable = 10
 _function = lambda x: x * 2
 ClassName = "Example"
 
-# Invalid identifier (starts with a digit)
-# 1st_var = 5
+# INVALID IDENTIFIER (STARTS WITH A DIGIT)
+# 1ST_VAR = 5
 ```
 
 **Keywords** are predefined, reserved words in Python that have special meanings and cannot be used as identifiers. Some keywords include:
 
 ```python
-# Examples of Python keywords
+# EXAMPLES OF PYTHON KEYWORDS
 
 if, else, elif, for, while, break, continue, return, def, class, import, from, as, pass, lambda, global, nonlocal, assert, try, except, finally, raise, with, yield, async, await, etc.
 ```
 
-## Literals
+## LITERALS
 
 Literals represent constant values in Python. There are several types of literals:
 
@@ -92,7 +92,7 @@ Literals represent constant values in Python. There are several types of literal
     none_value = None
     ```
 
-## Operators
+## OPERATORS
 
 Operators are symbols that perform operations on variables and values. Python has several types of operators:
 
@@ -148,7 +148,7 @@ Operators are symbols that perform operations on variables and values. Python ha
     right_shift = 5 >> 1
     ```
 
-## Delimiters
+## DELIMITERS
 
 Delimiters are characters or sequences of characters that separate tokens. In Python, delimiters include:
 
@@ -164,7 +164,7 @@ Delimiters are characters or sequences of characters that separate tokens. In Py
 - **Arrow (for lambda expressions)**: `->`
 
 ```python
-# Examples using delimiters
+# EXAMPLES USING DELIMITERS
 list_example = [1, 2, 3]
 tuple_example = (4, 5, 6)
 dict_example = {'key': 'value'}

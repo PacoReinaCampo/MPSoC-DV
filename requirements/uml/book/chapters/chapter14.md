@@ -1,4 +1,4 @@
-# State Machines
+# STATE MACHINES
 
 In Unified Modeling Language (UML), "State Machines" provide a graphical representation of the dynamic behavior of an object or system in response to external stimuli or events. They are used to model the various states that an object or system can be in and the transitions between these states triggered by events. State machines are crucial for capturing the lifecycle and behavior of objects or systems, especially those with complex and event-driven behavior. Let's explore the concept of state machines in more detail:
 

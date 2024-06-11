@@ -1,8 +1,8 @@
-# Methods
+# METHODS
 
 In Go, methods are functions that operate on specific types. They allow you to associate behavior with the data of a particular type. When defining methods in Go, you have the option to use either pointers or values as receivers. Understanding the difference between using pointers and values as receivers is crucial for designing effective and efficient Go programs.
 
-## Pointers vs Values
+## POINTERS VS VALUES
 
 1. **Value Receivers**:
   - When a method is defined with a value receiver, the method operates on a copy of the value. Changes made to the value inside the method are local to that method and do not affect the original value.

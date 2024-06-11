@@ -1,4 +1,4 @@
-# Additional Information
+# ADDITIONAL INFORMATION
 
 In the Unified Modeling Language (UML), "Additional Information" refers to supplementary details, annotations, and metadata that enrich the understanding, interpretation, and documentation of UML models and diagrams. This information goes beyond the basic structural and behavioral elements depicted in UML diagrams, providing context, rationale, and insights into the design decisions, requirements, constraints, and assumptions underlying the modeled system. Let's explore the concept of additional information in detail:
 

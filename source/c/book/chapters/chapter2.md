@@ -1,6 +1,6 @@
-# Data Types
+# DATA TYPES
 
-## Primitive Data Types
+## PRIMITIVE DATA TYPES
 
 ### Integer Types
 
@@ -67,7 +67,7 @@ __complex__ double dc_gnu = 3.0 + 4.0*I;
 __complex__ long double ldc_gnu = 5.0 + 6.0*I;
 ```
 
-## Enumerations
+## ENUMERATIONS
 
 Enumerations (`enum`) are user-defined types consisting of a set of named integer constants.
 
@@ -83,7 +83,7 @@ enum Color { RED, GREEN, BLUE };
 enum Color favoriteColor;
 ```
 
-## Unions
+## UNIONS
 
 Unions are similar to structures, but all members share the same memory location. They are useful for saving memory when the value stored in the union will only be one of the types at any time.
 
@@ -135,7 +135,7 @@ The size of a union is the size of its largest member.
 printf("%lu", sizeof(union Data));
 ```
 
-## Structures
+## STRUCTURES
 
 Structures are user-defined data types that group different data types together.
 
@@ -197,7 +197,7 @@ The size of a structure is the sum of the sizes of its members, considering padd
 printf("%lu", sizeof(struct Person));
 ```
 
-## Arrays
+## ARRAYS
 
 Arrays are collections of elements of the same type stored in contiguous memory locations.
 
@@ -247,7 +247,7 @@ union Data dataArr[5];
 struct Person people[5];
 ```
 
-## Pointers
+## POINTERS
 
 Pointers are variables that store the memory address of another variable.
 
@@ -278,7 +278,7 @@ struct Person person;
 struct Person *p = &person;
 ```
 
-## Incomplete Types
+## INCOMPLETE TYPES
 
 An incomplete type is a type that describes objects but lacks information to determine its size.
 
@@ -286,7 +286,7 @@ An incomplete type is a type that describes objects but lacks information to det
 struct Incomplete;
 ```
 
-## Type Qualifiers
+## TYPE QUALIFIERS
 
 Type qualifiers add special properties to variables.
 
@@ -301,7 +301,7 @@ volatile int vi;
 int * restrict rp;
 ```
 
-## Storage Class Specifiers
+## STORAGE CLASS SPECIFIERS
 
 Storage class specifiers define the scope (visibility) and lifetime of variables/functions.
 
@@ -316,7 +316,7 @@ static int count;
 extern int globalVar;
 ```
 
-## Renaming Types
+## RENAMING TYPES
 
 The `typedef` keyword allows creating aliases for existing types.
 

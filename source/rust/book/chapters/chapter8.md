@@ -1,8 +1,8 @@
-# Common Collections
+# COMMON COLLECTIONS
 
 Let's discuss each of these topics:
 
-## Storing Lists of Values with Vectors
+## STORING LISTS OF VALUES WITH VECTORS
 
 In Rust, vectors are a dynamic array type provided by the standard library. They allow you to store a variable number of values of the same type in contiguous memory. Vectors are resizable and efficient for adding, removing, and accessing elements.
 
@@ -25,7 +25,7 @@ for i in &v {
 }
 ```
 
-## Storing UTF-8 Encoded Text with Strings
+## STORING UTF-8 ENCODED TEXT WITH STRINGS
 
 In Rust, the `String` type represents a growable, mutable, UTF-8 encoded string. It is implemented as a vector of bytes (`Vec<u8>`) that represent a valid UTF-8 encoded string. Rust also has the `&str` type, which is an immutable reference to a string slice.
 
@@ -46,7 +46,7 @@ for c in s3.chars() {
 }
 ```
 
-## Storing Keys with Associated Values in Hash Maps
+## STORING KEYS WITH ASSOCIATED VALUES IN HASH MAPS
 
 Hash maps in Rust are collections of key-value pairs, where each key must be unique. They are implemented using a hash table, providing fast insertion, deletion, and lookup operations. Rust's standard library provides the `HashMap` type for working with hash maps.
 

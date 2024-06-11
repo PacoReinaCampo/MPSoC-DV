@@ -1,14 +1,14 @@
-# Language
+# LANGUAGE
 
-## Preprocessor
+## PREPROCESSOR
 
 The preprocessor in C++ is responsible for handling directives that begin with a hash sign (#). These directives are processed before the actual compilation of the program begins. Common preprocessor directives include `#include` to include header files, `#define` to define macros, and `#ifdef`/`#ifndef` for conditional compilation.
 
-## ASCII chart
+## ASCII CHART
 
 ASCII (American Standard Code for Information Interchange) is a character encoding standard that assigns numeric values to characters. In C++, characters are represented as integers according to the ASCII chart. For example, the ASCII value for 'A' is 65, 'B' is 66, and so on.
 
-## Basic Concepts
+## BASIC CONCEPTS
 
 ### Comments
 
@@ -26,7 +26,7 @@ C++ has several fundamental data types, including `int`, `float`, `double`, `cha
 
 The `main()` function is the entry point of C++ programs. Execution of a C++ program starts from the `main()` function. It can have a return type of `int` and optionally take arguments from the command line.
 
-## Expressions
+## EXPRESSIONS
 
 ### Value categories
 
@@ -44,7 +44,7 @@ Operators in C++ have precedence rules that determine the order in which they ar
 
 C++ supports implicit and explicit type conversions, which allow literals of one type to be converted to another type. For example, an `int` literal can be implicitly converted to a `double` if necessary.
 
-## Statements
+## STATEMENTS
 
 ### if − switch
 
@@ -58,22 +58,22 @@ The `for` loop in C++ is used for iterating over a range of values. The range-ba
 
 The `while` loop is used to repeatedly execute a block of code as long as a condition is true. The `do-while` loop is similar to the `while` loop but guarantees that the block of code is executed at least once before checking the condition.
 
-## Declarations − Initialization
+## DECLARATIONS − INITIALIZATION
 
 Declarations in C++ are used to introduce names into the program and specify their types. Initialization refers to the process of assigning an initial value to a variable at the time of declaration.
 
-## Functions − Overloading
+## FUNCTIONS − OVERLOADING
 
 Function overloading in C++ allows multiple functions with the same name to be defined, as long as they have different parameter lists. The appropriate function to call is determined based on the number and types of arguments provided.
 
-## Classes (unions)
+## CLASSES (UNIONS)
 
 Classes in C++ are used to define user-defined data types with properties and behaviors. They can contain member variables and member functions. Unions are a special type of class where all members share the same memory location.
 
-## Templates − Exceptions
+## TEMPLATES − EXCEPTIONS
 
 Templates in C++ allow for generic programming by defining functions or classes with generic types. This enables writing code that works with any data type. Exceptions are used for handling runtime errors or exceptional conditions that may occur during program execution.
 
-## Freestanding implementations
+## FREESTANDING IMPLEMENTATIONS
 
 Freestanding implementations refer to the ability to write C++ programs without relying on the full standard library provided by the implementation. This is particularly useful in embedded systems or other environments where the standard library may not be available or suitable.

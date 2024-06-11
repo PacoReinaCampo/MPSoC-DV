@@ -1,4 +1,4 @@
-# Actions
+# ACTIONS
 
 In Unified Modeling Language (UML), "actions" are fundamental elements used to model behaviors or transformations within a system. Actions represent executable operations or behaviors that are performed by an object, a system, or any other elements within a model. They are used to describe the dynamic aspects of a system, focusing on what happens within the system over time.
 

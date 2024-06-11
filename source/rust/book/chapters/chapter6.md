@@ -1,8 +1,8 @@
-# Enums and Pattern Matching
+# ENUMS AND PATTERN MATCHING
 
 Let's dive into each topic:
 
-## Defining an Enum
+## DEFINING AN ENUM
 
 Enums, short for "enumerations," allow you to define a type by enumerating its possible variants. Each variant can optionally hold data of its own type. Here's how you define an enum in Rust:
 
@@ -32,7 +32,7 @@ In this example:
 - We define another enum named `Coin` with four variants: `Penny`, `Nickel`, `Dime`, and `Quarter`, where `Quarter` variant can hold associated data of type `UsState`.
 - We define a `UsState` struct, which can be used as associated data for the `Quarter` variant.
 
-## The match Control Flow Construct
+## THE MATCH CONTROL FLOW CONSTRUCT
 
 `match` is a powerful control flow construct in Rust that allows you to compare a value against a series of patterns and execute code based on which pattern matches. Here's how `match` works:
 
@@ -59,7 +59,7 @@ In this example:
 - We define a function `value_in_cents` that takes a `Coin` enum as an argument.
 - Inside the function, we use `match` to match the `coin` argument against different variants of `Coin` and return the corresponding value in cents.
 
-## Concise Control Flow with if let
+## CONCISE CONTROL FLOW WITH IF LET
 
 `if let` is a concise syntax for handling values that match one pattern and ignoring the rest. It's often used when you're interested in handling only one specific case and don't need to cover all possible variants like `match`. Here's how `if let` works:
 

@@ -1,8 +1,8 @@
-# Organization
+# ORGANIZATION
 
 This section outlines how the document is structured, detailing the abstract, lexical, syntax, and semantic components of the language. It helps readers understand how the language is organized and how to interpret its different elements.
 
-## Abstract Structure
+## ABSTRACT STRUCTURE
 
 The abstract structure provides an overview of the main components and organizational principles of the language.
 
@@ -19,7 +19,7 @@ Different "flavors" or variants of the language might be defined to cater to var
 - **Formal Verification Flavor:** Tailored for rigorous, mathematical verification of properties.
 - **Simulation Flavor:** Designed for use in simulation environments where certain pragmatic considerations might apply.
 
-## Lexical Structure
+## LEXICAL STRUCTURE
 
 The lexical structure defines the basic building blocks of the language, such as tokens, identifiers, keywords, and operators.
 
@@ -48,7 +48,7 @@ Macros are predefined or user-defined instructions that expand into a set of ins
 
 Comments are non-executable parts of the code that provide explanations or annotations. They can be single-line or multi-line and are typically denoted by specific symbols like `//` for single-line comments and `/*...*/` for multi-line comments.
 
-## Syntax
+## SYNTAX
 
 The syntax defines the rules for how valid statements and expressions are formed in the language.
 
@@ -62,7 +62,7 @@ Syntax conventions include the general rules and guidelines for writing code, su
 
 For hardware description languages (HDLs), syntax might depend on specific HDL features or constructs, requiring certain conventions to be followed to integrate smoothly with HDLs like VHDL or Verilog.
 
-## Semantics
+## SEMANTICS
 
 The semantics define the meaning of syntactically correct statements and expressions.
 

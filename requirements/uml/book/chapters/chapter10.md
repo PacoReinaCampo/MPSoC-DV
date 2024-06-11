@@ -1,4 +1,4 @@
-# Simple Classifiers
+# SIMPLE CLASSIFIERS
 
 In Unified Modeling Language (UML), "Simple Classifiers" are foundational elements used to represent basic types, data types, and constructs within a model. They serve as the building blocks for defining more complex structures and relationships in UML diagrams. Let's explore the concept of simple classifiers in more detail:
 

@@ -1,8 +1,8 @@
-# Execution Model
+# EXECUTION MODEL
 
 Python's execution model describes how code is structured, how names are associated with objects, and how exceptions are handled during program execution.
 
-## Structure of a Program
+## STRUCTURE OF A PROGRAM
 
 A Python program consists of various components organized in a specific manner. The structure typically includes:
 
@@ -15,14 +15,14 @@ A Python program consists of various components organized in a specific manner. 
 ### Example of Program Structure
 
 ```python
-# Module-level variables and imports
+# MODULE-LEVEL VARIABLES AND IMPORTS
 import math
 
-# Function definition
+# FUNCTION DEFINITION
 def calculate_area(radius):
     return math.pi * radius * radius
 
-# Class definition
+# CLASS DEFINITION
 class Circle:
     def __init__(self, radius):
         self.radius = radius
@@ -30,13 +30,13 @@ class Circle:
     def area(self):
         return calculate_area(self.radius)
 
-# Main block
+# MAIN BLOCK
 if __name__ == "__main__":
     circle = Circle(5)
     print(f"Area of the circle: {circle.area()}")
 ```
 
-## Naming and Binding
+## NAMING AND BINDING
 
 Naming refers to the association between names (identifiers) and objects in Python. Binding is the process of associating a name with an object.
 
@@ -104,7 +104,7 @@ outer()
 print(x)  # Prints 10
 ```
 
-## Exceptions
+## EXCEPTIONS
 
 Exceptions are events that disrupt the normal flow of a program. Python uses exceptions to handle errors and other exceptional events.
 

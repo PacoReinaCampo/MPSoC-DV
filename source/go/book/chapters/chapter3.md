@@ -1,8 +1,8 @@
-# Commentary
+# COMMENTARY
 
 In Go language, commentary refers to the practice of adding explanatory or descriptive text within the source code to provide additional context or clarification. Comments are ignored by the compiler and are intended solely for human readers. They play a crucial role in documenting code, making it easier to understand, maintain, and collaborate on.
 
-## Types of Comments in Go:
+## TYPES OF COMMENTS IN GO:
 
 1. **Single-Line Comments**: Single-line comments begin with `//` and extend until the end of the line.
 
@@ -19,7 +19,7 @@ In Go language, commentary refers to the practice of adding explanatory or descr
   */
   ```
 
-## Best Practices for Using Comments:
+## BEST PRACTICES FOR USING COMMENTS:
 
 1. **Documenting Package**: Each package should include a comment at the top of the file describing its purpose and usage. This comment should be descriptive and provide information about the package's functionality, dependencies, and usage examples.
 
@@ -56,7 +56,7 @@ In Go language, commentary refers to the practice of adding explanatory or descr
   }
   ```
 
-## Benefits of Commentary in Go:
+## BENEFITS OF COMMENTARY IN GO:
 
 - **Code Documentation**: Comments provide valuable documentation for understanding the purpose, behavior, and usage of code elements such as functions, variables, and packages.
 

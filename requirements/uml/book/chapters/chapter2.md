@@ -1,4 +1,4 @@
-# Conformance
+# CONFORMANCE
 
 In Unified Modeling Language (UML), conformance refers to the degree to which a model or system complies with a specification or standard. It indicates whether the elements, relationships, and behavior specified in a UML model adhere to the rules, constraints, and semantics defined by the UML standard or a specific profile or extension. Let's explore the concept of conformance in detail:
 

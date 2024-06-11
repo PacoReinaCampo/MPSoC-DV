@@ -1,8 +1,8 @@
-# Semicolons
+# SEMICOLONS
 
 In Go language, semicolons are used as statement terminators, similar to many other languages like C, C++, and Java. However, Go has a unique feature called "implicit semicolons" where the compiler automatically inserts semicolons at the end of each line if the line break comes after certain tokens. This feature reduces the need for explicit semicolons in Go code, making the language cleaner and less cluttered.
 
-## Rules for Semicolons in Go
+## RULES FOR SEMICOLONS IN GO
 
 1. **Implicit Semicolons**: The Go compiler automatically inserts semicolons at the end of a line if the line break occurs after one of the following tokens:
 
@@ -38,7 +38,7 @@ In Go language, semicolons are used as statement terminators, similar to many ot
   }
   ```
 
-## Best Practices for Semicolons in Go
+## BEST PRACTICES FOR SEMICOLONS IN GO
 
 - **Prefer Implicit Semicolons**: Follow the convention of letting the compiler insert semicolons automatically. Avoid using explicit semicolons unless necessary for clarity.
 

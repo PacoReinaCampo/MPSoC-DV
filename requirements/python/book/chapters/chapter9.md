@@ -1,8 +1,8 @@
-# Top-level Components
+# TOP-LEVEL COMPONENTS
 
 In Python, top-level components refer to the various ways in which Python code can be executed and interacted with, including complete programs, file input, interactive input, and expression input. Let’s explore each of these components.
 
-## Complete Python Programs
+## COMPLETE PYTHON PROGRAMS
 
 Complete Python programs are scripts or modules that are executed from start to finish. These programs typically consist of a sequence of statements and definitions that are executed when the script is run.
 
@@ -17,7 +17,7 @@ python script.py
 Example Script
 
 ```python
-# script.py
+# SCRIPT.PY
 def main():
     print("Hello, World!")
 
@@ -27,7 +27,7 @@ if __name__ == "__main__":
 
 In this example, the script defines a `main` function and calls it if the script is executed as the main module.
 
-## File Input
+## FILE INPUT
 
 File input involves reading code from a file and executing it. This is often done within a script or from an interactive Python session.
 
@@ -36,12 +36,12 @@ Reading and Executing a File
 You can use the `exec` function to read and execute Python code from a file.
 
 ```python
-# content of example.py
+# CONTENT OF EXAMPLE.PY
 print("This code is from a file.")
 ```
 
 ```python
-# main script
+# MAIN SCRIPT
 with open('example.py', 'r') as file:
     code = file.read()
     exec(code)
@@ -49,7 +49,7 @@ with open('example.py', 'r') as file:
 
 This script reads the contents of `example.py` and executes it using `exec`.
 
-## Interactive Input
+## INTERACTIVE INPUT
 
 Interactive input allows users to enter Python commands directly into the Python interpreter. This is typically done in a Python shell or an interactive environment like IPython or Jupyter Notebook.
 
@@ -72,7 +72,7 @@ Example Interaction
 
 In this interactive session, you can enter and execute Python code line by line.
 
-## Expression Input
+## EXPRESSION INPUT
 
 Expression input refers to evaluating individual expressions and returning their results. This is commonly done in interactive environments or when using the `eval` function.
 
@@ -102,7 +102,7 @@ You can combine these top-level components to create versatile and interactive P
 Example Combined Script
 
 ```python
-# combined_script.py
+# COMBINED_SCRIPT.PY
 def read_and_execute(filename):
     with open(filename, 'r') as file:
         code = file.read()

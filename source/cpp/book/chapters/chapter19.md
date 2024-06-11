@@ -1,8 +1,8 @@
-# Regular expressions library (C++11)
+# REGULAR EXPRESSIONS LIBRARY (C++11)
 
 The Regular Expressions library introduced in C++11 provides a powerful and flexible mechanism for pattern matching and text processing. Let's delve into the components you've mentioned:
 
-## basic_regex − Algorithms
+## BASIC_REGEX − ALGORITHMS
 
 `std::basic_regex` is a template class representing a compiled regular expression pattern. It serves as the foundation for working with regular expressions in C++, allowing developers to create, compile, and use regular expression patterns for searching, matching, and replacing text within strings.
 
@@ -10,7 +10,7 @@ The Regular Expressions library in C++ provides a range of algorithms for workin
 
 These algorithms operate on `std::basic_string` or `std::string_view` objects and allow developers to perform various text processing tasks efficiently and conveniently using regular expressions.
 
-## Default regular expression grammar
+## DEFAULT REGULAR EXPRESSION GRAMMAR
 
 The Regular Expressions library in C++11 adopts the ECMAScript regular expression grammar as the default syntax for defining regular expression patterns. This grammar is widely used and familiar to developers from other programming languages, making it easy to write and understand regular expressions in C++.
 

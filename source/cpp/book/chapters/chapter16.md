@@ -1,8 +1,8 @@
-# Date and time library
+# DATE AND TIME LIBRARY
 
 The Date and Time library in C++ provides functionalities for handling dates, times, and time zones, facilitating the manipulation and management of temporal data. Let's explore the components you've mentioned:
 
-## Calendar (C++20) − Time zone (C++20)
+## CALENDAR (C++20) − TIME ZONE (C++20)
 
 ### Calendar (C++20)
 

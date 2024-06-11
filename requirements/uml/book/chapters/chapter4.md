@@ -1,4 +1,4 @@
-# Terms and Definitions
+# TERMS AND DEFINITIONS
 
 In the Unified Modeling Language (UML), "Terms and Definitions" refer to a collection of key concepts, terminology, and definitions used within the UML specification. These terms are essential for understanding the language and its constructs, providing a standardized vocabulary for communication among stakeholders involved in software modeling and development. Let's delve into the details of terms and definitions in UML:
 

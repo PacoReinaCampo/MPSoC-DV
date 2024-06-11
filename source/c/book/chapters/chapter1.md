@@ -1,6 +1,6 @@
-# Lexical Elements
+# LEXICAL ELEMENTS
 
-## Identifiers
+## IDENTIFIERS
 
 Identifiers are names used to identify variables, functions, arrays, structures, and other user-defined items. An identifier in C must adhere to the following rules:
 - Can include letters (both uppercase and lowercase), digits (0-9), and underscores (_).
@@ -15,7 +15,7 @@ float total_sum;
 char firstName[50];
 ```
 
-## Keywords
+## KEYWORDS
 
 Keywords are reserved words predefined by the C language. They have special meanings and cannot be used as identifiers. Some commonly used keywords include:
 - Data types: `int`, `float`, `char`, `double`
@@ -31,7 +31,7 @@ int main() {
 }
 ```
 
-## Constants
+## CONSTANTS
 
 Constants are fixed values that do not change during the execution of a program. They are divided into several types:
 
@@ -82,7 +82,7 @@ Example:
 char greeting[] = "Hello, World!";
 ```
 
-## Operators
+## OPERATORS
 
 Operators are symbols that specify operations to be performed on operands. C has several categories of operators:
 - Arithmetic: `+`, `-`, `*`, `/`, `%`
@@ -101,7 +101,7 @@ int isEqual = (a == b); // Relational
 int andResult = a & b;  // Bitwise
 ```
 
-## Separators
+## SEPARATORS
 
 Separators (also called delimiters) are used to separate different elements in a program. In C, the following characters are used as separators:
 - Comma `,`: separates items in a list
@@ -118,7 +118,7 @@ if (a < b) {
 }
 ```
 
-## White Space
+## WHITE SPACE
 
 White space in C includes spaces, tabs, and newline characters. White space is generally ignored by the compiler but is essential for separating tokens and making the code readable. It is used to:
 - Separate keywords, identifiers, constants, and operators

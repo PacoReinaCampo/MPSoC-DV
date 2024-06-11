@@ -1,8 +1,8 @@
-# Verification Layer
+# VERIFICATION LAYER
 
 The verification layer in languages like PSL (Property Specification Language) encompasses directives and constructs specifically designed for verifying the properties of hardware designs. It includes mechanisms to assert conditions, make assumptions, restrict behaviors, and cover scenarios, ensuring comprehensive verification of the design's behavior.
 
-## Verification Directives
+## VERIFICATION DIRECTIVES
 
 Verification directives are commands or statements used to specify conditions and constraints that need to be checked during the verification process.
 
@@ -67,7 +67,7 @@ strong_fairness always (req -> eventually ack);
 ```
 These directives ensure that `req` being true eventually leads to `ack` being true infinitely often.
 
-## Verification Units
+## VERIFICATION UNITS
 
 Verification units are modular constructs that encapsulate properties, constraints, and verification logic. They promote reusability and organization in verification.
 

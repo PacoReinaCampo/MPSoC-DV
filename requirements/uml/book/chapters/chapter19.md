@@ -1,4 +1,4 @@
-# Deployments
+# DEPLOYMENTS
 
 In Unified Modeling Language (UML), "deployment diagrams" are used to visualize the deployment of software artifacts (such as components, executables, and libraries) onto hardware nodes (such as servers, workstations, or embedded devices) and the connections between them. Deployment diagrams provide a high-level overview of the physical architecture of a system, showing how software components are distributed across hardware nodes and how they interact with each other in a runtime environment.
 

@@ -1,4 +1,4 @@
-# A Web Server
+# A WEB SERVER
 
 A web server in Go is a program that listens for incoming HTTP requests and serves responses based on those requests. Go provides a powerful standard library package called `net/http` for building web servers. With this package, you can quickly create robust and efficient HTTP servers to handle various types of web applications.
 

@@ -1,4 +1,4 @@
-# Common Structure
+# COMMON STRUCTURE
 
 In the Unified Modeling Language (UML), "Common Structure" refers to the foundational elements and constructs that are shared across various types of diagrams and models. These common structures provide a consistent framework for representing system components, relationships, behaviors, and interactions, facilitating communication and understanding among stakeholders. Let's explore the concept of common structure in detail:
 

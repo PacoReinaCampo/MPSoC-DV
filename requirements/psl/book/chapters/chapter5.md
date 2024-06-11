@@ -1,8 +1,8 @@
-# Boolean Layer
+# BOOLEAN LAYER
 
 The Boolean layer in a specification or programming language like PSL (Property Specification Language) deals with expressions and operations that return Boolean values. This layer is essential for writing and evaluating conditions, assertions, and properties in verification.
 
-## Expression Type Classes
+## EXPRESSION TYPE CLASSES
 
 Expression type classes categorize different kinds of expressions based on the type of values they operate on and produce.
 
@@ -51,7 +51,7 @@ String expressions deal with sequences of characters. They are useful for repres
 "Hello" + "World"  // Concatenation of two strings
 ```
 
-## Expression Forms
+## EXPRESSION FORMS
 
 Expression forms define the syntax and usage of expressions within different contexts.
 
@@ -93,7 +93,7 @@ Union expressions combine multiple expressions into a single one, allowing for m
 a | b  // Union (bitwise OR) of expressions a and b
 ```
 
-## Clock Expressions
+## CLOCK EXPRESSIONS
 
 Clock expressions define the clocking events and conditions for synchronous operations. They are crucial in specifying when certain actions or evaluations should occur in relation to clock signals.
 
@@ -102,7 +102,7 @@ Clock expressions define the clocking events and conditions for synchronous oper
 @(posedge clk)  // Expression triggering on the rising edge of clk
 ```
 
-## Default Clock Declaration
+## DEFAULT CLOCK DECLARATION
 
 The default clock declaration specifies the default clock signal for a set of expressions or properties. This simplifies the specification by avoiding the need to repeatedly mention the clock signal.
 

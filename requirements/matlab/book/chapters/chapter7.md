@@ -1,8 +1,8 @@
-# App Building in MATLAB
+# APP BUILDING IN MATLAB
 
 MATLAB provides various tools and frameworks for building interactive applications. This guide covers the main aspects of app building, from using the App Designer to migrating GUIDE apps.
 
-## Develop Apps Using App Designer
+## DEVELOP APPS USING APP DESIGNER
 
 App Designer is a drag-and-drop environment for creating professional apps without extensive coding.
 
@@ -43,7 +43,7 @@ end
 - **Run the App**:
   - Click the "Run" button in the App Designer toolstrip to test the app.
 
-## Develop Apps Programmatically
+## DEVELOP APPS PROGRAMMATICALLY
 
 For more control, you can develop apps programmatically using MATLAB code.
 
@@ -85,7 +85,7 @@ function gridLayoutUI
 end
 ```
 
-## Develop Live Editor Tasks
+## DEVELOP LIVE EDITOR TASKS
 
 Live Editor tasks allow you to create interactive controls within Live Scripts.
 
@@ -107,7 +107,7 @@ meanData = mean(data);
 disp(['Mean of data: ', num2str(meanData)]);
 ```
 
-## Create Custom UI Components
+## CREATE CUSTOM UI COMPONENTS
 
 Custom UI components enable you to create reusable, specialized controls.
 
@@ -133,7 +133,7 @@ classdef CustomButton < matlab.ui.componentcontainer.ComponentContainer
 end
 ```
 
-## Package and Share Apps
+## PACKAGE AND SHARE APPS
 
 Packaging apps allows you to share your applications with others.
 
@@ -147,7 +147,7 @@ Packaging apps allows you to share your applications with others.
   - MATLAB will create an installer file (`.mlappinstall`).
   - Share the installer with others, who can install the app directly from the MATLAB Apps tab.
 
-## Migrate GUIDE Apps
+## MIGRATE GUIDE APPS
 
 GUIDE is MATLAB's older app building tool, and it is recommended to migrate GUIDE apps to App Designer.
 
@@ -168,6 +168,6 @@ GUIDE is MATLAB's older app building tool, and it is recommended to migrate GUID
 4. **Test the New App**:
    - Run and test the app in App Designer to ensure functionality.
 
-## Conclusion
+## CONCLUSION
 
 By leveraging these tools and techniques, you can create robust, interactive applications in MATLAB. Whether using the App Designer for a visual approach or coding programmatically for more control, MATLAB provides the flexibility to develop, package, and share applications effectively.

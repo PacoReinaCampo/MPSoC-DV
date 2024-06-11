@@ -1,13 +1,13 @@
-# More about Cargo and Crates.io
+# MORE ABOUT CARGO AND CRATES.IO
 
 Let's dive into each of these topics:
 
-## Customizing Builds with Release Profiles
+## CUSTOMIZING BUILDS WITH RELEASE PROFILES
 
 Release profiles in Cargo allow you to customize the build settings for different scenarios, such as `debug` and `release` builds. You can specify different compiler optimizations, debug information, and other settings for each profile. This is useful for optimizing your code for performance in release builds while retaining debug information in debug builds.
 
 ```toml
-# Cargo.toml
+# CARGO.TOML
 
 [profile.release]
 opt-level = 3
@@ -15,7 +15,7 @@ opt-level = 3
 
 In this example, we set the optimization level to 3 for the `release` profile, which enables aggressive optimizations to improve performance.
 
-## Publishing a Crate to Crates.io
+## PUBLISHING A CRATE TO CRATES.IO
 
 Crates.io is the official package registry for Rust crates. To publish a crate to Crates.io, you need to create a Cargo.toml file with the necessary metadata, such as the crate name, version, and description. Then, you can use the `cargo publish` command to upload your crate to Crates.io.
 
@@ -25,7 +25,7 @@ cargo publish
 
 Before publishing, make sure you've logged in to crates.io using `cargo login` and that your crate's version has been incremented appropriately.
 
-## Cargo Workspaces
+## CARGO WORKSPACES
 
 Cargo workspaces allow you to manage multiple related packages (crates) within the same directory structure. This is useful for organizing large projects with multiple crates that depend on each other. Workspaces use a `Cargo.toml` file at the root of the workspace to define dependencies and settings for all crates in the workspace.
 
@@ -38,7 +38,7 @@ cargo new crate2 --lib
 
 In this example, we create a workspace with two libraries (`crate1` and `crate2`) and one binary (`my_workspace`). The `Cargo.toml` file at the root of the workspace defines dependencies and settings that apply to all crates in the workspace.
 
-## Installing Binaries from Crates.io with cargo install
+## INSTALLING BINARIES FROM CRATES.IO WITH CARGO INSTALL
 
 You can use the `cargo install` command to install Rust binaries from Crates.io. This command downloads the specified crate and installs its binary into the Cargo bin directory, making it available for execution from any directory.
 
@@ -48,7 +48,7 @@ cargo install my_crate
 
 In this example, `my_crate` is the name of the crate you want to install. After installation, you can run the crate's binary by typing its name in the terminal.
 
-## Extending Cargo with Custom Commands
+## EXTENDING CARGO WITH CUSTOM COMMANDS
 
 Cargo allows you to extend its functionality with custom commands called "Cargo subcommands." Subcommands are standalone executables that follow the naming convention `cargo-<name>`, and Cargo automatically recognizes them as subcommands.
 

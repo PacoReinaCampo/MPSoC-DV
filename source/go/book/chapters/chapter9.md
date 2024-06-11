@@ -1,8 +1,8 @@
-# Data
+# DATA
 
 Here's an explanation of various data-related topics in Go, presented in a structured format:
 
-## Allocation with `new`
+## ALLOCATION WITH `NEW`
 
 The `new` keyword in Go is used to allocate memory for a new value of a specified type. It returns a pointer to the newly allocated memory. However, unlike some other languages, `new` initializes the memory with zero values.
 
@@ -12,7 +12,7 @@ ptr = new(int)
 *ptr = 42 // Assigning value to the allocated memory
 ```
 
-## Constructors and Composite Literals
+## CONSTRUCTORS AND COMPOSITE LITERALS
 
 Go doesn't have traditional constructors, but you can use composite literals to create instances of structs or arrays. A composite literal specifies the type and values of a new instance within curly braces.
 
@@ -25,7 +25,7 @@ type Point struct {
 p := Point{X: 10, Y: 20}
 ```
 
-## Allocation with `make`
+## ALLOCATION WITH `MAKE`
 
 The `make` function in Go is used to create slices, maps, and channels. It allocates and initializes the underlying data structure and returns a value of the specified type.
 
@@ -34,7 +34,7 @@ The `make` function in Go is used to create slices, maps, and channels. It alloc
 slice := make([]int, 5, 10)
 ```
 
-## Arrays
+## ARRAYS
 
 Arrays in Go are fixed-size sequences of elements with a specified type. The size of an array is part of its type and cannot be changed after declaration.
 
@@ -42,7 +42,7 @@ Arrays in Go are fixed-size sequences of elements with a specified type. The siz
 var arr [5]int // Declaration of an array with length 5
 ```
 
-## Slices
+## SLICES
 
 Slices are dynamic data structures built on top of arrays. They provide a more flexible way to work with sequences of data. A slice has a length and a capacity, and it can grow dynamically.
 
@@ -50,7 +50,7 @@ Slices are dynamic data structures built on top of arrays. They provide a more f
 slice := []int{1, 2, 3, 4, 5} // Creating a slice using a composite literal
 ```
 
-## Two-dimensional Slices
+## TWO-DIMENSIONAL SLICES
 
 Go supports multi-dimensional slices, which are essentially slices of slices. They provide a convenient way to work with matrices and other multi-dimensional data structures.
 
@@ -62,7 +62,7 @@ matrix := [][]int{
 }
 ```
 
-## Maps
+## MAPS
 
 Maps in Go are unordered collections of key-value pairs. They provide an efficient way to store and retrieve data based on keys.
 
@@ -72,7 +72,7 @@ m["one"] = 1
 m["two"] = 2
 ```
 
-## Printing
+## PRINTING
 
 The `fmt` package in Go provides functions for formatted I/O, including printing to the standard output. The `Println` function is commonly used to print values followed by a newline.
 
@@ -80,7 +80,7 @@ The `fmt` package in Go provides functions for formatted I/O, including printing
 fmt.Println("Hello, World!")
 ```
 
-## Append
+## APPEND
 
 The `append` function in Go is used to add elements to slices dynamically. If the capacity of the underlying array is exceeded, `append` automatically allocates a new array and copies existing elements.
 

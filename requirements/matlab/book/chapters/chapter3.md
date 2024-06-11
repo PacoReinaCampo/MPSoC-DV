@@ -1,8 +1,8 @@
-# Data Import and Analysis in MATLAB
+# DATA IMPORT AND ANALYSIS IN MATLAB
 
 MATLAB provides robust tools for importing, analyzing, and visualizing data. Here's a comprehensive guide covering these aspects:
 
-## Data Import and Export
+## DATA IMPORT AND EXPORT
 
 ### Importing Data
 
@@ -55,7 +55,7 @@ MATLAB supports importing data from various formats:
   h5write('data.h5', '/datasetName', dataArray);
   ```
 
-## Large Files and Big Data
+## LARGE FILES AND BIG DATA
 
 Handling large files and big data efficiently requires special functions and techniques:
 
@@ -75,7 +75,7 @@ Handling large files and big data efficiently requires special functions and tec
   tallData = tallData * 2;  % Element-wise operations on tall arrays
   ```
 
-## Preprocessing Data
+## PREPROCESSING DATA
 
 Preprocessing is crucial for preparing data for analysis. This involves cleaning, transforming, and organizing data.
 
@@ -100,7 +100,7 @@ Preprocessing is crucial for preparing data for analysis. This involves cleaning
   smoothedData = smoothdata(data, 'movmean', 5);  % Moving average filter
   ```
 
-## Descriptive Statistics
+## DESCRIPTIVE STATISTICS
 
 Descriptive statistics summarize and describe the features of a dataset.
 
@@ -122,7 +122,7 @@ Descriptive statistics summarize and describe the features of a dataset.
   covarianceMatrix = cov(data);
   ```
 
-## Visual Exploration
+## VISUAL EXPLORATION
 
 Visualizing data helps to uncover patterns, trends, and insights.
 
@@ -154,7 +154,7 @@ Visualizing data helps to uncover patterns, trends, and insights.
   heatmap(data);
   ```
 
-## Manage Experiments
+## MANAGE EXPERIMENTS
 
 Managing experiments involves organizing and tracking data and results from various experimental runs.
 

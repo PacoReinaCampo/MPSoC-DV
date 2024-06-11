@@ -1,8 +1,8 @@
-# Programming in MATLAB
+# PROGRAMMING IN MATLAB
 
 MATLAB offers a versatile environment for programming, enabling the creation of scripts, functions, live scripts, classes, and more. Here's a detailed guide on various programming aspects in MATLAB:
 
-## Scripts
+## SCRIPTS
 
 Scripts are files containing a sequence of MATLAB commands. They are useful for automating tasks that require a series of commands.
 
@@ -27,7 +27,7 @@ plot(x, y);
 title('Sine Wave');
 ```
 
-## Functions
+## FUNCTIONS
 
 Functions are files that accept input arguments and return output arguments. They are useful for encapsulating reusable code.
 
@@ -58,7 +58,7 @@ end
   result = myFunction(5, 3);  % Calls myFunction with inputs 5 and 3
   ```
 
-## Live Scripts and Functions
+## LIVE SCRIPTS AND FUNCTIONS
 
 Live scripts and functions combine code, output, and formatted text in an interactive environment. They have a `.mlx` extension.
 
@@ -78,7 +78,7 @@ result = myFunction(a, b);
 disp(result);
 ```
 
-## Classes
+## CLASSES
 
 MATLAB supports object-oriented programming through classes, enabling the definition of objects with properties and methods.
 
@@ -133,7 +133,7 @@ end
   disp(result);
   ```
 
-## Files and Folders
+## FILES AND FOLDERS
 
 Managing files and folders is essential for organizing code and data.
 
@@ -155,7 +155,7 @@ Managing files and folders is essential for organizing code and data.
   rmdir('newFolder', 's');  % Remove a folder and its contents
   ```
 
-## Code Execution
+## CODE EXECUTION
 
 Executing MATLAB code can be done interactively or via scripts and functions.
 
@@ -172,7 +172,7 @@ Executing MATLAB code can be done interactively or via scripts and functions.
   run('myScript.m');  % Run a script
   ```
 
-## Exception Handling
+## EXCEPTION HANDLING
 
 MATLAB provides error handling mechanisms to manage runtime errors.
 
@@ -200,7 +200,7 @@ catch ME
 end
 ```
 
-## Security in MATLAB Code
+## SECURITY IN MATLAB CODE
 
 Ensuring the security of MATLAB code involves safeguarding against unauthorized access and malicious code execution.
 

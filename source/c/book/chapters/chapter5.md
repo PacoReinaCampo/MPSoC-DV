@@ -1,8 +1,8 @@
-# Functions
+# FUNCTIONS
 
 Functions in C are fundamental units of code that perform specific tasks. Let's explore the various aspects of functions in detail.
 
-## Function Declarations
+## FUNCTION DECLARATIONS
 
 A function declaration, also known as a function prototype, specifies the function's name, return type, and parameters without providing the body.
 
@@ -12,7 +12,7 @@ int add(int, int);
 void printMessage(void);
 ```
 
-## Function Definitions
+## FUNCTION DEFINITIONS
 
 A function definition includes the function header and the body, where the actual code resides.
 
@@ -27,7 +27,7 @@ void printMessage(void) {
 }
 ```
 
-## Calling Functions
+## CALLING FUNCTIONS
 
 Functions are called by using their name followed by parentheses enclosing any arguments.
 
@@ -40,7 +40,7 @@ int main() {
 }
 ```
 
-## Function Parameters
+## FUNCTION PARAMETERS
 
 Function parameters are variables declared in the function declaration and definition to accept values passed during a function call.
 
@@ -56,7 +56,7 @@ int main() {
 }
 ```
 
-## Variable Length Parameter Lists
+## VARIABLE LENGTH PARAMETER LISTS
 
 C allows functions to accept a variable number of arguments using the `stdarg.h` library.
 
@@ -83,7 +83,7 @@ int main() {
 }
 ```
 
-## Calling Functions Through Function Pointers
+## CALLING FUNCTIONS THROUGH FUNCTION POINTERS
 
 Function pointers allow storing addresses of functions and calling them indirectly.
 
@@ -103,7 +103,7 @@ int main() {
 }
 ```
 
-## The main Function
+## THE MAIN FUNCTION
 
 The `main` function is the entry point of a C program. It can return an integer to the operating system and can take arguments.
 
@@ -122,7 +122,7 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-## Recursive Functions
+## RECURSIVE FUNCTIONS
 
 A recursive function calls itself to solve smaller instances of the same problem.
 
@@ -143,7 +143,7 @@ int main() {
 }
 ```
 
-## Static Functions
+## STATIC FUNCTIONS
 
 A static function in C has internal linkage, meaning it can only be called within the file it is defined in.
 
@@ -159,7 +159,7 @@ int main() {
 }
 ```
 
-## Nested Functions
+## NESTED FUNCTIONS
 
 C does not support nested functions (functions defined within other functions) directly. However, some compilers, like GCC, provide this as an extension.
 

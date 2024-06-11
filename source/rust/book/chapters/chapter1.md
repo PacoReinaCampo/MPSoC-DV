@@ -1,12 +1,12 @@
-# Getting Started
+# GETTING STARTED
 
 Here's a breakdown of each section based on the Rust programming language:
 
-## Installation
+## INSTALLATION
 
 To get started with Rust, you first need to install the Rust toolchain. You can do this by visiting the official Rust website and following the installation instructions specific to your operating system. Rustup is the recommended tool for managing Rust installations. Once installed, you'll have access to the Rust compiler (`rustc`) and package manager (`cargo`).
 
-## Hello, World!
+## HELLO, WORLD!
 
 Once Rust is installed, you can create your first Rust program, typically the traditional "Hello, World!" program. Create a new file with a `.rs` extension (e.g., `hello.rs`) and write the following code:
 
@@ -18,7 +18,7 @@ fn main() {
 
 This program defines a function named `main`, which serves as the entry point of the program. Inside `main`, it calls the `println!` macro to print the string "Hello, World!" to the console.
 
-## Hello, Cargo!
+## HELLO, CARGO!
 
 `Cargo` is Rust's package manager and build system. It simplifies the process of managing Rust projects, including dependencies, building, and running your code. To create a new Rust project with Cargo, navigate to your desired directory in the terminal and run:
 

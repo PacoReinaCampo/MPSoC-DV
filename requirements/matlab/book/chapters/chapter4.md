@@ -1,8 +1,8 @@
-# Mathematics in MATLAB
+# MATHEMATICS IN MATLAB
 
 MATLAB is a powerful tool for performing mathematical computations. Here's a detailed guide on various mathematical topics in MATLAB:
 
-## Elementary Math
+## ELEMENTARY MATH
 
 Elementary math operations in MATLAB include basic arithmetic, exponentiation, logarithms, and trigonometric functions.
 
@@ -35,7 +35,7 @@ cosine_val = cos(theta);
 tangent_val = tan(theta);
 ```
 
-## Linear Algebra
+## LINEAR ALGEBRA
 
 MATLAB is particularly strong in linear algebra, offering extensive functionality for matrix operations.
 
@@ -65,7 +65,7 @@ eig_vals = eig(A);
 [U, S, V] = svd(A);  % Singular value decomposition
 ```
 
-## Random Number Generation
+## RANDOM NUMBER GENERATION
 
 Generating random numbers is essential for simulations and statistical analysis.
 
@@ -83,7 +83,7 @@ uniform_rand = rand(1, 100);  % 1x100 array of uniform random numbers
 normal_rand = randn(1, 100);  % 1x100 array of normal random numbers
 ```
 
-## Interpolation
+## INTERPOLATION
 
 Interpolation is used to estimate values between data points.
 
@@ -102,7 +102,7 @@ yi = interp1(x, y, xi);  % Linear interpolation
 yi_spline = interp1(x, y, xi, 'spline');  % Spline interpolation
 ```
 
-## Optimization
+## OPTIMIZATION
 
 Optimization involves finding the minimum or maximum of functions.
 
@@ -124,7 +124,7 @@ x0 = [1, 2];  % Initial guess
 x_opt = fminunc(fun, x0);  % Find minimum
 ```
 
-## Numerical Integration and Differential Equations
+## NUMERICAL INTEGRATION AND DIFFERENTIAL EQUATIONS
 
 MATLAB provides functions for numerical integration and solving differential equations.
 
@@ -144,7 +144,7 @@ y0 = 1;
 [t, y] = ode45(ode_fun, tspan, y0);  % Solve ODE using ode45
 ```
 
-## Fourier Analysis and Filtering
+## FOURIER ANALYSIS AND FILTERING
 
 Fourier analysis is used for frequency domain analysis of signals.
 
@@ -166,7 +166,7 @@ x = cos(2*pi*100*t) + randn(size(t));  % Noisy signal
 filtered_x = filter(b, a, x);  % Apply filter
 ```
 
-## Sparse Matrices
+## SPARSE MATRICES
 
 Sparse matrices are used for efficiently storing and manipulating large, sparse datasets.
 
@@ -177,7 +177,7 @@ A = sparse([1, 2, 3], [1, 2, 3], [10, 20, 30], 5, 5);  % Create a sparse matrix
 full_A = full(A);  % Convert to full matrix
 ```
 
-## Graph and Network Algorithms
+## GRAPH AND NETWORK ALGORITHMS
 
 MATLAB supports graph theory and network analysis.
 
@@ -193,7 +193,7 @@ shortest_path = shortestpath(G, 1, 4);  % Find the shortest path from node 1 to 
 degree = degree(G);  % Degree of each node
 ```
 
-## Computational Geometry
+## COMPUTATIONAL GEOMETRY
 
 MATLAB provides tools for computational geometry tasks like convex hulls, Delaunay triangulation, etc.
 
@@ -212,7 +212,7 @@ tri = delaunay(points(:,1), points(:,2));
 triplot(tri, points(:,1), points(:,2));
 ```
 
-## Quantum Computing
+## QUANTUM COMPUTING
 
 MATLAB offers support for quantum computing, including quantum algorithms and simulation of quantum systems.
 

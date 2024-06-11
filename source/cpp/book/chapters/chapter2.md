@@ -1,4 +1,4 @@
-# Standard library (headers)
+# STANDARD LIBRARY (HEADERS)
 
 In C++, the Standard Library provides a rich set of functionalities encapsulated in various header files. Here's an explanation of some commonly used headers in the Standard Library:
 

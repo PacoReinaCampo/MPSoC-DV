@@ -1,4 +1,4 @@
-# Interactions
+# INTERACTIONS
 
 In Unified Modeling Language (UML), "interactions" represent the dynamic behavior of a system by modeling how objects or components collaborate and communicate with each other to accomplish a specific task or achieve a certain functionality. Interactions are essential for understanding the runtime behavior of a system, including the flow of control, the exchange of messages, and the synchronization of activities between different elements within the system.
 

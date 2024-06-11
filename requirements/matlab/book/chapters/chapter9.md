@@ -1,8 +1,8 @@
-# External Language Interfaces in MATLAB
+# EXTERNAL LANGUAGE INTERFACES IN MATLAB
 
 MATLAB supports integration with various external programming languages, allowing you to leverage the strengths of different languages within your MATLAB environment. Here's a detailed guide on interfacing MATLAB with C++, Java, Python, .NET, COM, web services, C, and Fortran.
 
-## C++ with MATLAB
+## C++ WITH MATLAB
 
 ### Calling C++ from MATLAB
 
@@ -38,7 +38,7 @@ To call C++ code from MATLAB, you can use MEX files or MATLAB Engine API.
      }
      ```
 
-## Java with MATLAB
+## JAVA WITH MATLAB
 
 ### Calling Java from MATLAB
 
@@ -72,7 +72,7 @@ You can use the MATLAB Engine API for Java.
      }
      ```
 
-## Python with MATLAB
+## PYTHON WITH MATLAB
 
 ### Calling Python from MATLAB
 
@@ -107,7 +107,7 @@ Use the MATLAB Engine API for Python.
      eng.quit()
      ```
 
-## .NET with MATLAB
+## .NET WITH MATLAB
 
 ### Calling .NET from MATLAB
 
@@ -141,7 +141,7 @@ Use MATLAB Engine API for .NET.
      }
      ```
 
-## COM with MATLAB
+## COM WITH MATLAB
 
 ### Calling COM Objects from MATLAB
 
@@ -171,7 +171,7 @@ MATLAB can interact with COM objects.
   matlab.Execute("disp('Hello from COM client')")
   ```
 
-## Web Services with MATLAB
+## WEB SERVICES WITH MATLAB
 
 ### Accessing Web Services
 
@@ -195,7 +195,7 @@ Use MATLAB Production Server to deploy MATLAB functions as web services.
   2. **Deploy to MATLAB Production Server**:
      Configure the server to host the compiled archive.
 
-## C with MATLAB
+## C WITH MATLAB
 
 ### Calling C from MATLAB
 
@@ -230,7 +230,7 @@ Use the MATLAB Engine API for C.
   }
   ```
 
-## Fortran with MATLAB
+## FORTRAN WITH MATLAB
 
 ### Calling Fortran from MATLAB
 

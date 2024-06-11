@@ -1,4 +1,4 @@
-# Packages
+# PACKAGES
 
 In Unified Modeling Language (UML), "Packages" are used to organize and group related model elements into cohesive units. They provide a mechanism for managing complexity, improving modularity, and enhancing the readability and maintainability of UML models. Packages serve as containers for encapsulating classes, interfaces, components, diagrams, and other model elements, allowing for hierarchical organization and structuring of the model. Let's delve into the concept of packages in more detail:
 

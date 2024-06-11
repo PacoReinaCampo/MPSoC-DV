@@ -1,8 +1,8 @@
-# Environment and Settings in MATLAB
+# ENVIRONMENT AND SETTINGS IN MATLAB
 
 MATLAB provides various tools and settings to customize your development environment and manage your MATLAB installation. Here's a guide covering startup and shutdown procedures, desktop customization, add-ons, platform and license management, system commands, internationalization, and help and support options.
 
-## Startup and Shutdown
+## STARTUP AND SHUTDOWN
 
 ### Startup Configuration
 
@@ -20,7 +20,7 @@ MATLAB provides various tools and settings to customize your development environ
 - **Close Figures**:
   MATLAB closes all open figures by default.
 
-## Desktop
+## DESKTOP
 
 ### Customizing the MATLAB Desktop
 
@@ -39,7 +39,7 @@ MATLAB provides various tools and settings to customize your development environ
 - **Favorites**:
   Add frequently used folders or files to the Favorites section for quick access.
 
-## Add-Ons
+## ADD-ONS
 
 ### Managing Add-Ons
 
@@ -49,7 +49,7 @@ MATLAB provides various tools and settings to customize your development environ
 - **Installed Add-Ons**:
   View and manage installed Add-Ons via the "Add-On Manager".
 
-## Platform and License
+## PLATFORM AND LICENSE
 
 ### Platform-specific Settings
 
@@ -64,7 +64,7 @@ MATLAB provides various tools and settings to customize your development environ
 - **Checking License Status**:
   Use the `license` function to check the current license status and details.
 
-## System Commands
+## SYSTEM COMMANDS
 
 ### Running System Commands
 
@@ -74,7 +74,7 @@ MATLAB provides various tools and settings to customize your development environ
   system('ls -l');
   ```
 
-## Internationalization
+## INTERNATIONALIZATION
 
 ### Language and Locale Settings
 
@@ -84,7 +84,7 @@ MATLAB provides various tools and settings to customize your development environ
 - **Locale Settings**:
   Set locale-specific formatting options (e.g., decimal separator, date format).
 
-## Help and Support
+## HELP AND SUPPORT
 
 ### Accessing Help Resources
 

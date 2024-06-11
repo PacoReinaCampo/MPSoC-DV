@@ -1,8 +1,8 @@
-# Common Programming Concepts
+# COMMON PROGRAMMING CONCEPTS
 
 Here's an explanation of each of these common programming concepts in Rust:
 
-## Variables and Mutability
+## VARIABLES AND MUTABILITY
 
 In Rust, variables are immutable by default, meaning their value cannot be changed once set. However, you can explicitly declare a variable as mutable using the `mut` keyword, allowing its value to be changed. For example:
 
@@ -15,7 +15,7 @@ let mut y = 10;
 y = 20; // Valid
 ```
 
-## Data Types
+## DATA TYPES
 
 Rust has several built-in primitive data types, including integers, floating-point numbers, booleans, characters, and compound types like tuples, arrays, and structs. Rust also supports user-defined data types through enums and structs. Here are a few examples:
 
@@ -39,7 +39,7 @@ let tuple: (i32, f64, char) = (42, 3.14, 'A');
 let array: [i32; 3] = [1, 2, 3];
 ```
 
-## Functions
+## FUNCTIONS
 
 Functions in Rust are declared using the `fn` keyword. They can have parameters and return values. Rust functions must declare the type of each parameter and the return type. Here's a simple function declaration:
 
@@ -49,7 +49,7 @@ fn add(a: i32, b: i32) -> i32 {
 }
 ```
 
-## Comments
+## COMMENTS
 
 Rust supports both single-line (`//`) and multi-line (`/* */`) comments. Comments are ignored by the compiler and are used to document code or temporarily disable portions of code. For example:
 
@@ -63,7 +63,7 @@ comment
 */
 ```
 
-## Control Flow
+## CONTROL FLOW
 
 Rust provides various control flow constructs like `if`, `else`, `match`, `loop`, `while`, and `for`. Here's a basic example using `if`:
 

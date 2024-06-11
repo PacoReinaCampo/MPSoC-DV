@@ -1,8 +1,8 @@
-# Modeling Layer
+# MODELING LAYER
 
 The modeling layer in languages like PSL (Property Specification Language) is used to define and manipulate data types and structures that are essential for accurately representing and verifying the behavior of hardware designs. This layer provides constructs for specifying data types, including integer ranges and complex data structures.
 
-## Integer Ranges
+## INTEGER RANGES
 
 ### Purpose
 
@@ -23,7 +23,7 @@ signal counter : small_int := 0;
 
 In this example, `small_int` is an integer type that ranges from 0 to 15, and `counter` is a signal of this type initialized to 0.
 
-## Structures
+## STRUCTURES
 
 ### Purpose
 

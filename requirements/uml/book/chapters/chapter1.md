@@ -1,4 +1,4 @@
-# Scope
+# SCOPE
 
 Unified Modeling Language (UML) is a standardized modeling language used in software engineering for visualizing, specifying, constructing, and documenting the artifacts of software systems. In UML, the concept of "scope" refers to the extent or boundary within which certain elements or constructs are defined and applicable. UML provides various mechanisms to represent scope within a system.
 
