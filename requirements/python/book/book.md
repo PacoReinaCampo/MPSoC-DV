@@ -8,13 +8,3 @@ chapters/chapter7.md
 chapters/chapter8.md
 chapters/chapter9.md
 chapters/chapter10.md
-chapters/chapter11.md
-chapters/chapter12.md
-chapters/chapter13.md
-chapters/chapter14.md
-chapters/chapter15.md
-chapters/chapter16.md
-chapters/chapter17.md
-chapters/chapter18.md
-chapters/chapter19.md
-chapters/chapter20.md
