@@ -12,7 +12,7 @@
 | doc           | IEEE STD 1685-2014   | IP-XACT       |
 |               | IEEE STD 1735-2014   | IP-Manager    |
 |               | IEEE STD 1801-2013   | Low Power     |
-|               | IEEE STD 754-2019    | Float Point   |
+|               | IEEE STD 0754-2019   | Float Point   |
 |               | IEEE STD 1754-1994   | RISC 32 Bit   |
 | source        | IEEE STD 1666-2011   | SystemC       |
 | model         | IEEE STD 1076-2019   | VHDL          |
@@ -25,33 +25,7 @@
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-## HARDWARE PLANS
-
-In DO-254, hardware plans are critical documents that outline the strategies, methodologies, resources, and schedules for various aspects of the hardware development lifecycle. These plans ensure that all activities are carried out systematically and in compliance with regulatory requirements.
-
-* Data Required for the Final Certification Hardware
-  * Hardware Accomplishment Summary
-  * Hardware Configuration Index
-  * Hardware Configuration Management Records
-  * Hardware Life Cycle Environment Configuration Index
-  * Hardware Process Assurance Records
-  * Hardware Verification Results
-  * Problem Reports
-* Data Required for the Hardware Development
-  * Hardware Configuration Management Records
-  * Hardware Design Data
-  * Hardware Design Schematics
-  * Hardware Life Cycle Environment Configuration Index
-  * Hardware Process Assurance Records
-  * Hardware Requirements
-  * Hardware Requirements Design and HDL Code Standards
-  * Hardware Review and Analysis Procedures
-  * Hardware Review and Analysis Results
-  * Hardware Tool Qualification Data
-  * Hardware Traceability Data
-  * HDL
-  * Problem Reports
-* Data Required for the Hardware Planning Review
+* Data Required for the Hardware Planning
   * Hardware Configuration Management Plan
   * Hardware Design Plan
   * Hardware Process Assurance Plan
@@ -74,6 +48,34 @@ In DO-254, hardware plans are critical documents that outline the strategies, me
   * Hardware Verification Results
   * HDL
   * Problem Reports
+* Data Required for the Hardware Development
+  * Hardware Configuration Management Records
+  * Hardware Design Data
+  * Hardware Design Schematics
+  * Hardware Life Cycle Environment Configuration Index
+  * Hardware Process Assurance Records
+  * Hardware Requirements
+  * Hardware Requirements Design and HDL Code Standards
+  * Hardware Review and Analysis Procedures
+  * Hardware Review and Analysis Results
+  * Hardware Tool Qualification Data
+  * Hardware Traceability Data
+  * HDL
+  * Problem Reports
+* Data Required for the Final Certification Hardware
+  * Hardware Accomplishment Summary
+  * Hardware Configuration Index
+  * Hardware Configuration Management Records
+  * Hardware Life Cycle Environment Configuration Index
+  * Hardware Process Assurance Records
+  * Hardware Verification Results
+  * Problem Reports
+
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+
+## HARDWARE PLANS
+
+In DO-254, hardware plans are critical documents that outline the strategies, methodologies, resources, and schedules for various aspects of the hardware development lifecycle. These plans ensure that all activities are carried out systematically and in compliance with regulatory requirements.
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 

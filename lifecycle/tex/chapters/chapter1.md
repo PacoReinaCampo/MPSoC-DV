@@ -2,14 +2,17 @@
 
 In DO-254, hardware plans are critical documents that outline the strategies, methodologies, resources, and schedules for various aspects of the hardware development lifecycle. These plans ensure that all activities are carried out systematically and in compliance with regulatory requirements.
 
-* Data Required for the Final Certification Hardware
-  * Hardware Accomplishment Summary
-  * Hardware Configuration Index
-  * Hardware Configuration Management Records
-  * Hardware Life Cycle Environment Configuration Index
+* Data Required for the Hardware Planning
+  * Hardware Configuration Management Plan
+  * Hardware Design Plan
+  * Hardware Process Assurance Plan
   * Hardware Process Assurance Records
-  * Hardware Verification Results
-  * Problem Reports
+  * Hardware Requirements Design HDL Code Validation and Verification and Archive Standards
+  * Hardware Validation Plan
+  * Hardware Verification Plan
+  * Plan for Hardware Aspects of Certification
+  * Supplier Management Plan
+  * Tool Qualification Plans
 * Data Required for the Hardware Development
   * Hardware Configuration Management Records
   * Hardware Design Data
@@ -24,17 +27,6 @@ In DO-254, hardware plans are critical documents that outline the strategies, me
   * Hardware Traceability Data
   * HDL
   * Problem Reports
-* Data Required for the Hardware Planning Review
-  * Hardware Configuration Management Plan
-  * Hardware Design Plan
-  * Hardware Process Assurance Plan
-  * Hardware Process Assurance Records
-  * Hardware Requirements Design HDL Code Validation and Verification and Archive Standards
-  * Hardware Validation Plan
-  * Hardware Verification Plan
-  * Plan for Hardware Aspects of Certification
-  * Supplier Management Plan
-  * Tool Qualification Plans
 * Data Required for the Hardware Verification
   * Hardware Configuration Management Records
   * Hardware Design Representation Data
@@ -46,6 +38,14 @@ In DO-254, hardware plans are critical documents that outline the strategies, me
   * Hardware Verification Procedures
   * Hardware Verification Results
   * HDL
+  * Problem Reports
+* Data Required for the Final Certification Hardware
+  * Hardware Accomplishment Summary
+  * Hardware Configuration Index
+  * Hardware Configuration Management Records
+  * Hardware Life Cycle Environment Configuration Index
+  * Hardware Process Assurance Records
+  * Hardware Verification Results
   * Problem Reports
 
 | Data Required for the Hardware Planning Review                                            |

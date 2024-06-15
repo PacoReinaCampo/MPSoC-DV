@@ -378,6 +378,69 @@ class traditional_workers : private traditional_classes {
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
+| prefix | isa width | alpha code | instruction width | extension description                                                        |
+|--------|:----------|:-----------|:------------------|:-----------------------------------------------------------------------------|
+| `rv`   | `32`      | `i`        | `32`              | `RV32I Base Integer Instruction Set`                                         |
+| `rv`   | `64`      | `i`        | `32`              | `RV64I Base Integer Instruction Set (+ RV32I)`                               |
+| `rv`   | `128`     | `i`        | `32`              | `RV128I Base Integer Instruction Set (+ RV64I)`                              |
+| `rv`   | `32`      | `m`        | `32`              | `RV32M Standard Extension for Integer Multiply and Divide`                   |
+| `rv`   | `64`      | `m`        | `32`              | `RV64M Standard Extension for Integer Multiply and Divide (+ RV32M)`         |
+| `rv`   | `128`     | `m`        | `32`              | `RV128M Standard Extension for Integer Multiply and Divide (+ RV64M)`        |
+| `rv`   | `32`      | `a`        | `32`              | `RV32A Standard Extension for Atomic Instructions`                           |
+| `rv`   | `64`      | `a`        | `32`              | `RV64A Standard Extension for Atomic Instructions (+ RV32A)`                 |
+| `rv`   | `128`     | `a`        | `32`              | `RV128A Standard Extension for Atomic Instructions (+ RV64A)`                |
+| `rv`   | `32`      | `f`        | `32`              | `RV32F Standard Extension for Single-Precision Floating-Point`               |
+| `rv`   | `64`      | `f`        | `32`              | `RV64F Standard Extension for Single-Precision Floating-Point (+ RV32F)`     |
+| `rv`   | `128`     | `f`        | `32`              | `RV128F Standard Extension for Single-Precision Floating-Point (+ RV64F)`    |
+| `rv`   | `32`      | `d`        | `32`              | `RV32D Standard Extension for Double-Precision Floating-Point`               |
+| `rv`   | `64`      | `d`        | `32`              | `RV64D Standard Extension for Double-Precision Floating-Point (+ RV32D)`     |
+| `rv`   | `128`     | `d`        | `32`              | `RV128D Standard Extension for Double-Precision Floating-Point (+ RV64D)`    |
+| `rv`   | `32`      | `q`        | `32`              | `RV32Q Standard Extension for Quadruple-Precision Floating-Point`            |
+| `rv`   | `64`      | `q`        | `32`              | `RV64Q Standard Extension for Quadruple-Precision Floating-Point (+ RV32Q)`  |
+| `rv`   | `128`     | `q`        | `32`              | `RV128Q Standard Extension for Quadruple-Precision Floating-Point (+ RV64Q)` |
+| `rv`   | `32`      | `c`        | `16`              | `RV32C Standard Extension for Compressed Instructions`                       |
+| `rv`   | `64`      | `c`        | `16`              | `RV64C Standard Extension for Compressed Instructions (+ RV32C)`             |
+| `rv`   | `128`     | `c`        | `16`              | `RV128C Standard Extension for Compressed Instructions (+ RV64C)`            |
+| `rv`   | `32`      | `s`        | `32`              | `RV32S Standard Extension for Supervisor-level Instructions`                 |
+| `rv`   | `64`      | `s`        | `32`              | `RV64S Standard Extension for Supervisor-level Instructions (+ RV32S)`       |
+| `rv`   | `128`     | `s`        | `32`              | `RV128S Standard Extension for Supervisor-level Instructions (+ RV64S)`      |
+| `rv`   | `32`      | `h`        | `32`              | `RV32H Standard Extension for Hypervisor-level Instructions`                 |
+| `rv`   | `64`      | `h`        | `32`              | `RV64H Standard Extension for Hypervisor-level Instructions (+ RV32H)`       |
+| `rv`   | `128`     | `h`        | `32`              | `RV128H Standard Extension for Hypervisor-level Instructions (+ RV64H)`      |
+| `rv`   | `32`      | `m`        | `32`              | `RV32M Standard Extension for Machine-level Instructions`                    |
+| `rv`   | `64`      | `m`        | `32`              | `RV64M Standard Extension for Machine-level Instructions (+ RV32M)`          |
+| `rv`   | `128`     | `m`        | `32`              | `RV128M Standard Extension for Machine-level Instructions (+ RV64M)`         |
+| `rv`   | `32`      | `p`        | `32`              | `RV32P Standard Extension for Packed SIMD Instructions`                      |
+| `rv`   | `64`      | `p`        | `32`              | `RV64P Standard Extension for Packed SIMD Instructions (+ RV32P)`            |
+| `rv`   | `128`     | `p`        | `32`              | `RV128P Standard Extension for Packed SIMD Instructions (+ RV64P)`           |
+| `rv`   | `32`      | `v`        | `32`              | `RV32V Standard Extension for Vector Operations`                             |
+| `rv`   | `64`      | `v`        | `32`              | `RV64V Standard Extension for Vector Operations (+ RV32V)`                   |
+| `rv`   | `128`     | `v`        | `32`              | `RV128V Standard Extension for Vector Operations (+ RV64V)`                  |
+| `rv`   | `32`      | `t`        | `32`              | `RV32T Standard Extension for Transactional Memory`                          |
+| `rv`   | `64`      | `t`        | `32`              | `RV64T Standard Extension for Transactional Memory (+ RV32T)`                |
+| `rv`   | `128`     | `t`        | `32`              | `RV128T Standard Extension for Transactional Memory (+ RV64T)`               |
+| `rv`   | `32`      | `rmath`    | `32`              | `RV32RMATH Standard Extension for Real Math`                                 |
+| `rv`   | `64`      | `rmath`    | `32`              | `RV64RMATH Standard Extension for Real Math (+ RV32RMATH)`                   |
+| `rv`   | `128`     | `rmath`    | `32`              | `RV128RMATH Standard Extension for Real Math (+ RV64RMATH)`                  |
+| `rv`   | `32`      | `cmath`    | `32`              | `RV32CMATH Standard Extension for Complex Math`                              |
+| `rv`   | `64`      | `cmath`    | `32`              | `RV64CMATH Standard Extension for Complex Math (+ RV32CMATH)`                |
+| `rv`   | `128`     | `cmath`    | `32`              | `RV128CMATH Standard Extension for Complex Math (+ RV64CMATH)`               |
+| `rv`   | `32`      | `ralg`     | `32`              | `RV32RALG Standard Extension for Real Linear Algebra`                        |
+| `rv`   | `64`      | `ralg`     | `32`              | `RV64RALG Standard Extension for Real Linear Algebraa (+ RV32RALG)`          |
+| `rv`   | `128`     | `ralg`     | `32`              | `RV128RALG Standard Extension for Real Linear Algebra (+ RV64RALG)`          |
+| `rv`   | `32`      | `calg`     | `32`              | `RV32CALG Standard Extension for Complex Linear Algebra`                     |
+| `rv`   | `64`      | `calg`     | `32`              | `RV64CALG Standard Extension for Complex Linear Algebra (+ RV32CALG)`        |
+| `rv`   | `128`     | `calg`     | `32`              | `RV128CALG Standard Extension for Complex Linear Algebra (+ RV64CALG)`       |
+| `rv`   | `32`      | `rnn`      | `32`              | `RV32RNN Expanded Extension for Real Neural Network`                         |
+| `rv`   | `64`      | `rnn`      | `32`              | `RV64RNN Expanded Extension for Real Neural Network (+ RV32RNN)`             |
+| `rv`   | `128`     | `rnn`      | `32`              | `RV128RNN Expanded Extension for Real Neural Network (+ RV64RNN)`            |
+| `rv`   | `32`      | `cnn`      | `32`              | `RV32CNN Expanded Extension for Complex Neural Network`                      |
+| `rv`   | `64`      | `cnn`      | `32`              | `RV64CNN Expanded Extension for Complex Neural Network (+ RV32CNN)`          |
+| `rv`   | `128`     | `cnn`      | `32`              | `RV128CNN Expanded Extension for Complex Neural Network (+ RV64CNN)`         |
+: Instruction Set Extensions
+
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+
 ### Perceptron Neural Network
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
@@ -779,7 +842,7 @@ spike pk MPSoC-riscv.elf
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 | Write Port | Read Port  |  Size            | Direction | Description                              |
-| ---------- | ---------- | ---------------- | --------- | ---------------------------------------- |
+|------------|:-----------|:-----------------|:----------|:-----------------------------------------|
 | `AWID`     | `ARID`     | `AXI_ID_WIDTH`   | Output    | Address ID, to identify multiple streams |
 | `AWADDR`   | `ARADDR`   | `AXI_ADDR_WIDTH` | Output    | Address of the first beat of the burst   |
 | `AWLEN`    | `ARLEN`    |         8        | Output    | Number of beats inside the burst         |
@@ -802,7 +865,7 @@ spike pk MPSoC-riscv.elf
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 | Write Port | Read Port  |  Size            | Direction | Description                           |
-| ---------- | ---------- | ---------------- | --------- | ------------------------------------- |
+|------------|:-----------|:-----------------|:----------|:--------------------------------------|
 | `WID`      | `RID`      | `AXI_ID_WIDTH`   | Output    | Data ID, to identify multiple streams |
 | `WDATA`    | `RDATA`    | `AXI_DATA_WIDTH` | Output    | Read/Write data                       |
 |    `--`    | `RRESP`    |        2         | Output    | Read response, current RDATA status   |
@@ -820,7 +883,7 @@ spike pk MPSoC-riscv.elf
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 | Write Port | Size             | Direction | Description                                     |
-| ---------- | ---------------- | --------- | ----------------------------------------------- |
+|------------|:-----------------|:----------|:------------------------------------------------|
 | `BID`      | `AXI_ID_WIDTH`   |   Input   | Write response ID, to identify multiple streams |
 | `BRESP`    |         2        |   Input   | Write response, to specify the burst status     |
 | `BUSER`    | `AXI_USER_WIDTH` |   Input   | User-defined data                               |
@@ -835,7 +898,7 @@ spike pk MPSoC-riscv.elf
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 | Port         |  Size  | Direction | Description                           |
-| ------------ | ------ | --------- | ------------------------------------- |
+|--------------|:-------|:----------|:--------------------------------------|
 | `HRESETn`    |    1   |   Input   | Asynchronous Active Low Reset         |
 | `HCLK`       |    1   |   Input   | System Clock Input                    |
 |              |        |           |                                       |
@@ -860,7 +923,7 @@ spike pk MPSoC-riscv.elf
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 | Port    |  Size  | Direction | Description                     |
-| ------- | ------ | --------- | ------------------------------- |
+|---------|:-------|:----------|:--------------------------------|
 | `rst`   |    1   |   Input   | Synchronous Active High Reset   |
 | `clk`   |    1   |   Input   | System Clock Input              |
 |         |        |           |                                 |
@@ -891,7 +954,7 @@ spike pk MPSoC-riscv.elf
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 | Write Port | Read Port  |  Size            | Direction | Description                              |
-| ---------- | ---------- | ---------------- | --------- | ---------------------------------------- |
+|------------|:-----------|:-----------------|:----------|:-----------------------------------------|
 | `AWID`     | `ARID`     | `AXI_ID_WIDTH`   | Output    | Address ID, to identify multiple streams |
 | `AWADDR`   | `ARADDR`   | `AXI_ADDR_WIDTH` | Output    | Address of the first beat of the burst   |
 | `AWLEN`    | `ARLEN`    |         8        | Output    | Number of beats inside the burst         |
@@ -914,7 +977,7 @@ spike pk MPSoC-riscv.elf
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 | Write Port | Read Port  |  Size            | Direction | Description                           |
-| ---------- | ---------- | ---------------- | --------- | ------------------------------------- |
+|------------|:-----------|:-----------------|:----------|:--------------------------------------|
 | `WID`      | `RID`      | `AXI_ID_WIDTH`   | Output    | Data ID, to identify multiple streams |
 | `WDATA`    | `RDATA`    | `AXI_DATA_WIDTH` | Output    | Read/Write data                       |
 |    `--`    | `RRESP`    |        2         | Output    | Read response, current RDATA status   |
@@ -932,7 +995,7 @@ spike pk MPSoC-riscv.elf
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 | Write Port | Size             | Direction | Description                                     |
-| ---------- | ---------------- | --------- | ----------------------------------------------- |
+|------------|:-----------------|:----------|:------------------------------------------------|
 | `BID`      | `AXI_ID_WIDTH`   |   Input   | Write response ID, to identify multiple streams |
 | `BRESP`    |         2        |   Input   | Write response, to specify the burst status     |
 | `BUSER`    | `AXI_USER_WIDTH` |   Input   | User-defined data                               |
@@ -947,7 +1010,7 @@ spike pk MPSoC-riscv.elf
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 | Port         |  Size  | Direction | Description                    |
-| ------------ | ------ | --------- | ------------------------------ |
+|--------------|:-------|:----------|:-------------------------------|
 | `HRESETn`    |    1   |   Input   | Asynchronous Active Low Reset  |
 | `HCLK`       |    1   |   Input   | System Clock Input             |
 |              |        |           |                                |
@@ -972,7 +1035,7 @@ spike pk MPSoC-riscv.elf
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 | Port    |  Size  | Direction | Description                     |
-| ------- | ------ | --------- | ------------------------------- |
+|---------|:-------|:----------|:--------------------------------|
 | `rst`   |    1   |   Input   | Synchronous Active High Reset   |
 | `clk`   |    1   |   Input   | System Clock Input              |
 |         |        |           |                                 |
