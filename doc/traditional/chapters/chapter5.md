@@ -16,7 +16,7 @@ In summary, advanced computer architectures like SIMD, MISD, and MIMD extend bey
 
 The processing unit, often referred to as the central processing unit (CPU) in most computing systems, is a fundamental component responsible for executing instructions and performing calculations necessary for the operation of the system. It serves as the "brain" of the computer, orchestrating the execution of programs and managing the flow of data within the system. Let's explore the processing unit in detail:
 
-### Components of a Processing Unit:
+Components of a Processing Unit:
 
 1. **Arithmetic Logic Unit (ALU):**
 
@@ -35,7 +35,7 @@ The processing unit, often referred to as the central processing unit (CPU) in m
    - They are used to store operands for arithmetic and logical operations, intermediate results, memory addresses, and status flags indicating the outcome of operations.
    - Common types of registers include the program counter (PC), instruction register (IR), memory address register (MAR), memory data register (MDR), and general-purpose registers (GPRs).
 
-### Operation of a Processing Unit:
+Operation of a Processing Unit:
 
 1. **Fetch-Decode-Execute Cycle:**
 
@@ -49,7 +49,7 @@ The processing unit, often referred to as the central processing unit (CPU) in m
    - Instructions are executed one at a time, with the control unit sequentially fetching, decoding, and executing each instruction in the program.
    - The execution of instructions may involve accessing data from memory or registers, performing calculations or logical operations, and storing the results back into memory or registers.
 
-### Types of Processing Units:
+Types of Processing Units:
 
 1. **Single-Core CPU:**
 
@@ -72,7 +72,7 @@ The processing unit, often referred to as the central processing unit (CPU) in m
    - AI accelerators, such as TPUs (Tensor Processing Units) and NPUs (Neural Processing Units), are specialized processing units optimized for accelerating machine learning and artificial intelligence workloads.
    - They often feature highly parallel architectures and specialized instructions tailored for matrix operations and neural network computations.
 
-### Advancements and Trends:
+Advancements and Trends:
 
 1. **Increased Parallelism:**
 
@@ -162,7 +162,7 @@ MIMD architecture is the most versatile and widely used parallel computing model
 
 A System on Chip (SoC) is a complete integrated circuit (IC) that encapsulates most or all of the components of a computer or electronic system on a single chip. SoC integrates various hardware components such as the central processing unit (CPU), memory, input/output (I/O) interfaces, digital signal processors (DSPs), graphics processing units (GPUs), and other specialized components onto a single silicon die. Let's delve into the details of System on Chip architecture:
 
-### Components of a System on Chip (SoC):
+Components of a System on Chip (SoC):
 
 1. **Central Processing Unit (CPU):**
 
@@ -199,7 +199,7 @@ A System on Chip (SoC) is a complete integrated circuit (IC) that encapsulates m
    - SoCs may incorporate hardware-based security features to protect sensitive data and prevent unauthorized access.
    - These security features may include cryptographic accelerators, secure boot mechanisms, hardware-based random number generators, and secure execution environments.
 
-### Advantages of System on Chip (SoC) Architecture:
+Advantages of System on Chip (SoC) Architecture:
 
 1. **Integration:**
 
@@ -226,7 +226,7 @@ A System on Chip (SoC) is a complete integrated circuit (IC) that encapsulates m
    - SoCs are widely used in embedded systems and Internet of Things (IoT) devices due to their compact size, low power consumption, and high level of integration.
    - SoCs enable the development of smart devices, wearable electronics, home automation systems, and industrial IoT applications.
 
-### Applications of System on Chip (SoC):
+Applications of System on Chip (SoC):
 
 1. **Mobile Devices:**
 
@@ -248,7 +248,7 @@ A System on Chip (SoC) is a complete integrated circuit (IC) that encapsulates m
 
    - SoCs are extensively used in embedded systems for various applications, including embedded computing, embedded vision, robotics, medical devices, and aerospace systems.
 
-### Challenges and Considerations:
+Challenges and Considerations:
 
 1. **Complexity:**
 
@@ -290,7 +290,7 @@ In conclusion, System on Chip (SoC) architecture represents a highly integrated 
 
 "Bus on Chip" (BoC) is an emerging communication architecture for System on Chip (SoC) designs, offering an alternative to traditional bus-based interconnects. BoC architecture integrates the features and advantages of both buses and networks on chip (NoCs), aiming to provide scalable, efficient, and flexible communication within SoCs. Let's explore the components, operation, advantages, and applications of Bus on Chip architecture:
 
-#### Components of Bus on Chip (BoC):
+Components of Bus on Chip (BoC):
 
 1. **Bus Interface Units (BIUs):**
 
@@ -312,7 +312,7 @@ In conclusion, System on Chip (SoC) architecture represents a highly integrated 
    - In BoC architecture, the switching fabric provides the interconnection between BIUs and facilitates data transfer between different components.
    - It may include crossbar switches, multiplexers, or hierarchical interconnects to support scalable and flexible communication.
 
-#### Operation of Bus on Chip (BoC):
+Operation of Bus on Chip (BoC):
 
 1. **Centralized Bus Architecture:**
 
@@ -329,7 +329,7 @@ In conclusion, System on Chip (SoC) architecture represents a highly integrated 
    - BoC supports various data transfer modes, including burst mode, block mode, and streaming mode, depending on the application requirements.
    - Burst mode enables the transfer of multiple data elements in a single transaction, while block mode transfers contiguous data blocks, and streaming mode transfers continuous data streams.
 
-#### Advantages of Bus on Chip (BoC):
+Advantages of Bus on Chip (BoC):
 
 1. **Scalability:**
 
@@ -351,7 +351,7 @@ In conclusion, System on Chip (SoC) architecture represents a highly integrated 
    - BoC architecture allows designers to configure the bus topology, arbitration scheme, and data transfer modes according to specific application requirements.
    - It supports various bus protocols and standards, enabling interoperability with different IP cores and peripherals.
 
-#### Applications of Bus on Chip (BoC):
+Applications of Bus on Chip (BoC):
 
 1. **Embedded Systems:**
 
@@ -373,7 +373,7 @@ In conclusion, System on Chip (SoC) architecture represents a highly integrated 
    - BoC architectures are integrated into consumer electronics products such as smartphones, tablets, and digital cameras for connecting processors, memory, displays, and peripherals.
    - They support multimedia processing, display interfaces (MIPI DSI, HDMI), and connectivity standards (USB, Wi-Fi, Bluetooth).
 
-#### Challenges and Considerations:
+Challenges and Considerations:
 
 1. **Bandwidth and Scalability:**
 
@@ -401,7 +401,7 @@ In summary, Bus on Chip (BoC) architecture offers a scalable, efficient, and fle
 
 Network on Chip (NoC) is a specialized communication architecture used in System on Chip (SoC) designs to facilitate efficient data exchange and communication between various components and processing elements integrated onto a single chip. It provides a scalable and high-performance communication infrastructure, analogous to a computer network, to connect different IP cores, processors, memory blocks, and other hardware accelerators within the SoC. Let's explore the components, operation, advantages, and applications of Network on Chip architecture:
 
-#### Components of Network on Chip (NoC):
+Components of Network on Chip (NoC):
 
 1. **Router:**
 
@@ -423,7 +423,7 @@ Network on Chip (NoC) is a specialized communication architecture used in System
    - The switching fabric defines the interconnection topology and determines how data packets are routed through the network.
    - Various topologies such as mesh, torus, ring, tree, and hypercube can be employed based on factors like scalability, fault tolerance, and performance requirements.
 
-#### Operation of Network on Chip (NoC):
+Operation of Network on Chip (NoC):
 
 1. **Packet-Based Communication:**
 
@@ -440,7 +440,7 @@ Network on Chip (NoC) is a specialized communication architecture used in System
    - Flow control mechanisms regulate the rate of data transmission and prevent congestion and packet loss within the network.
    - Techniques such as credit-based flow control, virtual channels, and wormhole routing are commonly used to manage traffic and ensure efficient utilization of network resources.
 
-#### Advantages of Network on Chip (NoC):
+Advantages of Network on Chip (NoC):
 
 1. **Scalability:**
 
@@ -467,7 +467,7 @@ Network on Chip (NoC) is a specialized communication architecture used in System
    - NoC architectures are designed to optimize power consumption by employing energy-efficient routing algorithms, power-aware routing strategies, and low-power link and router designs.
    - Power gating, clock gating, and voltage scaling techniques can be applied to reduce energy consumption during idle periods and low-traffic conditions.
 
-#### Applications of Network on Chip (NoC):
+Applications of Network on Chip (NoC):
 
 1. **Multi-Core Processors:**
 
@@ -494,7 +494,7 @@ Network on Chip (NoC) is a specialized communication architecture used in System
    - NoC architectures are employed in wireless communication systems, baseband processors, and radio-frequency (RF) transceivers to connect digital signal processing (DSP) cores, modems, and antenna arrays within the SoC.
    - They enable efficient data transfer, protocol processing, and signal modulation in wireless communication protocols such as Wi-Fi, Bluetooth, and LTE.
 
-#### Challenges and Considerations:
+Challenges and Considerations:
 
 1. **Design Complexity:**
 
@@ -527,7 +527,7 @@ In conclusion, Network on Chip (NoC) architecture provides a scalable, high-perf
 
 A Multi-Processor System on Chip (MPSoC) is a highly integrated semiconductor device that incorporates multiple processor cores, along with other hardware components like memory, interconnects, and peripherals, onto a single chip. It's designed to handle multiple tasks concurrently and efficiently distribute computational workload among the processor cores. Here's a detailed explanation of MPSoCs:
 
-### Components of Multi-Processor System on Chip (MPSoC):
+Components of Multi-Processor System on Chip (MPSoC):
 
 1. **Processor Cores:**
 
@@ -558,7 +558,7 @@ A Multi-Processor System on Chip (MPSoC) is a highly integrated semiconductor de
    - Many MPSoCs include hardware-based security features to protect against various security threats, including secure boot, cryptographic accelerators, hardware firewalls, and secure enclaves.
    - These security features help safeguard sensitive data, prevent unauthorized access, and protect against attacks such as malware, side-channel attacks, and physical tampering.
 
-### Operation of Multi-Processor System on Chip (MPSoC):
+Operation of Multi-Processor System on Chip (MPSoC):
 
 1. **Task Parallelism:**
 
@@ -580,7 +580,7 @@ A Multi-Processor System on Chip (MPSoC) is a highly integrated semiconductor de
    - Load balancing algorithms ensure that computational tasks are evenly distributed among the available processor cores to maximize overall system throughput.
    - Dynamic load balancing techniques monitor the workload on each core and adjust task assignments dynamically to avoid bottlenecks and idle cores.
 
-### Advantages of Multi-Processor System on Chip (MPSoC):
+Advantages of Multi-Processor System on Chip (MPSoC):
 
 1. **High Performance:**
 
@@ -602,7 +602,7 @@ A Multi-Processor System on Chip (MPSoC) is a highly integrated semiconductor de
 
    - MPSoCs are capable of real-time processing and response, making them suitable for applications requiring low latency and deterministic behavior, such as industrial control systems, automotive electronics, and embedded computing.
 
-### Applications of Multi-Processor System on Chip (MPSoC):
+Applications of Multi-Processor System on Chip (MPSoC):
 
 1. **Mobile Devices:**
 

@@ -12,7 +12,7 @@ Newtonian mechanics, also known as classical mechanics or Newtonian physics, is 
 
    - Newton's laws of motion are the cornerstone of Newtonian mechanics. They describe the relationship between the motion of an object and the forces acting upon it.
    - **First Law (Law of Inertia):** An object remains at rest or in uniform motion in a straight line unless acted upon by an external force.
-   - **Second Law (Law of Acceleration):** The acceleration of an object is directly proportional to the net force acting upon it and inversely proportional to its mass. Mathematically, \( F = ma \), where \( F \) is the force, \( m \) is the mass, and \( a \) is the acceleration.
+   - **Second Law (Law of Acceleration):** The acceleration of an object is directly proportional to the net force acting upon it and inversely proportional to its mass. Mathematically, $ F = ma $, where $ F $ is the force, $ m $ is the mass, and $ a $ is the acceleration.
    - **Third Law (Action-Reaction Law):** For every action, there is an equal and opposite reaction. When one object exerts a force on another object, the second object exerts an equal and opposite force on the first object.
 
 2. **Principle of Conservation of Momentum:**
@@ -34,7 +34,7 @@ Newtonian mechanics, also known as classical mechanics or Newtonian physics, is 
 
 2. **Acceleration:**
 
-   - Acceleration is the rate of change of velocity of an object with respect to time. It is a vector quantity, measured in meters per second squared (\( m/s^2 \)).
+   - Acceleration is the rate of change of velocity of an object with respect to time. It is a vector quantity, measured in meters per second squared ($ m/s^2 $).
    - Acceleration can result from the application of a force or from changes in the direction or magnitude of velocity.
 
 3. **Mass:**
@@ -44,7 +44,7 @@ Newtonian mechanics, also known as classical mechanics or Newtonian physics, is 
 
 4. **Momentum:**
 
-   - Momentum is the product of an object's mass and velocity. It is a vector quantity, measured in kilogram meters per second (\( kg \cdot m/s \)).
+   - Momentum is the product of an object's mass and velocity. It is a vector quantity, measured in kilogram meters per second ($ kg \cdot m/s $).
    - Momentum is conserved in collisions and interactions, reflecting the conservation of linear momentum.
 
 5. **Energy:**
@@ -126,28 +126,28 @@ Lagrangian mechanics, named after the mathematician Joseph-Louis Lagrange, is a 
 
 1. **Lagrangian Function (L):**
 
-   - The Lagrangian, denoted by \( L \), is a function that encapsulates the dynamics of a system. It is defined as the difference between the kinetic energy (T) and potential energy (V) of the system: \( L = T - V \).
+   - The Lagrangian, denoted by $ L $, is a function that encapsulates the dynamics of a system. It is defined as the difference between the kinetic energy (T) and potential energy (V) of the system: $ L = T - V $.
    - The Lagrangian describes the system's behavior in terms of generalized coordinates (q) and their time derivatives (dq/dt).
 
 2. **Generalized Coordinates:**
 
-   - Generalized coordinates, denoted by \( q_i \), are a set of independent variables that uniquely define the configuration of a mechanical system.
+   - Generalized coordinates, denoted by $ q_i $, are a set of independent variables that uniquely define the configuration of a mechanical system.
    - Unlike Cartesian coordinates, which describe the position of particles in three-dimensional space, generalized coordinates can be any set of variables that fully specify the system's configuration.
 
 3. **Principle of Least Action:**
 
-   - The principle of least action states that the actual path followed by a particle between two points in space and time is the one for which the action functional, denoted by \( S \), is minimized.
-   - Mathematically, the principle is expressed as \(\delta S = 0\), where \( \delta S \) represents the variation of the action functional with respect to infinitesimal changes in the particle's path.
+   - The principle of least action states that the actual path followed by a particle between two points in space and time is the one for which the action functional, denoted by $ S $, is minimized.
+   - Mathematically, the principle is expressed as $\delta S = 0$, where $ \delta S $ represents the variation of the action functional with respect to infinitesimal changes in the particle's path.
 
 4. **Action Functional:**
 
-   - The action functional, denoted by \( S \), is defined as the integral of the Lagrangian over the particle's path: \( S = \int_{t_1}^{t_2} L(q, \dot{q}, t) \, dt \).
+   - The action functional, denoted by $ S $, is defined as the integral of the Lagrangian over the particle's path: $ S = \int_{t_1}^{t_2} L(q, \dot{q}, t) \, dt $.
    - It represents the total "action" or "cost" associated with the particle's motion along a given trajectory in configuration space.
 
 5. **Euler-Lagrange Equations:**
 
    - The Euler-Lagrange equations are differential equations derived from the principle of least action. They describe the evolution of the system's generalized coordinates over time.
-   - Mathematically, the Euler-Lagrange equations are expressed as \( \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}_i} \right) - \frac{\partial L}{\partial q_i} = 0 \), where \( \dot{q}_i \) represents the time derivative of the \( i \)-th generalized coordinate.
+   - Mathematically, the Euler-Lagrange equations are expressed as $ \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}_i} \right) - \frac{\partial L}{\partial q_i} = 0 $, where $ \dot{q}_i $ represents the time derivative of the $ i $-th generalized coordinate.
 
 ### Advantages of Lagrangian Mechanics:
 
@@ -212,24 +212,24 @@ Hamiltonian mechanics, named after the mathematician and physicist William Rowan
 
 1. **Hamiltonian Function (H):**
 
-   - The Hamiltonian, denoted by \( H \), is a function that represents the total energy of a mechanical system. It is defined as the sum of the system's kinetic energy (T) and potential energy (V): \( H = T + V \).
+   - The Hamiltonian, denoted by $ H $, is a function that represents the total energy of a mechanical system. It is defined as the sum of the system's kinetic energy (T) and potential energy (V): $ H = T + V $.
    - In Hamiltonian mechanics, the Hamiltonian replaces the Lagrangian as the central quantity governing the system's dynamics.
 
 2. **Canonical Variables:**
 
-   - Canonical variables, denoted by \( q_i \) and \( p_i \), are pairs of generalized coordinates and their conjugate momenta, respectively.
-   - Generalized coordinates \( q_i \) describe the configuration of the system, while conjugate momenta \( p_i \) represent the system's momentum associated with each coordinate.
+   - Canonical variables, denoted by $ q_i $ and $ p_i $, are pairs of generalized coordinates and their conjugate momenta, respectively.
+   - Generalized coordinates $ q_i $ describe the configuration of the system, while conjugate momenta $ p_i $ represent the system's momentum associated with each coordinate.
 
 3. **Hamilton's Equations of Motion:**
 
    - Hamilton's equations of motion are a set of first-order differential equations that describe the evolution of the system's coordinates and momenta over time.
    - Mathematically, Hamilton's equations are expressed as:
-     \[ \frac{dq_i}{dt} = \frac{\partial H}{\partial p_i}, \quad \frac{dp_i}{dt} = -\frac{\partial H}{\partial q_i} \]
+     $$ \frac{dq_i}{dt} = \frac{\partial H}{\partial p_i}, \quad \frac{dp_i}{dt} = -\frac{\partial H}{\partial q_i} $$
    - These equations relate the time derivatives of the coordinates and momenta to the partial derivatives of the Hamiltonian with respect to the corresponding variables.
 
 4. **Phase Space:**
 
-   - Phase space is a mathematical space that represents all possible states of a mechanical system. It is spanned by the system's canonical variables, \( (q_i, p_i) \), and each point in phase space corresponds to a unique configuration of the system.
+   - Phase space is a mathematical space that represents all possible states of a mechanical system. It is spanned by the system's canonical variables, $ (q_i, p_i) $, and each point in phase space corresponds to a unique configuration of the system.
    - Hamilton's equations describe the trajectory of the system's state in phase space as it evolves over time.
 
 ### Advantages of Hamiltonian Mechanics:

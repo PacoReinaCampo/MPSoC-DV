@@ -2,35 +2,6 @@
 
 Validation and verification are critical processes in the development of airborne electronic hardware as outlined in DO-254. These processes ensure that the hardware meets all specified requirements and performs reliably in its intended operational environment.
 
-| Data Required for the Hardware Verification Review  |
-|:----------------------------------------------------|
-| Hardware Requirements Data                          |
-| Hardware Design Representation Data                 |
-| Hardware Description Language                       |
-| Hardware Design Schematics                          |
-| Hardware Verification Procedures                    |
-| Hardware Verification Results                       |
-| Hardware Life Cycle Environment Configuration Index |
-| Problem Reports                                     |
-| Hardware Configuration Management Records           |
-| Hardware Process Assurance Records                  |
-| Hardware Tool Qualification Data                    |
-:Data Required for the Hardware Verification Review
-
-| Data Required for the Hardware Verification Object  |
-|:----------------------------------------------------|
-| Hardware Requirements Data                          |
-| Hardware Design Representation Data                 |
-| HDL or Hardware Design Schematics                   |
-| Hardware Verification Procedures                    |
-| Hardware Verification Results                       |
-| Hardware Life Cycle Environment Configuration Index |
-| Problem Reports                                     |
-| Hardware Configuration Management Records           |
-| Hardware Process Assurance Records                  |
-| Hardware Tool Qualification Data                    |
-:Data Required for the Hardware Verification Object
-
 ## VALIDATION PROCESS
 
 **Objective**: To confirm that the hardware performs correctly in its intended operational environment and meets the needs and expectations of the end users.

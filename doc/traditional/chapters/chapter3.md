@@ -198,7 +198,7 @@ $h_{t} = o_{t} \circ \sigma_{g}(c_{t})$
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-## Neural Turing Machine
+## Neural Turing Machine Neural Network
 
 The Neural Turing Machine (NTM) is a groundbreaking architecture that combines neural networks with external memory, inspired by the design principles of the classical Turing machine. Introduced by Alex Graves, Greg Wayne, and Ivo Danihelka in 2014, the NTM extends the capabilities of traditional neural networks by incorporating a memory module that the network can read from and write to, enabling it to perform algorithmic tasks and learn to store and retrieve information over extended time scales.
 
@@ -300,7 +300,7 @@ $${\mathbf y_{t} = W_{y} \mathbf h_{t} + W_{r}^{i} \mathbf {r}_{t}^{i}}$$
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-## Differentiable Neural Computer
+## Differentiable Neural Computer Neural Network
 
 The Differentiable Neural Computer (DNC) is an extension of the Neural Turing Machine (NTM) introduced by DeepMind in 2016. Like the NTM, the DNC combines neural networks with external memory to create a system that can learn algorithmic tasks and store and retrieve information over extended time scales. However, the DNC improves upon the NTM by introducing several key enhancements aimed at increasing its capacity, efficiency, and flexibility.
 

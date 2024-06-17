@@ -53,6 +53,7 @@ EXPORTED_DOCS=\
 
 PANDOC_OPTIONS=-f markdown       \
     --table-of-contents          \
+    --toc-depth=6                \
     --number-sections            \
     --pdf-engine=xelatex         \
     -V lof=yes                   \

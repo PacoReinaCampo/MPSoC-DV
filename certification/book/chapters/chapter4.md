@@ -2,34 +2,6 @@
 
 The planning process in DO-254 is a critical phase that establishes the foundation for the development and assurance of airborne electronic hardware. It involves defining the objectives, activities, resources, and schedules necessary to ensure that the hardware meets all safety, performance, and reliability requirements.
 
-| Data Required for the Hardware Planning Review                                            |
-|:------------------------------------------------------------------------------------------|
-| Plan for Hardware Aspects of Certification                                                |
-| Hardware Design Plan                                                                      |
-| Hardware Validation Plan                                                                  |
-| Hardware Verification Plan                                                                |
-| Hardware Configuration Management Plan                                                    |
-| Hardware Process Assurance Plan                                                           |
-| Hardware Process Assurance Records                                                        |
-| Hardware Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
-| Tool Qualification Plans                                                                  |
-| Supplier Management Plan                                                                  |
-:Data Required for the Hardware Planning Review
-
-| Data Required for the Hardware Planning Object                                            |
-|:------------------------------------------------------------------------------------------|
-| Plan for Hardware Aspects of Certification                                                |
-| Hardware Design Plan                                                                      |
-| Hardware Validation Plan                                                                  |
-| Hardware Verification Plan                                                                |
-| Hardware Configuration Management Plan                                                    |
-| Hardware Process Assurance Plan                                                           |
-| Hardware Process Assurance Records                                                        |
-| Hardware Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
-| Tool Qualification Plans                                                                  |
-| Supplier Management Plan                                                                  |
-:Data Required for the Hardware Planning Object
-
 ## PLANNING PROCESS OBJECTIVES
 
 The objectives of the planning process are to:

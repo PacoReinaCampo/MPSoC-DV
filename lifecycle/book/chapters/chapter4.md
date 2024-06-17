@@ -2,36 +2,6 @@
 
 Validation and verification (V&V) data are critical components of the hardware development lifecycle, ensuring that the hardware meets its specified requirements and performs as intended. This data encompasses traceability, review and analysis procedures, results, test procedures, and test results.
 
-| Data Required for the Hardware Verification Review  |
-|:----------------------------------------------------|
-| Hardware Requirements Data                          |
-| Hardware Design Representation Data                 |
-| Hardware Description Language                       |
-| Hardware Design Schematics                          |
-| Hardware Verification Procedures                    |
-| Hardware Verification Results                       |
-| Hardware Life Cycle Environment Configuration Index |
-| Problem Reports                                     |
-| Hardware Configuration Management Records           |
-| Hardware Process Assurance Records                  |
-| Hardware Tool Qualification Data                    |
-:Data Required for the Hardware Verification Review
-
-| Data Required for the Hardware Verification Object  |
-|:----------------------------------------------------|
-| Hardware Requirements Data                          |
-| Hardware Design Representation Data                 |
-| Hardware Description Language                       |
-| Hardware Design Schematics                          |
-| Hardware Verification Procedures                    |
-| Hardware Verification Results                       |
-| Hardware Life Cycle Environment Configuration Index |
-| Problem Reports                                     |
-| Hardware Configuration Management Records           |
-| Hardware Process Assurance Records                  |
-| Hardware Tool Qualification Data                    |
-:Data Required for the Hardware Verification Object
-
 ## TRACEABILITY DATA
 
 **Description**: Traceability data establish clear links between requirements, design elements, and V&V activities. 

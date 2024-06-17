@@ -2,28 +2,6 @@
 
 The Hardware Accomplishment Summary (HAS) is a comprehensive document that provides an overview of the hardware development lifecycle, summarizing all significant activities, processes, and results. It serves as a key deliverable to demonstrate that the hardware has been developed in accordance with applicable standards, requirements, and regulatory guidelines, such as DO-254.
 
-| Data Required for the Final Certification Hardware Review |
-|:----------------------------------------------------------|
-| Hardware Verification Results                             |
-| Hardware Life Cycle Environment Configuration Index       |
-| Hardware Configuration Index                              |
-| Problem Reports                                           |
-| Hardware Configuration Management Records                 |
-| Hardware Process Assurance Records                        |
-| Hardware Accomplishment Summary                           |
-:Data Required for the Final Certification Hardware Review
-
-| Data Required for the Final Certification Hardware Object |
-|:----------------------------------------------------------|
-| Hardware Verification Results                             |
-| Hardware Life Cycle Environment Configuration Index       |
-| Hardware Configuration Index                              |
-| Problem Reports                                           |
-| Hardware Configuration Management Records                 |
-| Hardware Process Assurance Records                        |
-| Hardware Accomplishment Summary                           |
-:Data Required for the Final Certification Hardware Object
-
 ## PURPOSE OF THE HARDWARE ACCOMPLISHMENT SUMMARY
 
 **Description**: The primary purpose of the HAS is to provide a clear and concise summary of the hardware development process, ensuring that all necessary steps were followed and that the hardware meets its intended requirements and regulatory standards.

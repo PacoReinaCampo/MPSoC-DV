@@ -2,28 +2,6 @@
 
 The certification liaison process is essential for ensuring that airborne electronic hardware meets all regulatory requirements and standards necessary for certification. This process involves establishing and maintaining communication with certification authorities to demonstrate compliance and to facilitate the certification process.
 
-| Data Required for the Final Certification Hardware Review |
-|:----------------------------------------------------------|
-| Hardware Verification Results                             |
-| Hardware Life Cycle Environment Configuration Index       |
-| Hardware Configuration Index                              |
-| Problem Reports                                           |
-| Hardware Configuration Management Records                 |
-| Hardware Process Assurance Records                        |
-| Hardware Accomplishment Summary                           |
-:Data Required for the Final Certification Hardware Review
-
-| Data Required for the Final Certification Hardware Object |
-|:----------------------------------------------------------|
-| Hardware Verification Results                             |
-| Hardware Life Cycle Environment Configuration Index       |
-| Hardware Configuration Index                              |
-| Problem Reports                                           |
-| Hardware Configuration Management Records                 |
-| Hardware Process Assurance Records                        |
-| Hardware Accomplishment Summary                           |
-:Data Required for the Final Certification Hardware Object
-
 ## MEANS OF COMPLIANCE AND PLANNING
 
 **Objective**: Define and plan the methods by which compliance with regulatory requirements will be demonstrated throughout the hardware development lifecycle.

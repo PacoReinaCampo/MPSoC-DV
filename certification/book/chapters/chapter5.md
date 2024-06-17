@@ -2,39 +2,6 @@
 
 The hardware design process in DO-254 encompasses a series of structured and iterative steps that guide the development of airborne electronic hardware from initial requirements capture through to production and acceptance. Each stage is crucial in ensuring that the hardware meets all necessary safety, performance, and reliability standards required for certification.
 
-| Data Required for the Hardware Development Review    |
-|:-----------------------------------------------------|
-| Hardware Requirements, Design and HDL Code Standards |
-| Hardware Requirements                                |
-| Hardware Design Data                                 |
-| Hardware Description Language                        |
-| Hardware Design Schematics                           |
-| Hardware Traceability Data                           |
-| Hardware Review and Analysis Procedures              |
-| Hardware Review and Analysis Results                 |
-| Hardware Life Cycle Environment Configuration Index  |
-| Problem Reports                                      |
-| Hardware Configuration Management Records            |
-| Hardware Process Assurance Records                   |
-| Hardware Tool Qualification Data                     |
-:Data Required for the Hardware Development Review
-
-| Data Required for the Hardware Development Object    |
-|:-----------------------------------------------------|
-| Hardware Requirements, Design and HDL Code Standards |
-| Hardware Requirements                                |
-| Hardware Design Data                                 |
-| HDL or Hardware Design Schematics                    |
-| Hardware Traceability Data                           |
-| Hardware Review and Analysis Procedures              |
-| Hardware Review and Analysis Results                 |
-| Hardware Life Cycle Environment Configuration Index  |
-| Problem Reports                                      |
-| Hardware Configuration Management Records            |
-| Hardware Process Assurance Records                   |
-| Hardware Tool Qualification Data                     |
-:Data Required for the Hardware Development Object
-
 ## REQUIREMENTS CAPTURE PROCESS
 
 **Objective**: To define and document the hardware requirements based on system-level requirements and safety assessments.

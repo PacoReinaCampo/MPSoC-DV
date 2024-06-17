@@ -2,40 +2,6 @@
 
 Hardware design data encompasses all the information generated and used during the hardware development lifecycle. This data ensures that hardware is designed, verified, validated, and documented according to requirements and standards, facilitating effective communication, traceability, and compliance.
 
-| Data Required for the Hardware Development Review    |
-|:-----------------------------------------------------|
-| Hardware Requirements, Design and HDL Code Standards |
-| Hardware Requirements                                |
-| Hardware Design Data                                 |
-| Hardware Description Language                        |
-| Hardware Design Schematics                           |
-| Hardware Traceability Data                           |
-| Hardware Review and Analysis Procedures              |
-| Hardware Review and Analysis Results                 |
-| Hardware Life Cycle Environment Configuration Index  |
-| Problem Reports                                      |
-| Hardware Configuration Management Records            |
-| Hardware Process Assurance Records                   |
-| Hardware Tool Qualification Data                     |
-:Data Required for the Hardware Development Review
-
-| Data Required for the Hardware Development Object    |
-|:-----------------------------------------------------|
-| Hardware Requirements, Design and HDL Code Standards |
-| Hardware Requirements                                |
-| Hardware Design Data                                 |
-| Hardware Description Language                        |
-| Hardware Design Schematics                           |
-| Hardware Traceability Data                           |
-| Hardware Object and Analysis Procedures              |
-| Hardware Object and Analysis Results                 |
-| Hardware Life Cycle Environment Configuration Index  |
-| Problem Reports                                      |
-| Hardware Configuration Management Records            |
-| Hardware Process Assurance Records                   |
-| Hardware Tool Qualification Data                     |
-:Data Required for the Hardware Development Object
-
 ## HARDWARE REQUIREMENTS
 
 **Description**: Hardware requirements are the documented specifications that the hardware must meet. These requirements cover functional, performance, environmental, and regulatory aspects.
