@@ -9,14 +9,14 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              Peripheral for MPSoC                                             ##
+##              QueenField                                                       ##
 ##              Multi-Processor System on Chip                                   ##
 ##                                                                               ##
 ###################################################################################
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2015-2016 by the author(s)                                      ##
+## Copyright (c) 2022-2025 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,42 +42,42 @@
 ##                                                                               ##
 ###################################################################################
 
-cd context_of_the_organization
+cd c1-scope
 make clean
 cd ..
 
-cd improvement
+cd c2-normative-references
 make clean
 cd ..
 
-cd leadership
+cd c3-terms-and-definitions
 make clean
 cd ..
 
-cd normative_references
+cd c4-context-of-the-organization
 make clean
 cd ..
 
-cd operation
+cd c5-leadership
 make clean
 cd ..
 
-cd performance_evaluation
+cd c6-planning
 make clean
 cd ..
 
-cd planning
+cd c7-support
 make clean
 cd ..
 
-cd scope
+cd c8-operation
 make clean
 cd ..
 
-cd support
+cd c9-performance-evaluation
 make clean
 cd ..
 
-cd terms_and_definitions
+cd c10-improvement
 make clean
 cd ..

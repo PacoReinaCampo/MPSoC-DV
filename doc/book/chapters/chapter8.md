@@ -321,48 +321,6 @@
    - Qualification Reports
    - Maintenance Logs
 
-#### Hardware Configuration Management Plan
-
-1. **Introduction**
-   - Purpose
-   - Scope
-2. **Baseline Identification**
-   - Baseline Types
-   - Baseline Naming Conventions
-3. **Baseline Control**
-   - Change Control Procedures
-   - Baseline Approval Process
-4. **Baseline Audits**
-   - Audit Schedule
-   - Audit Criteria
-5. **Configuration Status Accounting**
-   - Status Reporting
-   - Change Tracking
-6. **Documentation**
-   - Baseline Records
-   - Audit Reports
-
-#### Hardware Design Plan
-
-1. **Introduction**
-   - Purpose
-   - Scope
-2. **Design Implementation Strategy**
-   - Design Methods
-   - Design Tools
-3. **HDL Coding Standards**
-   - Coding Guidelines
-   - Code Review Procedures
-4. **Design Verification**
-   - Simulation Methods
-   - Test Bench Development
-5. **Design Documentation**
-   - Documentation Standards
-   - Version Control
-6. **Design Review**
-   - Review Process
-   - Approval Workflow
-
 ### Data Required for the Hardware Development
 
 | Data Required for the Hardware Development Review    |
