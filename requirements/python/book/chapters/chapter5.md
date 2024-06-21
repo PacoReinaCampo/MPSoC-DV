@@ -7,6 +7,7 @@ Python's import system allows you to include and reuse code from different modul
 `importlib` is a module in Python that provides an implementation of the import statement. It allows for the dynamic import of modules and packages.
 
 - **Importing a module using `importlib`**:
+
     ```python
     import importlib
 
@@ -16,6 +17,7 @@ Python's import system allows you to include and reuse code from different modul
     ```
 
 - **Reloading a module**:
+
     ```python
     import importlib
 
@@ -37,6 +39,7 @@ my_package/
 ```
 
 2. **Using the package**:
+
     ```python
     from my_package import module1
     import my_package.module2
@@ -50,12 +53,14 @@ my_package/
 When you import a module, Python searches for it in the directories listed in `sys.path`.
 
 - **Adding a directory to `sys.path`**:
+
     ```python
     import sys
     sys.path.append('/path/to/directory')
     ```
 
 - **Viewing current `sys.path`**:
+
     ```python
     import sys
     print(sys.path)
@@ -66,6 +71,7 @@ When you import a module, Python searches for it in the directories listed in `s
 After finding the module, Python loads it by executing its code within a new namespace. This process creates module objects.
 
 - **Importing a module and accessing its attributes**:
+
     ```python
     import math
     print(math.pi)
@@ -84,6 +90,7 @@ The Path Based Finder is the default mechanism for locating modules and packages
 Python allows you to customize the import system by modifying `sys.meta_path`, a list of finder objects.
 
 - **Creating a custom finder**:
+
     ```python
     import sys
     from importlib.abc import MetaPathFinder
@@ -106,12 +113,14 @@ Python allows you to customize the import system by modifying `sys.meta_path`, a
 Relative imports use the `.` notation to import modules relative to the current package.
 
 - **Relative import within a package**:
+
     ```python
     # Inside my_package/module1.py
     from .module2 import some_function
     ```
 
 - **Using relative imports**:
+
     ```python
     # Inside my_package/__init__.py
     from .module1 import some_function
@@ -122,6 +131,7 @@ Relative imports use the `.` notation to import modules relative to the current 
 When a module is run as the main program, its `__name__` attribute is set to `'__main__'`. This can be used to conditionally execute code only when the module is run directly, not when imported.
 
 - **Using `__main__`**:
+
     ```python
     # Inside my_module.py
     def main():

@@ -9,26 +9,31 @@ Python source code consists of tokens. The lexical analysis phase breaks the sou
 ### Types of Tokens
 
 1. **Identifiers**: Names for variables, functions, classes, etc.
+ 
     ```plaintext
     identifier ::= (letter|"_") (letter | digit | "_")*
     ```
 
 2. **Keywords**: Reserved words with special meanings.
+ 
     ```plaintext
     keyword ::= "False" | "None" | "True" | "and" | "as" | "assert" | "async" | "await" | "break" | "class" | "continue" | "def" | "del" | "elif" | "else" | "except" | "finally" | "for" | "from" | "global" | "if" | "import" | "in" | "is" | "lambda" | "nonlocal" | "not" | "or" | "pass" | "raise" | "return" | "try" | "while" | "with" | "yield"
     ```
 
 3. **Literals**: Fixed values, including strings, numbers, and more.
+ 
     ```plaintext
     literal ::= integer | floatnumber | imagnumber | stringliteral | bytesliteral | boolliteral | none
     ```
 
 4. **Operators**: Symbols for operations.
+ 
     ```plaintext
     operator ::= "+" | "-" | "*" | "/" | "//" | "%" | "**" | "<<" | ">>" | "&" | "|" | "^" | "~" | ":=" | "<" | ">" | "<=" | ">=" | "==" | "!="
     ```
 
 5. **Delimiters**: Punctuation characters.
+ 
     ```plaintext
     delimiter ::= "(" | ")" | "[" | "]" | "{" | "}" | "," | ":" | "." | ";" | "@" | "=" | "->" | "+=" | "-=" | "*=" | "/=" | "//=" | "%=" | "@=" | "&=" | "|=" | "^=" | ">>=" | "<<=" | "**="
     ```

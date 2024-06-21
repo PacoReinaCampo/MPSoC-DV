@@ -156,12 +156,14 @@ outer()
 While there isn't a `type` statement in Python, the `type` function is used to determine the type of an object or create a new type dynamically.
 
 - **Determining the type**:
+
     ```python
     print(type(42))  # <class 'int'>
     print(type('Hello'))  # <class 'str'>
     ```
 
 - **Creating a new type**:
+
     ```python
     MyClass = type('MyClass', (object,), {'attr': 42})
     instance = MyClass()

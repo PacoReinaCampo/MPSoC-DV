@@ -17,7 +17,7 @@ python script.py
 Example Script
 
 ```python
-# SCRIPT.PY
+# script.py
 def main():
     print("Hello, World!")
 
@@ -36,12 +36,12 @@ Reading and Executing a File
 You can use the `exec` function to read and execute Python code from a file.
 
 ```python
-# CONTENT OF EXAMPLE.PY
+# content of example.py
 print("This code is from a file.")
 ```
 
 ```python
-# MAIN SCRIPT
+# Main script
 with open('example.py', 'r') as file:
     code = file.read()
     exec(code)

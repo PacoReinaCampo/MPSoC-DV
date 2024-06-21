@@ -10,14 +10,14 @@ Python source code is organized into lines, each containing one or more statemen
 - **Physical Lines**: These are the actual lines in the file. A logical line can span multiple physical lines using backslashes (`\`) or parentheses, brackets, and braces.
 
 ```python
-# SINGLE LOGICAL LINE
+# Single logical line
 print("Hello, World!")
 
-# LOGICAL LINE SPANNING MULTIPLE PHYSICAL LINES USING PARENTHESES
+# Logical line spanning multiple physical lines using parentheses
 result = (1 + 2 + 3 +
           4 + 5 + 6)
 
-# LOGICAL LINE SPANNING MULTIPLE PHYSICAL LINES USING BACKSLASH
+# Logical line spanning multiple physical lines using backslash
 total = 1 + 2 + 3 + \
         4 + 5 + 6
 ```
@@ -41,12 +41,12 @@ In Python, tokens are categorized into several types:
 - Case-sensitive (e.g., `Variable` and `variable` are different).
 
 ```python
-# VALID IDENTIFIERS
+# Valid identifiers
 my_variable = 10
 _function = lambda x: x * 2
 ClassName = "Example"
 
-# INVALID IDENTIFIER (STARTS WITH A DIGIT)
+# Invalid identifier (starts with a digit)
 # 1ST_VAR = 5
 ```
 
@@ -164,7 +164,7 @@ Delimiters are characters or sequences of characters that separate tokens. In Py
 - **Arrow (for lambda expressions)**: `->`
 
 ```python
-# EXAMPLES USING DELIMITERS
+# Examples using delimiters
 list_example = [1, 2, 3]
 tuple_example = (4, 5, 6)
 dict_example = {'key': 'value'}

@@ -1,6 +1,6 @@
-Compound statements in Python are blocks of code that control the flow of execution through conditional branching, looping, exception handling, context management, and defining new functions and classes. Let's explore each type of compound statement.
-
 # COMPOUND STATEMENTS
+
+Compound statements in Python are blocks of code that control the flow of execution through conditional branching, looping, exception handling, context management, and defining new functions and classes. Let's explore each type of compound statement.
 
 ## THE `IF` STATEMENT
 

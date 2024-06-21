@@ -22,11 +22,13 @@ print(x)        # Value: 42
 Python's type system is organized into a hierarchy of built-in types. Some of the key categories include:
 
 1. **None Type**: Represents the absence of a value.
+ 
     ```python
     none_value = None
     ```
 
 2. **Numeric Types**: Include integers (`int`), floating-point numbers (`float`), complex numbers (`complex`), and booleans (`bool`).
+ 
     ```python
     integer = 10
     floating = 3.14
@@ -35,6 +37,7 @@ Python's type system is organized into a hierarchy of built-in types. Some of th
     ```
 
 3. **Sequence Types**: Include strings (`str`), lists (`list`), tuples (`tuple`), and ranges (`range`).
+ 
     ```python
     string = "Hello"
     list_example = [1, 2, 3]
@@ -43,17 +46,20 @@ Python's type system is organized into a hierarchy of built-in types. Some of th
     ```
 
 4. **Mapping Types**: Include dictionaries (`dict`).
+ 
     ```python
     dictionary = {'key': 'value'}
     ```
 
 5. **Set Types**: Include sets (`set`) and frozen sets (`frozenset`).
+ 
     ```python
     set_example = {1, 2, 3}
     frozenset_example = frozenset([4, 5, 6])
     ```
 
 6. **Callables**: Include functions, methods, and classes.
+ 
     ```python
     def function_example():
         pass
@@ -65,11 +71,13 @@ Python's type system is organized into a hierarchy of built-in types. Some of th
     ```
 
 7. **Modules**: Provide namespaces containing definitions and implementations of functions, variables, and classes.
+ 
     ```python
     import math
     ```
 
 8. **Classes and Instances**: Define new types.
+ 
     ```python
     class MyClass:
         def __init__(self, value):
@@ -83,6 +91,7 @@ Python's type system is organized into a hierarchy of built-in types. Some of th
 Special method names (also known as "magic methods" or "dunder methods") enable the customization of object behavior in Python. They are surrounded by double underscores. Some common special methods include:
 
 - **`__init__`**: Constructor, called when a new instance is created.
+ 
     ```python
     class MyClass:
         def __init__(self, value):
@@ -90,6 +99,7 @@ Special method names (also known as "magic methods" or "dunder methods") enable 
     ```
 
 - **`__str__` and `__repr__`**: String representation of the object.
+ 
     ```python
     class MyClass:
         def __str__(self):
@@ -100,6 +110,7 @@ Special method names (also known as "magic methods" or "dunder methods") enable 
     ```
 
 - **`__len__`**: Defines behavior for the `len()` function.
+ 
     ```python
     class MyList:
         def __init__(self, items):
@@ -110,6 +121,7 @@ Special method names (also known as "magic methods" or "dunder methods") enable 
     ```
 
 - **`__getitem__`, `__setitem__`, and `__delitem__`**: Indexing behavior.
+ 
     ```python
     class MyList:
         def __init__(self):
@@ -126,6 +138,7 @@ Special method names (also known as "magic methods" or "dunder methods") enable 
     ```
 
 - **`__iter__` and `__next__`**: Iterator protocol.
+ 
     ```python
     class MyRange:
         def __init__(self, start, end):
@@ -147,6 +160,7 @@ Special method names (also known as "magic methods" or "dunder methods") enable 
 Coroutines are a type of function that allow for cooperative multitasking, enabling a function to pause its execution and yield control back to the caller, potentially resuming at a later point. They are defined using `async def` and can use `await` to pause execution until a result is available.
 
 1. **Defining a Coroutine**:
+
     ```python
     import asyncio
 
@@ -158,12 +172,14 @@ Coroutines are a type of function that allow for cooperative multitasking, enabl
 
 2. **Running Coroutines**:
     Coroutines are run using an event loop.
+ 
     ```python
     asyncio.run(example_coroutine())
     ```
 
 3. **Using `await`**:
     Inside a coroutine, `await` is used to pause execution until another coroutine completes.
+ 
     ```python
     async def main():
         await example_coroutine()
@@ -173,6 +189,7 @@ Coroutines are a type of function that allow for cooperative multitasking, enabl
 
 4. **Combining Coroutines**:
     Multiple coroutines can be combined and run concurrently using `asyncio.gather`.
+ 
     ```python
     async def coroutine_one():
         await asyncio.sleep(1)
