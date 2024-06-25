@@ -91,10 +91,10 @@ The standard structure for packaging, integrating, and reusing Intellectual Prop
 
 4. **Integration Process**: Integration of IP blocks into a larger system design involves:
 
-  - **Importing IP**: Using EDA tools to import IP-XACT described IP blocks.
-  - **Configuring IP**: Adjusting parameters and settings as per the system requirements.
-  - **Connecting IP**: Establishing connections between different IP blocks using bus interfaces and signal ports, facilitated by the standard descriptions in IP-XACT.
-  - **System Validation**: Running design rule checks (DRC) and simulations to validate the integration.
+   - **Importing IP**: Using EDA tools to import IP-XACT described IP blocks.
+   - **Configuring IP**: Adjusting parameters and settings as per the system requirements.
+   - **Connecting IP**: Establishing connections between different IP blocks using bus interfaces and signal ports, facilitated by the standard descriptions in IP-XACT.
+   - **System Validation**: Running design rule checks (DRC) and simulations to validate the integration.
 
 5. **Reuse**: IP reuse is maximized by:
 

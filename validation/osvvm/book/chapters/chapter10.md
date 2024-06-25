@@ -8,11 +8,11 @@ Protocol and parameter checks are verification techniques used to ensure that co
    - Communication protocols define rules and conventions for exchanging data, commands, or signals between entities in a system.
    - Protocol checks verify that messages, transactions, or commands adhere to the syntax, semantics, and timing requirements specified by the protocol.
 
-Example Protocols:
+   Example Protocols:
 
-   - **AXI (Advanced eXtensible Interface)**: Verifies the correct behavior of transactions on an AXI bus, including read and write transactions, burst transfers, and response signals.
-   - **UART (Universal Asynchronous Receiver-Transmitter)**: Validates the correct framing, baud rate, parity, and stop bits of serial communication between devices.
-   - **PCIe (Peripheral Component Interconnect Express)**: Ensures compliance with the PCIe protocol for high-speed serial communication between computer components.
+      - **AXI (Advanced eXtensible Interface)**: Verifies the correct behavior of transactions on an AXI bus, including read and write transactions, burst transfers, and response signals.
+      - **UART (Universal Asynchronous Receiver-Transmitter)**: Validates the correct framing, baud rate, parity, and stop bits of serial communication between devices.
+      - **PCIe (Peripheral Component Interconnect Express)**: Ensures compliance with the PCIe protocol for high-speed serial communication between computer components.
 
 2. **Parameter Checks**:
 
@@ -20,11 +20,11 @@ Example Protocols:
    - Design parameters define the characteristics, behavior, and functionality of the system or components being verified.
    - Parameter checks ensure that parameters are within valid ranges, meet timing constraints, and satisfy design specifications.
 
-Example Parameters:
+   Example Parameters:
 
-   - **Clock Frequency**: Verifies that the clock frequency meets timing requirements and does not exceed specified limits.
-   - **Data Width**: Ensures that the width of data buses or signals matches the requirements of the design and communication protocols.
-   - **Thresholds and Limits**: Validates threshold values, operating ranges, and safety limits for sensor inputs, control signals, or algorithm parameters.
+      - **Clock Frequency**: Verifies that the clock frequency meets timing requirements and does not exceed specified limits.
+      - **Data Width**: Ensures that the width of data buses or signals matches the requirements of the design and communication protocols.
+      - **Thresholds and Limits**: Validates threshold values, operating ranges, and safety limits for sensor inputs, control signals, or algorithm parameters.
 
 3. **Assertion-Based Checks**:
 
@@ -32,10 +32,10 @@ Example Parameters:
    - Assertions are declarative statements that define design properties or requirements and check them dynamically during simulation or emulation.
    - Protocol assertions specify the expected behavior of communication protocols, while parameter assertions define constraints on design parameters.
 
-Example Assertions:
+   Example Assertions:
 
-   - **Protocol Assertions**: Verify that the correct sequence of transactions occurs on a bus interface, such as address/data strobes, read/write commands, and response signals.
-   - **Parameter Assertions**: Ensure that design parameters fall within valid ranges, such as checking that clock frequencies are within specified limits or that data widths match interface requirements.
+      - **Protocol Assertions**: Verify that the correct sequence of transactions occurs on a bus interface, such as address/data strobes, read/write commands, and response signals.
+      - **Parameter Assertions**: Ensure that design parameters fall within valid ranges, such as checking that clock frequencies are within specified limits or that data widths match interface requirements.
 
 4. **Error Detection and Debugging**:
 
