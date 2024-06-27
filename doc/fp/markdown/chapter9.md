@@ -4,7 +4,7 @@
 
 These operations are those that a conforming implementation must support, but the exact behavior or specification might depend on the specific programming language or implementation. The IEEE 754 standard allows some latitude in how these operations are realized to accommodate different programming environments and hardware capabilities.
 
-Examples
+Examples:
 
 - **Trigonometric functions** (sin, cos, tan, etc.)
 - **Exponential and logarithmic functions** (exp, log, log10, etc.)
@@ -16,7 +16,7 @@ These functions should conform to the standard in terms of accuracy and exceptio
 
 These operations extend the basic set of arithmetic operations to include more advanced mathematical functions. Implementations are encouraged to provide these for enhanced computational capabilities.
 
-Examples
+Examples:
 
 - **Power function** (pow(x, y)): Computes $x^y$.
 - **Root functions** (sqrt(x), cbrt(x)): Compute square root and cube root, respectively.
@@ -31,12 +31,12 @@ These operations are expected to handle special cases (e.g., NaNs, infinities) a
 
 Dynamic mode operations allow the modification of rounding modes and other floating-point environment settings at runtime. This capability is essential for applications requiring precise control over numerical behavior.
 
-Examples
+Examples:
 
 - **Setting Rounding Mode**: Temporarily change the rounding mode (e.g., round to nearest, round toward zero, etc.).
 - **Saving and Restoring Environment**: Save the current floating-point environment (including flags and modes) and restore it later.
 
-Usage
+Usage:
 
 These operations enable fine-tuning of floating-point arithmetic for specific parts of a program, ensuring that calculations meet specific precision or performance requirements.
 
@@ -51,7 +51,7 @@ Examples
 - **Dot Product**: Compute the dot product of two vectors.
 - **Norm**: Compute the norm of a vector.
 
-Usage
+Usage:
 
 Reduction operations are critical in applications such as machine learning, scientific computing, and graphics, where they help to consolidate large sets of data into meaningful results.
 
@@ -63,7 +63,7 @@ Examples
 
 - **Fused Multiply-Add (FMA)**: Computes $ (x \times y) + z $ in a single step with only one rounding error, enhancing precision.
 
-Usage
+Usage:
 
 These operations are particularly useful in numerical algorithms that require high precision, such as iterative solvers and simulations.
 
@@ -71,16 +71,16 @@ These operations are particularly useful in numerical algorithms that require hi
 
 Minimum and maximum operations determine the smallest or largest value among a set of operands.
 
-Examples
+Examples:
 
 - **Min(x, y)**: Returns the smaller of $x$ and $y$.
 - **Max(x, y)**: Returns the larger of $x$ and $y$.
 
-Special Cases
+Special Cases:
 
 - If either operand is NaN, these operations typically propagate NaN as the result, ensuring that the presence of an undefined value is not ignored.
 
-Usage
+Usage:
 These operations are fundamental in algorithms that involve optimization, comparison, and selection tasks.
 
 ## NAN PAYLOAD OPERATIONS
@@ -92,7 +92,7 @@ Examples
 - **Get Payload**: Extract the payload from a NaN.
 - **Set Payload**: Set the payload in a NaN.
 
-Usage
+Usage:
 
 These operations are useful in debugging and diagnostics, allowing the program to store and retrieve additional information about the origin and nature of NaNs encountered during computation.
 

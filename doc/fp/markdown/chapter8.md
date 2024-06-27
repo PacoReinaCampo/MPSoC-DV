@@ -8,7 +8,7 @@ Alternate exception handling attributes in IEEE 754 allow programs to specify ho
 
 Resuming alternate exception handling involves temporarily changing the exception handling attributes for a specific block of code or operation, and then reverting back to the original attributes. This is useful for managing exceptions in a localized context without affecting the global settings.
 
-Implementation Steps
+Implementation Steps:
 
 1. **Save Current Attributes**: Store the current exception handling attributes.
 2. **Set New Attributes**: Specify the alternate attributes for handling exceptions in the upcoming block of code.
@@ -17,7 +17,7 @@ Implementation Steps
 
 This approach ensures that alternate exception handling is confined to specific parts of the program, preventing unintended side effects on the rest of the program.
 
-Example
+Example:
 
 ```c
 // Pseudocode for resuming alternate exception handling
@@ -40,13 +40,13 @@ Immediate Alternate Exception Handling
 
 Immediate alternate exception handling involves taking an action as soon as an exception occurs. This can include invoking a custom exception handler or performing a specific action immediately.
 
-Characteristics
+Characteristics:
 
 - **Immediate Response**: The handler is triggered as soon as the exception occurs.
 - **Custom Handlers**: Programs can define custom handlers to manage specific exceptions.
 - **Useful for Critical Operations**: Ideal for scenarios where immediate intervention is required to maintain program integrity.
 
-Example
+Example:
 
 ```c
 // Pseudocode for immediate alternate exception handling
@@ -60,7 +60,7 @@ try {
 }
 ```
 
-Delayed Alternate Exception Handling
+Delayed Alternate Exception Handling:
 
 Delayed alternate exception handling involves accumulating exceptions and addressing them at a later point in the program. This can be useful for batch processing or when exceptions need to be handled collectively.
 
@@ -70,7 +70,7 @@ Characteristics
 - **Batch Processing**: Suitable for applications that process data in batches and handle exceptions collectively.
 - **Efficiency**: Reduces the overhead of handling exceptions immediately, which can be beneficial for performance.
 
-Example
+Example:
 
 ```c
 // Pseudocode for delayed alternate exception handling

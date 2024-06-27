@@ -43,7 +43,7 @@ To achieve reproducible floating-point results, IEEE 754 provides several guidel
    - Control the scheduling and order of floating-point operations in parallel and concurrent environments.
    - Use synchronization mechanisms to ensure a consistent execution order.
 
-Techniques for Ensuring Reproducibility
+Techniques for Ensuring Reproducibility:
 
 1. **Reference Implementations**:
 

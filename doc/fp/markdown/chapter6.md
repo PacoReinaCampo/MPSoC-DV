@@ -7,7 +7,7 @@ Infinity in IEEE 754 represents values that are larger than any finite number. T
 - **Positive Infinity (+∞)**
 - **Negative Infinity (-∞)**
 
-Properties and Operations with Infinity
+Properties and Operations with Infinity:
 
 1. **Addition and Subtraction**:
    - $ x + \infty = \infty $ for any finite $ x $
@@ -32,8 +32,7 @@ Properties and Operations with Infinity
 4. **Square Root**:
    - $ \sqrt{\infty} = \infty $
 
-Special Cases
-
+Special Cases:
 - Arithmetic operations involving infinity follow specific rules to ensure consistency and to handle exceptional cases gracefully.
 - When infinities of different signs are combined in operations where the result is not well-defined, the result is NaN.
 
@@ -62,8 +61,7 @@ Properties and Operations with NaNs
    - $ x / \text{NaN} = \text{NaN} $
    - $ \sqrt{\text{NaN}} = \text{NaN} $
 
-Use Cases
-
+Use Cases:
 - NaNs are used to handle and signal exceptional conditions without halting the execution of programs.
 - They provide a way to continue computations in the presence of undefined values while maintaining a trace of the error.
 
@@ -74,7 +72,7 @@ The sign bit in IEEE 754 floating-point representation determines the sign of th
 - **0**: Positive
 - **1**: Negative
 
-Sign Bit Properties
+Sign Bit Properties:
 
 1. **Representation**:
    - For positive numbers, the sign bit is 0.
@@ -85,7 +83,7 @@ Sign Bit Properties
    - Infinity: +∞ and -∞ have sign bits of 0 and 1, respectively.
    - NaN: The sign bit can be 0 or 1, but it does not affect the value of NaN.
 
-Arithmetic Operations Involving the Sign Bit
+Arithmetic Operations Involving the Sign Bit:
 
 1. **Addition and Subtraction**:
    - The sign of the result depends on the magnitudes and signs of the operands.
@@ -93,10 +91,10 @@ Arithmetic Operations Involving the Sign Bit
 
 2. **Multiplication and Division**:
    - The sign of the result is determined by the XOR of the sign bits of the operands.
-     - Positive × Positive = Positive
-     - Negative × Negative = Positive
-     - Positive × Negative = Negative
-     - Negative × Positive = Negative
+      - Positive × Positive = Positive
+      - Negative × Negative = Positive
+      - Positive × Negative = Negative
+      - Negative × Positive = Negative
 
 3. **Special Cases**:
    - $ +0 \times x = +0 $ for any finite $ x $
@@ -104,7 +102,7 @@ Arithmetic Operations Involving the Sign Bit
    - $ +0 / x = +0 $ for any finite non-zero $ x $
    - $ -0 / x = -0 $ for any finite non-zero $ x $
 
-Importance of the Sign Bit
+Importance of the Sign Bit:
 
 - The sign bit ensures that both positive and negative versions of zero, infinity, and NaN are represented, providing greater flexibility in representing and manipulating floating-point numbers.
 - Distinguishing between +0 and -0 can be significant in certain mathematical and computational contexts, such as branch cuts in complex functions.

@@ -19,9 +19,9 @@ Configuration management involves several key activities to achieve its objectiv
 
 1. Configuration Identification
 
-**Objective**: Identify and document the configuration items (CIs) that need to be controlled throughout the hardware lifecycle.
+   **Objective**: Identify and document the configuration items (CIs) that need to be controlled throughout the hardware lifecycle.
 
-**Key Activities**:
+   **Key Activities**:
 
    - Define and list all CIs, including hardware components, design documents, specifications, test procedures, and tools.
    - Assign unique identifiers to each CI.
@@ -29,9 +29,9 @@ Configuration management involves several key activities to achieve its objectiv
 
 2. Configuration Control
 
-**Objective**: Manage changes to the CIs to ensure that modifications are made systematically and approved appropriately.
+   **Objective**: Manage changes to the CIs to ensure that modifications are made systematically and approved appropriately.
 
-**Key Activities**:
+   **Key Activities**:
 
    - Implement a change control process to evaluate, approve, and document changes.
    - Establish a Configuration Control Board (CCB) to review and approve proposed changes.
@@ -40,9 +40,9 @@ Configuration management involves several key activities to achieve its objectiv
 
 3. Configuration Status Accounting
 
-**Objective**: Record and report the status of CIs and changes throughout the hardware lifecycle.
+   **Objective**: Record and report the status of CIs and changes throughout the hardware lifecycle.
 
-**Key Activities**:
+   **Key Activities**:
 
    - Maintain records of the status of each CI, including its current configuration and any changes made.
    - Provide regular reports on the status of configurations, changes, and baselines.
@@ -50,9 +50,9 @@ Configuration management involves several key activities to achieve its objectiv
 
 4. Configuration Audits
 
-**Objective**: Verify that the CIs conform to their documented requirements and that configuration management processes are being followed.
+   **Objective**: Verify that the CIs conform to their documented requirements and that configuration management processes are being followed.
 
-**Key Activities**:
+   **Key Activities**:
 
    - Conduct configuration audits to ensure compliance with configuration management policies and procedures.
    - Perform functional and physical configuration audits to verify that the hardware and documentation match the approved configurations.
@@ -60,9 +60,9 @@ Configuration management involves several key activities to achieve its objectiv
 
 5. Configuration Documentation
 
-**Objective**: Ensure that all configuration management activities and CI information are thoroughly documented.
+   **Objective**: Ensure that all configuration management activities and CI information are thoroughly documented.
 
-**Key Activities**:
+   **Key Activities**:
 
    - Create and maintain a Configuration Management Plan (CMP) that outlines CM processes, roles, responsibilities, and tools.
    - Document configuration identification, control processes, status accounting, and audit results.

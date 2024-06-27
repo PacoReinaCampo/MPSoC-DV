@@ -12,7 +12,7 @@ Exceptions in IEEE 754 are conditions that arise when the result of a floating-p
 
 For each of these exceptions, the IEEE 754 standard specifies default handling mechanisms, primarily through the use of flags. When an exception occurs, the corresponding flag is set, and a default result is produced. Programs can check these flags to detect exceptions and take appropriate action if necessary.
 
-Flags
+Flags:
 
 The flags associated with the five exceptions are:
 
@@ -33,7 +33,7 @@ The invalid operation exception occurs when an operation is performed that does 
 - Square root of a negative number, resulting in NaN (for real numbers).
 - Other domain errors like log(-1) or asin(2).
 
-Default Handling
+Default Handling:
 
 - **Result**: Typically, the result is NaN.
 - **Flag**: The invalid operation flag is set.
@@ -43,7 +43,7 @@ Default Handling
 
 The division by zero exception occurs when a finite non-zero number is divided by zero. 
 
-Examples
+Examples:
 
 - $ \frac{x}{0} $ where $ x \neq 0 $
 
@@ -59,12 +59,12 @@ Default Handling
 
 The overflow exception occurs when the result of an operation is too large to be represented in the destination format.
 
-Examples
+Examples:
 
 - Multiplying two very large numbers.
 - Exponentiation that results in a very large number, such as $ 10^{1000} $.
 
-Default Handling
+Default Handling:
 
 - **Result**: The result is $ +\infty $ or $ -\infty $, depending on the sign of the computed result.
 - **Flag**: The overflow flag is set.
@@ -74,12 +74,12 @@ Default Handling
 
 The underflow exception occurs when the result of a very small magnitude operation is too close to zero to be represented normally (i.e., it is smaller than the smallest normalized number).
 
-Examples
+Examples:
 
 - Multiplying two very small numbers.
 - Subtracting two nearly equal numbers that result in a value close to zero.
 
-Default Handling
+Default Handling:
 
 - **Result**: The result is either a denormalized number (if gradual underflow is supported) or zero.
 - **Flag**: The underflow flag is set.
@@ -89,18 +89,18 @@ Default Handling
 
 The inexact exception occurs when the result of an operation cannot be represented exactly in the destination format. This is typical in most floating-point operations due to the limited precision of floating-point formats.
 
-Examples
+Examples:
 
 - Most arithmetic operations, as floating-point arithmetic usually involves rounding.
 - Adding numbers that require rounding to fit into the available precision.
 
-Default Handling
+Default Handling:
 
 - **Result**: The result is the nearest representable value according to the current rounding mode.
 - **Flag**: The inexact flag is set.
 - **Program Actions**: The program can check the inexact flag to determine if rounding occurred, which is useful in numerical analysis and for ensuring accuracy requirements are met.
 
-Rounding Modes
+Rounding Modes:
 
 IEEE 754 defines several rounding modes, which affect how inexact results are handled:
 

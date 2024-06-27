@@ -6,103 +6,103 @@ The hardware design life cycle as outlined in DO-254 encompasses a series of str
 
 1. Planning Process
 
-**Objective**: Establish a comprehensive plan that outlines the activities, resources, and timelines required for hardware development.
+   **Objective**: Establish a comprehensive plan that outlines the activities, resources, and timelines required for hardware development.
 
-**Key Activities**:
+   **Key Activities**:
 
-   - Develop a Hardware Development Plan (HDP) that details the project scope, objectives, milestones, and deliverables.
-   - Define roles and responsibilities for the hardware development team.
-   - Establish the Hardware Verification Plan (HVP), Hardware Configuration Management Plan (HCMP), and Hardware Process Assurance Plan (HPAP).
+      - Develop a Hardware Development Plan (HDP) that details the project scope, objectives, milestones, and deliverables.
+      - Define roles and responsibilities for the hardware development team.
+      - Establish the Hardware Verification Plan (HVP), Hardware Configuration Management Plan (HCMP), and Hardware Process Assurance Plan (HPAP).
 
 2. Requirements Capture
 
-**Objective**: Define and document the hardware requirements based on system-level requirements and safety assessments.
+   **Objective**: Define and document the hardware requirements based on system-level requirements and safety assessments.
 
-**Key Activities**:
+   **Key Activities**:
 
-   - Capture functional, performance, and safety requirements.
-   - Ensure traceability of hardware requirements to system requirements.
-   - Perform requirements analysis to ensure clarity, completeness, and feasibility.
+      - Capture functional, performance, and safety requirements.
+      - Ensure traceability of hardware requirements to system requirements.
+      - Perform requirements analysis to ensure clarity, completeness, and feasibility.
 
 3. Conceptual Design
 
-**Objective**: Develop high-level design concepts that meet the specified requirements.
+   **Objective**: Develop high-level design concepts that meet the specified requirements.
 
-**Key Activities**:
+   **Key Activities**:
 
-   - Create block diagrams and architectural models.
-   - Identify key components and technologies.
-   - Perform preliminary safety and risk assessments on the conceptual design.
+      - Create block diagrams and architectural models.
+      - Identify key components and technologies.
+      - Perform preliminary safety and risk assessments on the conceptual design.
 
 4. Detailed Design
 
-**Objective**: Translate the conceptual design into detailed specifications and schematics.
+   **Objective**: Translate the conceptual design into detailed specifications and schematics.
 
-**Key Activities**:
+   **Key Activities**:
 
-   - Develop detailed schematics, layout diagrams, and component specifications.
-   - Perform detailed design analysis, including worst-case analysis, thermal analysis, and signal integrity analysis.
-   - Document design decisions and rationale.
+      - Develop detailed schematics, layout diagrams, and component specifications.
+      - Perform detailed design analysis, including worst-case analysis, thermal analysis, and signal integrity analysis.
+      - Document design decisions and rationale.
 
 5. Implementation
 
-**Objective**: Realize the detailed design in physical hardware.
+   **Objective**: Realize the detailed design in physical hardware.
 
-**Key Activities**:
+   **Key Activities**:
 
-   - Manufacture prototypes or initial production units.
-   - Perform initial hardware assembly and integration.
-   - Conduct design reviews and inspections.
+      - Manufacture prototypes or initial production units.
+      - Perform initial hardware assembly and integration.
+      - Conduct design reviews and inspections.
 
 6. Verification
 
-**Objective**: Ensure that the hardware meets all specified requirements through rigorous testing and analysis.
+   **Objective**: Ensure that the hardware meets all specified requirements through rigorous testing and analysis.
 
-**Key Activities**:
+   **Key Activities**:
 
-   - Execute the Hardware Verification Plan (HVP).
-   - Perform tests such as functional testing, environmental testing, and reliability testing.
-   - Document and analyze test results, ensuring traceability to requirements.
+      - Execute the Hardware Verification Plan (HVP).
+      - Perform tests such as functional testing, environmental testing, and reliability testing.
+      - Document and analyze test results, ensuring traceability to requirements.
 
 7. Validation
 
-**Objective**: Validate that the hardware performs correctly within the context of the overall system and operational environment.
+   **Objective**: Validate that the hardware performs correctly within the context of the overall system and operational environment.
 
-**Key Activities**:
+   **Key Activities**:
 
-   - Conduct system-level integration testing.
-   - Perform hardware-in-the-loop (HIL) testing.
-   - Validate hardware performance under real-world operating conditions.
+      - Conduct system-level integration testing.
+      - Perform hardware-in-the-loop (HIL) testing.
+      - Validate hardware performance under real-world operating conditions.
 
 8. Certification Preparation
 
-**Objective**: Prepare all necessary documentation and evidence for certification by aviation authorities.
+   **Objective**: Prepare all necessary documentation and evidence for certification by aviation authorities.
 
-**Key Activities**:
+   **Key Activities**:
 
-   - Compile design, verification, and validation documentation.
-   - Ensure compliance with applicable regulations and standards.
-   - Prepare for and support certification audits and reviews.
+      - Compile design, verification, and validation documentation.
+      - Ensure compliance with applicable regulations and standards.
+      - Prepare for and support certification audits and reviews.
 
 9. Production Transition
 
-**Objective**: Transition the hardware from development to full-scale production.
+   **Objective**: Transition the hardware from development to full-scale production.
 
-**Key Activities**:
+   **Key Activities**:
 
-   - Establish production processes and quality controls.
-   - Conduct pilot production runs to validate manufacturing processes.
-   - Finalize production documentation and training materials.
+      - Establish production processes and quality controls.
+      - Conduct pilot production runs to validate manufacturing processes.
+      - Finalize production documentation and training materials.
 
 10. Maintenance and In-Service Support
 
-**Objective**: Provide ongoing support to ensure hardware reliability and safety throughout its operational life.
+   **Objective**: Provide ongoing support to ensure hardware reliability and safety throughout its operational life.
 
-**Key Activities**:
+   **Key Activities**:
 
-   - Monitor hardware performance in service.
-   - Perform regular maintenance, updates, and repairs as needed.
-   - Address any issues or failures through corrective actions.
+      - Monitor hardware performance in service.
+      - Perform regular maintenance, updates, and repairs as needed.
+      - Address any issues or failures through corrective actions.
 
 ## TRANSITION CRITERIA
 
