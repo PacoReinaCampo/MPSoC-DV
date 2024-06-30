@@ -146,7 +146,7 @@ V. Advantages and Challenges
    - **Training Time**: Requires significant computational resources and time to train, especially for deep networks.
    - **Data Requirements**: Needs large amounts of labeled data for effective training.
    - **Interpretability**: Often considered "black boxes" due to the difficulty in understanding how they make decisions.
-- **Overfitting**: Tendency to learn noise in the training data, requiring techniques like regularization and dropout to mitigate.
+   - **Overfitting**: Tendency to learn noise in the training data, requiring techniques like regularization and dropout to mitigate.
 
 In summary, neural networks are powerful tools in the AI and machine learning toolbox, capable of learning from data and making predictions with high accuracy. Their versatility and effectiveness have led to their widespread adoption in various applications, despite challenges related to training complexity and interpretability.
 
