@@ -13,7 +13,7 @@ digraph Project {
       Design_HW[label="Hardware Design \n(VHDL/Verilog) [Emacs]"];
       Verification_HW[label="Hardware Verification \n(VHDL/SystemVerilog) [GHDL / Icarus Verilog]"];
       Quality_HW[label="Quality Assurance \n(Ada) [Emacs]"];
-      Certification_HW[label="Certification \n(TeX) [Emacs]"];
+      Certification_HW[label="Certification \n(Java) [Emacs]"];
       Lifecycle_HW[label="Design Lifecycle Data \n(Chisel) [Emacs]"];
     }
     subgraph "cluster Software" { label = "Software";
@@ -24,8 +24,8 @@ digraph Project {
       Design_SW[label="Software Design \n(C/C++/Go/Rust) [Emacs]"];
       Verification_SW[label="Software Verification \n(C/C++/Go/Rust) [GCC]"];
       Quality_SW[label="Quality Assurance \n(Ada) [Emacs]"];
-      Certification_SW[label="Certification \n(TeX) [Emacs]"];
-      Lifecycle_SW[label="Design Lifecycle Data \n(Java/Scala) [Emacs]"];
+      Certification_SW[label="Certification \n(Java) [Emacs]"];
+      Lifecycle_SW[label="Design Lifecycle Data \n(Scala) [Emacs]"];
     }
   }
 

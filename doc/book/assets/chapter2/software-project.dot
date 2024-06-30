@@ -11,8 +11,8 @@ digraph Project {
   Design[label="Software Design \n(C/C++/Go/Rust) [Emacs]"];
   Verification[label="Software Verification \n(C/C++/Go/Rust) [GCC]"];
   Quality[label="Quality Assurance \n(Ada) [Emacs]"];
-  Certification[label="Certification \n(TeX) [Emacs]"];
-  Lifecycle[label="Design Lifecycle Data \n(Java/Scala) [Emacs]"];
+  Certification[label="Certification \n(Java) [Emacs]"];
+  Lifecycle[label="Design Lifecycle Data \n(Scala) [Emacs]"];
 
   // Sequence
   Requirements -> Source;
