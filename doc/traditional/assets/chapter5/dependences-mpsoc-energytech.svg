@@ -758,28 +758,28 @@
 <!-- PU_NTM -->
 <g id="node24" class="node">
 <title>PU_NTM</title>
-<polygon fill="none" stroke="black" points="572,-387 572,-425 658,-425 658,-387 572,-387"/>
+<polygon fill="none" stroke="black" points="573,-387 573,-425 657,-425 657,-387 573,-387"/>
 <text text-anchor="middle" x="615" y="-409.8" font-family="Times,serif" font-size="14.00">PU_NTM </text>
 <text text-anchor="middle" x="615" y="-394.8" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- PU_DV&#45;&gt;PU_NTM -->
 <g id="edge88" class="edge">
 <title>PU_DV&#45;&gt;PU_NTM</title>
-<path fill="none" stroke="black" d="M471.88,-340.22C491.32,-351.91 517.16,-366.71 541,-378 547.75,-381.19 554.97,-384.31 562.14,-387.23"/>
-<polygon fill="black" stroke="black" points="561.26,-390.65 571.85,-391.08 563.84,-384.14 561.26,-390.65"/>
+<path fill="none" stroke="black" d="M471.88,-340.22C491.32,-351.91 517.16,-366.71 541,-378 548.16,-381.39 555.85,-384.69 563.45,-387.76"/>
+<polygon fill="black" stroke="black" points="562.41,-391.11 573,-391.53 564.98,-384.6 562.41,-391.11"/>
 </g>
 <!-- PU_DNC -->
 <g id="node27" class="node">
 <title>PU_DNC</title>
-<polygon fill="none" stroke="black" points="572,-330 572,-368 658,-368 658,-330 572,-330"/>
+<polygon fill="none" stroke="black" points="573.5,-330 573.5,-368 656.5,-368 656.5,-330 573.5,-330"/>
 <text text-anchor="middle" x="615" y="-352.8" font-family="Times,serif" font-size="14.00">PU_DNC </text>
 <text text-anchor="middle" x="615" y="-337.8" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- PU_DV&#45;&gt;PU_DNC -->
 <g id="edge89" class="edge">
 <title>PU_DV&#45;&gt;PU_DNC</title>
-<path fill="none" stroke="black" d="M495.26,-329.78C516.47,-333.21 540.69,-337.13 561.7,-340.54"/>
-<polygon fill="black" stroke="black" points="561.3,-344.02 571.73,-342.16 562.42,-337.11 561.3,-344.02"/>
+<path fill="none" stroke="black" d="M495.26,-329.78C517.08,-333.31 542.08,-337.36 563.5,-340.83"/>
+<polygon fill="black" stroke="black" points="562.95,-344.28 573.38,-342.43 564.07,-337.37 562.95,-344.28"/>
 </g>
 <!-- MPSoC_DefenseTech -->
 <g id="node28" class="node">
@@ -817,7 +817,7 @@
 <!-- PU_NTM&#45;&gt;PU_DefenseTech -->
 <g id="edge94" class="edge">
 <title>PU_NTM&#45;&gt;PU_DefenseTech</title>
-<path fill="none" stroke="black" d="M658.21,-390.98C668.7,-386.99 679.84,-382.53 690,-378 713.26,-367.65 738.51,-354.78 759.18,-343.81"/>
+<path fill="none" stroke="black" d="M657.05,-391.42C667.87,-387.32 679.46,-382.69 690,-378 713.26,-367.65 738.51,-354.78 759.18,-343.81"/>
 <polygon fill="black" stroke="black" points="760.87,-346.87 768.03,-339.07 757.57,-340.7 760.87,-346.87"/>
 </g>
 <!-- MPSoC_DNC&#45;&gt;MPSoC_DefenseTech -->
@@ -835,8 +835,8 @@
 <!-- PU_DNC&#45;&gt;PU_DefenseTech -->
 <g id="edge95" class="edge">
 <title>PU_DNC&#45;&gt;PU_DefenseTech</title>
-<path fill="none" stroke="black" d="M658.32,-342.42C677.52,-339.43 700.87,-335.8 723.14,-332.34"/>
-<polygon fill="black" stroke="black" points="723.94,-335.76 733.28,-330.76 722.86,-328.84 723.94,-335.76"/>
+<path fill="none" stroke="black" d="M656.93,-342.64C676.45,-339.6 700.49,-335.86 723.38,-332.3"/>
+<polygon fill="black" stroke="black" points="724.1,-335.73 733.44,-330.74 723.02,-328.82 724.1,-335.73"/>
 </g>
 </g>
 </svg>

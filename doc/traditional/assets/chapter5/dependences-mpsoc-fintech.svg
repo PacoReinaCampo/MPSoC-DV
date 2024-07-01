@@ -758,28 +758,28 @@
 <!-- PU_NTM -->
 <g id="node24" class="node">
 <title>PU_NTM</title>
-<polygon fill="none" stroke="black" points="572,-387 572,-425 658,-425 658,-387 572,-387"/>
+<polygon fill="none" stroke="black" points="573,-387 573,-425 657,-425 657,-387 573,-387"/>
 <text text-anchor="middle" x="615" y="-409.8" font-family="Times,serif" font-size="14.00">PU_NTM </text>
 <text text-anchor="middle" x="615" y="-394.8" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- PU_DV&#45;&gt;PU_NTM -->
 <g id="edge88" class="edge">
 <title>PU_DV&#45;&gt;PU_NTM</title>
-<path fill="none" stroke="black" d="M471.88,-340.22C491.32,-351.91 517.16,-366.71 541,-378 547.75,-381.19 554.97,-384.31 562.14,-387.23"/>
-<polygon fill="black" stroke="black" points="561.26,-390.65 571.85,-391.08 563.84,-384.14 561.26,-390.65"/>
+<path fill="none" stroke="black" d="M471.88,-340.22C491.32,-351.91 517.16,-366.71 541,-378 548.16,-381.39 555.85,-384.69 563.45,-387.76"/>
+<polygon fill="black" stroke="black" points="562.41,-391.11 573,-391.53 564.98,-384.6 562.41,-391.11"/>
 </g>
 <!-- PU_DNC -->
 <g id="node27" class="node">
 <title>PU_DNC</title>
-<polygon fill="none" stroke="black" points="572,-330 572,-368 658,-368 658,-330 572,-330"/>
+<polygon fill="none" stroke="black" points="573.5,-330 573.5,-368 656.5,-368 656.5,-330 573.5,-330"/>
 <text text-anchor="middle" x="615" y="-352.8" font-family="Times,serif" font-size="14.00">PU_DNC </text>
 <text text-anchor="middle" x="615" y="-337.8" font-family="Times,serif" font-size="14.00">Target</text>
 </g>
 <!-- PU_DV&#45;&gt;PU_DNC -->
 <g id="edge89" class="edge">
 <title>PU_DV&#45;&gt;PU_DNC</title>
-<path fill="none" stroke="black" d="M495.26,-329.78C516.47,-333.21 540.69,-337.13 561.7,-340.54"/>
-<polygon fill="black" stroke="black" points="561.3,-344.02 571.73,-342.16 562.42,-337.11 561.3,-344.02"/>
+<path fill="none" stroke="black" d="M495.26,-329.78C517.08,-333.31 542.08,-337.36 563.5,-340.83"/>
+<polygon fill="black" stroke="black" points="562.95,-344.28 573.38,-342.43 564.07,-337.37 562.95,-344.28"/>
 </g>
 <!-- MPSoC_FinTech -->
 <g id="node28" class="node">
@@ -817,7 +817,7 @@
 <!-- PU_NTM&#45;&gt;PU_FinTech -->
 <g id="edge94" class="edge">
 <title>PU_NTM&#45;&gt;PU_FinTech</title>
-<path fill="none" stroke="black" d="M658.06,-391.62C668.65,-387.58 679.88,-382.94 690,-378 709.9,-368.3 731.03,-355.72 748.34,-344.76"/>
+<path fill="none" stroke="black" d="M657.28,-391.92C668.1,-387.81 679.63,-383.06 690,-378 709.9,-368.3 731.03,-355.72 748.34,-344.76"/>
 <polygon fill="black" stroke="black" points="750.49,-347.54 757.02,-339.2 746.71,-341.65 750.49,-347.54"/>
 </g>
 <!-- MPSoC_DNC&#45;&gt;MPSoC_FinTech -->
@@ -835,8 +835,8 @@
 <!-- PU_DNC&#45;&gt;PU_FinTech -->
 <g id="edge95" class="edge">
 <title>PU_DNC&#45;&gt;PU_FinTech</title>
-<path fill="none" stroke="black" d="M658.33,-341.76C678.06,-338.38 701.91,-334.3 723.6,-330.59"/>
-<polygon fill="black" stroke="black" points="724.46,-333.99 733.72,-328.86 723.28,-327.09 724.46,-333.99"/>
+<path fill="none" stroke="black" d="M656.6,-342.05C676.73,-338.61 701.47,-334.38 723.87,-330.54"/>
+<polygon fill="black" stroke="black" points="724.71,-333.95 733.98,-328.82 723.53,-327.05 724.71,-333.95"/>
 </g>
 </g>
 </svg>

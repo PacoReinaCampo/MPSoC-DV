@@ -9,14 +9,14 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
+##              Architecture                                                     ##
 ##              QueenField                                                       ##
-##              Multi-Processor System on Chip                                   ##
 ##                                                                               ##
 ###################################################################################
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2025 by the author(s)                                      ##
+## Copyright (c) 2019-2020 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,8 +42,5 @@
 ##                                                                               ##
 ###################################################################################
 
-tree --filesfirst -P '*.java' library > TREE-JAVA.txt
-
-tree -f -i -P '*.java' -I 'test_*' library > CREATE-JAVA.sh
-sed -i '/.java/!d' CREATE-JAVA.sh
-sed -i 's/^/touch /g' CREATE-JAVA.sh
+tree -P '*.java' application > TREE-JAVA-APPLICATION.txt
+tree --filesfirst -P '*.java' library > TREE-JAVA-LIBRARY.txt
