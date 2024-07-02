@@ -42,33 +42,9 @@
 ##                                                                               ##
 ###################################################################################
 
-java application/bfm/ahb3/peripheral_test.scala
-java application/bfm/apb4/peripheral_test.scala
-java application/bfm/axi4/peripheral_test.scala
-java application/bfm/bb/peripheral_test.scala
-java application/bfm/biu/peripheral_test.scala
-java application/bfm/wb/peripheral_test.scala
-java application/core/ahb3/peripheral_test.scala
-java application/core/apb4/peripheral_test.scala
-java application/core/axi4/peripheral_test.scala
-java application/core/bb/peripheral_test.scala
-java application/core/biu/peripheral_test.scala
-java application/core/wb/peripheral_test.scala
-java application/mpsoc/ahb3/peripheral_test.scala
-java application/mpsoc/apb4/peripheral_test.scala
-java application/mpsoc/axi4/peripheral_test.scala
-java application/mpsoc/bb/peripheral_test.scala
-java application/mpsoc/biu/peripheral_test.scala
-java application/mpsoc/wb/peripheral_test.scala
-java application/pu/ahb3/peripheral_test.scala
-java application/pu/apb4/peripheral_test.scala
-java application/pu/axi4/peripheral_test.scala
-java application/pu/bb/peripheral_test.scala
-java application/pu/biu/peripheral_test.scala
-java application/pu/wb/peripheral_test.scala
-java application/soc/ahb3/peripheral_test.scala
-java application/soc/apb4/peripheral_test.scala
-java application/soc/axi4/peripheral_test.scala
-java application/soc/bb/peripheral_test.scala
-java application/soc/biu/peripheral_test.scala
-java application/soc/wb/peripheral_test.scala
+javac apb4/peripheral_design.scala; javac peripheral_apb4_test.scala; java peripheral_apb4_test
+javac ahb3/peripheral_design.scala; javac peripheral_ahb3_test.scala; java peripheral_ahb3_test
+javac axi4/peripheral_design.scala; javac peripheral_axi4_test.scala; java peripheral_axi4_test
+javac bb/peripheral_design.scala; javac peripheral_bb_test.scala; java peripheral_bb_test
+javac wb/peripheral_design.scala; javac peripheral_wb_test.scala; java peripheral_wb_test
+javac biu/peripheral_design.scala; javac peripheral_biu_test.scala; java peripheral_biu_test
