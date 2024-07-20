@@ -48,6 +48,7 @@ dot -Tsvg software-validation.dot > software-validation.svg
 dot -Tsvg hardware-verification.dot > hardware-verification.svg
 dot -Tsvg software-verification.dot > software-verification.svg
 
+dot -Tsvg hardware-4004-verification.dot > hardware-4004-verification.svg
 dot -Tsvg hardware-msp430-verification.dot > hardware-msp430-verification.svg
 dot -Tsvg hardware-openrisc-verification.dot > hardware-openrisc-verification.svg
 dot -Tsvg hardware-riscv-verification.dot > hardware-riscv-verification.svg
