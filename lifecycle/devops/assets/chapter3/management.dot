@@ -1,0 +1,21 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = LR, splines=ortho];
+  node[shape=record];
+
+  // Blocks
+  BFM[label="BFM"];
+  Peripheral[label="Peripheral"];
+  Core[label="Core"];
+  PU[label="PU"];
+  SoC[label="SoC"];
+  MPSoC[label="MPSoC"];
+
+  // Sequence
+  BFM -> Peripheral;
+  BFM -> Core;
+  Core -> PU;
+  Peripheral -> SoC;
+  PU -> SoC;
+  SoC -> MPSoC;
+}

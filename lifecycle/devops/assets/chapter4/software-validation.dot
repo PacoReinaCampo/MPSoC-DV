@@ -1,0 +1,20 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = LR, splines=ortho];
+  node[shape=record];
+
+  // Blocks
+  subgraph "cluster TestBench" { label = "TestBench";
+    DUT[shape=box, label="DUT"];
+   Tests[shape=box, label="Tests"];
+    Baremetal[shape=box, label="Baremetal"];
+    OS[shape=box, label="OS"];
+    Distribution[shape=box, label="Distribution"];
+  }
+
+  // Sequence
+  DUT -> Tests;
+  Tests -> Baremetal;
+  Baremetal -> OS;
+  OS -> Distribution;
+}

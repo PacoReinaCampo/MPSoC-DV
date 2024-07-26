@@ -1,0 +1,13 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = LR, splines=ortho];
+  node[shape=record];
+
+  // Blocks
+  user[label="user"];
+  developer[label="developer"];
+
+  // Sequence
+  user -> developer;
+  developer -> user;
+}
