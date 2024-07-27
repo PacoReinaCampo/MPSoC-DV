@@ -1,4 +1,4 @@
-# MONITOR
+# MONITOR (MONITOR)
 
 In the context of DevOps, the "MONITOR" phase involves continuously observing and analyzing various aspects of the software system and its underlying infrastructure in real-time. Monitoring is crucial for identifying performance issues, detecting anomalies, and ensuring the reliability and availability of the system. Here's a breakdown of what typically happens during the MONITOR phase:
 

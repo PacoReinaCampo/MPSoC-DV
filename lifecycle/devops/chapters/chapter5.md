@@ -1,4 +1,4 @@
-# RELEASE
+# RELEASE (RELEASE)
 
 In DevOps, the "RELEASE" phase marks the transition of software from development and testing environments to production, making it available to end users. This phase is crucial for ensuring that new features, bug fixes, and improvements are delivered to users in a controlled and efficient manner. Here's a breakdown of what typically happens during the RELEASE phase:
 

@@ -1,4 +1,4 @@
-# BUILD
+# BUILD (PACKAGE)
 
 In DevOps, the "BUILD" phase refers to the process of transforming source code into a deployable artifact, such as a compiled binary, executable, or container image. This phase is essential for automating the creation of software components and ensuring consistency across different environments. Here's a breakdown of what typically happens during the BUILD phase:
 

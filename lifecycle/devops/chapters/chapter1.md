@@ -1,4 +1,4 @@
-# PLAN
+# PLAN (PLAN)
 
 In DevOps, the "PLAN" phase refers to the initial stage where teams strategize and plan out their development and deployment processes. This phase is crucial for setting the foundation of a successful DevOps workflow. Here's a breakdown of what typically happens during the PLAN phase:
 

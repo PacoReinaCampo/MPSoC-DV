@@ -1,4 +1,4 @@
-# CODE
+# CODE (CREATE)
 
 In DevOps, the "CODE" phase refers to the stage where developers write, review, and manage the source code for the application or system being developed. This phase is a fundamental component of the DevOps workflow, as it forms the basis for continuous integration and delivery (CI/CD) processes. Here's a breakdown of what typically happens during the CODE phase:
 

@@ -1,4 +1,4 @@
-# TEST
+# TEST (VERIFY)
 
 In DevOps, the "TEST" phase is where software undergoes various types of testing to ensure its quality, reliability, and functionality meet the desired standards before deployment. Testing is a critical component of the DevOps lifecycle, as it helps identify and prevent defects early in the development process, leading to higher-quality software. Here's a breakdown of what typically happens during the TEST phase:
 

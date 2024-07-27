@@ -1,4 +1,4 @@
-# OPERATE
+# OPERATE (CONTROL VERSION)
 
 In DevOps, the "OPERATE" phase refers to the ongoing management, monitoring, and maintenance of the software application or system in the production environment. This phase is essential for ensuring the reliability, availability, and performance of the deployed software over its entire lifecycle. Here's a breakdown of what typically happens during the OPERATE phase:
 
