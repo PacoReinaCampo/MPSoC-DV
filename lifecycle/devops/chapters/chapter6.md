@@ -1,4 +1,4 @@
-# DEPLOY (DEPLOY)
+# DEPLOY (CONFIGURE)
 
 In the context of DevOps, the "DEPLOY" phase refers to the process of releasing and installing software or updates into the production environment, making it accessible to end-users. Deployment is a critical stage in the software delivery lifecycle, as it involves transitioning code from development and testing environments to the live production environment. Here's a breakdown of what typically happens during the DEPLOY phase:
 
