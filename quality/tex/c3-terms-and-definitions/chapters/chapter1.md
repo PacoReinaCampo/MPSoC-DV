@@ -4,71 +4,43 @@ In the context of ISO 9001:2015, the section on **Terms and Definitions** is cru
 
 ## IMPORTANCE OF TERMS AND DEFINITIONS
 
-1. **Consistency**:
+1. **Consistency**: Standardized terms ensure that everyone involved in implementing, auditing, and certifying a QMS has a consistent understanding of the key concepts and requirements.
 
-   - Standardized terms ensure that everyone involved in implementing, auditing, and certifying a QMS has a consistent understanding of the key concepts and requirements.
+2. **Clarity**: Clear definitions help avoid misunderstandings and ambiguities, ensuring that all parties interpret the requirements of the standard in the same way.
 
-2. **Clarity**:
-
-   - Clear definitions help avoid misunderstandings and ambiguities, ensuring that all parties interpret the requirements of the standard in the same way.
-
-3. **Foundation for Implementation**:
-
-   - Understanding the specific terms used in the standard is essential for correctly applying the requirements and principles of ISO 9001:2015 within an organization.
+3. **Foundation for Implementation**: Understanding the specific terms used in the standard is essential for correctly applying the requirements and principles of ISO 9001:2015 within an organization.
 
 ## KEY TERMS AND DEFINITIONS IN ISO 9001:2015
 
 While ISO 9001:2015 itself doesn't provide an exhaustive list of terms and definitions within the standard, it heavily relies on ISO 9000:2015 for this purpose. Here are some critical terms defined in ISO 9000:2015 that are essential for ISO 9001:2015:
 
-1. **Quality**:
+1. **Quality**: The degree to which a set of inherent characteristics of an object fulfills requirements.
 
-   - The degree to which a set of inherent characteristics of an object fulfills requirements.
+2. **Quality Management System (QMS)**: A management system with regard to quality, encompassing the organizational structure, processes, procedures, and resources needed to implement quality management.
 
-2. **Quality Management System (QMS)**:
+3. **Requirement**: A need or expectation that is stated, generally implied, or obligatory.
 
-   - A management system with regard to quality, encompassing the organizational structure, processes, procedures, and resources needed to implement quality management.
+4. **Customer Satisfaction**: The customer’s perception of the degree to which their requirements have been fulfilled.
 
-3. **Requirement**:
+5. **Process**: A set of interrelated or interacting activities that use inputs to deliver an intended result.
 
-   - A need or expectation that is stated, generally implied, or obligatory.
+6. **Continual Improvement**: Recurring activity to enhance performance.
 
-4. **Customer Satisfaction**:
+7. **Nonconformity**: Non-fulfillment of a requirement.
 
-   - The customer’s perception of the degree to which their requirements have been fulfilled.
+8. **Corrective Action**: Action to eliminate the cause of a detected nonconformity or other undesirable situation.
 
-5. **Process**:
+9. **Preventive Action**: Action to eliminate the cause of a potential nonconformity or other potential undesirable situation.
 
-   - A set of interrelated or interacting activities that use inputs to deliver an intended result.
-
-6. **Continual Improvement**:
-
-   - Recurring activity to enhance performance.
-
-7. **Nonconformity**:
-
-   - Non-fulfillment of a requirement.
-
-8. **Corrective Action**:
-
-   - Action to eliminate the cause of a detected nonconformity or other undesirable situation.
-
-9. **Preventive Action**:
-
-   - Action to eliminate the cause of a potential nonconformity or other potential undesirable situation.
-
-10. **Audit**:
-    - A systematic, independent, and documented process for obtaining audit evidence and evaluating it objectively to determine the extent to which the audit criteria are fulfilled.
+10. **Audit**: A systematic, independent, and documented process for obtaining audit evidence and evaluating it objectively to determine the extent to which the audit criteria are fulfilled.
 
 ## APPLICATION IN ISO 9001:2015
 
-- **Context of the Organization**:
-  - Understanding the environment in which the organization operates, including internal and external factors that can affect its ability to achieve the intended outcomes of its QMS.
+- **Context of the Organization**: Understanding the environment in which the organization operates, including internal and external factors that can affect its ability to achieve the intended outcomes of its QMS.
 
-- **Leadership and Commitment**:
-  - The role of top management in leading and committing to the development and implementation of the QMS.
+- **Leadership and Commitment**: The role of top management in leading and committing to the development and implementation of the QMS.
 
-- **Risk-Based Thinking**:
-  - Considering risk as a basis for the QMS and applying it throughout the organization to prevent or reduce undesired effects.
+- **Risk-Based Thinking**: Considering risk as a basis for the QMS and applying it throughout the organization to prevent or reduce undesired effects.
 
 ## REFERENCE TO ISO 9000:2015
 

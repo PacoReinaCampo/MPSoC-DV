@@ -74,24 +74,17 @@ In the context of standards such as ISO 9001:2015, a **normative reference** is 
 
 ### Role and Purpose of Normative References in ISO 9001:2015
 
-1. **Ensuring Consistency and Uniformity**:
+1. **Ensuring Consistency and Uniformity**: Normative references help maintain consistency and uniformity across various standards by providing common definitions, terms, and methodologies. This ensures that all users of the standard interpret and implement it in a similar manner.
 
-   - Normative references help maintain consistency and uniformity across various standards by providing common definitions, terms, and methodologies. This ensures that all users of the standard interpret and implement it in a similar manner.
+2. **Providing Additional Requirements and Guidance**: These references often include additional requirements, guidelines, or detailed explanations that are necessary to understand and implement the primary standard fully. For instance, they might elaborate on specific procedures, methods of measurement, or testing techniques.
 
-2. **Providing Additional Requirements and Guidance**:
-
-   - These references often include additional requirements, guidelines, or detailed explanations that are necessary to understand and implement the primary standard fully. For instance, they might elaborate on specific procedures, methods of measurement, or testing techniques.
-
-3. **Facilitating Compliance and Certification**:
-
-   - By referring to normative documents, organizations can ensure that they meet all necessary criteria for compliance and certification. This can simplify the certification process as it provides a clear set of documents that must be adhered to.
+3. **Facilitating Compliance and Certification**: By referring to normative documents, organizations can ensure that they meet all necessary criteria for compliance and certification. This can simplify the certification process as it provides a clear set of documents that must be adhered to.
 
 ### Example of Normative References in ISO 9001:2015
 
 ISO 9001:2015 includes the following normative reference:
 
-- **ISO 9000:2015, Quality management systems — Fundamentals and vocabulary**:
-   - ISO 9000:2015 provides the fundamental concepts, principles, and vocabulary used in the ISO 9001:2015 standard. It is critical for understanding the terminology and principles that underpin the quality management system requirements outlined in ISO 9001:2015.
+- **ISO 9000:2015, Quality management systems — Fundamentals and vocabulary**: ISO 9000:2015 provides the fundamental concepts, principles, and vocabulary used in the ISO 9001:2015 standard. It is critical for understanding the terminology and principles that underpin the quality management system requirements outlined in ISO 9001:2015.
 
 This normative reference is crucial because:
    - It defines the key terms and concepts used in ISO 9001:2015, ensuring that all users have a common understanding of the language and principles of quality management systems.
@@ -99,14 +92,11 @@ This normative reference is crucial because:
 
 ### Importance of Normative References
 
-- **Clarity and Precision**:
-   - Normative references provide clarity and precision, reducing ambiguity in the interpretation of the standard. This is essential for ensuring that all organizations implement the standard consistently.
+- **Clarity and Precision**: Normative references provide clarity and precision, reducing ambiguity in the interpretation of the standard. This is essential for ensuring that all organizations implement the standard consistently.
   
-- **Standardization Across Industries**:
-   - They help achieve standardization across different industries and sectors, as all entities referring to the primary standard will also refer to the same set of normative documents.
+- **Standardization Across Industries**: They help achieve standardization across different industries and sectors, as all entities referring to the primary standard will also refer to the same set of normative documents.
 
-- **Support for Auditors and Assessors**:
-   - Normative references support auditors and assessors by providing a clear framework and criteria for evaluating compliance with the primary standard.
+- **Support for Auditors and Assessors**: Normative references support auditors and assessors by providing a clear framework and criteria for evaluating compliance with the primary standard.
 
 In summary, normative references in ISO 9001:2015, such as ISO 9000:2015, are essential components that provide necessary definitions, guidelines, and additional requirements. They ensure the proper and uniform application of the standard, facilitating consistency, clarity, and comprehensive understanding for all users.
 
@@ -138,71 +128,43 @@ In the context of ISO 9001:2015, the section on **Terms and Definitions** is cru
 
 ### Importance of Terms and Definitions
 
-1. **Consistency**:
+1. **Consistency**: Standardized terms ensure that everyone involved in implementing, auditing, and certifying a QMS has a consistent understanding of the key concepts and requirements.
 
-   - Standardized terms ensure that everyone involved in implementing, auditing, and certifying a QMS has a consistent understanding of the key concepts and requirements.
+2. **Clarity**: Clear definitions help avoid misunderstandings and ambiguities, ensuring that all parties interpret the requirements of the standard in the same way.
 
-2. **Clarity**:
-
-   - Clear definitions help avoid misunderstandings and ambiguities, ensuring that all parties interpret the requirements of the standard in the same way.
-
-3. **Foundation for Implementation**:
-
-   - Understanding the specific terms used in the standard is essential for correctly applying the requirements and principles of ISO 9001:2015 within an organization.
+3. **Foundation for Implementation**: Understanding the specific terms used in the standard is essential for correctly applying the requirements and principles of ISO 9001:2015 within an organization.
 
 ### Key Terms and Definitions in ISO 9001:2015
 
 While ISO 9001:2015 itself doesn't provide an exhaustive list of terms and definitions within the standard, it heavily relies on ISO 9000:2015 for this purpose. Here are some critical terms defined in ISO 9000:2015 that are essential for ISO 9001:2015:
 
-1. **Quality**:
+1. **Quality**: The degree to which a set of inherent characteristics of an object fulfills requirements.
 
-   - The degree to which a set of inherent characteristics of an object fulfills requirements.
+2. **Quality Management System (QMS)**: A management system with regard to quality, encompassing the organizational structure, processes, procedures, and resources needed to implement quality management.
 
-2. **Quality Management System (QMS)**:
+3. **Requirement**: A need or expectation that is stated, generally implied, or obligatory.
 
-   - A management system with regard to quality, encompassing the organizational structure, processes, procedures, and resources needed to implement quality management.
+4. **Customer Satisfaction**: The customer’s perception of the degree to which their requirements have been fulfilled.
 
-3. **Requirement**:
+5. **Process**: A set of interrelated or interacting activities that use inputs to deliver an intended result.
 
-   - A need or expectation that is stated, generally implied, or obligatory.
+6. **Continual Improvement**: Recurring activity to enhance performance.
 
-4. **Customer Satisfaction**:
+7. **Nonconformity**: Non-fulfillment of a requirement.
 
-   - The customer’s perception of the degree to which their requirements have been fulfilled.
+8. **Corrective Action**: Action to eliminate the cause of a detected nonconformity or other undesirable situation.
 
-5. **Process**:
+9. **Preventive Action**: Action to eliminate the cause of a potential nonconformity or other potential undesirable situation.
 
-   - A set of interrelated or interacting activities that use inputs to deliver an intended result.
-
-6. **Continual Improvement**:
-
-   - Recurring activity to enhance performance.
-
-7. **Nonconformity**:
-
-   - Non-fulfillment of a requirement.
-
-8. **Corrective Action**:
-
-   - Action to eliminate the cause of a detected nonconformity or other undesirable situation.
-
-9. **Preventive Action**:
-
-   - Action to eliminate the cause of a potential nonconformity or other potential undesirable situation.
-
-10. **Audit**:
-   - A systematic, independent, and documented process for obtaining audit evidence and evaluating it objectively to determine the extent to which the audit criteria are fulfilled.
+10. **Audit**: A systematic, independent, and documented process for obtaining audit evidence and evaluating it objectively to determine the extent to which the audit criteria are fulfilled.
 
 ### Application in ISO 9001:2015
 
-- **Context of the Organization**:
-   - Understanding the environment in which the organization operates, including internal and external factors that can affect its ability to achieve the intended outcomes of its QMS.
+- **Context of the Organization**: Understanding the environment in which the organization operates, including internal and external factors that can affect its ability to achieve the intended outcomes of its QMS.
 
-- **Leadership and Commitment**:
-   - The role of top management in leading and committing to the development and implementation of the QMS.
+- **Leadership and Commitment**: The role of top management in leading and committing to the development and implementation of the QMS.
 
-- **Risk-Based Thinking**:
-   - Considering risk as a basis for the QMS and applying it throughout the organization to prevent or reduce undesired effects.
+- **Risk-Based Thinking**: Considering risk as a basis for the QMS and applying it throughout the organization to prevent or reduce undesired effects.
 
 ### Reference to ISO 9000:2015
 
@@ -360,7 +322,8 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 
 2. **Determine Actions**:
 
-   - Plan actions to address these risks and opportunities. Actions should be proportionate to the potential impact on the conformity of products and services and on customer satisfaction.
+   - Plan actions to address these risks and opportunities.
+   - Actions should be proportionate to the potential impact on the conformity of products and services and on customer satisfaction.
 
 3. **Integrate Actions into QMS**:
 
@@ -374,9 +337,7 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 
 ### Quality Objectives and Planning to Achieve Them
 
-**Purpose**:
-
-- To establish measurable and achievable quality objectives that are aligned with the organization's quality policy and strategic direction.
+**Purpose**: To establish measurable and achievable quality objectives that are aligned with the organization's quality policy and strategic direction.
 
 **Approach**:
 
@@ -399,9 +360,7 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 
 ### Planning of Changes
 
-**Purpose**:
-
-- To ensure that any changes to the QMS are conducted in a controlled manner and do not negatively impact the system's integrity or the quality of products and services.
+**Purpose**:  To ensure that any changes to the QMS are conducted in a controlled manner and do not negatively impact the system's integrity or the quality of products and services.
 
 **Approach**:
 

@@ -517,12 +517,12 @@ In Unified Modeling Language (UML), "Common Behavior" refers to the standardized
    - It defines how model elements respond to stimuli, events, or actions, including the execution of operations, handling of messages, and state transitions.
 
 2. **Types of Common Behavior**:
-   a. **Operations**: Operations represent behaviors or functionalities that model elements can perform. They define the interface through which objects interact with each other and manipulate their internal state.
-   b. **Messages**: Messages are used to communicate between objects or components in UML models. They represent asynchronous or synchronous interactions, where one object sends a message to another object to request or provide information or trigger a behavior.
-   c. **State Transitions**: State transitions describe the changes in the state of objects or components over time. They represent the movement of objects from one state to another in response to events or stimuli.
-   d. **Control Flow**: Control flow defines the sequence of actions or operations executed by objects or components in response to events or triggers. It represents the order in which behaviors are performed within a system.
-   e. **Concurrency**: Concurrency refers to the simultaneous execution of multiple behaviors or operations within a system. It allows for parallelism and multitasking, enabling efficient utilization of system resources.
-   f. **Exception Handling**: Exception handling defines how errors, exceptions, or unexpected conditions are handled within the system. It specifies the actions taken to recover from errors and maintain system integrity.
+   - **Operations**: Operations represent behaviors or functionalities that model elements can perform. They define the interface through which objects interact with each other and manipulate their internal state.
+   - **Messages**: Messages are used to communicate between objects or components in UML models. They represent asynchronous or synchronous interactions, where one object sends a message to another object to request or provide information or trigger a behavior.
+   - **State Transitions**: State transitions describe the changes in the state of objects or components over time. They represent the movement of objects from one state to another in response to events or stimuli.
+   - **Control Flow**: Control flow defines the sequence of actions or operations executed by objects or components in response to events or triggers. It represents the order in which behaviors are performed within a system.
+   - **Concurrency**: Concurrency refers to the simultaneous execution of multiple behaviors or operations within a system. It allows for parallelism and multitasking, enabling efficient utilization of system resources.
+   - **Exception Handling**: Exception handling defines how errors, exceptions, or unexpected conditions are handled within the system. It specifies the actions taken to recover from errors and maintain system integrity.
 
 3. **Representation in UML**:
    - Common behavior is represented graphically in UML diagrams using symbols, notations, and diagrams that depict the dynamic aspects of the system.
@@ -555,15 +555,14 @@ In Unified Modeling Language (UML), "State Machines" provide a graphical represe
    - State machines are commonly used to model the behavior of reactive systems, such as software components, embedded systems, user interfaces, and communication protocols.
 
 2. **Elements of State Machines**:
-   a. **States**: States represent the different conditions or modes that an object or system can be in at any given time. Each state represents a stable situation or configuration of the system.
-   b. **Transitions**: Transitions represent the change of state triggered by events or stimuli. They define the conditions under which a transition can occur and the actions or behaviors associated with the transition.
-   c. **Events**: Events represent the stimuli or occurrences that trigger state transitions. They can be internal or external and may carry additional data or parameters.
-   d. **Actions**: Actions represent the behaviors or operations performed when a state transition occurs. They specify the effects of transitioning from one state to another.
+   - **States**: States represent the different conditions or modes that an object or system can be in at any given time. Each state represents a stable situation or configuration of the system.
+   - **Transitions**: Transitions represent the change of state triggered by events or stimuli. They define the conditions under which a transition can occur and the actions or behaviors associated with the transition.
+   - **Events**: Events represent the stimuli or occurrences that trigger state transitions. They can be internal or external and may carry additional data or parameters.
+   - **Actions**: Actions represent the behaviors or operations performed when a state transition occurs. They specify the effects of transitioning from one state to another.
 
-3. **Types of State Machines**:
-   - UML defines two main types of state machines:
-     a. **Behavioral State Machines**: Also known as activity diagrams, behavioral state machines model the behavior of an object or system in response to events over time. They focus on the dynamic aspects of the system, including control flow, concurrency, and synchronization.
-     b. **Protocol State Machines**: Also known as statechart diagrams, protocol state machines model the lifecycle and behavior of an object or system in response to events and conditions. They focus on the states and transitions that define the protocol or sequence of operations.
+3. **Types of State Machines**: UML defines two main types of state machines:
+   - **Behavioral State Machines**: Also known as activity diagrams, behavioral state machines model the behavior of an object or system in response to events over time. They focus on the dynamic aspects of the system, including control flow, concurrency, and synchronization.
+   - **Protocol State Machines**: Also known as statechart diagrams, protocol state machines model the lifecycle and behavior of an object or system in response to events and conditions. They focus on the states and transitions that define the protocol or sequence of operations.
 
 4. **Representation in UML**:
    - State machines are represented graphically in UML diagrams using state diagrams or statechart diagrams.
@@ -596,13 +595,13 @@ In Unified Modeling Language (UML), "Activities" represent the dynamic aspects o
    - Activities are used to model the operational aspects of a system, including business processes, algorithms, workflows, use case scenarios, and system behaviors.
 
 2. **Elements of Activities**:
-   a. **Actions**: Actions represent the basic units of behavior within an activity. They can be atomic actions (e.g., assignments, method calls) or complex actions (e.g., loops, decisions).
-   b. **Control Nodes**: Control nodes define the flow of control within an activity. They include initial nodes, final nodes, decision nodes, merge nodes, fork nodes, and join nodes.
-   c. **Flow of Control**: The flow of control specifies the order in which actions are executed within the activity. It is represented by control edges connecting actions and control nodes.
-   d. **Decisions and Branching**: Decisions and branching constructs, such as decision nodes and guards, control the flow of execution based on conditions or expressions.
-   e. **Iteration and Looping**: Iteration and looping constructs, such as loop nodes and iteration edges, allow actions to be repeated multiple times based on conditions or iteration counts.
-   f. **Concurrency**: Concurrency constructs, such as fork nodes and join nodes, enable actions to be executed concurrently or in parallel threads.
-   g. **Exception Handling**: Exception handling constructs, such as exception handlers and interruptible regions, specify how errors or exceptional conditions are handled within the activity.
+   - **Actions**: Actions represent the basic units of behavior within an activity. They can be atomic actions (e.g., assignments, method calls) or complex actions (e.g., loops, decisions).
+   - **Control Nodes**: Control nodes define the flow of control within an activity. They include initial nodes, final nodes, decision nodes, merge nodes, fork nodes, and join nodes.
+   - **Flow of Control**: The flow of control specifies the order in which actions are executed within the activity. It is represented by control edges connecting actions and control nodes.
+   - **Decisions and Branching**: Decisions and branching constructs, such as decision nodes and guards, control the flow of execution based on conditions or expressions.
+   - **Iteration and Looping**: Iteration and looping constructs, such as loop nodes and iteration edges, allow actions to be repeated multiple times based on conditions or iteration counts.
+   - **Concurrency**: Concurrency constructs, such as fork nodes and join nodes, enable actions to be executed concurrently or in parallel threads.
+   - **Exception Handling**: Exception handling constructs, such as exception handlers and interruptible regions, specify how errors or exceptional conditions are handled within the activity.
 
 3. **Representation in UML**:
    - Activities are represented graphically in UML diagrams using activity diagrams.
@@ -1101,6 +1100,7 @@ Expression type classes categorize different kinds of expressions based on the t
 Bit expressions operate on individual bits and result in a single bit value (0 or 1). These expressions are fundamental in digital logic design.
 
 **Example:**
+
 ```verilog
 a & b   // Bitwise AND of bits a and b
 ```
@@ -1110,6 +1110,7 @@ a & b   // Bitwise AND of bits a and b
 Boolean expressions evaluate to true or false. They are used in conditions and assertions to specify logical constraints and properties.
 
 **Example:**
+
 ```verilog
 a && b  // Logical AND of Boolean values a and b
 ```
@@ -1119,6 +1120,7 @@ a && b  // Logical AND of Boolean values a and b
 BitVector expressions deal with vectors of bits (multiple bits). They are useful for representing and manipulating binary numbers or arrays of bits.
 
 **Example:**
+
 ```verilog
 a[3:0] // 4-bit vector from bit 3 to bit 0 of a
 ```
@@ -1128,6 +1130,7 @@ a[3:0] // 4-bit vector from bit 3 to bit 0 of a
 Numeric expressions operate on numerical values (integers, floating-point numbers). They are essential for arithmetic operations and calculations.
 
 **Example:**
+
 ```verilog
 a + b  // Addition of numeric values a and b
 ```
@@ -1137,6 +1140,7 @@ a + b  // Addition of numeric values a and b
 String expressions deal with sequences of characters. They are useful for representing textual data and manipulating strings.
 
 **Example:**
+
 ```verilog
 "Hello" + "World"  // Concatenation of two strings
 ```
@@ -1150,6 +1154,7 @@ Expression forms define the syntax and usage of expressions within different con
 HDL (Hardware Description Language) expressions follow the syntax and semantics of HDLs like VHDL or Verilog. These expressions are used to describe hardware behavior and structure.
 
 **Example:**
+
 ```verilog
 always @(posedge clk) begin
     q <= d;
@@ -1161,6 +1166,7 @@ end
 PSL expressions extend HDL expressions with additional constructs for specifying properties and assertions. They are used to describe and verify temporal properties of hardware designs.
 
 **Example:**
+
 ```verilog
 assert always (req -> eventually ack);
 ```
@@ -1170,6 +1176,7 @@ assert always (req -> eventually ack);
 Built-in functions provide predefined operations and utilities that can be used within expressions. They simplify common tasks and enhance the expressiveness of the language.
 
 **Example:**
+
 ```verilog
 $random  // Built-in function to generate a random number
 ```
@@ -1179,6 +1186,7 @@ $random  // Built-in function to generate a random number
 Union expressions combine multiple expressions into a single one, allowing for more complex and flexible conditions and operations.
 
 **Example:**
+
 ```verilog
 a | b  // Union (bitwise OR) of expressions a and b
 ```
@@ -1188,6 +1196,7 @@ a | b  // Union (bitwise OR) of expressions a and b
 Clock expressions define the clocking events and conditions for synchronous operations. They are crucial in specifying when certain actions or evaluations should occur in relation to clock signals.
 
 **Example:**
+
 ```verilog
 @(posedge clk)  // Expression triggering on the rising edge of clk
 ```
@@ -1197,6 +1206,7 @@ Clock expressions define the clocking events and conditions for synchronous oper
 The default clock declaration specifies the default clock signal for a set of expressions or properties. This simplifies the specification by avoiding the need to repeatedly mention the clock signal.
 
 **Example:**
+
 ```verilog
 default clock is clk;
 
@@ -1220,9 +1230,11 @@ Sequential expressions describe the order and timing of events. They are used to
 SEREs are a powerful way to describe sequences of events using a syntax similar to regular expressions but extended to handle the temporal aspect of hardware behavior.
 
 **Example:**
+
 ```psl
 {a; b[*3]; c}
 ```
+
 In this example, `a` is followed by `b` occurring three times, followed by `c`.
 
 ###### Sequences
@@ -1230,11 +1242,13 @@ In this example, `a` is followed by `b` occurring three times, followed by `c`.
 Sequences are ordered lists of events or conditions that must occur in a specified order. They can be used to describe complex temporal relationships in a concise manner.
 
 **Example:**
+
 ```psl
 sequence my_sequence;
   a ##1 b ##2 c;
 endsequence
 ```
+
 This sequence specifies that `a` is followed by `b` one clock cycle later, and then `c` two clock cycles after `b`.
 
 ##### Properties
@@ -1246,9 +1260,11 @@ Properties are assertions about the behavior of the system. They describe condit
 FL (Formal Language) properties are basic properties used to assert simple conditions over time.
 
 **Example:**
+
 ```psl
 assert always (req -> eventually ack);
 ```
+
 This property asserts that whenever `req` is true, `ack` must eventually become true.
 
 ###### Optional Branching Extension (OBE) Properties
@@ -1256,9 +1272,11 @@ This property asserts that whenever `req` is true, `ack` must eventually become 
 OBE properties extend basic properties to handle branching time logic, allowing for the specification of properties over multiple possible futures.
 
 **Example:**
+
 ```psl
 assert (a -> (b || c));
 ```
+
 This property asserts that if `a` is true, then either `b` or `c` must be true, capturing a branching behavior.
 
 ###### Replicated Properties
@@ -1266,9 +1284,11 @@ This property asserts that if `a` is true, then either `b` or `c` must be true, 
 Replicated properties specify that a property holds multiple times under certain conditions, often used to describe repeating patterns.
 
 **Example:**
+
 ```psl
 assert always {a; b}[*];
 ```
+
 This property asserts that the sequence `{a; b}` repeats indefinitely.
 
 ##### Local Variables
@@ -1276,12 +1296,14 @@ This property asserts that the sequence `{a; b}` repeats indefinitely.
 Local variables are used within properties and sequences to store intermediate values or states. They help in capturing and reusing values within a scope.
 
 **Example:**
+
 ```psl
 sequence s;
   int x = a + b;
   x ##1 c == x;
 endsequence
 ```
+
 Here, `x` is a local variable used within the sequence `s`.
 
 ##### Procedural Blocks
@@ -1289,6 +1311,7 @@ Here, `x` is a local variable used within the sequence `s`.
 Procedural blocks define blocks of code that execute sequentially, similar to procedural code in traditional programming languages. They are used to describe complex temporal behaviors.
 
 **Example:**
+
 ```psl
 always @(posedge clk) begin
   if (rst) begin
@@ -1298,6 +1321,7 @@ always @(posedge clk) begin
   end
 end
 ```
+
 This procedural block executes on the rising edge of the clock.
 
 ##### Property and Sequence Declarations
@@ -1309,6 +1333,7 @@ Properties and sequences can be declared and reused throughout the design, promo
 Parameters allow properties and sequences to be parameterized, enabling them to be more flexible and reusable.
 
 **Example:**
+
 ```psl
 property p(int delay);
   req ##delay ack;
@@ -1316,6 +1341,7 @@ endproperty
 
 assert p(3);
 ```
+
 Here, the property `p` takes an integer parameter `delay`.
 
 ###### Declarations
@@ -1323,6 +1349,7 @@ Here, the property `p` takes an integer parameter `delay`.
 Declarations define properties and sequences in a structured way, specifying their behavior and parameters.
 
 **Example:**
+
 ```psl
 sequence s;
   a ##1 b;
@@ -1332,6 +1359,7 @@ property p;
   s ##1 c;
 endproperty
 ```
+
 This example declares a sequence `s` and a property `p` that uses `s`.
 
 ###### Instantiation
@@ -1339,9 +1367,11 @@ This example declares a sequence `s` and a property `p` that uses `s`.
 Instantiation involves using declared properties and sequences in different contexts, potentially with different parameters.
 
 **Example:**
+
 ```psl
 assert p with (delay = 2);
 ```
+
 This instantiation uses the property `p` with a specific parameter value.
 
 In summary, the temporal layer in PSL provides a rich set of constructs for specifying and verifying the temporal behavior of hardware designs. Sequential expressions, properties, local variables, procedural blocks, and declarations form the core components of this layer, enabling precise and powerful descriptions of how signals and states evolve over time.
@@ -1359,9 +1389,11 @@ Verification directives are commands or statements used to specify conditions an
 The `assert` directive specifies conditions that must always hold true in the design. If an assertion fails during simulation or formal verification, it indicates a design error.
 
 **Example:**
+
 ```psl
 assert always (req -> eventually ack);
 ```
+
 This assertion ensures that whenever `req` is true, `ack` must eventually become true.
 
 ###### assume
@@ -1369,9 +1401,11 @@ This assertion ensures that whenever `req` is true, `ack` must eventually become
 The `assume` directive specifies conditions that are assumed to be true for the purpose of verification. These assumptions help constrain the verification environment.
 
 **Example:**
+
 ```psl
 assume always (input_signal != 0);
 ```
+
 This assumption states that `input_signal` is never zero.
 
 ###### restrict
@@ -1379,9 +1413,11 @@ This assumption states that `input_signal` is never zero.
 The `restrict` directive imposes constraints on the design's behavior. It is used to limit the set of possible behaviors considered during verification.
 
 **Example:**
+
 ```psl
 restrict always (mode == 1 -> output_signal == 0);
 ```
+
 This restriction ensures that if `mode` is 1, `output_signal` must be 0.
 
 ###### restrict!
@@ -1389,9 +1425,11 @@ This restriction ensures that if `mode` is 1, `output_signal` must be 0.
 The `restrict!` directive is a stronger version of `restrict`, used to enforce constraints more strictly. It is often used in formal verification to eliminate behaviors that are not of interest.
 
 **Example:**
+
 ```psl
 restrict! always (mode == 1 -> output_signal == 0);
 ```
+
 Similar to `restrict`, but with a stronger enforcement, typically causing verification to focus more on the constrained behavior.
 
 ###### cover
@@ -1399,9 +1437,11 @@ Similar to `restrict`, but with a stronger enforcement, typically causing verifi
 The `cover` directive specifies scenarios or events that should be observed during simulation. It helps ensure that specific situations are tested and occur during verification.
 
 **Example:**
+
 ```psl
 cover (req && ack);
 ```
+
 This coverage directive checks that the condition `req && ack` occurs during simulation.
 
 ###### fairness and strong_fairness
@@ -1409,10 +1449,12 @@ This coverage directive checks that the condition `req && ack` occurs during sim
 Fairness and strong fairness constraints ensure that certain conditions occur infinitely often in infinite execution paths. They are crucial in liveness properties, ensuring that certain events happen repeatedly.
 
 **Example:**
+
 ```psl
 fairness always (req -> eventually ack);
 strong_fairness always (req -> eventually ack);
 ```
+
 These directives ensure that `req` being true eventually leads to `ack` being true infinitely often.
 
 ##### Verification Units
@@ -1424,9 +1466,11 @@ Verification units are modular constructs that encapsulate properties, constrain
 Verification unit binding associates a verification unit with a specific part of the design. This binding ensures that the properties and constraints within the unit apply to the intended design components.
 
 **Example:**
+
 ```psl
 verification_unit my_unit is bound to my_module;
 ```
+
 This binds the verification unit `my_unit` to the module `my_module`.
 
 ###### Verification Unit Instantiation
@@ -1434,9 +1478,11 @@ This binds the verification unit `my_unit` to the module `my_module`.
 Verification unit instantiation involves creating instances of verification units, allowing their properties and constraints to be applied in different contexts.
 
 **Example:**
+
 ```psl
 instance my_instance of my_unit;
 ```
+
 This creates an instance `my_instance` of the verification unit `my_unit`.
 
 ###### Verification Unit Inheritance
@@ -1444,9 +1490,11 @@ This creates an instance `my_instance` of the verification unit `my_unit`.
 Verification unit inheritance allows a new verification unit to inherit properties and constraints from an existing unit, promoting reuse and extension.
 
 **Example:**
+
 ```psl
 verification_unit new_unit extends my_unit;
 ```
+
 This creates a new verification unit `new_unit` that inherits from `my_unit`.
 
 ###### Overriding Assignments
@@ -1454,10 +1502,12 @@ This creates a new verification unit `new_unit` that inherits from `my_unit`.
 Overriding assignments enable modification of inherited properties and constraints in the derived verification units, allowing customization without altering the original unit.
 
 **Example:**
+
 ```psl
 verification_unit custom_unit extends base_unit;
 custom_unit.property = custom_property;
 ```
+
 This example shows how `custom_unit` inherits from `base_unit` but overrides a specific property with `custom_property`.
 
 In summary, the verification layer in PSL provides a robust framework for asserting, assuming, restricting, and covering conditions in hardware design verification. It supports modularity through verification units, which can be bound, instantiated, inherited, and customized, ensuring a comprehensive and organized approach to verifying complex hardware designs.
@@ -4581,6 +4631,7 @@ Scripts are files containing a sequence of MATLAB commands. They are useful for 
   ```
 
 Example:
+
 ```matlab
 % myScript.m
 x = linspace(0, 2*pi, 100);
@@ -4608,6 +4659,7 @@ Functions are files that accept input arguments and return output arguments. The
   ```
 
 Example:
+
 ```matlab
 % myFunction.m
 function result = myFunction(a, b)
@@ -4632,6 +4684,7 @@ Live scripts and functions combine code, output, and formatted text in an intera
    - Enter code, text, and equations interactively.
 
 Example:
+
 ```matlab
 % This is a live script with formatted text and code
 a = 10;
@@ -4671,6 +4724,7 @@ MATLAB supports object-oriented programming through classes, enabling the defini
   ```
 
 Example:
+
 ```matlab
 % MyClass.m
 classdef MyClass
@@ -4753,6 +4807,7 @@ MATLAB provides error handling mechanisms to manage runtime errors.
   ```
 
 Example:
+
 ```matlab
 try
     result = 10 / 0;  % This will cause an error
@@ -4840,6 +4895,7 @@ App Designer is a drag-and-drop environment for creating professional apps witho
    - Write the function code to define the component's behavior.
 
 Example:
+
 ```matlab
 % Button callback function
 function ButtonPushed(app, event)
@@ -4859,6 +4915,7 @@ For more control, you can develop apps programmatically using MATLAB code.
 ###### Creating a Simple UI Programmatically
 
 Example:
+
 ```matlab
 function simpleUI
     % Create a figure window
@@ -4881,6 +4938,7 @@ end
 Use `uigridlayout`, `uiflowcontainer`, and other layout managers to organize UI components.
 
 Example:
+
 ```matlab
 function gridLayoutUI
     % Create a figure window with a grid layout
@@ -4909,6 +4967,7 @@ Live Editor tasks allow you to create interactive controls within Live Scripts.
    - Write the code to execute when the task is run.
 
 Example:
+
 ```matlab
 % Insert Task code
 data = rand(100,1);
@@ -4923,6 +4982,7 @@ Custom UI components enable you to create reusable, specialized controls.
 ###### Creating a Custom Component
 
 Example:
+
 ```matlab
 classdef CustomButton < matlab.ui.componentcontainer.ComponentContainer
     properties
@@ -5602,6 +5662,7 @@ By leveraging these environment and settings options in MATLAB, you can tailor y
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 Hello QueenField in C Language:
+
 ```c
 #include <stdio.h>
 
@@ -5614,6 +5675,7 @@ int main() {
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 ```
+
 gcc ntm_controller.c -o ntm_controller.run
 ```
 
@@ -5622,6 +5684,7 @@ gcc ntm_controller.c -o ntm_controller.run
 ### C++ Language
 
 Hello QueenField in C++ Language:
+
 ```cpp
 #include <iostream>
 
@@ -5634,6 +5697,7 @@ int main() {
 #### Language
 
 ```
+
 g++ ntm_controller.cpp -o ntm_controller.run
 ```
 
@@ -6485,6 +6549,7 @@ In Go, packages are used to organize and encapsulate code. Package names should 
 - Choose package names that are clear, meaningful, and relevant to the functionality they offer.
 
 Example:
+
 ```go
 package math
 ```
@@ -6497,6 +6562,7 @@ Getters are methods used to retrieve the values of private fields in Go structs.
 - Follow the convention of prefixing "Get" to the field name.
 
 Example:
+
 ```go
 type Person struct {
     name string
@@ -6516,6 +6582,7 @@ Interfaces in Go define sets of methods that a type must implement to satisfy th
 - Consider using nouns or noun phrases that describe the behavior or functionality provided by the interface.
 
 Example:
+
 ```go
 // Logger represents an interface for logging.
 type Logger interface {
@@ -6532,6 +6599,7 @@ MixedCaps, also known as CamelCase, is a naming convention used in Go for naming
 - Avoid using underscores to separate words in names.
 
 Example:
+
 ```go
 var myVariable int
 ```
@@ -6701,6 +6769,7 @@ default:
 - The `default` case is optional.
 
 Example:
+
 ```go
 package main
 
@@ -6743,6 +6812,7 @@ default:
 - The `default` case is optional and is executed if the expression doesn't match any of the specified types.
 
 Example:
+
 ```go
 package main
 
@@ -7451,6 +7521,7 @@ In this example:
 To run the server, save the code in a file (e.g., `server.go`) and execute it using the `go run` command:
 
 ```
+
 go run server.go
 ```
 
@@ -7485,12 +7556,14 @@ This program defines a function named `main`, which serves as the entry point of
 `Cargo` is Rust's package manager and build system. It simplifies the process of managing Rust projects, including dependencies, building, and running your code. To create a new Rust project with Cargo, navigate to your desired directory in the terminal and run:
 
 ```
+
 cargo new hello_cargo
 ```
 
 This command creates a new directory named `hello_cargo`, which contains a basic Rust project structure, including a `Cargo.toml` file (where dependencies and configuration are specified) and a `src` directory containing a `main.rs` file with a "Hello, World!" program. You can then navigate into the newly created directory and build/run the project using Cargo:
 
 ```
+
 cd hello_cargo
 cargo run
 ```
@@ -7925,6 +7998,7 @@ In Rust, a path is a way to refer to an item (such as a function, struct, or mod
 - **Relative Path**: Starts from the current module and uses `self`, `super`, or an identifier in the current module.
 
 For example:
+
 ```rust
 // Absolute path
 crate::my_module::my_function();
@@ -7951,6 +8025,7 @@ use crate::my_module::my_function;
 In Rust, you can define modules in separate files and organize your code more effectively. Each file should represent a module by placing it in a directory with the same name as the module and using a `mod.rs` file for its contents. Here's an example project structure:
 
 ```
+
 my_project/
     src/
         main.rs
@@ -8212,6 +8287,7 @@ In Rust, you can organize tests into different modules and files just like regul
 For example, you might have the following directory structure:
 
 ```
+
 my_project/
     src/
         lib.rs

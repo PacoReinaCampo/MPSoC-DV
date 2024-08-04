@@ -186,4 +186,3 @@ Implement an AXI4-Lite slave interface module in Chisel that supports read and w
 Explore and compare different on-chip bus configurations (combinational handshake vs pipelined handshake) for performance and area trade-offs.
 
 This manual provides comprehensive examples and exercises in Chisel for interconnect design, including classic microprocessor buses, on-chip buses with combinational and pipelined handshake, implementation of bus and interface standards (Wishbone, AXI, OCP), and suggestions for further bus specifications exploration. Adjust examples based on specific design requirements and expand functionality as needed.
-

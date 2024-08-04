@@ -44,22 +44,12 @@ Customer satisfaction is a key measure of the QMS’s effectiveness. The organiz
 
 The organization must analyze and evaluate data and information arising from monitoring and measurement. This analysis should provide insights into:
 
-1. **QMS performance and effectiveness**:
+1. **QMS performance and effectiveness**: Evaluate how well the QMS is achieving its objectives and meeting requirements.
 
-   - Evaluate how well the QMS is achieving its objectives and meeting requirements.
+2. **Process performance**: Assess the efficiency and effectiveness of processes.
 
-2. **Process performance**:
+3. **Product/service conformity**: Check whether products and services meet specified requirements.
 
-   - Assess the efficiency and effectiveness of processes.
+4. **Customer satisfaction trends**: Identify changes in customer satisfaction levels and underlying causes.
 
-3. **Product/service conformity**:
-
-   - Check whether products and services meet specified requirements.
-
-4. **Customer satisfaction trends**:
-
-   - Identify changes in customer satisfaction levels and underlying causes.
-
-5. **Opportunities for improvement**:
-
-   - Highlight areas where performance can be enhanced and risks mitigated.
+5. **Opportunities for improvement**: Highlight areas where performance can be enhanced and risks mitigated.

@@ -4,7 +4,7 @@ digraph Project {
   node[shape=record];
 
   // Blocks
-  subgraph "cluster TestBench" { label = "TestBench";
+  subgraph "cluster TestBench" { label = "UVM TestBench";
     subgraph "cluster Test" { label = "Test";
       subgraph "cluster Environment" { label = "Environment";
         subgraph "cluster Agent" { label = "Agent";

@@ -56,9 +56,7 @@ A Switch Level representation of a circuit is a netlist utilizing single transis
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-1. Settings → Apps → Apps & features → Related settings, Programs and
-Features → Turn Windows features on or off → Windows Subsystem for
-Linux
+1. Settings → Apps → Apps & features → Related settings, Programs and Features → Turn Windows features on or off → Windows Subsystem for Linux
 
 2. Microsoft Store → INSTALL UBUNTU
 
@@ -66,6 +64,7 @@ Linux
 
 Front-End and Back-End Library
 type:
+
 ```
 sudo apt update
 sudo apt upgrade
@@ -78,6 +77,7 @@ libncurses-dev libx11-dev m4 python-tk python3-tk swig tcl tcl-dev tk-dev tcsh
 
 Synthesizer Library
 type:
+
 ```
 sudo apt update
 sudo apt upgrade
@@ -107,6 +107,7 @@ libboost-python-dev libboost-filesystem-dev zlib1g-dev
 **System Description Language Editor**
 
 type:
+
 ```
 git clone https://github.com/emacs-mirror/emacs
 ```
@@ -120,6 +121,7 @@ git clone https://github.com/emacs-mirror/emacs
 **SystemVerilog System Description Language Simulator**
 
 type:
+
 ```
 git clone http://git.veripool.org/git/verilator
 
@@ -154,6 +156,7 @@ source simulate.sh
 **SystemVerilog System Description Language Verifier**
 
 type:
+
 ```
 git clone https://github.com/QueenField/UVM
 ```
@@ -167,6 +170,7 @@ git clone https://github.com/QueenField/UVM
 **Hardware Description Language Editor**
 
 type:
+
 ```
 git clone https://github.com/emacs-mirror/emacs
 ```
@@ -180,6 +184,7 @@ git clone https://github.com/emacs-mirror/emacs
 **VHDL Hardware Description Language Simulator**
 
 type:
+
 ```
 git clone https://github.com/ghdl/ghdl
 
@@ -209,6 +214,7 @@ source simulate.sh
 **Verilog Hardware Description Language Simulator**
 
 type:
+
 ```
 git clone https://github.com/steveicarus/iverilog
 
@@ -243,6 +249,7 @@ source simulate.sh
 **Verilog Hardware Description Language Synthesizer**
 
 type:
+
 ```
 git clone https://github.com/YosysHQ/yosys
 
@@ -261,6 +268,7 @@ source synthesize.sh
 **VHDL Hardware Description Language Synthesizer**
 
 type for Plugin:
+
 ```
 git clone https://github.com/ghdl/ghdl-yosys-plugin
 
@@ -284,6 +292,7 @@ source synthesize.sh
 **Verilog Hardware Description Language Optimizer**
 
 type:
+
 ```
 git clone https://github.com/YosysHQ/yosys
 
@@ -306,6 +315,7 @@ source synthesize.sh
 **Verilog Hardware Description Language Verifier**
 
 type:
+
 ```
 git clone https://github.com/YosysHQ/SymbiYosys
 ```
@@ -323,6 +333,7 @@ git clone https://github.com/YosysHQ/SymbiYosys
 **Library**
 
 type:
+
 ```
 sudo apt update
 sudo apt upgrade
@@ -336,6 +347,7 @@ libncurses-dev libx11-dev m4 python-tk python3-tk swig tcl tcl-dev tk-dev tcsh
 **Back-End Workflow Qflow**
 
 type:
+
 ```
 git clone https://github.com/RTimothyEdwards/qflow
 
@@ -359,6 +371,7 @@ cd qflow
 **Floor-Planner**
 
 type:
+
 ```
 git clone https://github.com/RTimothyEdwards/magic
 
@@ -377,6 +390,7 @@ sudo make install
 **Standard Cell Placer**
 
 type:
+
 ```
 git clone https://github.com/rubund/graywolf
 
@@ -397,6 +411,7 @@ sudo make install
 **Standard Cell Timing-Analizer**
 
 type:
+
 ```
 git clone https://github.com/The-OpenROAD-Project/OpenSTA
 
@@ -417,6 +432,7 @@ sudo make install
 **Standard Cell Router**
 
 type:
+
 ```
 git clone https://github.com/RTimothyEdwards/qrouter
 
@@ -435,6 +451,7 @@ sudo make install
 **Standard Cell Simulator**
 
 type:
+
 ```
 git clone https://github.com/RTimothyEdwards/irsim
 
@@ -453,6 +470,7 @@ sudo make install
 **Standard Cell Verifier**
 
 type:
+
 ```
 git clone https://github.com/RTimothyEdwards/netgen
 
@@ -476,6 +494,7 @@ source flow.sh
 **Standard Cell Checker**
 
 type:
+
 ```
 git clone https://github.com/RTimothyEdwards/magic
 
@@ -494,6 +513,7 @@ sudo make install
 **Standard Cell Editor**
 
 type:
+
 ```
 git clone https://github.com/RTimothyEdwards/magic
 
