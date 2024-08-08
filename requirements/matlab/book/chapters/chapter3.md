@@ -158,8 +158,7 @@ Visualizing data helps to uncover patterns, trends, and insights.
 
 Managing experiments involves organizing and tracking data and results from various experimental runs.
 
-- **Experiment Manager**:
-  MATLAB's Experiment Manager app helps manage and analyze multiple experiments systematically.
+- **Experiment Manager**: MATLAB's Experiment Manager app helps manage and analyze multiple experiments systematically.
 
 - **Logging and Documentation**:
   ```matlab
@@ -168,8 +167,7 @@ Managing experiments involves organizing and tracking data and results from vari
   diary off;  % Stop logging
   ```
 
-- **Automating Experiments**:
-  Use scripts and functions to automate repetitive tasks.
+- **Automating Experiments**: Use scripts and functions to automate repetitive tasks.
   ```matlab
   for i = 1:numExperiments
       % Code to run each experiment

@@ -3,10 +3,10 @@ digraph FrontEnd {
   node[shape=record];
 
   // Blocks
-  Modeling_SLH[label="Modeling System Level of Hardware \n(Emacs)"];
+  Modeling_SLH[label="Modeling System Level of Hardware \n(Vi)"];
   Simulating_SLH[label="Simulating System Level of Hardware \n(Verilator)"];
   Verifying_SLH[label="Verifying System Level of Hardware \n(OSVVM / UVM)"];
-  Describing_RTL[label="Describing Register Transfer Level of Hardware \n(Emacs)"];
+  Describing_RTL[label="Describing Register Transfer Level of Hardware \n(Vi)"];
   Simulating_RTL[label="Simulating Register Transfer Level of Hardware \n(GHDL / Icarus Verilog)"];
   Synthesizing_RTL[label="Synthesizing Register Transfer Level of Hardware \n(Yosys)"];
   Optimizing_RTL[label="Optimizing Register Transfer Level of Hardware \n(ABC)"];

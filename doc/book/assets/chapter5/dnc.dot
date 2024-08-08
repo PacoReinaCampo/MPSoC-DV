@@ -1,0 +1,48 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = LR];
+  node[shape=record];
+
+  // Modules
+  // Controller
+
+  // Procedures
+  // Calculate Forward/Backward Weightings
+  // Calculate New Memory Contents
+  // Calculate Precedence Weighting
+  // Calculate Read Vectors
+  // Calculate Temporal Matrix
+  // Calculate Uage Vector
+  // Calculate Write Weighting
+  // Memory Retention Calculation
+  // Read Content Lookup
+  // Write Content Lookup
+
+  // Functions
+  // Interpolation
+  // Oneplus
+  // Sigmoid
+  // Softmax
+  // Sort by Usage
+
+  // Internal Variables
+  // L(t-1)
+  // L
+  // M(t-1)
+  // M(t)
+  // p(t-1)
+  // p
+  // r(t, i)
+  // u(t-1)
+  // u(t)
+  // w(t-1, r, i)
+  // w(t, r, i)
+  // w(t-1, w)
+  // w(t, w)
+
+  // Inputs
+  // x(t)
+
+  // Outputs
+  // x(t)
+}

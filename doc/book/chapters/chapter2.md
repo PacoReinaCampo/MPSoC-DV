@@ -797,21 +797,31 @@ PSL is primarily used to describe and verify the behavior of digital circuits. I
 
 ##### Scope
 
+...
+
 The scope of PSL covers the entire lifecycle of hardware design verification, from the initial specification of design properties to the final verification of these properties against the implemented design. PSL can be applied to various hardware description languages (HDLs) such as VHDL, Verilog, SystemVerilog, and more.
 
 ##### Purpose
+
+...
 
 PSL's purpose is to provide a standardized way to describe properties and assertions about hardware designs. It facilitates the verification process by enabling the automatic checking of these properties, thus ensuring the correctness and reliability of the design.
 
 ###### Background
 
+...
+
 PSL was developed to address the need for a more expressive and standardized language for property specification in hardware verification. Before PSL, various proprietary and less expressive languages were used, leading to inefficiencies and inconsistencies in the verification process.
 
 ###### Motivation
 
+...
+
 The motivation behind PSL is to improve the efficiency and effectiveness of hardware design verification. By providing a powerful and standardized language for specifying properties, PSL helps designers catch design errors early in the development process, reducing the time and cost associated with hardware development.
 
 ###### Goals
+
+...
 
 The goals of PSL are to:
 
@@ -822,13 +832,19 @@ The goals of PSL are to:
 
 ##### Usage
 
+...
+
 PSL is used throughout the hardware design verification process, from writing specifications to verifying the final design. It allows designers to write assertions and properties that describe the expected behavior of the design, which can then be checked using formal verification tools.
 
 ###### Functional specification
 
+...
+
 The functional specification in PSL involves writing properties that describe the expected behavior of the hardware design. These properties are expressed using PSL's syntax and constructs, such as sequences, assertions, and temporal operators. For example, a designer might specify that a certain signal should always be high whenever another signal is low.
 
 ###### Functional verification
+
+...
 
 Functional verification with PSL involves checking the specified properties against the actual hardware design. This can be done using various formal verification tools that support PSL. These tools automatically analyze the design and check whether the specified properties hold true in all possible scenarios. If any property fails, the tool provides counterexamples to help the designer identify and fix the issue.
 
@@ -840,9 +856,13 @@ Normative references are essential components in technical standards and documen
 
 ##### Definition
 
+...
+
 Normative references are documents, standards, or other resources that are essential for the application, implementation, or understanding of the main document. They form an integral part of the document and provide the necessary foundation or support for its requirements, guidelines, or recommendations.
 
 ##### Purpose
+
+...
 
 The primary purpose of normative references is to:
 
@@ -852,19 +872,29 @@ The primary purpose of normative references is to:
 
 ##### Characteristics
 
+...
+
 ###### Essentiality
+
+...
 
 Normative references are not merely suggestions or optional resources; they are considered essential for the complete understanding and application of the primary document. Users must consult these references to fully comply with or implement the requirements of the primary document.
 
 ###### Binding Nature
 
+...
+
 The content referred to in normative references is binding within the context of the primary document. Compliance with the primary document typically necessitates compliance with the referenced documents as well.
 
 ###### Authoritativeness
 
+...
+
 Normative references usually include documents from recognized standards organizations, regulatory bodies, or other authoritative entities. This ensures that the primary document is grounded in widely accepted practices and knowledge.
 
 ##### Examples
+
+...
 
 Normative references can include:
 
@@ -875,9 +905,13 @@ Normative references can include:
 
 ##### Usage in Documents
 
+...
+
 When a document cites normative references, it typically includes a section explicitly listing these references. Each entry in the list includes sufficient details (e.g., title, publication date, document number) to identify and locate the referenced document.
 
 ###### Example Section
+
+...
 
 Here’s an example of how a normative references section might look in a technical document:
 
@@ -890,6 +924,8 @@ Here’s an example of how a normative references section might look in a techni
 In this example, the primary document requires adherence to specific standards for C programming, Ethernet, and quality management systems.
 
 ##### Importance in Standards Development
+
+...
 
 Normative references are crucial in the development and implementation of standards because they:
 
@@ -905,17 +941,25 @@ This section of a technical document is crucial for ensuring that all readers ha
 
 ##### Definitions
 
+...
+
 ###### Purpose
+
+...
 
 The definitions subsection provides clear and precise explanations of terms used in the document. These definitions ensure that all readers, regardless of their background or expertise, can understand the specific meanings of terms as intended by the authors.
 
 ###### Characteristics
+
+...
 
 - **Clarity:** Definitions should be written in simple and clear language to be easily understood.
 - **Specificity:** Each term should be defined as specifically as possible to avoid broad interpretations.
 - **Relevance:** Only include terms that are relevant to understanding the document.
 
 ###### Example
+
+...
 
 Here is an example of a definitions subsection:
 
@@ -927,17 +971,25 @@ Here is an example of a definitions subsection:
 
 ##### Acronyms and Abbreviations
 
+...
+
 ###### Purpose
+
+...
 
 This subsection lists all acronyms and abbreviations used in the document along with their full forms. This helps readers quickly find the meaning of short forms used throughout the text.
 
 ###### Characteristics
+
+...
 
 - **Alphabetical Order:** Acronyms and abbreviations are typically listed in alphabetical order for easy reference.
 - **Consistency:** Ensure that each acronym or abbreviation is used consistently throughout the document.
 - **Expansion:** Provide the expanded form of each acronym or abbreviation the first time it is used in the document, followed by the acronym in parentheses.
 
 ###### Example
+
+...
 
 Here is an example of an acronyms and abbreviations subsection:
 
@@ -950,17 +1002,25 @@ Here is an example of an acronyms and abbreviations subsection:
 
 ##### Special Terms
 
+...
+
 ###### Purpose
+
+...
 
 This subsection includes any special terms that have specific meanings within the context of the document. These terms might not be commonly understood outside of the specific domain or industry.
 
 ###### Characteristics
+
+...
 
 - **Context-Specific:** The terms included here have meanings that are specific to the context of the document.
 - **Detailed Explanations:** Provide detailed explanations to ensure clarity and understanding.
 - **Illustrative Examples:** When possible, include examples to illustrate how the terms are used.
 
 ###### Example
+
+...
 
 Here is an example of a special terms subsection:
 
@@ -971,6 +1031,8 @@ Here is an example of a special terms subsection:
 3. **Semaphore:** A variable or abstract data type used to control access to a common resource in concurrent programming and multitasking.
 
 ##### Importance in Technical Documents
+
+...
 
 Including definitions, acronyms, abbreviations, and special terms in technical documents is important for several reasons:
 
@@ -987,9 +1049,13 @@ This section outlines how the document is structured, detailing the abstract, le
 
 ##### Abstract Structure
 
+...
+
 The abstract structure provides an overview of the main components and organizational principles of the language.
 
 ###### Layers
+
+...
 
 The language might be organized into multiple layers, each serving a different purpose or abstraction level:
 
@@ -999,6 +1065,8 @@ The language might be organized into multiple layers, each serving a different p
 
 ###### Flavors
 
+...
+
 Different "flavors" or variants of the language might be defined to cater to various use cases or target different domains. For example:
 
 - **Formal Verification Flavor:** Tailored for rigorous, mathematical verification of properties.
@@ -1006,9 +1074,13 @@ Different "flavors" or variants of the language might be defined to cater to var
 
 ##### Lexical Structure
 
+...
+
 The lexical structure defines the basic building blocks of the language, such as tokens, identifiers, keywords, and operators.
 
 ###### Identifiers
+
+...
 
 Identifiers are names used to represent variables, functions, modules, etc. They must follow specific rules, such as:
 
@@ -1017,9 +1089,13 @@ Identifiers are names used to represent variables, functions, modules, etc. They
 
 ###### Keywords
 
+...
+
 Keywords are reserved words that have special meanings in the language and cannot be used as identifiers. Examples include `if`, `else`, `while`, `assert`, etc.
 
 ###### Operators
+
+...
 
 Operators are symbols that perform operations on variables and values. These include:
 
@@ -1029,17 +1105,25 @@ Operators are symbols that perform operations on variables and values. These inc
 
 ###### Macros
 
+...
+
 Macros are predefined or user-defined instructions that expand into a set of instructions or expressions. They help in code reuse and simplification.
 
 ###### Comments
+
+...
 
 Comments are non-executable parts of the code that provide explanations or annotations. They can be single-line or multi-line and are typically denoted by specific symbols like `//` for single-line comments and `/*...*/` for multi-line comments.
 
 ##### Syntax
 
+...
+
 The syntax defines the rules for how valid statements and expressions are formed in the language.
 
 ###### Conventions
+
+...
 
 Syntax conventions include the general rules and guidelines for writing code, such as:
 
@@ -1048,37 +1132,53 @@ Syntax conventions include the general rules and guidelines for writing code, su
 
 ###### HDL Dependencies
 
+...
+
 For hardware description languages (HDLs), syntax might depend on specific HDL features or constructs, requiring certain conventions to be followed to integrate smoothly with HDLs like VHDL or Verilog.
 
 ##### Semantics
 
+...
+
 The semantics define the meaning of syntactically correct statements and expressions.
 
 ###### Clocked vs Unclocked Evaluation
+
+...
 
 - **Clocked Evaluation:** Refers to operations or assertions that are synchronized with a clock signal, often used in sequential logic.
 - **Unclocked Evaluation:** Refers to operations or assertions that are not dependent on a clock signal, often used in combinational logic.
 
 ###### Safety vs Liveness Properties
 
+...
+
 - **Safety Properties:** Assert that "something bad" will never happen (e.g., a system never enters an unsafe state).
 - **Liveness Properties:** Assert that "something good" will eventually happen (e.g., a request will eventually receive a response).
 
 ###### Linear vs Branching Logic
+
+...
 
 - **Linear Logic:** Concerns properties that are evaluated over single execution paths or sequences of states.
 - **Branching Logic:** Concerns properties that are evaluated over branching structures of possible execution paths, allowing for reasoning about multiple potential futures.
 
 ###### Simple Subset
 
+...
+
 A simplified subset of the language that contains the core features and constructs, often used for educational purposes or as an entry point for beginners.
 
 ###### Finite-Length vs Infinite-Length Behavior
+
+...
 
 - **Finite-Length Behavior:** Properties or evaluations that are concerned with finite sequences of states or operations.
 - **Infinite-Length Behavior:** Properties or evaluations that are concerned with infinite sequences, often relevant in systems that are intended to run indefinitely.
 
 ###### The Concept of Strength
+
+...
 
 In PSL, the concept of strength refers to the precedence and binding power of operators and constructs:
 
@@ -1093,9 +1193,13 @@ The Boolean layer in a specification or programming language like PSL (Property 
 
 ##### Expression Type Classes
 
+...
+
 Expression type classes categorize different kinds of expressions based on the type of values they operate on and produce.
 
 ###### Bit Expressions
+
+...
 
 Bit expressions operate on individual bits and result in a single bit value (0 or 1). These expressions are fundamental in digital logic design.
 
@@ -1107,6 +1211,8 @@ a & b   // Bitwise AND of bits a and b
 
 ###### Boolean Expressions
 
+...
+
 Boolean expressions evaluate to true or false. They are used in conditions and assertions to specify logical constraints and properties.
 
 **Example:**
@@ -1116,6 +1222,8 @@ a && b  // Logical AND of Boolean values a and b
 ```
 
 ###### BitVector Expressions
+
+...
 
 BitVector expressions deal with vectors of bits (multiple bits). They are useful for representing and manipulating binary numbers or arrays of bits.
 
@@ -1127,6 +1235,8 @@ a[3:0] // 4-bit vector from bit 3 to bit 0 of a
 
 ###### Numeric Expressions
 
+...
+
 Numeric expressions operate on numerical values (integers, floating-point numbers). They are essential for arithmetic operations and calculations.
 
 **Example:**
@@ -1136,6 +1246,8 @@ a + b  // Addition of numeric values a and b
 ```
 
 ###### String Expressions
+
+...
 
 String expressions deal with sequences of characters. They are useful for representing textual data and manipulating strings.
 
@@ -1147,9 +1259,13 @@ String expressions deal with sequences of characters. They are useful for repres
 
 ##### Expression Forms
 
+...
+
 Expression forms define the syntax and usage of expressions within different contexts.
 
 ###### HDL Expressions
+
+...
 
 HDL (Hardware Description Language) expressions follow the syntax and semantics of HDLs like VHDL or Verilog. These expressions are used to describe hardware behavior and structure.
 
@@ -1163,6 +1279,8 @@ end
 
 ###### PSL Expressions
 
+...
+
 PSL expressions extend HDL expressions with additional constructs for specifying properties and assertions. They are used to describe and verify temporal properties of hardware designs.
 
 **Example:**
@@ -1172,6 +1290,8 @@ assert always (req -> eventually ack);
 ```
 
 ###### Built-in Functions
+
+...
 
 Built-in functions provide predefined operations and utilities that can be used within expressions. They simplify common tasks and enhance the expressiveness of the language.
 
@@ -1183,6 +1303,8 @@ $random  // Built-in function to generate a random number
 
 ###### Union Expressions
 
+...
+
 Union expressions combine multiple expressions into a single one, allowing for more complex and flexible conditions and operations.
 
 **Example:**
@@ -1193,6 +1315,8 @@ a | b  // Union (bitwise OR) of expressions a and b
 
 ##### Clock Expressions
 
+...
+
 Clock expressions define the clocking events and conditions for synchronous operations. They are crucial in specifying when certain actions or evaluations should occur in relation to clock signals.
 
 **Example:**
@@ -1202,6 +1326,8 @@ Clock expressions define the clocking events and conditions for synchronous oper
 ```
 
 ##### Default Clock Declaration
+
+...
 
 The default clock declaration specifies the default clock signal for a set of expressions or properties. This simplifies the specification by avoiding the need to repeatedly mention the clock signal.
 
@@ -1223,9 +1349,13 @@ The temporal layer in languages like PSL (Property Specification Language) is de
 
 ##### Sequential Expressions
 
+...
+
 Sequential expressions describe the order and timing of events. They are used to specify how sequences of events unfold over time.
 
 ###### Sequential Extended Regular Expressions (SEREs)
+
+...
 
 SEREs are a powerful way to describe sequences of events using a syntax similar to regular expressions but extended to handle the temporal aspect of hardware behavior.
 
@@ -1238,6 +1368,8 @@ SEREs are a powerful way to describe sequences of events using a syntax similar 
 In this example, `a` is followed by `b` occurring three times, followed by `c`.
 
 ###### Sequences
+
+...
 
 Sequences are ordered lists of events or conditions that must occur in a specified order. They can be used to describe complex temporal relationships in a concise manner.
 
@@ -1253,9 +1385,13 @@ This sequence specifies that `a` is followed by `b` one clock cycle later, and t
 
 ##### Properties
 
+...
+
 Properties are assertions about the behavior of the system. They describe conditions that should always hold true.
 
 ###### FL Properties
+
+...
 
 FL (Formal Language) properties are basic properties used to assert simple conditions over time.
 
@@ -1269,6 +1405,8 @@ This property asserts that whenever `req` is true, `ack` must eventually become 
 
 ###### Optional Branching Extension (OBE) Properties
 
+...
+
 OBE properties extend basic properties to handle branching time logic, allowing for the specification of properties over multiple possible futures.
 
 **Example:**
@@ -1281,6 +1419,8 @@ This property asserts that if `a` is true, then either `b` or `c` must be true, 
 
 ###### Replicated Properties
 
+...
+
 Replicated properties specify that a property holds multiple times under certain conditions, often used to describe repeating patterns.
 
 **Example:**
@@ -1292,6 +1432,8 @@ assert always {a; b}[*];
 This property asserts that the sequence `{a; b}` repeats indefinitely.
 
 ##### Local Variables
+
+...
 
 Local variables are used within properties and sequences to store intermediate values or states. They help in capturing and reusing values within a scope.
 
@@ -1307,6 +1449,8 @@ endsequence
 Here, `x` is a local variable used within the sequence `s`.
 
 ##### Procedural Blocks
+
+...
 
 Procedural blocks define blocks of code that execute sequentially, similar to procedural code in traditional programming languages. They are used to describe complex temporal behaviors.
 
@@ -1326,9 +1470,13 @@ This procedural block executes on the rising edge of the clock.
 
 ##### Property and Sequence Declarations
 
+...
+
 Properties and sequences can be declared and reused throughout the design, promoting modularity and reusability.
 
 ###### Parameters
+
+...
 
 Parameters allow properties and sequences to be parameterized, enabling them to be more flexible and reusable.
 
@@ -1345,6 +1493,8 @@ assert p(3);
 Here, the property `p` takes an integer parameter `delay`.
 
 ###### Declarations
+
+...
 
 Declarations define properties and sequences in a structured way, specifying their behavior and parameters.
 
@@ -1364,6 +1514,8 @@ This example declares a sequence `s` and a property `p` that uses `s`.
 
 ###### Instantiation
 
+...
+
 Instantiation involves using declared properties and sequences in different contexts, potentially with different parameters.
 
 **Example:**
@@ -1382,9 +1534,13 @@ The verification layer in languages like PSL (Property Specification Language) e
 
 ##### Verification Directives
 
+...
+
 Verification directives are commands or statements used to specify conditions and constraints that need to be checked during the verification process.
 
 ###### assert
+
+...
 
 The `assert` directive specifies conditions that must always hold true in the design. If an assertion fails during simulation or formal verification, it indicates a design error.
 
@@ -1398,6 +1554,8 @@ This assertion ensures that whenever `req` is true, `ack` must eventually become
 
 ###### assume
 
+...
+
 The `assume` directive specifies conditions that are assumed to be true for the purpose of verification. These assumptions help constrain the verification environment.
 
 **Example:**
@@ -1409,6 +1567,8 @@ assume always (input_signal != 0);
 This assumption states that `input_signal` is never zero.
 
 ###### restrict
+
+...
 
 The `restrict` directive imposes constraints on the design's behavior. It is used to limit the set of possible behaviors considered during verification.
 
@@ -1422,6 +1582,8 @@ This restriction ensures that if `mode` is 1, `output_signal` must be 0.
 
 ###### restrict!
 
+...
+
 The `restrict!` directive is a stronger version of `restrict`, used to enforce constraints more strictly. It is often used in formal verification to eliminate behaviors that are not of interest.
 
 **Example:**
@@ -1434,6 +1596,8 @@ Similar to `restrict`, but with a stronger enforcement, typically causing verifi
 
 ###### cover
 
+...
+
 The `cover` directive specifies scenarios or events that should be observed during simulation. It helps ensure that specific situations are tested and occur during verification.
 
 **Example:**
@@ -1445,6 +1609,8 @@ cover (req && ack);
 This coverage directive checks that the condition `req && ack` occurs during simulation.
 
 ###### fairness and strong_fairness
+
+...
 
 Fairness and strong fairness constraints ensure that certain conditions occur infinitely often in infinite execution paths. They are crucial in liveness properties, ensuring that certain events happen repeatedly.
 
@@ -1459,9 +1625,13 @@ These directives ensure that `req` being true eventually leads to `ack` being tr
 
 ##### Verification Units
 
+...
+
 Verification units are modular constructs that encapsulate properties, constraints, and verification logic. They promote reusability and organization in verification.
 
 ###### Verification Unit Binding
+
+...
 
 Verification unit binding associates a verification unit with a specific part of the design. This binding ensures that the properties and constraints within the unit apply to the intended design components.
 
@@ -1475,6 +1645,8 @@ This binds the verification unit `my_unit` to the module `my_module`.
 
 ###### Verification Unit Instantiation
 
+...
+
 Verification unit instantiation involves creating instances of verification units, allowing their properties and constraints to be applied in different contexts.
 
 **Example:**
@@ -1487,6 +1659,8 @@ This creates an instance `my_instance` of the verification unit `my_unit`.
 
 ###### Verification Unit Inheritance
 
+...
+
 Verification unit inheritance allows a new verification unit to inherit properties and constraints from an existing unit, promoting reuse and extension.
 
 **Example:**
@@ -1498,6 +1672,8 @@ verification_unit new_unit extends my_unit;
 This creates a new verification unit `new_unit` that inherits from `my_unit`.
 
 ###### Overriding Assignments
+
+...
 
 Overriding assignments enable modification of inherited properties and constraints in the derived verification units, allowing customization without altering the original unit.
 
@@ -1518,17 +1694,25 @@ The modeling layer in languages like PSL (Property Specification Language) is us
 
 ##### Integer Ranges
 
+...
+
 ###### Purpose
+
+...
 
 Integer ranges allow the specification of a range of integer values, which is particularly useful in hardware design for defining signal widths, array indices, and constraints on integer variables.
 
 ###### Characteristics
+
+...
 
 - **Range Specification:** Integer ranges are typically defined using a lower and upper bound, specifying the set of values an integer can take.
 - **Type Safety:** By specifying ranges, the design ensures that variables only take on values within the defined limits, helping to catch errors and improve reliability.
 - **Resource Optimization:** Restricting integer values to specific ranges can optimize resource usage in hardware implementations, such as minimizing the number of bits needed to represent a value.
 
 ###### Example
+
+...
 
 ```vhdl
 type small_int is range 0 to 15;
@@ -1539,17 +1723,25 @@ In this example, `small_int` is an integer type that ranges from 0 to 15, and `c
 
 ##### Structures
 
+...
+
 ###### Purpose
+
+...
 
 Structures (or records) are used to group related data items into a single composite data type. This is useful for organizing complex data and representing more abstract concepts in a concise manner.
 
 ###### Characteristics
+
+...
 
 - **Data Grouping:** Structures group multiple data fields into a single entity, each field having its own name and type.
 - **Hierarchical Modeling:** Structures can contain other structures, enabling hierarchical modeling of complex systems.
 - **Clarity and Maintainability:** Using structures makes the design more readable and easier to maintain by logically grouping related data.
 
 ###### Example
+
+...
 
 ```vhdl
 type pixel is record
@@ -1565,6 +1757,8 @@ In this example, `pixel` is a structure representing a color with red, green, an
 
 ###### Usage in Verification
 
+...
+
 Structures and integer ranges are particularly useful in the verification context for:
 
 - **Defining Interfaces:** Accurately modeling hardware interfaces with complex data requirements.
@@ -1572,6 +1766,8 @@ Structures and integer ranges are particularly useful in the verification contex
 - **Enhancing Readability:** Making verification properties and assertions clearer by using well-defined data structures.
 
 ###### Example in PSL
+
+...
 
 ```psl
 type rgb_color is record
@@ -1593,16 +1789,24 @@ In programming and specification languages like PSL (Property Specification Lang
 
 ##### Immediate Scope
 
+...
+
 ###### Definition
+
+...
 
 Immediate scope refers to the region in the code where an identifier is directly accessible immediately after its declaration. This scope is typically limited to the block or module where the identifier is defined.
 
 ###### Characteristics
 
+...
+
 - **Local Variables:** Variables declared within a block are only accessible within that block.
 - **Local Properties:** Properties or sequences defined within a specific module or unit are only accessible within that module or unit.
 
 ###### Example
+
+...
 
 ```verilog
 module example;
@@ -1620,16 +1824,24 @@ In this example, `a` is in the immediate scope of the `example` module, while `b
 
 ##### Extended Scope
 
+...
+
 ###### Definition
+
+...
 
 Extended scope refers to a broader region where an identifier can be accessed beyond its immediate scope, often through mechanisms such as inheritance, inclusion, or linking.
 
 ###### Characteristics
 
+...
+
 - **Inheritance:** In object-oriented contexts, properties and methods of a parent class or module are accessible in the child class or module.
 - **Module Linking:** Identifiers in linked or included modules can be accessed if explicitly imported or referenced.
 
 ###### Example
+
+...
 
 ```verilog
 module parent;
@@ -1648,7 +1860,11 @@ In this example, `x` is defined in the `parent` module and is accessible in the 
 
 ##### Direct and Indirect Name References
 
+...
+
 ###### Direct Name References
+
+...
 
 Direct name references occur when an identifier is accessed using its explicit name within its scope or through qualified naming if the identifier is from an extended scope.
 
@@ -1669,6 +1885,8 @@ endmodule
 ```
 
 ###### Indirect Name References
+
+...
 
 Indirect name references occur when an identifier is accessed using an alias, pointer, or through some form of indirection.
 
@@ -1693,6 +1911,8 @@ endmodule
 In this example, `pointer` indirectly references `data`.
 
 ###### Application in PSL
+
+...
 
 In PSL, scope and visibility rules are critical for organizing properties and ensuring they are accessible where needed. The following examples demonstrate immediate and extended scope in PSL:
 
@@ -1759,6 +1979,8 @@ Python is a versatile and widely-used programming language known for its simplic
 
 ##### Alternate Implementations
 
+...
+
 Python has several implementations, each designed to meet different needs:
 
 1. **CPython**: The default and most widely-used implementation of Python, written in C. It compiles Python code to bytecode, which is then interpreted by a virtual machine. CPython is known for its stability and extensive support for C extensions.
@@ -1817,6 +2039,8 @@ Python has several implementations, each designed to meet different needs:
     ```
 
 ##### Notation
+
+...
 
 Python code often uses specific notations and conventions to improve readability and maintainability. Some key notations include:
 
@@ -1878,6 +2102,8 @@ Lexical analysis is the first phase of a compiler or interpreter, where the inpu
 
 ##### Line Structure
 
+...
+
 Python source code is organized into lines, each containing one or more statements. The line structure in Python is significant, particularly due to its use of indentation to define code blocks.
 
 - **Logical Lines**: Python code is generally written in logical lines. Each logical line corresponds to a statement.
@@ -1898,6 +2124,8 @@ total = 1 + 2 + 3 + \
 
 ##### Other Tokens
 
+...
+
 In Python, tokens are categorized into several types:
 
 - **Keywords**: Reserved words with special meaning, such as `if`, `for`, `while`, `def`, etc.
@@ -1907,6 +2135,8 @@ In Python, tokens are categorized into several types:
 - **Delimiters**: Characters used to separate tokens.
 
 ##### Identifiers and Keywords
+
+...
 
 **Identifiers** are names given to variables, functions, classes, and other objects. Identifiers must follow these rules:
 
@@ -1933,6 +2163,8 @@ if, else, elif, for, while, break, continue, return, def, class, import, from, a
 ```
 
 ##### Literals
+
+...
 
 Literals represent constant values in Python. There are several types of literals:
 
@@ -1967,6 +2199,8 @@ Literals represent constant values in Python. There are several types of literal
     ```
 
 ##### Operators
+
+...
 
 Operators are symbols that perform operations on variables and values. Python has several types of operators:
 
@@ -2024,6 +2258,8 @@ Operators are symbols that perform operations on variables and values. Python ha
 
 ##### Delimiters
 
+...
+
 Delimiters are characters or sequences of characters that separate tokens. In Python, delimiters include:
 
 - **Parentheses**: `(` and `)`
@@ -2053,6 +2289,8 @@ The Python data model describes the structure of Python programs. It defines how
 
 ##### Objects, Values, and Types
 
+...
+
 In Python, everything is an object. Each object has:
 
 - **Identity**: A unique identifier for the object, which can be obtained using the `id()` function.
@@ -2067,6 +2305,8 @@ print(x)        # Value: 42
 ```
 
 ##### The Standard Type Hierarchy
+
+...
 
 Python's type system is organized into a hierarchy of built-in types. Some of the key categories include:
 
@@ -2137,6 +2377,8 @@ Python's type system is organized into a hierarchy of built-in types. Some of th
 
 ##### Special Method Names
 
+...
+
 Special method names (also known as "magic methods" or "dunder methods") enable the customization of object behavior in Python. They are surrounded by double underscores. Some common special methods include:
 
 - **`__init__`**: Constructor, called when a new instance is created.
@@ -2206,6 +2448,8 @@ Special method names (also known as "magic methods" or "dunder methods") enable 
 
 ##### Coroutines
 
+...
+
 Coroutines are a type of function that allow for cooperative multitasking, enabling a function to pause its execution and yield control back to the caller, potentially resuming at a later point. They are defined using `async def` and can use `await` to pause execution until a result is available.
 
 1. **Defining a Coroutine**:
@@ -2263,6 +2507,8 @@ Python's execution model describes how code is structured, how names are associa
 
 ##### Structure of a Program
 
+...
+
 A Python program consists of various components organized in a specific manner. The structure typically includes:
 
 1. **Modules**: The highest-level organizational unit in Python, each file containing Python code is a module.
@@ -2272,6 +2518,8 @@ A Python program consists of various components organized in a specific manner. 
 5. **Blocks and Indentation**: Python uses indentation to define blocks of code for functions, loops, conditionals, etc.
 
 ###### Example of Program Structure
+
+...
 
 ```python
 # Module-level variables and imports
@@ -2297,9 +2545,13 @@ if __name__ == "__main__":
 
 ##### Naming and Binding
 
+...
+
 Naming refers to the association between names (identifiers) and objects in Python. Binding is the process of associating a name with an object.
 
 ###### Namespaces
+
+...
 
 A namespace is a collection of name-to-object mappings. Python has several namespaces:
 
@@ -2310,6 +2562,8 @@ A namespace is a collection of name-to-object mappings. Python has several names
 
 ###### Scope
 
+...
+
 Scope defines the visibility of a name within a namespace. Python determines the scope of a name using the LEGB rule:
 
 - **Local**: Names defined within a function.
@@ -2318,6 +2572,8 @@ Scope defines the visibility of a name within a namespace. Python determines the
 - **Built-in**: Predefined names in the Python interpreter.
 
 ###### Binding Names
+
+...
 
 Binding names to objects occurs through assignments, function definitions, class definitions, and imports.
 
@@ -2345,9 +2601,13 @@ Binding names to objects occurs through assignments, function definitions, class
 
 ###### Name Resolution
 
+...
+
 Python resolves names using the LEGB rule, searching through each namespace in order.
 
 ###### Example
+
+...
 
 ```python
 x = 10  # Global scope
@@ -2368,9 +2628,13 @@ print(x)  # Prints 10
 
 ##### Exceptions
 
+...
+
 Exceptions are events that disrupt the normal flow of a program. Python uses exceptions to handle errors and other exceptional events.
 
 ###### Handling Exceptions
+
+...
 
 Python uses `try` and `except` blocks to handle exceptions.
 
@@ -2403,6 +2667,8 @@ Python uses `try` and `except` blocks to handle exceptions.
 
 ###### Raising Exceptions
 
+...
+
 You can raise exceptions using the `raise` statement.
 
 - **Raising an Exception**:
@@ -2412,6 +2678,8 @@ You can raise exceptions using the `raise` statement.
     ```
 
 ###### Custom Exceptions
+
+...
 
 You can define custom exceptions by subclassing the `Exception` class.
 
@@ -2426,9 +2694,13 @@ You can define custom exceptions by subclassing the `Exception` class.
 
 ###### Exception Propagation
 
+...
+
 Exceptions propagate up the call stack until they are caught by an exception handler. If no handler is found, the program terminates with a traceback.
 
 ###### `finally` and `else` Clauses
+
+...
 
 - **`finally` Clause**: Executes code regardless of whether an exception occurred.
 
@@ -2460,6 +2732,8 @@ Python's import system allows you to include and reuse code from different modul
 
 ##### `importlib`
 
+...
+
 `importlib` is a module in Python that provides an implementation of the import statement. It allows for the dynamic import of modules and packages.
 
 - **Importing a module using `importlib`**:
@@ -2482,6 +2756,8 @@ Python's import system allows you to include and reuse code from different modul
     ```
 
 ##### Packages
+
+...
 
 Packages are a way of structuring Python’s module namespace by using "dotted module names". A package is essentially a directory that contains a special `__init__.py` file and can contain multiple modules or sub-packages.
 
@@ -2506,6 +2782,8 @@ Packages are a way of structuring Python’s module namespace by using "dotted m
 
 ##### Searching
 
+...
+
 When you import a module, Python searches for it in the directories listed in `sys.path`.
 
 - **Adding a directory to `sys.path`**:
@@ -2524,6 +2802,8 @@ When you import a module, Python searches for it in the directories listed in `s
 
 ##### Loading
 
+...
+
 After finding the module, Python loads it by executing its code within a new namespace. This process creates module objects.
 
 - **Importing a module and accessing its attributes**:
@@ -2535,6 +2815,8 @@ After finding the module, Python loads it by executing its code within a new nam
 
 ##### The Path Based Finder
 
+...
+
 The Path Based Finder is the default mechanism for locating modules and packages. It searches the directories listed in `sys.path` for the specified module or package.
 
 1. **Import request**: When you import a module, Python uses the Path Based Finder to search through `sys.path`.
@@ -2542,6 +2824,8 @@ The Path Based Finder is the default mechanism for locating modules and packages
 3. **Loading the module**: If found, the loader loads the module and adds it to `sys.modules`.
 
 ##### Replacing the Standard Import System
+
+...
 
 Python allows you to customize the import system by modifying `sys.meta_path`, a list of finder objects.
 
@@ -2566,6 +2850,8 @@ Python allows you to customize the import system by modifying `sys.meta_path`, a
 
 ##### Package Relative Imports
 
+...
+
 Relative imports use the `.` notation to import modules relative to the current package.
 
 - **Relative import within a package**:
@@ -2584,6 +2870,8 @@ Relative imports use the `.` notation to import modules relative to the current 
 
 ##### Special Considerations for `__main__`
 
+...
+
 When a module is run as the main program, its `__name__` attribute is set to `'__main__'`. This can be used to conditionally execute code only when the module is run directly, not when imported.
 
 - **Using `__main__`**:
@@ -2598,6 +2886,8 @@ When a module is run as the main program, its `__name__` attribute is set to `'_
     ```
 
 ##### References
+
+...
 
 For further reading and deeper understanding, you can refer to:
 
@@ -2614,6 +2904,8 @@ Expressions in Python are constructs that can be evaluated to produce a value. T
 
 ##### Arithmetic Conversions
 
+...
+
 Python performs implicit type conversions (also known as coercion) in arithmetic operations involving different numeric types (int, float, complex).
 
 - **Integer and Float**: When an integer is combined with a float, the result is a float.
@@ -2629,6 +2921,8 @@ Python performs implicit type conversions (also known as coercion) in arithmetic
     ```
 
 ##### Atoms
+
+...
 
 Atoms are the most basic elements of expressions. They include identifiers, literals, parenthesized expressions, list displays, dictionary displays, set displays, and generator expressions.
 
@@ -2665,6 +2959,8 @@ Atoms are the most basic elements of expressions. They include identifiers, lite
 
 ##### Primaries
 
+...
+
 Primaries are the most tightly bound operations in Python. They include attribute references, subscriptions, slicing, and function calls.
 
 - **Attribute References**: Accessing an attribute of an object.
@@ -2692,6 +2988,8 @@ Primaries are the most tightly bound operations in Python. They include attribut
 
 ##### Await Expression
 
+...
+
 Used with `async` functions, it pauses the execution until the awaited `awaitable` completes and returns the result.
 
 ```python
@@ -2707,6 +3005,8 @@ asyncio.run(example())
 
 ##### The Power Operator
 
+...
+
 The power operator `**` raises the left-hand operand to the power of the right-hand operand.
 
 ```python
@@ -2714,6 +3014,8 @@ result = 2 ** 3  # result is 8
 ```
 
 ##### Unary Arithmetic and Bitwise Operations
+
+...
 
 Unary operations apply to a single operand.
 
@@ -2729,6 +3031,8 @@ Unary operations apply to a single operand.
     ```
 
 ##### Binary Arithmetic Operations
+
+...
 
 Binary arithmetic operations involve two operands.
 
@@ -2764,6 +3068,8 @@ Binary arithmetic operations involve two operands.
 
 ##### Shifting Operations
 
+...
+
 Shifting operations move the bits of an integer left or right.
 
 - **Left Shift**: `<<`
@@ -2777,6 +3083,8 @@ Shifting operations move the bits of an integer left or right.
     ```
 
 ##### Binary Bitwise Operations
+
+...
 
 Binary bitwise operations operate on the binary representations of integers.
 
@@ -2797,6 +3105,8 @@ Binary bitwise operations operate on the binary representations of integers.
 
 ##### Comparisons
 
+...
+
 Comparison operators compare two values and return a boolean result.
 
 - **Equal**: `==`
@@ -2815,6 +3125,8 @@ result = 5 > 3   # result is True
 
 ##### Boolean Operations
 
+...
+
 Boolean operations `and`, `or`, and `not` are used to combine conditional expressions.
 
 ```python
@@ -2825,6 +3137,8 @@ result = not (5 > 3)          # result is False
 
 ##### Assignment Expressions
 
+...
+
 Assignment expressions allow you to assign values to variables as part of an expression using the `:=` operator, also known as the "walrus operator".
 
 ```python
@@ -2833,6 +3147,8 @@ if (n := len(my_list)) > 5:
 ```
 
 ##### Conditional Expressions
+
+...
 
 Conditional expressions (ternary operator) allow you to return a value based on a condition.
 
@@ -2843,6 +3159,8 @@ result = "Positive" if x > 0 else "Non-positive"
 
 ##### Lambdas
 
+...
+
 Lambda expressions define anonymous functions using the `lambda` keyword.
 
 ```python
@@ -2851,6 +3169,8 @@ result = square(5)  # result is 25
 ```
 
 ##### Expression Lists
+
+...
 
 Expression lists are used in various constructs, such as function arguments, tuple packing, and unpacking.
 
@@ -2870,9 +3190,13 @@ a, b, c = my_tuple
 
 ##### Evaluation Order
 
+...
+
 Python evaluates expressions from left to right, but certain operators have higher precedence than others, affecting the evaluation order.
 
 ##### Operator Precedence
+
+...
 
 Operator precedence determines the order in which operators are evaluated in expressions. Operators with higher precedence are evaluated first.
 
@@ -2915,6 +3239,8 @@ Simple statements are single-line statements that perform various operations. Th
 
 ##### Expression Statements
 
+...
+
 Expression statements evaluate an expression and discard the result. They are often used to call functions or methods.
 
 ```python
@@ -2923,6 +3249,8 @@ x + y  # An expression statement with no effect
 ```
 
 ##### Assignment Statements
+
+...
 
 Assignment statements bind a name to an object or assign a new value to an existing name.
 
@@ -2934,6 +3262,8 @@ x += 1  # Augmented assignment
 
 ##### The `assert` Statement
 
+...
+
 The `assert` statement is used for debugging purposes. It tests an expression and triggers an `AssertionError` if the expression evaluates to `False`.
 
 ```python
@@ -2943,6 +3273,8 @@ assert 2 + 2 == 5  # AssertionError
 
 ##### The `pass` Statement
 
+...
+
 The `pass` statement is a no-operation statement. It is used as a placeholder in control structures or functions where code is syntactically required but not yet implemented.
 
 ```python
@@ -2951,6 +3283,8 @@ def empty_function():
 ```
 
 ##### The `del` Statement
+
+...
 
 The `del` statement deletes names or items from a collection.
 
@@ -2964,6 +3298,8 @@ del y  # Deletes the name 'y'
 
 ##### The `return` Statement
 
+...
+
 The `return` statement exits a function and optionally returns a value.
 
 ```python
@@ -2974,6 +3310,8 @@ result = add(3, 4)  # result is 7
 ```
 
 ##### The `yield` Statement
+
+...
 
 The `yield` statement is used in a function to return a generator iterator. It allows the function to yield values one at a time, suspending its state between each yield.
 
@@ -2989,6 +3327,8 @@ for number in generate_numbers():
 
 ##### The `raise` Statement
 
+...
+
 The `raise` statement is used to trigger an exception.
 
 ```python
@@ -2996,6 +3336,8 @@ raise ValueError("An error occurred")
 ```
 
 ##### The `break` Statement
+
+...
 
 The `break` statement exits the nearest enclosing loop.
 
@@ -3008,6 +3350,8 @@ for i in range(10):
 
 ##### The `continue` Statement
 
+...
+
 The `continue` statement skips the rest of the current loop iteration and moves to the next iteration.
 
 ```python
@@ -3018,6 +3362,8 @@ for i in range(10):
 ```
 
 ##### The `import` Statement
+
+...
 
 The `import` statement is used to include modules in the current namespace.
 
@@ -3030,6 +3376,8 @@ print(sqrt(16))  # Prints 4.0
 ```
 
 ##### The `global` Statement
+
+...
 
 The `global` statement declares that a variable inside a function refers to a globally defined variable.
 
@@ -3045,6 +3393,8 @@ print(x)  # Prints 20
 ```
 
 ##### The `nonlocal` Statement
+
+...
 
 The `nonlocal` statement is used to declare that a variable refers to a variable in the nearest enclosing scope that is not global.
 
@@ -3063,6 +3413,8 @@ outer()
 ```
 
 ##### The `type` Statement
+
+...
 
 While there isn't a `type` statement in Python, the `type` function is used to determine the type of an object or create a new type dynamically.
 
@@ -3089,6 +3441,8 @@ Compound statements in Python are blocks of code that control the flow of execut
 
 ##### The `if` Statement
 
+...
+
 The `if` statement allows conditional execution of code blocks.
 
 ```python
@@ -3112,6 +3466,8 @@ else:
 
 ##### The `while` Statement
 
+...
+
 The `while` statement repeatedly executes a block of code as long as a condition is true.
 
 ```python
@@ -3128,6 +3484,8 @@ while count < 5:
 
 ##### The `for` Statement
 
+...
+
 The `for` statement iterates over the elements of a sequence (such as a list, tuple, or string).
 
 ```python
@@ -3141,6 +3499,8 @@ for i in range(5):
 ```
 
 ##### The `try` Statement
+
+...
 
 The `try` statement handles exceptions that may occur in a block of code.
 
@@ -3168,6 +3528,8 @@ finally:
 
 ##### The `with` Statement
 
+...
+
 The `with` statement is used to wrap the execution of a block of code with methods defined by a context manager.
 
 ```python
@@ -3182,6 +3544,8 @@ with open('file.txt', 'r') as file:
 ```
 
 ##### The `match` Statement
+
+...
 
 Introduced in Python 3.10, the `match` statement provides a way to perform pattern matching on values.
 
@@ -3212,6 +3576,8 @@ print(http_status(200))  # Prints "OK"
 
 ##### Function Definitions
 
+...
+
 Functions are defined using the `def` keyword. They can take arguments and return values.
 
 ```python
@@ -3229,6 +3595,8 @@ print(result)  # Prints 7
 ```
 
 ##### Class Definitions
+
+...
 
 Classes are defined using the `class` keyword and can include methods (functions defined within the class) and attributes (variables defined within the class).
 
@@ -3258,6 +3626,8 @@ print(person.greet())  # Prints "Hello, my name is Alice and I am 30 years old."
 
 ##### Coroutines
 
+...
+
 Coroutines are special functions defined with `async def` and used for asynchronous programming. They allow execution to be paused and resumed.
 
 ```python
@@ -3283,6 +3653,8 @@ asyncio.run(main())
 ```
 
 ##### Type Parameter Lists
+
+...
 
 Type parameter lists are used in the context of generic programming to specify type parameters for classes or functions.
 
@@ -3323,6 +3695,8 @@ In Python, top-level components refer to the various ways in which Python code c
 
 ##### Complete Python Programs
 
+...
+
 Complete Python programs are scripts or modules that are executed from start to finish. These programs typically consist of a sequence of statements and definitions that are executed when the script is run.
 
 Running a Script
@@ -3348,6 +3722,8 @@ In this example, the script defines a `main` function and calls it if the script
 
 ##### File Input
 
+...
+
 File input involves reading code from a file and executing it. This is often done within a script or from an interactive Python session.
 
 Reading and Executing a File
@@ -3369,6 +3745,8 @@ with open('example.py', 'r') as file:
 This script reads the contents of `example.py` and executes it using `exec`.
 
 ##### Interactive Input
+
+...
 
 Interactive input allows users to enter Python commands directly into the Python interpreter. This is typically done in a Python shell or an interactive environment like IPython or Jupyter Notebook.
 
@@ -3392,6 +3770,8 @@ Example Interaction
 In this interactive session, you can enter and execute Python code line by line.
 
 ##### Expression Input
+
+...
 
 Expression input refers to evaluating individual expressions and returning their results. This is commonly done in interactive environments or when using the `eval` function.
 
@@ -3448,9 +3828,13 @@ The full grammar specification for Python defines the syntax rules for the langu
 
 ##### Tokens
 
+...
+
 Python source code consists of tokens. The lexical analysis phase breaks the source code into these tokens.
 
 ###### Types of Tokens
+
+...
 
 1. **Identifiers**: Names for variables, functions, classes, etc.
 
@@ -3484,7 +3868,11 @@ Python source code consists of tokens. The lexical analysis phase breaks the sou
 
 ##### Program Structure
 
+...
+
 ###### Modules
+
+...
 
 A Python program is composed of modules. Each module is a file containing Python code.
 
@@ -3493,6 +3881,8 @@ file_input ::= (NEWLINE | stmt)* ENDMARKER
 ```
 
 ###### Statements
+
+...
 
 Statements are the building blocks of a program.
 
@@ -3619,9 +4009,13 @@ compound_stmt ::= if_stmt | while_stmt | for_stmt | try_stmt | with_stmt | funcd
 
 ##### Expressions
 
+...
+
 Expressions represent values or computations.
 
 ###### Primary Expressions
+
+...
 
 Primary expressions are the most basic forms of expressions.
 
@@ -3630,6 +4024,8 @@ primary ::= identifier | literal | enclosure
 ```
 
 ###### Unary and Binary Operations
+
+...
 
 Unary and binary operations combine one or more expressions.
 
@@ -3640,6 +4036,8 @@ binary_expr ::= primary (operator primary)+
 
 ###### Comprehensions
 
+...
+
 Comprehensions provide a concise way to create lists, dictionaries, sets, and generators.
 
 ```plaintext
@@ -3647,6 +4045,8 @@ comp_for ::= "for" target_list "in" or_test [comp_iter]
 ```
 
 ###### Lambdas
+
+...
 
 Lambdas are anonymous functions.
 
@@ -3656,7 +4056,11 @@ lambda_expr ::= "lambda" [parameter_list] ":" expression
 
 ##### Other Elements
 
+...
+
 ###### Imports
+
+...
 
 Python allows importing of modules using the `import` and `from ... import` statements.
 
@@ -3667,6 +4071,8 @@ import_from ::= "from" (".")* dotted_name "import" ("*" | "(" import_as_names ")
 
 ###### Type Hints
 
+...
+
 Type hints provide optional type information for functions and variables.
 
 ```plaintext
@@ -3674,6 +4080,8 @@ funcdef ::= "def" funcname "(" [parameter_list] ")" ["->" test] ":" suite
 ```
 
 ###### Async and Await
+
+...
 
 Async and await are used for asynchronous programming.
 
@@ -3692,7 +4100,11 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 
 ##### Installing MATLAB
 
+...
+
 ###### Download and Installation
+
+...
 
 1. **Obtain a License**: Ensure you have a valid MATLAB license. This could be a personal, academic, or enterprise license.
 2. **Download MATLAB**: Visit the [MathWorks website](https://www.mathworks.com/) and log in to your account. Navigate to the download section and download the installer for your operating system.
@@ -3700,11 +4112,17 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 
 ##### MATLAB Environment
 
+...
+
 ###### Starting MATLAB
+
+...
 
 - **Launch MATLAB**: Open MATLAB from your desktop or start menu. The main MATLAB window will appear.
 
 ###### MATLAB Desktop Components
+
+...
 
 1. **Command Window**: For entering commands and running scripts.
 2. **Workspace**: Displays variables currently in memory.
@@ -3714,12 +4132,18 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 
 ###### Basic Navigation
 
+...
+
 - **Current Folder Navigation**: Use the file browser on the left to navigate directories.
 - **Path Management**: Use `pathtool` or `addpath` to manage the MATLAB search path.
 
 ##### Basic Commands and Operations
 
+...
+
 ###### Command Syntax
+
+...
 
 - **Basic Arithmetic**: Use operators like `+`, `-`, `*`, `/`, and `^`.
   ```matlab
@@ -3730,6 +4154,8 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 
 ###### Variables
 
+...
+
 - **Creating Variables**: Assign values to variables using the `=` operator.
   ```matlab
   x = 10;
@@ -3737,6 +4163,8 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
   ```
 
 ###### Arrays and Matrices
+
+...
 
 - **Creating Arrays**:
   ```matlab
@@ -3753,6 +4181,8 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 
 ###### Functions and Scripts
 
+...
+
 - **Scripts**: Files with a sequence of commands. Create a new script using the Editor and save it with a `.m` extension.
 - **Functions**: Reusable blocks of code with inputs and outputs.
   ```matlab
@@ -3762,6 +4192,8 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
   ```
 
 ###### Plotting
+
+...
 
 - **Basic Plot**:
   ```matlab
@@ -3775,19 +4207,29 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 
 ##### Advanced Features
 
+...
+
 ###### Toolboxes
+
+...
 
 - **Toolbox Installation**: MATLAB offers specialized toolboxes for various applications (e.g., Signal Processing, Image Processing). Install via the Add-Ons menu.
 - **Using Toolboxes**: Access functions and features provided by the toolboxes after installation.
 
 ###### Simulink
 
+...
+
 - **Simulink Environment**: For model-based design. Launch using the `simulink` command.
 - **Creating Models**: Drag and drop blocks to create models and run simulations.
 
 ##### Documentation and Help
 
+...
+
 ###### Built-in Help
+
+...
 
 - **Help Command**: Use `help functionName` to get help on specific functions.
   ```matlab
@@ -3800,12 +4242,18 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 
 ###### Online Resources
 
+...
+
 - **MATLAB Documentation**: Extensive online documentation available on the MathWorks website.
 - **MATLAB Central**: Community forum for questions, file exchange, and blogs.
 
 ##### Example Workflow
 
+...
+
 ###### Step-by-Step Example
+
+...
 
 1. **Open MATLAB**.
 2. **Create a New Script**: In the Editor, type the following code and save as `example.m`.
@@ -3822,12 +4270,18 @@ Getting started with MATLAB (Matrix Laboratory) involves understanding its envir
 
 ##### Learning More
 
+...
+
 ###### Tutorials and Courses
+
+...
 
 - **MATLAB Onramp**: A free, interactive tutorial available on the MathWorks website.
 - **MOOCs and Online Courses**: Courses on platforms like Coursera, edX, and Udacity.
 
 ###### Books and References
+
+...
 
 - **Official Guides**: Books published by MathWorks.
 - **Third-Party Books**: Numerous MATLAB books for different expertise levels and applications.
@@ -3838,9 +4292,13 @@ By following these steps and utilizing these resources, you can begin harnessing
 
 ##### Entering Commands
 
+...
+
 In MATLAB, commands can be entered directly into the Command Window or written in scripts and functions. Here's a guide on how to enter and execute commands effectively:
 
 ###### Command Window
+
+...
 
 - **Simple Commands**: Type the command and press Enter.
   ```matlab
@@ -3859,9 +4317,13 @@ In MATLAB, commands can be entered directly into the Command Window or written i
 
 ##### Matrices and Arrays
 
+...
+
 MATLAB excels at matrix and array operations. Here’s how to create and manipulate them:
 
 ###### Creating Matrices and Arrays
+
+...
 
 - **Row Vector**:
   ```matlab
@@ -3878,6 +4340,8 @@ MATLAB excels at matrix and array operations. Here’s how to create and manipul
 
 ###### Array Operations
 
+...
+
 - **Element-wise Operations**:
   ```matlab
   A = [1, 2, 3];
@@ -3891,9 +4355,13 @@ MATLAB excels at matrix and array operations. Here’s how to create and manipul
 
 ##### Data Types
 
+...
+
 MATLAB supports various data types:
 
 ###### Numeric Types
+
+...
 
 - **Integers**:
   ```matlab
@@ -3905,6 +4373,8 @@ MATLAB supports various data types:
   ```
 
 ###### Non-numeric Types
+
+...
 
 - **Characters and Strings**:
   ```matlab
@@ -3918,6 +4388,8 @@ MATLAB supports various data types:
 
 ###### Arrays and Structures
 
+...
+
 - **Cell Arrays**:
   ```matlab
   cellArray = {1, 'text', [1, 2, 3]};
@@ -3930,9 +4402,13 @@ MATLAB supports various data types:
 
 ##### Operators and Elementary Operations
 
+...
+
 MATLAB provides a variety of operators for performing calculations and data manipulations:
 
 ###### Arithmetic Operators
+
+...
 
 - **Addition**: `+`
 - **Subtraction**: `-`
@@ -3941,6 +4417,8 @@ MATLAB provides a variety of operators for performing calculations and data mani
 - **Element-wise operations**: `.*`, `./`, `.^`
 
 ###### Relational Operators
+
+...
 
 - **Equal to**: `==`
 - **Not equal to**: `~=`
@@ -3951,6 +4429,8 @@ MATLAB provides a variety of operators for performing calculations and data mani
 
 ###### Logical Operators
 
+...
+
 - **AND**: `&`
 - **OR**: `|`
 - **NOT**: `~`
@@ -3958,6 +4438,8 @@ MATLAB provides a variety of operators for performing calculations and data mani
 - **Short-circuit OR**: `||`
 
 ###### Examples
+
+...
 
 ```matlab
 a = 5;
@@ -3970,9 +4452,13 @@ logicalAnd = (a > 4) && (b < 4);  % Returns true
 
 ##### Loops and Conditional Statements
 
+...
+
 Control flow in MATLAB is managed through loops and conditional statements.
 
 ###### Conditional Statements
+
+...
 
 - **If-Else**:
   ```matlab
@@ -3998,6 +4484,8 @@ Control flow in MATLAB is managed through loops and conditional statements.
   ```
 
 ###### Loops
+
+...
 
 - **For Loop**:
   ```matlab
@@ -4040,7 +4528,11 @@ MATLAB provides robust tools for importing, analyzing, and visualizing data. Her
 
 ##### Data Import and Export
 
+...
+
 ###### Importing Data
+
+...
 
 MATLAB supports importing data from various formats:
 
@@ -4071,6 +4563,8 @@ MATLAB supports importing data from various formats:
 
 ###### Exporting Data
 
+...
+
 - **Text Files (CSV, TXT)**:
   ```matlab
   writetable(data, 'data.csv');
@@ -4093,6 +4587,8 @@ MATLAB supports importing data from various formats:
 
 ##### Large Files and Big Data
 
+...
+
 Handling large files and big data efficiently requires special functions and techniques:
 
 - **Datastore**: Manages large collections of data that don’t fit into memory.
@@ -4112,6 +4608,8 @@ Handling large files and big data efficiently requires special functions and tec
   ```
 
 ##### Preprocessing Data
+
+...
 
 Preprocessing is crucial for preparing data for analysis. This involves cleaning, transforming, and organizing data.
 
@@ -4138,6 +4636,8 @@ Preprocessing is crucial for preparing data for analysis. This involves cleaning
 
 ##### Descriptive Statistics
 
+...
+
 Descriptive statistics summarize and describe the features of a dataset.
 
 - **Basic Statistics**:
@@ -4159,6 +4659,8 @@ Descriptive statistics summarize and describe the features of a dataset.
   ```
 
 ##### Visual Exploration
+
+...
 
 Visualizing data helps to uncover patterns, trends, and insights.
 
@@ -4192,6 +4694,8 @@ Visualizing data helps to uncover patterns, trends, and insights.
 
 ##### Manage Experiments
 
+...
+
 Managing experiments involves organizing and tracking data and results from various experimental runs.
 
 - **Experiment Manager**:
@@ -4222,9 +4726,13 @@ MATLAB is a powerful tool for performing mathematical computations. Here's a det
 
 ##### Elementary Math
 
+...
+
 Elementary math operations in MATLAB include basic arithmetic, exponentiation, logarithms, and trigonometric functions.
 
 ###### Arithmetic Operations
+
+...
 
 ```matlab
 a = 10;
@@ -4238,6 +4746,8 @@ remainder = mod(a, b);
 
 ###### Exponentiation and Logarithms
 
+...
+
 ```matlab
 exp_val = exp(1);  % e^1
 log_val = log(10);  % Natural logarithm
@@ -4245,6 +4755,8 @@ log10_val = log10(100);  % Base-10 logarithm
 ```
 
 ###### Trigonometric Functions
+
+...
 
 ```matlab
 theta = pi / 4;
@@ -4255,9 +4767,13 @@ tangent_val = tan(theta);
 
 ##### Linear Algebra
 
+...
+
 MATLAB is particularly strong in linear algebra, offering extensive functionality for matrix operations.
 
 ###### Matrix Operations
+
+...
 
 ```matlab
 A = [1, 2; 3, 4];
@@ -4270,6 +4786,8 @@ inverse_A = inv(A);
 
 ###### Solving Linear Systems
 
+...
+
 ```matlab
 A = [1, 2; 3, 4];
 b = [5; 6];
@@ -4278,6 +4796,8 @@ x = A \ b;  % Solution to Ax = b
 
 ###### Eigenvalues and Singular Value Decomposition
 
+...
+
 ```matlab
 eig_vals = eig(A);
 [U, S, V] = svd(A);  % Singular value decomposition
@@ -4285,9 +4805,13 @@ eig_vals = eig(A);
 
 ##### Random Number Generation
 
+...
+
 Generating random numbers is essential for simulations and statistical analysis.
 
 ###### Basic Random Numbers
+
+...
 
 ```matlab
 rand_val = rand();  % Uniformly distributed random number in (0,1)
@@ -4296,6 +4820,8 @@ randn_val = randn();  % Normally distributed random number with mean 0 and varia
 
 ###### Random Numbers with Specific Distributions
 
+...
+
 ```matlab
 uniform_rand = rand(1, 100);  % 1x100 array of uniform random numbers
 normal_rand = randn(1, 100);  % 1x100 array of normal random numbers
@@ -4303,9 +4829,13 @@ normal_rand = randn(1, 100);  % 1x100 array of normal random numbers
 
 ##### Interpolation
 
+...
+
 Interpolation is used to estimate values between data points.
 
 ###### Linear Interpolation
+
+...
 
 ```matlab
 x = [1, 2, 3, 4, 5];
@@ -4316,15 +4846,21 @@ yi = interp1(x, y, xi);  % Linear interpolation
 
 ###### Spline Interpolation
 
+...
+
 ```matlab
 yi_spline = interp1(x, y, xi, 'spline');  % Spline interpolation
 ```
 
 ##### Optimization
 
+...
+
 Optimization involves finding the minimum or maximum of functions.
 
 ###### Finding Minima and Maxima
+
+...
 
 ```matlab
 f = @(x) (x-2).^2 + 3;
@@ -4336,6 +4872,8 @@ g = @(x) -((x-2).^2 + 3);
 
 ###### Nonlinear Optimization
 
+...
+
 ```matlab
 fun = @(x) x(1)^2 + x(2)^2;  % Objective function
 x0 = [1, 2];  % Initial guess
@@ -4344,9 +4882,13 @@ x_opt = fminunc(fun, x0);  % Find minimum
 
 ##### Numerical Integration and Differential Equations
 
+...
+
 MATLAB provides functions for numerical integration and solving differential equations.
 
 ###### Numerical Integration
+
+...
 
 ```matlab
 f = @(x) sin(x);
@@ -4354,6 +4896,8 @@ integral_val = integral(f, 0, pi);  % Definite integral of sin(x) from 0 to pi
 ```
 
 ###### Solving Ordinary Differential Equations (ODEs)
+
+...
 
 ```matlab
 ode_fun = @(t, y) -2*y;  % dy/dt = -2y
@@ -4364,9 +4908,13 @@ y0 = 1;
 
 ##### Fourier Analysis and Filtering
 
+...
+
 Fourier analysis is used for frequency domain analysis of signals.
 
 ###### Fourier Transform
+
+...
 
 ```matlab
 x = linspace(0, 2*pi, 100);
@@ -4375,6 +4923,8 @@ y_fft = fft(y);  % Compute the Fast Fourier Transform
 ```
 
 ###### Filtering
+
+...
 
 ```matlab
 fs = 1000;  % Sampling frequency
@@ -4386,9 +4936,13 @@ filtered_x = filter(b, a, x);  % Apply filter
 
 ##### Sparse Matrices
 
+...
+
 Sparse matrices are used for efficiently storing and manipulating large, sparse datasets.
 
 ###### Creating and Manipulating Sparse Matrices
+
+...
 
 ```matlab
 A = sparse([1, 2, 3], [1, 2, 3], [10, 20, 30], 5, 5);  % Create a sparse matrix
@@ -4397,9 +4951,13 @@ full_A = full(A);  % Convert to full matrix
 
 ##### Graph and Network Algorithms
 
+...
+
 MATLAB supports graph theory and network analysis.
 
 ###### Creating and Analyzing Graphs
+
+...
 
 ```matlab
 s = [1, 2, 3];
@@ -4413,9 +4971,13 @@ degree = degree(G);  % Degree of each node
 
 ##### Computational Geometry
 
+...
+
 MATLAB provides tools for computational geometry tasks like convex hulls, Delaunay triangulation, etc.
 
 ###### Convex Hull
+
+...
 
 ```matlab
 points = rand(10, 2);
@@ -4425,6 +4987,8 @@ plot(points(:,1), points(:,2), 'o', points(k,1), points(k,2), '-');
 
 ###### Delaunay Triangulation
 
+...
+
 ```matlab
 tri = delaunay(points(:,1), points(:,2));
 triplot(tri, points(:,1), points(:,2));
@@ -4432,9 +4996,13 @@ triplot(tri, points(:,1), points(:,2));
 
 ##### Quantum Computing
 
+...
+
 MATLAB offers support for quantum computing, including quantum algorithms and simulation of quantum systems.
 
 ###### Quantum Gates and Circuits
+
+...
 
 ```matlab
 H = [1, 1; 1, -1]/sqrt(2);  % Hadamard gate
@@ -4448,6 +5016,8 @@ result_state = H * initial_state;  % Apply Hadamard gate
 
 ###### Quantum Algorithms
 
+...
+
 ```matlab
 % Example: Grover's algorithm or Shor's algorithm implementation (requires specialized functions and toolboxes)
 ```
@@ -4460,7 +5030,11 @@ MATLAB offers powerful tools for creating, formatting, and saving 2-D and 3-D pl
 
 ##### 2-D and 3-D Plots
 
+...
+
 ###### 2-D Plots
+
+...
 
 2-D plots are fundamental for visualizing data.
 
@@ -4492,6 +5066,8 @@ MATLAB offers powerful tools for creating, formatting, and saving 2-D and 3-D pl
 
 ###### 3-D Plots
 
+...
+
 3-D plots provide a deeper understanding of data relationships.
 
 - **Basic 3-D Plot**:
@@ -4509,6 +5085,8 @@ MATLAB offers powerful tools for creating, formatting, and saving 2-D and 3-D pl
   ```
 
 ##### Formatting and Annotation
+
+...
 
 Customizing plots enhances readability and presentation quality.
 
@@ -4537,6 +5115,8 @@ Customizing plots enhances readability and presentation quality.
 
 ##### Images
 
+...
+
 MATLAB supports image processing and display.
 
 - **Displaying Images**:
@@ -4552,6 +5132,8 @@ MATLAB supports image processing and display.
   ```
 
 ##### Printing and Saving
+
+...
 
 Exporting plots and figures is essential for documentation and presentation.
 
@@ -4569,6 +5151,8 @@ Exporting plots and figures is essential for documentation and presentation.
 
 ##### Graphics Objects
 
+...
+
 MATLAB graphics are object-oriented, allowing detailed control over each component.
 
 - **Creating and Modifying Graphics Objects**:
@@ -4584,6 +5168,8 @@ MATLAB graphics are object-oriented, allowing detailed control over each compone
   ```
 
 ##### Graphics Performance
+
+...
 
 Efficient rendering of graphics is important for large datasets and complex plots.
 
@@ -4616,9 +5202,13 @@ MATLAB offers a versatile environment for programming, enabling the creation of 
 
 ##### Scripts
 
+...
+
 Scripts are files containing a sequence of MATLAB commands. They are useful for automating tasks that require a series of commands.
 
 ###### Creating and Running Scripts
+
+...
 
 - **Creating a Script**:
    - Open MATLAB Editor.
@@ -4642,9 +5232,13 @@ title('Sine Wave');
 
 ##### Functions
 
+...
+
 Functions are files that accept input arguments and return output arguments. They are useful for encapsulating reusable code.
 
 ###### Creating and Using Functions
+
+...
 
 - **Defining a Function**:
    - Open MATLAB Editor.
@@ -4674,9 +5268,13 @@ end
 
 ##### Live Scripts and Functions
 
+...
+
 Live scripts and functions combine code, output, and formatted text in an interactive environment. They have a `.mlx` extension.
 
 ###### Creating Live Scripts and Functions
+
+...
 
 - **Creating a Live Script**:
    - Open MATLAB.
@@ -4695,9 +5293,13 @@ disp(result);
 
 ##### Classes
 
+...
+
 MATLAB supports object-oriented programming through classes, enabling the definition of objects with properties and methods.
 
 ###### Defining and Using Classes
+
+...
 
 - **Defining a Class**:
    - Open MATLAB Editor.
@@ -4751,9 +5353,13 @@ end
 
 ##### Files and Folders
 
+...
+
 Managing files and folders is essential for organizing code and data.
 
 ###### Working with Files and Folders
+
+...
 
 - **Listing Files and Folders**:
   ```matlab
@@ -4773,14 +5379,20 @@ Managing files and folders is essential for organizing code and data.
 
 ##### Code Execution
 
+...
+
 Executing MATLAB code can be done interactively or via scripts and functions.
 
 ###### Interactive Execution
+
+...
 
 - **Command Window**:
   Type commands directly in the Command Window.
 
 ###### Batch Execution
+
+...
 
 - **Scripts and Functions**:
   Run scripts and functions from the Command Window or using the `run` command.
@@ -4790,9 +5402,13 @@ Executing MATLAB code can be done interactively or via scripts and functions.
 
 ##### Exception Handling
 
+...
+
 MATLAB provides error handling mechanisms to manage runtime errors.
 
 ###### Try-Catch Blocks
+
+...
 
 - **Using Try-Catch**:
   ```matlab
@@ -4819,9 +5435,13 @@ end
 
 ##### Security in MATLAB Code
 
+...
+
 Ensuring the security of MATLAB code involves safeguarding against unauthorized access and malicious code execution.
 
 ###### Security Practices
+
+...
 
 - **Avoid Using `eval`**:
   The `eval` function can execute arbitrary code and pose a security risk.
@@ -4868,9 +5488,13 @@ MATLAB provides various tools and frameworks for building interactive applicatio
 
 ##### Develop Apps Using App Designer
 
+...
+
 App Designer is a drag-and-drop environment for creating professional apps without extensive coding.
 
 ###### Getting Started with App Designer
+
+...
 
 - **Open App Designer**:
    - In the MATLAB Home tab, click on "App Designer".
@@ -4881,6 +5505,8 @@ App Designer is a drag-and-drop environment for creating professional apps witho
 
 ###### Designing the App Interface
 
+...
+
 - **Drag and Drop Components**:
    - Use the Component Library to drag components (e.g., buttons, sliders, axes) onto the canvas.
 
@@ -4889,6 +5515,8 @@ App Designer is a drag-and-drop environment for creating professional apps witho
    - Customize properties (e.g., labels, colors) through the Component Browser.
 
 ###### Writing Callbacks
+
+...
 
 - **Add Callbacks**:
    - Click on a component, and in the "Callbacks" section, add a callback function.
@@ -4905,14 +5533,20 @@ end
 
 ###### Running the App
 
+...
+
 - **Run the App**:
    - Click the "Run" button in the App Designer toolstrip to test the app.
 
 ##### Develop Apps Programmatically
 
+...
+
 For more control, you can develop apps programmatically using MATLAB code.
 
 ###### Creating a Simple UI Programmatically
+
+...
 
 Example:
 
@@ -4935,6 +5569,8 @@ end
 
 ###### Layout Management
 
+...
+
 Use `uigridlayout`, `uiflowcontainer`, and other layout managers to organize UI components.
 
 Example:
@@ -4954,9 +5590,13 @@ end
 
 ##### Develop Live Editor Tasks
 
+...
+
 Live Editor tasks allow you to create interactive controls within Live Scripts.
 
 ###### Creating Live Editor Tasks
+
+...
 
 - **Create a New Live Editor Task**:
    - Open a Live Script (`.mlx` file).
@@ -4977,9 +5617,13 @@ disp(['Mean of data: ', num2str(meanData)]);
 
 ##### Create Custom UI Components
 
+...
+
 Custom UI components enable you to create reusable, specialized controls.
 
 ###### Creating a Custom Component
+
+...
 
 Example:
 
@@ -5004,9 +5648,13 @@ end
 
 ##### Package and Share Apps
 
+...
+
 Packaging apps allows you to share your applications with others.
 
 ###### Creating an App Installer
+
+...
 
 - **Package the App**:
    - In MATLAB, go to the "Apps" tab and click "Package App".
@@ -5018,9 +5666,13 @@ Packaging apps allows you to share your applications with others.
 
 ##### Migrate GUIDE Apps
 
+...
+
 GUIDE is MATLAB's older app building tool, and it is recommended to migrate GUIDE apps to App Designer.
 
 ###### Steps to Migrate GUIDE Apps
+
+...
 
 1. **Open the GUIDE App in GUIDE**:
    - In MATLAB, type `guide` and open your GUIDE app.
@@ -5039,6 +5691,8 @@ GUIDE is MATLAB's older app building tool, and it is recommended to migrate GUID
 
 ##### Conclusion
 
+...
+
 By leveraging these tools and techniques, you can create robust, interactive applications in MATLAB. Whether using the App Designer for a visual approach or coding programmatically for more control, MATLAB provides the flexibility to develop, package, and share applications effectively.
 
 #### Software Development Tools in MATLAB
@@ -5047,7 +5701,11 @@ MATLAB provides a comprehensive set of tools for software development, including
 
 ##### Debugging and Analysis
 
+...
+
 ###### Debugging
+
+...
 
 MATLAB offers a variety of debugging tools to identify and fix issues in your code.
 
@@ -5074,6 +5732,8 @@ MATLAB offers a variety of debugging tools to identify and fix issues in your co
 
 ###### Code Analysis
 
+...
+
 - **Code Analyzer**:
   MATLAB automatically checks your code for potential errors and inefficiencies. Warnings and suggestions appear in the Editor margin.
 
@@ -5085,7 +5745,11 @@ MATLAB offers a variety of debugging tools to identify and fix issues in your co
 
 ##### Performance and Memory
 
+...
+
 ###### Performance Measurement
+
+...
 
 - **Timing Code**:
   Use the `tic` and `toc` functions to measure execution time.
@@ -5106,6 +5770,8 @@ MATLAB offers a variety of debugging tools to identify and fix issues in your co
 
 ###### Memory Management
 
+...
+
 - **Monitoring Memory Usage**:
   Use the `memory` function to check memory usage.
   ```matlab
@@ -5118,7 +5784,11 @@ MATLAB offers a variety of debugging tools to identify and fix issues in your co
 
 ##### Background Processing
 
+...
+
 ###### Parallel Computing
+
+...
 
 MATLAB supports parallel computing to speed up computations by utilizing multiple cores.
 
@@ -5138,6 +5808,8 @@ MATLAB supports parallel computing to speed up computations by utilizing multipl
 
 ###### Asynchronous Programming
 
+...
+
 - **Using `parfeval` for Asynchronous Tasks**:
   ```matlab
   futures = parfeval(@myFunction, 1, inputArgs);
@@ -5146,7 +5818,11 @@ MATLAB supports parallel computing to speed up computations by utilizing multipl
 
 ##### Projects
 
+...
+
 ###### Project Management
+
+...
 
 MATLAB projects help organize files, manage paths, and streamline workflows.
 
@@ -5163,9 +5839,13 @@ MATLAB projects help organize files, manage paths, and streamline workflows.
 
 ##### Source Control Integration
 
+...
+
 MATLAB integrates with popular version control systems like Git and Subversion.
 
 ###### Using Git
+
+...
 
 - **Setting Up Git**:
    - Initialize a repository:
@@ -5189,9 +5869,13 @@ MATLAB integrates with popular version control systems like Git and Subversion.
 
 ##### Testing Frameworks
 
+...
+
 MATLAB provides tools for creating and running tests to ensure code correctness.
 
 ###### Unit Testing
+
+...
 
 - **Creating Tests**:
    - Define test cases using the `matlab.unittest.TestCase` class.
@@ -5214,9 +5898,13 @@ MATLAB provides tools for creating and running tests to ensure code correctness.
 
 ##### Build Automation
 
+...
+
 MATLAB allows for the automation of repetitive tasks such as building projects, generating documentation, and running tests.
 
 ###### Using MATLAB Scripts for Automation
+
+...
 
 - **Automate with Scripts**:
   Create scripts to automate build processes.
@@ -5231,9 +5919,13 @@ MATLAB allows for the automation of repetitive tasks such as building projects, 
 
 ##### Continuous Integration (CI)
 
+...
+
 Integrate MATLAB with CI systems to automate testing and deployment.
 
 ###### Setting Up CI
+
+...
 
 - **Using MATLAB with Jenkins, GitHub Actions, etc.**:
    - Configure CI pipelines to run MATLAB tests and scripts automatically.
@@ -5244,9 +5936,13 @@ Integrate MATLAB with CI systems to automate testing and deployment.
 
 ##### Toolbox Distribution
 
+...
+
 Distribute MATLAB code and apps as toolboxes for easy sharing and reuse.
 
 ###### Creating a Toolbox
+
+...
 
 - **Package Toolbox**:
    - In MATLAB, go to the "Home" tab and click "Package Toolbox".
@@ -5258,9 +5954,13 @@ Distribute MATLAB code and apps as toolboxes for easy sharing and reuse.
 
 ##### Tool Qualification and Certification
 
+...
+
 Ensure your MATLAB tools meet industry standards and regulations.
 
 ###### Qualification and Certification
+
+...
 
 - **Verification and Validation**:
    - Implement rigorous testing to verify code correctness.
@@ -5277,7 +5977,11 @@ MATLAB supports integration with various external programming languages, allowin
 
 ##### C++ with MATLAB
 
+...
+
 ###### Calling C++ from MATLAB
+
+...
 
 To call C++ code from MATLAB, you can use MEX files or MATLAB Engine API.
 
@@ -5313,7 +6017,11 @@ To call C++ code from MATLAB, you can use MEX files or MATLAB Engine API.
 
 ##### Java with MATLAB
 
+...
+
 ###### Calling Java from MATLAB
+
+...
 
 MATLAB can directly call Java classes and methods.
 
@@ -5329,6 +6037,8 @@ MATLAB can directly call Java classes and methods.
      ```
 
 ###### Calling MATLAB from Java
+
+...
 
 You can use the MATLAB Engine API for Java.
 
@@ -5347,7 +6057,11 @@ You can use the MATLAB Engine API for Java.
 
 ##### Python with MATLAB
 
+...
+
 ###### Calling Python from MATLAB
+
+...
 
 MATLAB provides the `py` interface to call Python functions.
 
@@ -5364,6 +6078,8 @@ MATLAB provides the `py` interface to call Python functions.
   ```
 
 ###### Calling MATLAB from Python
+
+...
 
 Use the MATLAB Engine API for Python.
 
@@ -5382,7 +6098,11 @@ Use the MATLAB Engine API for Python.
 
 ##### .NET with MATLAB
 
+...
+
 ###### Calling .NET from MATLAB
+
+...
 
 MATLAB supports .NET assemblies.
 
@@ -5398,6 +6118,8 @@ MATLAB supports .NET assemblies.
   ```
 
 ###### Calling MATLAB from .NET
+
+...
 
 Use MATLAB Engine API for .NET.
 
@@ -5416,7 +6138,11 @@ Use MATLAB Engine API for .NET.
 
 ##### COM with MATLAB
 
+...
+
 ###### Calling COM Objects from MATLAB
+
+...
 
 MATLAB can interact with COM objects.
 
@@ -5432,6 +6158,8 @@ MATLAB can interact with COM objects.
 
 ###### Calling MATLAB as COM Server
 
+...
+
 - **Register MATLAB as COM Server**:
   ```sh
   matlab -regserver
@@ -5446,7 +6174,11 @@ MATLAB can interact with COM objects.
 
 ##### Web Services with MATLAB
 
+...
+
 ###### Accessing Web Services
+
+...
 
 MATLAB supports HTTP requests and web services.
 
@@ -5457,6 +6189,8 @@ MATLAB supports HTTP requests and web services.
   ```
 
 ###### Creating Web Services
+
+...
 
 Use MATLAB Production Server to deploy MATLAB functions as web services.
 
@@ -5470,7 +6204,11 @@ Use MATLAB Production Server to deploy MATLAB functions as web services.
 
 ##### C with MATLAB
 
+...
+
 ###### Calling C from MATLAB
+
+...
 
 Use MEX files to integrate C code with MATLAB.
 
@@ -5490,6 +6228,8 @@ Use MEX files to integrate C code with MATLAB.
 
 ###### Calling MATLAB from C
 
+...
+
 Use the MATLAB Engine API for C.
 
 - **MATLAB Engine for C**:
@@ -5505,7 +6245,11 @@ Use the MATLAB Engine API for C.
 
 ##### Fortran with MATLAB
 
+...
+
 ###### Calling Fortran from MATLAB
+
+...
 
 Use MEX files to integrate Fortran code with MATLAB.
 
@@ -5528,6 +6272,8 @@ Use MEX files to integrate Fortran code with MATLAB.
 
 ###### Calling MATLAB from Fortran
 
+...
+
 Use the MATLAB Engine API for Fortran.
 
 - **MATLAB Engine for Fortran**:
@@ -5549,7 +6295,11 @@ MATLAB provides various tools and settings to customize your development environ
 
 ##### Startup and Shutdown
 
+...
+
 ###### Startup Configuration
+
+...
 
 - **Startup Folder**:
   MATLAB executes files in the startup folder (`startup.m` or `startup.mlx`) upon launch.
@@ -5559,6 +6309,8 @@ MATLAB provides various tools and settings to customize your development environ
 
 ###### Shutdown Procedures
 
+...
+
 - **Save Workspace**:
   MATLAB prompts to save the workspace upon exit.
 
@@ -5567,7 +6319,11 @@ MATLAB provides various tools and settings to customize your development environ
 
 ##### Desktop
 
+...
+
 ###### Customizing the MATLAB Desktop
+
+...
 
 - **Layout**:
    - Arrange and resize tool windows to suit your workflow.
@@ -5578,6 +6334,8 @@ MATLAB provides various tools and settings to customize your development environ
 
 ###### Shortcuts and Quick Access
 
+...
+
 - **Keyboard Shortcuts**:
   Customize keyboard shortcuts for common tasks via the "Keyboard Shortcuts" preferences.
 
@@ -5586,7 +6344,11 @@ MATLAB provides various tools and settings to customize your development environ
 
 ##### Add-Ons
 
+...
+
 ###### Managing Add-Ons
+
+...
 
 - **Get Add-Ons**:
   Browse and install MATLAB Add-Ons from the MATLAB Add-On Explorer.
@@ -5596,12 +6358,18 @@ MATLAB provides various tools and settings to customize your development environ
 
 ##### Platform and License
 
+...
+
 ###### Platform-specific Settings
+
+...
 
 - **Preferences**:
   Adjust platform-specific settings such as font rendering or graphics drivers.
 
 ###### License Management
+
+...
 
 - **Activation**:
   Activate MATLAB licenses via the MathWorks website or through a license server.
@@ -5611,7 +6379,11 @@ MATLAB provides various tools and settings to customize your development environ
 
 ##### System Commands
 
+...
+
 ###### Running System Commands
+
+...
 
 - **Shell Commands**:
   Use the `system` function to run shell commands from MATLAB.
@@ -5621,7 +6393,11 @@ MATLAB provides various tools and settings to customize your development environ
 
 ##### Internationalization
 
+...
+
 ###### Language and Locale Settings
+
+...
 
 - **Language Support**:
   Change the language of the MATLAB interface via the "Language" preferences.
@@ -5631,7 +6407,11 @@ MATLAB provides various tools and settings to customize your development environ
 
 ##### Help and Support
 
+...
+
 ###### Accessing Help Resources
+
+...
 
 - **Documentation**:
   Access MATLAB documentation via the "Help" menu or using the `doc` command.
@@ -5644,6 +6424,8 @@ MATLAB provides various tools and settings to customize your development environ
    - Use the `web` function to open web pages directly from MATLAB.
 
 ###### Technical Support
+
+...
 
 - **MathWorks Support**:
   Contact MathWorks support for assistance with technical issues or licensing inquiries.
@@ -5659,8 +6441,6 @@ By leveraging these environment and settings options in MATLAB, you can tailor y
 
 ### C Language
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
 Hello QueenField in C Language:
 
 ```c
@@ -5672,14 +6452,1580 @@ int main() {
 }
 ```
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
 ```
-
 gcc ntm_controller.c -o ntm_controller.run
 ```
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+#### Lexical Elements
+
+##### Identifiers
+
+...
+
+Identifiers are names used to identify variables, functions, arrays, structures, and other user-defined items. An identifier in C must adhere to the following rules:
+- Can include letters (both uppercase and lowercase), digits (0-9), and underscores (_).
+- Must begin with a letter or an underscore. Digits cannot be the first character.
+- Case-sensitive: `myVar` and `myvar` are different identifiers.
+- Cannot be a keyword (e.g., `int`, `return`).
+
+Examples:
+```c
+int count;
+float total_sum;
+char firstName[50];
+```
+
+##### Keywords
+
+...
+
+Keywords are reserved words predefined by the C language. They have special meanings and cannot be used as identifiers. Some commonly used keywords include:
+- Data types: `int`, `float`, `char`, `double`
+- Control statements: `if`, `else`, `switch`, `case`, `for`, `while`, `do`, `break`, `continue`
+- Others: `return`, `sizeof`, `void`, `static`, `struct`, `typedef`
+
+Example:
+```c
+int main() {
+    if (1) {
+        return 0;
+    }
+}
+```
+
+##### Constants
+
+...
+
+Constants are fixed values that do not change during the execution of a program. They are divided into several types:
+
+###### Integer Constants
+
+...
+
+Integer constants represent whole numbers without any fractional or decimal part. They can be written in different number systems:
+- Decimal (base 10): `0`, `123`, `-456`
+- Octal (base 8): prefixed with `0` (zero), e.g., `0123`
+- Hexadecimal (base 16): prefixed with `0x` or `0X`, e.g., `0x1A3F`
+
+Example:
+```c
+int dec = 100;
+int oct = 0123;
+int hex = 0x1A3F;
+```
+
+###### Character Constants
+
+...
+
+Character constants represent single characters enclosed in single quotes. They can be any character from the C character set, including escape sequences.
+- Example: `'a'`, `'1'`, `'\n'` (newline), `'\t'` (tab)
+
+Example:
+```c
+char letter = 'A';
+char newline = '\n';
+```
+
+###### Real Number Constants
+
+...
+
+Real number constants (floating-point constants) represent numbers with a fractional part. They can be expressed in:
+- Decimal notation: `3.14`, `-0.001`
+- Exponential notation: `1.23e3` (1.23 × 10^3), `5.67E-2` (5.67 × 10^-2)
+
+Example:
+```c
+float pi = 3.14;
+double exp = 1.23e3;
+```
+
+###### String Constants
+
+...
+
+String constants (string literals) are sequences of characters enclosed in double quotes. They are null-terminated, meaning they end with a special character `'\0'`.
+- Example: `"Hello, World!"`, `"C programming"`
+
+Example:
+```c
+char greeting[] = "Hello, World!";
+```
+
+##### Operators
+
+...
+
+Operators are symbols that specify operations to be performed on operands. C has several categories of operators:
+- Arithmetic: `+`, `-`, `*`, `/`, `%`
+- Relational: `==`, `!=`, `<`, `>`, `<=`, `>=`
+- Logical: `&&`, `||`, `!`
+- Bitwise: `&`, `|`, `^`, `~`, `<<`, `>>`
+- Assignment: `=`, `+=`, `-=`, `*=`, `/=`, `%=`
+- Increment/Decrement: `++`, `--`
+- Miscellaneous: `sizeof`, `&` (address), `*` (pointer), `? :` (ternary)
+
+Example:
+```c
+int a = 10, b = 20;
+int sum = a + b;      // Arithmetic
+int isEqual = (a == b); // Relational
+int andResult = a & b;  // Bitwise
+```
+
+##### Separators
+
+...
+
+Separators (also called delimiters) are used to separate different elements in a program. In C, the following characters are used as separators:
+- Comma `,`: separates items in a list
+- Semicolon `;`: marks the end of a statement
+- Parentheses `()`: used in function calls and declarations
+- Braces `{}`: used to define blocks of code
+- Brackets `[]`: used to define arrays and index arrays
+
+Example:
+```c
+int numbers[5] = {1, 2, 3, 4, 5};
+if (a < b) {
+    printf("a is less than b\n");
+}
+```
+
+##### White Space
+
+...
+
+White space in C includes spaces, tabs, and newline characters. White space is generally ignored by the compiler but is essential for separating tokens and making the code readable. It is used to:
+- Separate keywords, identifiers, constants, and operators
+- Indent code for better readability
+
+Example:
+```c
+int main() {
+    int a = 10;
+    int b = 20;
+    if (a < b) {
+        printf("a is less than b\n");
+    }
+    return 0;
+}
+```
+
+White space is crucial for the readability and maintainability of the code but does not affect the execution of the program.
+
+By understanding these lexical elements, you can effectively write and read C programs, ensuring they are syntactically correct and easy to understand.
+
+#### Data Types
+
+##### Primitive Data Types
+
+...
+
+###### Integer Types
+
+...
+
+C provides several integer types to accommodate different ranges of values. These types vary in size and whether they can represent signed (both negative and positive) or unsigned (only non-negative) numbers.
+
+- **char**: Typically 1 byte, can be signed or unsigned.
+- **int**: Usually 4 bytes, can be signed or unsigned.
+- **short**: Usually 2 bytes, can be signed or unsigned.
+- **long**: At least 4 bytes, can be signed or unsigned.
+- **long long**: At least 8 bytes, can be signed or unsigned.
+
+Example:
+```c
+char c = 'A';
+int num = 100;
+short s = 50;
+long l = 100000L;
+long long ll = 10000000000LL;
+unsigned int u = 200;
+```
+
+###### Real Number Types
+
+...
+
+Real number types (floating-point types) are used to represent numbers with fractional parts.
+
+- **float**: Single precision, usually 4 bytes.
+- **double**: Double precision, usually 8 bytes.
+- **long double**: Extended precision, size varies but at least 8 bytes.
+
+Example:
+```c
+float f = 3.14f;
+double d = 2.71828;
+long double ld = 1.41421356237L;
+```
+
+###### Complex Number Types
+
+...
+
+C99 introduced complex number types, but they're not part of the standard C library and require `<complex.h>`.
+
+####### Standard Complex Number Types
+
+- **float _Complex**
+- **double _Complex**
+- **long double _Complex**
+
+Example:
+```c
+#include <complex.h>
+
+float _Complex fc = 1.0 + 2.0*I;
+double _Complex dc = 3.0 + 4.0*I;
+long double _Complex ldc = 5.0 + 6.0*I;
+```
+
+####### GNU Extensions for Complex Number Types
+
+GCC provides `__complex__` keyword as an extension.
+
+Example:
+```c
+__complex__ float fc_gnu = 1.0 + 2.0*I;
+__complex__ double dc_gnu = 3.0 + 4.0*I;
+__complex__ long double ldc_gnu = 5.0 + 6.0*I;
+```
+
+##### enumerations
+
+...
+
+Enumerations (`enum`) are user-defined types consisting of a set of named integer constants.
+
+###### Defining Enumerations
+
+...
+
+```c
+enum Color { RED, GREEN, BLUE };
+```
+
+###### Declaring Enumerations
+
+...
+
+```c
+enum Color favoriteColor;
+```
+
+##### Unions
+
+...
+
+Unions are similar to structures, but all members share the same memory location. They are useful for saving memory when the value stored in the union will only be one of the types at any time.
+
+###### Defining Unions
+
+...
+
+```c
+union Data {
+    int i;
+    float f;
+    char str[20];
+};
+```
+
+###### Declaring Union Variables
+
+...
+
+####### Declaring Union Variables at Definition
+
+```c
+union Data {
+    int i;
+    float f;
+    char str[20];
+} data;
+```
+
+####### Declaring Union Variables After Definition
+
+```c
+union Data data;
+```
+
+####### Initializing Union Members
+
+```c
+data.i = 10;
+```
+
+###### Accessing Union Members
+
+...
+
+```c
+printf("%d", data.i);
+```
+
+###### Size of Unions
+
+...
+
+The size of a union is the size of its largest member.
+
+```c
+printf("%lu", sizeof(union Data));
+```
+
+##### Structures
+
+...
+
+Structures are user-defined data types that group different data types together.
+
+###### Defining Structures
+
+...
+
+```c
+struct Person {
+    char name[50];
+    int age;
+    float salary;
+};
+```
+
+###### Declaring Structure Variables
+
+...
+
+####### Declaring Structure Variables at Definition
+
+```c
+struct Person {
+    char name[50];
+    int age;
+    float salary;
+} person1, person2;
+```
+
+####### Declaring Structure Variables After Definition
+
+```c
+struct Person person1;
+```
+
+####### Initializing Structure Members
+
+```c
+struct Person person1 = {"John Doe", 30, 50000.0};
+```
+
+###### Accessing Structure Members
+
+...
+
+```c
+printf("Name: %s, Age: %d, Salary: %.2f", person1.name, person1.age, person1.salary);
+```
+
+###### Bit Fields
+
+...
+
+Bit fields allow the packing of data in a structure, useful for memory-constrained applications.
+
+```c
+struct {
+    unsigned int age : 3;
+} Age;
+```
+
+###### Size of Structures
+
+...
+
+The size of a structure is the sum of the sizes of its members, considering padding for alignment.
+
+```c
+printf("%lu", sizeof(struct Person));
+```
+
+##### ARRAYS
+
+...
+
+Arrays are collections of elements of the same type stored in contiguous memory locations.
+
+###### Declaring Arrays
+
+...
+
+```c
+int numbers[5];
+```
+
+###### Initializing Arrays
+
+...
+
+```c
+int numbers[5] = {1, 2, 3, 4, 5};
+```
+
+###### Accessing Array Elements
+
+...
+
+```c
+printf("%d", numbers[0]);
+```
+
+###### Multidimensional Arrays
+
+...
+
+```c
+int matrix[3][3] = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+```
+
+###### Arrays as Strings
+
+...
+
+```c
+char str[] = "Hello, World!";
+```
+
+###### Arrays of Unions
+
+...
+
+```c
+union Data dataArr[5];
+```
+
+###### Arrays of Structures
+
+...
+
+```c
+struct Person people[5];
+```
+
+##### Pointers
+
+...
+
+Pointers are variables that store the memory address of another variable.
+
+###### Declaring Pointers
+
+...
+
+```c
+int *p;
+```
+
+###### Initializing Pointers
+
+...
+
+```c
+int var = 10;
+int *p = &var;
+```
+
+###### Pointers to Unions
+
+...
+
+```c
+union Data data;
+union Data *p = &data;
+```
+
+###### Pointers to Structures
+
+...
+
+```c
+struct Person person;
+struct Person *p = &person;
+```
+
+##### Incomplete Types
+
+...
+
+An incomplete type is a type that describes objects but lacks information to determine its size.
+
+```c
+struct Incomplete;
+```
+
+##### Type Qualifiers
+
+...
+
+Type qualifiers add special properties to variables.
+
+- **const**: Immutable data.
+- **volatile**: Prevents optimization, indicating the variable can change unexpectedly.
+- **restrict**: Pointer type qualifier to indicate no other pointer will access the same data.
+
+Example:
+```c
+const int ci = 10;
+volatile int vi;
+int * restrict rp;
+```
+
+##### Storage Class Specifiers
+
+...
+
+Storage class specifiers define the scope (visibility) and lifetime of variables/functions.
+
+- **auto**: Default storage class for local variables.
+- **register**: Hints to store the variable in a register.
+- **static**: Preserves variable value across function calls, changes scope for global variables.
+- **extern**: Declares a global variable or function in another file.
+
+Example:
+```c
+static int count;
+extern int globalVar;
+```
+
+##### Renaming Types
+
+...
+
+The `typedef` keyword allows creating aliases for existing types.
+
+```c
+typedef unsigned long ulong;
+ulong myVar;
+```
+
+These elements form the core of C's type system, enabling a wide range of data manipulations and operations in programs.
+
+#### Expressions And Operators
+
+##### Expressions
+
+...
+
+Expressions in C are combinations of variables, constants, operators, and function calls that are evaluated to produce a value.
+
+Examples:
+```c
+int x = 5 + 3;
+float y = sin(3.14);
+```
+
+##### Assignment Operators
+
+...
+
+Assignment operators assign values to variables. The basic assignment operator is `=`, but there are compound assignment operators that combine an arithmetic operation with assignment.
+
+Examples:
+```c
+int a = 10;
+a += 5;  // Equivalent to a = a + 5;
+a -= 3;  // Equivalent to a = a - 3;
+a *= 2;  // Equivalent to a = a * 2;
+a /= 2;  // Equivalent to a = a / 2;
+a %= 3;  // Equivalent to a = a % 3;
+```
+
+##### Incrementing and Decrementing
+
+...
+
+The increment (`++`) and decrement (`--`) operators increase or decrease the value of a variable by one, respectively. They can be used in prefix or postfix form.
+
+Examples:
+```c
+int a = 5;
+int b = ++a;  // Prefix: b is 6, a is 6
+int c = a--;  // Postfix: c is 6, a is 5
+```
+
+##### Arithmetic Operators
+
+...
+
+Arithmetic operators perform mathematical operations on numeric values.
+
+Examples:
+```c
+int sum = 10 + 5;     // Addition
+int diff = 10 - 5;    // Subtraction
+int prod = 10 * 5;    // Multiplication
+int quotient = 10 / 5; // Division
+int remainder = 10 % 3; // Modulus (remainder of division)
+```
+
+##### Complex Conjugation
+
+...
+
+Complex conjugation is not directly supported in C. However, with `<complex.h>`, you can use the `conj` function.
+
+Example:
+```c
+#include <complex.h>
+
+double complex z = 1.0 + 2.0*I;
+double complex z_conj = conj(z);  // Complex conjugate of z
+```
+
+##### Comparison Operators
+
+...
+
+Comparison operators compare two values and return either true (1) or false (0).
+
+Examples:
+```c
+int a = 10, b = 20;
+int result;
+
+result = (a == b);  // Equal to
+result = (a != b);  // Not equal to
+result = (a > b);   // Greater than
+result = (a < b);   // Less than
+result = (a >= b);  // Greater than or equal to
+result = (a <= b);  // Less than or equal to
+```
+
+##### Logical Operators
+
+...
+
+Logical operators are used to combine multiple conditions.
+
+Examples:
+```c
+int a = 1, b = 0;
+int result;
+
+result = (a && b);  // Logical AND
+result = (a || b);  // Logical OR
+result = (!a);      // Logical NOT
+```
+
+##### Bit Shifting
+
+...
+
+Bit shifting operators shift the bits of a number to the left or right.
+
+Examples:
+```c
+int a = 5;          // Binary: 0101
+int b = a << 1;     // Left shift: 1010 (10 in decimal)
+int c = a >> 1;     // Right shift: 0010 (2 in decimal)
+```
+
+##### Bitwise Logical Operators
+
+...
+
+Bitwise operators perform operations on the individual bits of integer values.
+
+Examples:
+```c
+int a = 5;    // Binary: 0101
+int b = 3;    // Binary: 0011
+
+int result;
+
+result = a & b;   // AND: 0001 (1 in decimal)
+result = a | b;   // OR: 0111 (7 in decimal)
+result = a ^ b;   // XOR: 0110 (6 in decimal)
+result = ~a;      // NOT: 1010 (Two's complement)
+```
+
+##### Pointer Operators
+
+...
+
+Pointer operators are used to work with pointers.
+
+Examples:
+```c
+int var = 20;
+int *ptr;
+
+ptr = &var;  // Address-of operator
+int value = *ptr; // Dereference operator
+```
+
+##### The Sizeof Operator
+
+...
+
+The `sizeof` operator returns the size, in bytes, of a data type or object.
+
+Examples:
+```c
+int size;
+
+size = sizeof(int);     // Size of int
+size = sizeof(var);     // Size of var
+size = sizeof(ptr);     // Size of pointer
+```
+
+##### Type Casts
+
+...
+
+Type casting allows you to convert a value from one data type to another.
+
+Examples:
+```c
+int a = 10;
+float b;
+
+b = (float)a;  // Cast integer to float
+```
+
+##### Array Subscripts
+
+...
+
+Array subscripts are used to access elements of an array.
+
+Examples:
+```c
+int arr[5] = {10, 20, 30, 40, 50};
+int value = arr[2];  // Access the third element
+```
+
+##### Function Calls as Expressions
+
+...
+
+Function calls can be used as expressions where the return value is used.
+
+Examples:
+```c
+int sum(int x, int y) {
+    return x + y;
+}
+
+int result = sum(10, 20);  // Function call as expression
+```
+
+##### The Comma Operator
+
+...
+
+The comma operator allows multiple expressions to be evaluated in a single statement, with the value of the last expression being the result.
+
+Examples:
+```c
+int a = 1, b = 2, c;
+c = (a += 2, b += 3, a + b);  // c is 8
+```
+
+##### Member Access Expressions
+
+...
+
+Member access expressions are used to access members of structures or unions.
+
+Examples:
+```c
+struct Person {
+    char name[50];
+    int age;
+};
+
+struct Person person;
+person.age = 30;  // Member access with dot operator
+
+struct Person *p = &person;
+p->age = 30;  // Member access with arrow operator
+```
+
+##### Conditional Expressions
+
+...
+
+The conditional (ternary) operator evaluates a condition and returns one of two values based on the condition.
+
+Examples:
+```c
+int a = 10, b = 20;
+int max;
+
+max = (a > b) ? a : b;  // If a > b, max is a; otherwise, max is b
+```
+
+##### Statements and Declarations in Expressions
+
+...
+
+C allows statements and declarations within expressions using the comma operator.
+
+Examples:
+```c
+int x, y;
+y = (x = 3, x + 2);  // y is 5
+```
+
+##### Operator Precedence
+
+...
+
+Operator precedence determines the order in which operators are evaluated in expressions.
+
+Examples:
+```c
+int result = 5 + 3 * 2;  // Multiplication has higher precedence than addition, so result is 11
+```
+
+##### Order of Evaluation
+
+...
+
+The order of evaluation specifies the sequence in which the sub-expressions of an expression are evaluated.
+
+###### Side Effects
+
+...
+
+Side effects are changes in the state of the execution environment (e.g., modifying a variable).
+
+Examples:
+```c
+int x = 0;
+x = x + 1;  // The assignment has a side effect of changing x
+```
+
+###### Sequence Points
+
+...
+
+Sequence points define points in the program where all side effects of previous evaluations are complete.
+
+###### Sequence Points Constrain Expressions
+
+...
+
+Certain operations must occur in a specific order due to sequence points.
+
+Examples:
+```c
+int i = 0;
+i = i++ + 1;  // Undefined behavior due to lack of sequence point between i++ and assignment
+```
+
+###### Sequence Points and Signal Delivery
+
+...
+
+Sequence points are critical for determining the behavior of signal handling in C programs.
+
+Examples:
+```c
+#include <signal.h>
+
+void handler(int signum) {
+    // Signal handling code
+}
+
+int main() {
+    signal(SIGINT, handler);
+    // Sequence points ensure signal handling occurs at defined points
+    return 0;
+}
+```
+
+Understanding these concepts is crucial for writing correct and efficient C programs.
+
+#### Statements in C
+
+##### LABELS
+
+...
+
+Labels are identifiers followed by a colon (`:`) and are used to name a location in the code. They are primarily used with the `goto` statement.
+
+Example:
+```c
+int main() {
+    int x = 0;
+    label:
+    x++;
+    if (x < 5) {
+        goto label;
+    }
+    return 0;
+}
+```
+
+##### Expression Statements
+
+...
+
+An expression statement is an expression followed by a semicolon (`;`). It can include assignments, function calls, or other expressions.
+
+Example:
+```c
+int main() {
+    int a = 5;
+    a = a + 1;  // Expression statement
+    printf("%d\n", a);  // Expression statement
+    return 0;
+}
+```
+
+##### The If Statement
+
+...
+
+The `if` statement executes a block of code if a specified condition is true.
+
+Example:
+```c
+int main() {
+    int a = 5;
+    if (a > 3) {
+        printf("a is greater than 3\n");
+    }
+    return 0;
+}
+```
+
+##### The Switch Statement
+
+...
+
+The `switch` statement allows multi-way branching based on the value of an expression. Each `case` label represents a branch.
+
+Example:
+```c
+int main() {
+    int a = 2;
+    switch (a) {
+        case 1:
+            printf("a is 1\n");
+            break;
+        case 2:
+            printf("a is 2\n");
+            break;
+        default:
+            printf("a is not 1 or 2\n");
+            break;
+    }
+    return 0;
+}
+```
+
+##### The While Statement
+
+...
+
+The `while` statement executes a block of code repeatedly as long as a condition is true.
+
+Example:
+```c
+int main() {
+    int a = 0;
+    while (a < 5) {
+        printf("%d\n", a);
+        a++;
+    }
+    return 0;
+}
+```
+
+##### The Do Statement
+
+...
+
+The `do` statement is similar to the `while` statement, but the condition is checked after the loop body is executed.
+
+Example:
+```c
+int main() {
+    int a = 0;
+    do {
+        printf("%d\n", a);
+        a++;
+    } while (a < 5);
+    return 0;
+}
+```
+
+##### The For Statement
+
+...
+
+The `for` statement is used for iterating over a range of values. It includes initialization, condition, and increment expressions.
+
+Example:
+```c
+int main() {
+    for (int a = 0; a < 5; a++) {
+        printf("%d\n", a);
+    }
+    return 0;
+}
+```
+
+##### Blocks
+
+...
+
+A block is a set of statements enclosed in braces `{}`. Blocks are used to group multiple statements together.
+
+Example:
+```c
+int main() {
+    int a = 5;
+    if (a > 3) {
+        printf("a is greater than 3\n");
+        a++;
+    }
+    return 0;
+}
+```
+
+##### The Null Statement
+
+...
+
+A null statement is just a semicolon (`;`). It does nothing and is often used in loops where the body is empty.
+
+Example:
+```c
+int main() {
+    int a = 0;
+    while (a++ < 5);  // Null statement
+    printf("%d\n", a);
+    return 0;
+}
+```
+
+##### The Goto Statement
+
+...
+
+The `goto` statement transfers control to the labeled statement. It can make the code harder to understand and maintain.
+
+Example:
+```c
+int main() {
+    int a = 0;
+    goto start;
+    a = 5;
+    start:
+    printf("%d\n", a);  // Output is 0
+    return 0;
+}
+```
+
+##### The Break Statement
+
+...
+
+The `break` statement terminates the nearest enclosing loop or `switch` statement.
+
+Example:
+```c
+int main() {
+    for (int a = 0; a < 10; a++) {
+        if (a == 5) {
+            break;
+        }
+        printf("%d\n", a);
+    }
+    return 0;
+}
+```
+
+##### The Continue Statement
+
+...
+
+The `continue` statement skips the rest of the loop iteration and proceeds with the next iteration.
+
+Example:
+```c
+int main() {
+    for (int a = 0; a < 10; a++) {
+        if (a % 2 == 0) {
+            continue;
+        }
+        printf("%d\n", a);
+    }
+    return 0;
+}
+```
+
+##### The Return Statement
+
+...
+
+The `return` statement exits a function and optionally returns a value to the calling function.
+
+Example:
+```c
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int result = add(5, 3);
+    printf("%d\n", result);
+    return 0;
+}
+```
+
+##### The Typedef Statement
+
+...
+
+The `typedef` statement creates an alias for a data type, making the code easier to read and maintain.
+
+Example:
+```c
+typedef unsigned long ulong;
+int main() {
+    ulong a = 1000000;
+    printf("%lu\n", a);
+    return 0;
+}
+```
+
+These statements form the foundation of control flow and structure in C programs, allowing for complex operations and logic to be implemented.
+
+#### Functions
+
+Functions in C are fundamental units of code that perform specific tasks. Let's explore the various aspects of functions in detail.
+
+##### Function Declarations
+
+...
+
+A function declaration, also known as a function prototype, specifies the function's name, return type, and parameters without providing the body.
+
+Example:
+```c
+int add(int, int);
+void printMessage(void);
+```
+
+##### Function Definitions
+
+...
+
+A function definition includes the function header and the body, where the actual code resides.
+
+Example:
+```c
+int add(int a, int b) {
+    return a + b;
+}
+
+void printMessage(void) {
+    printf("Hello, World!\n");
+}
+```
+
+##### Calling Functions
+
+...
+
+Functions are called by using their name followed by parentheses enclosing any arguments.
+
+Example:
+```c
+int main() {
+    int result = add(5, 3);
+    printMessage();
+    return 0;
+}
+```
+
+##### Function Parameters
+
+...
+
+Function parameters are variables declared in the function declaration and definition to accept values passed during a function call.
+
+Example:
+```c
+void display(int a) {
+    printf("%d\n", a);
+}
+
+int main() {
+    display(10);
+    return 0;
+}
+```
+
+##### Variable Length Parameter Lists
+
+...
+
+C allows functions to accept a variable number of arguments using the `stdarg.h` library.
+
+Example:
+```c
+#include <stdarg.h>
+
+#include <stdio.h>
+
+void printNumbers(int count, ...) {
+    va_list args;
+    va_start(args, count);
+    for (int i = 0; i < count; i++) {
+        int num = va_arg(args, int);
+        printf("%d ", num);
+    }
+    va_end(args);
+    printf("\n");
+}
+
+int main() {
+    printNumbers(3, 1, 2, 3);
+    return 0;
+}
+```
+
+##### Calling Functions Through Function Pointers
+
+...
+
+Function pointers allow storing addresses of functions and calling them indirectly.
+
+Example:
+```c
+#include <stdio.h>
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int (*funcPtr)(int, int) = add;
+    int result = funcPtr(5, 3);
+    printf("%d\n", result);
+    return 0;
+}
+```
+
+##### The Main Function
+
+...
+
+The `main` function is the entry point of a C program. It can return an integer to the operating system and can take arguments.
+
+Example:
+```c
+int main() {
+    return 0;
+}
+
+// With command line arguments
+int main(int argc, char *argv[]) {
+    for (int i = 0; i < argc; i++) {
+        printf("Argument %d: %s\n", i, argv[i]);
+    }
+    return 0;
+}
+```
+
+##### Recursive Functions
+
+...
+
+A recursive function calls itself to solve smaller instances of the same problem.
+
+Example:
+```c
+int factorial(int n) {
+    if (n == 0) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+int main() {
+    int result = factorial(5);
+    printf("%d\n", result);
+    return 0;
+}
+```
+
+##### Static Functions
+
+...
+
+A static function in C has internal linkage, meaning it can only be called within the file it is defined in.
+
+Example:
+```c
+static void printMessage(void) {
+    printf("Hello, World!\n");
+}
+
+int main() {
+    printMessage();
+    return 0;
+}
+```
+
+##### Nested Functions
+
+...
+
+C does not support nested functions (functions defined within other functions) directly. However, some compilers, like GCC, provide this as an extension.
+
+Example with GCC:
+```c
+#include <stdio.h>
+
+void outerFunction(void) {
+    void innerFunction(void) {
+        printf("Inner function\n");
+    }
+    innerFunction();
+}
+
+int main() {
+    outerFunction();
+    return 0;
+}
+```
+
+These are the core concepts related to functions in C, providing the foundation for organizing and structuring code effectively.
+
+#### Program Structure and Scope
+
+Understanding the structure and scope of a C program is crucial for writing clear, maintainable, and efficient code. Let's delve into these concepts in detail.
+
+##### Program Structure
+
+...
+
+A typical C program consists of the following parts:
+1. **Preprocessor Directives**
+2. **Global Declarations**
+3. **Function Definitions**
+4. **Main Function**
+
+###### Preprocessor Directives
+
+...
+
+Preprocessor directives are instructions processed by the preprocessor before the actual compilation of code begins. They are used for including files, defining constants, and macros.
+
+Example:
+```c
+#include <stdio.h>
+
+#define PI 3.14159
+
+```
+
+###### Global Declarations
+
+...
+
+Global declarations are variables and functions that are declared outside of any function. They have global scope and can be accessed from any function within the program.
+
+Example:
+```c
+int globalVar = 10;
+
+void globalFunction() {
+    printf("This is a global function\n");
+}
+```
+
+###### Function Definitions
+
+...
+
+Function definitions contain the actual code for the functions declared in the program. Each function performs a specific task.
+
+Example:
+```c
+int add(int a, int b) {
+    return a + b;
+}
+
+void printMessage() {
+    printf("Hello, World!\n");
+}
+```
+
+###### Main Function
+
+...
+
+The `main` function is the entry point of every C program. Execution starts from this function.
+
+Example:
+```c
+int main() {
+    printMessage();
+    int result = add(5, 3);
+    printf("Result: %d\n", result);
+    return 0;
+}
+```
+
+##### Scope
+
+...
+
+Scope in C refers to the visibility and lifetime of variables and functions within a program. There are several types of scope:
+
+1. **Block Scope**
+2. **Function Scope**
+3. **File Scope**
+4. **Function Prototype Scope**
+
+###### Block Scope
+
+...
+
+Variables declared within a block `{}` have block scope and are accessible only within that block.
+
+Example:
+```c
+int main() {
+    int x = 10;
+    if (x > 5) {
+        int y = 20;  // y has block scope
+        printf("y = %d\n", y);
+    }
+    // y is not accessible here
+    return 0;
+}
+```
+
+###### Function Scope
+
+...
+
+Labels in C have function scope. They are visible throughout the function in which they are defined.
+
+Example:
+```c
+int main() {
+    goto label;
+    // Other code
+    label:  // Label with function scope
+    printf("Label reached\n");
+    return 0;
+}
+```
+
+###### File Scope
+
+...
+
+Global variables and functions declared outside any function have file scope. They are visible from the point of declaration to the end of the file.
+
+Example:
+```c
+int globalVar = 10;  // Global variable with file scope
+
+void func() {
+    printf("Global variable: %d\n", globalVar);
+}
+```
+
+###### Function Prototype Scope
+
+...
+
+In function prototypes, parameter names have function prototype scope and are ignored during function calls. They are used only for defining the function's interface.
+
+Example:
+```c
+void func(int x, int y);  // x and y have function prototype scope
+
+void func(int a, int b) {  // a and b have block scope within the function definition
+    printf("a = %d, b = %d\n", a, b);
+}
+
+int main() {
+    func(5, 10);
+    return 0;
+}
+```
+
+###### Static Variables and Scope
+
+...
+
+Static variables have a lifetime equal to the program’s lifetime but a scope that is limited to the block or function they are defined in.
+
+Example:
+```c
+#include <stdio.h>
+
+void func() {
+    static int count = 0;  // Static variable with block scope and program lifetime
+    count++;
+    printf("Count: %d\n", count);
+}
+
+int main() {
+    func();
+    func();
+    return 0;
+}
+```
+
+###### External Variables
+
+...
+
+Variables declared with the `extern` keyword are accessible across multiple files.
+
+Example (in multiple files):
+File1.c:
+```c
+int globalVar = 10;  // Definition of globalVar
+
+void func() {
+    printf("Global variable: %d\n", globalVar);
+}
+```
+
+File2.c:
+```c
+extern int globalVar;  // Declaration of globalVar
+
+int main() {
+    globalVar = 20;
+    func();
+    return 0;
+}
+```
+
+Understanding the structure and scope in C is essential for organizing code effectively, avoiding naming conflicts, and ensuring variables and functions are used appropriately within their intended context.
 
 ### C++ Language
 
@@ -5703,79 +8049,121 @@ g++ ntm_controller.cpp -o ntm_controller.run
 
 ##### Preprocessor
 
+...
+
 The preprocessor in C++ is responsible for handling directives that begin with a hash sign (#). These directives are processed before the actual compilation of the program begins. Common preprocessor directives include `#include` to include header files, `#define` to define macros, and `#ifdef`/`#ifndef` for conditional compilation.
 
 ##### ASCII chart
+
+...
 
 ASCII (American Standard Code for Information Interchange) is a character encoding standard that assigns numeric values to characters. In C++, characters are represented as integers according to the ASCII chart. For example, the ASCII value for 'A' is 65, 'B' is 66, and so on.
 
 ##### Basic Concepts
 
+...
+
 ###### Comments
+
+...
 
 Comments in C++ are used to annotate code and are ignored by the compiler. There are two types of comments: single-line comments, which start with `//`, and multi-line comments, which are enclosed between `/*` and `*/`.
 
 ###### Names (lookup)
 
+...
+
 In C++, names are used to identify variables, functions, classes, and other entities in the program. The process of finding the declaration of a name in the program is called name lookup.
 
 ###### Types (fundamental types)
+
+...
 
 C++ has several fundamental data types, including `int`, `float`, `double`, `char`, `bool`, etc. These types represent basic data values that can be manipulated in the program.
 
 ###### The main function
 
+...
+
 The `main()` function is the entry point of C++ programs. Execution of a C++ program starts from the `main()` function. It can have a return type of `int` and optionally take arguments from the command line.
 
 ##### Expressions
 
+...
+
 ###### Value categories
+
+...
 
 In C++, expressions can have different value categories, such as lvalues and rvalues. An lvalue refers to an object that has a persistent memory location, while an rvalue refers to a temporary value that does not necessarily have a persistent memory location.
 
 ###### Evaluation order
 
+...
+
 The order in which subexpressions within an expression are evaluated is determined by the compiler. In some cases, the order of evaluation is unspecified, which can lead to undefined behavior if the expression relies on a specific order.
 
 ###### Operators (precedence)
+
+...
 
 Operators in C++ have precedence rules that determine the order in which they are evaluated within an expression. For example, multiplication (`*`) has higher precedence than addition (`+`), so `a * b + c` is evaluated as `(a * b) + c`, not `a * (b + c)`.
 
 ###### Conversions − Literals
 
+...
+
 C++ supports implicit and explicit type conversions, which allow literals of one type to be converted to another type. For example, an `int` literal can be implicitly converted to a `double` if necessary.
 
 ##### Statements
 
+...
+
 ###### if − switch
+
+...
 
 The `if` statement is used for conditional branching in C++. It allows the execution of a block of code based on a condition. The `switch` statement provides another form of conditional branching based on the value of an expression.
 
 ###### for − range-for (C++11)
 
+...
+
 The `for` loop in C++ is used for iterating over a range of values. The range-based `for` loop introduced in C++11 simplifies iterating over elements of a container, such as arrays or containers from the standard library.
 
 ###### while − do-while
+
+...
 
 The `while` loop is used to repeatedly execute a block of code as long as a condition is true. The `do-while` loop is similar to the `while` loop but guarantees that the block of code is executed at least once before checking the condition.
 
 ##### Declarations − Initialization
 
+...
+
 Declarations in C++ are used to introduce names into the program and specify their types. Initialization refers to the process of assigning an initial value to a variable at the time of declaration.
 
 ##### Functions − Overloading
+
+...
 
 Function overloading in C++ allows multiple functions with the same name to be defined, as long as they have different parameter lists. The appropriate function to call is determined based on the number and types of arguments provided.
 
 ##### Classes (unions)
 
+...
+
 Classes in C++ are used to define user-defined data types with properties and behaviors. They can contain member variables and member functions. Unions are a special type of class where all members share the same memory location.
 
 ##### Templates − Exceptions
 
+...
+
 Templates in C++ allow for generic programming by defining functions or classes with generic types. This enables writing code that works with any data type. Exceptions are used for handling runtime errors or exceptional conditions that may occur during program execution.
 
 ##### Freestanding implementations
+
+...
 
 Freestanding implementations refer to the ability to write C++ programs without relying on the full standard library provided by the implementation. This is particularly useful in embedded systems or other environments where the standard library may not be available or suitable.
 
@@ -5867,30 +8255,44 @@ By using feature test macros, C++ programmers can write code that gracefully han
 
 ##### Program Utilities
 
+...
+
 The program utilities in the C++ language support library provide various functionalities that help in program execution and management. This includes utilities for program termination (`std::exit`, `std::abort`), environment access (`std::getenv`, `std::setenv`), program termination handlers (`std::atexit`, `std::at_quick_exit`), and more.
 
 ##### source_location (C++20)
+
+...
 
 `std::source_location` is a new feature introduced in C++20. It provides information about the current source code location, including file name, line number, and column number. This can be useful for debugging, logging, and error reporting, allowing developers to easily identify the origin of code execution.
 
 ##### Coroutine Support (C++20)
 
+...
+
 Coroutines are a new language feature introduced in C++20 that allows functions to be suspended and resumed at certain points without losing their state. This enables asynchronous programming paradigms, such as generators, cooperative multitasking, and asynchronous I/O operations, to be implemented more efficiently and elegantly.
 
 ##### Three-Way Comparison (C++20)
+
+...
 
 Three-way comparison, also known as spaceship operator (`<=>`), is a new feature introduced in C++20 that provides a standardized way to perform three-way comparisons between objects. It returns a value that indicates whether the first object is less than, equal to, or greater than the second object. This simplifies code and improves readability, especially when working with user-defined types.
 
 ##### Type Support
 
+...
+
 The type support features in the C++ language support library provide utilities for working with types at runtime. This includes functionalities such as querying type information (`std::type_info`), determining the characteristics of numeric types (`std::numeric_limits`), and more.
 
 ##### numeric_limits - type_info
+
+...
 
 - `std::numeric_limits`: This template class provides information about the properties of arithmetic types, such as the minimum and maximum representable values, precision, and characteristics like whether the type is signed or floating-point.
 - `std::type_info`: This class provides information about types at runtime. It is commonly used with features like dynamic casting and RTTI (Run-Time Type Information) to determine the types of objects dynamically.
 
 ##### initializer_list (C++11)
+
+...
 
 `std::initializer_list` is a template class introduced in C++11 that provides a convenient way to initialize containers and other objects with a list of elements. It allows brace-enclosed lists of elements to be passed as arguments to constructors and functions, enabling uniform initialization syntax in C++. This is particularly useful for initializing standard library containers like `std::vector`, `std::array`, and `std::initializer_list`.
 
@@ -5940,6 +8342,8 @@ The Diagnostics library in C++ provides functionalities for handling errors, exc
 
 ##### exception − System error
 
+...
+
 The `exception` component of the Diagnostics library deals with error handling in C++. It provides a standardized way to represent and handle exceptional conditions that may arise during program execution. This includes the definition of standard exception classes such as `std::exception` and its derived classes like `std::runtime_error`, `std::logic_error`, etc.
 
 - **std::exception**: The base class for all standard C++ exceptions. It defines the virtual function `what()` which returns a C-style string describing the exception.
@@ -5949,6 +8353,8 @@ The `exception` component of the Diagnostics library deals with error handling i
 Additionally, the `system_error` component allows for handling errors reported by the operating system or the C++ Standard Library functions. It wraps error codes returned by system calls or library functions and provides information about the error condition.
 
 ##### basic_stacktrace (C++23)
+
+...
 
 The `basic_stacktrace` component, introduced in C++23, provides a mechanism to capture and represent stack traces in C++ programs. Stack traces contain information about the call stack at a given point in program execution, including function names, file names, and line numbers. This information is invaluable for debugging and diagnosing runtime errors and exceptions.
 
@@ -5962,21 +8368,31 @@ The Memory Management library in C++ offers a set of tools for efficient and saf
 
 ##### unique_ptr (C++11)
 
+...
+
 `std::unique_ptr` is a smart pointer introduced in C++11 that provides exclusive ownership semantics. It manages dynamically allocated objects and automatically releases the memory when the pointer goes out of scope or is explicitly reset. Unique pointers cannot be copied but can be moved, ensuring exclusive ownership of the managed resource.
 
 ##### shared_ptr (C++11)
+
+...
 
 `std::shared_ptr` is another smart pointer introduced in C++11 that implements shared ownership semantics. Multiple `shared_ptr` instances can point to the same dynamically allocated object, and the memory is automatically deallocated when the last `shared_ptr` pointing to it is destroyed. It keeps track of the number of references through a control block, allowing for safe sharing of resources.
 
 ##### weak_ptr (C++11)
 
+...
+
 `std::weak_ptr` is a companion to `std::shared_ptr` introduced in C++11. It provides a non-owning weak reference to an object managed by `std::shared_ptr`. Unlike `std::shared_ptr`, `std::weak_ptr` does not contribute to the reference count of the managed object, preventing cyclic dependencies and memory leaks. It is typically used to break circular references in data structures.
 
 ##### Memory resources (C++17)
 
+...
+
 The Memory Resources feature introduced in C++17 provides a flexible mechanism for customizing memory allocation behavior. It allows developers to specify custom memory allocation strategies, such as memory pools or specialized allocators, to better suit the requirements of their applications. Memory resources are used in conjunction with memory containers like `std::pmr::vector` and `std::pmr::string`.
 
 ##### Allocators - Low level management
+
+...
 
 Allocators in C++ provide a low-level interface for managing memory allocation and deallocation. They abstract away the details of memory management and allow containers and other data structures to be decoupled from specific memory allocation strategies. C++ standard library containers can be customized with user-defined allocators to control how memory is allocated and deallocated for their elements.
 
@@ -5988,9 +8404,13 @@ The Metaprogramming library in C++ provides facilities for compile-time computat
 
 ##### Type traits − ratio
 
+...
+
 Type traits in C++ are templates that provide information about types at compile-time. They allow programmers to query properties of types and perform conditional compilation based on those properties. In C++11, the `<ratio>` header introduces the `std::ratio` template, which represents a rational number with a numerator and a denominator. It is commonly used in conjunction with other facilities like `std::chrono` to specify time durations and ratios.
 
 ##### integer_sequence (C++14)
+
+...
 
 `std::integer_sequence` is a utility introduced in C++14 that represents a sequence of integers. It is often used in conjunction with variadic templates to generate sequences of indices or to expand parameter packs into multiple function arguments. `std::integer_sequence` simplifies the implementation of certain metaprogramming tasks, such as tuple manipulation, function parameter unpacking, and loop unrolling.
 
@@ -6002,45 +8422,67 @@ The General Utilities library in C++ provides a wide range of utilities to enhan
 
 ##### Function objects − hash (C++11)
 
+...
+
 Function objects, also known as functors, are objects that can be invoked as if they were functions. In C++11, the `<functional>` header introduces the `std::hash` template, which provides a hash function for generating hash values of objects. It is commonly used in conjunction with unordered containers like `std::unordered_map` and `std::unordered_set` to enable efficient lookup and storage of objects based on their hash values.
 
 ##### Swap − Type operations (C++11)
+
+...
 
 The `swap` function in C++11, defined in the `<algorithm>` header, allows for the efficient swapping of values between two objects of the same type. It is commonly used to implement efficient swap operations for user-defined types and to optimize certain algorithms by minimizing unnecessary copies.
 
 ##### Integer comparison (C++20)
 
+...
+
 In C++20, the `<compare>` header introduces standardized comparison categories for integers, including strong ordering, weak ordering, and partial ordering. This facilitates consistent and efficient comparison operations for integer types, enabling more reliable and predictable behavior in generic code.
 
 ##### pair − tuple (C++11)
+
+...
 
 The `std::pair` template, introduced in C++11, represents a pair of values. It is commonly used to store two related values together, such as key-value pairs in associative containers. Similarly, the `std::tuple` template, also introduced in C++11, represents a fixed-size collection of heterogeneous values. It provides compile-time indexing and enables functions to return multiple values.
 
 ##### optional (C++17)
 
+...
+
 `std::optional` is a template introduced in C++17 that represents an optional value. It encapsulates an object that may or may not exist, providing a safe and expressive way to handle potentially missing values. It is commonly used to indicate optional function parameters, return values, or container elements.
 
 ##### expected (C++23)
+
+...
 
 `std::expected` is a proposed addition to the C++ standard library, expected to be introduced in C++23. It represents a value that may be either an expected value or an error. It provides a more expressive and type-safe alternative to traditional error handling mechanisms such as error codes or exceptions.
 
 ##### variant (C++17) − any (C++17)
 
+...
+
 `std::variant` is a template introduced in C++17 that represents a type-safe union of alternative types. It provides a type-safe way to work with values that may be of different types at runtime. Similarly, `std::any` is a template introduced in C++17 that represents a type-safe container for single values of any type.
 
 ##### String conversions (C++17)
+
+...
 
 The `<string_view>` header introduced in C++17 provides the `std::to_string` and `std::from_string` functions, which enable conversion between strings and numeric types. It allows for easy and efficient conversion of numeric values to and from string representations.
 
 ##### Formatting (C++20)
 
+...
+
 C++20 introduces the `<format>` header, which provides facilities for string formatting using a format string syntax similar to Python's `str.format`. It allows for more expressive and flexible string formatting, supporting a wide range of formatting options and customization features.
 
 ##### bitset − Bit manipulation (C++20)
 
+...
+
 The `std::bitset` template, introduced in C++20, represents a fixed-size sequence of bits. It provides efficient operations for setting, clearing, and querying individual bits, as well as bitwise operations such as AND, OR, XOR, and shifting.
 
 ##### Debugging support (C++26)
+
+...
 
 While specific details about debugging support in C++26 are not available as of my last update, it's likely that further enhancements and improvements to debugging facilities will be introduced in this version of the language. This may include features such as enhanced debugging information, improved debugging tools, and better integration with development environments and debuggers.
 
@@ -6052,13 +8494,19 @@ The Strings library in C++ offers a collection of classes and utilities for work
 
 ##### basic_string − char_traits
 
+...
+
 The `basic_string` template, often referred to as `std::basic_string`, is a fundamental component of the Strings library. It represents a sequence of characters, where the character type and allocator type are customizable. The `char_traits` template provides traits and operations for manipulating characters within the `basic_string` class. These traits include comparison, copying, and searching operations, which are tailored to the specific character type used in the string.
 
 ##### basic_string_view (C++17)
 
+...
+
 `std::basic_string_view`, introduced in C++17, is a lightweight, non-owning view into a sequence of characters. It does not own the underlying data but provides a read-only view into it. This allows for efficient string processing without the overhead of memory allocation and copying. `basic_string_view` is useful for passing substrings or portions of strings to functions without incurring unnecessary copying.
 
 ##### Null-terminated strings: byte − multibyte − wide
+
+...
 
 C++ supports three types of null-terminated strings, each representing a sequence of characters terminated by a null character (`'\0'`). These types differ in the character encoding used and the size of each character:
 
@@ -6076,16 +8524,22 @@ The Containers library in C++ provides a wide range of data structures for stori
 
 ##### vector − deque − array (C++11)
 
+...
+
 - **vector**: `std::vector` is a dynamic array that provides fast random access and efficient insertion/removal at the end. It dynamically allocates memory to store its elements and automatically resizes when necessary.
 - **deque**: `std::deque` (double-ended queue) is a sequence container that allows efficient insertion and deletion at both ends. It provides constant time complexity for adding or removing elements at the beginning or end.
 - **array**: `std::array` is a fixed-size array with a size known at compile-time. It provides similar functionality to built-in arrays but adds some additional features such as bounds checking.
 
 ##### list − forward_list (C++11)
 
+...
+
 - **list**: `std::list` is a doubly linked list that allows efficient insertion and removal of elements anywhere in the container. It provides constant time complexity for insertion and removal but does not support random access.
 - **forward_list**: `std::forward_list` is a singly linked list that allows efficient insertion and removal of elements at the beginning or after a specified element. It consumes less memory than `std::list` but provides similar functionality.
 
 ##### map − multimap − set − multiset
+
+...
 
 - **map**: `std::map` is an associative container that stores key-value pairs in sorted order based on the keys. It allows fast lookup, insertion, and deletion of elements based on their keys.
 - **multimap**: `std::multimap` is similar to `std::map` but allows duplicate keys. It maintains elements in sorted order based on keys.
@@ -6094,6 +8548,8 @@ The Containers library in C++ provides a wide range of data structures for stori
 
 ##### unordered_map (C++11) - unordered_multimap (C++11) - unordered_set (C++11) - unordered_multiset (C++11)
 
+...
+
 - **unordered_map**: `std::unordered_map` is an associative container that stores key-value pairs in an unordered manner, based on a hash table. It provides fast average constant-time complexity for lookup, insertion, and deletion.
 - **unordered_multimap**: `std::unordered_multimap` is similar to `std::unordered_map` but allows duplicate keys.
 - **unordered_set**: `std::unordered_set` is an unordered associative container that stores unique elements. It provides fast average constant-time complexity for lookup, insertion, and deletion.
@@ -6101,9 +8557,13 @@ The Containers library in C++ provides a wide range of data structures for stori
 
 ##### Container adaptors
 
+...
+
 Container adaptors are classes that provide a different interface to underlying containers, typically to restrict the operations that can be performed or to provide additional functionality. Examples include `std::stack`, `std::queue`, and `std::priority_queue`.
 
 ##### span (C++20) - mdspan (C++23)
+
+...
 
 - **span**: `std::span` is a non-owning reference to a contiguous sequence of elements. It allows efficient access to elements of arrays, vectors, or other contiguous containers without owning the memory. It is useful for passing arrays to functions and for range-based operations.
 - **mdspan**: `std::mdspan` (multi-dimensional span) is a proposed extension to C++ that provides support for multi-dimensional arrays. It extends the functionality of `std::span` to handle multi-dimensional arrays in a uniform and efficient manner.
@@ -6121,6 +8581,8 @@ The Iterators library in C++ provides a mechanism for traversing and accessing e
 - **Iterator Functions**: The Iterators library also provides a set of functions for working with iterators, such as `std::advance`, `std::distance`, and `std::next`, which allow for advancing iterators, calculating distances between iterators, and obtaining iterators at specified offsets, respectively.
 
 ##### Ranges library (C++20)
+
+...
 
 The Ranges library introduced in C++20 builds upon the concepts and functionality of the Iterators library, providing a more expressive and composable way to work with sequences of elements. It introduces range-based abstractions that encapsulate both the data and the operations performed on it. Here are some key features of the Ranges library:
 
@@ -6140,6 +8602,8 @@ The Algorithms library in C++ provides a comprehensive set of functions for perf
 
 ##### Execution policies (C++17)
 
+...
+
 Execution policies were introduced in C++17 to enable parallel execution of standard algorithms. They provide a mechanism for specifying the execution mode of algorithms, allowing developers to take advantage of parallelism when processing large datasets. There are three execution policies defined in C++17:
 
 - **`std::execution::seq`**: Specifies sequential execution. Algorithms executed with this policy will run sequentially, without parallelization.
@@ -6151,6 +8615,8 @@ Execution policies were introduced in C++17 to enable parallel execution of stan
 Execution policies provide a high-level interface for specifying the desired execution mode of algorithms, abstracting away the details of parallelization and allowing the implementation to choose the most efficient execution strategy based on the available hardware and workload.
 
 ##### Constrained algorithms (C++20)
+
+...
 
 Constrained algorithms were introduced in C++20 to provide more expressive and flexible algorithms that can handle constrained ranges of elements. Constrained algorithms offer similar functionality to standard algorithms but operate only on elements that meet specific criteria or constraints. They are designed to work with ranges that satisfy certain requirements, such as being sorted or partitioned.
 
@@ -6164,33 +8630,49 @@ The Numerics library in C++ provides a range of functionalities for numerical co
 
 ##### Common math functions
 
+...
+
 The Numerics library includes common mathematical functions such as trigonometric functions (`sin`, `cos`, `tan`), exponential and logarithmic functions (`exp`, `log`, `log10`), and other elementary functions (`sqrt`, `pow`, `abs`). These functions operate on numerical data types like `float`, `double`, and `long double`.
 
 ##### Mathematical special functions (C++17)
+
+...
 
 C++17 introduced support for mathematical special functions, which include a variety of functions beyond elementary ones. These special functions encompass a wide range of mathematical concepts such as Bessel functions (`j0`, `j1`, `jn`), elliptic integrals (`ellint_1`, `ellint_2`, `ellint_3`), gamma functions (`tgamma`, `lgamma`), and many more. They are essential in various scientific and engineering applications.
 
 ##### Mathematical constants (C++20)
 
+...
+
 C++20 introduced support for mathematical constants like pi (pi) and e (Euler's number). These constants are provided as predefined values (`std::numbers::pi`, `std::numbers::e`) and are useful for mathematical computations requiring precise values of these constants.
 
 ##### Basic linear algebra algorithms (C++26)
+
+...
 
 C++26 is expected to introduce basic linear algebra algorithms, providing functionalities for common linear algebra operations like matrix addition, multiplication, decomposition, and solving systems of linear equations. These algorithms will be crucial for numerical simulations, scientific computing, and machine learning applications.
 
 ##### Numeric algorithms
 
+...
+
 The Numerics library includes a wide range of numeric algorithms for various tasks such as sorting (`std::sort`), searching (`std::binary_search`), mathematical accumulation (`std::accumulate`), and statistical computations (`std::mean`, `std::median`, `std::variance`). These algorithms operate on ranges of elements and are essential for numerical computations and data analysis.
 
 ##### Pseudo-random number generation
+
+...
 
 C++ provides utilities for generating pseudo-random numbers using the `<random>` header. It includes various random number generators (such as `std::mt19937` and `std::default_random_engine`) and distributions (such as uniform distribution, normal distribution, and discrete distribution) for generating random numbers with different characteristics.
 
 ##### Floating-point environment (C++11)
 
+...
+
 C++11 introduced facilities for managing and querying the floating-point environment, including functions like `std::fetestexcept` for testing floating-point exceptions and macros like `FLT_EVAL_METHOD` for querying the floating-point evaluation method used by the compiler.
 
 ##### complex − valarray
+
+...
 
 The Numerics library includes support for complex numbers (`std::complex`) and numerical arrays (`std::valarray`). Complex numbers are useful for representing and manipulating complex mathematical entities, while valarrays provide facilities for numerical array operations like element-wise arithmetic operations and mathematical functions.
 
@@ -6202,11 +8684,17 @@ The Date and Time library in C++ provides functionalities for handling dates, ti
 
 ##### Calendar (C++20) − Time zone (C++20)
 
+...
+
 ###### Calendar (C++20)
+
+...
 
 The Calendar feature introduced in C++20 provides a standardized mechanism for working with dates and calendars. It includes functionalities for representing and manipulating dates, determining the day of the week, calculating the difference between dates, and converting between different calendar systems (e.g., Gregorian, Julian). The Calendar feature enhances the expressiveness and robustness of date-related operations in C++, providing a consistent interface for working with dates across different platforms and locales.
 
 ###### Time zone (C++20)
+
+...
 
 The Time Zone feature introduced in C++20 addresses the complexities of handling time zones and daylight saving time (DST) transitions. It provides functionalities for representing time zones, converting between different time zones, and handling DST transitions. With the Time Zone feature, developers can accurately represent and manipulate time zone-aware datetime values, ensuring correct behavior when dealing with temporal data across different geographical regions and time zones. Additionally, the Time Zone feature helps address issues related to time zone ambiguity and DST transitions, providing a more reliable and standardized approach to handling time zone-related operations in C++ applications.
 
@@ -6217,11 +8705,15 @@ The Localization library in C++ provides functionalities for handling locale-spe
 
 ##### locale − Character classification
 
+...
+
 The `std::locale` class in C++ represents a locale, which defines a set of language- and region-specific conventions for formatting dates, times, numbers, and currency, as well as character classification and collation rules. Locales allow developers to tailor the behavior of their programs to the preferences and conventions of different locales, enabling applications to support internationalization and localization.
 
 The `std::locale` class provides methods for querying and setting locale-specific facets, which are specialized classes responsible for various locale-specific operations. For character classification, the `std::ctype` facet is used to define character classification and conversion rules specific to a locale. This allows developers to perform locale-sensitive operations such as case conversion, character classification (e.g., `isalpha`, `isdigit`), and string comparison according to the rules of a specific locale.
 
 ##### text_encoding (C++26)
+
+...
 
 The `text_encoding` feature introduced in C++26 aims to provide support for text encoding and decoding operations in a standardized manner. Text encoding refers to the process of converting characters from their internal representation (e.g., Unicode code points) to an external representation suitable for storage or transmission (e.g., UTF-8, UTF-16). Similarly, text decoding involves converting external representations of characters back to their internal representation.
 
@@ -6235,9 +8727,13 @@ The Input/Output (I/O) library in C++ provides a comprehensive set of functional
 
 ##### Print functions (C++23)
 
+...
+
 The Print functions feature, expected to be introduced in C++23, aims to enhance the standard library's capabilities for printing formatted output to the console or other output devices. It may introduce new functions or improvements to existing functions for printing data with enhanced formatting options, improved performance, or better integration with other library features.
 
 ##### Stream-based I/O − I/O manipulators
+
+...
 
 C++ provides stream-based I/O facilities through the `std::basic_istream` and `std::basic_ostream` classes, which serve as base classes for input and output streams, respectively. These classes are templated on the character type (`char` or `wchar_t`) and provide a flexible and extensible framework for performing formatted I/O operations.
 
@@ -6245,13 +8741,19 @@ I/O manipulators are special functions or objects that modify the behavior of in
 
 ##### basic_istream − basic_ostream
 
+...
+
 `std::basic_istream` and `std::basic_ostream` are template classes representing input and output streams, respectively. They provide a common interface for performing formatted input and output operations on sequences of characters. These classes serve as base classes for more specialized stream classes like `std::istream` and `std::ostream`, which use `char` as the character type, and `std::wistream` and `std::wostream`, which use `wchar_t` as the character type.
 
 ##### Synchronized output (C++20)
 
+...
+
 The Synchronized output feature introduced in C++20 provides mechanisms for ensuring thread-safe output to standard output streams (`std::cout`, `std::cerr`, `std::clog`) in multi-threaded programs. It ensures that output from multiple threads is properly synchronized and interleaved in a predictable manner, preventing garbled or out-of-order output.
 
 ##### File systems (C++17)
+
+...
 
 The File Systems library introduced in C++17 provides functionalities for performing file system operations such as querying file attributes, manipulating paths, iterating over directory contents, and creating, deleting, and renaming files and directories. It aims to standardize and simplify file system-related operations, making it easier for developers to work with files and directories in a platform-independent manner.
 
@@ -6263,6 +8765,8 @@ The Regular Expressions library introduced in C++11 provides a powerful and flex
 
 ##### basic_regex − Algorithms
 
+...
+
 `std::basic_regex` is a template class representing a compiled regular expression pattern. It serves as the foundation for working with regular expressions in C++, allowing developers to create, compile, and use regular expression patterns for searching, matching, and replacing text within strings.
 
 The Regular Expressions library in C++ provides a range of algorithms for working with regular expressions, including searching for matches (`std::regex_search`), matching entire strings (`std::regex_match`), finding and replacing matches (`std::regex_replace`), and splitting strings based on matching patterns (`std::regex_split`).
@@ -6270,6 +8774,8 @@ The Regular Expressions library in C++ provides a range of algorithms for workin
 These algorithms operate on `std::basic_string` or `std::string_view` objects and allow developers to perform various text processing tasks efficiently and conveniently using regular expressions.
 
 ##### Default regular expression grammar
+
+...
 
 The Regular Expressions library in C++11 adopts the ECMAScript regular expression grammar as the default syntax for defining regular expression patterns. This grammar is widely used and familiar to developers from other programming languages, making it easy to write and understand regular expressions in C++.
 
@@ -6283,29 +8789,43 @@ The Concurrency Support library in C++11 provides functionalities for writing mu
 
 ##### thread − jthread (C++20)
 
+...
+
 The `std::thread` class in C++11 allows developers to create and manage threads of execution. Threads are lightweight processes that run concurrently with other threads in a program. They are useful for parallelizing tasks and utilizing multiple CPU cores effectively. C++20 introduced the `std::jthread` class, which is a joinable thread with automatic cleanup upon destruction, providing safer and more convenient thread management compared to `std::thread`.
 
 ##### atomic − atomic_flag
+
+...
 
 The `std::atomic` template class in C++11 provides atomic operations for shared variables accessed by multiple threads concurrently. Atomic operations ensure that operations on shared variables are performed atomically, without the risk of data races or undefined behavior. `std::atomic_flag` is a specialization of `std::atomic` for boolean flags, providing lock-free atomic operations for simple synchronization primitives.
 
 ##### atomic_ref (C++20) − memory_order
 
+...
+
 C++20 introduced `std::atomic_ref`, which allows atomic operations on non-atomic variables by providing a reference wrapper to the variable. This enables atomic operations on existing variables without the need to make them atomic. Additionally, C++11 introduced the `memory_order` enumeration, which allows developers to specify the memory ordering constraints for atomic operations, ensuring correct synchronization and consistency between threads.
 
 ##### Mutual exclusion − Semaphores (C++20)
+
+...
 
 Mutual exclusion mechanisms such as mutexes and semaphores are essential for coordinating access to shared resources among multiple threads. C++11 provides `std::mutex` for mutual exclusion and `std::unique_lock` for scoped locking. C++20 introduced `std::binary_semaphore` and `std::counting_semaphore`, which provide semaphore-based synchronization primitives for coordinating access to shared resources.
 
 ##### Condition variables − Futures
 
+...
+
 Condition variables (`std::condition_variable`) allow threads to wait for certain conditions to become true before proceeding. They are often used in combination with mutexes to implement complex synchronization patterns. Futures (`std::future`) represent asynchronous computations and provide a mechanism for retrieving the result of a computation that may be running concurrently in another thread.
 
 ##### latch (C++20) − barrier (C++20)
 
+...
+
 C++20 introduced `std::latch` and `std::barrier`, which are synchronization primitives for coordinating the execution of multiple threads. A latch is a synchronization primitive that allows a fixed number of threads to wait until a certain condition is satisfied before proceeding. A barrier is a synchronization primitive that allows a group of threads to synchronize at a predefined point in their execution, ensuring that all threads reach the barrier before any thread proceeds further.
 
 ##### Safe Reclamation (C++26)
+
+...
 
 C++26 is expected to introduce safe reclamation mechanisms for managing memory and resources in multithreaded environments. These mechanisms aim to provide efficient and safe memory reclamation for lock-free data structures and algorithms, enabling developers to write concurrent code with better performance and reliability.
 
@@ -6319,6 +8839,8 @@ Go, also known as Golang, is an open-source programming language developed by Go
 
 ##### Key Features of Go Language:
 
+...
+
 1. **Simplicity**: Go has a simple and clean syntax, making it easy to read and write code. It emphasizes readability and clarity, which helps developers to quickly understand and maintain codebases.
 
 2. **Concurrency**: Go has built-in support for concurrency through goroutines and channels. Goroutines are lightweight threads of execution that enable concurrent programming, while channels facilitate communication and synchronization between goroutines.
@@ -6331,9 +8853,13 @@ Go, also known as Golang, is an open-source programming language developed by Go
 
 ##### Examples
 
+...
+
 Let's look at some examples to demonstrate the syntax and features of Go Language:
 
 ###### Example 1: Hello World
+
+...
 
 ```go
 package main
@@ -6348,6 +8874,8 @@ func main() {
 In this example, we have a simple Go program that prints "Hello, World!" to the console using the `fmt` package.
 
 ###### Example 2: Concurrency with Goroutines
+
+...
 
 ```go
 package main
@@ -6474,6 +9002,8 @@ In Go language, commentary refers to the practice of adding explanatory or descr
 
 ##### Types of Comments in Go:
 
+...
+
 1. **Single-Line Comments**: Single-line comments begin with `//` and extend until the end of the line.
 
   ```go
@@ -6490,6 +9020,8 @@ In Go language, commentary refers to the practice of adding explanatory or descr
   ```
 
 ##### Best Practices for Using Comments:
+
+...
 
 1. **Documenting Package**: Each package should include a comment at the top of the file describing its purpose and usage. This comment should be descriptive and provide information about the package's functionality, dependencies, and usage examples.
 
@@ -6528,6 +9060,8 @@ In Go language, commentary refers to the practice of adding explanatory or descr
 
 ##### Benefits of Commentary in Go:
 
+...
+
 - **Code Documentation**: Comments provide valuable documentation for understanding the purpose, behavior, and usage of code elements such as functions, variables, and packages.
 
 - **Code Clarity and Readability**: Well-written comments enhance code readability by providing context and explanations for developers, making it easier to understand complex or unfamiliar code.
@@ -6542,6 +9076,8 @@ Certainly! Let's delve into each of these topics:
 
 ##### Package Names
 
+...
+
 In Go, packages are used to organize and encapsulate code. Package names should be concise and indicative of the functionality they provide. Some best practices for package names include:
 
 - Package names should be lowercase and consist of a single word, preferably short and descriptive.
@@ -6555,6 +9091,8 @@ package math
 ```
 
 ##### Getters
+
+...
 
 Getters are methods used to retrieve the values of private fields in Go structs. They follow a naming convention where the method name starts with "Get" followed by the name of the field being retrieved. Some considerations for naming getters include:
 
@@ -6576,6 +9114,8 @@ func (p *Person) GetName() string {
 
 ##### Interface Names
 
+...
+
 Interfaces in Go define sets of methods that a type must implement to satisfy the interface. Interface names should be descriptive and typically end with the suffix "er" to indicate that it represents a behavior or capability. Some guidelines for naming interfaces include:
 
 - Use clear, descriptive names that convey the purpose of the interface.
@@ -6591,6 +9131,8 @@ type Logger interface {
 ```
 
 ##### MixedCaps
+
+...
 
 MixedCaps, also known as CamelCase, is a naming convention used in Go for naming variables, functions, types, and constants. MixedCaps involves capitalizing the first letter of each word in the name, except for the first word, which starts with a lowercase letter. Some guidelines for using MixedCaps include:
 
@@ -6611,6 +9153,8 @@ These naming conventions help maintain consistency and readability in Go codebas
 In Go language, semicolons are used as statement terminators, similar to many other languages like C, C++, and Java. However, Go has a unique feature called "implicit semicolons" where the compiler automatically inserts semicolons at the end of each line if the line break comes after certain tokens. This feature reduces the need for explicit semicolons in Go code, making the language cleaner and less cluttered.
 
 ##### Rules for Semicolons in Go
+
+...
 
 1. **Implicit Semicolons**: The Go compiler automatically inserts semicolons at the end of a line if the line break occurs after one of the following tokens:
 
@@ -6648,6 +9192,8 @@ In Go language, semicolons are used as statement terminators, similar to many ot
 
 ##### Best Practices for Semicolons in Go
 
+...
+
 - **Prefer Implicit Semicolons**: Follow the convention of letting the compiler insert semicolons automatically. Avoid using explicit semicolons unless necessary for clarity.
 
 - **Consistency**: Be consistent in your use of semicolons. Choose a style and stick to it throughout your codebase.
@@ -6659,6 +9205,8 @@ By understanding the rules and conventions for semicolons in Go, you can write c
 #### Control Structures
 
 ##### If Statements
+
+...
 
 The `if` statement in Go is used for conditional execution. It allows you to execute a block of code if a specified condition is true. The basic syntax of the `if` statement is as follows:
 
@@ -6684,6 +9232,8 @@ if condition1 {
 
 ##### Redeclaration and Reassignment
 
+...
+
 In Go, you cannot declare a variable with the same name in the same scope. However, you can reassign a value to an existing variable. Redeclaring a variable in the same scope will result in a compilation error.
 
 ```go
@@ -6698,6 +9248,8 @@ x = 20
 ```
 
 ##### For Loops
+
+...
 
 The `for` loop in Go is used to execute a block of code repeatedly until a specified condition is false. There are several ways to use the `for` loop in Go:
 
@@ -6750,6 +9302,8 @@ In Go, the `switch` statement provides a way to compare an expression against mu
 
 ##### Basic Switch Statement:
 
+...
+
 The basic syntax of the `switch` statement in Go is as follows:
 
 ```go
@@ -6790,6 +9344,8 @@ func main() {
 ```
 
 ##### Type Switch
+
+...
 
 A type switch is a special form of switch statement that compares the type of an expression against a set of types. It allows you to perform different actions based on the type of the expression.
 
@@ -6840,6 +9396,8 @@ Functions are a fundamental building block in Go programming, offering various f
 
 ##### Multiple Return Values
 
+...
+
 In Go, functions can return multiple values, allowing you to return more than one result from a function call. This feature is particularly useful for functions that perform multiple calculations or operations.
 
 ```go
@@ -6857,6 +9415,8 @@ Here, the `swap` function takes two integers as input and returns them in revers
 
 ##### Named Result Parameters
 
+...
+
 In Go, you can name the return values of a function. Named return parameters act as variables within the function body and are initialized to the zero values of their respective types. They can be explicitly assigned values, and the named return values are automatically returned at the end of the function.
 
 ```go
@@ -6873,6 +9433,8 @@ func divide(x, y float64) (result float64, err error) {
 In this example, the `divide` function returns both the result of the division and an error. The return parameters `result` and `err` are named.
 
 ##### Defer
+
+...
 
 The `defer` statement in Go is used to schedule a function call to be executed just before the enclosing function returns. Deferred functions are executed in Last In, First Out (LIFO) order. The `defer` statement is commonly used to perform cleanup tasks such as closing files or releasing resources.
 
@@ -6902,6 +9464,8 @@ Here's an explanation of various data-related topics in Go, presented in a struc
 
 ##### Allocation with `new`
 
+...
+
 The `new` keyword in Go is used to allocate memory for a new value of a specified type. It returns a pointer to the newly allocated memory. However, unlike some other languages, `new` initializes the memory with zero values.
 
 ```go
@@ -6911,6 +9475,8 @@ ptr = new(int)
 ```
 
 ##### Constructors and Composite Literals
+
+...
 
 Go doesn't have traditional constructors, but you can use composite literals to create instances of structs or arrays. A composite literal specifies the type and values of a new instance within curly braces.
 
@@ -6925,6 +9491,8 @@ p := Point{X: 10, Y: 20}
 
 ##### Allocation with `make`
 
+...
+
 The `make` function in Go is used to create slices, maps, and channels. It allocates and initializes the underlying data structure and returns a value of the specified type.
 
 ```go
@@ -6934,6 +9502,8 @@ slice := make([]int, 5, 10)
 
 ##### Arrays
 
+...
+
 Arrays in Go are fixed-size sequences of elements with a specified type. The size of an array is part of its type and cannot be changed after declaration.
 
 ```go
@@ -6942,6 +9512,8 @@ var arr [5]int // Declaration of an array with length 5
 
 ##### Slices
 
+...
+
 Slices are dynamic data structures built on top of arrays. They provide a more flexible way to work with sequences of data. A slice has a length and a capacity, and it can grow dynamically.
 
 ```go
@@ -6949,6 +9521,8 @@ slice := []int{1, 2, 3, 4, 5} // Creating a slice using a composite literal
 ```
 
 ##### Two-dimensional Slices
+
+...
 
 Go supports multi-dimensional slices, which are essentially slices of slices. They provide a convenient way to work with matrices and other multi-dimensional data structures.
 
@@ -6962,6 +9536,8 @@ matrix := [][]int{
 
 ##### Maps
 
+...
+
 Maps in Go are unordered collections of key-value pairs. They provide an efficient way to store and retrieve data based on keys.
 
 ```go
@@ -6972,6 +9548,8 @@ m["two"] = 2
 
 ##### Printing
 
+...
+
 The `fmt` package in Go provides functions for formatted I/O, including printing to the standard output. The `Println` function is commonly used to print values followed by a newline.
 
 ```go
@@ -6979,6 +9557,8 @@ fmt.Println("Hello, World!")
 ```
 
 ##### Append
+
+...
 
 The `append` function in Go is used to add elements to slices dynamically. If the capacity of the underlying array is exceeded, `append` automatically allocates a new array and copies existing elements.
 
@@ -6995,6 +9575,8 @@ Here's an explanation of initialization concepts in Go, covering constants, vari
 
 ##### Constants
 
+...
+
 Constants in Go are declared using the `const` keyword and have a fixed value that cannot be changed after declaration. They provide a way to define named values that remain constant throughout the execution of a program.
 
 ```go
@@ -7008,6 +9590,8 @@ const (
 Constants can be of various types, including numeric, string, boolean, and more. They are typically used for values that are known at compile-time and won't change during the execution of the program.
 
 ##### Variables
+
+...
 
 Variables in Go are declared using the `var` keyword and represent storage locations that hold values of a specific type. Unlike constants, variables can be reassigned to new values during the execution of the program.
 
@@ -7029,6 +9613,8 @@ z := 5 // Inferred type int
 ```
 
 ##### The `init` Function
+
+...
 
 The `init` function in Go is a special function that is automatically called before the `main` function at program startup. It is commonly used for initialization tasks such as setting up global variables, initializing data structures, or performing configuration.
 
@@ -7076,6 +9662,8 @@ In Go, methods are functions that operate on specific types. They allow you to a
 
 ##### Pointers vs Values
 
+...
+
 1. **Value Receivers**:
    - When a method is defined with a value receiver, the method operates on a copy of the value. Changes made to the value inside the method are local to that method and do not affect the original value.
    - Value receivers are typically used when the method does not need to modify the original value or when the value is small and inexpensive to copy.
@@ -7108,6 +9696,8 @@ In Go, methods are functions that operate on specific types. They allow you to a
 
 ###### Choosing Between Pointers and Values
 
+...
+
 - Use **value receivers**:
    - When the method does not need to modify the original value.
    - When the value is small and inexpensive to copy.
@@ -7119,6 +9709,8 @@ In Go, methods are functions that operate on specific types. They allow you to a
    - When you want changes made by the method to reflect in the original value.
 
 ###### Example
+
+...
 
 ```go
 package main
@@ -7158,6 +9750,8 @@ Certainly! Here's an explanation of interfaces and other related concepts in Go:
 
 ##### Interfaces
 
+...
+
 In Go, an interface is a type that specifies a set of method signatures. Any type that implements all the methods of an interface is said to satisfy or implement that interface implicitly. Interfaces allow for polymorphism and decoupling between code that defines behavior and code that uses it.
 
 ```go
@@ -7171,6 +9765,8 @@ Here, `Shape` is an interface with two methods: `Area()` and `Perimeter()`. Any 
 
 ##### Conversions
 
+...
+
 Conversions in Go are used to convert values between different types. They can be explicit or implicit, depending on the context. Explicit conversions are performed using type conversion syntax.
 
 ```go
@@ -7181,6 +9777,8 @@ var y float64 = float64(x)
 Here, `x` is explicitly converted from `int` to `float64` before assigning it to `y`.
 
 ##### Interface Conversions and Type Assertions
+
+...
 
 Interface conversions in Go are used to convert interface values to their underlying types. They are performed using type assertion syntax.
 
@@ -7193,9 +9791,13 @@ Here, `i.(string)` asserts that the interface value `i` contains a string, and a
 
 ##### Generality
 
+...
+
 Interfaces in Go provide a way to write general-purpose code that can work with different types as long as they satisfy the required interface. This promotes code reusability and flexibility.
 
 ##### Interfaces and Methods
+
+...
 
 In Go, interfaces are implicitly implemented. A type satisfies an interface if it implements all the methods declared by that interface. Interfaces in Go are satisfied implicitly, meaning you don't need to explicitly declare that a type implements an interface.
 
@@ -7222,9 +9824,13 @@ Let's dive into each aspect of the blank identifier in Go:
 
 ##### The Blank Identifier
 
+...
+
 In Go, the blank identifier (`_`) is a special identifier that can be used to discard values or to indicate that a value is intentionally not used. It is also used in a variety of contexts to handle situations where a variable or value is required syntactically but is not needed in the program logic.
 
 ##### The Blank Identifier in Multiple Assignment
+
+...
 
 The blank identifier is commonly used in multiple assignment statements to discard values that are not needed. It allows you to ignore specific values returned by functions or assigned to variables.
 
@@ -7238,6 +9844,8 @@ _, _, third := someSlice()
 
 ##### Unused Imports and Variables
 
+...
+
 In Go, unused imports and variables are flagged as errors by the compiler to encourage clean and efficient code. The blank identifier can be used to silence these errors when you intentionally import a package for its side effects or when you declare variables that are not used.
 
 ```go
@@ -7248,6 +9856,8 @@ var _ int // Declare a variable that is not used
 
 ##### Import for Side Effect
 
+...
+
 In Go, packages can be imported solely for their side effects, such as registering with the `init` function or initializing global state. When you import a package for its side effects only, you can use the blank identifier to indicate that you are not using any values from the package.
 
 ```go
@@ -7257,6 +9867,8 @@ import _ "database/sql"
 Here, the `database/sql` package is imported for its side effects, such as registering database drivers with the `sql` package, but no values from the package are used directly in the code.
 
 ##### Interface Checks
+
+...
 
 When working with interfaces in Go, you may need to check whether a value satisfies an interface. The blank identifier can be used to discard the concrete value and only check whether the value satisfies the interface.
 
@@ -7273,6 +9885,8 @@ The blank identifier in Go provides a concise and idiomatic way to handle situat
 Embedding in Go is a powerful feature that allows one struct type to include another struct type as a field, effectively inheriting its properties and behaviors. It is a way to achieve composition and reuse code without using traditional inheritance found in object-oriented languages.
 
 ##### Struct Embedding
+
+...
 
 In Go, struct embedding is achieved by declaring a field of one struct type within another struct type, without specifying a field name. This creates an anonymous field, and the fields and methods of the embedded type become part of the embedding struct.
 
@@ -7291,6 +9905,8 @@ type Employee struct {
 In this example, the `Employee` struct embeds the `Person` struct anonymously. This means that an `Employee` object inherits the fields (`FirstName` and `LastName`) and methods of the `Person` struct.
 
 ##### Accessing Embedded Fields and Methods
+
+...
 
 Embedded fields and methods are promoted to the embedding struct, meaning they can be accessed directly from the embedding struct without prefixing them with the embedded type's name.
 
@@ -7312,6 +9928,8 @@ In this example, the `FirstName` field of the `Person` struct is accessed direct
 
 ##### Method Overriding
 
+...
+
 If the embedding struct declares a method with the same name as a method in the embedded struct, the method in the embedding struct overrides the method in the embedded struct. This allows for method customization and specialization.
 
 ```go
@@ -7327,6 +9945,8 @@ func (e Employee) FullName() string {
 Here, the `FullName` method is overridden in the `Employee` struct to include an additional designation.
 
 ##### Embedding Interfaces
+
+...
 
 Interfaces can also be embedded within other interfaces or structs. When a struct embeds an interface, it implicitly implements that interface if it provides implementations for all the methods defined in the embedded interface.
 
@@ -7354,9 +9974,13 @@ Certainly! Let's explore each aspect of concurrency in Go:
 
 ##### Share by Communicating
 
+...
+
 In Go, the mantra for concurrency is "Don't communicate by sharing memory; share memory by communicating." This principle encourages developers to use channels to pass data between goroutines instead of using shared memory for communication.
 
 ##### Goroutines
+
+...
 
 Goroutines are lightweight threads managed by the Go runtime. They allow concurrent execution of functions or methods within a Go program. Goroutines are created using the `go` keyword followed by a function call.
 
@@ -7380,6 +10004,8 @@ In this example, `doTask1` and `doTask2` are executed concurrently as goroutines
 
 ##### Channels
 
+...
+
 Channels are the pipes that connect concurrent goroutines. They allow communication and synchronization between goroutines by passing data from one goroutine to another. Channels can be unbuffered (synchronous) or buffered (asynchronous).
 
 ```go
@@ -7389,6 +10015,8 @@ ch := make(chan int, 10) // Buffered channel with capacity 10
 
 ##### Channels of Channels
 
+...
+
 In Go, you can create channels of channels to build more complex communication patterns. This allows for fine-grained control over how data is passed between goroutines.
 
 ```go
@@ -7396,6 +10024,8 @@ ch := make(chan chan int)
 ```
 
 ##### Parallelization
+
+...
 
 Parallelization refers to the concurrent execution of tasks on multiple CPUs or CPU cores to improve performance and efficiency. In Go, parallelization can be achieved by running goroutines concurrently and utilizing all available CPU cores.
 
@@ -7411,6 +10041,8 @@ func main() {
 ```
 
 ##### A Leaky Buffer
+
+...
 
 A leaky buffer is a buffered channel that doesn't have a receiver to read from it. When data is sent to a leaky buffer but no one is there to receive it, it can cause the program to deadlock or consume excessive memory.
 
@@ -7434,6 +10066,8 @@ Let's delve into errors, panic, and recover in Go:
 
 ##### Errors
 
+...
+
 Errors in Go are values that represent abnormal conditions or situations that occur during the execution of a program. They are used to signal that something unexpected or undesired has happened, such as file I/O errors, network errors, or invalid input.
 
 ```go
@@ -7448,6 +10082,8 @@ func divide(x, y float64) (float64, error) {
 
 ##### Panic
 
+...
+
 `panic` is a built-in function in Go that is used to terminate the program abruptly when an unrecoverable error occurs. It is typically called when something unexpected happens or when the program encounters a situation that it cannot recover from.
 
 ```go
@@ -7461,6 +10097,8 @@ func doSomething() {
 When `panic` is called, the program stops execution immediately, unwinding the stack and executing any deferred functions. If no deferred function recovers from the panic, the program terminates with a runtime error.
 
 ##### Recover
+
+...
 
 `recover` is another built-in function in Go that is used to handle panics and recover from them gracefully. It is only useful when called from within a deferred function.
 
@@ -7480,6 +10118,8 @@ func main() {
 In this example, if `doSomething` panics, the `recoverFromPanic` function is called, and it prints a message indicating that the panic has been recovered from.
 
 ##### When to Use Panic and Recover
+
+...
 
 - **Panic**: Use `panic` to signal that the program has encountered a critical error or unrecoverable situation. Examples include out-of-memory errors, unexpected runtime conditions, or violations of program invariants.
 
@@ -7537,9 +10177,13 @@ Here's a breakdown of each section based on the Rust programming language:
 
 ##### Installation
 
+...
+
 To get started with Rust, you first need to install the Rust toolchain. You can do this by visiting the official Rust website and following the installation instructions specific to your operating system. Rustup is the recommended tool for managing Rust installations. Once installed, you'll have access to the Rust compiler (`rustc`) and package manager (`cargo`).
 
 ##### Hello, World!
+
+...
 
 Once Rust is installed, you can create your first Rust program, typically the traditional "Hello, World!" program. Create a new file with a `.rs` extension (e.g., `hello.rs`) and write the following code:
 
@@ -7552,6 +10196,8 @@ fn main() {
 This program defines a function named `main`, which serves as the entry point of the program. Inside `main`, it calls the `println!` macro to print the string "Hello, World!" to the console.
 
 ##### Hello, Cargo!
+
+...
 
 `Cargo` is Rust's package manager and build system. It simplifies the process of managing Rust projects, including dependencies, building, and running your code. To create a new Rust project with Cargo, navigate to your desired directory in the terminal and run:
 
@@ -7576,9 +10222,13 @@ This will compile and execute the `main.rs` file, printing "Hello, World!" to th
 
 ##### The Objective
 
+...
+
 The objective of the guessing game is for the computer to generate a random number within a specified range and challenge the player to guess that number. The player keeps guessing until they correctly guess the number. After each guess, the computer provides feedback to the player, informing them whether their guess was too high, too low, or correct.
 
 ##### Steps to Implement the Game
+
+...
 
 1. **Generate a Random Number**: The game starts by generating a random number within a specified range. In Rust, you can use the `rand` crate to generate random numbers.
 
@@ -7595,6 +10245,8 @@ The objective of the guessing game is for the computer to generate a random numb
 7. **End Game**: Once the player guesses the correct number, end the game and display a congratulatory message.
 
 ##### Implementing in Rust
+
+...
 
 Here's a simplified version of how you might implement this game in Rust:
 
@@ -7638,6 +10290,8 @@ fn main() {
 
 ###### Explanation
 
+...
+
 - We import necessary crates (`rand` for random number generation) and modules (`io` for input/output, `cmp` for comparison).
 - We generate a random number between 1 and 100 using `rand::thread_rng().gen_range(1..101)`.
 - We enter a loop where the player can make guesses until they guess the correct number.
@@ -7651,6 +10305,8 @@ Here's an explanation of each of these common programming concepts in Rust:
 
 ##### Variables and Mutability
 
+...
+
 In Rust, variables are immutable by default, meaning their value cannot be changed once set. However, you can explicitly declare a variable as mutable using the `mut` keyword, allowing its value to be changed. For example:
 
 ```rust
@@ -7663,6 +10319,8 @@ y = 20; // Valid
 ```
 
 ##### Data Types
+
+...
 
 Rust has several built-in primitive data types, including integers, floating-point numbers, booleans, characters, and compound types like tuples, arrays, and structs. Rust also supports user-defined data types through enums and structs. Here are a few examples:
 
@@ -7688,6 +10346,8 @@ let array: [i32; 3] = [1, 2, 3];
 
 ##### Functions
 
+...
+
 Functions in Rust are declared using the `fn` keyword. They can have parameters and return values. Rust functions must declare the type of each parameter and the return type. Here's a simple function declaration:
 
 ```rust
@@ -7697,6 +10357,8 @@ fn add(a: i32, b: i32) -> i32 {
 ```
 
 ##### Comments
+
+...
 
 Rust supports both single-line (`//`) and multi-line (`/* */`) comments. Comments are ignored by the compiler and are used to document code or temporarily disable portions of code. For example:
 
@@ -7711,6 +10373,8 @@ comment
 ```
 
 ##### Control Flow
+
+...
 
 Rust provides various control flow constructs like `if`, `else`, `match`, `loop`, `while`, and `for`. Here's a basic example using `if`:
 
@@ -7744,6 +10408,8 @@ Let's delve into each concept:
 
 ##### What is Ownership?
 
+...
+
 Ownership is one of Rust's most unique and powerful features for memory safety. In Rust, each value has a variable that's called its "owner". There can only be one owner at a time, and when the owner goes out of scope, the value is dropped. This means that Rust doesn't rely on garbage collection for memory management; it uses ownership to determine when to free memory.
 
 Ownership rules:
@@ -7752,6 +10418,8 @@ Ownership rules:
 3. Values can be transferred or borrowed, but not both simultaneously.
    
 ##### References and Borrowing
+
+...
 
 References in Rust allow you to "borrow" a value without taking ownership of it. This allows multiple parts of the code to read the value without issue. Borrowing can be either mutable or immutable. 
 
@@ -7785,6 +10453,8 @@ In the example above:
 
 ##### The Slice Type
 
+...
+
 Slices are a reference to a contiguous sequence of elements in a collection. They don't have ownership and allow you to reference a portion of a collection without copying. Slices are denoted using `[start..end]` syntax.
 
 ```rust
@@ -7804,6 +10474,8 @@ In this example, `slice` is a reference to a portion of the string `s` containin
 Let's explore each of these topics:
 
 ##### Defining and Instantiating Structs
+
+...
 
 In Rust, structs are used to create custom data types to structure related data. Here's how you define and instantiate a struct:
 
@@ -7834,6 +10506,8 @@ In this example:
 - We access the fields of the struct using dot notation.
 
 ##### An Example Program Using Structs
+
+...
 
 Here's an example program that demonstrates using structs to represent rectangles and calculating their area:
 
@@ -7872,6 +10546,8 @@ In this example:
 
 ##### Method Syntax
 
+...
+
 In Rust, methods are functions associated with a particular struct or enum. They allow you to define behavior specific to a type. Here's the syntax for defining methods:
 
 ```rust
@@ -7894,6 +10570,8 @@ In this example:
 Let's dive into each topic:
 
 ##### Defining an Enum
+
+...
 
 Enums, short for "enumerations," allow you to define a type by enumerating its possible variants. Each variant can optionally hold data of its own type. Here's how you define an enum in Rust:
 
@@ -7926,6 +10604,8 @@ In this example:
 
 ##### The match Control Flow Construct
 
+...
+
 `match` is a powerful control flow construct in Rust that allows you to compare a value against a series of patterns and execute code based on which pattern matches. Here's how `match` works:
 
 ```rust
@@ -7954,6 +10634,8 @@ In this example:
 
 ##### Concise Control Flow with if let
 
+...
+
 `if let` is a concise syntax for handling values that match one pattern and ignoring the rest. It's often used when you're interested in handling only one specific case and don't need to cover all possible variants like `match`. Here's how `if let` works:
 
 ```rust
@@ -7978,9 +10660,13 @@ Let's break down each of these topics:
 
 ##### Packages and Crates
 
+...
+
 In Rust, a package is a collection of one or more crates. A crate is a binary or library project. A package must contain at least one crate, known as the package's root crate. A package can contain multiple binaries and/or libraries.
 
 ##### Defining Modules to Control Scope and Privacy
+
+...
 
 Modules allow you to organize code within a crate into logical groups, control the visibility of items (such as functions, structs, enums, and modules), and manage the scope of names. You can define modules using the `mod` keyword. Here's an example:
 
@@ -7991,6 +10677,8 @@ mod my_module {
 ```
 
 ##### Paths for Referring to an Item in the Module Tree
+
+...
 
 In Rust, a path is a way to refer to an item (such as a function, struct, or module) within the module tree. There are two types of paths:
 
@@ -8010,6 +10698,8 @@ super::parent_module::my_function();
 
 ##### Bringing Paths Into Scope with the use Keyword
 
+...
+
 The `use` keyword in Rust allows you to bring paths into scope, making it easier to refer to items within modules. You can use `use` with both absolute and relative paths. Here's an example:
 
 ```rust
@@ -8021,6 +10711,8 @@ use crate::my_module::my_function;
 ```
 
 ##### Separating Modules into Different Files
+
+...
 
 In Rust, you can define modules in separate files and organize your code more effectively. Each file should represent a module by placing it in a directory with the same name as the module and using a `mod.rs` file for its contents. Here's an example project structure:
 
@@ -8046,6 +10738,8 @@ Let's discuss each of these topics:
 
 ##### Storing Lists of Values with Vectors
 
+...
+
 In Rust, vectors are a dynamic array type provided by the standard library. They allow you to store a variable number of values of the same type in contiguous memory. Vectors are resizable and efficient for adding, removing, and accessing elements.
 
 ```rust
@@ -8069,6 +10763,8 @@ for i in &v {
 
 ##### Storing UTF-8 Encoded Text with Strings
 
+...
+
 In Rust, the `String` type represents a growable, mutable, UTF-8 encoded string. It is implemented as a vector of bytes (`Vec<u8>`) that represent a valid UTF-8 encoded string. Rust also has the `&str` type, which is an immutable reference to a string slice.
 
 ```rust
@@ -8089,6 +10785,8 @@ for c in s3.chars() {
 ```
 
 ##### Storing Keys with Associated Values in Hash Maps
+
+...
 
 Hash maps in Rust are collections of key-value pairs, where each key must be unique. They are implemented using a hash table, providing fast insertion, deletion, and lookup operations. Rust's standard library provides the `HashMap` type for working with hash maps.
 
@@ -8121,6 +10819,8 @@ Let's discuss each of these aspects of error handling in Rust:
 
 ##### Unrecoverable Errors with `panic!`
 
+...
+
 In Rust, `panic!` is a macro used to indicate that the program has reached an unrecoverable state and should terminate immediately. It can be used to handle situations such as index out of bounds, division by zero, or other critical errors.
 
 ```rust
@@ -8135,6 +10835,8 @@ fn main() {
 When `panic!` is encountered, the program prints an error message and unwinds the stack, cleaning up memory and resources allocated by the program before terminating.
 
 ##### Recoverable Errors with `Result`
+
+...
 
 In situations where errors can be recovered from, Rust provides the `Result` enum to handle recoverable errors. `Result` has two variants: `Ok`, representing success and containing the result, and `Err`, representing an error and containing an error value.
 
@@ -8155,6 +10857,8 @@ In this example, `File::open` returns a `Result` that may contain a `File` if su
 
 ##### To `panic!` or Not to `panic!`
 
+...
+
 Deciding whether to use `panic!` or `Result` depends on the nature of the error and the context of the code. Use `panic!` for unrecoverable errors that indicate bugs or critical failures, where the program cannot continue safely. Use `Result` for recoverable errors where the program can gracefully handle the error and continue execution.
 
 In general:
@@ -8167,6 +10871,8 @@ In general:
 Let's delve into each of these concepts:
 
 ##### Generic Data Types
+
+...
 
 In Rust, generic data types allow you to define functions, structs, enums, and methods that work with any data type, thus increasing code reuse and flexibility. You can create generic functions, structs, and enums using type parameters.
 
@@ -8189,6 +10895,8 @@ fn main() {
 In this example, `max` is a generic function that takes two parameters of type `T`, which must implement the `PartialOrd` trait. This allows `max` to work with any data type that supports comparison.
 
 ##### Traits: Defining Shared Behavior
+
+...
 
 Traits in Rust define shared behavior for types. They allow you to specify methods that a type must implement to be considered as implementing that trait. Traits are similar to interfaces in other languages but are more powerful because they support default implementations and can be implemented for types outside of your crate.
 
@@ -8223,6 +10931,8 @@ In this example, we define a trait named `Summary` with a single method `summari
 
 ##### Validating References with Lifetimes
 
+...
+
 Lifetimes in Rust ensure that references remain valid for the duration they are used. Lifetimes are annotations that describe the relationship between the lifetimes of various references in your code. They are denoted by single quotes (`'`). Lifetimes are important for preventing dangling references and memory safety.
 
 ```rust
@@ -8252,6 +10962,8 @@ Here's an explanation of each topic:
 
 ##### How to Write Tests
 
+...
+
 In Rust, tests are written using the built-in testing framework provided by the standard library (`std::test`). Tests are written as functions annotated with the `#[test]` attribute. You can write tests for functions, methods, or any other code that you want to verify behaves correctly.
 
 ```rust
@@ -8272,6 +10984,8 @@ In this example, we define a test function `test_add` annotated with `#[test]`. 
 
 ##### Controlling How Tests Are Run
 
+...
+
 Rust provides several command-line options to control how tests are run. You can use these options to filter tests, run tests in parallel, display additional information, and more. Some common options include:
 
 - `--test`: Run tests.
@@ -8281,6 +10995,8 @@ Rust provides several command-line options to control how tests are run. You can
 - `--nocapture`: Do not capture stdout/stderr from tests.
 
 ##### Test Organization
+
+...
 
 In Rust, you can organize tests into different modules and files just like regular code. Each file containing tests should be placed in the `tests` directory of your project, and Rust's test runner will automatically discover and run these tests.
 
@@ -8308,6 +11024,8 @@ Here's an explanation of each topic:
 
 ##### Accepting Command Line Arguments
 
+...
+
 In Rust, you can accept command-line arguments using the `std::env::args` function. This function returns an iterator over the command-line arguments passed to the program.
 
 ```rust
@@ -8322,6 +11040,8 @@ fn main() {
 In this example, `env::args()` returns an iterator over the command-line arguments. We collect the iterator into a vector of strings (`Vec<String>`) for easier handling.
 
 ##### Reading a File
+
+...
 
 To read a file in Rust, you can use the `std::fs::File` type to open the file, and then use `std::io::Read` or `std::io::BufRead` traits to read its contents.
 
@@ -8345,6 +11065,8 @@ In this example, we open the file named "example.txt" using `File::open`. We the
 
 ##### Refactoring to Improve Modularity and Error Handling
 
+...
+
 When building a command-line program, it's essential to structure your code in a modular and error-handling-friendly way. This often involves refactoring your code into smaller, more focused functions, handling errors gracefully using `Result`, and separating concerns into different modules.
 
 ```rust
@@ -8353,6 +11075,8 @@ When building a command-line program, it's essential to structure your code in a
 
 ##### Developing the Library’s Functionality with Test Driven Development
 
+...
+
 Test-Driven Development (TDD) is an iterative development process where you write tests before writing the actual implementation code. In Rust, you can use the built-in testing framework to write tests for your functions, modules, and libraries.
 
 ```rust
@@ -8360,6 +11084,8 @@ Test-Driven Development (TDD) is an iterative development process where you writ
 ```
 
 ##### Working with Environment Variables
+
+...
 
 Rust provides access to environment variables through the `std::env::var` function. This function returns a `Result<String, std::env::VarError>` representing the value of the environment variable.
 
@@ -8377,6 +11103,8 @@ fn main() {
 In this example, we use `env::var("HOME")` to retrieve the value of the "HOME" environment variable. We then match on the result to handle both success and error cases.
 
 ##### Writing Error Messages to Standard Error Instead of Standard Output
+
+...
 
 In Rust, you can write error messages to standard error (stderr) instead of standard output (stdout) using the `eprintln!` macro. This is useful for printing error messages, warnings, or other diagnostic information that should not be redirected or piped with normal program output.
 
@@ -8400,6 +11128,8 @@ Let's dive into each topic:
 
 ##### Closures: Anonymous Functions that Capture Their Environment
 
+...
+
 Closures in Rust are anonymous functions that can capture variables from their surrounding environment. They are similar to lambdas or anonymous functions in other languages. Closures can capture variables by reference (`&`), by mutable reference (`&mut`), or by value (`move`). They are defined using the `|args| { body }` syntax.
 
 ```rust
@@ -8412,6 +11142,8 @@ fn main() {
 In this example, `add` is a closure that captures its environment and adds two numbers.
 
 ##### Processing a Series of Items with Iterators
+
+...
 
 Iterators in Rust provide a way to iterate over collections of items. They are a fundamental part of Rust's functional programming capabilities. You can chain multiple iterator adaptors together to perform complex operations on collections.
 
@@ -8426,6 +11158,8 @@ fn main() {
 In this example, `iter()` creates an iterator over the vector, `map()` applies a closure to each element of the iterator, and `collect()` collects the results into a new vector.
 
 ##### Improving Our I/O Project
+
+...
 
 You can improve an I/O project in Rust by using iterators and closures to make the code more concise, expressive, and efficient. For example, you can use iterator adaptors like `lines()` to read lines from a file, `map()` to transform each line, and `filter()` to select specific lines based on a predicate.
 
@@ -8445,6 +11179,8 @@ fn main() {
 In this example, `read_to_string()` reads the contents of a file into a string, `lines()` splits the string into lines, `filter()` removes empty lines, `map()` trims whitespace from each line, and `collect()` collects the results into a vector.
 
 ##### Comparing Performance: Loops vs Iterators
+
+...
 
 In Rust, iterators are generally as efficient as traditional loops, and in many cases, they can even be more efficient due to optimizations performed by the compiler. However, there might be specific cases where loops are more suitable, such as when you need explicit control over iteration or when performance is critical.
 
@@ -8473,6 +11209,8 @@ Let's dive into each of these topics:
 
 ##### Customizing Builds with Release Profiles
 
+...
+
 Release profiles in Cargo allow you to customize the build settings for different scenarios, such as `debug` and `release` builds. You can specify different compiler optimizations, debug information, and other settings for each profile. This is useful for optimizing your code for performance in release builds while retaining debug information in debug builds.
 
 ```toml
@@ -8487,6 +11225,8 @@ In this example, we set the optimization level to 3 for the `release` profile, w
 
 ##### Publishing a Crate to Crates.io
 
+...
+
 Crates.io is the official package registry for Rust crates. To publish a crate to Crates.io, you need to create a Cargo.toml file with the necessary metadata, such as the crate name, version, and description. Then, you can use the `cargo publish` command to upload your crate to Crates.io.
 
 ```bash
@@ -8496,6 +11236,8 @@ cargo publish
 Before publishing, make sure you've logged in to crates.io using `cargo login` and that your crate's version has been incremented appropriately.
 
 ##### Cargo Workspaces
+
+...
 
 Cargo workspaces allow you to manage multiple related packages (crates) within the same directory structure. This is useful for organizing large projects with multiple crates that depend on each other. Workspaces use a `Cargo.toml` file at the root of the workspace to define dependencies and settings for all crates in the workspace.
 
@@ -8510,6 +11252,8 @@ In this example, we create a workspace with two libraries (`crate1` and `crate2`
 
 ##### Installing Binaries from Crates.io with cargo install
 
+...
+
 You can use the `cargo install` command to install Rust binaries from Crates.io. This command downloads the specified crate and installs its binary into the Cargo bin directory, making it available for execution from any directory.
 
 ```bash
@@ -8519,6 +11263,8 @@ cargo install my_crate
 In this example, `my_crate` is the name of the crate you want to install. After installation, you can run the crate's binary by typing its name in the terminal.
 
 ##### Extending Cargo with Custom Commands
+
+...
 
 Cargo allows you to extend its functionality with custom commands called "Cargo subcommands." Subcommands are standalone executables that follow the naming convention `cargo-<name>`, and Cargo automatically recognizes them as subcommands.
 
@@ -8536,6 +11282,8 @@ Here's a breakdown of each topic:
 
 ##### Using `Box<T>` to Point to Data on the Heap
 
+...
+
 In Rust, `Box<T>` is a smart pointer that points to data stored on the heap. It provides a way to allocate memory on the heap and ensures that the memory is freed when the `Box` goes out of scope. `Box` is commonly used when you need to:
 
 - Have a value with a known size at compile time.
@@ -8552,6 +11300,8 @@ fn main() {
 In this example, `Box::new(5)` allocates memory on the heap to store the value `5`, and `b` is a smart pointer (box) that points to this memory location.
 
 ##### Treating Smart Pointers Like Regular References with the `Deref` Trait
+
+...
 
 In Rust, the `Deref` trait allows you to customize the behavior of the dereference operator (`*`). It enables smart pointers to be used like regular references, allowing you to access the inner value of the smart pointer as if it were a reference.
 
@@ -8578,6 +11328,8 @@ In this example, `MyBox` is a custom smart pointer that implements the `Deref` t
 
 ##### Running Code on Cleanup with the `Drop` Trait
 
+...
+
 The `Drop` trait in Rust allows you to run code when a value goes out of scope. It is similar to a destructor in other languages and is commonly used to perform cleanup tasks such as releasing resources or closing file handles.
 
 ```rust
@@ -8603,6 +11355,8 @@ In this example, when `c` goes out of scope at the end of `main()`, the `drop()`
 
 ##### `Rc<T>`, the Reference Counted Smart Pointer
 
+...
+
 `Rc<T>` (Reference Counted) is a smart pointer in Rust that enables multiple ownership of the same data. It keeps track of the number of references to the data it points to and automatically frees the memory when the last reference is dropped.
 
 ```rust
@@ -8621,6 +11375,8 @@ In this example, `Rc::new(5)` creates an `Rc` smart pointer to the value `5`. Us
 
 ##### `RefCell<T>` and the Interior Mutability Pattern
 
+...
+
 `RefCell<T>` is a smart pointer in Rust that enables interior mutability, allowing you to mutate the value it holds even when it's behind an immutable reference. It enforces Rust's borrowing rules at runtime rather than compile time.
 
 ```rust
@@ -8636,6 +11392,8 @@ fn main() {
 In this example, `RefCell::new(5)` creates a `RefCell` containing the value `5`. We can borrow a mutable reference to the value using `borrow_mut()`, even though `data` is immutable. This is possible because `RefCell` enforces borrowing rules at runtime.
 
 ##### Reference Cycles Can Leak Memory
+
+...
 
 In Rust, reference cycles occur when two or more smart pointers reference each other, creating a cycle. Reference cycles can lead to memory leaks because the reference counts of the smart pointers never reach zero, preventing the memory from being deallocated.
 
@@ -8662,6 +11420,8 @@ Let's delve into each of these aspects:
 
 ##### Using Threads to Run Code Simultaneously
 
+...
+
 In Rust, you can create threads to run code concurrently using the `std::thread` module. Threads allow you to execute multiple pieces of code simultaneously, taking advantage of multi-core CPUs. Rust's ownership and borrowing rules ensure thread safety and prevent data races.
 
 ```rust
@@ -8687,6 +11447,8 @@ In this example, `thread::spawn()` creates a new thread that executes the provid
 
 ##### Using Message Passing to Transfer Data Between Threads
 
+...
+
 In Rust, you can use channels for message passing between threads. Channels provide a way for threads to communicate by sending and receiving messages. Rust's ownership system ensures thread safety and prevents data races when using channels.
 
 ```rust
@@ -8709,6 +11471,8 @@ fn main() {
 In this example, `mpsc::channel()` creates a channel, and `sender.send(val)` sends a message (`val`) through the channel. The main thread receives the message using `receiver.recv()`.
 
 ##### Shared-State Concurrency
+
+...
 
 In Rust, shared-state concurrency refers to multiple threads accessing and modifying shared data concurrently. Rust ensures thread safety and prevents data races by using ownership and borrowing rules, as well as synchronization primitives like mutexes (`std::sync::Mutex`) and atomic types (`std::sync::atomic`).
 
@@ -8741,6 +11505,8 @@ In this example, `Arc::new(Mutex::new(0))` creates a shared counter protected by
 
 ##### Extensible Concurrency with the Sync and Send Traits
 
+...
+
 In Rust, the `Sync` and `Send` traits ensure that types can be safely shared between threads (`Send`) and accessed concurrently (`Sync`). By default, types are `Send` and `Sync` if they are thread-safe. You can implement these traits manually for custom types to make them thread-safe.
 
 ```rust
@@ -8771,6 +11537,8 @@ Let's delve into each aspect:
 
 ##### Characteristics of Object-Oriented Languages
 
+...
+
 Object-oriented programming (OOP) languages typically exhibit several key characteristics, including:
 
 - **Encapsulation:** Bundling data and methods that operate on that data into a single unit, called an object.
@@ -8780,6 +11548,8 @@ Object-oriented programming (OOP) languages typically exhibit several key charac
 While Rust is not a purely object-oriented language like Java or C++, it does support some object-oriented features. However, it takes a different approach to achieve similar goals using traits and trait objects.
 
 ##### Using Trait Objects That Allow for Values of Different Types
+
+...
 
 In Rust, trait objects allow for dynamic dispatch, enabling you to work with values of different types that implement a common trait. This is similar to polymorphism in traditional OOP languages.
 
@@ -8825,6 +11595,8 @@ fn main() {
 In this example, both `Circle` and `Rectangle` implement the `Shape` trait, allowing them to be passed to the `print_area` function as trait objects (`&dyn Shape`).
 
 ##### Implementing an Object-Oriented Design Pattern
+
+...
 
 Rust supports implementing object-oriented design patterns using traits and composition. For example, you can use the builder pattern to construct objects with complex initialization logic in a fluent and readable manner.
 
@@ -8883,6 +11655,8 @@ Let's explore these aspects of patterns and matching in Rust:
 
 ##### All the Places Patterns Can Be Used
 
+...
+
 In Rust, patterns can be used in various contexts, including:
 
 - `match` expressions: Patterns are used to match against the value being evaluated.
@@ -8920,6 +11694,8 @@ fn main() {
 
 ##### Refutability: Whether a Pattern Might Fail to Match
 
+...
+
 Patterns in Rust can be either refutable or irrefutable, depending on whether they might fail to match. Refutable patterns can fail to match, while irrefutable patterns always match.
 
 ```rust
@@ -8943,6 +11719,8 @@ fn main() {
 In this example, `x = 5` uses an irrefutable pattern because it always matches. However, `if let Some(value) = Some(5)` and `fn foo(Some(x): Option<i32>)` use refutable patterns because they might fail to match if the value is `None`.
 
 ##### Pattern Syntax
+
+...
 
 Patterns in Rust can take various forms, including:
 
@@ -8973,6 +11751,8 @@ Let's break down each of these advanced features:
 
 ##### Unsafe Rust
 
+...
+
 Rust's safety guarantees are one of its core strengths, but there are situations where you need to bypass these guarantees for performance reasons or to interact with low-level system features. Rust provides the `unsafe` keyword for writing unsafe code blocks where you can:
 
 - Dereference raw pointers.
@@ -8995,6 +11775,8 @@ fn main() {
 ```
 
 ##### Advanced Traits
+
+...
 
 Traits in Rust are powerful tools for defining shared behavior between types. Advanced traits extend this capability with features such as:
 
@@ -9019,6 +11801,8 @@ impl MyTrait for i32 {
 
 ##### Advanced Types
 
+...
+
 Rust's type system is rich and expressive, allowing for the creation of complex types and data structures. Advanced types include:
 
 - Associated types: Types associated with traits.
@@ -9040,6 +11824,8 @@ fn diverging_function() -> ! {
 ```
 
 ##### Advanced Functions and Closures
+
+...
 
 Rust's functions and closures support a variety of advanced features, including:
 
@@ -9066,6 +11852,8 @@ fn main() {
 
 ##### Macros
 
+...
+
 Macros in Rust provide a way to define and invoke custom syntax extensions. They allow you to write code that generates other code at compile time. Rust supports two types of macros: declarative macros (`macro_rules!`) and procedural macros. Procedural macros are further divided into custom derive macros, attribute macros, and function-like macros.
 
 ```rust
@@ -9087,6 +11875,8 @@ In this example, `my_macro!` is a declarative macro that prints "Hello, macro!" 
 Let's delve into each aspect of building a multithreaded web server in Rust:
 
 ##### Building a Single-Threaded Web Server
+
+...
 
 To build a web server in Rust, you typically use a library like `hyper`, which provides an ergonomic and efficient foundation for building HTTP servers. In a single-threaded implementation, the server listens for incoming connections and processes each request sequentially.
 
@@ -9117,6 +11907,8 @@ async fn main() {
 In this example, `handle_request` is a function that processes HTTP requests and returns a response. We use `hyper::Server` to bind to a socket address and serve incoming connections using the `handle_request` function.
 
 ##### Turning Our Single-Threaded Server into a Multithreaded Server
+
+...
 
 To improve the performance and scalability of our web server, we can make it multithreaded. This involves spawning multiple threads to handle incoming connections concurrently, allowing the server to process multiple requests simultaneously.
 
@@ -9161,6 +11953,8 @@ async fn shutdown_signal() {
 In this example, we use the `tokio` library to spawn a new task for each incoming connection, allowing the server to handle multiple requests concurrently. We also implement graceful shutdown using a signal handler to gracefully stop the server when a shutdown signal is received (e.g., pressing Ctrl+C).
 
 ##### Graceful Shutdown and Cleanup
+
+...
 
 Graceful shutdown is an essential feature for web servers to ensure that existing connections are completed before shutting down. In Rust, we can implement graceful shutdown using asynchronous signal handling.
 
@@ -9212,7 +12006,7 @@ In this example, we use the `tokio::signal::ctrl_c()` function to create a futur
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-#### Overview IEEE STD 1076
+#### Overview
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -9312,7 +12106,7 @@ In this example, we use the `tokio::signal::ctrl_c()` function to create a futur
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-#### Overview IEEE STD 1800
+#### Overview
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -9906,13 +12700,19 @@ end architecture;
 
 ##### OSVVM Testbench
 
+...
+
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 ##### OSVVM Checker
 
+...
+
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 ##### OSVVM Stimulus
+
+...
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -9922,13 +12722,19 @@ end architecture;
 
 ##### AMBA4 AXI-Lite Bus
 
+...
+
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 ##### AMBA3 AHB-Lite Bus
 
+...
+
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 ##### WishBone Bus
+
+...
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -9946,13 +12752,19 @@ end architecture;
 
 ##### OSVVM Testbench
 
+...
+
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 ##### OSVVM Checker
 
+...
+
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 ##### OSVVM Stimulus
+
+...
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -9962,13 +12774,19 @@ end architecture;
 
 ##### AMBA4 AXI-Lite Bus
 
+...
+
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 ##### AMBA3 AHB-Lite Bus
 
+...
+
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 ##### WishBone Bus
+
+...
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -9980,7 +12798,7 @@ end architecture;
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-#### Overview IEEE STD 1076
+#### Overview
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -10080,7 +12898,7 @@ end architecture;
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-#### Overview IEEE STD 1364
+#### Overview
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -10204,7 +13022,7 @@ $$FormalVerification(UVM): DESIGN(HDL)=Requirements(PSL)?$$
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-### Overview IEEE STD 1800.2-2020
+### Overview
 
 The Universal Verification Methodology (UVM) is a standardized methodology for verifying integrated circuits, particularly in the field of System-on-Chip (SoC) design. UVM is built on SystemVerilog and provides a robust framework for creating reusable and modular verification environments. Below is a detailed explanation of UVM and its components.
 
@@ -10218,37 +13036,55 @@ The typical UVM testbench architecture is composed of several key components, ea
 
 ##### UVM Testbench
 
+...
+
 The UVM testbench is the top-level module in a UVM environment. It instantiates all other components and coordinates the overall verification process. The testbench is responsible for setting up the DUT, initializing the UVM environment, and running the tests.
 
 ##### UVM Test
+
+...
 
 The UVM test is a specific scenario or set of scenarios used to verify the DUT. Each UVM test inherits from the `uvm_test` base class and typically configures the environment and sequences to be used. It may override configuration settings, instantiate specific sequences, and control the execution flow.
 
 ##### UVM Environment
 
+...
+
 The UVM environment is a container for the various agents, scoreboards, and other components needed for verification. It typically includes one or more agents, a scoreboard for result checking, and any necessary interfaces. The environment class inherits from `uvm_env`.
 
 ##### UVM Scoreboard
+
+...
 
 The UVM scoreboard is responsible for checking the DUT's output against expected results. It collects data from various monitors and compares it to expected values, flagging any discrepancies. The scoreboard is crucial for functional verification, ensuring that the DUT behaves as intended.
 
 ##### UVM Agent
 
+...
+
 A UVM agent is a modular component that encapsulates the functionality required to stimulate and monitor a specific interface of the DUT. It typically includes a sequencer, driver, and monitor. An agent can be active, generating stimuli and driving them onto the interface, or passive, simply monitoring the interface.
 
 ##### UVM Sequencer
+
+...
 
 The UVM sequencer controls the flow of sequences to the driver. It manages the order and timing of transaction generation, ensuring that the correct sequences are sent to the DUT. The sequencer class inherits from `uvm_sequencer`.
 
 ##### UVM Sequence
 
+...
+
 A UVM sequence is a series of transactions or operations to be performed on the DUT. Sequences are defined by inheriting from the `uvm_sequence` base class and can be composed to create complex stimulus scenarios. Sequences are executed by the sequencer and can be randomized to improve test coverage.
 
 ##### UVM Driver
 
+...
+
 The UVM driver receives sequences from the sequencer and drives them onto the DUT's interface. It converts high-level transactions into pin-level activity, ensuring that the DUT receives the correct stimuli. The driver class inherits from `uvm_driver`.
 
 ##### UVM Monitor
+
+...
 
 The UVM monitor observes the DUT's interface, capturing data for analysis by the scoreboard and other components. It is typically passive, meaning it does not influence the DUT's behavior. The monitor class inherits from `uvm_monitor`.
 
@@ -10292,13 +13128,19 @@ TLM has evolved over time, leading to different versions with varying levels of 
 
 ##### Basics
 
+...
+
 TLM-1 provides the foundation for transaction-level modeling. It abstracts communication into transactions, which are data structures representing read or write operations. Components communicate by passing these transactions rather than manipulating signals directly.
 
 ##### Encapsulation and Hierarchy
 
+...
+
 In TLM-1, components are typically encapsulated in a hierarchical manner. This encapsulation helps manage complexity and promotes modularity. Each component can be a master, slave, or intermediary, initiating or responding to transactions.
 
 ##### Analysis Communication
+
+...
 
 Analysis communication in TLM-1 involves observing and analyzing transactions as they pass through the system. Monitors or analysis components can be attached to observe transactions, enabling the collection of statistics, performance analysis, and functional verification without affecting the communication itself.
 
@@ -10308,9 +13150,13 @@ TLM-2.0 builds on the concepts introduced in TLM-1, adding more detailed and sta
 
 ##### Generic Payload
 
+...
+
 The generic payload in TLM-2.0 is a standardized transaction data structure that includes fields for address, data, command (read/write), response status, and other attributes. This standardization simplifies communication and promotes reuse across different models and platforms.
 
 ##### Core Interfaces and Ports
+
+...
 
 TLM-2.0 defines core interfaces and ports for communication:
 
@@ -10321,21 +13167,31 @@ TLM-2.0 defines core interfaces and ports for communication:
 
 ##### Blocking Transport
 
+...
+
 Blocking transport in TLM-2.0 involves transactions that complete before control is returned to the caller. This is useful for simple and immediate communication scenarios. The `b_transport` method is used for blocking transport, ensuring that a transaction is fully processed before moving on.
 
 ##### Nonblocking Transport
+
+...
 
 Nonblocking transport allows transactions to be initiated without waiting for their completion, enabling more complex and asynchronous communication. The `nb_transport_fw` and `nb_transport_bw` methods are used for forward and backward nonblocking transport, respectively.
 
 ##### Sockets
 
+...
+
 Sockets in TLM-2.0 facilitate the connection between initiators and targets. They encapsulate the interfaces and provide a standardized way to connect components. Sockets support both blocking and nonblocking transport methods, promoting flexibility and ease of use.
 
 ##### Time
 
+...
+
 TLM-2.0 includes mechanisms for modeling timing and delays, allowing for more accurate simulation of system behavior. Time annotations can be added to transactions to represent communication delays, processing times, and synchronization points.
 
 ##### Use Models
+
+...
 
 TLM-2.0 supports various use models, including:
 
@@ -10352,6 +13208,8 @@ Creating reusable verification components is crucial for an efficient and effect
 #### Modeling Data Items for Generation
 
 ##### Inheritance and Constraint Layering
+
+...
 
 Modeling data items involves defining the structure and properties of the transactions that will be used in verification. In UVM, data items are typically modeled as classes that extend from `uvm_sequence_item`. Inheritance allows for creating base transaction classes with common fields and methods, which can then be extended to create specific transaction types.
 
@@ -10387,6 +13245,8 @@ endclass
 ```
 
 ##### Defining Control Fields ("Knobs")
+
+...
 
 Control fields, or "knobs", are used to adjust the behavior of the verification components dynamically. These fields can be configured through the UVM configuration database, enabling flexibility in controlling the verification environment without modifying the code.
 
@@ -10458,21 +13318,31 @@ endclass
 
 ##### Basic Sequencer and Driver Interaction
 
+...
+
 The driver and sequencer interact through TLM ports and exports. The sequencer generates transactions, which the driver then processes.
 
 ##### Querying for the Randomized Item
+
+...
 
 The sequencer generates randomized items, which the driver fetches and processes.
 
 ##### Fetching Consecutive Randomized Items
 
+...
+
 The driver fetches consecutive transactions from the sequencer, ensuring continuous operation.
 
 ##### Sending Processed Data back to the Sequencer
 
+...
+
 Processed data can be sent back to the sequencer if needed, typically using TLM analysis ports.
 
 ##### Using TLM-Based Drivers
+
+...
 
 TLM-based drivers use TLM interfaces for more abstract communication.
 
@@ -10519,9 +13389,13 @@ Components are instantiated in the testbench, and their connections are configur
 
 ##### Operating Modes
 
+...
+
 An agent can operate in active or passive mode. In active mode, it generates and drives transactions. In passive mode, it only monitors transactions.
 
 ##### Connecting Components
+
+...
 
 The agent instantiates and connects the driver, sequencer, and monitor.
 
@@ -10555,6 +13429,8 @@ endclass
 
 ##### Environment Class
 
+...
+
 The environment class encapsulates agents and other components, creating a complete verification environment.
 
 ```systemverilog
@@ -10576,23 +13452,33 @@ endclass
 
 ##### Invoking build_phase
 
+...
+
 The `build_phase` method is used to instantiate and configure components.
 
 #### Enabling Scenario Creation
 
 ##### Declaring User-Defined Sequences
 
+...
+
 User-defined sequences extend from `uvm_sequence` and define specific transaction scenarios.
 
 ##### Sending Subsequences and Sequence Items
+
+...
 
 Subsequences and sequence items can be sent to the sequencer to create complex scenarios.
 
 ##### Starting a Sequence on a Sequencer
 
+...
+
 Sequences are started on the sequencer using the `start` method.
 
 ##### Overriding Sequence Items and Sequences
+
+...
 
 Sequence items and sequences can be overridden to customize the scenarios.
 
@@ -10604,13 +13490,19 @@ Managing the end of the test involves detecting when all transactions are comple
 
 ##### Implementing Checks and Coverage in Classes
 
+...
+
 Checks and coverage can be implemented in verification components to ensure the DUT behaves as expected and to measure verification progress.
 
 ##### Implementing Checks and Coverage in Interfaces
 
+...
+
 Interfaces can also include checks and coverage points to capture detailed information about the DUT's behavior.
 
 ##### Controlling Checks and Coverage
+
+...
 
 Checks and coverage can be controlled through configuration settings, allowing for flexible and targeted verification efforts.
 
@@ -10681,18 +13573,26 @@ endclass
 
 ##### Verification Component Configurable Parameters
 
+...
+
 Configurable parameters allow for dynamic control of verification components. These parameters can be set through the UVM configuration database.
 
 ##### Verification Component Configuration Mechanism
+
+...
 
 Configuration is typically done using `uvm_config_db`. Parameters can be set and retrieved using this database, allowing for flexible and reusable configurations.
 
 ##### Choosing between `uvm_resource_db` and `uvm_config_db`
 
+...
+
 - **uvm_resource_db**: Suitable for global settings that are rarely changed.
 - **uvm_config_db**: Preferred for flexible, dynamic configurations that may vary between tests.
 
 ##### Using a Configuration Class
+
+...
 
 A configuration class encapsulates all the parameters needed for a component. This class is then used to configure the component during the build phase.
 
@@ -10723,9 +13623,13 @@ endclass
 
 ##### Creating the Base Test
 
+...
+
 The base test class sets up the environment and provides common functionality for derived test classes.
 
 ##### Creating Tests from a Test-Family Base Class
+
+...
 
 Derived test classes extend the base test and implement specific scenarios.
 
@@ -10744,25 +13648,35 @@ endclass
 
 ##### Test Selection
 
+...
+
 Tests are selected at runtime, typically through command-line arguments or a test management framework.
 
 #### Creating Meaningful Tests
 
 ##### Constraining Data Items
 
+...
+
 Constraining data items ensures that generated transactions meet the required conditions.
 
 ##### Data Item Definitions
 
+...
+
 Data items are defined using `uvm_sequence_item` and constrained using SystemVerilog constraints.
 
 ##### Creating a Test-Specific Frame
+
+...
 
 Test-specific frames define the context and conditions for the test, ensuring meaningful verification scenarios.
 
 #### Virtual Sequences
 
 ##### Creating a Virtual Sequencer
+
+...
 
 A virtual sequencer coordinates multiple sequencers, allowing for complex, multi-interface tests.
 
@@ -10780,6 +13694,8 @@ endclass
 ```
 
 ##### Creating a Virtual Sequence
+
+...
 
 A virtual sequence orchestrates other sequences, providing a higher level of control over the verification process.
 
@@ -10805,9 +13721,13 @@ endclass
 
 ##### Controlling Other Sequencers
 
+...
+
 The virtual sequencer controls other sequencers by starting and managing their sequences.
 
 ##### Connecting a Virtual Sequencer to Subsequencers
+
+...
 
 Virtual sequencers are connected to subsequencers during the build phase.
 
@@ -10818,6 +13738,8 @@ Correctness checks ensure the DUT behaves as expected. These checks are implemen
 #### Scoreboards
 
 ##### Creating the Scoreboard
+
+...
 
 The scoreboard collects and compares results, ensuring the DUT's output matches expected values.
 
@@ -10840,17 +13762,25 @@ endclass
 
 ##### Adding Exports to `uvm_scoreboard`
 
+...
+
 Exports are added to connect the scoreboard to other components.
 
 ##### Requirements of the TLM Implementation
+
+...
 
 The TLM implementation ensures smooth communication between components, allowing for data exchange and synchronization.
 
 ##### Defining the Action Taken
 
+...
+
 The action taken by the scoreboard involves comparing actual results with expected values and reporting discrepancies.
 
 ##### Adding the Scoreboard to the Environment
+
+...
 
 The scoreboard is instantiated and connected in the environment.
 
@@ -10858,9 +13788,13 @@ The scoreboard is instantiated and connected in the environment.
 
 ##### Selecting a Coverage Method
 
+...
+
 Coverage methods can be functional or code-based. Functional coverage captures specific conditions and scenarios, while code coverage measures exercised code paths.
 
 ##### Implementing a Functional Coverage Model
+
+...
 
 Functional coverage models are implemented using SystemVerilog covergroups and coverpoints.
 
@@ -10886,6 +13820,8 @@ endclass
 
 ##### Enabling and Disabling Coverage
 
+...
+
 Coverage can be enabled or disabled using configuration settings, allowing for targeted analysis.
 
 By following these steps, you can effectively use verification components to create robust and reusable verification environments. These practices ensure comprehensive verification of the DUT, leveraging the modularity and flexibility provided by UVM.
@@ -10902,9 +13838,13 @@ The UVM register layer simplifies the modeling of registers and memories, offeri
 
 ##### Mirroring
 
+...
+
 Mirroring refers to keeping a software model (the register model) synchronized with the actual hardware state of the DUT. This synchronization can be done using front-door accesses (through the DUT's bus interface) or back-door accesses (directly accessing the DUT's internal state).
 
 ##### Memories are not Mirrored
+
+...
 
 Unlike registers, memories are typically not mirrored. This is because memory contents can be large and constantly changing, making it impractical to maintain an exact software copy. Instead, specific memory locations can be accessed and verified as needed.
 
@@ -10913,6 +13853,8 @@ Unlike registers, memories are typically not mirrored. This is because memory co
 The UVM register layer provides a rich API for accessing and manipulating register and memory contents.
 
 ##### read / write
+
+...
 
 These methods are used to perform front-door access to the registers through the bus interface.
 
@@ -10923,6 +13865,8 @@ reg_model.REG1.read(status, value);
 
 ##### peek / poke
 
+...
+
 These methods are used for back-door access, directly accessing the register value without going through the bus interface.
 
 ```systemverilog
@@ -10931,6 +13875,8 @@ reg_model.REG1.poke(value);
 ```
 
 ##### get / set
+
+...
 
 These methods are used to get or set the register field values in the register model without actually accessing the hardware.
 
@@ -10941,6 +13887,8 @@ value = reg_model.REG1.FIELD1.get();
 
 ##### randomize
 
+...
+
 This method randomizes the field values of a register according to their constraints.
 
 ```systemverilog
@@ -10948,6 +13896,8 @@ reg_model.REG1.randomize();
 ```
 
 ##### update
+
+...
 
 This method writes the current values from the register model to the hardware using front-door access.
 
@@ -10957,6 +13907,8 @@ reg_model.REG1.update(status);
 
 ##### mirror
 
+...
+
 This method reads the current values from the hardware into the register model, ensuring synchronization.
 
 ```systemverilog
@@ -10965,15 +13917,21 @@ reg_model.REG1.mirror(status);
 
 ##### Concurrent Accesses
 
+...
+
 The UVM register layer handles concurrent accesses by serializing them, ensuring data integrity.
 
 #### Coverage Models
 
 ##### Predefined Coverage Identifiers
 
+...
+
 The register layer provides predefined coverage identifiers for register and field accesses, allowing users to collect coverage data for verification purposes.
 
 ##### Controlling Coverage Model Construction and Sampling
+
+...
 
 Coverage model construction and sampling can be controlled through UVM configuration settings, enabling users to focus on specific areas of interest.
 
@@ -10981,29 +13939,43 @@ Coverage model construction and sampling can be controlled through UVM configura
 
 ##### Field Types
 
+...
+
 Fields are the smallest unit in a register model, representing individual bits or groups of bits with specific attributes like access type (read/write).
 
 ##### Register Types
+
+...
 
 Registers are collections of fields, representing a single register in the hardware. They can have attributes such as address, access type, and reset value.
 
 ##### Register File Types
 
+...
+
 Register files are collections of registers grouped together for organizational purposes.
 
 ##### Memory Types
+
+...
 
 Memories are large storage elements, modeled separately from registers due to their size and access patterns.
 
 ##### Block Types
 
+...
+
 Blocks are top-level containers for register files, registers, and memories, representing an entire addressable block of the DUT.
 
 ##### Packaging a Register Model
 
+...
+
 A register model is packaged by defining all its components (fields, registers, register files, memories, and blocks) and linking them together.
 
 ##### Maximum Data Size
+
+...
 
 The maximum data size for register fields and memories is determined by the specific implementation and limitations of the hardware and software tools used.
 
@@ -11011,25 +13983,37 @@ The maximum data size for register fields and memories is determined by the spec
 
 ##### Back-door read/write vs. peek/poke
 
+...
+
 Back-door read/write methods use hierarchical HDL paths to directly access the hardware, while peek/poke methods access the register model.
 
 ##### Hierarchical HDL Paths
+
+...
 
 Back-door access relies on hierarchical HDL paths to directly reference and manipulate hardware states.
 
 ##### VPI-based Back-door Access
 
+...
+
 VPI (Verilog Procedural Interface) provides a standard way to implement back-door access in Verilog-based designs.
 
 ##### User-defined Back-door Access
+
+...
 
 Users can define custom back-door access methods to suit specific needs or hardware configurations.
 
 ##### Back-door Access for Protected Memories
 
+...
+
 Protected memories require special handling to ensure security and data integrity during back-door accesses.
 
 ##### Active Monitoring
+
+...
 
 Active monitoring involves continuously checking the DUT's state to detect and report any discrepancies between the register model and the actual hardware.
 
@@ -11037,21 +14021,31 @@ Active monitoring involves continuously checking the DUT's state to detect and r
 
 ##### Pre-defined Special Registers
 
+...
+
 Certain registers have predefined roles and behaviors, such as status registers or control registers.
 
 ##### Unmapped Registers and Memories
+
+...
 
 Unmapped registers and memories are those that do not have a direct correspondence in the hardware but are included in the model for completeness or simulation purposes.
 
 ##### Aliased Registers
 
+...
+
 Aliased registers share the same address space but serve different purposes based on context or mode of operation.
 
 ##### Unimplemented Registers
 
+...
+
 Unimplemented registers are placeholders for future expansion or optional features not currently present in the hardware.
 
 ##### RO and WO Registers Sharing the Same Address
+
+...
 
 Read-only (RO) and write-only (WO) registers can share the same address if they represent different aspects of the same hardware location.
 
@@ -11061,13 +14055,19 @@ Read-only (RO) and write-only (WO) registers can share the same address if they 
 
 ##### Transaction Adapter
 
+...
+
 The transaction adapter translates high-level register operations into low-level bus transactions compatible with the DUT's bus protocol.
 
 ##### Integrating Bus Sequencers
 
+...
+
 Bus sequencers control the sequence of bus transactions, coordinating with the register model to perform reads and writes.
 
 ##### Integrating the Register Model with a Bus Monitor
+
+...
 
 A bus monitor observes bus transactions and updates the register model to reflect changes in the DUT's state, ensuring consistency and correctness.
 
@@ -11137,9 +14137,13 @@ endclass
 
 ##### About the Factory
 
+...
+
 The UVM factory is a mechanism for creating objects and components dynamically at runtime. It supports object-oriented principles such as polymorphism and abstraction, enabling flexibility and reusability.
 
 ##### Factory Registration
+
+...
 
 To use the factory, components and objects must be registered using macros such as `uvm_component_utils` and `uvm_object_utils`.
 
@@ -11152,6 +14156,8 @@ endclass
 
 ##### Component Overrides
 
+...
+
 Overrides allow one component or object type to be replaced with another at runtime, facilitating easier configuration changes and extending testbenches without modifying the original code.
 
 ```systemverilog
@@ -11162,9 +14168,13 @@ uvm_factory::set_type_override_by_type(original_type::get_type(), override_type:
 
 ##### Use Model
 
+...
+
 Callbacks are a mechanism to add custom behavior to UVM components without modifying their source code. They enable a flexible way to extend and customize components.
 
 ##### Example
+
+...
 
 ```systemverilog
 class my_callback extends uvm_callback;
@@ -11204,17 +14214,25 @@ The UVM sequence library provides a framework for creating, managing, and execut
 
 ##### Implementing Complex Scenarios
 
+...
+
 Complex scenarios can be implemented by composing sequences from simpler sequences, controlling the order, timing, and conditions of execution.
 
 ##### Protocol Layering
+
+...
 
 Protocol layering involves creating sequences that operate at different levels of abstraction, enabling a layered approach to verification.
 
 ##### Generating the Item or Sequence in Advance
 
+...
+
 Sequences can pre-generate items before sending them to the sequencer, allowing for more complex pre-processing or timing control.
 
 ##### Executing Sequences and Items on Other Sequencers
+
+...
 
 Sequences can target different sequencers, enabling coordination between multiple protocol layers or functional units.
 
@@ -11229,13 +14247,19 @@ endtask
 
 ##### Introduction
 
+...
+
 The UVM CLI allows users to pass arguments to the simulation, controlling various aspects of the verification environment.
 
 ##### Getting Started
 
+...
+
 To use the CLI, UVM provides built-in macros and functions to parse and handle command-line arguments.
 
 ##### UVM-aware Command Line Processing
+
+...
 
 UVM-aware command-line processing involves using the UVM configuration database and factory to set up the environment based on CLI arguments.
 
@@ -11498,17 +14522,25 @@ endclass
 
 ##### Collecting Transfers from the Bus
 
+...
+
 The bus monitor collects transactions from the bus and converts them into analysis transactions.
 
 ##### Number of Transfers
+
+...
 
 The monitor tracks the number of transfers and other relevant statistics.
 
 ##### Notifiers Emitted by the UBus Bus Monitor
 
+...
+
 The monitor can emit notifications for specific events, such as errors or protocol violations.
 
 ##### Checks and Coverage
+
+...
 
 The monitor performs protocol checks and collects coverage information, ensuring comprehensive verification of the bus protocol.
 
@@ -11543,15 +14575,21 @@ This example provides a comprehensive overview of how to set up and utilize a UV
 
 ##### Motivation
 
+...
+
 The UBus (Universal Bus) protocol is designed to provide a flexible and efficient means of communication between different components in a system. It supports various types of data transfers and can be extended to include optional pipelining for improved performance.
 
 ##### Bus Overview
+
+...
 
 UBus is a synchronous bus protocol that includes arbitration, address, and data phases. It supports multiple masters and slaves, ensuring fair access to shared resources through an arbitration mechanism.
 
 #### Bus Description
 
 ##### Bus Signals
+
+...
 
 UBus consists of several signals that manage data transfer, address selection, and control functions:
 
@@ -11565,9 +14603,13 @@ UBus consists of several signals that manage data transfer, address selection, a
 
 ##### Clocking
 
+...
+
 UBus is a synchronous protocol driven by a single clock signal. All bus transactions occur on the rising edge of the clock.
 
 ##### Reset
+
+...
 
 The `reset` signal is used to initialize the bus and all connected devices to a known state. It is an active-high signal.
 
@@ -11581,9 +14623,13 @@ During the address phase, the master places the address of the target slave on t
 
 ##### NOP Cycle
 
+...
+
 A No Operation (NOP) cycle occurs when no master is driving the bus, and all signals remain in their idle state.
 
 ##### Normal Address Phase
+
+...
 
 In a normal address phase, the master asserts the address on the bus and sets the control signals to indicate the type of operation (read/write).
 
@@ -11593,17 +14639,25 @@ The data phase follows the address phase and involves the actual data transfer b
 
 ##### Write Transfer
 
+...
+
 In a write transfer, the master places the data on the data bus, and the slave latches the data when the `ready` signal is asserted.
 
 ##### Error during Write Transfer
+
+...
 
 If an error occurs during a write transfer, the slave can assert an error signal to indicate the failure.
 
 ##### Read Transfer
 
+...
+
 In a read transfer, the master places the address on the address bus, and the slave returns the data on the data bus when the `ready` signal is asserted.
 
 ##### Error during Read Transfer
+
+...
 
 If an error occurs during a read transfer, the slave can assert an error signal to indicate the failure.
 
@@ -11617,13 +14671,19 @@ Pipelining improves bus performance by overlapping the arbitration, address, and
 
 ##### Pipelined Arbitration Phase
 
+...
+
 In the pipelined arbitration phase, the next master to gain control of the bus is determined while the current data transfer is still in progress.
 
 ##### Pipelined Address Phase
 
+...
+
 The pipelined address phase allows the next address to be placed on the bus before the current data transfer is completed.
 
 ##### Pipelined Data Phase
+
+...
 
 In the pipelined data phase, data transfers for different transactions overlap, with each phase (arbitration, address, data) occurring simultaneously for different transactions.
 
@@ -11633,38 +14693,6 @@ Below are example timing diagrams illustrating different phases and operations i
 
 This document outlines the UBus protocol, its phases, signal descriptions, and example timing diagrams, providing a comprehensive guide for implementing and verifying UBus in a hardware design.
 
-## QUALITY ASSURANCE
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-### Ada Language
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-## CERTIFICATION
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-## DESIGN LIFECYCLE DATA
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-### Hardware
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-#### Chisel Language
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-### Software
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-#### Java Language
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-#### Scala Language
+## IMPLEMENTATION
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....

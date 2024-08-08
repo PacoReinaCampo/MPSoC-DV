@@ -63,7 +63,7 @@ MATLAB supports various data types:
   ```matlab
   intVar = int32(10);  % 32-bit integer
   ```
-- **Floating-point**:
+- **Floating-Point**:
   ```matlab
   floatVar = 10.5;  % Double precision by default
   ```

@@ -14,7 +14,7 @@
 <title>Modeling_SLH</title>
 <polygon fill="none" stroke="black" points="228,-525.5 228,-563.5 510,-563.5 510,-525.5 228,-525.5"/>
 <text text-anchor="middle" x="369" y="-548.3" font-family="Times,serif" font-size="14.00">Modeling System Level of Hardware </text>
-<text text-anchor="middle" x="369" y="-533.3" font-family="Times,serif" font-size="14.00">(Emacs)</text>
+<text text-anchor="middle" x="369" y="-533.3" font-family="Times,serif" font-size="14.00">(Vi)</text>
 </g>
 <!-- Simulating_SLH -->
 <g id="node2" class="node">
@@ -53,7 +53,7 @@
 <title>Describing_RTL</title>
 <polygon fill="none" stroke="black" points="9.5,-300.5 9.5,-338.5 374.5,-338.5 374.5,-300.5 9.5,-300.5"/>
 <text text-anchor="middle" x="192" y="-323.3" font-family="Times,serif" font-size="14.00">Describing Register Transfer Level of Hardware </text>
-<text text-anchor="middle" x="192" y="-308.3" font-family="Times,serif" font-size="14.00">(Emacs)</text>
+<text text-anchor="middle" x="192" y="-308.3" font-family="Times,serif" font-size="14.00">(Vi)</text>
 </g>
 <!-- Verifying_SLH&#45;&gt;Describing_RTL -->
 <g id="edge3" class="edge">
