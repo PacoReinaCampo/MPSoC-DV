@@ -12,7 +12,7 @@
 <g id="clust1" class="cluster">
 <title>cluster TestBench</title>
 <polygon fill="none" stroke="black" points="8,-8 8,-200 790,-200 790,-8 8,-8"/>
-<text text-anchor="middle" x="399" y="-184.8" font-family="Times,serif" font-size="14.00">OSVVM TestBench</text>
+<text text-anchor="middle" x="399" y="-184.8" font-family="Times,serif" font-size="14.00">UVM TestBench</text>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster Test</title>

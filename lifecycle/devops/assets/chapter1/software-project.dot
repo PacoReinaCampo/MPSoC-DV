@@ -4,15 +4,15 @@ digraph Project {
   node[shape=record];
 
   // Blocks
-  Requirements[label="Requirements \n(Matlab/Python/PSL/UML) [Emacs]"];
-  Source[label="Source \n(C/C++/Go/Rust) [Emacs]"];
-  Model[label="Software Model \n(C/C++/Go/Rust) [Emacs]"];
+  Requirements[label="Requirements \n(Matlab/Python/PSL/UML) [Vi]"];
+  Source[label="Source \n(C/C++/Go/Rust) [Vi]"];
+  Model[label="Software Model \n(C/C++/Go/Rust) [Vi]"];
   Validation[label="Software Validation \n(C/C++/Go/Rust) [GCC]"];
-  Design[label="Software Design \n(C/C++/Go/Rust) [Emacs]"];
+  Design[label="Software Design \n(C/C++/Go/Rust) [Vi]"];
   Verification[label="Software Verification \n(C/C++/Go/Rust) [GCC]"];
-  Quality[label="Quality Assurance \n(Ada) [Emacs]"];
-  Certification[label="Certification \n(Java) [Emacs]"];
-  Lifecycle[label="Design Lifecycle Data \n(Scala) [Emacs]"];
+  Quality[label="Quality Assurance \n(Ada) [Vi]"];
+  Certification[label="Certification \n(Java) [Vi]"];
+  LifeCycle[label="Design LifeCycle Data \n(Scala) [Vi]"];
 
   // Sequence
   Requirements -> Source;
@@ -22,8 +22,8 @@ digraph Project {
   Design -> Verification;
   Verification -> Quality;
   Quality -> Certification;
-  Certification -> Lifecycle;
-  Lifecycle -> Requirements;
+  Certification -> LifeCycle;
+  LifeCycle -> Requirements;
 
   // Feedback
   Validation -> Model;

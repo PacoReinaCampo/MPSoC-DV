@@ -6,26 +6,26 @@ digraph Project {
   // Blocks
   subgraph "cluster Workflow" { label = "Workflow";
     subgraph "cluster Hardware" { label = "Hardware";
-      Requirements_HW[label="Requirements \n(Matlab/Python/PSL/UML) [Emacs]"];
-      Source_HW[label="Source \n(C/C++/Go/Rust) [Emacs]"];
-      Model_HW[label="Hardware Model \n(VHDL/SystemVerilog) [Emacs]"];
+      Requirements_HW[label="Requirements \n(Matlab/Python/PSL/UML) [Vi]"];
+      Source_HW[label="Source \n(C/C++/Go/Rust) [Vi]"];
+      Model_HW[label="Hardware Model \n(VHDL/SystemVerilog) [Vi]"];
       Validation_HW[label="Hardware Validation \n(VHDL/SystemVerilog) [GHDL / Icarus Verilog]"];
-      Design_HW[label="Hardware Design \n(VHDL/Verilog) [Emacs]"];
+      Design_HW[label="Hardware Design \n(VHDL/Verilog) [Vi]"];
       Verification_HW[label="Hardware Verification \n(VHDL/SystemVerilog) [GHDL / Icarus Verilog]"];
-      Quality_HW[label="Quality Assurance \n(Ada) [Emacs]"];
-      Certification_HW[label="Certification \n(Java) [Emacs]"];
-      Lifecycle_HW[label="Design Lifecycle Data \n(Chisel) [Emacs]"];
+      Quality_HW[label="Quality Assurance \n(Ada) [Vi]"];
+      Certification_HW[label="Certification \n(Java) [Vi]"];
+      LifeCycle_HW[label="Design LifeCycle Data \n(Chisel) [Vi]"];
     }
     subgraph "cluster Software" { label = "Software";
-      Requirements_SW[label="Requirements \n(Matlab/Python/PSL/UML) [Emacs]"];
-      Source_SW[label="Source \n(C/C++/Go/Rust) [Emacs]"];
-      Model_SW[label="Software Model \n(C/C++/Go/Rust) [Emacs]"];
+      Requirements_SW[label="Requirements \n(Matlab/Python/PSL/UML) [Vi]"];
+      Source_SW[label="Source \n(C/C++/Go/Rust) [Vi]"];
+      Model_SW[label="Software Model \n(C/C++/Go/Rust) [Vi]"];
       Validation_SW[label="Software Validation \n(C/C++/Go/Rust) [GCC]"];
-      Design_SW[label="Software Design \n(C/C++/Go/Rust) [Emacs]"];
+      Design_SW[label="Software Design \n(C/C++/Go/Rust) [Vi]"];
       Verification_SW[label="Software Verification \n(C/C++/Go/Rust) [GCC]"];
-      Quality_SW[label="Quality Assurance \n(Ada) [Emacs]"];
-      Certification_SW[label="Certification \n(Java) [Emacs]"];
-      Lifecycle_SW[label="Design Lifecycle Data \n(Scala) [Emacs]"];
+      Quality_SW[label="Quality Assurance \n(Ada) [Vi]"];
+      Certification_SW[label="Certification \n(Java) [Vi]"];
+      LifeCycle_SW[label="Design LifeCycle Data \n(Scala) [Vi]"];
     }
   }
 
@@ -40,8 +40,8 @@ digraph Project {
   Verification_HW -> Quality_HW;
   Quality_HW -> Certification_HW;
   Quality_HW -> Requirements_HW;
-  Certification_HW -> Lifecycle_HW;
-  Lifecycle_HW -> Requirements_HW;
+  Certification_HW -> LifeCycle_HW;
+  LifeCycle_HW -> Requirements_HW;
 
   Requirements_SW -> Source_SW;
   Source_SW -> Model_SW;
@@ -53,6 +53,6 @@ digraph Project {
   Verification_SW -> Quality_SW;
   Quality_SW -> Certification_SW;
   Quality_SW -> Requirements_SW;
-  Certification_SW -> Lifecycle_SW;
-  Lifecycle_SW -> Requirements_SW;
+  Certification_SW -> LifeCycle_SW;
+  LifeCycle_SW -> Requirements_SW;
 }
