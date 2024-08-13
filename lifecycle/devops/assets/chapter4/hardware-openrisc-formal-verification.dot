@@ -8,12 +8,12 @@ digraph Project {
     Stimulus[shape=box, label="Stimulus"];
     Requirements[shape=box, label="Requirements (OpenRISC)"];
     DUT[shape=box, label="DUT (OpenRISC)"];
-    Checker[shape=box, label="Checker"];
+    Asserts[shape=box, label="Asserts"];
   }
 
   // Sequence
   Stimulus -> Requirements;
   Stimulus -> DUT;
-  Requirements -> Checker;
-  DUT -> Checker;
+  Requirements -> Asserts;
+  DUT -> Asserts;
 }

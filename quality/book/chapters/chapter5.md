@@ -55,9 +55,7 @@ Top management must ensure that roles, responsibilities, and authorities related
    - **Process Owners**: Designating process owners who are responsible for ensuring that processes deliver their intended outputs.
    - **Compliance and Improvement**: Ensuring those responsible have the authority to maintain compliance with QMS requirements and implement improvements.
 
-3. **Customer Focus Responsibility**:
-
-   - Assigning responsibility for ensuring customer requirements are met and customer satisfaction is achieved and maintained.
+3. **Customer Focus Responsibility**: Assigning responsibility for ensuring customer requirements are met and customer satisfaction is achieved and maintained.
 
 By defining and communicating organizational roles, responsibilities, and authorities, top management ensures that all employees understand their contributions to the QMS, facilitating effective implementation and ongoing improvement.
 

@@ -1,4 +1,4 @@
-# RELIABLE AND SECURE SYSTEMS
+# IP CORES DEVOPS
 
 IEEE 2675-2021, titled "Standard for DevOps: Building Reliable and Secure Systems Including Application Build, Package and Deployment," provides guidelines and best practices for implementing DevOps principles. It aims to ensure the development of reliable, secure, and high-quality software systems.
 

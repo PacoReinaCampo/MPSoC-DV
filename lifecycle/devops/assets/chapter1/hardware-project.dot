@@ -5,22 +5,22 @@ digraph Project {
 
   // Blocks
   Requirements[label="Requirements \n(Matlab/Python/PSL/UML) [Vi]"];
-  Source[label="Source \n(C/C++/Go/Rust) [Vi]"];
   Model[label="Hardware Model \n(VHDL/SystemVerilog) [Vi]"];
   Validation[label="Hardware Validation \n(VHDL/SystemVerilog) [GHDL / Icarus Verilog]"];
   Design[label="Hardware Design \n(VHDL/Verilog) [Vi]"];
   Verification[label="Hardware Verification \n(VHDL/SystemVerilog) [GHDL / Icarus Verilog]"];
+  Configuration[label="Configuration \n(C/C++/Go/Rust) [Vi]"];
   Quality[label="Quality Assurance \n(Ada) [Vi]"];
   Certification[label="Certification \n(Java) [Vi]"];
   LifeCycle[label="Design LifeCycle Data \n(Chisel) [Vi]"];
 
   // Sequence
-  Requirements -> Source;
-  Source -> Model;
+  Requirements -> Model;
   Model -> Validation;
   Validation -> Design;
   Design -> Verification;
-  Verification -> Quality;
+  Verification -> Configuration;
+  Configuration -> Quality;
   Quality -> Certification;
   Certification -> LifeCycle;
   LifeCycle -> Requirements;

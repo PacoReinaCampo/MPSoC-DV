@@ -14,9 +14,7 @@ In the context of standards such as ISO 9001:2015, a **normative reference** is 
 
 ISO 9001:2015 includes the following normative reference:
 
-- **ISO 9000:2015, Quality management systems — Fundamentals and vocabulary**:
-
-   - ISO 9000:2015 provides the fundamental concepts, principles, and vocabulary used in the ISO 9001:2015 standard. It is critical for understanding the terminology and principles that underpin the quality management system requirements outlined in ISO 9001:2015.
+**ISO 9000:2015, Quality management systems — Fundamentals and vocabulary**: ISO 9000:2015 provides the fundamental concepts, principles, and vocabulary used in the ISO 9001:2015 standard. It is critical for understanding the terminology and principles that underpin the quality management system requirements outlined in ISO 9001:2015.
 
 This normative reference is crucial because:
 

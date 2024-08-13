@@ -14,16 +14,17 @@ In the context of standards such as ISO 9001:2015, a **normative reference** is 
 
 ISO 9001:2015 includes the following normative reference:
 
-- **ISO 9000:2015, Quality management systems — Fundamentals and vocabulary**: ISO 9000:2015 provides the fundamental concepts, principles, and vocabulary used in the ISO 9001:2015 standard. It is critical for understanding the terminology and principles that underpin the quality management system requirements outlined in ISO 9001:2015.
+**ISO 9000:2015, Quality management systems — Fundamentals and vocabulary**: ISO 9000:2015 provides the fundamental concepts, principles, and vocabulary used in the ISO 9001:2015 standard. It is critical for understanding the terminology and principles that underpin the quality management system requirements outlined in ISO 9001:2015.
 
 This normative reference is crucial because:
-  - It defines the key terms and concepts used in ISO 9001:2015, ensuring that all users have a common understanding of the language and principles of quality management systems.
-  - It lays the foundation for the implementation and interpretation of ISO 9001:2015, offering essential background information that supports the requirements of the standard.
+
+   - It defines the key terms and concepts used in ISO 9001:2015, ensuring that all users have a common understanding of the language and principles of quality management systems.
+   - It lays the foundation for the implementation and interpretation of ISO 9001:2015, offering essential background information that supports the requirements of the standard.
 
 ## IMPORTANCE OF NORMATIVE REFERENCES
 
 - **Clarity and Precision**: Normative references provide clarity and precision, reducing ambiguity in the interpretation of the standard. This is essential for ensuring that all organizations implement the standard consistently.
-  
+
 - **Standardization Across Industries**: They help achieve standardization across different industries and sectors, as all entities referring to the primary standard will also refer to the same set of normative documents.
 
 - **Support for Auditors and Assessors**: Normative references support auditors and assessors by providing a clear framework and criteria for evaluating compliance with the primary standard.

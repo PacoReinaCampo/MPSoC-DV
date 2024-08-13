@@ -1,4 +1,4 @@
-# MONITOR (MONITOR)
+# MONITOR (ANALYCE)
 
 In the context of DevOps, the "MONITOR" phase involves continuously observing and analyzing various aspects of the software system and its underlying infrastructure in real-time. Monitoring is crucial for identifying performance issues, detecting anomalies, and ensuring the reliability and availability of the system. Here's a breakdown of what typically happens during the MONITOR phase:
 
@@ -21,6 +21,112 @@ In the context of DevOps, the "MONITOR" phase involves continuously observing an
 9. **Compliance Monitoring**: Compliance monitoring ensures that the software system adheres to regulatory requirements, industry standards, and organizational policies. Compliance metrics, such as adherence to data privacy regulations (e.g., GDPR, HIPAA), security controls, and audit findings, are monitored to assess compliance posture and identify areas for improvement. Automated compliance checks and reporting tools help streamline compliance monitoring and reporting processes.
 
 By proactively monitoring the software system and its environment, DevOps teams can detect and respond to issues quickly, optimize performance, and ensure the reliability and availability of the system. Monitoring is an essential aspect of the DevOps lifecycle, enabling continuous improvement, informed decision-making, and alignment with business objectives.
+
+## DESIGN LIFECYCLE DATA
+
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+
+### Hardware
+
+* Data Required for the Hardware Planning
+  * Hardware Configuration Management Plan
+  * Hardware Design Plan
+  * Hardware Process Assurance Plan
+  * Hardware Process Assurance Records
+  * Hardware Requirements Design HDL Code Validation and Verification and Archive Standards
+  * Hardware Validation Plan
+  * Hardware Verification Plan
+  * Plan for Hardware Aspects of Certification
+  * Supplier Management Plan
+  * Tool Qualification Plans
+
+* Data Required for the Hardware Development
+  * Hardware Configuration Management Records
+  * Hardware Design Data
+  * Hardware Design Schematics
+  * Hardware Life Cycle Environment Configuration Index
+  * Hardware Process Assurance Records
+  * Hardware Requirements
+  * Hardware Requirements Design and HDL Code Standards
+  * Hardware Review and Analysis Procedures
+  * Hardware Review and Analysis Results
+  * Hardware Tool Qualification Data
+  * Hardware Traceability Data
+  * HDL
+  * Problem Reports
+
+* Data Required for the Hardware Verification
+  * Hardware Configuration Management Records
+  * Hardware Design Representation Data
+  * Hardware Design Schematics
+  * Hardware Life Cycle Environment Configuration Index
+  * Hardware Process Assurance Records
+  * Hardware Requirements Data
+  * Hardware Tool Qualification Data
+  * Hardware Verification Procedures
+  * Hardware Verification Results
+  * HDL
+  * Problem Reports
+
+* Data Required for the Final Certification Hardware
+  * Hardware Accomplishment Summary
+  * Hardware Configuration Index
+  * Hardware Configuration Management Records
+  * Hardware Life Cycle Environment Configuration Index
+  * Hardware Process Assurance Records
+  * Hardware Verification Results
+  * Problem Reports
+
+### Software
+
+* Data Required for the Software Planning
+  * Software Configuration Management Plan
+  * Software Design Plan
+  * Software Process Assurance Plan
+  * Software Process Assurance Records
+  * Software Requirements Design HDL Code Validation and Verification and Archive Standards
+  * Software Validation Plan
+  * Software Verification Plan
+  * Plan for Software Aspects of Certification
+  * Supplier Management Plan
+  * Tool Qualification Plans
+
+* Data Required for the Software Development
+  * Software Configuration Management Records
+  * Software Design Data
+  * Software Design Schematics
+  * Software Life Cycle Environment Configuration Index
+  * Software Process Assurance Records
+  * Software Requirements
+  * Software Requirements Design and HDL Code Standards
+  * Software Review and Analysis Procedures
+  * Software Review and Analysis Results
+  * Software Tool Qualification Data
+  * Software Traceability Data
+  * HDL
+  * Problem Reports
+
+* Data Required for the Software Verification
+  * Software Configuration Management Records
+  * Software Design Representation Data
+  * Software Design Schematics
+  * Software Life Cycle Environment Configuration Index
+  * Software Process Assurance Records
+  * Software Requirements Data
+  * Software Tool Qualification Data
+  * Software Verification Procedures
+  * Software Verification Results
+  * HDL
+  * Problem Reports
+
+* Data Required for the Final Certification Software
+  * Software Accomplishment Summary
+  * Software Configuration Index
+  * Software Configuration Management Records
+  * Software Life Cycle Environment Configuration Index
+  * Software Process Assurance Records
+  * Software Verification Results
+  * Problem Reports
 
 ## DESIGN LIFECYCLE DATA TEMPLATES
 

@@ -3,25 +3,25 @@
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 | FOLDER        | NORMATIVE            | TECHNOLOGY    |
-|--------------:|:---------------------|:--------------|
-| requirements  | IEEE STD 1850-2010   | PSL           |
-|               | OMG-2.5.1.           | UML           |
-| certification | RTCA DO-254          | Hardware      |
-|               | RTCA DO-178C         | Software      |
-| quality       | ISO 9001-2015        | Management    |
-| doc           | IEEE STD 1685-2014   | IP-XACT       |
-|               | IEEE STD 1735-2014   | IP-Manager    |
-|               | IEEE STD 1801-2013   | Low Power     |
+|:--------------|:---------------------|:--------------|
+| doc           | IEEE STD 1801-2013   | Low Power     |
 |               | IEEE STD 0754-2019   | Float Point   |
 |               | IEEE STD 1754-1994   | RISC 32 Bit   |
-| source        | IEEE STD 1666-2011   | SystemC       |
+| requirements  | IEEE STD 1850-2010   | PSL           |
+|               | OMG-2.5.1.           | UML           |
 | model         | IEEE STD 1076-2019   | VHDL          |
 |               | IEEE STD 1800-2017   | SystemVerilog |
 | validation    | IEEE STD 1076-2019   | OSVVM         |
 | rtl/src       | IEEE STD 1076-2019   | VHDL          |
 |               | IEEE STD 1364-2005   | Verilog       |
 | verification  | IEEE STD 1800.2-2020 | UVM           |
-| lifecycle     | IEEE STD 2675-2021   | DevOps        |
+| configuration | IEEE STD 1666-2011   | SystemC       |
+| certification | RTCA DO-254          |               |
+|               | RTCA DO-178C         |               |
+| quality       | ISO 9001-2015        |               |
+| lifecycle     | IEEE STD 1735-2014   | IP-Developer  |
+|               | IEEE STD 2675-2021   | IP-DevOps     |
+|               | IEEE STD 1685-2014   | IP-Manager    |
 : Project Folder
 
 ## DESIGN LIFECYCLE DATA TEMPLATES
@@ -1701,7 +1701,7 @@ Hardware Configuration Management (CM) Records are essential documents that capt
 
       - **Current Status**: The current status of the configuration item (e.g., in development, under review, approved, released, retired).
       - **Status Changes**: Records of any status changes, including the date and reason for the change.
-      - **Lifecycle Stage**: The lifecycle stage of the configuration item (e.g., design, testing, production).
+      - **LifeCycle Stage**: The lifecycle stage of the configuration item (e.g., design, testing, production).
 
 #### Configuration Audits
 

@@ -44,21 +44,21 @@
 <path fill="none" stroke="black" d="M96.32,-74.5C96.32,-74.5 127.66,-74.5 127.66,-74.5"/>
 <polygon fill="black" stroke="black" points="127.66,-78 137.66,-74.5 127.66,-71 127.66,-78"/>
 </g>
-<!-- Checker -->
+<!-- Asserts -->
 <g id="node4" class="node">
-<title>Checker</title>
+<title>Asserts</title>
 <polygon fill="none" stroke="black" points="355,-79 280,-79 280,-43 355,-43 355,-79"/>
-<text text-anchor="middle" x="317.5" y="-57.3" font-family="Times,serif" font-size="14.00">Checker</text>
+<text text-anchor="middle" x="317.5" y="-57.3" font-family="Times,serif" font-size="14.00">Asserts</text>
 </g>
-<!-- Model&#45;&gt;Checker -->
+<!-- Model&#45;&gt;Asserts -->
 <g id="edge3" class="edge">
-<title>Model&#45;&gt;Checker</title>
+<title>Model&#45;&gt;Asserts</title>
 <path fill="none" stroke="black" d="M244.05,-47.5C244.05,-47.5 269.66,-47.5 269.66,-47.5"/>
 <polygon fill="black" stroke="black" points="269.66,-51 279.66,-47.5 269.66,-44 269.66,-51"/>
 </g>
-<!-- DUT&#45;&gt;Checker -->
+<!-- DUT&#45;&gt;Asserts -->
 <g id="edge4" class="edge">
-<title>DUT&#45;&gt;Checker</title>
+<title>DUT&#45;&gt;Asserts</title>
 <path fill="none" stroke="black" d="M238.07,-74.5C238.07,-74.5 269.62,-74.5 269.62,-74.5"/>
 <polygon fill="black" stroke="black" points="269.62,-78 279.62,-74.5 269.62,-71 269.62,-78"/>
 </g>

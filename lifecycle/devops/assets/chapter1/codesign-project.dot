@@ -7,22 +7,22 @@ digraph Project {
   subgraph "cluster Workflow" { label = "Workflow";
     subgraph "cluster Hardware" { label = "Hardware";
       Requirements_HW[label="Requirements \n(Matlab/Python/PSL/UML) [Vi]"];
-      Source_HW[label="Source \n(C/C++/Go/Rust) [Vi]"];
       Model_HW[label="Hardware Model \n(VHDL/SystemVerilog) [Vi]"];
       Validation_HW[label="Hardware Validation \n(VHDL/SystemVerilog) [GHDL / Icarus Verilog]"];
       Design_HW[label="Hardware Design \n(VHDL/Verilog) [Vi]"];
       Verification_HW[label="Hardware Verification \n(VHDL/SystemVerilog) [GHDL / Icarus Verilog]"];
+      Configuration_HW[label="Configuration \n(C/C++/Go/Rust) [Vi]"];
       Quality_HW[label="Quality Assurance \n(Ada) [Vi]"];
       Certification_HW[label="Certification \n(Java) [Vi]"];
       LifeCycle_HW[label="Design LifeCycle Data \n(Chisel) [Vi]"];
     }
     subgraph "cluster Software" { label = "Software";
       Requirements_SW[label="Requirements \n(Matlab/Python/PSL/UML) [Vi]"];
-      Source_SW[label="Source \n(C/C++/Go/Rust) [Vi]"];
       Model_SW[label="Software Model \n(C/C++/Go/Rust) [Vi]"];
       Validation_SW[label="Software Validation \n(C/C++/Go/Rust) [GCC]"];
       Design_SW[label="Software Design \n(C/C++/Go/Rust) [Vi]"];
       Verification_SW[label="Software Verification \n(C/C++/Go/Rust) [GCC]"];
+      Configuration_SW[label="Configuration \n(C/C++/Go/Rust) [Vi]"];
       Quality_SW[label="Quality Assurance \n(Ada) [Vi]"];
       Certification_SW[label="Certification \n(Java) [Vi]"];
       LifeCycle_SW[label="Design LifeCycle Data \n(Scala) [Vi]"];
@@ -30,27 +30,25 @@ digraph Project {
   }
 
   // Sequence
-  Requirements_HW -> Source_HW;
-  Source_HW -> Model_HW;
+  Requirements_HW -> Model_HW;
   Model_HW -> Validation_HW;
-  Validation_HW -> Model_HW;
   Validation_HW -> Design_HW;
   Design_HW -> Verification_HW;
   Verification_HW -> Design_HW;
-  Verification_HW -> Quality_HW;
+  Verification_HW -> Configuration_HW;
+  Configuration_HW -> Quality_HW;
   Quality_HW -> Certification_HW;
   Quality_HW -> Requirements_HW;
   Certification_HW -> LifeCycle_HW;
   LifeCycle_HW -> Requirements_HW;
 
-  Requirements_SW -> Source_SW;
-  Source_SW -> Model_SW;
+  Requirements_SW -> Model_SW;
   Model_SW -> Validation_SW;
-  Validation_SW -> Model_SW;
   Validation_SW -> Design_SW;
   Design_SW -> Verification_SW;
   Verification_SW -> Design_SW;
-  Verification_SW -> Quality_SW;
+  Verification_SW -> Configuration_SW;
+  Configuration_SW -> Quality_SW;
   Quality_SW -> Certification_SW;
   Quality_SW -> Requirements_SW;
   Certification_SW -> LifeCycle_SW;

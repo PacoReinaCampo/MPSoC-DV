@@ -4,7 +4,9 @@
 
 Documented information required by the QMS and by ISO 9001:2015 must be controlled to ensure it is available and suitable for use where and when it is needed. This includes:
 
-- Creating, updating, and maintaining documents and records.
+- Creating documents and records.
+- Updating documents and records.
+- Maintaining documents and records.
 
 ## CREATING AND UPDATING
 

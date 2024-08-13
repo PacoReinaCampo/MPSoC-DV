@@ -17,9 +17,7 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
    - Analyze the internal and external context of the organization to identify potential risks and opportunities that could impact the QMS.
    - Consider the needs and expectations of interested parties, including customers, suppliers, and regulatory bodies.
 
-2. **Determine Actions**:
-
-   - Plan actions to address these risks and opportunities. Actions should be proportionate to the potential impact on the conformity of products and services and on customer satisfaction.
+2. **Determine Actions**: Plan actions to address these risks and opportunities. Actions should be proportionate to the potential impact on the conformity of products and services and on customer satisfaction.
 
 3. **Integrate Actions into QMS**:
 
@@ -33,9 +31,7 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 
 ## QUALITY OBJECTIVES AND PLANNING TO ACHIEVE THEM
 
-**Purpose**:
-
-- To establish measurable and achievable quality objectives that are aligned with the organization's quality policy and strategic direction.
+**Purpose**: To establish measurable and achievable quality objectives that are aligned with the organization's quality policy and strategic direction.
 
 **Approach**:
 
@@ -58,15 +54,11 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 
 ## PLANNING OF CHANGES
 
-**Purpose**:
-
-- To ensure that any changes to the QMS are conducted in a controlled manner and do not negatively impact the system's integrity or the quality of products and services.
+**Purpose**: To ensure that any changes to the QMS are conducted in a controlled manner and do not negatively impact the system's integrity or the quality of products and services.
 
 **Approach**:
 
-1. **Identifying Changes**:
-
-   - Recognize the need for changes that may arise from internal or external factors, such as new regulations, technological advancements, or market conditions.
+1. **Identifying Changes**: Recognize the need for changes that may arise from internal or external factors, such as new regulations, technological advancements, or market conditions.
 
 2. **Evaluating Changes**:
 

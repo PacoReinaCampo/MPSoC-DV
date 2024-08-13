@@ -1,14 +1,10 @@
 # PLANNING OF CHANGES
 
-**Purpose**:
-
-- To ensure that any changes to the QMS are conducted in a controlled manner and do not negatively impact the system's integrity or the quality of products and services.
+**Purpose**: To ensure that any changes to the QMS are conducted in a controlled manner and do not negatively impact the system's integrity or the quality of products and services.
 
 **Approach**:
 
-1. **Identifying Changes**:
-
-   - Recognize the need for changes that may arise from internal or external factors, such as new regulations, technological advancements, or market conditions.
+1. **Identifying Changes**: Recognize the need for changes that may arise from internal or external factors, such as new regulations, technological advancements, or market conditions.
 
 2. **Evaluating Changes**:
 

@@ -8,12 +8,12 @@ digraph Project {
     Stimulus[shape=box, label="Stimulus"];
     Model[shape=box, label="Model (MSP430)"];
     DUT[shape=box, label="DUT (MSP430)"];
-    Checker[shape=box, label="Checker"];
+    Asserts[shape=box, label="Asserts"];
   }
 
   // Sequence
   Stimulus -> Model;
   Stimulus -> DUT;
-  Model -> Checker;
-  DUT -> Checker;
+  Model -> Asserts;
+  DUT -> Asserts;
 }

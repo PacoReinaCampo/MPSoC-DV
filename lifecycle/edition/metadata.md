@@ -1,6 +1,6 @@
 ---
 title: 'Edition'
-subtitle: 'QueenField ![](../../icon.jpg)'
+subtitle: 'QueenField ![](assets/front/open-source-hardware.svg)'
 
 author: Paco Reina Campo
 
