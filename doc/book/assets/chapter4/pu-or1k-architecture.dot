@@ -1,0 +1,62 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = TB, splines=ortho];
+  node[shape=record];
+
+  // Blocks
+  subgraph "cluster pu-or1k" { label = "pu-or1k";
+    subgraph "cluster core" { label = "core";
+      subgraph "cluster cache" { label = "cache";
+        dcache_core[shape=box, label="dcache_core"];
+        dext[shape=box, label="dext"];
+        icache_core[shape=box, label="icache_core"];
+        noicache_core[shape=box, label="noicache_core"];
+      }
+      subgraph "cluster decode" { label = "decode";
+        id[shape=box, label="id"];
+      }
+      subgraph "cluster execute" { label = "execute";
+        alu[shape=box, label="alu"];
+        bu[shape=box, label="bu"];
+        div[shape=box, label="div"];
+        execution[shape=box, label="execution"];
+        lsu[shape=box, label="lsu"];
+        mul[shape=box, label="mul"];
+      }
+      subgraph "cluster fetch" { label = "fetch";
+        if[shape=box, label="if"];
+      }
+      subgraph "cluster memory" { label = "memory";
+        dmem_ctrl[shape=box, label="dmem_ctrl"];
+        imem_ctrl[shape=box, label="imem_ctrl"];
+        membuf[shape=box, label="membuf"];
+        memmisaligned[shape=box, label="memmisaligned"];
+        mmu[shape=box, label="mmu"];
+        mux[shape=box, label="mux"];
+        pmachk[shape=box, label="pmachk"];
+        pmpchk[shape=box, label="pmpchk"];
+      }
+      subgraph "cluster main" { label = "main";
+        bp[shape=box, label="bp"];
+        core[shape=box, label="core"];
+        du[shape=box, label="du"];
+        memory[shape=box, label="memory"];
+        rf[shape=box, label="rf"];
+        state[shape=box, label="state"];
+        wb[shape=box, label="wb"];
+      }
+    }
+    subgraph "cluster memory" { label = "memory";
+      subgraph "cluster ram_1r1w" { label = "ram_1r1w";
+        ram_1r1w_generic[shape=box, label="ram_1r1w_generic"];
+      }
+      subgraph "cluster ram_1rw" { label = "ram_1rw";
+        ram_1rw_generic[shape=box, label="ram_1rw_generic"];
+      }
+      ram_queue[shape=box, label="ram_queue"];
+    }
+    subgraph "cluster interface" { label = "interface";
+      bus_wb[shape=box, label="wb"];
+    }
+  }
+}

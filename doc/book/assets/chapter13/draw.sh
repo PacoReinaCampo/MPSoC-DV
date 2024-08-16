@@ -42,7 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-dot -Tsvg dependences-global.dot > dependences-global.svg
+dot -Tsvg hardware-verification.dot > hardware-verification.svg
 
-dot -Tsvg device.dot > device.svg
-dot -Tsvg prototype.dot > prototype.svg
+dot -Tsvg uvm-testbench.dot > uvm-testbench.svg

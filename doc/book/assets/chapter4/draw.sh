@@ -42,14 +42,7 @@
 ##                                                                               ##
 ###################################################################################
 
-dot -Tsvg dependences-mpsoc-defensetech.dot > dependences-mpsoc-defensetech.svg
-dot -Tsvg dependences-soc-defensetech.dot > dependences-soc-defensetech.svg
-dot -Tsvg dependences-pu-defensetech.dot > dependences-pu-defensetech.svg
-
-dot -Tsvg dependences-mpsoc-energytech.dot > dependences-mpsoc-energytech.svg
-dot -Tsvg dependences-soc-energytech.dot > dependences-soc-energytech.svg
-dot -Tsvg dependences-pu-energytech.dot > dependences-pu-energytech.svg
-
-dot -Tsvg dependences-mpsoc-fintech.dot > dependences-mpsoc-fintech.svg
-dot -Tsvg dependences-soc-fintech.dot > dependences-soc-fintech.svg
-dot -Tsvg dependences-pu-fintech.dot > dependences-pu-fintech.svg
+dot -Tsvg pu-4004-architecture.dot > pu-4004-architecture.svg
+dot -Tsvg pu-msp430-architecture.dot > pu-msp430-architecture.svg
+dot -Tsvg pu-or1k-architecture.dot > pu-or1k-architecture.svg
+dot -Tsvg pu-riscv-architecture.dot > pu-riscv-architecture.svg

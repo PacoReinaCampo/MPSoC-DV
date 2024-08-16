@@ -15,38 +15,38 @@ digraph Project {
     subgraph "cluster MPSoC" { label = "MPSoC";
       subgraph "cluster SoC-3" { label = "SoC-3";
         subgraph "cluster PU-3" { label = "PU-3";
-          Core-3[shape=box, label="Core-3"];
-          Peripheral-3[shape=box, label="Peripheral-3"];
+          Core_3[shape=box, label="Core-3"];
+          Peripheral_3[shape=box, label="Peripheral-3"];
         }
         subgraph "cluster NoC-3" { label = "NoC-3";
-          NoC-3[shape=box, label="NoC-3"];
+          NoC_3[shape=box, label="NoC-3"];
         }
       }
       subgraph "cluster SoC-2" { label = "SoC-2";
         subgraph "cluster PU-2" { label = "PU-2";
-          Core-2[shape=box, label="Core-2"];
-          Peripheral-2[shape=box, label="Peripheral-2"];
+          Core_2[shape=box, label="Core-2"];
+          Peripheral_2[shape=box, label="Peripheral-2"];
         }
         subgraph "cluster NoC-2" { label = "NoC-2";
-          NoC-2[shape=box, label="NoC-2"];
+          NoC_2[shape=box, label="NoC-2"];
         }
       }
       subgraph "cluster SoC-1" { label = "SoC-1";
         subgraph "cluster PU-1" { label = "PU-1";
-          Core-1[shape=box, label="Core-1"];
-          Peripheral-1[shape=box, label="Peripheral-1"];
+          Core_1[shape=box, label="Core-1"];
+          Peripheral_1[shape=box, label="Peripheral-1"];
         }
         subgraph "cluster NoC-1" { label = "NoC-1";
-          NoC-1[shape=box, label="NoC-1"];
+          NoC_1[shape=box, label="NoC-1"];
         }
       }
       subgraph "cluster SoC-0" { label = "SoC-0";
         subgraph "cluster PU-0" { label = "PU-0";
-          Core-0[shape=box, label="Core-0"];
-          Peripheral-0[shape=box, label="Peripheral-0"];
+          Core_0[shape=box, label="Core-0"];
+          Peripheral_0[shape=box, label="Peripheral-0"];
         }
         subgraph "cluster NoC-0" { label = "NoC-0";
-          NoC-0[shape=box, label="NoC-0"];
+          NoC_0[shape=box, label="NoC-0"];
         }
       }
     }

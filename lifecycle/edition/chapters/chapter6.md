@@ -303,7 +303,7 @@ Puedes ejecutar comandos del sistema desde `vi`.
 
 ### Common macOS Commands
 
-Below are some common macOS commands, organized by general function. Bookmark this page so you can refer back to it often. Although most options to these commands are identical between Linux and macOS, be sure to view the manual page for commands that you will use in the future.
+Below are some common macOS commands, organized by general function. Although most options to these commands are identical between Linux and macOS, be sure to view the manual page for commands that you will use in the future.
 
 ### System Documentation Commands in macOS
 

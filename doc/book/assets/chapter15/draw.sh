@@ -42,7 +42,13 @@
 ##                                                                               ##
 ###################################################################################
 
-dot -Tsvg dependences-global.dot > dependences-global.svg
+dot -Tsvg extended-architecture.dot > extended-architecture.svg
+dot -Tsvg reduced-architecture.dot > reduced-architecture.svg
 
-dot -Tsvg device.dot > device.svg
-dot -Tsvg prototype.dot > prototype.svg
+dot -Tsvg hardware-workflow.dot > hardware-workflow.svg
+
+dot -Tsvg back-end.dot > back-end.svg
+dot -Tsvg front-end.dot > front-end.svg
+
+dot -Tpng back-end.dot > back-end.png
+dot -Tpng front-end.dot > front-end.png

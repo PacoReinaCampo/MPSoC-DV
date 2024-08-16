@@ -1,10 +1,10 @@
 digraph Project {
   // Introduction
-  graph [rankdir = BT, splines=ortho];
+  graph [rankdir = TB, splines=ortho];
   node[shape=record];
 
   // Blocks
-  subgraph "cluster pu-msp430" { label = "pu-msp430";
+  subgraph "cluster pu-riscv" { label = "pu-riscv";
     subgraph "cluster core" { label = "core";
       subgraph "cluster cache" { label = "cache";
         dcache_core[shape=box, label="dcache_core"];
@@ -56,6 +56,9 @@ digraph Project {
       ram_queue[shape=box, label="ram_queue"];
     }
     subgraph "cluster interface" { label = "interface";
+      bus_axi4[shape=box, label="axi4"];
+      bus_ahb3[shape=box, label="ahb3"];
+      bus_biu[shape=box, label="biu"];
       bus_wb[shape=box, label="wb"];
     }
   }

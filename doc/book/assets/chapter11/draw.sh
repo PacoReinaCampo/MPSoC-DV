@@ -42,7 +42,4 @@
 ##                                                                               ##
 ###################################################################################
 
-dot -Tsvg dependences-global.dot > dependences-global.svg
-
-dot -Tsvg device.dot > device.svg
-dot -Tsvg prototype.dot > prototype.svg
+dot -Tsvg osvvm-testbench.dot > osvvm-testbench.svg
