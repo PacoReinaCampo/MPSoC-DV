@@ -28,7 +28,7 @@ Un modelo es una representación simplificada de algo más complejo. Puede ser f
         · Control de segmentación (pipeline)
         · Control de entrada
       · Asignar señales de datos internas
-         · Señales de registro de componentes
+        · Señales de registro de componentes
     · Implementar unidad síncrona
       · Establecer estados FSM
       · Asignar señales de control FSM

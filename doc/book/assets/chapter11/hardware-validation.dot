@@ -1,0 +1,19 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = LR, splines=ortho];
+  node[shape=record];
+
+  // Blocks
+  subgraph "cluster TestBench" { label = "TestBench";
+    Stimulus[shape=box, label="Stimulus"];
+    Functionality[shape=box, label="Functionality (Target)"];
+    Model[shape=box, label="Model (Device)"];
+    Asserts[shape=box, label="Asserts"];
+  }
+
+  // Sequence
+  Stimulus -> Functionality;
+  Stimulus -> Model;
+  Functionality -> Asserts;
+  Model -> Asserts;
+}

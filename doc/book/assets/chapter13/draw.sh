@@ -44,4 +44,5 @@
 
 dot -Tsvg hardware-verification.dot > hardware-verification.svg
 
+dot -Tsvg osvvm-testbench.dot > osvvm-testbench.svg
 dot -Tsvg uvm-testbench.dot > uvm-testbench.svg

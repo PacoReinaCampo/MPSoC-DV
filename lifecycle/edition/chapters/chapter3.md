@@ -10,7 +10,7 @@ $$COMPONENT = [MPSoC, SoC, PU]$$
 
 Las unidades de la organización QueenField son:
 
-$$UNIT = [MSP430, OR1K, RISCV]$$
+$$UNIT = [4004, MSP430, OR1K, RISCV]$$
 
 Los proyectos de la organización QueenField se clasifican según la lista:
 
@@ -27,6 +27,7 @@ Los proyectos de la organización QueenField se clasifican según la lista:
   · Proyecto DNC
   · Proyecto ANN
 · Programa ARCHITECTURE
+  · Proyecto 4004
   · Proyecto MSP430
   · Proyecto OR1K
   · Proyecto RISCV

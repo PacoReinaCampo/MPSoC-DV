@@ -10,9 +10,7 @@ digraph Project {
   Design[label="Software Design \n(C/C++/Go/Rust) [Vi]"];
   Verification[label="Software Verification \n(C/C++/Go/Rust) [GCC]"];
   Configuration[label="Configuration \n(C/C++/Go/Rust) [Vi]"];
-  Quality[label="Quality Assurance \n(Ada) [Vi]"];
-  Certification[label="Certification \n(Java) [Vi]"];
-  LifeCycle[label="Design LifeCycle Data \n(Scala) [Vi]"];
+  Implementation[label="Implementation \n(C/C++/Go/Rust) [GCC]"];
 
   // Sequence
   Requirements -> Model;
@@ -20,13 +18,9 @@ digraph Project {
   Validation -> Design;
   Design -> Verification;
   Verification -> Configuration;
-  Configuration -> Quality;
-  Quality -> Certification;
-  Certification -> LifeCycle;
-  LifeCycle -> Requirements;
+  Configuration -> Implementation;
 
   // Feedback
   Validation -> Model;
   Verification -> Design;
-  Quality -> Requirements;
 }

@@ -1,0 +1,32 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = TB, splines=ortho];
+  node[shape=record];
+
+  // Blocks
+  subgraph "cluster TestBench" { label = "UVM TestBench";
+    subgraph "cluster Test" { label = "Test";
+      subgraph "cluster Environment" { label = "Environment";
+        subgraph "cluster Agent" { label = "Agent";
+          Sequencer[shape=box, label="Sequencer"];
+          Driver[shape=box, label="Driver"];
+          Monitor[shape=box, label="Monitor"];
+        }
+        subgraph "cluster Scoreboard" { label = "Scoreboard";
+          Scoreboard[shape=box, label="Scoreboard"];
+        }
+      }
+      subgraph "cluster Sequences" { label = "Sequences";
+        Sequences[shape=box, label="Sequences"];
+      }
+      subgraph "cluster Configuration" { label = "Configuration";
+        Configuration[shape=box, label="Configuration"];
+      }
+    }
+    subgraph "cluster DUT" { label = "DUT";
+      DUT[shape=box, label="DUT"];
+    }
+  }
+
+  // Sequence
+}

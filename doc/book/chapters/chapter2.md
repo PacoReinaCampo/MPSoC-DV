@@ -28,21 +28,19 @@ source flow.sh
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-#### MSP430
+#### 4004
 
-...
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+
+#### MSP430
 
 Application-Specific Integrated Circuit (ASIC) design for MSP430 involves creating customized silicon chips specifically optimized for the MSP430 microcontroller architecture. This process includes designing and fabricating circuits that implement the MSP430's instruction set, peripherals, and interfaces, tailored to meet specific application requirements. Utilizing ASICs for MSP430 enables high performance, reduced power consumption, and minimized physical footprint, making them ideal for applications where efficiency and space are critical, such as in portable and battery-operated devices.
 
 #### OpenRISC
 
-...
-
 ASIC design for OpenRISC focuses on developing custom integrated circuits based on the OpenRISC architecture, a family of open-source RISC processor designs. This entails designing specialized hardware to implement OpenRISC's instruction set, memory hierarchy, and I/O functionalities, ensuring optimized performance for target applications. By leveraging ASIC technology for OpenRISC, developers can achieve significant enhancements in speed, power efficiency, and system integration, tailored to the specific needs of embedded systems, industrial automation, and other high-performance computing applications.
 
 #### RISC-V
-
-...
 
 ASIC design for RISC-V involves creating dedicated hardware tailored to the RISC-V instruction set architecture, known for its open and extensible nature. This process includes developing custom circuits that provide optimized processing, memory management, and peripheral interfacing capabilities specific to RISC-V. Implementing ASICs for RISC-V allows for highly efficient and high-performance solutions, making it suitable for a wide range of applications from consumer electronics to advanced computing systems, benefiting from RISC-V's scalability and modularity.
 
@@ -59,21 +57,19 @@ source flow.sh
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-#### MSP430
+#### 4004
 
-...
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+
+#### MSP430
 
 Field-Programmable Gate Array (FPGA) modeling for MSP430 involves using reconfigurable hardware to emulate the MSP430 microcontroller architecture. This approach allows developers to prototype and test MSP430-based designs quickly and efficiently, without the need for custom silicon fabrication. FPGAs provide flexibility in modifying the design, enabling rapid iteration and validation of various configurations and features. FPGA modeling is particularly valuable for early-stage development, educational purposes, and experimental projects involving the MSP430.
 
 #### OpenRISC
 
-...
-
 FPGA modeling for OpenRISC utilizes reconfigurable hardware to implement and test the OpenRISC architecture. This method allows for the rapid development and validation of OpenRISC-based systems, providing a flexible platform to explore different design choices and optimizations. Using FPGAs for OpenRISC modeling enables quick prototyping, debugging, and performance analysis, making it an essential tool for developers working on innovative projects, academic research, and complex embedded applications requiring customization and rapid deployment.
 
 #### RISC-V
-
-...
 
 FPGA modeling for RISC-V involves using configurable logic blocks to emulate the RISC-V processor architecture, facilitating rapid prototyping and testing of RISC-V designs. This approach allows developers to experiment with various RISC-V configurations, extensions, and custom instructions in a flexible and reconfigurable environment. FPGA modeling provides a practical and efficient way to validate and optimize RISC-V implementations before committing to ASIC production, supporting the iterative design process and accelerating the development cycle for cutting-edge computing solutions.
 
@@ -81,13 +77,68 @@ FPGA modeling for RISC-V involves using configurable logic blocks to emulate the
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
+### 4004
+
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+
+#### 4004 Tests
+
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+
+##### ISA 4
+
+...
+
+The ISA 4 tests for 4004 focus on validating the functionality and performance of the 4-bit instruction set architecture. These tests are crucial for ensuring that the 4004 microcontrollers execute instructions correctly and efficiently. They cover various aspects of the ISA, including arithmetic operations, control flow, and memory access, providing a comprehensive assessment of the microcontroller's capabilities. By rigorously testing the ISA 16, developers can identify and address any issues, ensuring reliable and predictable behavior in real-world applications.
+
+#### 4004 Bare Metal
+
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+
+##### C Language
+
+...
+
+The C language support for 4004 in a bare metal environment involves writing software that runs directly on the hardware without an underlying operating system. This approach provides maximum control over the microcontroller's resources and is ideal for developing highly optimized and efficient applications. Using the C language, developers can leverage its simplicity and widespread support to create robust and portable code, suitable for a wide range of embedded applications on 4004 devices.
+
+Hello QueenField in C Language:
+
+```c
+#include <stdio.h>
+
+int main() {
+  printf("Hello QueenField!\n");
+  return 0;
+}
+```
+
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+
+##### C++ Language
+
+...
+
+The C++ language support for 4004 in a bare metal environment enables developers to use object-oriented programming techniques while maintaining direct control over the hardware. This allows for more modular and maintainable code, benefiting from C++'s features such as classes, inheritance, and templates. Writing bare metal applications in C++ on 4004 combines the performance and efficiency of low-level programming with the flexibility and reusability of high-level abstractions, making it a powerful option for complex embedded systems.
+
+Hello QueenField in C++ Language:
+
+```cpp
+#include <iostream>
+
+int main() {
+  std::cout << "Hello QueenField!\n";
+  return 0;
+}
+```
+
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+
+
 ### MSP430
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 #### MSP430 Tests
-
-...
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -98,8 +149,6 @@ FPGA modeling for RISC-V involves using configurable logic blocks to emulate the
 The ISA 16 tests for MSP430 focus on validating the functionality and performance of the 16-bit instruction set architecture. These tests are crucial for ensuring that the MSP430 microcontrollers execute instructions correctly and efficiently. They cover various aspects of the ISA, including arithmetic operations, control flow, and memory access, providing a comprehensive assessment of the microcontroller's capabilities. By rigorously testing the ISA 16, developers can identify and address any issues, ensuring reliable and predictable behavior in real-world applications.
 
 #### MSP430 Bare Metal
-
-...
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -182,8 +231,6 @@ fn main() {
 
 #### OpenRISC Tests
 
-...
-
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 ##### ISA 32
@@ -199,8 +246,6 @@ The ISA 32 tests for OpenRISC focus on evaluating the 32-bit instruction set arc
 The ISA 64 tests for OpenRISC extend the evaluation to the 64-bit instruction set architecture, providing a comprehensive assessment of its capabilities. These tests cover all aspects of the 64-bit ISA, including arithmetic, control flow, and memory operations. By conducting rigorous ISA 64 tests, developers can ensure that OpenRISC processors deliver the necessary performance and reliability for high-performance computing and advanced applications, addressing the needs of more demanding computational tasks.
 
 #### OpenRISC Bare Metal
-
-...
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -327,8 +372,6 @@ fn main() {
 
 #### OpenRISC Operating System
 
-...
-
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 ##### GNU Linux
@@ -344,8 +387,6 @@ GNU Linux support for OpenRISC provides a full-featured operating system environ
 GNU Hurd support for OpenRISC offers an alternative operating system environment based on the GNU Mach microkernel. Hurd provides a modular and flexible architecture, allowing fine-grained control over system resources. Running GNU Hurd on OpenRISC enables developers to explore advanced system programming concepts and create highly customizable operating system components, opening new possibilities for innovative embedded applications on the OpenRISC platform.
 
 #### OpenRISC Distribution
-
-...
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -366,8 +407,6 @@ GNU Fedora distribution for OpenRISC offers a cutting-edge platform with the lat
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 #### RISC-V Tests
-
-...
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -499,8 +538,6 @@ spike rv128um-v-remw
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 #### RISC-V Bare Metal
-
-...
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -642,8 +679,6 @@ fn main() {
 
 #### RISC-V Operating System
 
-...
-
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 ##### GNU Linux
@@ -760,8 +795,6 @@ qemu-system-riscv64 \
 GNU Hurd support for RISC-V offers an alternative operating system environment based on the GNU Mach microkernel. Hurd provides a modular and flexible architecture, allowing fine-grained control over system resources. Running GNU Hurd on RISC-V enables developers to explore advanced system programming concepts and create highly customizable operating system components, opening new possibilities for innovative embedded applications on the RISC-V platform.
 
 #### RISC-V Distribution
-
-...
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 

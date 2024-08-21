@@ -1,0 +1,32 @@
+digraph Project {
+  // Introduction
+  graph [rankdir = LR, splines=ortho];
+  node[shape=record];
+
+  // Blocks
+  subgraph "cluster Workflow" { label = "Back-End Workflow";
+    subgraph "cluster Hardware" { label = "Hardware";
+      Planning_SLH[label="Planning Switch Level of Hardware \n(magic)"];
+      Placing_SLH[label="Placing Switch Level of Hardware \n(graywolf)"];
+      Timing_SLH[label="Timing Switch Level of Hardware \n(sta)"];
+      Routing_SLH[label="Routing Switch Level of Hardware \n(qrouter)"];
+      Simulating_WLH[label="Simulating Switch Level of Hardware \n(irsim)"];
+      Verifying_LVS[label="Verifying Switch Level of Hardware LVS \n(netgen)"];
+      Checking_DRC[label="Checking Switch Level of Hardware DRC \n(magic)"];
+      Printing_GDS[label="Printing Switch Level of Hardware GDS \n(magic)"];
+    }
+  }
+
+  // Hardware Sequence
+  Planning_SLH -> Placing_SLH;
+  Placing_SLH -> Timing_SLH;
+  Timing_SLH -> Routing_SLH;
+  Routing_SLH -> Simulating_WLH;
+  Simulating_WLH -> Verifying_LVS;
+  Verifying_LVS -> Checking_DRC;
+  Checking_DRC -> Printing_GDS;
+
+  // Hardware Feedback
+  Verifying_LVS -> Planning_SLH;
+  Checking_DRC -> Planning_SLH;
+}

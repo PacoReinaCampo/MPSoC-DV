@@ -1,27 +1,64 @@
-# CAPÍTULOS
+# CAPÍTULOS Y APÉNDICES
 
 Los capítulos presentes en la documentación se presentan en la lista.
 
-* Capítulo 1. Introduction
-* Capítulo 2. Methodology
-* Capítulo 3. Projects
-* Capítulo 4. Organization
-* Capítulo 5. Workflow
-* Capítulo 6. Quality Assurance
-* Capítulo 7. Certification
-* Capítulo 8. Design Lifecycle Data
+* Capítulo 2. Introduction
+* Capítulo 3. Organization
+* Capítulo 4. Architecture
+* Capítulo 5. Instructions
+* Capítulo 6. Formats
+* Capítulo 7. Traps
+* Capítulo 8. Registers
+* Capítulo 9. Requirements
+* Capítulo 10. Model
+* Capítulo 11. Validation
+* Capítulo 12. Design
+* Capítulo 13. Verification
+* Capítulo 14. Configuration
+* Capítulo 15. Implementation
+
+Los apéndices presentes en la documentación se presentan en la lista.
+
+* Appendix A. IP Cores Management
+* Appendix B. IP Cores Development
+* Appendix C. IP Cores DevOps
+* Appendix D. Quality Assurance
+* Appendix E. Certification
+* Appendix F. Design Lifecycle Data
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-## Capítulo 1. Introduction
+## Capítulo 2. Introduction
 
-Un "Capítulo 1" para cada proyecto.
+Un "Capítulo 2" para cada Programa.
 
-## Capítulo 2. Methodology
+## Capítulo 3. Organization
 
-Se conserva para toda la Organización QueenField.
+Un "Capítulo 3" para cada Programa.
 
-La metodología a seguir en un proyecto con contenido de Hardware y Software incluyen los elementos de la lista:
+## Capítulo 4. Architecture
+
+Un "Capítulo 4" para cada Programa.
+
+## Capítulo 5. Instructions
+
+Un "Capítulo 5" para cada Programa.
+
+## Capítulo 6. Formats
+
+Un "Capítulo 6" para cada Programa.
+
+## Capítulo 7. Traps
+
+Un "Capítulo 7" para cada Programa.
+
+## Capítulo 8. Registers
+
+Un "Capítulo 8" para cada Programa.
+
+## Capítulo 9. Requirements
+
+Un "Capítulo 9" para cada Proyecto.
 
 ![Hardware Project Workflow](assets/chapter4/hardware-project.svg)
 
@@ -31,29 +68,29 @@ La metodología a seguir en un proyecto con contenido de Hardware y Software inc
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-* Requirements
-* Source
-* Model
-* Validation
-* Design (rtl/src)
-* Verification
-* Quality
-* Certification
-* Documentation
+## Capítulo 10. Model
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+Un "Capítulo 10" para cada Proyecto.
 
-## Capítulo 3. Projects
+## Capítulo 11. Validation
 
-Un "Capítulo 3" para cada Proyecto.
+Un "Capítulo 11" para cada Proyecto.
 
-## Capítulo 4. Organization
+## Capítulo 12. Design (rtl/src)
 
-Un "Capítulo 4" para cada Programa.
+Un "Capítulo 12" para cada Proyecto.
 
-## Capítulo 5. Workflow
+## Capítulo 13. Verification
 
-Un "Capítulo 5" para cada Programa.
+Un "Capítulo 13" para cada Proyecto.
+
+## Capítulo 14. Configuration
+
+Un "Capítulo 14" para cada Proyecto.
+
+## Capítulo 15. Implementation
+
+Un "Capítulo 15" para cada Proyecto.
 
 El Hardware Front-End Workflow
 
@@ -67,15 +104,27 @@ El Hardware Back-End Workflow
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-## Capítulo 6. Quality Assurance
+## Apéndice A. IP Cores Management
 
 Se conserva para toda la Organización QueenField.
 
-## Capítulo 7. Certification
+## Apéndice B. IP Cores Development
 
 Se conserva para toda la Organización QueenField.
 
-## Capítulo 8. Design Lifecycle Data
+## Apéndice C. IP Cores DevOps
+
+Se conserva para toda la Organización QueenField.
+
+## Apéndice D. Quality Assurance
+
+Se conserva para toda la Organización QueenField.
+
+## Apéndice E. Certification
+
+Se conserva para toda la Organización QueenField.
+
+## Apéndice F. Design Lifecycle Data
 
 Se conserva para toda la Organización QueenField.
 
