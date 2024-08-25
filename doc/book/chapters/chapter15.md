@@ -81,7 +81,22 @@ type:
 sudo apt update
 sudo apt upgrade
 
-sudo apt install bison cmake flex freeglut3-dev libcairo2-dev libgsl-dev libncurses-dev libx11-dev m4 python-tk python3-tk swig tcl tcl-dev tk-dev tcsh
+sudo apt -y install bison
+sudo apt -y install cmake
+sudo apt -y install flex
+sudo apt -y install freeglut3-dev
+sudo apt -y install libcairo2-dev
+sudo apt -y install libgsl-dev
+sudo apt -y install libncurses-dev
+sudo apt -y install libx11-dev
+sudo apt -y install m4
+sudo apt -y install python-tk
+sudo apt -y install python3-tk
+sudo apt -y install swig
+sudo apt -y install tcl
+sudo apt -y install tcl-dev
+sudo apt -y install tk-dev
+sudo apt -y install tcsh
 ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
@@ -95,7 +110,25 @@ sudo apt upgrade
 ```
 
 ```
-sudo apt -y install build-essential clang bison flex libreadline-dev gawk tcl-dev libffi-dev git make gnat graphviz xdot pkg-config python3 libboost-system-dev libboost-python-dev libboost-filesystem-dev zlib1g-dev
+sudo apt -y install build-essential
+sudo apt -y install clang
+sudo apt -y install bison
+sudo apt -y install flex
+sudo apt -y install libreadline-dev
+sudo apt -y install gawk
+sudo apt -y install tcl-dev
+sudo apt -y install libffi-dev
+sudo apt -y install git
+sudo apt -y install make
+sudo apt -y install gnat
+sudo apt -y install graphviz
+sudo apt -y install xdot
+sudo apt -y install pkg-config
+sudo apt -y install python3
+sudo apt -y install libboost-system-dev
+sudo apt -y install libboost-python-dev
+sudo apt -y install libboost-filesystem-dev
+sudo apt -y install zlib1g-dev
 ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
@@ -346,7 +379,22 @@ type:
 sudo apt update
 sudo apt upgrade
 
-sudo apt install bison cmake flex freeglut3-dev libcairo2-dev libgsl-dev libncurses-dev libx11-dev m4 python-tk python3-tk swig tcl tcl-dev tk-dev tcsh
+sudo apt -y install bison
+sudo apt -y install cmake
+sudo apt -y install flex
+sudo apt -y install freeglut3-dev
+sudo apt -y install libcairo2-dev
+sudo apt -y install libgsl-dev
+sudo apt -y install libncurses-dev
+sudo apt -y install libx11-dev
+sudo apt -y install m4
+sudo apt -y install python-tk
+sudo apt -y install python3-tk
+sudo apt -y install swig
+sudo apt -y install tcl
+sudo apt -y install tcl-dev
+sudo apt -y install tk-dev
+sudo apt -y install tcsh
 ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....

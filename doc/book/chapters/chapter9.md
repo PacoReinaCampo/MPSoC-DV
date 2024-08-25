@@ -38,21 +38,21 @@
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 * **Structural UML diagrams** (for Architecture and Interface)
-  * Class diagram
-  * Component diagram
-  * Composite diagram
-  * Deployment diagram
-  * Object diagram
-  * Package diagram
-  * Profile diagram
+   * Class diagram
+   * Component diagram
+   * Composite diagram
+   * Deployment diagram
+   * Object diagram
+   * Package diagram
+   * Profile diagram
 * **Behavioral UML diagrams** (for Functionality and Registers and Interrptions)
-  * Activity diagram
-  * Communication diagram
-  * Interaction diagram
-  * Sequence diagram
-  * State diagram
-  * Timing diagram
-  * Use diagram
+   * Activity diagram
+   * Communication diagram
+   * Interaction diagram
+   * Sequence diagram
+   * State diagram
+   * Timing diagram
+   * Use diagram
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 

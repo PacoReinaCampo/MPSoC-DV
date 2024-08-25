@@ -21,11 +21,11 @@ MATLAB provides various tools and settings to customize your development environ
 ### Customizing the MATLAB Desktop
 
 - **Layout**:
-  - Arrange and resize tool windows to suit your workflow.
-  - Save layouts for different tasks using the "Layouts" menu.
+   - Arrange and resize tool windows to suit your workflow.
+   - Save layouts for different tasks using the "Layouts" menu.
 
 - **Toolbars and Panes**:
-  - Customize toolbars and panes for quick access to frequently used tools.
+   - Customize toolbars and panes for quick access to frequently used tools.
 
 ### Shortcuts and Quick Access
 
@@ -80,8 +80,8 @@ MATLAB provides various tools and settings to customize your development environ
   ```
 
 - **Online Resources**:
-  - Visit the MathWorks website for additional resources, including examples, tutorials, and community forums.
-  - Use the `web` function to open web pages directly from MATLAB.
+   - Visit the MathWorks website for additional resources, including examples, tutorials, and community forums.
+   - Use the `web` function to open web pages directly from MATLAB.
 
 ### Technical Support
 

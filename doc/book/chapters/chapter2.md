@@ -91,7 +91,7 @@ FPGA modeling for RISC-V involves using configurable logic blocks to emulate the
 
 The ISA 4 tests for 4004 focus on validating the functionality and performance of the 4-bit instruction set architecture. These tests are crucial for ensuring that the 4004 microcontrollers execute instructions correctly and efficiently. They cover various aspects of the ISA, including arithmetic operations, control flow, and memory access, providing a comprehensive assessment of the microcontroller's capabilities. By rigorously testing the ISA 16, developers can identify and address any issues, ensuring reliable and predictable behavior in real-world applications.
 
-#### 4004 Bare Metal
+#### 4004 BareMetal
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -148,7 +148,7 @@ int main() {
 
 The ISA 16 tests for MSP430 focus on validating the functionality and performance of the 16-bit instruction set architecture. These tests are crucial for ensuring that the MSP430 microcontrollers execute instructions correctly and efficiently. They cover various aspects of the ISA, including arithmetic operations, control flow, and memory access, providing a comprehensive assessment of the microcontroller's capabilities. By rigorously testing the ISA 16, developers can identify and address any issues, ensuring reliable and predictable behavior in real-world applications.
 
-#### MSP430 Bare Metal
+#### MSP430 BareMetal
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -245,7 +245,7 @@ The ISA 32 tests for OpenRISC focus on evaluating the 32-bit instruction set arc
 
 The ISA 64 tests for OpenRISC extend the evaluation to the 64-bit instruction set architecture, providing a comprehensive assessment of its capabilities. These tests cover all aspects of the 64-bit ISA, including arithmetic, control flow, and memory operations. By conducting rigorous ISA 64 tests, developers can ensure that OpenRISC processors deliver the necessary performance and reliability for high-performance computing and advanced applications, addressing the needs of more demanding computational tasks.
 
-#### OpenRISC Bare Metal
+#### OpenRISC BareMetal
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -537,7 +537,7 @@ spike rv128um-v-remw
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-#### RISC-V Bare Metal
+#### RISC-V BareMetal
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 

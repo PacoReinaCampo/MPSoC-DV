@@ -10,8 +10,8 @@ Immediate scope refers to the region in the code where an identifier is directly
 
 ### Characteristics
 
-- **Local Variables:** Variables declared within a block are only accessible within that block.
-- **Local Properties:** Properties or sequences defined within a specific module or unit are only accessible within that module or unit.
+- **Local Variables**: Variables declared within a block are only accessible within that block.
+- **Local Properties**: Properties or sequences defined within a specific module or unit are only accessible within that module or unit.
 
 ### Example
 
@@ -37,8 +37,8 @@ Extended scope refers to a broader region where an identifier can be accessed be
 
 ### Characteristics
 
-- **Inheritance:** In object-oriented contexts, properties and methods of a parent class or module are accessible in the child class or module.
-- **Module Linking:** Identifiers in linked or included modules can be accessed if explicitly imported or referenced.
+- **Inheritance**: In object-oriented contexts, properties and methods of a parent class or module are accessible in the child class or module.
+- **Module Linking**: Identifiers in linked or included modules can be accessed if explicitly imported or referenced.
 
 ### Example
 
@@ -63,12 +63,12 @@ In this example, `x` is defined in the `parent` module and is accessible in the 
 
 Direct name references occur when an identifier is accessed using its explicit name within its scope or through qualified naming if the identifier is from an extended scope.
 
-**Characteristics:**
+**Characteristics**:
 
-- **Unambiguous Access:** The identifier is accessed using its exact name.
-- **Immediate or Extended Scope:** The identifier can be in the immediate or extended scope but is referenced directly.
+- **Unambiguous Access**: The identifier is accessed using its exact name.
+- **Immediate or Extended Scope**: The identifier can be in the immediate or extended scope but is referenced directly.
 
-**Example:**
+**Example**:
 
 ```verilog
 module main;
@@ -83,12 +83,12 @@ endmodule
 
 Indirect name references occur when an identifier is accessed using an alias, pointer, or through some form of indirection.
 
-**Characteristics:**
+**Characteristics**:
 
-- **Alias or Pointer Access:** The identifier is accessed through another reference or a symbolic name.
-- **Dynamic or Static Resolution:** The actual reference can be resolved dynamically (at runtime) or statically (at compile time).
+- **Alias or Pointer Access**: The identifier is accessed through another reference or a symbolic name.
+- **Dynamic or Static Resolution**: The actual reference can be resolved dynamically (at runtime) or statically (at compile time).
 
-**Example:**
+**Example**:
 
 ```verilog
 module main;
@@ -107,7 +107,7 @@ In this example, `pointer` indirectly references `data`.
 
 In PSL, scope and visibility rules are critical for organizing properties and ensuring they are accessible where needed. The following examples demonstrate immediate and extended scope in PSL:
 
-**Immediate Scope:**
+**Immediate Scope**:
 
 ```psl
 property p1;
@@ -118,7 +118,7 @@ endproperty
 assert p1;
 ```
 
-**Extended Scope:**
+**Extended Scope**:
 
 ```psl
 module m;
@@ -133,15 +133,15 @@ module n extends m;
 endmodule
 ```
 
-**Direct and Indirect Name References:**
+**Direct and Indirect Name References**:
 
-**Direct Reference:**
+**Direct Reference**:
 
 ```psl
 assert always (req -> eventually ack);
 ```
 
-**Indirect Reference:**
+**Indirect Reference**:
 
 In PSL, indirect references can be more abstract, often involving parameters or aliases:
 

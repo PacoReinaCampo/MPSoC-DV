@@ -666,53 +666,53 @@ In the context of airborne electronic hardware development governed by DO-254, v
 ### Design Lifecycle Data Templates
 
 * Data Required for the Hardware Planning
-  * Hardware Configuration Management Plan
-  * Hardware Design Plan
-  * Hardware Process Assurance Plan
-  * Hardware Process Assurance Records
-  * Hardware Requirements Design HDL Code Validation and Verification and Archive Standards
-  * Hardware Validation Plan
-  * Hardware Verification Plan
-  * Plan for Hardware Aspects of Certification
-  * Supplier Management Plan
-  * Tool Qualification Plans
+   * Hardware Configuration Management Plan
+   * Hardware Design Plan
+   * Hardware Process Assurance Plan
+   * Hardware Process Assurance Records
+   * Hardware Requirements Design HDL Code Validation and Verification and Archive Standards
+   * Hardware Validation Plan
+   * Hardware Verification Plan
+   * Plan for Hardware Aspects of Certification
+   * Supplier Management Plan
+   * Tool Qualification Plans
 
 * Data Required for the Hardware Development
-  * Hardware Configuration Management Records
-  * Hardware Design Data
-  * Hardware Design Schematics
-  * Hardware Life Cycle Environment Configuration Index
-  * Hardware Process Assurance Records
-  * Hardware Requirements
-  * Hardware Requirements Design and HDL Code Standards
-  * Hardware Review and Analysis Procedures
-  * Hardware Review and Analysis Results
-  * Hardware Tool Qualification Data
-  * Hardware Traceability Data
-  * HDL
-  * Problem Reports
+   * Hardware Configuration Management Records
+   * Hardware Design Data
+   * Hardware Design Schematics
+   * Hardware Life Cycle Environment Configuration Index
+   * Hardware Process Assurance Records
+   * Hardware Requirements
+   * Hardware Requirements Design and HDL Code Standards
+   * Hardware Review and Analysis Procedures
+   * Hardware Review and Analysis Results
+   * Hardware Tool Qualification Data
+   * Hardware Traceability Data
+   * HDL
+   * Problem Reports
 
 * Data Required for the Hardware Verification
-  * Hardware Configuration Management Records
-  * Hardware Design Representation Data
-  * Hardware Design Schematics
-  * Hardware Life Cycle Environment Configuration Index
-  * Hardware Process Assurance Records
-  * Hardware Requirements Data
-  * Hardware Tool Qualification Data
-  * Hardware Verification Procedures
-  * Hardware Verification Results
-  * HDL
-  * Problem Reports
+   * Hardware Configuration Management Records
+   * Hardware Design Representation Data
+   * Hardware Design Schematics
+   * Hardware Life Cycle Environment Configuration Index
+   * Hardware Process Assurance Records
+   * Hardware Requirements Data
+   * Hardware Tool Qualification Data
+   * Hardware Verification Procedures
+   * Hardware Verification Results
+   * HDL
+   * Problem Reports
 
 * Data Required for the Final Certification Hardware
-  * Hardware Accomplishment Summary
-  * Hardware Configuration Index
-  * Hardware Configuration Management Records
-  * Hardware Life Cycle Environment Configuration Index
-  * Hardware Process Assurance Records
-  * Hardware Verification Results
-  * Problem Reports
+   * Hardware Accomplishment Summary
+   * Hardware Configuration Index
+   * Hardware Configuration Management Records
+   * Hardware Life Cycle Environment Configuration Index
+   * Hardware Process Assurance Records
+   * Hardware Verification Results
+   * Problem Reports
 
 #### Data Required for the Hardware Planning
 

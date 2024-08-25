@@ -23,6 +23,7 @@ The motivation behind PSL is to improve the efficiency and effectiveness of hard
 ### Goals
 
 The goals of PSL are to:
+
 - Provide a clear and expressive syntax for specifying properties.
 - Enable automatic and formal verification of hardware designs.
 - Support a wide range of HDLs and verification tools.

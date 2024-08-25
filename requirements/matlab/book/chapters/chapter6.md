@@ -9,9 +9,9 @@ Scripts are files containing a sequence of MATLAB commands. They are useful for 
 ### Creating and Running Scripts
 
 - **Creating a Script**:
-  - Open MATLAB Editor.
-  - Type the series of commands.
-  - Save the file with a `.m` extension, e.g., `myScript.m`.
+   - Open MATLAB Editor.
+   - Type the series of commands.
+   - Save the file with a `.m` extension, e.g., `myScript.m`.
 
 - **Running a Script**:
   ```matlab
@@ -34,9 +34,9 @@ Functions are files that accept input arguments and return output arguments. The
 ### Creating and Using Functions
 
 - **Defining a Function**:
-  - Open MATLAB Editor.
-  - Define the function using the `function` keyword.
-  - Save the file with the function name and a `.m` extension, e.g., `myFunction.m`.
+   - Open MATLAB Editor.
+   - Define the function using the `function` keyword.
+   - Save the file with the function name and a `.m` extension, e.g., `myFunction.m`.
 
 - **Function Syntax**:
   ```matlab
@@ -65,9 +65,9 @@ Live scripts and functions combine code, output, and formatted text in an intera
 ### Creating Live Scripts and Functions
 
 - **Creating a Live Script**:
-  - Open MATLAB.
-  - Select "New Live Script" from the Home tab.
-  - Enter code, text, and equations interactively.
+   - Open MATLAB.
+   - Select "New Live Script" from the Home tab.
+   - Enter code, text, and equations interactively.
 
 Example:
 ```matlab
@@ -85,9 +85,9 @@ MATLAB supports object-oriented programming through classes, enabling the defini
 ### Defining and Using Classes
 
 - **Defining a Class**:
-  - Open MATLAB Editor.
-  - Define the class using the `classdef` keyword.
-  - Save the file with the class name and a `.m` extension, e.g., `MyClass.m`.
+   - Open MATLAB Editor.
+   - Define the class using the `classdef` keyword.
+   - Save the file with the class name and a `.m` extension, e.g., `MyClass.m`.
 
 - **Class Syntax**:
   ```matlab

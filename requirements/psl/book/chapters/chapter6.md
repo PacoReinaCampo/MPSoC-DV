@@ -10,7 +10,7 @@ Sequential expressions describe the order and timing of events. They are used to
 
 SEREs are a powerful way to describe sequences of events using a syntax similar to regular expressions but extended to handle the temporal aspect of hardware behavior.
 
-**Example:**
+**Example**:
 ```psl
 {a; b[*3]; c}
 ```
@@ -20,7 +20,7 @@ In this example, `a` is followed by `b` occurring three times, followed by `c`.
 
 Sequences are ordered lists of events or conditions that must occur in a specified order. They can be used to describe complex temporal relationships in a concise manner.
 
-**Example:**
+**Example**:
 ```psl
 sequence my_sequence;
   a ##1 b ##2 c;
@@ -36,7 +36,7 @@ Properties are assertions about the behavior of the system. They describe condit
 
 FL (Formal Language) properties are basic properties used to assert simple conditions over time.
 
-**Example:**
+**Example**:
 ```psl
 assert always (req -> eventually ack);
 ```
@@ -46,7 +46,7 @@ This property asserts that whenever `req` is true, `ack` must eventually become 
 
 OBE properties extend basic properties to handle branching time logic, allowing for the specification of properties over multiple possible futures.
 
-**Example:**
+**Example**:
 ```psl
 assert (a -> (b || c));
 ```
@@ -56,7 +56,7 @@ This property asserts that if `a` is true, then either `b` or `c` must be true, 
 
 Replicated properties specify that a property holds multiple times under certain conditions, often used to describe repeating patterns.
 
-**Example:**
+**Example**:
 ```psl
 assert always {a; b}[*];
 ```
@@ -66,7 +66,7 @@ This property asserts that the sequence `{a; b}` repeats indefinitely.
 
 Local variables are used within properties and sequences to store intermediate values or states. They help in capturing and reusing values within a scope.
 
-**Example:**
+**Example**:
 ```psl
 sequence s;
   int x = a + b;
@@ -79,7 +79,7 @@ Here, `x` is a local variable used within the sequence `s`.
 
 Procedural blocks define blocks of code that execute sequentially, similar to procedural code in traditional programming languages. They are used to describe complex temporal behaviors.
 
-**Example:**
+**Example**:
 ```psl
 always @(posedge clk) begin
   if (rst) begin
@@ -99,7 +99,7 @@ Properties and sequences can be declared and reused throughout the design, promo
 
 Parameters allow properties and sequences to be parameterized, enabling them to be more flexible and reusable.
 
-**Example:**
+**Example**:
 ```psl
 property p(int delay);
   req ##delay ack;
@@ -113,7 +113,7 @@ Here, the property `p` takes an integer parameter `delay`.
 
 Declarations define properties and sequences in a structured way, specifying their behavior and parameters.
 
-**Example:**
+**Example**:
 ```psl
 sequence s;
   a ##1 b;
@@ -129,7 +129,7 @@ This example declares a sequence `s` and a property `p` that uses `s`.
 
 Instantiation involves using declared properties and sequences in different contexts, potentially with different parameters.
 
-**Example:**
+**Example**:
 ```psl
 assert p with (delay = 2);
 ```

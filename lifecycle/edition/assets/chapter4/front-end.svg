@@ -105,7 +105,7 @@
 <title>Verifying_RTL</title>
 <polygon fill="none" stroke="black" points="122.5,-0.5 122.5,-38.5 475.5,-38.5 475.5,-0.5 122.5,-0.5"/>
 <text text-anchor="middle" x="299" y="-23.3" font-family="Times,serif" font-size="14.00">Verifying Register Transfer Level of Hardware </text>
-<text text-anchor="middle" x="299" y="-8.3" font-family="Times,serif" font-size="14.00">(SymbiYosys)</text>
+<text text-anchor="middle" x="299" y="-8.3" font-family="Times,serif" font-size="14.00">(SymbiYosys-OSVVM / SymbiYosys-UVM)</text>
 </g>
 <!-- Optimizing_RTL&#45;&gt;Verifying_RTL -->
 <g id="edge7" class="edge">

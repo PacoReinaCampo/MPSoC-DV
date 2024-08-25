@@ -9,26 +9,26 @@ App Designer is a drag-and-drop environment for creating professional apps witho
 ### Getting Started with App Designer
 
 - **Open App Designer**:
-  - In the MATLAB Home tab, click on "App Designer".
+   - In the MATLAB Home tab, click on "App Designer".
 
 - **Creating a New App**:
-  - Select "New App".
-  - Choose a template or start with a blank app.
+   - Select "New App".
+   - Choose a template or start with a blank app.
 
 ### Designing the App Interface
 
 - **Drag and Drop Components**:
-  - Use the Component Library to drag components (e.g., buttons, sliders, axes) onto the canvas.
+   - Use the Component Library to drag components (e.g., buttons, sliders, axes) onto the canvas.
 
 - **Arrange and Customize Components**:
-  - Arrange components using alignment tools.
-  - Customize properties (e.g., labels, colors) through the Component Browser.
+   - Arrange components using alignment tools.
+   - Customize properties (e.g., labels, colors) through the Component Browser.
 
 ### Writing Callbacks
 
 - **Add Callbacks**:
-  - Click on a component, and in the "Callbacks" section, add a callback function.
-  - Write the function code to define the component's behavior.
+   - Click on a component, and in the "Callbacks" section, add a callback function.
+   - Write the function code to define the component's behavior.
 
 Example:
 ```matlab
@@ -91,12 +91,12 @@ Live Editor tasks allow you to create interactive controls within Live Scripts.
 ### Creating Live Editor Tasks
 
 - **Create a New Live Editor Task**:
-  - Open a Live Script (`.mlx` file).
-  - From the "Live Editor" tab, select "Insert Task".
+   - Open a Live Script (`.mlx` file).
+   - From the "Live Editor" tab, select "Insert Task".
 
 - **Customizing the Task**:
-  - Define the task's inputs and outputs.
-  - Write the code to execute when the task is run.
+   - Define the task's inputs and outputs.
+   - Write the code to execute when the task is run.
 
 Example:
 ```matlab
@@ -139,12 +139,12 @@ Packaging apps allows you to share your applications with others.
 ### Creating an App Installer
 
 - **Package the App**:
-  - In MATLAB, go to the "Apps" tab and click "Package App".
-  - Follow the wizard to include all necessary files and dependencies.
+   - In MATLAB, go to the "Apps" tab and click "Package App".
+   - Follow the wizard to include all necessary files and dependencies.
 
 - **Generate the Installer**:
-  - MATLAB will create an installer file (`.mlappinstall`).
-  - Share the installer with others, who can install the app directly from the MATLAB Apps tab.
+   - MATLAB will create an installer file (`.mlappinstall`).
+   - Share the installer with others, who can install the app directly from the MATLAB Apps tab.
 
 ## MIGRATE GUIDE APPS
 

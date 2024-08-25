@@ -10,9 +10,9 @@ Integer ranges allow the specification of a range of integer values, which is pa
 
 ### Characteristics
 
-- **Range Specification:** Integer ranges are typically defined using a lower and upper bound, specifying the set of values an integer can take.
-- **Type Safety:** By specifying ranges, the design ensures that variables only take on values within the defined limits, helping to catch errors and improve reliability.
-- **Resource Optimization:** Restricting integer values to specific ranges can optimize resource usage in hardware implementations, such as minimizing the number of bits needed to represent a value.
+- **Range Specification**: Integer ranges are typically defined using a lower and upper bound, specifying the set of values an integer can take.
+- **Type Safety**: By specifying ranges, the design ensures that variables only take on values within the defined limits, helping to catch errors and improve reliability.
+- **Resource Optimization**: Restricting integer values to specific ranges can optimize resource usage in hardware implementations, such as minimizing the number of bits needed to represent a value.
 
 ### Example
 
@@ -31,9 +31,9 @@ Structures (or records) are used to group related data items into a single compo
 
 ### Characteristics
 
-- **Data Grouping:** Structures group multiple data fields into a single entity, each field having its own name and type.
-- **Hierarchical Modeling:** Structures can contain other structures, enabling hierarchical modeling of complex systems.
-- **Clarity and Maintainability:** Using structures makes the design more readable and easier to maintain by logically grouping related data.
+- **Data Grouping**: Structures group multiple data fields into a single entity, each field having its own name and type.
+- **Hierarchical Modeling**: Structures can contain other structures, enabling hierarchical modeling of complex systems.
+- **Clarity and Maintainability**: Using structures makes the design more readable and easier to maintain by logically grouping related data.
 
 ### Example
 
@@ -53,9 +53,9 @@ In this example, `pixel` is a structure representing a color with red, green, an
 
 Structures and integer ranges are particularly useful in the verification context for:
 
-- **Defining Interfaces:** Accurately modeling hardware interfaces with complex data requirements.
-- **Specifying Constraints:** Applying constraints on data values to ensure correct and expected behavior during verification.
-- **Enhancing Readability:** Making verification properties and assertions clearer by using well-defined data structures.
+- **Defining Interfaces**: Accurately modeling hardware interfaces with complex data requirements.
+- **Specifying Constraints**: Applying constraints on data values to ensure correct and expected behavior during verification.
+- **Enhancing Readability**: Making verification properties and assertions clearer by using well-defined data structures.
 
 ### Example in PSL
 

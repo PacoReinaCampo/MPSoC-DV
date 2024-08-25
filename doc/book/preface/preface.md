@@ -45,10 +45,10 @@ sudo apt upgrade
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-* **Freedom 0**: *The freedom to use the program for any purpose*.
-* **Freedom 1**: *The freedom to study how the program works, and change it to make it do what you wish*.
-* **Freedom 2**: *The freedom to redistribute and make copies so you can help your neighbor*.
-* **Freedom 3**: *The freedom to improve the program, and release your improvements (and modified versions in general) to the public, so that the whole community benefits*.
+   * **Freedom 0**: *The freedom to use the hardware/software for any purpose*.
+   * **Freedom 1**: *The freedom to study how the hardware/software works, and change it to make it do what you wish*.
+   * **Freedom 2**: *The freedom to redistribute and make copies of the hardware/software so you can help your neighbor*.
+   * **Freedom 3**: *The freedom to improve the hardware/software, and release your improvements (and modified versions in general) to the public, so that the whole community benefits*.
 
 ### Open Source Hardware
 

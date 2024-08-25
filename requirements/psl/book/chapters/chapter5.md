@@ -10,7 +10,7 @@ Expression type classes categorize different kinds of expressions based on the t
 
 Bit expressions operate on individual bits and result in a single bit value (0 or 1). These expressions are fundamental in digital logic design.
 
-**Example:**
+**Example**:
 ```verilog
 a & b   // Bitwise AND of bits a and b
 ```
@@ -19,7 +19,7 @@ a & b   // Bitwise AND of bits a and b
 
 Boolean expressions evaluate to true or false. They are used in conditions and assertions to specify logical constraints and properties.
 
-**Example:**
+**Example**:
 ```verilog
 a && b  // Logical AND of Boolean values a and b
 ```
@@ -28,7 +28,7 @@ a && b  // Logical AND of Boolean values a and b
 
 BitVector expressions deal with vectors of bits (multiple bits). They are useful for representing and manipulating binary numbers or arrays of bits.
 
-**Example:**
+**Example**:
 ```verilog
 a[3:0] // 4-bit vector from bit 3 to bit 0 of a
 ```
@@ -37,7 +37,7 @@ a[3:0] // 4-bit vector from bit 3 to bit 0 of a
 
 Numeric expressions operate on numerical values (integers, floating-point numbers). They are essential for arithmetic operations and calculations.
 
-**Example:**
+**Example**:
 ```verilog
 a + b  // Addition of numeric values a and b
 ```
@@ -46,7 +46,7 @@ a + b  // Addition of numeric values a and b
 
 String expressions deal with sequences of characters. They are useful for representing textual data and manipulating strings.
 
-**Example:**
+**Example**:
 ```verilog
 "Hello" + "World"  // Concatenation of two strings
 ```
@@ -59,7 +59,7 @@ Expression forms define the syntax and usage of expressions within different con
 
 HDL (Hardware Description Language) expressions follow the syntax and semantics of HDLs like VHDL or Verilog. These expressions are used to describe hardware behavior and structure.
 
-**Example:**
+**Example**:
 ```verilog
 always @(posedge clk) begin
     q <= d;
@@ -70,7 +70,7 @@ end
 
 PSL expressions extend HDL expressions with additional constructs for specifying properties and assertions. They are used to describe and verify temporal properties of hardware designs.
 
-**Example:**
+**Example**:
 ```verilog
 assert always (req -> eventually ack);
 ```
@@ -79,7 +79,7 @@ assert always (req -> eventually ack);
 
 Built-in functions provide predefined operations and utilities that can be used within expressions. They simplify common tasks and enhance the expressiveness of the language.
 
-**Example:**
+**Example**:
 ```verilog
 $random  // Built-in function to generate a random number
 ```
@@ -88,7 +88,7 @@ $random  // Built-in function to generate a random number
 
 Union expressions combine multiple expressions into a single one, allowing for more complex and flexible conditions and operations.
 
-**Example:**
+**Example**:
 ```verilog
 a | b  // Union (bitwise OR) of expressions a and b
 ```
@@ -97,7 +97,7 @@ a | b  // Union (bitwise OR) of expressions a and b
 
 Clock expressions define the clocking events and conditions for synchronous operations. They are crucial in specifying when certain actions or evaluations should occur in relation to clock signals.
 
-**Example:**
+**Example**:
 ```verilog
 @(posedge clk)  // Expression triggering on the rising edge of clk
 ```
@@ -106,7 +106,7 @@ Clock expressions define the clocking events and conditions for synchronous oper
 
 The default clock declaration specifies the default clock signal for a set of expressions or properties. This simplifies the specification by avoiding the need to repeatedly mention the clock signal.
 
-**Example:**
+**Example**:
 ```verilog
 default clock is clk;
 

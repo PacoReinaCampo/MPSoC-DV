@@ -70,8 +70,8 @@ MATLAB offers a variety of debugging tools to identify and fix issues in your co
   ```
 
 - **Efficient Memory Usage**:
-  - Preallocate arrays to avoid dynamic resizing.
-  - Use appropriate data types to minimize memory footprint.
+   - Preallocate arrays to avoid dynamic resizing.
+   - Use appropriate data types to minimize memory footprint.
 
 ## BACKGROUND PROCESSING
 
@@ -108,15 +108,15 @@ MATLAB supports parallel computing to speed up computations by utilizing multipl
 MATLAB projects help organize files, manage paths, and streamline workflows.
 
 - **Creating a Project**:
-  - Go to the "Home" tab and select "New Project".
-  - Follow the wizard to set up the project structure.
+   - Go to the "Home" tab and select "New Project".
+   - Follow the wizard to set up the project structure.
 
 - **Managing Project Paths**:
-  - Define project-specific paths to ensure correct file resolution.
+   - Define project-specific paths to ensure correct file resolution.
 
 - **Project Shortcuts and Tasks**:
-  - Create shortcuts for frequently used commands.
-  - Define tasks to automate repetitive processes.
+   - Create shortcuts for frequently used commands.
+   - Define tasks to automate repetitive processes.
 
 ## SOURCE CONTROL INTEGRATION
 
@@ -125,11 +125,11 @@ MATLAB integrates with popular version control systems like Git and Subversion.
 ### Using Git
 
 - **Setting Up Git**:
-  - Initialize a repository:
+   - Initialize a repository:
     ```matlab
     !git init
     ```
-  - Add files to the repository:
+   - Add files to the repository:
     ```matlab
     !git add .
     !git commit -m "Initial commit"
@@ -151,7 +151,7 @@ MATLAB provides tools for creating and running tests to ensure code correctness.
 ### Unit Testing
 
 - **Creating Tests**:
-  - Define test cases using the `matlab.unittest.TestCase` class.
+   - Define test cases using the `matlab.unittest.TestCase` class.
   ```matlab
   classdef myTest < matlab.unittest.TestCase
       methods (Test)
@@ -193,8 +193,8 @@ Integrate MATLAB with CI systems to automate testing and deployment.
 ### Setting Up CI
 
 - **Using MATLAB with Jenkins, GitHub Actions, etc.**:
-  - Configure CI pipelines to run MATLAB tests and scripts automatically.
-  - Use the `matlab` command in CI scripts to run MATLAB code.
+   - Configure CI pipelines to run MATLAB tests and scripts automatically.
+   - Use the `matlab` command in CI scripts to run MATLAB code.
   ```sh
   matlab -batch "runtests('testFolder')"
   ```
@@ -206,12 +206,12 @@ Distribute MATLAB code and apps as toolboxes for easy sharing and reuse.
 ### Creating a Toolbox
 
 - **Package Toolbox**:
-  - In MATLAB, go to the "Home" tab and click "Package Toolbox".
-  - Follow the wizard to include files and set metadata.
+   - In MATLAB, go to the "Home" tab and click "Package Toolbox".
+   - Follow the wizard to include files and set metadata.
 
 - **Installing Toolboxes**:
-  - Distribute the `.mltbx` file.
-  - Users can install toolboxes via the "Add-Ons" menu.
+   - Distribute the `.mltbx` file.
+   - Users can install toolboxes via the "Add-Ons" menu.
 
 ## TOOL QUALIFICATION AND CERTIFICATION
 
@@ -220,10 +220,10 @@ Ensure your MATLAB tools meet industry standards and regulations.
 ### Qualification and Certification
 
 - **Verification and Validation**:
-  - Implement rigorous testing to verify code correctness.
-  - Document testing procedures and results for certification.
+   - Implement rigorous testing to verify code correctness.
+   - Document testing procedures and results for certification.
 
 - **Complying with Standards**:
-  - Follow industry-specific guidelines (e.g., ISO, FDA) for software development and validation.
+   - Follow industry-specific guidelines (e.g., ISO, FDA) for software development and validation.
 
 By utilizing these software development tools and practices, you can enhance the quality, efficiency, and reliability of your MATLAB projects, ensuring they meet both technical and regulatory requirements.

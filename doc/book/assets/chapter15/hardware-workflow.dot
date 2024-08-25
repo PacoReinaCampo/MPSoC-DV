@@ -23,7 +23,7 @@ digraph Project {
       Simulating_RTL[label="Simulating Register Transfer Level of Hardware \n(GHDL / Icarus Verilog)"];
       Synthesizing_RTL[label="Synthesizing Register Transfer Level of Hardware \n(Yosys)"];
       Optimizing_RTL[label="Optimizing Register Transfer Level of Hardware \n(ABC)"];
-      Verifying_RTL[label="Verifying Register Transfer Level of Hardware \n(SymbiYosys)"];
+      Verifying_RTL[label="Verifying Register Transfer Level of Hardware \n(SymbiYosys-OSVVM / SymbiYosys-UVM)"];
     }
   }
 
