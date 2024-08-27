@@ -156,7 +156,7 @@ In summary, neural networks are powerful tools in the AI and machine learning to
 
 ### Traditional Perceptron Neural Network
 
-A Perceptron Neural Network is one of the simplest types of artificial neural networks, often considered as the building block of more complex architectures. It consists of a single layer of nodes, each of which computes a weighted sum of its inputs and applies an activation function to produce an output. 
+A Perceptron Neural Network is one of the simplest types of artificial neural networks, often considered as the building block of more complex architectures. It consists of a single layer of nodes, each of which computes a weighted sum of its inputs and applies an activation function to produce an output.
 
 Here’s a more detailed explanation:
 
@@ -194,7 +194,7 @@ $y_{t} = \sigma_{g}(W_{y} \star h_{t}+b_{y})$
 
 ### Traditional Feedforward Neural Network
 
-A Feedforward Neural Network (FNN) is a fundamental type of artificial neural network where connections between the nodes do not form cycles. In simpler terms, data flows in one direction: from the input layer through one or more hidden layers to the output layer without any feedback loops. 
+A Feedforward Neural Network (FNN) is a fundamental type of artificial neural network where connections between the nodes do not form cycles. In simpler terms, data flows in one direction: from the input layer through one or more hidden layers to the output layer without any feedback loops.
 
 Here’s a more detailed breakdown:
 
@@ -231,9 +231,9 @@ Here’s a deeper dive into how LSTMs work:
 2. **Gates**: LSTMs use specialized structures called gates to control the flow of information into and out of the memory cell. There are three types of gates:
 
    - **Forget Gate**: This gate decides which information from the cell state should be discarded or forgotten. It takes as input the previous hidden state and the current input and outputs a value between 0 and 1 for each element in the cell state, indicating how much of the information should be retained.
-   
+
    - **Input Gate**: This gate decides which new information should be stored in the cell state. It consists of two parts: a sigmoid layer that decides which values will be updated, and a tanh layer that creates a vector of new candidate values to be added to the cell state.
-   
+
    - **Output Gate**: This gate controls the information that is output from the cell state. It determines the next hidden state based on the current input, the previous hidden state, and the updated cell state.
 
 3. **Training and Backpropagation**: Like other neural networks, LSTMs are trained using gradient descent optimization algorithms and backpropagation through time. During training, the network adjusts its parameters (weights and biases) to minimize a loss function that measures the difference between the predicted output and the actual output.
@@ -241,9 +241,9 @@ Here’s a deeper dive into how LSTMs work:
 4. **Advantages**: LSTMs have several advantages over traditional RNNs, including:
 
    - **Long-Term Dependencies**: LSTMs are capable of learning and retaining information over long sequences, making them suitable for tasks involving long-term dependencies.
-   
+
    - **Gradient Flow**: LSTMs mitigate the vanishing gradient problem, which is common in traditional RNNs, by using gating mechanisms to control the flow of gradients during training.
-   
+
    - **Versatility**: LSTMs can handle various types of sequential data, including text, audio, and time series, making them widely applicable across different domains.
 
 Overall, LSTMs have become a cornerstone in the field of deep learning, enabling the development of more powerful and sophisticated models for sequential data processing and prediction.
@@ -880,9 +880,9 @@ In summary, both von Neumann and Harvard architectures represent fundamental app
 Advanced Computer Architecture encompasses various models and paradigms designed to optimize computational efficiency, parallelism, and performance in modern computing systems. These architectures are essential for addressing the increasing demands of computational tasks in various domains, including scientific simulations, data analytics, machine learning, and high-performance computing. Among these architectures, SISD, SIMD, MISD, and MIMD represent different classifications based on their approach to parallelism and instruction execution. Let's delve into each of them:
 
 - **Parallelism**: SISD offers limited parallelism, while SIMD, MISD, and MIMD architectures exploit parallelism more extensively.
-  
+
 - **Data Dependencies**: SIMD and MISD architectures may encounter data dependencies, where operations are dependent on previous results. MIMD architecture allows for maximum flexibility, with independent data streams and instructions.
-  
+
 - **Programming Model**: SIMD and MIMD architectures are more suitable for parallel programming paradigms, such as SIMD instructions in GPU programming or message passing in MIMD-based distributed systems.
 
 - **Applications**: Each architecture has its own strengths and is suitable for different applications. SIMD is efficient for data-parallel tasks, while MIMD is versatile and applicable to a wide range of parallel computing scenarios.
@@ -992,9 +992,9 @@ In summary, the processing unit is a critical component of a computer system res
 SISD is the simplest and most traditional computer architecture model, where a single processing unit executes a single instruction on a single piece of data at a time. In this architecture:
 
 - **Processing Unit**: There is only one processing unit, typically a central processing unit (CPU), responsible for executing instructions.
-  
+
 - **Instruction Stream**: Instructions are fetched sequentially from memory and executed one at a time.
-  
+
 - **Data Stream**: Similarly, data is accessed sequentially from memory, and operations are performed on individual data elements.
 
 - **Example**: Traditional von Neumann architecture-based computers, where a CPU executes instructions sequentially on scalar data.
@@ -1004,9 +1004,9 @@ SISD is the simplest and most traditional computer architecture model, where a s
 SIMD architecture extends parallelism by allowing a single instruction to be applied simultaneously to multiple data elements. In this architecture:
 
 - **Processing Unit**: Multiple processing units, called processing elements (PEs) or vector units, execute the same instruction on different data elements in parallel.
-  
+
 - **Instruction Stream**: A single instruction is broadcasted to all processing units simultaneously.
-  
+
 - **Data Stream**: Each processing unit operates on its own set of data elements, performing the same operation concurrently.
 
 - **Example**: Vector processors, graphics processing units (GPUs), and SIMD extensions in modern CPUs, where operations like vector addition or matrix multiplication are performed in parallel on multiple data elements.
@@ -1016,7 +1016,7 @@ SIMD architecture extends parallelism by allowing a single instruction to be app
 MISD architecture is less common and typically used in specialized applications. In this architecture:
 
 - **Processing Unit**: Multiple processing units operate independently, each executing a different instruction on the same set of data.
-  
+
 - **Instruction Stream**: Each processing unit receives a unique instruction stream, possibly performing different operations on the same data.
 
 - **Data Stream**: Data is accessed by all processing units simultaneously, and each unit performs its respective operation.
@@ -1028,9 +1028,9 @@ MISD architecture is less common and typically used in specialized applications.
 MIMD architecture is the most versatile and widely used parallel computing model, allowing multiple processing units to execute different instructions on different data sets concurrently. In this architecture:
 
 - **Processing Unit**: Multiple independent processing units execute different instructions on separate data streams simultaneously.
-  
+
 - **Instruction Stream**: Each processing unit has its own instruction stream, allowing for diverse operations to be performed concurrently.
-  
+
 - **Data Stream**: Each processing unit operates on its own set of data, which can be distinct or overlapping with other units.
 
 - **Example**: Cluster computing, multi-core CPUs, and distributed computing systems, where each processing unit executes its own program on different data sets, enabling parallel execution of diverse tasks.

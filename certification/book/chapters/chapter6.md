@@ -6,7 +6,7 @@ Validation and verification are critical processes in the development of airborn
 
 **Objective**: To confirm that the hardware performs correctly in its intended operational environment and meets the needs and expectations of the end users.
 
-Key Activities:
+Key Activities: Validation Process
 
 1. **Requirements Validation**: Ensure that all hardware requirements are correctly derived from the system requirements and reflect the intended functionality.
 
@@ -42,7 +42,7 @@ Key Activities:
 
 **Objective**: To ensure that the hardware design and implementation meet all specified requirements and are free from defects.
 
-Key Activities:
+Key Activities: Verification Process
 
 1. **Requirements Verification**: Confirm that the hardware requirements are correctly and completely implemented.
 
@@ -76,7 +76,7 @@ Key Activities:
 
 ## VALIDATION AND VERIFICATION METHODS
 
-Key Methods:
+Key Methods: Validation and Verification Methods
 
 1. **Inspection**:
 

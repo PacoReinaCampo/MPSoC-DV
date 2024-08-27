@@ -6,7 +6,7 @@ Hardware design data encompasses all the information generated and used during t
 
 **Description**: Hardware requirements are the documented specifications that the hardware must meet. These requirements cover functional, performance, environmental, and regulatory aspects.
 
-**Key Elements**:
+**Key Elements**: Hardware Requirements
 
 - **Functional Requirements**: Define what the hardware must do, including specific functions, features, and behaviors.
 - **Performance Requirements**: Specify the performance criteria the hardware must achieve, such as speed, efficiency, and accuracy.
@@ -22,7 +22,7 @@ Hardware design data encompasses all the information generated and used during t
 
 **Description**: Conceptual design data provide an initial representation of the hardware, focusing on high-level architecture and major components.
 
-**Key Elements**:
+**Key Elements**: Conceptual Design Data
 
 - **Block Diagrams**: High-level diagrams showing the main components and their interactions.
 - **Functional Allocation**: Mapping of functional requirements to specific hardware components or subsystems.
@@ -39,7 +39,7 @@ Hardware design data encompasses all the information generated and used during t
 
 **Description**: The top-level drawing is a comprehensive schematic that shows the overall layout of the hardware, including all major components and their interconnections.
 
-**Key Elements**:
+**Key Elements**: Top-Level Drawing
 
 - **System Layout**: Overall arrangement of the hardware components and subsystems.
 - **Interconnections**: Detailed depiction of how components are interconnected, including wiring and signal paths.
@@ -51,7 +51,7 @@ Hardware design data encompasses all the information generated and used during t
 
 **Description**: Assembly drawings provide detailed instructions on how to assemble the hardware, including the placement and connection of components.
 
-**Key Elements**:
+**Key Elements**: Assembly Drawings
 
 - **Component Placement**: Precise locations where each component should be placed.
 - **Assembly Sequence**: Step-by-step instructions for assembling the hardware.
@@ -64,7 +64,7 @@ Hardware design data encompasses all the information generated and used during t
 
 **Description**: Installation control drawings provide detailed instructions for installing the hardware in its intended operational environment.
 
-**Key Elements**:
+**Key Elements**: Installation Control Drawings
 
 - **Mounting Instructions**: Directions for mounting the hardware, including alignment and securing methods.
 - **Environmental Integration**: Details on integrating the hardware with environmental systems, such as cooling and ventilation.
@@ -77,7 +77,7 @@ Hardware design data encompasses all the information generated and used during t
 
 **Description**: Hardware/software interface data define the interactions between the hardware and software components, ensuring compatibility and proper integration.
 
-**Key Elements**:
+**Key Elements**: Hardware/Software Interface Data
 
 - **Interface Specifications**: Detailed descriptions of the interfaces, including data formats, protocols, and timing.
 - **Communication Requirements**: Requirements for communication between hardware and software, including bandwidth and latency.

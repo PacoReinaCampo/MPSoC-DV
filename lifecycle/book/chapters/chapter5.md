@@ -14,7 +14,7 @@ Hardware Acceptance Test Criteria are the predefined conditions, benchmarks, and
 
 **Description**: Functional requirements define the specific functions that the hardware must perform. Acceptance test criteria should include tests that verify these functions.
 
-**Example Criteria**:
+**Example Criteria**: Functional Requirements
 
 - **Operation Verification**: The hardware must correctly perform all specified operations under normal and boundary conditions.
 - **Feature Implementation**: All features specified in the requirements must be present and operate as intended.
@@ -23,7 +23,7 @@ Hardware Acceptance Test Criteria are the predefined conditions, benchmarks, and
 
 **Description**: Performance requirements specify how well the hardware must perform certain functions. Acceptance test criteria should measure performance parameters such as speed, efficiency, and capacity.
 
-**Example Criteria**:
+**Example Criteria**: Performance Requirements
 
 - **Speed and Throughput**: The hardware must meet specified speed and throughput benchmarks.
 - **Latency**: The hardware must perform operations within acceptable latency limits.
@@ -43,7 +43,7 @@ Hardware Acceptance Test Criteria are the predefined conditions, benchmarks, and
 
 **Description**: Reliability and durability requirements ensure that the hardware will perform reliably over its expected lifespan. Acceptance test criteria should include stress tests and reliability assessments.
 
-**Example Criteria**:
+**Example Criteria**: Reliability and Durability
 
 - **Mean Time Between Failures (MTBF)**: The hardware must meet or exceed the specified MTBF.
 - **Stress Testing**: The hardware must pass stress tests that simulate prolonged and intensive usage.
@@ -53,7 +53,7 @@ Hardware Acceptance Test Criteria are the predefined conditions, benchmarks, and
 
 **Description**: Safety and regulatory requirements ensure that the hardware complies with relevant safety standards and regulations. Acceptance test criteria should include safety checks and regulatory compliance verifications.
 
-**Example Criteria**:
+**Example Criteria**: Safety and Regulatory Compliance
 
 - **Safety Features**: All specified safety features must be present and functional.
 - **Regulatory Standards**: The hardware must comply with all relevant regulatory standards (e.g., FCC, CE, DO-254).
@@ -63,7 +63,7 @@ Hardware Acceptance Test Criteria are the predefined conditions, benchmarks, and
 
 **Description**: Interface and integration requirements ensure that the hardware can interface correctly with other systems and components. Acceptance test criteria should include interface compatibility and integration tests.
 
-**Example Criteria**:
+**Example Criteria**: Interface and Integration
 
 - **Interface Compatibility**: The hardware must correctly interface with specified systems and components.
 - **Integration Testing**: The hardware must integrate seamlessly with other systems in the operational environment.
@@ -73,7 +73,7 @@ Hardware Acceptance Test Criteria are the predefined conditions, benchmarks, and
 
 **Description**: Comprehensive documentation and reporting are essential for tracking and verifying acceptance test results. Acceptance test criteria should include requirements for documentation.
 
-**Example Criteria**:
+**Example Criteria**: Documentation and Reporting
 
 - **Test Reports**: Detailed test reports documenting test procedures, results, and conclusions.
 - **Issue Tracking**: Documentation of any issues or defects discovered during testing, including resolution status.

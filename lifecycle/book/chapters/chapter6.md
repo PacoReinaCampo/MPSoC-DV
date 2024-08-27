@@ -6,7 +6,7 @@ Problem reports are crucial documents in the hardware development and maintenanc
 
 **Description**: The primary purpose of problem reports is to systematically document issues encountered with the hardware, facilitate their resolution, and prevent recurrence. They serve as a tool for continuous improvement and quality assurance.
 
-**Importance**:
+**Importance**: Purpose of Problem Reports
 
 - **Issue Identification**: Allows for the clear identification and documentation of problems.
 - **Resolution Tracking**: Tracks the progress of issue resolution, ensuring accountability and timely fixes.
@@ -20,7 +20,7 @@ Problem reports are crucial documents in the hardware development and maintenanc
 
 **Description**: Basic information that uniquely identifies the problem report and provides context.
 
-**Key Elements**:
+**Key Elements**: Identification Information
 
 - **Report ID**: A unique identifier for the problem report.
 - **Date Reported**: The date when the problem was reported.
@@ -31,7 +31,7 @@ Problem reports are crucial documents in the hardware development and maintenanc
 
 **Description**: A detailed account of the problem, including symptoms, conditions, and impact.
 
-**Key Elements**:
+**Key Elements**: Problem Description
 
 - **Summary**: A brief summary of the problem.
 - **Detailed Description**: An in-depth description of the issue, including what was observed, under what conditions it occurred, and how it manifests.
@@ -42,7 +42,7 @@ Problem reports are crucial documents in the hardware development and maintenanc
 
 **Description**: Investigation into the underlying cause(s) of the problem.
 
-**Key Elements**:
+**Key Elements**: Root Cause Analysis
 
 - **Investigation Findings**: Results of the investigation into the problem's cause.
 - **Root Cause**: Identification of the fundamental issue that led to the problem.
@@ -52,7 +52,7 @@ Problem reports are crucial documents in the hardware development and maintenanc
 
 **Description**: The approach and actions planned to resolve the problem.
 
-**Key Elements**:
+**Key Elements**: Resolution Plan
 
 - **Proposed Solution**: Description of the proposed fix or corrective action.
 - **Implementation Steps**: Detailed steps required to implement the solution.
@@ -63,7 +63,7 @@ Problem reports are crucial documents in the hardware development and maintenanc
 
 **Description**: Documentation of the resolution process and verification that the problem has been effectively addressed.
 
-**Key Elements**:
+**Key Elements**: Resolution and Verification
 
 - **Resolution Actions**: Detailed description of the actions taken to resolve the problem.
 - **Test and Verification**: Results of tests and verification activities conducted to confirm that the problem has been resolved.
@@ -74,7 +74,7 @@ Problem reports are crucial documents in the hardware development and maintenanc
 
 **Description**: Records and reports related to the problem, resolution, and verification.
 
-**Key Elements**:
+**Key Elements**: Documentation and Reporting
 
 - **Problem Report Document**: The formal problem report document, including all relevant information.
 - **Supporting Documentation**: Any additional documents, such as test logs, design documents, and analysis reports.

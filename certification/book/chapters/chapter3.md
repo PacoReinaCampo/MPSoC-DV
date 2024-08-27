@@ -8,7 +8,7 @@ The hardware design life cycle as outlined in DO-254 encompasses a series of str
 
    **Objective**: Establish a comprehensive plan that outlines the activities, resources, and timelines required for hardware development.
 
-   **Key Activities**:
+   **Key Activities**: Hardware Design Life Cycle Processes
 
       - Develop a Hardware Development Plan (HDP) that details the project scope, objectives, milestones, and deliverables.
       - Define roles and responsibilities for the hardware development team.
@@ -18,7 +18,7 @@ The hardware design life cycle as outlined in DO-254 encompasses a series of str
 
    **Objective**: Define and document the hardware requirements based on system-level requirements and safety assessments.
 
-   **Key Activities**:
+   **Key Activities**: Requirements Capture
 
       - Capture functional, performance, and safety requirements.
       - Ensure traceability of hardware requirements to system requirements.
@@ -28,7 +28,7 @@ The hardware design life cycle as outlined in DO-254 encompasses a series of str
 
    **Objective**: Develop high-level design concepts that meet the specified requirements.
 
-   **Key Activities**:
+   **Key Activities**: Conceptual Design
 
       - Create block diagrams and architectural models.
       - Identify key components and technologies.
@@ -38,7 +38,7 @@ The hardware design life cycle as outlined in DO-254 encompasses a series of str
 
    **Objective**: Translate the conceptual design into detailed specifications and schematics.
 
-   **Key Activities**:
+   **Key Activities**: Detailed Design
 
       - Develop detailed schematics, layout diagrams, and component specifications.
       - Perform detailed design analysis, including worst-case analysis, thermal analysis, and signal integrity analysis.
@@ -48,7 +48,7 @@ The hardware design life cycle as outlined in DO-254 encompasses a series of str
 
    **Objective**: Realize the detailed design in physical hardware.
 
-   **Key Activities**:
+   **Key Activities**: Implementation
 
       - Manufacture prototypes or initial production units.
       - Perform initial hardware assembly and integration.
@@ -58,7 +58,7 @@ The hardware design life cycle as outlined in DO-254 encompasses a series of str
 
    **Objective**: Ensure that the hardware meets all specified requirements through rigorous testing and analysis.
 
-   **Key Activities**:
+   **Key Activities**: Verification
 
       - Execute the Hardware Verification Plan (HVP).
       - Perform tests such as functional testing, environmental testing, and reliability testing.
@@ -68,7 +68,7 @@ The hardware design life cycle as outlined in DO-254 encompasses a series of str
 
    **Objective**: Validate that the hardware performs correctly within the context of the overall system and operational environment.
 
-   **Key Activities**:
+   **Key Activities**: Validation
 
       - Conduct system-level integration testing.
       - Perform hardware-in-the-loop (HIL) testing.
@@ -78,7 +78,7 @@ The hardware design life cycle as outlined in DO-254 encompasses a series of str
 
    **Objective**: Prepare all necessary documentation and evidence for certification by aviation authorities.
 
-   **Key Activities**:
+   **Key Activities**: Certification Preparation
 
       - Compile design, verification, and validation documentation.
       - Ensure compliance with applicable regulations and standards.
@@ -88,7 +88,7 @@ The hardware design life cycle as outlined in DO-254 encompasses a series of str
 
    **Objective**: Transition the hardware from development to full-scale production.
 
-   **Key Activities**:
+   **Key Activities**: Production Transition
 
       - Establish production processes and quality controls.
       - Conduct pilot production runs to validate manufacturing processes.
@@ -98,7 +98,7 @@ The hardware design life cycle as outlined in DO-254 encompasses a series of str
 
    **Objective**: Provide ongoing support to ensure hardware reliability and safety throughout its operational life.
 
-   **Key Activities**:
+   **Key Activities**: Maintenance and In-Service Support
 
       - Monitor hardware performance in service.
       - Perform regular maintenance, updates, and repairs as needed.
@@ -110,7 +110,7 @@ Transition criteria are predefined conditions that must be met before moving fro
 
 ### Planning to Requirements Capture
 
-**Criteria**:
+**Criteria**: Planning to Requirements Capture
 
    - Approval of the Hardware Development Plan (HDP).
    - Identification and allocation of necessary resources.
@@ -118,7 +118,7 @@ Transition criteria are predefined conditions that must be met before moving fro
 
 ### Requirements Capture to Conceptual Design
 
-**Criteria**:
+**Criteria**: Requirements Capture to Conceptual Design
 
    - Completion and approval of the hardware requirements document.
    - Traceability of requirements to system-level requirements.
@@ -126,7 +126,7 @@ Transition criteria are predefined conditions that must be met before moving fro
 
 ### Conceptual Design to Detailed Design
 
-**Criteria**:
+**Criteria**: Conceptual Design to Detailed Design
 
    - Approval of the conceptual design.
    - Documentation of design architecture and key components.
@@ -134,7 +134,7 @@ Transition criteria are predefined conditions that must be met before moving fro
 
 ### Detailed Design to Implementation
 
-**Criteria**:
+**Criteria**: Detailed Design to Implementation
 
    - Completion and approval of detailed design documentation.
    - Verification of design against requirements.
@@ -142,7 +142,7 @@ Transition criteria are predefined conditions that must be met before moving fro
 
 ### Implementation to Verification
 
-**Criteria**:
+**Criteria**: Implementation to Verification
 
    - Successful assembly and integration of hardware prototypes.
    - Initial functional tests passed.
@@ -150,7 +150,7 @@ Transition criteria are predefined conditions that must be met before moving fro
 
 ### Verification to Validation
 
-**Criteria**:
+**Criteria**: Verification to Validation
 
    - Completion of verification activities and documentation of results.
    - Verification that hardware meets all specified requirements.
@@ -158,7 +158,7 @@ Transition criteria are predefined conditions that must be met before moving fro
 
 ### Validation to Certification Preparation
 
-**Criteria**:
+**Criteria**: Validation to Certification Preparation
 
    - Successful completion of validation activities.
    - Validation that hardware performs correctly in the system and operational environment.
@@ -166,7 +166,7 @@ Transition criteria are predefined conditions that must be met before moving fro
 
 ### Certification Preparation to Production Transition
 
-**Criteria**:
+**Criteria**: Certification Preparation to Production Transition
 
    - Certification approval from relevant aviation authorities.
    - Establishment of production processes and quality controls.
@@ -174,7 +174,7 @@ Transition criteria are predefined conditions that must be met before moving fro
 
 ### Production Transition to Maintenance and In-Service Support
 
-**Criteria**:
+**Criteria**: Production Transition to Maintenance and In-Service Support
 
    - Stable production process established.
    - Initial production units delivered and accepted.
