@@ -27,28 +27,28 @@ The standard structure for packaging, integrating, and reusing Intellectual Prop
 
 3. **Packaging Process**: The IP packaging process involves encapsulating the IP along with its metadata and associated files into a standardized format. The key steps are:
 
-   - **Metadata Creation**: Using IP-XACT to describe the IP’s properties, interfaces, and structure.
-   - **File Association**: Linking all relevant files (source, simulation, synthesis, documentation) to the IP-XACT description.
-   - **Validation**: Ensuring the IP package is complete and conforms to the IP-XACT schema, often using EDA tool validators.
+   * **Metadata Creation**: Using IP-XACT to describe the IP’s properties, interfaces, and structure.
+   * **File Association**: Linking all relevant files (source, simulation, synthesis, documentation) to the IP-XACT description.
+   * **Validation**: Ensuring the IP package is complete and conforms to the IP-XACT schema, often using EDA tool validators.
 
 4. **Integration Process**: Integration of IP blocks into a larger system design involves:
 
-   - **Importing IP**: Using EDA tools to import IP-XACT described IP blocks.
-   - **Configuring IP**: Adjusting parameters and settings as per the system requirements.
-   - **Connecting IP**: Establishing connections between different IP blocks using bus interfaces and signal ports, facilitated by the standard descriptions in IP-XACT.
-   - **System Validation**: Running design rule checks (DRC) and simulations to validate the integration.
+   * **Importing IP**: Using EDA tools to import IP-XACT described IP blocks.
+   * **Configuring IP**: Adjusting parameters and settings as per the system requirements.
+   * **Connecting IP**: Establishing connections between different IP blocks using bus interfaces and signal ports, facilitated by the standard descriptions in IP-XACT.
+   * **System Validation**: Running design rule checks (DRC) and simulations to validate the integration.
 
 5. **Reuse**: IP reuse is maximized by:
 
-   - **Standardization**: Adhering to IP-XACT ensures IP blocks can be easily reused across different projects and toolchains.
-   - **Documentation**: Detailed metadata and documentation within the IP package make it easier to understand and integrate the IP into new designs.
-   - **Configurability**: Parameterized IP blocks can be adapted for different use cases without significant redesign effort.
+   * **Standardization**: Adhering to IP-XACT ensures IP blocks can be easily reused across different projects and toolchains.
+   * **Documentation**: Detailed metadata and documentation within the IP package make it easier to understand and integrate the IP into new designs.
+   * **Configurability**: Parameterized IP blocks can be adapted for different use cases without significant redesign effort.
 
 6. **Tool Support**: Several EDA tools support the IP-XACT standard, providing features such as:
 
-   - **IP Catalogs**: Browsing and selecting IP blocks from a repository.
-   - **Automated Integration**: Tools can automatically generate interconnect logic and configuration files based on the IP-XACT descriptions.
-   - **Verification Support**: Integration with simulation and formal verification tools to ensure the integrated design functions correctly.
+   * **IP Catalogs**: Browsing and selecting IP blocks from a repository.
+   * **Automated Integration**: Tools can automatically generate interconnect logic and configuration files based on the IP-XACT descriptions.
+   * **Verification Support**: Integration with simulation and formal verification tools to ensure the integrated design functions correctly.
 
 The standard structure for packaging, integrating, and reusing IP within tool flows, particularly using the IP-XACT standard, enables a streamlined and efficient design process. It promotes interoperability, reduces integration time, and enhances the reusability of IP blocks, ultimately leading to faster time-to-market for semiconductor products.
 
@@ -81,28 +81,28 @@ The standard structure for packaging, integrating, and reusing Intellectual Prop
 
 3. **Packaging Process**: The IP packaging process involves encapsulating the IP along with its metadata and associated files into a standardized format. The key steps are:
 
-   - **Metadata Creation**: Using IP-XACT to describe the IP’s properties, interfaces, and structure.
-   - **File Association**: Linking all relevant files (source, simulation, synthesis, documentation) to the IP-XACT description.
-   - **Validation**: Ensuring the IP package is complete and conforms to the IP-XACT schema, often using EDA tool validators.
+   * **Metadata Creation**: Using IP-XACT to describe the IP’s properties, interfaces, and structure.
+   * **File Association**: Linking all relevant files (source, simulation, synthesis, documentation) to the IP-XACT description.
+   * **Validation**: Ensuring the IP package is complete and conforms to the IP-XACT schema, often using EDA tool validators.
 
 4. **Integration Process**: Integration of IP blocks into a larger system design involves:
 
-   - **Importing IP**: Using EDA tools to import IP-XACT described IP blocks.
-   - **Configuring IP**: Adjusting parameters and settings as per the system requirements.
-   - **Connecting IP**: Establishing connections between different IP blocks using bus interfaces and signal ports, facilitated by the standard descriptions in IP-XACT.
-   - **System Validation**: Running design rule checks (DRC) and simulations to validate the integration.
+   * **Importing IP**: Using EDA tools to import IP-XACT described IP blocks.
+   * **Configuring IP**: Adjusting parameters and settings as per the system requirements.
+   * **Connecting IP**: Establishing connections between different IP blocks using bus interfaces and signal ports, facilitated by the standard descriptions in IP-XACT.
+   * **System Validation**: Running design rule checks (DRC) and simulations to validate the integration.
 
 5. **Reuse**: IP reuse is maximized by:
 
-   - **Standardization**: Adhering to IP-XACT ensures IP blocks can be easily reused across different projects and toolchains.
-   - **Documentation**: Detailed metadata and documentation within the IP package make it easier to understand and integrate the IP into new designs.
-   - **Configurability**: Parameterized IP blocks can be adapted for different use cases without significant redesign effort.
+   * **Standardization**: Adhering to IP-XACT ensures IP blocks can be easily reused across different projects and toolchains.
+   * **Documentation**: Detailed metadata and documentation within the IP package make it easier to understand and integrate the IP into new designs.
+   * **Configurability**: Parameterized IP blocks can be adapted for different use cases without significant redesign effort.
 
 6. **Tool Support**: Several EDA tools support the IP-XACT standard, providing features such as:
 
-   - **IP Catalogs**: Browsing and selecting IP blocks from a repository.
-   - **Automated Integration**: Tools can automatically generate interconnect logic and configuration files based on the IP-XACT descriptions.
-   - **Verification Support**: Integration with simulation and formal verification tools to ensure the integrated design functions correctly.
+   * **IP Catalogs**: Browsing and selecting IP blocks from a repository.
+   * **Automated Integration**: Tools can automatically generate interconnect logic and configuration files based on the IP-XACT descriptions.
+   * **Verification Support**: Integration with simulation and formal verification tools to ensure the integrated design functions correctly.
 
 The standard structure for packaging, integrating, and reusing IP within tool flows, particularly using the IP-XACT standard, enables a streamlined and efficient design process. It promotes interoperability, reduces integration time, and enhances the reusability of IP blocks, ultimately leading to faster time-to-market for semiconductor products.
 
@@ -123,23 +123,23 @@ The primary objectives of IP-XACT are:
 
 1. **Component**: This element encapsulates the detailed description of the IP component, including its metadata, interfaces, and configuration parameters.
 
-   - **VLNV (Vendor, Library, Name, Version)**: Unique identifier for the IP block.
-   - **Ports**: Lists all the input and output ports with their attributes such as direction, type, and width.
-   - **Parameters**: Configurable attributes of the IP, allowing customization for different use cases.
-   - **Bus Interfaces**: Specifies the bus protocols supported by the IP, such as AXI, AHB, or custom protocols.
-   - **Memory Maps**: Defines the addressable memory spaces and registers within the IP.
-   - **Filesets**: Grouping of all files associated with the IP, including source code, synthesis scripts, and documentation.
+   * **VLNV (Vendor, Library, Name, Version)**: Unique identifier for the IP block.
+   * **Ports**: Lists all the input and output ports with their attributes such as direction, type, and width.
+   * **Parameters**: Configurable attributes of the IP, allowing customization for different use cases.
+   * **Bus Interfaces**: Specifies the bus protocols supported by the IP, such as AXI, AHB, or custom protocols.
+   * **Memory Maps**: Defines the addressable memory spaces and registers within the IP.
+   * **Filesets**: Grouping of all files associated with the IP, including source code, synthesis scripts, and documentation.
 
 2. **Design**: This section details how multiple IP components are instantiated and interconnected to form a complete system or subsystem.
 
-   - **Component Instances**: Instances of individual IP blocks within the design.
-   - **Interconnections**: Connections between ports and bus interfaces of different IP instances.
-   - **Hierarchical Design**: Support for complex, hierarchical designs that build larger systems from smaller subcomponents.
+   * **Component Instances**: Instances of individual IP blocks within the design.
+   * **Interconnections**: Connections between ports and bus interfaces of different IP instances.
+   * **Hierarchical Design**: Support for complex, hierarchical designs that build larger systems from smaller subcomponents.
 
 3. **Generator Chain**
 
-   - **Generators**: Describes the tools and scripts necessary to process the IP block, such as synthesis, simulation, and verification scripts.
-   - **Execution Order**: Specifies the order in which these tools and scripts should be executed.
+   * **Generators**: Describes the tools and scripts necessary to process the IP block, such as synthesis, simulation, and verification scripts.
+   * **Execution Order**: Specifies the order in which these tools and scripts should be executed.
 
 ### Benefits
 
@@ -177,33 +177,33 @@ Here are some of the significant normative references that might be included in 
 
 1. **IEEE 1800-2017 (SystemVerilog)**
 
-   - **Purpose**: Defines the SystemVerilog language, which is often used for design and verification of electronic systems.
-   - **Relevance**: Ensures that IP components described in IP-XACT can be modeled and verified using SystemVerilog.
+   * **Purpose**: Defines the SystemVerilog language, which is often used for design and verification of electronic systems.
+   * **Relevance**: Ensures that IP components described in IP-XACT can be modeled and verified using SystemVerilog.
 
 2. **IEEE 1364-2005 (Verilog)**
 
-   - **Purpose**: Provides the specifications for the Verilog hardware description language.
-   - **Relevance**: Many IP cores are described in Verilog, making this standard essential for interpreting and utilizing Verilog-based IP within IP-XACT.
+   * **Purpose**: Provides the specifications for the Verilog hardware description language.
+   * **Relevance**: Many IP cores are described in Verilog, making this standard essential for interpreting and utilizing Verilog-based IP within IP-XACT.
 
 3. **IEEE 1076-2008 (VHDL)**
 
-   - **Purpose**: Defines the VHSIC Hardware Description Language (VHDL), used for describing the behavior and structure of electronic systems.
-   - **Relevance**: VHDL is another common language for IP description, and IP-XACT needs to support VHDL-based IP.
+   * **Purpose**: Defines the VHSIC Hardware Description Language (VHDL), used for describing the behavior and structure of electronic systems.
+   * **Relevance**: VHDL is another common language for IP description, and IP-XACT needs to support VHDL-based IP.
 
 4. **ISO/IEC 8824-1:2002 (ASN.1)**
 
-   - **Purpose**: Specifies Abstract Syntax Notation One (ASN.1), a standard interface for data representation.
-   - **Relevance**: Useful for defining complex data types and ensuring consistent data communication within IP-XACT.
+   * **Purpose**: Specifies Abstract Syntax Notation One (ASN.1), a standard interface for data representation.
+   * **Relevance**: Useful for defining complex data types and ensuring consistent data communication within IP-XACT.
 
 5. **IEEE 1500-2005 (SECT)**
 
-   - **Purpose**: Provides a standard for embedded core test (SECT), which is essential for testing IP cores within an integrated circuit.
-   - **Relevance**: Ensures that IP-XACT descriptions include testability features, enhancing the reliability and verification of IP blocks.
+   * **Purpose**: Provides a standard for embedded core test (SECT), which is essential for testing IP cores within an integrated circuit.
+   * **Relevance**: Ensures that IP-XACT descriptions include testability features, enhancing the reliability and verification of IP blocks.
 
 6. **IEEE 1687-2014 (iJTAG)**
 
-   - **Purpose**: Specifies the standard for accessing embedded instruments in devices (iJTAG).
-   - **Relevance**: Supports integration and testing of IP cores with built-in test instruments, facilitating easier diagnostics and debugging.
+   * **Purpose**: Specifies the standard for accessing embedded instruments in devices (iJTAG).
+   * **Relevance**: Supports integration and testing of IP cores with built-in test instruments, facilitating easier diagnostics and debugging.
 
 ### How Normative References Are Used in IP-XACT
 
@@ -1539,29 +1539,29 @@ Addressing in the context of electronic systems refers to the method by which in
 
 1. **Memory Addressing**: Memory addressing is perhaps the most common form of addressing in computing systems. In memory addressing:
 
-   - **Physical Addressing**: Each byte or word of memory has a unique physical address, which is typically a binary number. Physical addresses are used by hardware components such as the memory controller to access specific memory locations directly.
+   * **Physical Addressing**: Each byte or word of memory has a unique physical address, which is typically a binary number. Physical addresses are used by hardware components such as the memory controller to access specific memory locations directly.
 
-   - **Logical Addressing**: Programs and processes running on a computer system use logical addresses to access memory. These addresses are typically generated by the CPU and translated into physical addresses by the memory management unit (MMU). Logical addresses provide a virtualized view of memory, allowing processes to access memory locations independently of the physical memory layout.
+   * **Logical Addressing**: Programs and processes running on a computer system use logical addresses to access memory. These addresses are typically generated by the CPU and translated into physical addresses by the memory management unit (MMU). Logical addresses provide a virtualized view of memory, allowing processes to access memory locations independently of the physical memory layout.
 
 2. **I/O Addressing**: Input/output (I/O) addressing involves accessing peripheral devices and hardware registers within the system. Each I/O device typically has a set of registers that can be read from or written to by the CPU or other hardware components.
 
-   - **Port-Mapped I/O**: In port-mapped I/O, devices are assigned specific addresses, known as I/O ports, in the system's address space. Reading from or writing to these ports triggers communication with the associated device. Port-mapped I/O instructions are typically separate from memory access instructions.
+   * **Port-Mapped I/O**: In port-mapped I/O, devices are assigned specific addresses, known as I/O ports, in the system's address space. Reading from or writing to these ports triggers communication with the associated device. Port-mapped I/O instructions are typically separate from memory access instructions.
 
-   - **Memory-Mapped I/O**: Memory-mapped I/O integrates device registers into the system's memory address space. Each register is assigned a memory address, and reading from or writing to these addresses interacts with the corresponding device. Memory-mapped I/O instructions are similar to memory access instructions, simplifying programming but potentially leading to bus contention.
+   * **Memory-Mapped I/O**: Memory-mapped I/O integrates device registers into the system's memory address space. Each register is assigned a memory address, and reading from or writing to these addresses interacts with the corresponding device. Memory-mapped I/O instructions are similar to memory access instructions, simplifying programming but potentially leading to bus contention.
 
 3. **Instruction Addressing**: Instruction addressing refers to how the CPU retrieves instructions from memory during program execution. The CPU's program counter (PC) holds the address of the next instruction to be fetched. Instruction addresses may be absolute, relative, or indirect, depending on the CPU architecture and instruction set.
 
-   - **Absolute Addressing**: The instruction address is specified explicitly in the instruction itself. This is common in fixed-memory architectures where the program is loaded at a known location in memory.
+   * **Absolute Addressing**: The instruction address is specified explicitly in the instruction itself. This is common in fixed-memory architectures where the program is loaded at a known location in memory.
 
-   - **Relative Addressing**: The instruction address is relative to the current program counter value. This is useful for branching or jumping instructions where the target address is specified as an offset from the current instruction.
+   * **Relative Addressing**: The instruction address is relative to the current program counter value. This is useful for branching or jumping instructions where the target address is specified as an offset from the current instruction.
 
-   - **Indirect Addressing**: The instruction specifies an address that points to the actual address of the data or instruction. This indirection allows for more flexibility in addressing and is often used in addressing modes such as register indirect addressing.
+   * **Indirect Addressing**: The instruction specifies an address that points to the actual address of the data or instruction. This indirection allows for more flexibility in addressing and is often used in addressing modes such as register indirect addressing.
 
 4. **Network Addressing**: In networked systems, addressing is used to identify nodes and devices within a network. Each device typically has a unique network address, which may be assigned statically or dynamically.
 
-   - **IP Addressing**: In Internet Protocol (IP) addressing, devices on a network are assigned IP addresses, which consist of a network portion and a host portion. IP addresses can be IPv4 or IPv6 and are used for routing packets across networks.
+   * **IP Addressing**: In Internet Protocol (IP) addressing, devices on a network are assigned IP addresses, which consist of a network portion and a host portion. IP addresses can be IPv4 or IPv6 and are used for routing packets across networks.
 
-   - **MAC Addressing**: Media Access Control (MAC) addresses are hardware addresses assigned to network interface controllers (NICs). MAC addresses are used at the data link layer to uniquely identify devices on a local network segment.
+   * **MAC Addressing**: Media Access Control (MAC) addresses are hardware addresses assigned to network interface controllers (NICs). MAC addresses are used at the data link layer to uniquely identify devices on a local network segment.
 
 ### Importance of Addressing
 
@@ -1582,32 +1582,32 @@ Data visibility refers to the accessibility and availability of data within a sy
 
 1. **Scope of Data**:
 
-   - **Local Data**: Data that is visible and accessible only within a specific process, function, or module.
-   - **Global Data**: Data that is visible and accessible across multiple processes, functions, or modules within a system.
+   * **Local Data**: Data that is visible and accessible only within a specific process, function, or module.
+   * **Global Data**: Data that is visible and accessible across multiple processes, functions, or modules within a system.
 
 2. **Availability**:
 
-   - **Real-time Visibility**: Data that is continuously updated and available for immediate access and analysis.
-   - **Historical Visibility**: Data that is stored and accessible for analysis and reporting purposes, providing insights into past events or trends.
+   * **Real-time Visibility**: Data that is continuously updated and available for immediate access and analysis.
+   * **Historical Visibility**: Data that is stored and accessible for analysis and reporting purposes, providing insights into past events or trends.
 
 3. **Access Control**:
 
-   - **Role-based Access Control (RBAC)**: Access to data is determined based on the roles and permissions assigned to users or user groups.
-   - **Attribute-based Access Control (ABAC)**: Access to data is determined based on attributes associated with users, resources, and environmental conditions.
-   - **Access Policies**: Explicit rules and policies define who can access which data under specific circumstances, ensuring data confidentiality, integrity, and availability.
+   * **Role-based Access Control (RBAC)**: Access to data is determined based on the roles and permissions assigned to users or user groups.
+   * **Attribute-based Access Control (ABAC)**: Access to data is determined based on attributes associated with users, resources, and environmental conditions.
+   * **Access Policies**: Explicit rules and policies define who can access which data under specific circumstances, ensuring data confidentiality, integrity, and availability.
 
 4. **Data Lifecycle**:
 
-   - **Creation**: Data is generated or captured by sensors, applications, or user interactions.
-   - **Storage**: Data is stored in databases, file systems, or other storage mediums, where its visibility may be controlled based on access permissions and encryption.
-   - **Processing**: Data is manipulated, analyzed, or transformed to derive insights or support decision-making processes.
-   - **Transmission**: Data is transmitted between systems, networks, or devices, requiring secure protocols and encryption to maintain visibility and integrity.
-   - **Deletion**: Data may be deleted or archived according to retention policies, ensuring compliance with privacy regulations and reducing security risks.
+   * **Creation**: Data is generated or captured by sensors, applications, or user interactions.
+   * **Storage**: Data is stored in databases, file systems, or other storage mediums, where its visibility may be controlled based on access permissions and encryption.
+   * **Processing**: Data is manipulated, analyzed, or transformed to derive insights or support decision-making processes.
+   * **Transmission**: Data is transmitted between systems, networks, or devices, requiring secure protocols and encryption to maintain visibility and integrity.
+   * **Deletion**: Data may be deleted or archived according to retention policies, ensuring compliance with privacy regulations and reducing security risks.
 
 5. **Monitoring and Auditing**:
 
-   - **Visibility Monitoring**: Tools and systems are used to monitor data access, usage patterns, and anomalies in real-time to detect unauthorized access or data breaches.
-   - **Audit Trails**: Logs and audit trails record data access events, including user actions, timestamps, and access privileges, facilitating compliance audits and forensic investigations.
+   * **Visibility Monitoring**: Tools and systems are used to monitor data access, usage patterns, and anomalies in real-time to detect unauthorized access or data breaches.
+   * **Audit Trails**: Logs and audit trails record data access events, including user actions, timestamps, and access privileges, facilitating compliance audits and forensic investigations.
 
 ### Importance of Data Visibility
 

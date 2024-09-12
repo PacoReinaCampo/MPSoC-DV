@@ -12,12 +12,12 @@ Inputs to the management review must include:
 2. **Changes in external and internal issues relevant to the QMS**.
 3. **Information on QMS performance and effectiveness**, including:
 
-   - Trends in customer satisfaction and feedback.
-   - Extent of quality objectives achieved.
-   - Process performance and product conformity.
-   - Nonconformities and corrective actions.
-   - Audit results.
-   - Performance of external providers.
+   * Trends in customer satisfaction and feedback.
+   * Extent of quality objectives achieved.
+   * Process performance and product conformity.
+   * Nonconformities and corrective actions.
+   * Audit results.
+   * Performance of external providers.
 
 4. **Adequacy of resources**.
 5. **Effectiveness of actions taken to address risks and opportunities**.

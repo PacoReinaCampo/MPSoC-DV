@@ -8,10 +8,10 @@ Actions in UML are categorized into several types based on their functionality a
 
 2. **Structured Actions**: Structured actions are composed of multiple sub-actions and control elements. They help organize complex behaviors by providing a structured way to model them. Some examples of structured actions include:
 
-   - **Sequence**: Represents a sequence of actions that are performed in a specific order.
-   - **Loop**: Represents repetitive actions that are executed iteratively until a certain condition is met.
-   - **Conditional**: Represents actions that are executed based on certain conditions being true or false.
-   - **Parallel**: Represents actions that can be executed concurrently.
+   * **Sequence**: Represents a sequence of actions that are performed in a specific order.
+   * **Loop**: Represents repetitive actions that are executed iteratively until a certain condition is met.
+   * **Conditional**: Represents actions that are executed based on certain conditions being true or false.
+   * **Parallel**: Represents actions that can be executed concurrently.
 
 3. **Object Actions**: Object actions are actions that manipulate objects or data within the system. They include creating, destroying, modifying, or accessing objects and their attributes. Object actions are closely related to object-oriented concepts such as methods or operations.
 

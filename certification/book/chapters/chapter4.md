@@ -24,10 +24,10 @@ The planning process involves several key activities to achieve its objectives:
 
    **Key Elements**: Develop the Hardware Development Plan (HDP)
 
-   - Project scope and objectives
-   - Development methodologies and processes
-   - Roles and responsibilities of team members
-   - Milestones, schedules, and deliverables
+   * Project scope and objectives
+   * Development methodologies and processes
+   * Roles and responsibilities of team members
+   * Milestones, schedules, and deliverables
 
 2. **Establish the Hardware Verification Plan (HVP)**
 
@@ -35,10 +35,10 @@ The planning process involves several key activities to achieve its objectives:
 
    **Key Elements**: Establish the Hardware Verification Plan (H
 
-   - Verification objectives and scope
-   - Test plans and procedures
-   - Verification tools and environments
-   - Criteria for successful verification
+   * Verification objectives and scope
+   * Test plans and procedures
+   * Verification tools and environments
+   * Criteria for successful verification
 
 3. **Create the Hardware Configuration Management Plan (HCMP)**
 
@@ -46,10 +46,10 @@ The planning process involves several key activities to achieve its objectives:
 
    **Key Elements**: Create the Hardware Configuration Management Plan (HCM
 
-   - Configuration identification and control processes
-   - Change management procedures
-   - Version control and tracking mechanisms
-   - Roles and responsibilities for configuration management
+   * Configuration identification and control processes
+   * Change management procedures
+   * Version control and tracking mechanisms
+   * Roles and responsibilities for configuration management
 
 4. **Formulate the Hardware Process Assurance Plan (HPAP)**
 
@@ -57,10 +57,10 @@ The planning process involves several key activities to achieve its objectives:
 
    **Key Elements**: Formulate the Hardware Process Assurance Plan (HPAP
 
-   - Process assurance objectives and scope
-   - Auditing and review processes
-   - Non-compliance handling procedures
-   - Documentation and reporting requirements
+   * Process assurance objectives and scope
+   * Auditing and review processes
+   * Non-compliance handling procedures
+   * Documentation and reporting requirements
 
 5. **Risk Management Planning**
 
@@ -68,10 +68,10 @@ The planning process involves several key activities to achieve its objectives:
 
    **Key Elements**: Risk Management Planning
 
-   - Risk identification and assessment
-   - Risk mitigation strategies and actions
-   - Monitoring and reporting mechanisms
-   - Contingency plans
+   * Risk identification and assessment
+   * Risk mitigation strategies and actions
+   * Monitoring and reporting mechanisms
+   * Contingency plans
 
 6. **Resource Planning and Allocation**
 
@@ -79,10 +79,10 @@ The planning process involves several key activities to achieve its objectives:
 
    **Key Elements**: Resource Planning and Allocation
 
-   - Resource requirements and availability
-   - Budget and cost estimates
-   - Resource scheduling and allocation
-   - Training and development needs
+   * Resource requirements and availability
+   * Budget and cost estimates
+   * Resource scheduling and allocation
+   * Training and development needs
 
 7. **Define Performance Metrics and Criteria**
 
@@ -90,10 +90,10 @@ The planning process involves several key activities to achieve its objectives:
 
    **Key Elements**: Define Performance Metrics and Criteria
 
-   - Key performance indicators (KPIs)
-   - Success criteria for milestones and deliverables
-   - Monitoring and reporting processes
-   - Feedback and improvement mechanisms
+   * Key performance indicators (KPIs)
+   * Success criteria for milestones and deliverables
+   * Monitoring and reporting processes
+   * Feedback and improvement mechanisms
 
 8. **Documentation and Reporting**
 
@@ -101,10 +101,10 @@ The planning process involves several key activities to achieve its objectives:
 
    **Key Elements**: Documentation and Reporting
 
-   - Documentation standards and templates
-   - Regular progress reports and reviews
-   - Communication protocols
-   - Archiving and retrieval processes
+   * Documentation standards and templates
+   * Regular progress reports and reviews
+   * Communication protocols
+   * Archiving and retrieval processes
 
 9. **Review and Approval**
 
@@ -112,9 +112,9 @@ The planning process involves several key activities to achieve its objectives:
 
    **Key Elements**: Review and Approval
 
-   - Review procedures and criteria
-   - Approval workflows
-   - Stakeholder engagement
-   - Documentation of review and approval outcomes
+   * Review procedures and criteria
+   * Approval workflows
+   * Stakeholder engagement
+   * Documentation of review and approval outcomes
 
 By carefully executing these planning process activities, organizations can lay a solid foundation for the successful development and assurance of airborne electronic hardware, ensuring that all safety, performance, and reliability requirements are met.

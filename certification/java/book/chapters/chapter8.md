@@ -21,9 +21,9 @@ public void printMessage() {
 - **Type**: `boolean`
 - **Description**: Represents a boolean value (`true` or `false`).
 - **Common Fields and Methods**:
-   - `boolean`: Default value is `false`.
-   - `TRUE` and `FALSE`: Constants in the `Boolean` class representing `true` and `false`.
-   - `booleanValue()`: Method to convert `Boolean` objects to primitive `boolean`.
+   * `boolean`: Default value is `false`.
+   * `TRUE` and `FALSE`: Constants in the `Boolean` class representing `true` and `false`.
+   * `booleanValue()`: Method to convert `Boolean` objects to primitive `boolean`.
 
 ```java
 boolean isJavaFun = true;
@@ -39,9 +39,9 @@ if (isJavaFun) {
 - **Type**: `byte`, `short`, `int`, `long`, `float`, `double`
 - **Description**: Represent integers and floating-point numbers of varying sizes.
 - **Common Fields and Methods**:
-   - `MIN_VALUE` and `MAX_VALUE`: Constants specifying the range of values for each type.
-   - `parseXxx(String s)`: Static method to convert a string to a primitive type (`Xxx` represents the type).
-   - `XxxValue()`: Method to convert wrapper objects to primitive types (`Xxx` represents the type).
+   * `MIN_VALUE` and `MAX_VALUE`: Constants specifying the range of values for each type.
+   * `parseXxx(String s)`: Static method to convert a string to a primitive type (`Xxx` represents the type).
+   * `XxxValue()`: Method to convert wrapper objects to primitive types (`Xxx` represents the type).
 
 ```java
 int num = 42;
@@ -53,9 +53,9 @@ double pi = 3.14;
 - **Type**: `char`
 - **Description**: Represents a single 16-bit Unicode character.
 - **Common Fields and Methods**:
-   - `MIN_VALUE` and `MAX_VALUE`: Constants specifying the range of Unicode values (`'\u0000'` to `'\uffff'`).
-   - `isLetter()`, `isDigit()`, `isWhitespace()`: Methods to check character properties.
-   - `toUpperCase()`, `toLowerCase()`: Methods to convert characters to uppercase or lowercase.
+   * `MIN_VALUE` and `MAX_VALUE`: Constants specifying the range of Unicode values (`'\u0000'` to `'\uffff'`).
+   * `isLetter()`, `isDigit()`, `isWhitespace()`: Methods to check character properties.
+   * `toUpperCase()`, `toLowerCase()`: Methods to convert characters to uppercase or lowercase.
 
 ```java
 char grade = 'A';

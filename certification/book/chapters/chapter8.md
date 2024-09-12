@@ -23,8 +23,8 @@ Process assurance involves a range of activities to achieve its objectives:
 
    **Key Activities**: Planning and Documentation
 
-   - Develop a Process Assurance Plan (PAP) that outlines the scope, objectives, activities, responsibilities, and schedules.
-   - Ensure that all process documentation, including plans, procedures, and standards, is complete, accurate, and up-to-date.
+   * Develop a Process Assurance Plan (PAP) that outlines the scope, objectives, activities, responsibilities, and schedules.
+   * Ensure that all process documentation, including plans, procedures, and standards, is complete, accurate, and up-to-date.
 
 2. **Process Reviews and Audits**
 
@@ -32,9 +32,9 @@ Process assurance involves a range of activities to achieve its objectives:
 
    **Key Activities**: Process Reviews and Audits
 
-   - Perform regular process reviews to ensure compliance with plans, standards, and regulations.
-   - Conduct internal and external audits to assess the effectiveness and compliance of processes.
-   - Document audit findings and ensure that any non-conformances are addressed and corrected.
+   * Perform regular process reviews to ensure compliance with plans, standards, and regulations.
+   * Conduct internal and external audits to assess the effectiveness and compliance of processes.
+   * Document audit findings and ensure that any non-conformances are addressed and corrected.
 
 3. **Process Monitoring and Control**
 
@@ -42,9 +42,9 @@ Process assurance involves a range of activities to achieve its objectives:
 
    **Key Activities**: Process Monitoring and Control
 
-   - Implement process monitoring mechanisms to track the performance and adherence of processes.
-   - Use key performance indicators (KPIs) and metrics to evaluate process effectiveness.
-   - Identify any deviations from the defined processes and implement corrective actions.
+   * Implement process monitoring mechanisms to track the performance and adherence of processes.
+   * Use key performance indicators (KPIs) and metrics to evaluate process effectiveness.
+   * Identify any deviations from the defined processes and implement corrective actions.
 
 4. **Verification of Process Implementation**
 
@@ -52,9 +52,9 @@ Process assurance involves a range of activities to achieve its objectives:
 
    **Key Activities**: Verification of Process Implementation
 
-   - Perform process verification activities to ensure that processes are executed as planned.
-   - Use checklists and verification criteria to assess process implementation.
-   - Document the results of process verification and address any discrepancies.
+   * Perform process verification activities to ensure that processes are executed as planned.
+   * Use checklists and verification criteria to assess process implementation.
+   * Document the results of process verification and address any discrepancies.
 
 5. **Training and Awareness**
 
@@ -62,9 +62,9 @@ Process assurance involves a range of activities to achieve its objectives:
 
    **Key Activities**: Training and Awareness
 
-   - Develop and deliver training programs to educate team members on process assurance activities and requirements.
-   - Maintain training records and ensure that all personnel are up-to-date with their training.
-   - Promote awareness of process assurance practices and their importance.
+   * Develop and deliver training programs to educate team members on process assurance activities and requirements.
+   * Maintain training records and ensure that all personnel are up-to-date with their training.
+   * Promote awareness of process assurance practices and their importance.
 
 6. **Risk Management**
 
@@ -72,9 +72,9 @@ Process assurance involves a range of activities to achieve its objectives:
 
    **Key Activities**: Risk Management
 
-   - Perform risk assessments to identify potential process-related risks.
-   - Develop and implement risk mitigation strategies to address identified risks.
-   - Monitor and review risks throughout the hardware development lifecycle.
+   * Perform risk assessments to identify potential process-related risks.
+   * Develop and implement risk mitigation strategies to address identified risks.
+   * Monitor and review risks throughout the hardware development lifecycle.
 
 7. **Continuous Improvement**
 
@@ -82,9 +82,9 @@ Process assurance involves a range of activities to achieve its objectives:
 
    **Key Activities**: Continuous Improvement
 
-   - Collect feedback from process participants and stakeholders to identify areas for improvement.
-   - Implement process improvements based on feedback and lessons learned.
-   - Review and update process documentation to reflect improvements and changes.
+   * Collect feedback from process participants and stakeholders to identify areas for improvement.
+   * Implement process improvements based on feedback and lessons learned.
+   * Review and update process documentation to reflect improvements and changes.
 
 8. **Documentation and Reporting**
 
@@ -92,8 +92,8 @@ Process assurance involves a range of activities to achieve its objectives:
 
    **Key Activities**: Documentation and Reporting 
 
-   - Document all process assurance activities, including reviews, audits, monitoring, and verification.
-   - Prepare and distribute regular reports on process assurance findings, including compliance status, issues identified, and corrective actions taken.
-   - Ensure that all documentation is accessible and organized to facilitate audits and reviews.
+   * Document all process assurance activities, including reviews, audits, monitoring, and verification.
+   * Prepare and distribute regular reports on process assurance findings, including compliance status, issues identified, and corrective actions taken.
+   * Ensure that all documentation is accessible and organized to facilitate audits and reviews.
 
 By implementing these process assurance activities, organizations can ensure that their hardware development processes are robust, compliant, and effective. This, in turn, helps to ensure the safety, reliability, and certification of the airborne electronic hardware.

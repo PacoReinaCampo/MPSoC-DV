@@ -36,7 +36,7 @@ Un "Capítulo 2" para cada Programa.
 
 Un "Capítulo 3" para cada Programa.
 
-## Capítulo 4. Architecture
+## Capítulo 4. Plan
 
 Un "Capítulo 4" para cada Programa.
 
@@ -131,29 +131,35 @@ Se conserva para toda la Organización QueenField.
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 ```
-requirements
-· 1850-2010: PSL
+doc
+· IEEE STD 1801-2013: Low Power
+· IEEE STD 0754-2019: Float Point
+· IEEE STD 1754-1994: RISC 32 Bit
 
-source
-· 1666-2011: SystemC
+requirements
+· IEEE STD 1850-2010: PSL
 
 model
-· 1076-2019: VHDL
-· 1800-2017: SystemVerilog
+· IEEE STD 1076-2019: VHDL
+· IEEE STD 1800-2017: SystemVerilog
 
 validation
-· 1076-2019: Procedures
-· 1076-2019: OSVVM
+· IEEE STD 1076-2019: Procedures
+· IEEE STD 1076-2019: OSVVM
 
 rtl
-· 1076-2019: VHDL
-· 1364-2005: Verilog
+· IEEE STD 1076-2019: VHDL
+· IEEE STD 1364-2005: Verilog
 
 verification
-· 1800-2017: Classes
-· 1800-2020: UVM
+· IEEE STD 1800-2017: Classes
+· IEEE STD 1800-2020: UVM
 
-doc
-· 1685-2014: IP-XACT
-· 1735-2014: Encryption and Management
+configuration
+· IEEE STD 1666-2011: SystemC
+
+lifecycle
+· IEEE STD 1735-2014: IP-Developer
+· IEEE STD 2675-2021: IP-DevOps
+· IEEE STD 1685-2014: IP-Manager
 ```

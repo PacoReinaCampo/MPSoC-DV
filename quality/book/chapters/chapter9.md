@@ -10,23 +10,23 @@ The organization must determine:
 
 1. **What needs to be monitored and measured**:
 
-   - Identify key performance indicators (KPIs) and other relevant metrics.
-   - Determine what aspects of the QMS, processes, and product/service quality will be monitored.
+   * Identify key performance indicators (KPIs) and other relevant metrics.
+   * Determine what aspects of the QMS, processes, and product/service quality will be monitored.
 
 2. **Methods for monitoring, measurement, analysis, and evaluation**:
 
-   - Establish appropriate methods for gathering and analyzing data.
-   - Ensure methods are reliable and provide accurate results.
+   * Establish appropriate methods for gathering and analyzing data.
+   * Ensure methods are reliable and provide accurate results.
 
 3. **When monitoring and measuring will be performed**:
 
-   - Define the frequency and timing of monitoring and measurement activities.
-   - Ensure that these activities are conducted regularly and at appropriate intervals.
+   * Define the frequency and timing of monitoring and measurement activities.
+   * Ensure that these activities are conducted regularly and at appropriate intervals.
 
 4. **When results from monitoring and measurement will be analyzed and evaluated**:
 
-   - Specify how often data will be reviewed and who will conduct the analysis.
-   - Ensure timely evaluation to support decision-making and improvements.
+   * Specify how often data will be reviewed and who will conduct the analysis.
+   * Ensure timely evaluation to support decision-making and improvements.
 
 Documented information must be retained as evidence of the results of these activities, supporting transparency and accountability.
 
@@ -36,13 +36,13 @@ Customer satisfaction is a key measure of the QMS’s effectiveness. The organiz
 
 1. **Methods for obtaining customer feedback**:
 
-   - Use surveys, interviews, and feedback forms.
-   - Monitor social media, reviews, and other online platforms.
+   * Use surveys, interviews, and feedback forms.
+   * Monitor social media, reviews, and other online platforms.
 
 2. **Analyzing customer satisfaction data**:
 
-   - Regularly review feedback to identify trends and areas for improvement.
-   - Take corrective actions based on customer complaints and suggestions.
+   * Regularly review feedback to identify trends and areas for improvement.
+   * Take corrective actions based on customer complaints and suggestions.
 
 ### Analysis and Evaluation
 
@@ -69,23 +69,23 @@ The organization must conduct internal audits at planned intervals to provide in
 
 1. **Planning the audit program**:
 
-   - Define the scope, frequency, and methods for audits.
-   - Ensure audits cover all aspects of the QMS and are conducted regularly.
+   * Define the scope, frequency, and methods for audits.
+   * Ensure audits cover all aspects of the QMS and are conducted regularly.
 
 2. **Selecting and training auditors**:
 
-   - Choose auditors who are impartial and objective.
-   - Provide training to ensure they are competent.
+   * Choose auditors who are impartial and objective.
+   * Provide training to ensure they are competent.
 
 3. **Conducting audits and reporting findings**:
 
-   - Carry out audits according to the plan, gather evidence, and report nonconformities.
-   - Ensure findings are documented and communicated to relevant management.
+   * Carry out audits according to the plan, gather evidence, and report nonconformities.
+   * Ensure findings are documented and communicated to relevant management.
 
 4. **Taking corrective actions**:
 
-   - Address nonconformities and their causes.
-   - Verify the effectiveness of corrective actions.
+   * Address nonconformities and their causes.
+   * Verify the effectiveness of corrective actions.
 
 ## MANAGEMENT REVIEW
 
@@ -103,12 +103,12 @@ Inputs to the management review must include:
 
 3. **Information on QMS performance and effectiveness**, including:
 
-   - Trends in customer satisfaction and feedback.
-   - Extent of quality objectives achieved.
-   - Process performance and product conformity.
-   - Nonconformities and corrective actions.
-   - Audit results.
-   - Performance of external providers.
+   * Trends in customer satisfaction and feedback.
+   * Extent of quality objectives achieved.
+   * Process performance and product conformity.
+   * Nonconformities and corrective actions.
+   * Audit results.
+   * Performance of external providers.
 
 4. **Adequacy of resources**.
 

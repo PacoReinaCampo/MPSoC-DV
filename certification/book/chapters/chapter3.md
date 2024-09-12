@@ -112,72 +112,72 @@ Transition criteria are predefined conditions that must be met before moving fro
 
 **Criteria**: Planning to Requirements Capture
 
-   - Approval of the Hardware Development Plan (HDP).
-   - Identification and allocation of necessary resources.
-   - Establishment of initial safety and risk management processes.
+   * Approval of the Hardware Development Plan (HDP).
+   * Identification and allocation of necessary resources.
+   * Establishment of initial safety and risk management processes.
 
 ### Requirements Capture to Conceptual Design
 
 **Criteria**: Requirements Capture to Conceptual Design
 
-   - Completion and approval of the hardware requirements document.
-   - Traceability of requirements to system-level requirements.
-   - Initial safety and feasibility analysis completed.
+   * Completion and approval of the hardware requirements document.
+   * Traceability of requirements to system-level requirements.
+   * Initial safety and feasibility analysis completed.
 
 ### Conceptual Design to Detailed Design
 
 **Criteria**: Conceptual Design to Detailed Design
 
-   - Approval of the conceptual design.
-   - Documentation of design architecture and key components.
-   - Preliminary safety assessment of the conceptual design.
+   * Approval of the conceptual design.
+   * Documentation of design architecture and key components.
+   * Preliminary safety assessment of the conceptual design.
 
 ### Detailed Design to Implementation
 
 **Criteria**: Detailed Design to Implementation
 
-   - Completion and approval of detailed design documentation.
-   - Verification of design against requirements.
-   - Readiness for prototype manufacturing.
+   * Completion and approval of detailed design documentation.
+   * Verification of design against requirements.
+   * Readiness for prototype manufacturing.
 
 ### Implementation to Verification
 
 **Criteria**: Implementation to Verification
 
-   - Successful assembly and integration of hardware prototypes.
-   - Initial functional tests passed.
-   - Availability of verification test plans and procedures.
+   * Successful assembly and integration of hardware prototypes.
+   * Initial functional tests passed.
+   * Availability of verification test plans and procedures.
 
 ### Verification to Validation
 
 **Criteria**: Verification to Validation
 
-   - Completion of verification activities and documentation of results.
-   - Verification that hardware meets all specified requirements.
-   - Readiness for system-level integration and testing.
+   * Completion of verification activities and documentation of results.
+   * Verification that hardware meets all specified requirements.
+   * Readiness for system-level integration and testing.
 
 ### Validation to Certification Preparation
 
 **Criteria**: Validation to Certification Preparation
 
-   - Successful completion of validation activities.
-   - Validation that hardware performs correctly in the system and operational environment.
-   - Compilation of all necessary documentation for certification.
+   * Successful completion of validation activities.
+   * Validation that hardware performs correctly in the system and operational environment.
+   * Compilation of all necessary documentation for certification.
 
 ### Certification Preparation to Production Transition
 
 **Criteria**: Certification Preparation to Production Transition
 
-   - Certification approval from relevant aviation authorities.
-   - Establishment of production processes and quality controls.
-   - Successful pilot production runs.
+   * Certification approval from relevant aviation authorities.
+   * Establishment of production processes and quality controls.
+   * Successful pilot production runs.
 
 ### Production Transition to Maintenance and In-Service Support
 
 **Criteria**: Production Transition to Maintenance and In-Service Support
 
-   - Stable production process established.
-   - Initial production units delivered and accepted.
-   - Maintenance and support plans in place.
+   * Stable production process established.
+   * Initial production units delivered and accepted.
+   * Maintenance and support plans in place.
 
 By adhering to these life cycle processes and transition criteria, organizations can ensure a systematic and rigorous approach to developing safe, reliable, and certifiable airborne electronic hardware.

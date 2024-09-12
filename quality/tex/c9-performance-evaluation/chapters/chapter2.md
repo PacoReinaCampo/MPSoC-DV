@@ -9,20 +9,20 @@ The organization must conduct internal audits at planned intervals to provide in
 
 1. **Planning the audit program**:
 
-   - Define the scope, frequency, and methods for audits.
-   - Ensure audits cover all aspects of the QMS and are conducted regularly.
+   * Define the scope, frequency, and methods for audits.
+   * Ensure audits cover all aspects of the QMS and are conducted regularly.
 
 2. **Selecting and training auditors**:
 
-   - Choose auditors who are impartial and objective.
-   - Provide training to ensure they are competent.
+   * Choose auditors who are impartial and objective.
+   * Provide training to ensure they are competent.
 
 3. **Conducting audits and reporting findings**:
 
-   - Carry out audits according to the plan, gather evidence, and report nonconformities.
-   - Ensure findings are documented and communicated to relevant management.
+   * Carry out audits according to the plan, gather evidence, and report nonconformities.
+   * Ensure findings are documented and communicated to relevant management.
 
 4. **Taking corrective actions**:
 
-   - Address nonconformities and their causes.
-   - Verify the effectiveness of corrective actions.
+   * Address nonconformities and their causes.
+   * Verify the effectiveness of corrective actions.

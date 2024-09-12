@@ -34,19 +34,19 @@ comando [opciones] [argumentos]
 
 - `pwd`: Muestra el directorio de trabajo actual.
 - `ls`: Lista el contenido del directorio.
-   - `ls -l`: Lista en formato largo.
-   - `ls -a`: Incluye archivos ocultos.
+   * `ls -l`: Lista en formato largo.
+   * `ls -a`: Incluye archivos ocultos.
 - `cd [directorio]`: Cambia al directorio especificado.
-   - `cd ..`: Sube un nivel en la jerarquía de directorios.
-   - `cd ~`: Cambia al directorio home del usuario.
+   * `cd ..`: Sube un nivel en la jerarquía de directorios.
+   * `cd ~`: Cambia al directorio home del usuario.
 
 #### Manipulación de Archivos y Directorios
 
 - `cp origen destino`: Copia un archivo o directorio.
-   - `cp -r origen destino`: Copia recursivamente un directorio.
+   * `cp -r origen destino`: Copia recursivamente un directorio.
 - `mv origen destino`: Mueve o renombra un archivo o directorio.
 - `rm archivo`: Elimina un archivo.
-   - `rm -r directorio`: Elimina recursivamente un directorio.
+   * `rm -r directorio`: Elimina recursivamente un directorio.
 - `mkdir nombre_directorio`: Crea un nuevo directorio.
 - `rmdir nombre_directorio`: Elimina un directorio vacío.
 
@@ -64,7 +64,7 @@ comando [opciones] [argumentos]
 #### Comandos de Permisos
 
 - `chmod modo archivo`: Cambia los permisos de un archivo o directorio.
-   - `chmod 755 archivo`: Permisos de lectura, escritura y ejecución para el propietario, y lectura y ejecución para otros.
+   * `chmod 755 archivo`: Permisos de lectura, escritura y ejecución para el propietario, y lectura y ejecución para otros.
 - `chown propietario:grupo archivo`: Cambia el propietario y grupo de un archivo o directorio.
 
 #### Visualización de Permisos
@@ -95,9 +95,9 @@ comando [opciones] [argumentos]
 #### Gestión de Procesos
 
 - `ps`: Muestra los procesos en ejecución.
-   - `ps aux`: Muestra todos los procesos en detalle.
+   * `ps aux`: Muestra todos los procesos en detalle.
 - `kill PID`: Termina un proceso por su ID.
-   - `kill -9 PID`: Fuerza la terminación de un proceso.
+   * `kill -9 PID`: Fuerza la terminación de un proceso.
 - `pkill nombre_proceso`: Termina un proceso por su nombre.
 
 ### Comandos Avanzados
@@ -106,7 +106,7 @@ comando [opciones] [argumentos]
 
 - `find directorio -name "patrón"`: Busca archivos y directorios por nombre.
 - `grep "patrón" archivo`: Busca un patrón dentro de un archivo.
-   - `grep -r "patrón" directorio`: Busca recursivamente en un directorio.
+   * `grep -r "patrón" directorio`: Busca recursivamente en un directorio.
 
 #### Compresión y Descompresión
 
@@ -125,7 +125,7 @@ comando [opciones] [argumentos]
 #### Aliases
 
 - `alias nombre='comando'`: Crea un alias para un comando.
-   - `alias ll='ls -la'`: Crea un alias `ll` para `ls -la`.
+   * `alias ll='ls -la'`: Crea un alias `ll` para `ls -la`.
 
 #### Scripts
 

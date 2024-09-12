@@ -18,11 +18,11 @@ La organización y manipulación de la estructura de almacenamiento de datos en 
 
 3. **Operaciones comunes**:
 
-   - **Crear directorios**: Se crea un nuevo directorio utilizando comandos específicos del sistema operativo o mediante interfaces gráficas.
-   - **Eliminar directorios**: Se elimina un directorio vacío o con su contenido utilizando comandos o la interfaz gráfica.
-   - **Navegar entre directorios**: Se accede a diferentes directorios para ver y manipular su contenido.
-   - **Mover y renombrar directorios**: Se cambia la ubicación o el nombre de un directorio.
-   - **Listar contenido**: Se muestra una lista de ficheros y subdirectorios dentro de un directorio específico.
+   * **Crear directorios**: Se crea un nuevo directorio utilizando comandos específicos del sistema operativo o mediante interfaces gráficas.
+   * **Eliminar directorios**: Se elimina un directorio vacío o con su contenido utilizando comandos o la interfaz gráfica.
+   * **Navegar entre directorios**: Se accede a diferentes directorios para ver y manipular su contenido.
+   * **Mover y renombrar directorios**: Se cambia la ubicación o el nombre de un directorio.
+   * **Listar contenido**: Se muestra una lista de ficheros y subdirectorios dentro de un directorio específico.
 
 ### Ficheros (Archivos)
 
@@ -30,19 +30,19 @@ La organización y manipulación de la estructura de almacenamiento de datos en 
 
 2. **Tipos de ficheros**:
 
-   - **Ficheros de texto**: Contienen texto sin formato, como documentos escritos en un editor de texto.
-   - **Ficheros binarios**: Contienen datos en un formato que no es legible directamente para humanos, como programas ejecutables o imágenes.
-   - **Ficheros multimedia**: Contienen datos de audio, video o imágenes.
-   - **Ficheros de configuración**: Contienen ajustes y configuraciones para programas y sistemas.
+   * **Ficheros de texto**: Contienen texto sin formato, como documentos escritos en un editor de texto.
+   * **Ficheros binarios**: Contienen datos en un formato que no es legible directamente para humanos, como programas ejecutables o imágenes.
+   * **Ficheros multimedia**: Contienen datos de audio, video o imágenes.
+   * **Ficheros de configuración**: Contienen ajustes y configuraciones para programas y sistemas.
 
 3. **Operaciones comunes**:
 
-   - **Crear ficheros**: Se crea un nuevo fichero especificando su nombre y ubicación.
-   - **Eliminar ficheros**: Se elimina un fichero específico del sistema de archivos.
-   - **Copiar ficheros**: Se duplica un fichero en una ubicación diferente.
-   - **Mover y renombrar ficheros**: Se cambia la ubicación o el nombre de un fichero existente.
-   - **Editar ficheros**: Se modifica el contenido de un fichero utilizando editores de texto o herramientas específicas para su tipo.
-   - **Leer y escribir ficheros**: Se accede al contenido de un fichero para leerlo o modificarlo según sea necesario.
+   * **Crear ficheros**: Se crea un nuevo fichero especificando su nombre y ubicación.
+   * **Eliminar ficheros**: Se elimina un fichero específico del sistema de archivos.
+   * **Copiar ficheros**: Se duplica un fichero en una ubicación diferente.
+   * **Mover y renombrar ficheros**: Se cambia la ubicación o el nombre de un fichero existente.
+   * **Editar ficheros**: Se modifica el contenido de un fichero utilizando editores de texto o herramientas específicas para su tipo.
+   * **Leer y escribir ficheros**: Se accede al contenido de un fichero para leerlo o modificarlo según sea necesario.
 
 ### Gestión en Sistemas Operativos
 
@@ -90,9 +90,9 @@ Markdown es un lenguaje de marcado ligero y fácil de usar que permite formatear
 
 3. **Estilos de texto**: 
 
-   - Para texto en **negrita**, se utilizan dos asteriscos `**` o dos guiones bajos `__` alrededor del texto.
-   - Para texto en *cursiva*, se utilizan un asterisco `*` o un guion bajo `_` alrededor del texto.
-   - Ejemplo:
+   * Para texto en **negrita**, se utilizan dos asteriscos `**` o dos guiones bajos `__` alrededor del texto.
+   * Para texto en *cursiva*, se utilizan un asterisco `*` o un guion bajo `_` alrededor del texto.
+   * Ejemplo:
 
      ```
      **texto en negrita**
@@ -111,8 +111,8 @@ Markdown es un lenguaje de marcado ligero y fácil de usar que permite formatear
    ```
 
 5. **Enlaces e imágenes**: 
-   - Para crear enlaces, se encierra el texto del enlace entre corchetes `[ ]` y la URL entre paréntesis `( )`.
-   - Para insertar imágenes, se utiliza un formato similar al de los enlaces, pero precedido de un signo de exclamación `!`.
+   * Para crear enlaces, se encierra el texto del enlace entre corchetes `[ ]` y la URL entre paréntesis `( )`.
+   * Para insertar imágenes, se utiliza un formato similar al de los enlaces, pero precedido de un signo de exclamación `!`.
 
    ```
    [Texto del enlace](http://ejemplo.com)

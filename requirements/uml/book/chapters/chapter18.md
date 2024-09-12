@@ -9,10 +9,10 @@ Here's a detailed explanation of key components and concepts related to use case
 2. **Use Case**: A use case represents a specific functionality or behavior that the system provides to its users or actors. It describes a sequence of interactions between one or more actors and the system to achieve a particular goal. Use cases are typically written in natural language and focus on the user's perspective, describing what the user wants to accomplish and how the system responds to the user's actions.
 
 3. **Relationships**:
-   - **Association**: An association between an actor and a use case indicates that the actor participates in or interacts with the use case.
-   - **Generalization**: Use case generalization allows for the creation of more specific use cases based on a common base use case. It represents an "is-a" relationship, where a specialized use case inherits behavior from a more general use case.
-   - **Include Relationship**: An include relationship indicates that one use case includes the behavior of another use case. It is used to modularize common behavior that is shared across multiple use cases.
-   - **Extend Relationship**: An extend relationship allows for the optional or conditional extension of a base use case with additional behavior. It represents "optional" or "exceptional" behavior that is not always part of the base use case.
+   * **Association**: An association between an actor and a use case indicates that the actor participates in or interacts with the use case.
+   * **Generalization**: Use case generalization allows for the creation of more specific use cases based on a common base use case. It represents an "is-a" relationship, where a specialized use case inherits behavior from a more general use case.
+   * **Include Relationship**: An include relationship indicates that one use case includes the behavior of another use case. It is used to modularize common behavior that is shared across multiple use cases.
+   * **Extend Relationship**: An extend relationship allows for the optional or conditional extension of a base use case with additional behavior. It represents "optional" or "exceptional" behavior that is not always part of the base use case.
 
 4. **Use Case Diagrams**: Use case diagrams are used to visualize the relationships between actors and use cases within a system. They provide a high-level overview of the system's functionality and the interactions between actors and the system. Use case diagrams consist of actors, use cases, and relationships between them, represented using graphical notations.
 

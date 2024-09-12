@@ -6,10 +6,10 @@ In Go language, semicolons are used as statement terminators, similar to many ot
 
 1. **Implicit Semicolons**: The Go compiler automatically inserts semicolons at the end of a line if the line break occurs after one of the following tokens:
 
-   - Keywords: `break`, `continue`, `fallthrough`, `return`, `goto`
-   - Operators: `++`, `--`, `)`
-   - Literals: Integer, floating-point, imaginary, rune, string, and others.
-   - Identifiers: Variable names, function names, and others.
+   * Keywords: `break`, `continue`, `fallthrough`, `return`, `goto`
+   * Operators: `++`, `--`, `)`
+   * Literals: Integer, floating-point, imaginary, rune, string, and others.
+   * Identifiers: Variable names, function names, and others.
 
   ```go
   // Semicolons are implicitly inserted at the end of each line.

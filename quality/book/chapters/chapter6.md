@@ -14,15 +14,15 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 
 1. **Identify Risks and Opportunities**:
 
-   - Analyze the internal and external context of the organization to identify potential risks and opportunities that could impact the QMS.
-   - Consider the needs and expectations of interested parties, including customers, suppliers, and regulatory bodies.
+   * Analyze the internal and external context of the organization to identify potential risks and opportunities that could impact the QMS.
+   * Consider the needs and expectations of interested parties, including customers, suppliers, and regulatory bodies.
 
 2. **Determine Actions**: Plan actions to address these risks and opportunities. Actions should be proportionate to the potential impact on the conformity of products and services and on customer satisfaction.
 
 3. **Integrate Actions into QMS**:
 
-   - Integrate and implement these actions into the QMS processes.
-   - Ensure that these actions are managed, monitored, and reviewed for effectiveness.
+   * Integrate and implement these actions into the QMS processes.
+   * Ensure that these actions are managed, monitored, and reviewed for effectiveness.
 
 **Examples**:
 
@@ -37,15 +37,15 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 
 1. **Setting Quality Objectives**:
 
-   - Objectives should be specific, measurable, achievable, relevant, and time-bound (SMART).
-   - They should reflect the organization's commitment to customer satisfaction, regulatory compliance, and continuous improvement.
+   * Objectives should be specific, measurable, achievable, relevant, and time-bound (SMART).
+   * They should reflect the organization's commitment to customer satisfaction, regulatory compliance, and continuous improvement.
 
 2. **Planning to Achieve Objectives**:
 
-   - Determine what will be done to achieve these objectives.
-   - Identify the necessary resources, including personnel, equipment, and training.
-   - Assign responsibility and authority for achieving each objective.
-   - Establish timeframes and milestones to monitor progress.
+   * Determine what will be done to achieve these objectives.
+   * Identify the necessary resources, including personnel, equipment, and training.
+   * Assign responsibility and authority for achieving each objective.
+   * Establish timeframes and milestones to monitor progress.
 
 **Examples**:
 
@@ -62,18 +62,18 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 
 2. **Evaluating Changes**:
 
-   - Assess the potential impact of the changes on the QMS, including risks and benefits.
-   - Consider how the changes will affect existing processes, resources, and responsibilities.
+   * Assess the potential impact of the changes on the QMS, including risks and benefits.
+   * Consider how the changes will affect existing processes, resources, and responsibilities.
 
 3. **Planning Changes**:
 
-   - Define the steps necessary to implement the changes, including resource allocation and timeline.
-   - Communicate the planned changes to all relevant parties to ensure understanding and buy-in.
+   * Define the steps necessary to implement the changes, including resource allocation and timeline.
+   * Communicate the planned changes to all relevant parties to ensure understanding and buy-in.
 
 4. **Implementing Changes**:
 
-   - Execute the change plan, ensuring that all actions are documented and monitored.
-   - Evaluate the effectiveness of the changes and make adjustments as necessary.
+   * Execute the change plan, ensuring that all actions are documented and monitored.
+   * Evaluate the effectiveness of the changes and make adjustments as necessary.
 
 **Examples**:
 

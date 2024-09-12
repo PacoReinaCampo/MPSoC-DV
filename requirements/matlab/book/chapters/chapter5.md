@@ -132,9 +132,9 @@ MATLAB graphics are object-oriented, allowing detailed control over each compone
 Efficient rendering of graphics is important for large datasets and complex plots.
 
 - **Improving Performance**:
-   - **Use `LineSpec` and `MarkerSpec`** efficiently to reduce rendering time.
-   - **Limit the amount of data points** plotted in a single figure.
-   - **Use lower-level graphics functions** (`line`, `patch`) for complex customizations.
+   * **Use `LineSpec` and `MarkerSpec`** efficiently to reduce rendering time.
+   * **Limit the amount of data points** plotted in a single figure.
+   * **Use lower-level graphics functions** (`line`, `patch`) for complex customizations.
 
 - **Updating Plots Efficiently**:
   ```matlab

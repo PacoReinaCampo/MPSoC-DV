@@ -18,8 +18,8 @@ ISO 9001:2015 includes the following normative reference:
 
 This normative reference is crucial because:
 
-   - It defines the key terms and concepts used in ISO 9001:2015, ensuring that all users have a common understanding of the language and principles of quality management systems.
-   - It lays the foundation for the implementation and interpretation of ISO 9001:2015, offering essential background information that supports the requirements of the standard.
+   * It defines the key terms and concepts used in ISO 9001:2015, ensuring that all users have a common understanding of the language and principles of quality management systems.
+   * It lays the foundation for the implementation and interpretation of ISO 9001:2015, offering essential background information that supports the requirements of the standard.
 
 ## IMPORTANCE OF NORMATIVE REFERENCES
 

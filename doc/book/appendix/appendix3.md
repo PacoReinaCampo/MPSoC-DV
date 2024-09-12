@@ -61,20 +61,20 @@ Typical Normative References in IEEE 2675
 While the specific normative references for IEEE 2675 are not detailed in your query, typical references in such standards often include:
 
 1. **ISO/IEC Standards**:
-   - **ISO/IEC 27001**: Information Security Management Systems – Requirements.
-   - **ISO/IEC 27002**: Code of practice for information security controls.
-   - **ISO/IEC 25010**: Systems and software engineering – Systems and software Quality Requirements and Evaluation (SQuaRE) – System and software quality models.
+   * **ISO/IEC 27001**: Information Security Management Systems – Requirements.
+   * **ISO/IEC 27002**: Code of practice for information security controls.
+   * **ISO/IEC 25010**: Systems and software engineering – Systems and software Quality Requirements and Evaluation (SQuaRE) – System and software quality models.
 
 2. **IEEE Standards**:
-   - **IEEE 829**: Standard for Software and System Test Documentation.
-   - **IEEE 730**: Standard for Software Quality Assurance Plans.
-   - **IEEE 12207**: Standard for Information Technology – Software Life Cycle Processes.
+   * **IEEE 829**: Standard for Software and System Test Documentation.
+   * **IEEE 730**: Standard for Software Quality Assurance Plans.
+   * **IEEE 12207**: Standard for Information Technology – Software Life Cycle Processes.
 
 3. **ITIL (Information Technology Infrastructure Library)**: Provides best practices for IT service management (ITSM), which can be integral to DevOps processes.
 
 4. **NIST (National Institute of Standards and Technology) Publications**:
-   - **NIST SP 800-53**: Security and Privacy Controls for Information Systems and Organizations.
-   - **NIST SP 800-160**: Systems Security Engineering.
+   * **NIST SP 800-53**: Security and Privacy Controls for Information Systems and Organizations.
+   * **NIST SP 800-160**: Systems Security Engineering.
 
 Integration with IEEE 2675
 

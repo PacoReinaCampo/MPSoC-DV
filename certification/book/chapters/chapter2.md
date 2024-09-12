@@ -19,15 +19,15 @@ The system safety assessment (SSA) processes involve evaluating the entire syste
 Key components of the system safety assessment processes include:
 
 1. **Preliminary System Safety Assessment (PSSA)**: Conducted early in the development process to identify potential hazards and their associated risks. This involves:
-   - Identifying possible failure conditions.
-   - Assessing the severity of these conditions.
-   - Determining safety requirements to mitigate risks.
+   * Identifying possible failure conditions.
+   * Assessing the severity of these conditions.
+   * Determining safety requirements to mitigate risks.
 2. **Functional Hazard Assessment (FHA)**: Identifying and classifying potential hazards associated with system functions. The FHA assesses the impact of functional failures on system safety and helps define safety requirements.
 3. **Failure Modes and Effects Analysis (FMEA)**: Analyzing individual components and subsystems to identify potential failure modes, their causes, and effects on system performance. FMEA helps in understanding how failures propagate and impact safety.
 4. **Fault Tree Analysis (FTA)**: A top-down approach to identify the root causes of system failures by constructing fault trees that map out the logical relationships between different failure events.
 5. **Common Cause Analysis (CCA)**: Evaluating the potential for common causes that could lead to multiple, simultaneous failures. This includes:
-   - Zonal Safety Analysis (ZSA): Assessing the impact of shared physical space on failure propagation.
-   - Particular Risk Analysis (PRA): Identifying risks associated with specific hazards, such as fire or electromagnetic interference.
+   * Zonal Safety Analysis (ZSA): Assessing the impact of shared physical space on failure propagation.
+   * Particular Risk Analysis (PRA): Identifying risks associated with specific hazards, such as fire or electromagnetic interference.
 6. **System Safety Analysis (SSA)**: A comprehensive assessment conducted later in the development process, incorporating results from PSSA, FHA, FMEA, FTA, and CCA to ensure that all identified hazards have been adequately mitigated and that the system meets safety objectives.
 
 ## HARDWARE SAFETY ASSESSMENT
@@ -41,13 +41,13 @@ Key activities in hardware safety assessment include:
 3. **Hardware Fault Tree Analysis (HFTA)**: Constructing fault trees for hardware components to identify the root causes of potential failures and their logical relationships. HFTA helps in understanding how hardware failures can propagate and impact system safety.
 4. **Hardware Common Cause Analysis (HCCA)**: Evaluating the potential for common causes that could lead to multiple, simultaneous hardware failures. This includes assessing environmental factors, design dependencies, and manufacturing processes that could introduce common failure mechanisms.
 5. **Reliability Analysis**: Assessing the reliability of hardware components and systems through statistical analysis and reliability modeling. This involves:
-   - Estimating failure rates for hardware components.
-   - Analyzing the impact of component reliability on overall system safety.
-   - Implementing design improvements to enhance reliability.
+   * Estimating failure rates for hardware components.
+   * Analyzing the impact of component reliability on overall system safety.
+   * Implementing design improvements to enhance reliability.
 6. **Environmental Testing and Qualification**: Conducting tests to ensure that hardware can withstand environmental conditions such as temperature extremes, humidity, vibration, and electromagnetic interference. These tests validate that hardware performance remains reliable under all expected operating conditions.
 7. **Safety Verification and Validation**: Performing rigorous testing and analysis to verify that hardware meets all safety requirements and validating that it performs safely in real-world scenarios. This includes:
-   - Conducting hardware-in-the-loop (HIL) testing.
-   - Simulating fault conditions to evaluate hardware responses.
-   - Reviewing safety-related documentation and evidence.
+   * Conducting hardware-in-the-loop (HIL) testing.
+   * Simulating fault conditions to evaluate hardware responses.
+   * Reviewing safety-related documentation and evidence.
 
 By systematically applying these safety assessment processes, organizations can ensure that their airborne electronic hardware meets the stringent safety requirements necessary for certification and operational deployment in civil aviation.

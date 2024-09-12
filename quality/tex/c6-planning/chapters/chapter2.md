@@ -6,15 +6,15 @@
 
 1. **Setting Quality Objectives**:
 
-   - Objectives should be specific, measurable, achievable, relevant, and time-bound (SMART).
-   - They should reflect the organization's commitment to customer satisfaction, regulatory compliance, and continuous improvement.
+   * Objectives should be specific, measurable, achievable, relevant, and time-bound (SMART).
+   * They should reflect the organization's commitment to customer satisfaction, regulatory compliance, and continuous improvement.
 
 2. **Planning to Achieve Objectives**:
 
-   - Determine what will be done to achieve these objectives.
-   - Identify the necessary resources, including personnel, equipment, and training.
-   - Assign responsibility and authority for achieving each objective.
-   - Establish timeframes and milestones to monitor progress.
+   * Determine what will be done to achieve these objectives.
+   * Identify the necessary resources, including personnel, equipment, and training.
+   * Assign responsibility and authority for achieving each objective.
+   * Establish timeframes and milestones to monitor progress.
 
 **Examples**:
 

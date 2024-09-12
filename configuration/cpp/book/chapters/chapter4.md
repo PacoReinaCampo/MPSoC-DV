@@ -11,10 +11,10 @@ With the introduction of C++20, feature test macros have become increasingly imp
 3. **__cplusplus Macro**: The `__cplusplus` macro is commonly used to check the version of the C++ standard being used by the compiler. In C++20, its value is `202002L`.
 
 4. **Feature Test Macros**: C++20 introduces new macros for checking the availability of features introduced in the standard. For example:
-   - `__cpp_concepts` to check for Concepts support.
-   - `__cpp_modules` to check for Modules support.
-   - `__cpp_coroutines` to check for Coroutines support.
-   - `__cpp_constexpr_dynamic_alloc` to check for dynamic memory allocation support in constexpr functions.
+   * `__cpp_concepts` to check for Concepts support.
+   * `__cpp_modules` to check for Modules support.
+   * `__cpp_coroutines` to check for Coroutines support.
+   * `__cpp_constexpr_dynamic_alloc` to check for dynamic memory allocation support in constexpr functions.
 
 5. **Usage**: Feature test macros are typically used in conditional compilation directives such as `#ifdef` and `#if`. For example:
    ```cpp

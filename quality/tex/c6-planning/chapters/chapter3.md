@@ -8,18 +8,18 @@
 
 2. **Evaluating Changes**:
 
-   - Assess the potential impact of the changes on the QMS, including risks and benefits.
-   - Consider how the changes will affect existing processes, resources, and responsibilities.
+   * Assess the potential impact of the changes on the QMS, including risks and benefits.
+   * Consider how the changes will affect existing processes, resources, and responsibilities.
 
 3. **Planning Changes**:
 
-   - Define the steps necessary to implement the changes, including resource allocation and timeline.
-   - Communicate the planned changes to all relevant parties to ensure understanding and buy-in.
+   * Define the steps necessary to implement the changes, including resource allocation and timeline.
+   * Communicate the planned changes to all relevant parties to ensure understanding and buy-in.
 
 4. **Implementing Changes**:
 
-   - Execute the change plan, ensuring that all actions are documented and monitored.
-   - Evaluate the effectiveness of the changes and make adjustments as necessary.
+   * Execute the change plan, ensuring that all actions are documented and monitored.
+   * Evaluate the effectiveness of the changes and make adjustments as necessary.
 
 **Examples**:
 
