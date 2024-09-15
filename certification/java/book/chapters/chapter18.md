@@ -22,18 +22,18 @@ import java.util.List;
 
 Access to classes and members within a package is controlled by access modifiers (`public`, `protected`, `default`, `private`):
 
-- **`public`**: Accessible from any other class.
-- **`protected`**: Accessible within the same package and subclasses.
-- **`default`** (no modifier): Accessible within the same package.
-- **`private`**: Accessible only within the same class.
+   * **`public`**: Accessible from any other class.
+   * **`protected`**: Accessible within the same package and subclasses.
+   * **`default`** (no modifier): Accessible within the same package.
+   * **`private`**: Accessible only within the same class.
 
 ### PACKAGE CONTENTS
 
 A package can contain:
-- **Classes and Interfaces**: Java source code files.
-- **Subpackages**: Nested packages within a package.
-- **Annotations**: Custom annotations defined within the package.
-- **Resources**: Non-Java files such as properties files.
+   * **Classes and Interfaces**: Java source code files.
+   * **Subpackages**: Nested packages within a package.
+   * **Annotations**: Custom annotations defined within the package.
+   * **Resources**: Non-Java files such as properties files.
 
 ### PACKAGE ANNOTATIONS
 
@@ -58,8 +58,8 @@ package com.example.myapp;
 ### PACKAGE VISIBILITY
 
 Packages in Java provide:
-- **Encapsulation**: Controlling access to classes and members.
-- **Namespace Management**: Preventing naming conflicts between classes from different packages.
-- **Access Control**: Defining which classes and members are accessible outside the package.
+   * **Encapsulation**: Controlling access to classes and members.
+   * **Namespace Management**: Preventing naming conflicts between classes from different packages.
+   * **Access Control**: Defining which classes and members are accessible outside the package.
 
 This manual provides a comprehensive overview of packages in Java, covering package naming conventions, type imports, package access control, package contents including classes, subpackages, annotations, and resources, package-level annotations, and specifications using package-info.java files. For more detailed information, refer to the Java documentation and additional resources.

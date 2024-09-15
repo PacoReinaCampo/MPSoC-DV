@@ -4,9 +4,9 @@
 
 The organization must ensure that externally provided processes, products, and services meet specified requirements. This includes:
 
-- Establishing criteria for selecting external providers.
-- Evaluating the competence and capability of external providers.
-- Monitoring and controlling externally provided processes, products, and services.
+   * Establishing criteria for selecting external providers.
+   * Evaluating the competence and capability of external providers.
+   * Monitoring and controlling externally provided processes, products, and services.
 
 ## TYPE AND EXTENT OF CONTROL
 

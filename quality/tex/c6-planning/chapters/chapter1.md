@@ -2,9 +2,9 @@
 
 **Purpose**:
 
-- To ensure that the QMS can achieve its intended results.
-- To enhance desirable effects and prevent or reduce undesired effects.
-- To achieve continual improvement.
+   * To ensure that the QMS can achieve its intended results.
+   * To enhance desirable effects and prevent or reduce undesired effects.
+   * To achieve continual improvement.
 
 **Approach**:
 
@@ -22,5 +22,5 @@
 
 **Examples**:
 
-- **Risk Mitigation**: Implementing quality control measures to reduce the risk of product defects.
-- **Opportunity Exploitation**: Investing in new technology to improve product quality and operational efficiency.
+   * **Risk Mitigation**: Implementing quality control measures to reduce the risk of product defects.
+   * **Opportunity Exploitation**: Investing in new technology to improve product quality and operational efficiency.

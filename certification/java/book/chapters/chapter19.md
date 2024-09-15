@@ -5,8 +5,8 @@ Documentation comments in Java are used to generate API documentation with tools
 ### THE ANATOMY OF A DOC COMMENT
 
 Documentation comments start with `/**` and end with `*/`. They can include:
-- **Description**: Summary of the purpose and behavior of the documented element.
-- **Tags**: Additional information such as parameters, return values, exceptions, and usage examples.
+   * **Description**: Summary of the purpose and behavior of the documented element.
+   * **Tags**: Additional information such as parameters, return values, exceptions, and usage examples.
 
 ```java
 /**
@@ -22,12 +22,12 @@ public class MyClass {
 
 Javadoc supports various tags to document different aspects of a class or method:
 
-- **`@param`**: Describes a method parameter.
-- **`@return`**: Describes the return value of a method.
-- **`@throws` or `@exception`**: Describes exceptions thrown by a method.
-- **`@see`**: References other classes, methods, or documentation.
-- **`@since`**: Specifies the version when an element was introduced.
-- **`@deprecated`**: Marks an element as deprecated with an optional explanation.
+   * **`@param`**: Describes a method parameter.
+   * **`@return`**: Describes the return value of a method.
+   * **`@throws` or `@exception`**: Describes exceptions thrown by a method.
+   * **`@see`**: References other classes, methods, or documentation.
+   * **`@since`**: Specifies the version when an element was introduced.
+   * **`@deprecated`**: Marks an element as deprecated with an optional explanation.
 
 ```java
 /**
@@ -90,14 +90,14 @@ public class BankAccount {
 ### EXTERNAL CONVENTIONS
 
 Follow standard conventions and best practices for writing effective documentation comments:
-- **Clarity and Conciseness**: Clearly describe the purpose, behavior, and usage of classes and methods.
-- **Consistency**: Use consistent formatting and language across documentation comments.
-- **Relevance**: Include only relevant and essential information to aid understanding.
+   * **Clarity and Conciseness**: Clearly describe the purpose, behavior, and usage of classes and methods.
+   * **Consistency**: Use consistent formatting and language across documentation comments.
+   * **Relevance**: Include only relevant and essential information to aid understanding.
 
 ### NOTES ON USAGE
 
-- **Use of HTML**: Javadoc supports basic HTML tags (`<code>`, `<ul>`, `<li>`) for formatting documentation.
-- **Private Members**: Documenting private members is optional but can be useful for internal documentation.
-- **Generating Documentation**: Use tools like Javadoc to generate HTML documentation from source code.
+   * **Use of HTML**: Javadoc supports basic HTML tags (`<code>`, `<ul>`, `<li>`) for formatting documentation.
+   * **Private Members**: Documenting private members is optional but can be useful for internal documentation.
+   * **Generating Documentation**: Use tools like Javadoc to generate HTML documentation from source code.
 
 This manual provides a comprehensive overview of documentation comments in Java, covering the anatomy of a doc comment, tags for documenting parameters, return values, exceptions, and other information, inheriting documentation comments, examples, external conventions for writing documentation, and usage notes. For more detailed information, refer to the Java documentation and additional resources on Javadoc.

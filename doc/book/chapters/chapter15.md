@@ -81,22 +81,22 @@ type:
 sudo apt update
 sudo apt upgrade
 
-sudo apt -y install bison
-sudo apt -y install cmake
-sudo apt -y install flex
-sudo apt -y install freeglut3-dev
-sudo apt -y install libcairo2-dev
-sudo apt -y install libgsl-dev
-sudo apt -y install libncurses-dev
-sudo apt -y install libx11-dev
-sudo apt -y install m4
-sudo apt -y install python-tk
-sudo apt -y install python3-tk
-sudo apt -y install swig
-sudo apt -y install tcl
-sudo apt -y install tcl-dev
-sudo apt -y install tk-dev
-sudo apt -y install tcsh
+sudo apt install -y bison
+sudo apt install -y cmake
+sudo apt install -y flex
+sudo apt install -y freeglut3-dev
+sudo apt install -y libcairo2-dev
+sudo apt install -y libgsl-dev
+sudo apt install -y libncurses-dev
+sudo apt install -y libx11-dev
+sudo apt install -y m4
+sudo apt install -y python-tk
+sudo apt install -y python3-tk
+sudo apt install -y swig
+sudo apt install -y tcl
+sudo apt install -y tcl-dev
+sudo apt install -y tk-dev
+sudo apt install -y tcsh
 ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
@@ -110,25 +110,25 @@ sudo apt upgrade
 ```
 
 ```
-sudo apt -y install build-essential
-sudo apt -y install clang
-sudo apt -y install bison
-sudo apt -y install flex
-sudo apt -y install libreadline-dev
-sudo apt -y install gawk
-sudo apt -y install tcl-dev
-sudo apt -y install libffi-dev
-sudo apt -y install git
-sudo apt -y install make
-sudo apt -y install gnat
-sudo apt -y install graphviz
-sudo apt -y install xdot
-sudo apt -y install pkg-config
-sudo apt -y install python3
-sudo apt -y install libboost-system-dev
-sudo apt -y install libboost-python-dev
-sudo apt -y install libboost-filesystem-dev
-sudo apt -y install zlib1g-dev
+sudo apt install -y build-essential
+sudo apt install -y clang
+sudo apt install -y bison
+sudo apt install -y flex
+sudo apt install -y libreadline-dev
+sudo apt install -y gawk
+sudo apt install -y tcl-dev
+sudo apt install -y libffi-dev
+sudo apt install -y git
+sudo apt install -y make
+sudo apt install -y gnat
+sudo apt install -y graphviz
+sudo apt install -y xdot
+sudo apt install -y pkg-config
+sudo apt install -y python3
+sudo apt install -y libboost-system-dev
+sudo apt install -y libboost-python-dev
+sudo apt install -y libboost-filesystem-dev
+sudo apt install -y zlib1g-dev
 ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
@@ -379,22 +379,22 @@ type:
 sudo apt update
 sudo apt upgrade
 
-sudo apt -y install bison
-sudo apt -y install cmake
-sudo apt -y install flex
-sudo apt -y install freeglut3-dev
-sudo apt -y install libcairo2-dev
-sudo apt -y install libgsl-dev
-sudo apt -y install libncurses-dev
-sudo apt -y install libx11-dev
-sudo apt -y install m4
-sudo apt -y install python-tk
-sudo apt -y install python3-tk
-sudo apt -y install swig
-sudo apt -y install tcl
-sudo apt -y install tcl-dev
-sudo apt -y install tk-dev
-sudo apt -y install tcsh
+sudo apt install -y bison
+sudo apt install -y cmake
+sudo apt install -y flex
+sudo apt install -y freeglut3-dev
+sudo apt install -y libcairo2-dev
+sudo apt install -y libgsl-dev
+sudo apt install -y libncurses-dev
+sudo apt install -y libx11-dev
+sudo apt install -y m4
+sudo apt install -y python-tk
+sudo apt install -y python3-tk
+sudo apt install -y swig
+sudo apt install -y tcl
+sudo apt install -y tcl-dev
+sudo apt install -y tk-dev
+sudo apt install -y tcsh
 ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....

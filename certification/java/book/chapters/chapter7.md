@@ -5,17 +5,17 @@ In Java, tokens are the smallest units of a program's syntax, including keywords
 ### LEXICAL ELEMENTS
 
 Lexical elements are basic components of Java code that define its syntax and structure:
-- **Keywords**: Reserved words with predefined meanings (e.g., `public`, `class`, `int`).
-- **Identifiers**: Names given to classes, methods, variables, etc., adhering to specific naming rules (e.g., `main`, `myVariable`).
-- **Literals**: Represent constant values in code (e.g., `42` for integer, `"Hello"` for string).
-- **Operators**: Symbols used to perform operations on variables and values (e.g., `+`, `-`, `*`, `/`).
-- **Punctuation**: Symbols like `{`, `}`, `;`, `,` used for grouping, termination, and separation in code.
+   * **Keywords**: Reserved words with predefined meanings (e.g., `public`, `class`, `int`).
+   * **Identifiers**: Names given to classes, methods, variables, etc., adhering to specific naming rules (e.g., `main`, `myVariable`).
+   * **Literals**: Represent constant values in code (e.g., `42` for integer, `"Hello"` for string).
+   * **Operators**: Symbols used to perform operations on variables and values (e.g., `+`, `-`, `*`, `/`).
+   * **Punctuation**: Symbols like `{`, `}`, `;`, `,` used for grouping, termination, and separation in code.
 
 ### TYPES AND LITERALS
 
 Java supports various data types:
-- **Primitive Types**: `int`, `double`, `boolean`, etc., for basic data storage.
-- **Reference Types**: Classes, interfaces, arrays, enums, and interfaces.
+   * **Primitive Types**: `int`, `double`, `boolean`, etc., for basic data storage.
+   * **Reference Types**: Classes, interfaces, arrays, enums, and interfaces.
 
 Literals are specific values assigned to variables or passed as arguments, representing constants in the code (e.g., `5` as an integer literal, `"Hello"` as a string literal).
 
@@ -47,9 +47,9 @@ Arrays have a fixed size once created, but their elements can be accessed and mo
 ### THE MEANINGS OF NAMES
 
 In Java, names (identifiers) are crucial for variables, classes, methods, etc. They should be meaningful and adhere to naming conventions:
-- Start with a letter, underscore `_`, or dollar sign `$`.
-- Subsequent characters can include letters, digits, underscores, or dollar signs.
-- Case-sensitive (`myVariable` is different from `MyVariable`).
+   * Start with a letter, underscore `_`, or dollar sign `$`.
+   * Subsequent characters can include letters, digits, underscores, or dollar signs.
+   * Case-sensitive (`myVariable` is different from `MyVariable`).
 
 Naming conventions promote readability and maintainability of code, enhancing collaboration and understanding among developers.
 

@@ -54,8 +54,8 @@ public interface Collection<E> {
 
 ### SET AND SORTEDSET
 
-- **`Set`**: A collection that does not allow duplicate elements.
-- **`SortedSet`**: A set that maintains elements in ascending order.
+   * **`Set`**: A collection that does not allow duplicate elements.
+   * **`SortedSet`**: A set that maintains elements in ascending order.
 
 ```java
 Set<String> set = new HashSet<>();
@@ -65,7 +65,7 @@ set.add("banana");
 
 ### LIST
 
-- **`List`**: An ordered collection (allowing duplicate elements) with index-based access.
+   * **`List`**: An ordered collection (allowing duplicate elements) with index-based access.
 
 ```java
 List<String> list = new ArrayList<>();
@@ -76,7 +76,7 @@ String fruit = list.get(0); // Accessing element
 
 ### QUEUE
 
-- **`Queue`**: A collection designed for holding elements prior to processing, typically using FIFO (First-In-First-Out) order.
+   * **`Queue`**: A collection designed for holding elements prior to processing, typically using FIFO (First-In-First-Out) order.
 
 ```java
 Queue<String> queue = new LinkedList<>();
@@ -87,8 +87,8 @@ String first = queue.poll(); // Retrieving and removing the head of the queue
 
 ### MAP AND SORTEDMAP
 
-- **`Map`**: An object that maps keys to values (no duplicate keys).
-- **`SortedMap`**: A map that maintains its keys in ascending order.
+   * **`Map`**: An object that maps keys to values (no duplicate keys).
+   * **`SortedMap`**: A map that maintains its keys in ascending order.
 
 ```java
 Map<String, Integer> map = new HashMap<>();

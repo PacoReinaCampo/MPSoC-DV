@@ -8,25 +8,25 @@ An organization must determine and provide the resources needed for the establis
 
 The organization must ensure it has sufficient personnel with the necessary competencies to effectively implement the QMS, operate processes, and achieve conformity of products and services. This involves:
 
-- Identifying human resource needs.
-- Providing necessary training and development.
-- Ensuring staff have the appropriate skills and qualifications.
+   * Identifying human resource needs.
+   * Providing necessary training and development.
+   * Ensuring staff have the appropriate skills and qualifications.
 
 ## INFRASTRUCTURE
 
 Infrastructure refers to the facilities, equipment, and support services necessary for the operation of processes and to achieve conformity of products and services. This includes:
 
-- Buildings and workspace.
-- Utilities such as electricity and water.
-- Equipment such as machinery and tools.
-- Information and communication technology.
+   * Buildings and workspace.
+   * Utilities such as electricity and water.
+   * Equipment such as machinery and tools.
+   * Information and communication technology.
 
 ## ENVIRONMENT FOR THE OPERATION OF PROCESSES
 
 The organization must provide and manage the environment necessary for the operation of its processes. This includes both physical and non-physical factors, such as:
 
-- Physical factors: Cleanliness, temperature, humidity, lighting, and noise.
-- Non-physical factors: Workplace culture, morale, and well-being.
+   * Physical factors: Cleanliness, temperature, humidity, lighting, and noise.
+   * Non-physical factors: Workplace culture, morale, and well-being.
 
 ## MONITORING AND MEASURING RESOURCES
 
@@ -34,9 +34,9 @@ The organization must provide and manage the environment necessary for the opera
 
 The organization must determine and provide the necessary resources to ensure valid and reliable monitoring and measurement results. This includes:
 
-- Identifying what needs to be measured and monitored.
-- Ensuring measurement devices are suitable and properly maintained.
-- Establishing processes for calibration and verification of measurement devices.
+   * Identifying what needs to be measured and monitored.
+   * Ensuring measurement devices are suitable and properly maintained.
+   * Establishing processes for calibration and verification of measurement devices.
 
 ### Measurement Traceability
 
@@ -46,6 +46,6 @@ Where traceability is a requirement, measurement instruments must be calibrated 
 
 Organizational knowledge is the information necessary for the operation of processes and to achieve conformity of products and services. This includes:
 
-- Capturing and sharing knowledge gained from experience.
-- Learning from lessons learned, both successes and failures.
-- Ensuring the availability of this knowledge to those who need it.
+   * Capturing and sharing knowledge gained from experience.
+   * Learning from lessons learned, both successes and failures.
+   * Ensuring the availability of this knowledge to those who need it.

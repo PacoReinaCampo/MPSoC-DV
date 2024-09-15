@@ -4,8 +4,8 @@ Control flow in Java refers to the order in which statements are executed in a p
 
 ### STATEMENTS AND BLOCKS
 
-- **Statements**: Individual instructions that Java executes (e.g., variable declarations, method calls).
-- **Blocks**: Groups of statements enclosed in curly braces `{}`. Used to define scope and combine multiple statements into a single unit.
+   * **Statements**: Individual instructions that Java executes (e.g., variable declarations, method calls).
+   * **Blocks**: Groups of statements enclosed in curly braces `{}`. Used to define scope and combine multiple statements into a single unit.
 
 ```java
 // Block example
@@ -48,7 +48,7 @@ switch (dayOfWeek) {
 
 ### WHILE AND DO-WHILE
 
-- **`while`**: Executes a block of code as long as a specified condition is true.
+   * **`while`**: Executes a block of code as long as a specified condition is true.
 
 ```java
 int count = 0;
@@ -58,7 +58,7 @@ while (count < 5) {
 }
 ```
 
-- **`do-while`**: Similar to `while`, but guarantees at least one execution of the block before checking the condition.
+   * **`do-while`**: Similar to `while`, but guarantees at least one execution of the block before checking the condition.
 
 ```java
 int num = 1;

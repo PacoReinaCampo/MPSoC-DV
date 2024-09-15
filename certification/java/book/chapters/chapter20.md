@@ -5,14 +5,14 @@ Java I/O (Input/Output) package provides classes and interfaces for reading and 
 ### STREAMS OVERVIEW
 
 Streams are sequences of data elements. Java I/O provides two types of streams:
-- **Byte Streams**: Handles raw binary data.
-- **Character Streams**: Handles text data using Unicode characters.
+   * **Byte Streams**: Handles raw binary data.
+   * **Character Streams**: Handles text data using Unicode characters.
 
 ### BYTE STREAMS
 
 Byte streams are used for handling binary data:
-- **`InputStream`** and **`OutputStream`**: Abstract classes for reading and writing byte-oriented data.
-- **`FileInputStream`** and **`FileOutputStream`**: Reads from and writes to files respectively.
+   * **`InputStream`** and **`OutputStream`**: Abstract classes for reading and writing byte-oriented data.
+   * **`FileInputStream`** and **`FileOutputStream`**: Reads from and writes to files respectively.
 
 ```java
 try (FileInputStream fis = new FileInputStream("input.txt");
@@ -27,8 +27,8 @@ try (FileInputStream fis = new FileInputStream("input.txt");
 ### CHARACTER STREAMS
 
 Character streams are used for handling text data using Unicode characters:
-- **`Reader`** and **`Writer`**: Abstract classes for reading and writing character-oriented data.
-- **`FileReader`** and **`FileWriter`**: Reads from and writes to files using character encoding.
+   * **`Reader`** and **`Writer`**: Abstract classes for reading and writing character-oriented data.
+   * **`FileReader`** and **`FileWriter`**: Reads from and writes to files using character encoding.
 
 ```java
 try (FileReader reader = new FileReader("input.txt");
@@ -43,8 +43,8 @@ try (FileReader reader = new FileReader("input.txt");
 ### INPUTSTREAMREADER AND OUTPUTSTREAMWRITER
 
 Converts byte streams to character streams and vice versa:
-- **`InputStreamReader`**: Reads bytes and decodes them into characters.
-- **`OutputStreamWriter`**: Converts characters into bytes for output.
+   * **`InputStreamReader`**: Reads bytes and decodes them into characters.
+   * **`OutputStreamWriter`**: Converts characters into bytes for output.
 
 ```java
 try (FileInputStream fis = new FileInputStream("input.txt");

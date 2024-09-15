@@ -18,5 +18,5 @@
 
 **Examples**:
 
-- **Objective**: Reduce the defect rate by 10% within the next year.
-- **Plan**: Implement additional quality checks at key stages of the production process, provide training for quality inspectors, and monitor defect rates monthly.
+   * **Objective**: Reduce the defect rate by 10% within the next year.
+   * **Plan**: Implement additional quality checks at key stages of the production process, provide training for quality inspectors, and monitor defect rates monthly.

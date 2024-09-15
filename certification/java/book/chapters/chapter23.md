@@ -29,7 +29,7 @@ Process process = runtime.exec("notepad.exe");
 
 Java provides mechanisms to handle application shutdown gracefully:
 
-- **Shutdown Hooks**: Allows executing cleanup code before JVM shuts down.
+   * **Shutdown Hooks**: Allows executing cleanup code before JVM shuts down.
 
 ```java
 Runtime.getRuntime().addShutdownHook(new Thread(() -> {
@@ -50,8 +50,8 @@ int processors = Runtime.getRuntime().availableProcessors();
 
 Java security ensures that applications run safely and securely:
 
-- **Security Manager**: Enforces security policies to restrict access to system resources.
-- **Security Policies**: Configure policies to grant or deny permissions to application code.
+   * **Security Manager**: Enforces security policies to restrict access to system resources.
+   * **Security Policies**: Configure policies to grant or deny permissions to application code.
 
 ```java
 SecurityManager securityManager = new SecurityManager();

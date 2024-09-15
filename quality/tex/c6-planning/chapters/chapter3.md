@@ -23,7 +23,7 @@
 
 **Examples**:
 
-- **Change**: Introducing a new software system for managing quality records.
-- **Plan**: Develop a rollout plan that includes training for users, migrating existing records to the new system, and establishing support procedures.
+   * **Change**: Introducing a new software system for managing quality records.
+   * **Plan**: Develop a rollout plan that includes training for users, migrating existing records to the new system, and establishing support procedures.
 
 In summary, the **Planning** section of ISO 9001:2015 ensures that an organization systematically addresses risks and opportunities, sets and achieves quality objectives, and manages changes in a way that maintains or improves the effectiveness of its QMS. This proactive and structured approach is essential for continual improvement and sustained success in meeting customer and regulatory requirements.

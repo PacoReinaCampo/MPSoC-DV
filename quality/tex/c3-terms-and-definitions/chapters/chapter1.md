@@ -36,11 +36,11 @@ While ISO 9001:2015 itself doesn't provide an exhaustive list of terms and defin
 
 ## APPLICATION IN ISO 9001:2015
 
-- **Context of the Organization**: Understanding the environment in which the organization operates, including internal and external factors that can affect its ability to achieve the intended outcomes of its QMS.
+   * **Context of the Organization**: Understanding the environment in which the organization operates, including internal and external factors that can affect its ability to achieve the intended outcomes of its QMS.
 
-- **Leadership and Commitment**: The role of top management in leading and committing to the development and implementation of the QMS.
+   * **Leadership and Commitment**: The role of top management in leading and committing to the development and implementation of the QMS.
 
-- **Risk-Based Thinking**: Considering risk as a basis for the QMS and applying it throughout the organization to prevent or reduce undesired effects.
+   * **Risk-Based Thinking**: Considering risk as a basis for the QMS and applying it throughout the organization to prevent or reduce undesired effects.
 
 ## REFERENCE TO ISO 9000:2015
 

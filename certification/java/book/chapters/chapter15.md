@@ -19,9 +19,9 @@ public @interface MyAnnotation {
 ### ANNOTATION TYPES
 
 Annotations can be:
-- **Marker Annotations**: Annotations without elements.
-- **Single-Value Annotations**: Annotations with a single element.
-- **Full Annotations**: Annotations with multiple elements.
+   * **Marker Annotations**: Annotations without elements.
+   * **Single-Value Annotations**: Annotations with a single element.
+   * **Full Annotations**: Annotations with multiple elements.
 
 ```java
 @Retention(RetentionPolicy.RUNTIME)
@@ -61,9 +61,9 @@ public @interface MyAnnotation {
 ### RETENTION POLICIES
 
 Retention policies specify how long annotations are retained:
-- **`RetentionPolicy.SOURCE`**: Annotations are discarded by the compiler.
-- **`RetentionPolicy.CLASS`**: Annotations are retained by the compiler but not available at runtime.
-- **`RetentionPolicy.RUNTIME`**: Annotations are retained by the JVM and can be accessed at runtime using reflection.
+   * **`RetentionPolicy.SOURCE`**: Annotations are discarded by the compiler.
+   * **`RetentionPolicy.CLASS`**: Annotations are retained by the compiler but not available at runtime.
+   * **`RetentionPolicy.RUNTIME`**: Annotations are retained by the JVM and can be accessed at runtime using reflection.
 
 ```java
 @Retention(RetentionPolicy.RUNTIME)

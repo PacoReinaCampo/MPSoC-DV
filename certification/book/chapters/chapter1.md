@@ -18,9 +18,9 @@ DO-254 is part of a suite of documents that collectively ensure the safety and r
 
 Several related documents support and complement DO-254. Key related documents include:
 
-- **DO-178C**: "Software Considerations in Airborne Systems and Equipment Certification," which provides guidelines for the development and certification of software used in airborne systems.
-- **ARP 4754A**: "Guidelines for Development of Civil Aircraft and Systems," which offers a system-level approach to certification and development, ensuring that all components, including hardware and software, work together reliably.
-- **DO-160G**: "Environmental Conditions and Test Procedures for Airborne Equipment," which outlines the environmental testing requirements for airborne hardware.
+   * **DO-178C**: "Software Considerations in Airborne Systems and Equipment Certification," which provides guidelines for the development and certification of software used in airborne systems.
+   * **ARP 4754A**: "Guidelines for Development of Civil Aircraft and Systems," which offers a system-level approach to certification and development, ensuring that all components, including hardware and software, work together reliably.
+   * **DO-160G**: "Environmental Conditions and Test Procedures for Airborne Equipment," which outlines the environmental testing requirements for airborne hardware.
 
 These documents, along with DO-254, form an integrated framework ensuring that all aspects of airborne systems meet rigorous safety and reliability standards.
 

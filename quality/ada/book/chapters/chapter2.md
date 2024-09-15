@@ -8,13 +8,13 @@ Ada uses the ASCII character set, which includes characters from 0 to 127, provi
 
 Ada uses whitespace characters (space, tab, newline) as separators and delimiters. Additionally, the following characters serve as delimiters:
 
-- `,` (comma)
-- `.` (dot)
-- `:` (colon)
-- `;` (semicolon)
-- `(` and `)` (parentheses)
-- `[` and `]` (square brackets)
-- `{` and `}` (curly braces)
+   * `,` (comma)
+   * `.` (dot)
+   * `:` (colon)
+   * `;` (semicolon)
+   * `(` and `)` (parentheses)
+   * `[` and `]` (square brackets)
+   * `{` and `}` (curly braces)
 
 ## IDENTIFIERS
 

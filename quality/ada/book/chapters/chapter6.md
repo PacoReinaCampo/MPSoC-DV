@@ -18,9 +18,9 @@ Preconditions (`Pre`) specify conditions that must be true before entering the s
 
 Formal parameter modes in Ada specify how parameters are passed into and out of subprograms.
 
-- **in**: Passes data into the subprogram without allowing modifications.
-- **out**: Passes data out of the subprogram without requiring initial values.
-- **in out**: Allows both passing data into and out of the subprogram.
+   * **in**: Passes data into the subprogram without allowing modifications.
+   * **out**: Passes data out of the subprogram without requiring initial values.
+   * **in out**: Allows both passing data into and out of the subprogram.
 
 ```ada
 procedure Swap (A, B : in out Integer);

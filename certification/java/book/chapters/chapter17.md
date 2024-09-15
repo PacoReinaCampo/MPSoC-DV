@@ -10,8 +10,8 @@ Garbage collection (GC) is the process of automatically identifying and reclaimi
 
 Java uses a generational garbage collector that categorizes objects into young generation (Eden and Survivor spaces) and old generation (Tenured space).
 
-- **Young Generation**: Newly allocated objects.
-- **Old Generation**: Long-lived objects that survived multiple GC cycles.
+   * **Young Generation**: Newly allocated objects.
+   * **Old Generation**: Long-lived objects that survived multiple GC cycles.
 
 ### FINALIZATION
 
@@ -39,10 +39,10 @@ System.gc();
 
 Java defines different reachability states for objects using reference objects (`java.lang.ref` package):
 
-- **Strong References**: Normal references that prevent the referenced object from being garbage collected.
-- **Soft References**: Objects eligible for GC when memory is low.
-- **Weak References**: Objects eligible for GC when no strong or soft references exist.
-- **Phantom References**: Objects enqueued for cleanup before GC.
+   * **Strong References**: Normal references that prevent the referenced object from being garbage collected.
+   * **Soft References**: Objects eligible for GC when memory is low.
+   * **Weak References**: Objects eligible for GC when no strong or soft references exist.
+   * **Phantom References**: Objects enqueued for cleanup before GC.
 
 ```java
 // Creating soft reference

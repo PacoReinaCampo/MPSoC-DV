@@ -56,9 +56,9 @@ class Counter {
 
 Methods from `Object` class used for thread communication and synchronization:
 
-- **`wait()`**: Suspends a thread until another thread notifies it.
-- **`notify()`**: Wakes up a single thread that is waiting on this object's monitor.
-- **`notifyAll()`**: Wakes up all threads that are waiting on this object's monitor.
+   * **`wait()`**: Suspends a thread until another thread notifies it.
+   * **`notify()`**: Wakes up a single thread that is waiting on this object's monitor.
+   * **`notifyAll()`**: Wakes up all threads that are waiting on this object's monitor.
 
 ### DETAILS OF WAITING AND NOTIFICATION
 

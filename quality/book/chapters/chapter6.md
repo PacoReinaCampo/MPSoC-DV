@@ -6,9 +6,9 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 
 **Purpose**:
 
-- To ensure that the QMS can achieve its intended results.
-- To enhance desirable effects and prevent or reduce undesired effects.
-- To achieve continual improvement.
+   * To ensure that the QMS can achieve its intended results.
+   * To enhance desirable effects and prevent or reduce undesired effects.
+   * To achieve continual improvement.
 
 **Approach**:
 
@@ -26,8 +26,8 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 
 **Examples**:
 
-- **Risk Mitigation**: Implementing quality control measures to reduce the risk of product defects.
-- **Opportunity Exploitation**: Investing in new technology to improve product quality and operational efficiency.
+   * **Risk Mitigation**: Implementing quality control measures to reduce the risk of product defects.
+   * **Opportunity Exploitation**: Investing in new technology to improve product quality and operational efficiency.
 
 ## QUALITY OBJECTIVES AND PLANNING TO ACHIEVE THEM
 
@@ -49,8 +49,8 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 
 **Examples**:
 
-- **Objective**: Reduce the defect rate by 10% within the next year.
-- **Plan**: Implement additional quality checks at key stages of the production process, provide training for quality inspectors, and monitor defect rates monthly.
+   * **Objective**: Reduce the defect rate by 10% within the next year.
+   * **Plan**: Implement additional quality checks at key stages of the production process, provide training for quality inspectors, and monitor defect rates monthly.
 
 ## PLANNING OF CHANGES
 
@@ -77,7 +77,7 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 
 **Examples**:
 
-- **Change**: Introducing a new software system for managing quality records.
-- **Plan**: Develop a rollout plan that includes training for users, migrating existing records to the new system, and establishing support procedures.
+   * **Change**: Introducing a new software system for managing quality records.
+   * **Plan**: Develop a rollout plan that includes training for users, migrating existing records to the new system, and establishing support procedures.
 
 In summary, the **Planning** section of ISO 9001:2015 ensures that an organization systematically addresses risks and opportunities, sets and achieves quality objectives, and manages changes in a way that maintains or improves the effectiveness of its QMS. This proactive and structured approach is essential for continual improvement and sustained success in meeting customer and regulatory requirements.

@@ -67,8 +67,8 @@ public interface Serializable {
 ### WHEN TO USE INTERFACES
 
 Interfaces are used in Java:
-- To define contracts for classes to implement, promoting code reuse and flexibility.
-- To achieve multiple inheritance of type when classes need to implement behaviors from multiple sources.
-- To enable polymorphism and dependency inversion, allowing for loose coupling and easier testing.
+   * To define contracts for classes to implement, promoting code reuse and flexibility.
+   * To achieve multiple inheritance of type when classes need to implement behaviors from multiple sources.
+   * To enable polymorphism and dependency inversion, allowing for loose coupling and easier testing.
 
 This manual provides a comprehensive overview of interfaces in Java, covering their definition, usage, extending interfaces, marker interfaces, and guidelines for when to use interfaces. For more detailed information, refer to the Java documentation and additional resources.

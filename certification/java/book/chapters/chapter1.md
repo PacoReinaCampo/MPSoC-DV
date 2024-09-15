@@ -5,8 +5,8 @@ Java is a versatile, object-oriented programming language developed by Sun Micro
 ### GETTING STARTED
 
 Java programs are typically compiled to bytecode that can run on any Java Virtual Machine (JVM), making Java platform-independent. To start programming in Java, you need:
-- Java Development Kit (JDK) installed on your system.
-- An Integrated Development Environment (IDE) like Eclipse, IntelliJ IDEA, or NetBeans for coding and debugging.
+   * Java Development Kit (JDK) installed on your system.
+   * An Integrated Development Environment (IDE) like Eclipse, IntelliJ IDEA, or NetBeans for coding and debugging.
 
 ### VARIABLES
 
@@ -15,8 +15,8 @@ Variables in Java must be declared with a specific data type before they can be 
 ### COMMENTS IN CODE
 
 Comments in Java are used to document code and improve readability. There are two types:
-- Single-line comments: `// This is a single-line comment`
-- Multi-line comments: 
+   * Single-line comments: `// This is a single-line comment`
+   * Multi-line comments: 
   ```
   /*
    * This is a
@@ -83,19 +83,19 @@ Packages in Java organize classes and interfaces into namespaces. They prevent n
 ### THE JAVA PLATFORM
 
 Java Platform consists of:
-- Java Development Kit (JDK): Includes JVM, compiler, and tools.
-- Java Virtual Machine (JVM): Executes Java bytecode.
-- Java Runtime Environment (JRE): Includes JVM and core libraries.
+   * Java Development Kit (JDK): Includes JVM, compiler, and tools.
+   * Java Virtual Machine (JVM): Executes Java bytecode.
+   * Java Runtime Environment (JRE): Includes JVM and core libraries.
 
 ### OTHER TOPICS BRIEFLY NOTED
 
 Other important Java topics include:
-- Multithreading
-- Networking
-- Serialization
-- Lambda expressions
-- Streams API
-- Reflection
-- JavaFX (for GUI applications)
+   * Multithreading
+   * Networking
+   * Serialization
+   * Lambda expressions
+   * Streams API
+   * Reflection
+   * JavaFX (for GUI applications)
 
 This manual provides a comprehensive overview of Java, covering essential topics and concepts for beginners and intermediate developers. For more in-depth understanding, refer to the Java documentation and additional resources.

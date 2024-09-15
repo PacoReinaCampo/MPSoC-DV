@@ -111,8 +111,15 @@ The OpenRISC GNU C compiler is a key component of the GNU Compiler Collection ta
 type:
 
 ```
-sudo apt install git libgmp-dev libmpfr-dev libmpc-dev zlib1g-dev texinfo \
-build-essential flex bison
+sudo apt install -y bison
+sudo apt install -y build-essential
+sudo apt install -y flex
+sudo apt install -y git
+sudo apt install -y libgmp-dev
+sudo apt install -y libmpc-dev
+sudo apt install -y libmpfr-dev
+sudo apt install -y texinfo
+sudo apt install -y zlib1g-dev
 ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
@@ -198,9 +205,25 @@ The RISC-V GNU C compiler is a vital part of the GNU Compiler Collection specifi
 type:
 
 ```
-sudo apt install autoconf automake autotools-dev curl python3 libmpc-dev \
-libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf \
-libtool patchutils bc zlib1g-dev libexpat-dev
+sudo apt install -y autoconf
+sudo apt install -y automake
+sudo apt install -y autotools-dev
+sudo apt install -y bc
+sudo apt install -y bison
+sudo apt install -y build-essential
+sudo apt install -y curl
+sudo apt install -y flex
+sudo apt install -y gawk
+sudo apt install -y gperf
+sudo apt install -y libexpat-dev
+sudo apt install -y libgmp-dev
+sudo apt install -y libmpc-dev
+sudo apt install -y libmpfr-dev
+sudo apt install -y libtool
+sudo apt install -y patchutils
+sudo apt install -y python3
+sudo apt install -y texinfo
+sudo apt install -y zlib1g-dev
 ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....

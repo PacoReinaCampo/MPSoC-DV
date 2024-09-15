@@ -39,9 +39,9 @@ public void readFile(String fileName) throws IOException {
 ### TRY, CATCH, AND FINALLY
 
 The `try-catch-finally` block is used to handle exceptions:
-- **`try`**: Encloses code that may throw exceptions.
-- **`catch`**: Handles specific exceptions thrown within the `try` block.
-- **`finally`**: Executes code after `try` block, regardless of whether an exception is thrown or not (optional).
+   * **`try`**: Encloses code that may throw exceptions.
+   * **`catch`**: Handles specific exceptions thrown within the `try` block.
+   * **`finally`**: Executes code after `try` block, regardless of whether an exception is thrown or not (optional).
 
 ```java
 try {
@@ -74,8 +74,8 @@ Java provides stack traces when exceptions occur, showing the sequence of method
 ### WHEN TO USE EXCEPTIONS
 
 Use exceptions for:
-- Handling exceptional conditions (e.g., file not found, network errors).
-- Maintaining clean and readable code by separating normal and exceptional cases.
+   * Handling exceptional conditions (e.g., file not found, network errors).
+   * Maintaining clean and readable code by separating normal and exceptional cases.
 
 ### ASSERTIONS
 
@@ -89,14 +89,14 @@ assert num >= 0 : "Number must be non-negative";
 ### WHEN TO USE ASSERTIONS
 
 Use assertions for:
-- Checking invariants and assumptions during development and debugging.
-- Testing conditions that should never occur under normal circumstances.
+   * Checking invariants and assumptions during development and debugging.
+   * Testing conditions that should never occur under normal circumstances.
 
 ### TURNING ASSERTIONS ON AND OFF
 
 Assertions can be enabled or disabled using JVM flags:
-- `-ea` enables assertions (`-enableassertions`).
-- `-da` disables assertions (`-disableassertions`).
+   * `-ea` enables assertions (`-enableassertions`).
+   * `-da` disables assertions (`-disableassertions`).
 
 ```bash
 java -ea MyApp

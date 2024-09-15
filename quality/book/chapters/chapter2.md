@@ -23,11 +23,11 @@ This normative reference is crucial because:
 
 ## IMPORTANCE OF NORMATIVE REFERENCES
 
-- **Clarity and Precision**: Normative references provide clarity and precision, reducing ambiguity in the interpretation of the standard. This is essential for ensuring that all organizations implement the standard consistently.
+   * **Clarity and Precision**: Normative references provide clarity and precision, reducing ambiguity in the interpretation of the standard. This is essential for ensuring that all organizations implement the standard consistently.
   
-- **Standardization Across Industries**: They help achieve standardization across different industries and sectors, as all entities referring to the primary standard will also refer to the same set of normative documents.
+   * **Standardization Across Industries**: They help achieve standardization across different industries and sectors, as all entities referring to the primary standard will also refer to the same set of normative documents.
 
-- **Support for Auditors and Assessors**: Normative references support auditors and assessors by providing a clear framework and criteria for evaluating compliance with the primary standard.
+   * **Support for Auditors and Assessors**: Normative references support auditors and assessors by providing a clear framework and criteria for evaluating compliance with the primary standard.
 
 In summary, normative references in ISO 9001:2015, such as ISO 9000:2015, are essential components that provide necessary definitions, guidelines, and additional requirements. They ensure the proper and uniform application of the standard, facilitating consistency, clarity, and comprehensive understanding for all users.
 

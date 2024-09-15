@@ -4,17 +4,17 @@
 
 The organization must communicate with customers to understand their requirements, preferences, and any specific needs. This includes:
 
-- Establishing effective channels for communication with customers.
-- Gathering and documenting customer requirements.
-- Clarifying any ambiguities or uncertainties in customer requirements.
+   * Establishing effective channels for communication with customers.
+   * Gathering and documenting customer requirements.
+   * Clarifying any ambiguities or uncertainties in customer requirements.
 
 ## DETERMINING THE REQUIREMENTS FOR PRODUCTS AND SERVICES
 
 The organization must determine the requirements for products and services before acceptance. This involves:
 
-- Reviewing customer requirements, including specifications, drawings, and contracts.
-- Identifying any legal, regulatory, or contractual requirements.
-- Ensuring that the organization can meet the identified requirements.
+   * Reviewing customer requirements, including specifications, drawings, and contracts.
+   * Identifying any legal, regulatory, or contractual requirements.
+   * Ensuring that the organization can meet the identified requirements.
 
 ## REVIEW OF THE REQUIREMENTS FOR PRODUCTS AND SERVICES
 

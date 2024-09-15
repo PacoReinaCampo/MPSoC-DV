@@ -76,14 +76,14 @@ String unicodeStr = "\u00E9"; // "é"
 
 ### OTHER STRING OPERATIONS
 
-- **Replacing**: Replace characters or substrings within a string.
-- **Case Conversion**: Convert string case (`toUpperCase()`, `toLowerCase()`).
-- **Trimming**: Remove leading and trailing whitespace (`trim()`).
-- **String Pool**: Java maintains a string pool for literal strings to optimize memory usage.
+   * **Replacing**: Replace characters or substrings within a string.
+   * **Case Conversion**: Convert string case (`toUpperCase()`, `toLowerCase()`).
+   * **Trimming**: Remove leading and trailing whitespace (`trim()`).
+   * **String Pool**: Java maintains a string pool for literal strings to optimize memory usage.
 
 ### STRING PERFORMANCE
 
-- **Immutable**: `String` objects are immutable (unchangeable), which ensures thread safety but can be inefficient for frequent modifications.
-- **StringBuilder**: Use `StringBuilder` for better performance when frequent string modifications are needed.
+   * **Immutable**: `String` objects are immutable (unchangeable), which ensures thread safety but can be inefficient for frequent modifications.
+   * **StringBuilder**: Use `StringBuilder` for better performance when frequent string modifications are needed.
 
 This manual provides a comprehensive overview of strings and regular expressions in Java, covering character sequences, the `String` class, regular expression matching, the `StringBuilder` class for mutable strings, working with UTF-8 characters, and other string operations. For more detailed information, refer to the Java documentation and additional resources.

@@ -6,11 +6,11 @@ Operators in Java are symbols that perform operations on variables and values. E
 
 Java supports standard arithmetic operations:
 
-- **Addition (`+`)**: Adds two operands.
-- **Subtraction (`-`)**: Subtracts the second operand from the first.
-- **Multiplication (`*`)**: Multiplies two operands.
-- **Division (`/`)**: Divides the first operand by the second.
-- **Modulus (`%`)**: Returns the remainder of the division of the first operand by the second.
+   * **Addition (`+`)**: Adds two operands.
+   * **Subtraction (`-`)**: Subtracts the second operand from the first.
+   * **Multiplication (`*`)**: Multiplies two operands.
+   * **Division (`/`)**: Divides the first operand by the second.
+   * **Modulus (`%`)**: Returns the remainder of the division of the first operand by the second.
 
 ```java
 int a = 10;
@@ -27,12 +27,12 @@ int remainder = a % b;  // 1
 
 Java supports various types of operators:
 
-- **Assignment (`=`)**: Assigns a value to a variable.
-- **Comparison (`==`, `!=`, `>`, `<`, `>=`, `<=`)**: Compares two operands.
-- **Logical (`&&`, `||`, `!`)**: Perform logical operations (`AND`, `OR`, `NOT`).
-- **Bitwise (`&`, `|`, `^`, `~`, `<<`, `>>`, `>>>`)**: Perform bitwise operations.
-- **Increment (`++`)** and **Decrement (`--`)**: Increase or decrease the value of a variable by one.
-- **Conditional (`? :`)**: Ternary operator used for decision making.
+   * **Assignment (`=`)**: Assigns a value to a variable.
+   * **Comparison (`==`, `!=`, `>`, `<`, `>=`, `<=`)**: Compares two operands.
+   * **Logical (`&&`, `||`, `!`)**: Perform logical operations (`AND`, `OR`, `NOT`).
+   * **Bitwise (`&`, `|`, `^`, `~`, `<<`, `>>`, `>>>`)**: Perform bitwise operations.
+   * **Increment (`++`)** and **Decrement (`--`)**: Increase or decrease the value of a variable by one.
+   * **Conditional (`? :`)**: Ternary operator used for decision making.
 
 ```java
 int x = 5;
@@ -60,8 +60,8 @@ int result = (a + b) * c; // result is 45
 
 Java supports automatic and explicit type conversions:
 
-- **Implicit Type Conversion**: Conversion performed by the compiler without programmer intervention (e.g., `int` to `long`).
-- **Explicit Type Conversion (Casting)**: Programmer manually converts one type to another using casting operators (`(type)`).
+   * **Implicit Type Conversion**: Conversion performed by the compiler without programmer intervention (e.g., `int` to `long`).
+   * **Explicit Type Conversion (Casting)**: Programmer manually converts one type to another using casting operators (`(type)`).
 
 ```java
 int intValue = 10;
@@ -83,9 +83,9 @@ int result = 10 + 5 * 2; // result will be 20, because multiplication has higher
 
 Member access operators in Java allow access to class members:
 
-- **`.`**: Accesses members of an object (instance variables and methods).
-- **`this`**: Refers to the current object instance.
-- **`super`**: Refers to the superclass of the current object.
+   * **`.`**: Accesses members of an object (instance variables and methods).
+   * **`this`**: Refers to the current object instance.
+   * **`super`**: Refers to the superclass of the current object.
 
 ```java
 class MyClass {
