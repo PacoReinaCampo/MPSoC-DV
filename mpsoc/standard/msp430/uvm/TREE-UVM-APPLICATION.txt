@@ -1,0 +1,27 @@
+application
+├── ahb3
+│   ├── peripheral_adder.sv
+│   ├── peripheral_full_adder.sv
+│   └── peripheral_half_adder.sv
+├── apb4
+│   ├── peripheral_adder.sv
+│   ├── peripheral_full_adder.sv
+│   └── peripheral_half_adder.sv
+├── axi4
+│   ├── peripheral_adder.sv
+│   ├── peripheral_full_adder.sv
+│   └── peripheral_half_adder.sv
+├── bb
+│   ├── peripheral_adder.sv
+│   ├── peripheral_full_adder.sv
+│   └── peripheral_half_adder.sv
+├── biu
+│   ├── peripheral_adder.sv
+│   ├── peripheral_full_adder.sv
+│   └── peripheral_half_adder.sv
+└── wb
+    ├── peripheral_adder.sv
+    ├── peripheral_full_adder.sv
+    └── peripheral_half_adder.sv
+
+6 directories, 18 files
