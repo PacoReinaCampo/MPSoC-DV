@@ -50,13 +50,13 @@ The Recommended Practice for Encryption and Management of Electronic Design IP p
 
 ## OVERVIEW
 
-IEEE Std 1735 is a standard developed by the Institute of Electrical and Electronics Engineers (IEEE) that focuses on the encryption and management of electronic design intellectual property (IP). Officially titled "IEEE Standard for Encryption and Management of Electronic Design Intellectual Property," this standard provides guidelines and recommendations for securing electronic design IP throughout its lifecycle, from creation to distribution and use.
+IEEE STD 1735 is a standard developed by the Institute of Electrical and Electronics Engineers (IEEE) that focuses on the encryption and management of electronic design intellectual property (IP). Officially titled "IEEE Standard for Encryption and Management of Electronic Design Intellectual Property," this standard provides guidelines and recommendations for securing electronic design IP throughout its lifecycle, from creation to distribution and use.
 
 ### Key Aspects
 
 1. **Scope**:
 
-   * IEEE Std 1735 addresses the need for standardized methods to protect electronic design IP, including hardware description languages (HDLs), IP blocks, netlists, and other design assets.
+   * IEEE STD 1735 addresses the need for standardized methods to protect electronic design IP, including hardware description languages (HDLs), IP blocks, netlists, and other design assets.
    * It encompasses encryption techniques, key management practices, secure workflows, and compliance requirements relevant to the protection of electronic design IP.
 
 2. **Encryption and Key Management**:
@@ -66,7 +66,7 @@ IEEE Std 1735 is a standard developed by the Institute of Electrical and Electro
 
 3. **Secure Workflows and Protocols**:
 
-   * IEEE Std 1735 specifies secure workflows and protocols for managing encrypted electronic design IP, including secure communication channels, access controls, and authentication mechanisms.
+   * IEEE STD 1735 specifies secure workflows and protocols for managing encrypted electronic design IP, including secure communication channels, access controls, and authentication mechanisms.
    * It provides recommendations for integrating encryption and key management into existing design and development processes, tools, and environments.
 
 4. **File Formats and Metadata**:
@@ -76,7 +76,7 @@ IEEE Std 1735 is a standard developed by the Institute of Electrical and Electro
 
 5. **Compliance and Certification**:
 
-   * IEEE Std 1735 addresses compliance requirements related to encryption, key management, and IP protection, including regulatory, industry, and contractual obligations.
+   * IEEE STD 1735 addresses compliance requirements related to encryption, key management, and IP protection, including regulatory, industry, and contractual obligations.
    * It provides guidance on auditing, certification, and attestation processes for verifying compliance with the standard's requirements and ensuring the integrity and trustworthiness of protected IP assets.
 
 6. **Documentation and Training**:
@@ -92,11 +92,11 @@ IEEE Std 1735 is a standard developed by the Institute of Electrical and Electro
 4. **Interoperability and Compatibility**: Facilitates interoperability and compatibility between different design tools, environments, and platforms by defining standardized file formats, metadata structures, and encryption protocols for managing encrypted design IP.
 5. **Trusted Collaboration**: Fosters trust and confidence among partners, customers, and stakeholders by demonstrating a commitment to protecting electronic design IP assets and ensuring their secure and responsible use throughout the design lifecycle.
 
-IEEE Std 1735 plays a crucial role in establishing standardized methods and best practices for the encryption and management of electronic design intellectual property. By following the guidelines and recommendations outlined in the standard, organizations can enhance the security, compliance, and trustworthiness of their electronic design IP assets, ensuring their confidentiality, integrity, and availability in today's increasingly interconnected and digitized world.
+IEEE STD 1735 plays a crucial role in establishing standardized methods and best practices for the encryption and management of electronic design intellectual property. By following the guidelines and recommendations outlined in the standard, organizations can enhance the security, compliance, and trustworthiness of their electronic design IP assets, ensuring their confidentiality, integrity, and availability in today's increasingly interconnected and digitized world.
 
 ## NORMATIVE REFERENCES
 
-Normative references in a standard like IEEE Std 1735 serve a vital role in defining the technical specifications, requirements, and guidelines that must be adhered to for compliance with the standard. These references typically include other standards, specifications, or documents that are considered essential for understanding and implementing the requirements outlined in the standard. Let's delve into the details:
+Normative references in a standard like IEEE STD 1735 serve a vital role in defining the technical specifications, requirements, and guidelines that must be adhered to for compliance with the standard. These references typically include other standards, specifications, or documents that are considered essential for understanding and implementing the requirements outlined in the standard. Let's delve into the details:
 
 ### Role of Normative References
 
@@ -144,11 +144,11 @@ Normative references in a standard like IEEE Std 1735 serve a vital role in defi
    * Normative references may specify particular versions or editions of referenced documents, indicating the specific technical requirements or specifications that apply.
    * Updates or revisions to normative references may necessitate corresponding updates to the standard to ensure alignment with the latest industry practices and developments.
 
-Normative references in a standard like IEEE Std 1735 play a critical role in defining the technical specifications, requirements, and guidelines necessary for compliance. By referencing internationally recognized standards, industry specifications, and technical protocols, normative references ensure consistency, interoperability, and clarity in implementing the standard's requirements, thereby facilitating the secure and effective management of electronic design intellectual property.
+Normative references in a standard like IEEE STD 1735 play a critical role in defining the technical specifications, requirements, and guidelines necessary for compliance. By referencing internationally recognized standards, industry specifications, and technical protocols, normative references ensure consistency, interoperability, and clarity in implementing the standard's requirements, thereby facilitating the secure and effective management of electronic design intellectual property.
 
 ## DEFINITIONS, ACRONYMS, AND ABBREVIATIONS
 
-In technical documents like IEEE Std 1735, "Definitions, acronyms, and abbreviations" sections play a crucial role in ensuring clarity, consistency, and understanding of the terminology used throughout the document. Here's a detailed explanation of each component:
+In technical documents like IEEE STD 1735, "Definitions, acronyms, and abbreviations" sections play a crucial role in ensuring clarity, consistency, and understanding of the terminology used throughout the document. Here's a detailed explanation of each component:
 
 1. **Definition**
 
@@ -168,7 +168,7 @@ In technical documents like IEEE Std 1735, "Definitions, acronyms, and abbreviat
 
    * **Importance**: Acronyms help reduce verbosity and improve readability by replacing lengthy phrases or terms with concise abbreviations. However, they can introduce confusion if not defined clearly, hence the need for an "Acronyms" section.
 
-   * **Examples**: Acronyms used in IEEE Std 1735 may include abbreviations for common terms, organizations, protocols, and technologies. For instance:
+   * **Examples**: Acronyms used in IEEE STD 1735 may include abbreviations for common terms, organizations, protocols, and technologies. For instance:
 
       - **AES**: Advanced Encryption Standard
       - **HDL**: Hardware Description Language
@@ -180,7 +180,7 @@ In technical documents like IEEE Std 1735, "Definitions, acronyms, and abbreviat
 
    * **Importance**: Abbreviations, like acronyms, help improve readability and conciseness in technical documents. They are especially useful for frequently occurring terms or phrases that can be expressed more efficiently in abbreviated form.
 
-   * **Examples**: Abbreviations found in IEEE Std 1735 may include shortened forms of common terms, units of measurement, or technical concepts. For instance:
+   * **Examples**: Abbreviations found in IEEE STD 1735 may include shortened forms of common terms, units of measurement, or technical concepts. For instance:
 
       - **IP**: Intellectual Property
       - **MB**: Megabyte
@@ -198,7 +198,7 @@ In technical documents like IEEE Std 1735, "Definitions, acronyms, and abbreviat
 
 5. **Update**: Review and update definitions, acronyms, and abbreviations regularly to reflect changes in technology, terminology, or industry standards.
 
-By adhering to these guidelines, the "Definitions, acronyms, and abbreviations" section of IEEE Std 1735 ensures that readers have a clear understanding of the terminology used in the document, facilitating effective communication and implementation of the standard's requirements.
+By adhering to these guidelines, the "Definitions, acronyms, and abbreviations" section of IEEE STD 1735 ensures that readers have a clear understanding of the terminology used in the document, facilitating effective communication and implementation of the standard's requirements.
 
 ## TRUST MODEL
 

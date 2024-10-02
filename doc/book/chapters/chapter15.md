@@ -41,9 +41,10 @@ The objectives of this process are:
 Guidance for the production transition activities includes:
 
 1. Manufacturing data should be prepared from configured design data.
+
 2. Manufacturing data should be checked for completeness and consistency with the configured design data.
 
-Note: It is beyond the scope of this document to impose any conditions on the nature of the manufacturing build documentation.
+   Note: It is beyond the scope of this document to impose any conditions on the nature of the manufacturing build documentation.
 
 3. Any changes or improvements that are incorporated during the production transition process should be evaluated to ensure they adhere to all product requirements, especially safety requirements. Any changes not compliant with customer or certification requirements should be approved by the relevant parties.
 
@@ -57,7 +58,7 @@ Note: It is beyond the scope of this document to impose any conditions on the na
 
 An acceptance test demonstrates that the manufactured, modified or repaired product performs in compliance with the key attributes of the unit on which certification is based. These key attributes are chosen using engineering judgement and are indicative that the product is capable of meeting the requirements to which the unit was developed.
 
-Note 1: Configuration control of the “as built” product is not a function to be performed by the acceptance test activity. The configuration management plan, as described in Section 7 of this document, should describe how the applicant plans to perform this activity.
+Note 1: Configuration control of the "as built" product is not a function to be performed by the acceptance test activity. The configuration management plan, as described in Section 7 of this document, should describe how the applicant plans to perform this activity.
 
 The scope of this document does include the determination of the acceptance test criteria, including pass/fail conditions. Production activities, including acceptance testing, are considered to be outside the scope of this document
 
@@ -81,7 +82,7 @@ Considerations include:
 
 1. Management of change of the production processes or the design provides assurance that change does not adversely impact existing safety or certification or compliance to the requirements.
 
-Note: In addition to the guidance proposed by the body of the document, Section 11.1.1 covers Modifications to Previously Developed Hardware. When addressing component obsolescence, refer to Section 11.2.
+   Note: In addition to the guidance proposed by the body of the document, Section 11.1.1 covers Modifications to Previously Developed Hardware. When addressing component obsolescence, refer to Section 11.2.
 
 2. Updating of all documentation related to changes is performed in compliance with approved configuration management plans.
 

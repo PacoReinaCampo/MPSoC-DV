@@ -1,12 +1,8 @@
-# CONFIGURATION
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-## CONFIGURATION MANAGEMENT PROCESS
+# CONFIGURATION MANAGEMENT PROCESS
 
 The configuration management process is intended to provide the ability to consistently replicate the configuration item, regenerate the information if necessary and modify the configuration item in a controlled fashion if modification is necessary. This section describes the objectives for hardware configuration management and activities that support those objectives.
 
-### Configuration Management Objectives
+## Configuration Management Objectives
 
 The objectives of the configuration management process are:
 
@@ -14,7 +10,7 @@ The objectives of the configuration management process are:
 2. Consistent and accurate replication of configuration items is ensured.
 3. A controlled method of identifying and tracking modification to configuration items is provided.
 
-### Configuration Management Activities
+## Configuration Management Activities
 
 Guidance for the configuration management activities includes:
 
@@ -26,7 +22,7 @@ Guidance for the configuration management activities includes:
 
 Various methods may be used to satisfy configuration management objectives and activities and the following paragraphs provide guidance on activities that may be used as an acceptable method.
 
-#### Configuration Identification
+### Configuration Identification
 
 The purpose of the configuration identification activity is to label unambiguously each configuration item so that a basis is established for the control and reference of configuration items.
 
@@ -42,7 +38,7 @@ Guidance includes:
 
 4. Configuration identification should be established for each configuration item before it is used in a new baseline, referenced by other data items or used for product manufacturing.
 
-#### Baseline Establishment
+### Baseline Establishment
 
 The purpose of baseline establishment is to define a basis for further activities and allow reference to, control of and traceability between configuration items.
 
@@ -60,7 +56,7 @@ Guidance includes:
 
    Note: The baseline may be a configuration item, a previously certified hardware item or a COTS component.
 
-#### Problem Reporting, Tracking and Corrective Action
+### Problem Reporting, Tracking and Corrective Action
 
 The purpose of problem reporting, tracking and corrective action is to record problems and ensure correct disposition and resolution. Problems may include non-compliance with plans and standards, deficiencies of life cycle process outputs, anomalous behavior of products, and inadequacy or deficiency of tools and technology processes. Problem reporting should be implemented no later than the establishment of the baseline from which certification credit is to be obtained.
 
@@ -73,7 +69,7 @@ Guidance includes:
 5. Not all problem reports have to be closed in order to obtain certification, however, all problem reports should be evaluated and those that are determined to have safety or certification impact should be closed.
 6. The problem reporting system should track the status of problem reports, including their approval and disposition.
 
-#### Change Control
+### Change Control
 
 The purpose of the change control activity is to ensure the recording, evaluation, resolutionand approval of changes. Change control should be implemented in compliance with the configuration management plan and should be started no later than the establishment of the baseline from which certification credit is to be obtained.
 
@@ -99,7 +95,7 @@ Guidance includes:
 
 6. Change control should ensure that feedback is provided to affected processes.
 
-#### Release, Archive and Retrieve
+### Release, Archive and Retrieve
 
 The purpose of the release activity is to place data items under configuration management control to ensure that only authorized data is used in other activities. The purpose of the archive and retrieve activity is to ensure that data items associated with the product can be retrieved in case of a need to duplicate, regenerate, re-test or modify the product.
 
@@ -123,32 +119,10 @@ Guidance includes:
 
    d. Ensuring that a single event that can cause irretrievable loss of archived data is unlikely. For example, by storing duplicate copies in physically separate archives.
 
-### Data Control Categories
+## Data Control Categories
 
 Two categories associated with the configuration management of data items are defined: hardware control category 1 (HC1) and hardware control category 2 (HC2). Specifying two categories allows a less stringent configuration control for certain data items. HC1 requires all configuration management activities to be performed while HC2 is less restrictive. Data items classified as HC2 are not expected to change incrementally, but will be superceded by new data.
 
 Table 7-1 defines the configuration management activities that are to be performed under HC1 and HC2. For example, Table 7-1 shows that data items identified in Appendix A, Table A-1 as HC2 need to be retrievable but do not need to be released. Additionally, Table 7-1 shows that any HC1 data item will have a baseline.
 
 Appendix A identifies the control category for each data item as a function of hardware design assurance level. For example, in Table A-1 , HC1 applies to hardware requirements for all assurance levels while HC2 applies to hardware review and analysis results for all assurance levels.
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-## LANGUAGES
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-### C Language
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-### C++ Language
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-### GO Language
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-### RUST Language
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....

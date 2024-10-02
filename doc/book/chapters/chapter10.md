@@ -30,7 +30,7 @@ Guidance for the conceptual design activities includes:
 
 5. The reliability, maintenance and test features to be provided should be identified.
 
-Note: Consensus between the relevant parties that the conceptual design objectives have been met is recommended. Typically, a design review is used to accomplish this consensus.
+   Note: Consensus between the relevant parties that the conceptual design objectives have been met is recommended. Typically, a design review is used to accomplish this consensus.
 
 ## LANGUAGES
 

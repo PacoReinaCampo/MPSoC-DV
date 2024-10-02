@@ -10,7 +10,7 @@ The objectives for the requirements capture process are:
 
 1. Requirements are identified, defined and documented. This includes allocated requirements from the PSSA and derived requirements from the hardware safety assessment.
 
-Note: Traceability of verification results to the hardware requirements is addressed in Section 6. It is desirable to establish this method of traceability during the requirement capture process.
+   Note: Traceability of verification results to the hardware requirements is addressed in Section 6. It is desirable to establish this method of traceability during the requirement capture process.
 
 2. Derived requirements produced are fed back to the appropriate process.
 
@@ -36,7 +36,7 @@ Guidance for the requirements capture activities includes:
 
 4. Derived requirements necessary for implementation should be determined. Requirements derived from the hardware safety assessment that have safety implications should be uniquely identified.
 
-Note: Derived requirements may address conditions, such as:
+   Note: Derived requirements may address conditions, such as:
 
    a. Specific constraints to ensure that functions of a higher design assurance level can withstand anomalies of functions of a lower design assurance level as seen at the interface of the function with the lower design assurance level.
 
@@ -66,7 +66,7 @@ Note: Derived requirements may address conditions, such as:
 
 8. The requirements, including those generated to meet the PSSA requirements, should be traceable to the next higher hierarchical level of requirements. Derived requirements should be identified and traced as far as possible through the hierarchical levels.
 
-Note: System level validation of allocated hardware safety requirements may occur during the requirement capture process. Validation of derived hardware requirements is described in Section 6.1.
+   Note: System level validation of allocated hardware safety requirements may occur during the requirement capture process. Validation of derived hardware requirements is described in Section 6.1.
 
 ## LANGUAGES
 
