@@ -23,7 +23,9 @@ Another example of a design decision that becomes a derived requirement is the m
 The objectives of the validation process for derived hardware requirements are:
 
 1. Derived hardware requirements against which the hardware item is to be verified are correct and complete.
+
 2. Derived requirements are evaluated for impact on safety.
+
 3. Omissions and errors are fed back to the appropriate processes for resolution.
 
 ### Validation Process Activities
@@ -42,7 +44,7 @@ Guidance for validation process activities includes:
 
    c. The review, analysis or test results associated with the validation of each requirement are correct and that discrepancies between actual and expected results are explained. When expected results are not pre-defined as may be the case for reviews and analyses, the results of the validation activity should be consistent with the requirement, especially with respect to safety requirements.
 
-Note: Validation completion criteria may be based on requirements, safety considerations, operational mode or implementation.
+   Note: Validation completion criteria may be based on requirements, safety considerations, operational mode or implementation.
 
 3. The derived requirements should be evaluated for their impact on safety. 
 
@@ -73,8 +75,11 @@ Note 2: Informal testing outside the documented verification process is recommen
 The objectives of the verification process are:
 
 1. Evidence is provided that the hardware implementation meets the requirements.
+
 2. Traceability is established between hardware requirements, the implementation, and the verification procedures and results.
+
 3. Acceptance test criteria are identified, can be implemented and are consistent with the hardware design assurance levels of the hardware functions.
+
 4. Omissions and errors are fed back to the appropriate processes for resolution.
 
 ### Verification Process Activities
@@ -118,11 +123,17 @@ Tests may be performed during various hardware design processes. Testing perform
 Guidance for tests includes:
 
 1. Each requirement to be validated or verified by test should be identified. Environmental qualification test requirements are part of these requirements.
+
 2. The testing stimulus, sequence and test conditions, such as item ambient temperature and applied voltage, should be defined for each test.
+
 3. Pass/fail criteria and a method for recording the results should be defined prior to test execution.
+
 4. The complete identification of the test equipment and calibration date for each should be recorded.
+
 5. The configuration identity of the hardware item being tested should be recorded.
+
 6. Test results should be recorded and retained.
+
 7. Test failures should be fed back to the appropriate process for resolution.
 
 ### Analysis
@@ -138,10 +149,15 @@ Simulation is an important design analysis tool both for visualization of circui
 Examples of analysis include:
 
 1. Thermal Analysis. Thermal analysis verifies that the design implementation meets the requirements when exposed to the operating thermal environment.
+
 2. Stress Analysis. Stress analysis verifies that components meet de-rating criteria over the required operating range.
+
 3. Reliability Analysis. Reliability analysis establishes whether the design implementation satisfies the reliability requirements of the product.
+
 4. Design Margin Analysis. Design margin analysis verifies that the design implementation satisfies its functional requirements given the variability of components.
+
 5. Similarity Analysis. Similarity analysis compares characteristics and usage to those of systems previously certified.
+
 6. Simulation Analysis. A simulation analysis compares the simulation results and expected results.
 
 ### Reviews
@@ -153,7 +169,9 @@ Reviews should be held throughout the hardware design life cycle as identified i
 Guidance for reviews may include:
 
 1. Participants should have the knowledge necessary to perform the reviews.
+
 2. Hardware review results may be used to permit or deny transitions between hardware design life cycle process activities.
+
 3. Results of review should be documented, including decisions made and disposition of actions to be taken.
 
 #### Requirements Review
@@ -165,15 +183,25 @@ Requirement changes that occur after the initial requirements review should be s
 Guidance for requirements review includes:
 
 1. Each requirement should be unambiguous, verifiable, and described in complete enough detail for its hierarchical level and should not conflict with other requirements.
+
 2. Derived requirements should be consistent with the system requirements or requirements from which they are derived.
+
 3. The requirements should be consistent with the SSA.
+
 4. The derived safety requirements should be defined and fed back to the SSA.
+
 5. The requirements should be compatible with relevant hardware design standards.
+
 6. The requirements should be compatible with the capabilities and limitations of available technology.
+
 7. The component’s requirements, such as performance, temperature range, de-rating and screening, should be consistent with the safety and reliability requirements.
+
 8. The ability to test, maintain and manufacture the hardware item should be addressed.
+
 9. The software/hardware interface requirements should be defined.
+
 10. The requirements should be traceable upward to the next hierarchical level according to the criteria defined in the plan.
+
 11. The derived requirements should capture the implementation constraints that will not be verified at a higher hierarchical level.
 12. Omissions and errors should be fed back to the appropriate process for resolution.
 
@@ -224,11 +252,19 @@ A design review is a method to determine that the design data and implementation
 Guidance for design reviews includes:
 
 1. All requirements should be addressed and the derived requirements and the design data should be correctly defined.
+
 2. Environmental requirements should be addressed.
+
 3. Safety and reliability requirements should be addressed.
+
 4. The safety aspects of the design data should be explicitly identified.
+
 5. The design should be capable of being implemented, tested and maintained.
+
 6. New manufacturing techniques should be evaluated.
+
 7. The components selection criteria identified in the plans should be satisfied.
+
 8. The design should be traceable to the requirements.
+
 9. Omissions and errors should be fed back to the appropriate process for resolution.

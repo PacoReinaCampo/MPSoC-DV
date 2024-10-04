@@ -2,7 +2,7 @@
 
 A neural network is a computational model inspired by the way biological neural networks in the human brain process information. These models are designed to recognize patterns and learn from data, making them fundamental to many artificial intelligence (AI) and machine learning (ML) applications. Neural networks consist of layers of interconnected nodes (neurons) that work together to transform input data into meaningful output.
 
-Here’s a detailed explanation of neural networks:
+Here's a detailed explanation of neural networks:
 
 I. Basic Components
 
@@ -11,7 +11,7 @@ I. Basic Components
 2. **Layers**:
    * **Input Layer**: The first layer that receives the input data. Each neuron in this layer represents a feature or attribute of the input data.
    * **Hidden Layers**: Layers between the input and output layers where intermediate processing occurs. A neural network can have multiple hidden layers, each transforming the input data in complex ways.
-   * **Output Layer**: The final layer that produces the network’s output. The number of neurons in this layer depends on the specific task, such as classification (one neuron per class) or regression (a single neuron for continuous output).
+   * **Output Layer**: The final layer that produces the network's output. The number of neurons in this layer depends on the specific task, such as classification (one neuron per class) or regression (a single neuron for continuous output).
 
 3. **Weights and Biases**: Connections between neurons have associated weights that determine the importance of each input. Biases are additional parameters added to the weighted sum to help the network fit the data better.
 
@@ -22,7 +22,7 @@ I. Basic Components
 
 II. Training a Neural Network
 
-Training involves adjusting the weights and biases to minimize the error between the network’s predictions and the actual target values. This process typically includes the following steps:
+Training involves adjusting the weights and biases to minimize the error between the network's predictions and the actual target values. This process typically includes the following steps:
 
 1. **Forward Propagation**: The input data is passed through the network layer by layer, with each neuron applying its weights, biases, and activation function to compute its output. This process continues until the output layer produces the final prediction.
 
@@ -74,7 +74,7 @@ In summary, neural networks are powerful tools in the AI and machine learning to
 
 A Perceptron Neural Network is one of the simplest types of artificial neural networks, often considered as the building block of more complex architectures. It consists of a single layer of nodes, each of which computes a weighted sum of its inputs and applies an activation function to produce an output. 
 
-Here’s a more detailed explanation:
+Here's a more detailed explanation:
 
 1. **Architecture**: The Perceptron consists of three main components:
    * **Input Layer**: This layer contains input nodes, each representing a feature of the input data. Each input node is associated with a weight that determines its contribution to the output.
@@ -112,7 +112,7 @@ $y_{t} = \sigma_{g}(W_{y} \star h_{t}+b_{y})$
 
 A Feedforward Neural Network (FNN) is a fundamental type of artificial neural network where connections between the nodes do not form cycles. In simpler terms, data flows in one direction: from the input layer through one or more hidden layers to the output layer without any feedback loops. 
 
-Here’s a more detailed breakdown:
+Here's a more detailed breakdown:
 
 1. **Input Layer**: This layer consists of input nodes, each representing a feature or attribute of the input data. These nodes pass the input data forward to the hidden layers.
 
@@ -140,7 +140,7 @@ $y_{t} = \sigma_{g}(W_{y} \star h_{t}+b_{y})$
 
 A Long Short-Term Memory Neural Network (LSTM) is a type of recurrent neural network (RNN) architecture designed to address the limitations of traditional RNNs in capturing long-term dependencies and handling sequential data. LSTMs are particularly effective in tasks where context and temporal relationships are crucial, such as speech recognition, language translation, and time series prediction.
 
-Here’s a deeper dive into how LSTMs work:
+Here's a deeper dive into how LSTMs work:
 
 1. **Memory Cells**: The core component of an LSTM is its memory cell, which maintains a hidden state vector and a cell state vector. These vectors allow LSTMs to selectively retain and forget information over long sequences, enabling them to capture long-term dependencies.
 
@@ -202,7 +202,7 @@ $h_{t} = o_{t} \circ \sigma_{g}(c_{t})$
 
 The Neural Turing Machine (NTM) is a groundbreaking architecture that combines neural networks with external memory, inspired by the design principles of the classical Turing machine. Introduced by Alex Graves, Greg Wayne, and Ivo Danihelka in 2014, the NTM extends the capabilities of traditional neural networks by incorporating a memory module that the network can read from and write to, enabling it to perform algorithmic tasks and learn to store and retrieve information over extended time scales.
 
-Here’s a deeper dive into how the Neural Turing Machine works:
+Here's a deeper dive into how the Neural Turing Machine works:
 
 1. **Architecture**: At its core, the NTM consists of two main components:
    * **Controller**: This component is analogous to the processing unit in a traditional computer. It typically takes the form of a recurrent neural network (RNN) or a feedforward neural network (FNN) and interacts with the external memory module.
@@ -304,7 +304,7 @@ $${\mathbf y_{t} = W_{y} \mathbf h_{t} + W_{r}^{i} \mathbf {r}_{t}^{i}}$$
 
 The Differentiable Neural Computer (DNC) is an extension of the Neural Turing Machine (NTM) introduced by DeepMind in 2016. Like the NTM, the DNC combines neural networks with external memory to create a system that can learn algorithmic tasks and store and retrieve information over extended time scales. However, the DNC improves upon the NTM by introducing several key enhancements aimed at increasing its capacity, efficiency, and flexibility.
 
-Here’s a closer look at the key features and advancements of the Differentiable Neural Computer:
+Here's a closer look at the key features and advancements of the Differentiable Neural Computer:
 
 1. **Memory Architecture**: The DNC features a more sophisticated memory architecture compared to the NTM. Instead of a simple memory matrix, the DNC employs a content-addressable memory (CAM) system, which allows for efficient and flexible access to memory content using content-based addressing mechanisms.
 
@@ -424,7 +424,7 @@ $${\mathbf y_{t} = W_{y} \mathbf h_{t} + W_{r}^{i} \mathbf {r}_{t}^{i}}$$
 
 An Attention Neural Network (ANN) is a type of neural network architecture that dynamically focuses on different parts of the input data during processing, rather than treating all input elements equally. It mimics the human cognitive process of selectively concentrating on relevant information while filtering out irrelevant details. The concept of attention has become increasingly popular in machine learning and deep learning due to its effectiveness in handling sequential data, variable-length sequences, and tasks requiring complex reasoning.
 
-Here’s a deeper exploration of the key components and functionalities of Attention Neural Networks:
+Here's a deeper exploration of the key components and functionalities of Attention Neural Networks:
 
 1. **Attention Mechanisms**: At the heart of Attention Neural Networks are attention mechanisms, which enable the network to learn to focus on specific parts of the input data while performing a task. Attention mechanisms assign importance weights to different elements of the input, allowing the network to attend to the most relevant information at each step of computation.
 

@@ -9,7 +9,9 @@ The conceptual design process produces a high-level design concept that may be a
 The conceptual design objectives are:
 
 1. The hardware item conceptual design is developed consistent with its requirements.
+
 2. Derived requirements produced are fed back to the requirements capture or other appropriate processes.
+
 3. Requirement omissions and errors are provided to the appropriate processes for resolution.
 
 ### Conceptual Design Activities

@@ -7,7 +7,9 @@ This section discusses the software life cycle processes, software life cycle de
 The software life cycle processes are:
 
    - The software planning process that defines and coordinates the activities of the software development and integral processes for a project. Section 4 describes the software planning process.
+
    - The software development processes that produce the software product. These processes are the software requirements process, the software design process, the software coding process, and the integration process. Section 5 describes the software development processes.
+
    - The integral processes that ensure the correctness, control, and confidence of the software life cycle processes and their outputs. The integral processes are the software verification process, the software configuration management process, the software quality assurance process, and the certification liaison process. It is important to understand that the integral processes are performed concurrently with the software development processes throughout the software life cycle. Sections 6 through 9 describe the integral processes.
 
 ## Software Life Cycle Definition

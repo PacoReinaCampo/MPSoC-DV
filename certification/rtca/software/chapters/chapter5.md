@@ -3,8 +3,11 @@
 This section discusses the objectives and activities of the software development processes. The software development processes are applied as defined by the software planning process (section 4) and the Software Development Plan (subsection 11.2). Table A-2 of Annex A is a summary of the objectives and outputs of the software development processes by software level. The software development processes are:
 
    - Software requirements process.
+
    - Software design process.
+
    - Software design process.
+
    - Integration process.
 
 Software development processes produce one or more levels of software requirements. High-level requirements are produced directly through analysis of system requirements and system architecture. Usually, these high-level requirements are further developed during the software design process, thus producing one or more successive, lower levels of requirements. However, if Source Code is generated directly from high-level requirements, then the high-level requirements are also considered low-level requirements. and the guidelines for low-level requirements also apply.
@@ -22,6 +25,7 @@ The software requirements process uses the outputs of the system life cycle proc
 The objectives of the software requirements process are:
 
    a. High-level requirements are developed.
+
    b. Derived high-level requirements are indicated to the system safety assessment process.
 
 ### Software Requirements Process Activities
@@ -61,6 +65,7 @@ The software high-level requirements are refined through one or more iterations 
 The objectives of the software design process are:
 
    a. The software architecture and low-level requirements are developed from the high-level requirements.
+
    b. Derived low-level requirements are provided to the system safety assessment process.
 
 ### Software Design Process Activities
@@ -114,8 +119,11 @@ The primary results of this process are Source Code (subsection 1 1. I 1) and ob
 The software coding process is complete when its objectives and the objectives of the integral processes associated with it are satisfied. Guidance for this process includes:
 
    a. The Source Code should implement the low-level requirements and conform to the software architecture.
+
    b. The Source Code should conform to the Software Code Standards.
+
    c. The Source Code should be traceable to the Design Description.
+
    d. Inadequate or incorrect inputs detected during the software coding process should be provided to the software requirements process, software design process or software planning process as feedback for clarification or correction.
 
 ## Integration Process

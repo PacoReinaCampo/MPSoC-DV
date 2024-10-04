@@ -7,6 +7,7 @@ This appendix provides guidance for the modulation of the hardware design life c
 Table A-1 identifies the data delivery classification and configuration management data control category for each data element. Refer to Table 7-1. There are two data delivery classification types defined:
 
 1. Submitted. The data item should be submitted to the certification authority.
+
 2. Not Available. The data item is not required.
 
 All verification of Level A and B functions should be independent. Level C and lower functions do not require independent verification. Independence is needed only at the design hierarchy level at which the design is verified against the requirements. An equivalent means of independence, which addresses the issue of common mode failure, should be acceptable.
@@ -16,10 +17,15 @@ Independence is a means to address potential common mode errors that could occur
 Some examples of acceptable means are:
 
 1. Requirements or designs are reviewed by another individual.
+
 2. Test cases or procedures are developed by another individual.
+
 3. Test cases or procedures developed by the designer are reviewed by another individual.
+
 4. An analysis performed by the designer is reviewed by another individual or a review team.
+
 5. A different test is performed that confirms the results of testing by the designer, such as a test during flight test confirms a hardware item test or software verification tests, developed independently and performed on the target hardware item, confirm the results of testing by the designer.
+
 6. Test or analysis results are verified by a tool.
 
    Note 1: Often verification tests are automated and require only the "push of a key" to execute them. It is not the intent of independence to require someone other than the designer to execute the tests once they are evaluated or developed with independence. The results may still need to be reviewed independently to confirm proper procedures were followed and that the results verify that the requirements have been met.

@@ -7,7 +7,9 @@ This section outlines the hardware design life cycle discussed in Section 4 thro
 The hardware design life cycle processes are:
 
 1. The hardware planning process, described in Section 4, defines and coordinates the activities of the hardware design and supporting processes for a project.
+
 2. The hardware design processes, described in Section 5, generate the design data and resultant hardware item. These processes are requirements capture, conceptual design, detailed design, implementation and production transition.
+
 3. The supporting processes, described in Section 6 through Section 9, produce the hardware design life cycle data that assures correctness and control of the hardware design life cycle and its outputs, including planning, design, hardware safety assessment and supporting processes. These processes are typically performed concurrently with the planning and design processes. These processes are validation, verification, configuration management, process assurance and certification liaison.
 
 ## Transition Criteria

@@ -3,11 +3,17 @@
 This section discusses those aspects of the system life cycle processes necessary to understand the software life cycle processes. Discussed are:
 
    - Exchange of data between the system and software life cycle processes (subsection 2.1).
+
    - Categorization of failure conditions, definition of software levels, and software level determination (subsection 2.2).
+
    - System architectural considerations (subsection 2.3).
+
    - System considerations for user-modifiable software, option-selectable software, and commercial off-the-shelf software (subsection 2.4).
+
    - System design considerations for field-loadable software (subsection 2.5).
+
    - System requirements considerations for software verification (subsection 2.6).
+
    - Software considerations in system verification (subsection 2.7).
 
 ## Information Flow Between System and Software Life Cycle Processes
@@ -23,10 +29,15 @@ The system safety assessment process determines and categorizes the failure cond
 The safety-related requirements are a part of the system requirements which are inputs to the software life cycle processes. To ensure that the safety-related requirements are properly implemented throughout the software life cycle, the system requirements typically include or reference:
 
    - The system description and hardware definition.
+
    - Certification requirements, including applicable Federal Aviation Regulations (FAR-United States), Joint Aviation Regulations (JAR-Europe), Advisory Circulars (United States), etc.
+
    - System requirements allocated to software, including functional requirements, performance requirements, and safety-related requirements.
+
    - Software level(s) and data substantiating their determination, failure conditions, their categories, and related functions allocated to software.
+
    - Safety strategies and design constraints, including design methods, such as, partitioning, dissimilarity, redundancy or safety monitoring.
+
    - If the system is a component of another system, the safety-related requirements and failure conditions for that system.
 
 System life cycle processes may specify requirements for the software life cycle processes to aid system verification activities.
@@ -132,7 +143,9 @@ Safety monitoring is a means of protecting against specific failure conditions b
 Through the use of monitoring techniques, the software level of the monitored function may be reduced to the level associated with the loss of its related system function. To allow this level reduction, there are three important attributes of the monitor that should be determined:
 
    a. Software level: Safety monitoring software is assigned the software level associated with the most severe failure condition category for the monitored function.
+
    b. System fault coverage: Assessment of the system fault coverage of a monitor ensures that the monitor's design and implementation are such that the faults which it is intended to detect will be detected under all necessary conditions.
+
    c. Independence of Function and Monitor: The monitor and protective mechanism are not rendered inoperative by the same failure condition that causes the hazard.
 
 ## System Considerations for User-Modifiable Software, Option-Selectable Software and Commercial Off-The-Shelf Software
@@ -144,11 +157,17 @@ Some airborne systems and equipment may include optional functions which may be 
 Guidance for system considerations for user-modifiable software, option-selectable software, and commercial off-the-shelf software includes:
 
    a. User-modifiable software: Users may modify software within the modification constraints without certification authority review, if the system requirements provide for user modification.
+
    b. The system requirements should specify the mechanisms which prevent the user modification from affecting system safety whether or not they are correctly implemented. The software which provides the protection for user modification should be at the same software level as the function it is protecting from errors in the modifiable component.
+
    c. If the system requirements do not include provision for user modification, the software should not be modified by the user unless compliance with this document is demonstrated for the modification.
+
    d. At the time of the user modification, the user should take responsibility for all aspects of the user-modifiable software, for example, software configuration management, software quality assurance, and software verification.
+
    e. Option-selectable software: When software programmed options are included, means should be provided to ensure that inadvertent selections involving non-approved configurations for the target computer within the installation environment cannot be made.
+
    f. Commercial off-the-shelf software: COTS software included in airborne systems or equipment should satisfy the objectives of this document.
+
    g. If deficiencies exist in the software life cycle data of COTS software, the data should be augmented to satisfy the objectives of this document. The guidelines in paragraphs 12.14, Upgrading A Development Baseline, and 12.3.5, Product Service History, may be relevant in this instance.
 
 ## System Design Considerations for Field-Loadable Software
@@ -158,18 +177,27 @@ Field-loadable airborne software refers to software or data tables that can be l
 System safety considerations relating to field-loadable software include:
 
    - Detection of corrupted or partially loaded software.
+
    - Determination of the effects of loading the inappropriate software.
+
    - Hardware/software compatibility.
+
    - Software/software compatibility.
+
    - Aircraft/software compatibility.
+
    - Inadvertent enabling of the field loading function.
+
    - Loss or corruption of the software configuration identification display.
 
 Guidance for field-loadable software includes:
 
    a. Unless otherwise justified by the system safety assessment process, the detection mechanism for partial or corrupted software loads should be assigned the same failure condition or software level as the most severe failure condition or software level associated with the function that uses the software load.
+
    b. If a system has a default mode when inappropriate software or data is loaded, then each partitioned component of the system should have safety-related requirements specified for operation in this mode which address the potential failure condition.
+
    c. The software loading function, including support systems and procedures, should include a means to detect incorrect software and/or hardware and/or aircraft combinations and should provide protection appropriate to the failure condition of the function.
+
    d. If software is part of an airborne display mechanism that is the means for ensuring that the aircraft conforms to a certified configuration, then that software should either be developed to the highest level of the software to be loaded, or the system safety assessment process should justify the integrity of an end-to-end check of the software configuration identification.
 
 ## System Requirements Considerations for Software Verification

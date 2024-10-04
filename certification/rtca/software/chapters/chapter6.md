@@ -5,12 +5,19 @@ This section discusses the objectives and activities of the software verificatio
 Note: For lower software levels, less emphasis is on:
 
    - Verification of low-level requirements.
+
    - Verification of the software architecture.
+
    - Degree of test coverage.
+
    - Control of verification procedures.
+
    - Independence of software verification process activities.
+
    - Overlapping software verification process activities, that is, multiple verification activities, each of which may be capable of detecting the same class of error.
+
    - Robustness testing.
+
    - Verification activities with an indirect effect on error prevention or detection, for example, conformance to software development standards.
 
 ## Software Verification Process Objectives
@@ -40,14 +47,19 @@ The need for the requirements to be verifiable once they have been implemented i
 The verification process provides traceability between the implementation of the software requirements and verification of those software requirements:
 
    - The traceability between the software requirements and the test cases is accomplished by the requirements-based coverage analysis.
+
    - The traceability between the code structure and the test cases is accomplished by the structural coverage analysis.
 
 Guidance for the software verification activities includes:
 
    a. High-level requirements and traceability to those high-level requirements should be verified.
+
    b. The results of the traceability analyses and requirements-based and structural coverage analyses should show that each software requirement is traceable to the code that implements it and to the review, analysis, or test case that verifies it.
+
    c. If the code tested is not identical to the airborne software, those differences should be specified and justified.
+
    d. When it is not possible to verify specific software requirements by exercising the software in a realistic test environment, other means should be provided and their justification for satisfying the software verification process objectives defined in the Software Verification Plan or Software Verification Results.
+
    e. Deficiencies and errors discovered during the software verification process should be reported to the software development processes for clarification and correction.
 
 ## Software Reviews and Analyses.
@@ -61,11 +73,17 @@ An analysis may examine in detail the functionality, performance, traceability a
 The objective of these reviews and analyses is to detect and report requirements errors that may have been introduced during the software requirements process. These reviews and analyses confirm that the high-level requirements satisfy these objectives:
 
    a. Compliance with system requirements: The objective is to ensure that the system functions to be performed by the software are defined, that the functional, performance, and safety- related requirements of the system are satisfied by the software high-level requirements, and that derived requirements and the reason for their existence are correctly defined.
+
    b. Accuracy and consistency: The objective is to ensure that each high-level requirement is accurate, unambiguous and sufficiently detailed and that the requirements do not conflict with each other.
+
    c. Compatibility with the target computer: The objective is to ensure that no conflicts exist between the high-level requirements and the hardware/software features of the target computer, especially, system response times and input/output hardware.
+
    d. Verifiability: The objective is to ensure that each high-level requirement can be verified.
+
    e. Conformance to standards: The objective is to ensure that the Software Requirements Standards were followed during the software requirements process and that deviations from the standards are justified.
+
    f. Traceability: The objective is to ensure that the functional, performance, and safety-related requirements of the system that are allocated to software were developed into the software high-level requirements.
+
    g. Algorithm aspects: The objective is to ensure the accuracy and behavior of the proposed algorithms, especially in the area of discontinuities.
 
 ### Reviews and Analyses of the Low- Level Requirements
@@ -75,11 +93,17 @@ have been introduced during the software design process. These reviews and analy
 the software low-level requirements satisfy these objectives:
 
    a. Compliance with high-level requirements: The objective is to ensure that the software low-level requirements satisfy the software high-level requirements and that derived requirements and the design basis for their existence are correctly defined.
+
    b. Accuracy and consistency: The objective is to ensure that each low-level requirement is accurate and unambiguous and that the low-level requirements do not conflict with each other.
+
    c. Compatibility with the target computer: The objective is to ensure that no conflicts exist between the software requirements and the hardware/software features of the target computer, especially, the use of resources (such as bus loading), system response times, and input/output hardware.
+
    d. Verifiability: The objective is to ensure that each low-level requirement can be verified.
+
    e. Conformance to standards: The objective is to ensure that the Software Design Standards were followed during the software design process, and that deviations from the standards are justified.
+
    f. Traceability: The objective is to ensure that the high-level requirements and derived requirements were developed into the low-level requirements.
+
    g. Algorithm aspects: The objective is to ensure the accuracy and behavior of the proposed algorithms, especially in the area of discontinuities.
 
 ### Reviews and Analyses of the Software Architecture.
@@ -87,10 +111,15 @@ the software low-level requirements satisfy these objectives:
 The objective of these reviews and analyses is to detect and report errors that may have been introduced during the development of the software architecture. These reviews and analyses confirm that the software architecture satisfies these objectives:
 
    a. Compatibility with the high-level requirements: The objective is to ensure that the software architecture does not conflict with the high-level requirements, especially functions that ensure system integrity, for example, partitioning schemes.
+
    b. Consistency: The objective is to ensure that a correct relationship exists between the components of the software architecture. This relationship exists via data flow and control flow.
+
    c. Compatibility with the target computer: The objective is to ensure that no conflicts exist, especially initialization, asynchronous operation, synchronization and interrupts, between the software architecture and the hardware/software features of the target computer.
+
    d. Verifiability: The objective is to ensure that the software architecture can be verified, for example, there are no unbounded recursive algorithms.
+
    e. Conformance to standards: The objective is to ensure that the Software Design Standards were followed during the software design process and that deviations to the standards are justified, especially complexity restrictions and design constructs that would not comply with the system safety objectives.
+
    f. Partitioning integrity: The objective is to ensure that partitioning breaches are prevented or isolated.
 
 ### Reviews and Analyses of the Source Code
@@ -98,10 +127,15 @@ The objective of these reviews and analyses is to detect and report errors that 
 The objective is to detect and report errors that may have been introduced during the software coding process. These reviews and analyses confirm that the outputs of the software coding process are accurate, complete and can be verified. Primary concerns include correctness of the code with respect to the software requirements and the software architecture, and conformance to the Software Code Standards. These reviews and analyses are usually confined to the Source Code. The topics should include:
 
    a. Compliance with the low-level requirements: The objective is to ensure that the Source Code is accurate and complete with respect to the software low-level requirements, and that no Source Code implements an undocumented function.
+
    b. Compliance with the software architecture: The objective is to ensure that the Source Code matches the data flow and control flow defined in the software architecture.
+
    c. Verifiability: The objective is to ensure the Source Code does not contain statements and structures that cannot be verified and that the code does not have to be altered to test it.
+
    d. Conformance to standards: The objective is to ensure that the Software Code Standards were followed during the development of the code, especially complexity restrictions and code constraints that would be consistent with the system safety objectives. Complexity includes the degree of coupling between software components, the nesting levels for control structures, and the complexity of logical or numeric expressions. This analysis also ensures that deviations to the standards are justified.
+
    e. Traceability: The objective is to ensure that the software low-level requirements were developed into Source Code.
+
    f. Accuracy and consistency: The objective is to determine the correctness and consistency of the Source Code, including stack usage, fixed point arithmetic overflow and resolution, resource contention, worst-case execution timing, exception handling, use of uninitialized variables or constants, unused variables or constants, and data corruption due to task or interrupt conflicts.
 
 ### Reviews and Analyses of the Outputs of the Integration Process
@@ -109,7 +143,9 @@ The objective is to detect and report errors that may have been introduced durin
 The objective is to ensure that the results of the integration process are complete and correct. This could be performed by a detailed examination of the linking and loading data and memory map. The topics should include:
 
    a. Incorrect hardware addresses.
+
    b. Memory overlaps.
+
    c. Missing software components.
 
 ### Reviews and Analyses of the Test Cases, Procedures and Results
@@ -117,7 +153,9 @@ The objective is to ensure that the results of the integration process are compl
 The objective of these reviews and analyses is to ensure that the testing^ of the code was developed and performed accurately and completely. The topics should include:
 
    a. Test cases: The verification of test cases is presented in paragraph 6.4.4.
+
    b. Test procedures: The objective is to verify that the test cases were accurately developed into test procedures and expected results.
+
    c. Test results: The objective is to ensure that the test results are correct and that discrepancies between actual and expected results are explained.
 
 ## Software Testing Process
@@ -127,7 +165,9 @@ Testing of airborne software has two complementary objectives. One objective is 
 Figure 6-1 is a diagram of the software testing process. The objectives of the three types of testing in the figure are:
 
    - Hardware/software integration testing: To verify correct operation of the software in the target computer environment.
+
    - Software integration testing: To verify the interrelationships between software requirements and components and to verify the implementation of the software requirements and software components within the software architecture.
+
    - Low-level testing: To verify the implementation of software low-level requirements.
 
    Note: If a test case and its corresponding test procedure are developed and executed for hardware/software integration testing or software integration testing and satisfy the requirements-based coverage and structural coverage, it is not necessary to duplicate the test for low-level testing. Substituting nominally equivalent low-level tests for high-level tests may be less effective due to the reduced amount of overall functionality tested.
@@ -165,8 +205,11 @@ Requirements-based testing is emphasized because this strategy has been found to
 The objective of normal range test cases is to demonstrate the ability of the software to respond to normal inputs and conditions. Normal range test cases include:
 
    a. Real and integer input variables should be exercised using valid equivalence classes and boundary values.
+
    b. For time-related functions, such as filters, integrators and delays, multiple iterations of the code should be performed to check the characteristics of the function in context.
+
    c. For state transitions, test cases should be developed to exercise the transitions possible during normal operation.
+
    d. For software requirements expressed by logic equations, the normal range test cases should verify the variable usage and the Boolean operators. Note: One method is to test all combinations of the variables. For complex expressions, this method is impractical due to the large number of test cases required. A different strategy that ensures the required coverage could^ be developed. For example, for Level A, the Boolean operators could be verified by analysis or review, and to complement this activity, test cases could be established to provide modified condition/decision coverage.
 
 #### Robustness Test Cases
@@ -174,11 +217,17 @@ The objective of normal range test cases is to demonstrate the ability of the so
 The objective of robustness test cases is to demonstrate the ability of the software to respond to abnormal inputs and conditions. Robustness test cases include:
 
    a. Real and integer variables should be exercised using equivalence class selection of invalid values.
+
    b. System initialization should be exercised during abnormal conditions.
+
    c. The possible failure modes of the incoming data should be determined, especially complex, digital data strings from an external system.
+
    d. For loops where the loop count is a computed value, test cases should be developed to attempt to compute out-of-range loop count values, and thus demonstrate the robustness of the loop-related code.
+
    e. A check should be made to ensure that protection mechanisms for exceeded frame times respond correctly.
+
    f. For time-related functions, such as filters, integrators and delays, test cases should be developed for arithmetic overflow protection mechanisms.
+
    g. For state transitions, test cases should be developed to provoke transitions that are not allowed by the software requirements.
 
 ### Requirements-Based Testing Methods

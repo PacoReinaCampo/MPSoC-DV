@@ -11,7 +11,9 @@ The detailed design process produces detailed design data using the hardware ite
 The detailed design process objectives are:
 
 1. The detailed design is developed from the hardware item requirements and conceptual design data.
+
 2. Derived requirements are fed back to the conceptual design process or other appropriate processes.
+
 3. Requirement omissions or errors are provided to the appropriate processes for resolution.
 
 ### Detailed Design Process Activities

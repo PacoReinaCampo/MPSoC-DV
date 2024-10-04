@@ -15,6 +15,7 @@ An FFPA begins with the PSSA, which is used to identify system level FFPs that m
 The goal of an FFPA is to identify individual FFPs so that:
 
 1. Hardware implementing Levels A and B functions can be addressed by an appropriate design assurance method described in this appendix or another advanced method acceptable to the certification authority.
+
 2. Considerations of this appendix are optional for hardware implementing level C or lower level functions, that is, those functions that will be assured using only the guidance of Section 3 through Section 11 of this document.
 
    Note: Identification of separate FFPs for functions implemented in different technologies or offering different degrees of design visibility is often useful because the total hardware item's design assurance may be accomplished using multiple design assurance methods. The level of decomposition may vary for each FFP.
@@ -22,8 +23,11 @@ The goal of an FFPA is to identify individual FFPs so that:
 Decomposition is performed using conventional top-down safety assessment techniques, such as fault tree analysis. The decomposition may be complemented using F-FMEA, dependency diagrams and common mode analysis for each successive level of decomposition. The level of decomposition may vary for each system level FFP depending on the design assurance strategy, corresponding implementation concept and the error mitigation methods being proposed for the hardware being designed. Decomposition progresses from:
 
 - system level FFPs into hardware level FFPs;
+
 - hardware level FFPs into circuit level FFPs;
+
 - circuit level FFPs into component level FFPs; and
+
 - component level FFPs into elemental level FFPs.
 
 ### Functional Failure Path Analysis Method
@@ -31,7 +35,9 @@ Decomposition is performed using conventional top-down safety assessment techniq
 The FFPA should be performed as follows:
 
 1. For each Level A and Level B function, identify the function and its design assurance level based on the hardware requirements and system FHA for that function. The function may be formed as a collection of subfunctions, each having a corresponding set of derived requirements and an associated design assurance level. These subfunctions may be decomposed further as necessary.
+
 2. For each Level A and Level B function, determine the means of implementing the function or the subfunctions and analyze the design assurance options. The assurance data available or expected to be available for the implementation of the function or subfunction should be complete and acceptable for the design assurance strategy or strategies chosen. If the assurance data available or expected to be available is complete, correct and acceptable, then no further decomposition is necessary.
+
 3. For FFPs that are not Levels A or B, their interrelationships with the Level A or B FFPs should be evaluated using an F-FMEA, common mode analysis or dependency diagram to ensure that the Level A and B FFPs cannot be adversely impacted by the FFPs which are not Level A or B.
 
 This assessment process is iterative. If there is no acceptable method of design assurance for a FFP, the decomposition and evaluation process is repeated or the architecture or implementation of the hardware function changed until an acceptable method of design assurance has been determined and acceptable assurance data is provided or can be provided for each Level A and Level B FFP.
@@ -43,8 +49,11 @@ Results of the FFPA and selected methods used for design assurance for the hardw
 The FFPA data should:
 
 1. Identify the anomalous behaviors and functional failures that have been delegated to the hardware item from the system level.
+
 2. Identify the FFPs, the effects of their anomalous behavior or functional failure, and decomposition level in the design hierarchy to which the analysis was performed and the type and location of the acceptable assurance data that should be available.
+
 3. Describe the relationship between FFPs to determine their independence and inter- dependencies on other FFPs and components. Such relationships may be described using qualitative FTA or other top-down analysis, common mode analysis, F-FMEA or dependency diagrams. The relationship descriptions should identify those inter-related paths and components and the inter-dependencies.
+
 4. Trace between the FFPs and the hardware requirements and derived requirements.
 
 ## DESIGN ASSURANCE METHODS FOR LEVEL A AND B FUNCTIONS
@@ -76,12 +85,19 @@ Documentation of architectural mitigation means, applied to protect levels A and
 Architectural mitigation data should include:
 
 1. Identification of the Level A and B hardware FFPs that are to be protected by architectural means.
+
 2. Description of the architectural approach and validation rationale about coverage provided by that approach.
+
 3. Rationale for common mode boundaries and common mode design aspects applicable to that architecture.
+
 4. Identification of unmitigated and inadequately mitigated Level A and B FFPs to be addressed by other design assurance methods.
+
 5. Requirements about the functional operation and necessary design attributes of the architectural mitigation mechanisms.
+
 6. Mitigation mechanisms used to meet safety requirements that include software, such as software partitioning, safety monitors and dissimilar software. These mechanisms and safety software requirements should be provided to the system process and the software development process.
+
 7. Conventional failure rate data and latent fault exposure assessment data for any hardware that performs the applicable architectural mitigation.
+
 8. Traceability data linking safety requirements to the applicable safety assessment data and to the applicable design verification data.
 
 ## Product Service Experience
@@ -101,9 +117,13 @@ When the service experience data analysis is complete, hardware functions in Lev
 Data of product service experience applied to protect Level A and B FFPs in hardware, should include:
 
 1. The product service experience assessment data of Section 11.3.2.
+
 2. Identification of the FFPs for which design assurance is provided by service experience and justification for the sufficiency of the service experience data.
+
 3. Identification of the FFPs for which service experience data is insufficient and identification of test environments, test procedures, analyses and results used to complete the design assurance for the FFPs.
+
 4. Identification of FFPs and operational conditions not demonstrated by the service experience that will require additional architectural mitigation or advanced verification method.
+
 5. Traceability data as described in Section 10.4.1 showing the explicit relationship of the service experience data and verification that provides design assurance coverage of each FFP.
 
 ## Advanced Verification Methods
@@ -115,7 +135,9 @@ The advanced verification methods of design assurance both use and extend the sc
 These three methods are summarized here and described in the following sections.
 
 1. Elemental Analysis. Elemental analysis provides a measurement of the completeness of the hardware verification from a bottom-up perspective. Every functional element within the FFP is identified and verified using verification test cases that meet the verification objectives of Section 6.1. The analysis may also identify areas of concern that need to be addressed by other appropriate means.
+
 2. Safety-Specific Analysis. This strategy focuses on exposing and correcting the design errors that could adversely affect the hardware outputs from a system-safety perspective. Applicable safety sensitive portions of the hardware input space and output space are analytically determined. The sensitive portions of the hardware input space are stimulated, and the output space is observed not only for the safety- sensitive intended-function requirements verification, but also for anomalous behaviors. The methods of output space observation are identified in advance, by analysis that is accomplished using traditional safety analysis techniques.
+
 3. Formal Methods. Formal Methods employ techniques from formal logic and discrete mathematics for the specification, design and verification of computer
 
 systems. These techniques may be used to substantiate the reasoning employed in various processes of the hardware design life cycle.
@@ -139,6 +161,7 @@ The elemental analysis method begins by defining a set of criteria to be applied
 The criteria should include:
 
 1. Identification and a definition of the elements at an appropriate level of the hardware design.
+
 2. The verification coverage to which each element should be verified.
 
 These criteria are then applied to the analysis of verification activities to determine whether the verification coverage completion criteria will be achieved by the planned verification. If the criteria will not be achieved, then each element being examined should be exercised by an appropriate set of stimuli and cause appropriate observable effects on the signals being monitored in the test.
@@ -188,8 +211,11 @@ An elemental analysis itself may be performed using a simulation to measure the 
 Elemental analysis may reveal hardware elements not verified, indicating either a need for additional verification process activities or perhaps a need to remove the untested element or mitigate any anomalous behavior that could result by architectural means. Untested hardware elements may be the result of:
 
 1. Shortcomings in verification test cases or procedures. Shortcomings may arise if the test cases simply do not test the elements in the hardware item in compliance with the criteria in Appendix B, Section 3.3.1.1. They may also arise if there are "don’t cares" in the functional requirements but the hardware item was appropriately designed to produce repeatable responses. Under these circumstances, the test procedures and cases should be supplemented or changed. Furthermore, the assertion of the test’s ability to verify its respective requirements should be reviewed.
+
 2. Inadequacies in requirements. The requirements should be modified or additional derived requirements identified. Additional verification tests should then be developed for the new or revised requirements, executed and analyzed.
+
 3. Unused functions. The hardware item may contain functions that are not used in its target circuit application, such as unused subfunctions within a library function or test structures used only for component-level acceptance tests. Such functions should either be shown to be isolated from the other used functions or shown to present no potential anomalous behavior that could have an adverse effect on safety. This could possibly be achieved by showing that the unused elements are positively deactivated either within the hardware or when installed. If the unused functions are to be used in some future application, the elemental analysis deficiency may be revisited at that time provided that such functions are identified as not being fully verified.
+
 4. Element of no safety consequence. The consequence of anomalous behavior of the element can be bound and shown by analysis to not cause an adverse safety effect to the airplane or its occupants. These items should be resolved by recording the analysis bounding the consequence of anomalous behavior of the element.
 
 #### Elemental Analysis Life Cycle Data Output
@@ -197,9 +223,13 @@ Elemental analysis may reveal hardware elements not verified, indicating either 
 The elemental analysis life cycle data output should:
 
 1. Identify the FFPs to be addressed by elemental analysis, and propose at what levels in the design hierarchy the elements are defined and how they are to be analyzed for verification adequacy, which are parts of the verification coverage completion criteria. This should be included in the PHAC or hardware verification plan.
+
 2. Describe the methods and identify the FFPs addressed in the analysis and the levels in the design hierarchy at which the analysis was performed.
+
 3. Ensure that the traceability data, as described in Section 10.4.1 shows the explicit relationship of the verification procedures to the elements in the elemental analysis.
+
 4. Identify the verification test cases and requirements added or modified as a result of the elemental analysis.
+
 5. State the level of the verification completeness achieved for the FFPs addressed by elemental analysis, including identification of the analysis discrepancies not resolved by modification to verification tests or requirements and the rationale for acceptability.
 
 ### Safety-Specific Analysis
@@ -241,7 +271,9 @@ Tests should be developed using equivalence-classes. Testing should address key 
 The safety-specific verification completion criteria should be established by completion of the safety-specific analysis for all the applicable circuits and components. Any deficiencies found by that analysis or by the verification itself should be resolved by one of the following methods:
 
 1. Change the design to correct the error.
+
 2. Add architectural mitigation, which resolves the error by removing it from the relevant FFP.
+
 3. Add appropriate tests.
 
 #### Safety-Specific Analysis Data
@@ -249,13 +281,21 @@ The safety-specific verification completion criteria should be established by co
 Documentation of safety-specific analysis, when applied to circuits and components in Level A and B FFPs, should be provided in the form of safety assessment data, safety requirements data, verification procedures and results, and traceability data. The verification procedures should be traceable to the safety requirements, and to the safety- specific analysis. Safety-specific analysis data should include:
 
 1. Identification of the circuit and components which are to be addressed by the safety- specific analysis method.
+
 2. Identification of the Level A and B FFPs in which each of those circuits and components reside.
+
 3. Identification of partial architectural mitigation applicable to circuits and components where design assurance completion is to be provided by the safety-specific analysis method.
+
 4. For each applicable circuit and component, identification of safety sensitive functions.
+
 5. For each identified safety-sensitive function, identification of safety-sensitive attributes and anomalous behaviors of concern.
+
 6. Verification conditions addressing the applicable circuits, components, internal functions, functional attributes and anomalous behaviors.
+
 7. Verification conditions addressing input dependencies and output space behaviors to be verified.
+
 8. Verification procedures and results.
+
 9. Traceability data linking verification procedures and hardware safety verification conditions to safety-specific hardware analysis data.
 
 ### Formal Methods
@@ -269,7 +309,9 @@ Applications of formal methods fall into two broad categories, descriptive and d
 There are several areas where application of formal methods provides additional assurance in the design process. Although formal methods are applicable throughout the design process, increases in design assurance may be obtained by targeted application. The following list highlights some of the possibilities:
 
 1. Formal methods may be applied at different stages of the development life cycle. Generally, applications of formal methods are most effective at the early stages of the life cycle, specifically during requirements capture and high-level design.
+
 2. Formal methods may be applied to the entire design or they may be targeted to specific components. The FFPA is used to determine which FFPs to analyze with formal methods. Protocols dealing with complex concurrent communication and hardware implementing fault-tolerant functions may be effectively analyzed with formal methods.
+
 3. Formal methods may be applied to verify system functionality or they may be used to establish specific properties. Although formal methods have traditionally been associated with "proof-of-correctness," that is, ensuring that a component meets its functional specification, they can also be applied to only the most important properties. Often, it is more important to confirm that a design does not exhibit certain undesirable properties, rather than to prove that it has full functionality.
 
 Practical application of formal methods typically requires tool support. Tools used should be assessed and, if necessary, qualified as described in Section 11.4.
@@ -281,6 +323,7 @@ The application of formal methods begins by expressing the requirements using a 
 The level of detail in the component model is determined by the goal of the chosen formal analysis technique. Some approaches are tailored to finding design errors that may have eluded testing, while other approaches seek to guarantee the absence of certain classes of design errors.
 
 1. Error-Detection. The most common formal technique for error detection is called model checking. Here the requirements are expressed as formula in a decidable temporal logic. The model of the component is an abstract state machine designed so that the property to be tested is preserved. The proof procedure is automatic. A failed proof attempt indicates a design error in the modeled component. The result of failed proof is a sequence of input stimuli that demonstrate specifically how the component does not satisfy the stated requirement.
+
 2. Error Preclusion. Formal methods targeted to prevention of errors are generally based upon an expressive specification language with a supporting proof theory. With the increased expressiveness, more complicated requirements may be stated and more detailed models of the component may be constructed. However, the proof procedure may only be partially automated. An appropriate level of detail for the component model may be a synthesizable HDL description. In some cases, the same model may be used both for simulation and formal analysis. A completed proof is evidence that the component is logically correct with respect to the stated requirements for the analyzed input space.
 
 #### Formal Methods Resolution
@@ -302,9 +345,15 @@ There are three possible outcomes of a deductive formal analysis:
 The data developed during the application of formal methods includes:
 
 1. Description of the specific formal methods approach to be used and the components or FFPs to which formal methods will be applied.
+
 2. Formal statement of requirements.
+
 3. Formal models of the component.
+
 4. Proof, or sufficiently detailed script to generate proof, relating the models of the component to the formal statement of requirements and including correlation in the traceability data.
+
 5. Identification of tools employed and tool assessment results.
+
 6. Identification of the verification test cases and requirements added or modified as a result of the analysis.
+
 7. Statement of the level of the verification completeness achieved for the FFPs addressed by analysis. Include a list of the analysis discrepancies not resolved by modification to verification test cases or requirements and their rationale for acceptability of the discrepancies.

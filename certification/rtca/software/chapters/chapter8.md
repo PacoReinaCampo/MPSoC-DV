@@ -11,7 +11,9 @@ The SQA process objectives provide confidence that the software life cycle proce
 The objectives of the SQA process are to obtain assurance that:
 
    a. Software development processes and integral processes comply with approved software plans and standards.
+
    b. The transition criteria for the software life cycle processes are satisfied.
+
    c. A conformity review of the software product is conducted.
 
 The applicability of the objectives by software level is specified in Table A-9 of Annex A.
@@ -59,13 +61,21 @@ The objective of the software conformity review is to obtain assurances, for a s
 This review should determine that:
 
    a. Planned software life cycle process activities for certification credit, including the generation of software life cycle data, have been completed and records of their completion are retained.
+
    b. Software life cycle data developed from specific system requirements, safety-related requirements, or software requirements are traceable to those requirements.
+
    c. Software life cycle data complies with software plans and standards, and is controlled in accordance with the SCM Plan.
+
    d. Problem reports comply with the SCM Plan, have been evaluated and have their status recorded.
+
    e. Software requirement deviations are recorded and approved.
+
    f. The Executable Object Code can be regenerated from the archived Source Code.
+
    g. The approved software can be loaded successfully through the use of released instructions.
+
    h. Problem reports deferred from a previous software conformity review are re-evaluated to determine their status.
+
    i. If certification credit is sought for the use of previously developed software, the current software product baseline is traceable to the previous baseline and the approved changes to that baseline.
 
    Note: For post-certification software modifications, a subset of the software conformity review activities, as justified by the significance of the change, may be performed.

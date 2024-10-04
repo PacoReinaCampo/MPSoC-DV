@@ -9,7 +9,9 @@ Process assurance activities should be achieved with independence in order to ob
 The objectives of process assurance are to ensure that:
 
 1. Life cycle processes comply with the approved plans.
+
 2. Hardware design life cycle data produced complies with the approved plans.
+
 3. The hardware item used for conformance assessment is built to comply with the associated life cycle data.
 
 ## Process Assurance Activities

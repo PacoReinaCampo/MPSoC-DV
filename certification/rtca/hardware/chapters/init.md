@@ -9,8 +9,11 @@ RTCA SC-180 and the European Organization for Civil Aviation Equipment (EUROCAE)
 RTCA, Incorporated is a not-for-profit organization formed to advance the art and science of aviation and aviation electronic systems for the benefit of the public. The organization functions as a Federal Advisory Committee and develops consensus-based recommendations on contemporary aviation issues. RTCA’s objectives include but are not limited to:
 
    - Coalescing aviation system user and provider technical requirements in a manner that helps government and industry meet their mutual objectives and responsibilities.
+
    - Analyzing and recommending solutions to the system technical issues that aviation faces as it continues to pursue increased safety, system capacity and efficiency.
+
    - Developing consensus on the application of pertinent technology to fulfill user and provider requirements, including development of minimum operational performance standards for electronic systems and equipment that support aviation.
+
    - Assisting in developing the relevant technical material upon which positions for the international Civil Aviation Organization and the International Telecommunication Union and other interested international organizations can be based.
 
 The organization’s recommendations are often used as the basis for government and private sector decisions as well as the foundation for many Federal Aviation Administration Technical Standard Orders.

@@ -41,9 +41,13 @@ I. Key Components of the Recommended Practice
 II. Benefits of Implementing the Recommended Practice
 
    1. **Protection of Intellectual Property**: Safeguard sensitive IP components and design assets from unauthorized access, tampering, or theft, preserving their confidentiality, integrity, and availability.
+
    2. **Compliance with Regulations**: Ensure compliance with industry regulations, standards, and contractual requirements related to data protection, privacy, and intellectual property rights.
+
    3. **Risk Mitigation**: Mitigate security risks and vulnerabilities associated with IP theft, data breaches, or unauthorized disclosure by implementing robust encryption, key management, and access control measures.
+
    4. **Enhanced Trust and Confidence**: Build trust and confidence among customers, partners, and stakeholders by demonstrating a commitment to protecting valuable intellectual property assets and sensitive design information.
+
    5. **Business Continuity**: Ensure business continuity and resilience by minimizing the impact of security incidents, breaches, or data loss events on product development, manufacturing, and revenue streams.
 
 The Recommended Practice for Encryption and Management of Electronic Design IP provides valuable guidance and recommendations for securing and managing intellectual property in electronic design environments. By implementing encryption algorithms, key management practices, secure workflows, and compliance measures, organizations can protect their valuable IP assets, mitigate security risks, and maintain trust and confidence in their products and services.
@@ -87,9 +91,13 @@ IEEE STD 1735 is a standard developed by the Institute of Electrical and Electro
 ## BENEFITS
 
 1. **Protection of Intellectual Property**: Helps organizations safeguard their valuable electronic design IP assets from unauthorized access, tampering, or theft, preserving their confidentiality, integrity, and availability.
+
 2. **Compliance Assurance**: Ensures compliance with industry regulations, standards, and contractual requirements related to data protection, privacy, and intellectual property rights, reducing the risk of non-compliance penalties or legal liabilities.
+
 3. **Risk Mitigation**: Mitigates security risks and vulnerabilities associated with IP theft, data breaches, or unauthorized disclosure by providing a standardized framework for encryption, key management, and access control.
+
 4. **Interoperability and Compatibility**: Facilitates interoperability and compatibility between different design tools, environments, and platforms by defining standardized file formats, metadata structures, and encryption protocols for managing encrypted design IP.
+
 5. **Trusted Collaboration**: Fosters trust and confidence among partners, customers, and stakeholders by demonstrating a commitment to protecting electronic design IP assets and ensuring their secure and responsible use throughout the design lifecycle.
 
 IEEE STD 1735 plays a crucial role in establishing standardized methods and best practices for the encryption and management of electronic design intellectual property. By following the guidelines and recommendations outlined in the standard, organizations can enhance the security, compliance, and trustworthiness of their electronic design IP assets, ensuring their confidentiality, integrity, and availability in today's increasingly interconnected and digitized world.
@@ -265,11 +273,11 @@ A trust model is a conceptual framework used to establish and evaluate the trust
 ### Importance of Trust Models
 
 1. **Security**: Trust models help mitigate security risks by verifying the identity, integrity, and authenticity of entities involved in interactions or transactions.
-   
+
 2. **Reliability**: By establishing trust relationships and evaluating the trustworthiness of entities, trust models enhance the reliability and dependability of systems and services.
-   
+
 3. **Interoperability**: Trust models facilitate interoperability by enabling entities to establish mutual trust and collaborate effectively across different domains or environments.
-   
+
 4. **Privacy**: Trust models help protect privacy by controlling access to sensitive information and ensuring that data is handled securely and confidentially.
 
 5. **User Confidence**: By providing assurance of trustworthiness and security, trust models enhance user confidence and promote adoption and usage of technology, services, and platforms.

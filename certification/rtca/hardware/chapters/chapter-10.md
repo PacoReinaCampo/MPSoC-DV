@@ -37,12 +37,19 @@ The PHAC defines the processes, procedures, methods and standards to be used to 
 The PHAC should include:
 
 1. System Overview. This section provides an overview of the airborne system in which the hardware items are to be used, including a system functional description, system failure conditions, system architecture, a description of the allocation of the functions to hardware items and software, and references to existing system documentation.
+
 2. Hardware Overview. This section describes the hardware functions, hardware items, architecture, new technologies to be used, and any fail-safe, fault tolerant, redundancy and partitioning techniques to be used.
+
 3. Certification Considerations. This section describes the certification basis, proposed means of compliance and the hardware design assurance level of each function of the hardware item. It also provides the justification for the hardware design assurance level assignment based on a safety assessment of the hardware and its use within the airborne system, including a description of potential hardware failure conditions as discussed in Section 2.3.4. When applicable, either a summary of the FFPA or plan for performing an FFPA and applying the results should also be included.
+
 4. Hardware Design Life Cycle. This section describes the procedures, methods and standards to be applied and processes and activities to be performed to meet the hardware design assurance objectives. It describes the activities, combinations and sequencing of activities, relationships between processes and activities, transition criteria, responsibilities, tool usage, and means for providing feedback and interaction among hardware processes and between hardware processes and the system and software processes. This section may reference applicable plans, policies, standards, procedures and deviations to those plans and standards for the program.
+
 5. Hardware Design Life Cycle Data. This section describes or references the data to be developed and submitted or available as evidence of compliance to the objectives of this document and the plan.
+
 6. Additional Considerations. This section describes the additional considerations. These include use of previously developed hardware, including references to applicable data to be reused, COTS usage, product service experience, and tool assessment and qualification as described in Section 11, or design assurance considerations for Level A or B functions as described in Appendix B.
+
 7. Alternative Methods. This section describes any alternative methods proposed for the program which are either not described in this document or are to be applied in a manner other than as described in this document. Justification for why the alternative method is acceptable should be provided.
+
 8. Certification Schedule. This section identifies the major program milestones and the dates when hardware design life cycle data will be submitted to the certification authority.
 
 ### Hardware Design Plan
@@ -52,10 +59,15 @@ The hardware design plan describes the procedures, methods and standards to be a
 The hardware design plan should include:
 
 1. Hardware Design Life Cycle. References to design policies and standards to be applied and a description of the hardware design life cycle processes and activities that will be used to achieve the design objectives for the hardware design assurance level.
+
 2. Hardware Product Description. Identification of the hardware specifications to be achieved, alternative uses, planned service life and upgrade considerations.
+
 3. Hardware Design Methods. Description of the requirements capture and specification methods, conceptual design methods, detailed design methods, synthesis techniques, implementation methods, and production transition methods to be used for the hardware item. When architectural mitigation for Level A or B functions, as described in Appendix B, Section 3.1, has been considered but not finalized at the time this plan is written, state how the decision will be carried into the design process.
+
 4. Hardware Design Environment. Description of the design tools to be used.
+
 5. Hardware Item Data. Identification of hardware item design data to be produced or references to previously developed hardware item specifications, document and drawing numbers, and part numbers.
+
 6. Other Considerations. Description of planned process technology options, use and assembly options, product packaging, and hardware mounting options.
 
 ### Hardware Validation Plan.
@@ -65,7 +77,9 @@ The validation plan describes the procedures, methods and standards to be applie
 The validation plan should include:
 
 1. Validation Methods. Description of and references to the validation procedures, standards and methods to be used. Methods may include analyses, reviews and testing.
+
 2. Validation Data. Identification and description of the evidence to be produced as a result of the hardware validation process.
+
 3. Validation Environment. Identification and description of analysis and test equipment and validation tools to be used to implement the validation process and activities.
 
 ### Hardware Verification Plan
@@ -75,9 +89,13 @@ The verification plan describes the procedures, methods and standards to be appl
 The verification plan should include:
 
 1. Verification Methods. Description of and references to the verification policies, procedures, standards and methods to be used to provide objective evidence of the integrity of the hardware items, including COTS and unused functions. Methods may include analyses, reviews and testing. When the advanced analysis methods of Appendix B, Section 3.3 are employed, include a detailed description of the methods for the applicable FFPs and the applicable verification completion criteria.
+
 2. Verification Data. Identification and description of the evidence to be produced as a result of the hardware verification process.
+
 3. Verification Independence. Description of the means to be used to assure verification independence for those objectives requiring independence.
+
 4. Verification Environment. Identification and description of analysis and test equipment and verification tools to be used to implement the verification process and activities.
+
 5. Organizational Responsibilities. Identification of the organizations responsible for implementing the verification process.
 
 ### Hardware Configuration Management Plan
@@ -87,11 +105,17 @@ The hardware configuration management plan describes the policies, procedures, s
 The hardware configuration management plan should include:
 
 1. Hardware Configuration Management Methods. Description of and reference to the policies, procedures, standards and methods to be used to identify, manage, and control the hardware and its life cycle data.
+
 2. Hardware Baselines. Description of the methods and procedures used to establish design and product baselines and provide baseline traceability.
+
 3. Problem Reporting and Resolution. Description of the methods and procedures to be used for recording, tracking and resolving problem reports.
+
 4. Change Control. Description of the methods, procedures and processes for identifying, controlling, and tracking changes to controlled data items.
+
 5. Storage and Retrieval. Description of the procedures for release, archival and retrieval of hardware design life cycle data. The description should include archive content, format, and medium standards, rules, methods and criteria.
+
 6. Environment Control. Description of the procedures and method for identifying and controlling the tools used for developing and verifying the hardware.
+
 7. Configuration Management Tools. Description of the tools and resources used for the configuration management process and activities.
 
 ### Hardware Process Assurance Plan
@@ -101,9 +125,13 @@ The hardware process assurance plan describes the procedures, methods and standa
 The hardware process assurance plan should include:
 
 1. Process Control. Description of the policies and procedures for implementation of process assurance of the hardware design processes.
+
 2. Organizational Responsibilities. Identification of the organizations responsible for implementing process assurance.
+
 3. Conformance. Description of the policies, procedures and criteria for determining process and product conformance.
+
 4. Process Assurance Activities. Description of the process assurance reviews and audits to be conducted to demonstrate compliance of the processes to plans and standards.
+
 5. Deviations. Description of the methods for detecting, recording, evaluating, resolving and approving deviations from plans and standards.
 
 ## Hardware Design Standards and Guidance
@@ -121,12 +149,19 @@ Hardware design standards may be used during the conceptual design process and d
 Hardware design standards may include:
 
 1. Hardware design representation methods and notations.
+
 2. Design specification and naming conventions.
+
 3. Guidance on design methods.
+
 4. Guidance on the use of hardware design tools.
+
 5. Guidance for electronic component selection.
+
 6. Guidance for assessing design alternatives.
+
 7. Guidance for assessing the fail-safe and fault-tolerance design constructs.
+
 8. Description of the means for providing feedback to the requirements process and for clarifying requirements.
 
 ### Validation and Verification Standards
@@ -148,13 +183,21 @@ The requirements specify the functional, performance, safety, quality, maintaina
 The requirements should include:
 
 1. The system design and safety requirements allocated to the hardware.
+
 2. Identification of applicable standards for the hardware.
+
 3. Hardware functional and performance requirements, including derived requirements and stress limits for normal use.
+
 4. Hardware reliability and quality requirements, including requirements related to failure rates, exposure times and design constraints.
+
 5. Hardware maintenance and repair requirements throughout the hardware item service life.
+
 6. Hardware manufacturability and assembly requirements.
+
 7. Hardware testability requirements.
+
 8. Hardware storage and handling requirements.
+
 9. Installation requirements.
 
 ### Hardware Design Representation Data
@@ -166,10 +209,15 @@ The hardware design representation data provides a definition of the hardware it
 The conceptual design data is the data that describes the hardware item’s architecture and functional design and may include:
 
 1. A high-level description, such as a block diagram or HDL definition, which outlines the major functions and shows the flow of information between these functions.
+
 2. The mechanical structure which describes the arrangement of the hardware item, such as drawings or sketches showing exterior package, printed circuit board arrangement, connector selection and location, and major interconnect wiring.
+
 3. Other architectural features and partitioning that are important from an airworthiness point of view. This might include items such as EMI, lightning, shock or vibration protection, unused functions in major components as well as man-machine interfaces, such as ergonomic factors, lighting characteristics and display resolution.
+
 4. Top-level hardware item functional description.
+
 5. Hardware item functional architecture.
+
 6. Preliminary hardware safety assessment data.
 
 #### Detailed Design Data
@@ -193,7 +241,9 @@ Assembly drawings include additional detailed information needed to assemble the
 An assembly drawing may include:
 
 1. Location and orientation of the hardware items within a hardware assembly.
+
 2. Identification of assembly instruction sequences or methods to ensure a correct and fault free assembly.
+
 3. Locations for identifying marks, labels, vision references used in subsequent operations.
 
 ##### Installation Control Drawings
@@ -205,8 +255,11 @@ Installation control drawings ensure correct installation of a hardware item int
 Installation control drawing may include:
 
 1. Dimensions.
+
 2. Clearance requirements.
+
 3. Cooling and mounting information.
+
 4. Information on weight, center of gravity, and other parameters necessary to ensure safe and proper installation.
 
 ##### Hardware/Software Interface Data
@@ -218,8 +271,11 @@ The performance of the hardware as determined by the requirements specification 
 Data relating to the interface between the hardware and the software may include:
 
 1. Memory addresses.
+
 2. Allocation of memory address fields into which data can be loaded.
+
 3. Timing and sequence information.
+
 4. Other information necessary for the operation of the hardware/software interface.
 
 ## Validation and Verification Data
@@ -233,9 +289,13 @@ Hardware traceability establishes a correlation between the requirements, detail
 Hardware traceability data should include:
 
 1. A correlation between the system requirements allocated to hardware and the requirements.
+
 2. A correlation between the requirements and the hardware detailed design data.
+
 3. A correlation between the hardware detailed design data and the as-built hardware item or assembly.
+
 4. A correlation between the requirements, including derived hardware requirements, and detailed design data and the verification procedures and results.
+
 5. The results of a traceability analysis.
 
 #### Review and Analysis Procedures
@@ -245,9 +305,13 @@ Hardware review and analysis procedures define the process and criteria for cond
 Hardware review and analysis procedures should include:
 
 1. Purpose of review or analysis.
+
 2. Organizations to participate in the review.
+
 3. Review or analysis criteria.
+
 4. Detailed instructions for conducting the review or analysis.
+
 5. Review or analysis acceptability and completion criteria.
 
 #### Review and Analysis Results
@@ -257,10 +321,15 @@ Hardware review and analysis results are the evidence that the reviews and analy
 Hardware review and analysis results should include:
 
 1. Identification of review or analysis procedure.
+
 2. Identification of data item reviewed or analyzed.
+
 3. Personnel participating in the review or analysis.
+
 4. Review or analysis results.
+
 5. Corrective actions generated as a result of review or analysis, such as listing of problem reports or action items.
+
 6. Review or analysis conclusion including, for reviews, a qualitative assessment of the item reviewed and, for analysis, a quantitative assessment of the item analyzed and the analysis data.
 
 #### Test Procedures
@@ -270,9 +339,13 @@ Hardware test procedures define the methods, environment and instructions for co
 Hardware test procedures should include:
 
 1. Purpose of test.
+
 2. Identification of the hardware test setups, software and test equipment setup instructions required for each hardware test.
+
 3. Detailed instructions for conducting the test procedures.
+
 4. Test input data.
+
 5. Expected results, such as pass/fail criteria and requirements covered by the test.
 
 #### Test Results
@@ -282,9 +355,13 @@ Hardware test results are the objective evidence that the tests have been comple
 Hardware test results should include:
 
 1. Identification of the test procedure.
+
 2. Identification of the item tested.
+
 3. Actual results of conducting the test.
+
 4. Identification of the personnel conducting and witnessing the tests, if applicable, and the date the tests were conducted.
+
 5. Interpretation of results, either by analysis or review and actual test coverage achieved.
 
 ## Hardware Acceptance Test Criteria
@@ -294,10 +371,15 @@ This data provides the criteria and assessment data that the test and associated
 The criteria should include:
 
 1. Key attributes to be tested.
+
 2. Pass/fail criteria for each key attribute.
+
 3. Any test constraints.
+
 4. Substantiation of the key attributes and pass/fail criteria.
+
 5. Coverage of design aspects necessary to meet the safety requirements.
+
 6. Assessment data that shows that the test criteria have been properly implemented based on the actual test procedures and associated test results.
 
 ## Problem Reports
@@ -307,8 +389,11 @@ Problem reports are a means to identify and record the resolution to hardware de
 Problem reports should include:
 
 1. Identification of the configuration item and process activity in which the problem was observed.
+
 2. Identification of the configuration items to be modified or a description of the process to be changed.
+
 3. A problem description which enables the problem to be understood and resolved.
+
 4. A description of the corrective action taken to resolve the reported problem.
 
 ## Hardware Configuration Management Records
@@ -324,19 +409,29 @@ The results of the process assurance process activities are recorded in process 
 The Hardware Accomplishment Summary is the primary data item for showing compliance to the PHAC and demonstrating to the certification authority that the objectives of this document have been achieved for the hardware items. This summary may be combined with the system accomplishment summary. The Hardware Accomplishment Summary should include the following information as documented in the PHAC:
 
 1. System overview.
+
 2. Hardware overview.
+
 3. Certification considerations.
+
 4. Hardware design life cycle description.
+
 5. Hardware design life cycle data.
+
 6. Previously developed hardware.
+
 7. Additional considerations.
+
 8. Alternative methods
 
 Differences from the approved PHAC should be identified. In addition, the following four items should be addressed: 
 
 1. Hardware Identification. This section identifies the hardware configuration and hardware items by part number and version.
+
 2. Change History. If applicable, this section includes a summary of hardware changes with attention to changes made due to failures affecting safety, and identifies changes from the hardware design life cycle processes since the previous certification.
+
 3. Hardware Status. The section contains a summary of problem reports unresolved at the time of certification, including a statement of functional limitations.
+
 4. Compliance Statement. This section includes a statement of compliance with this document and a summary of the methods used to demonstrate compliance with criteria specified in the hardware plans. This section also addresses additional rulings and deviations from the hardware plans, procedures, and this document.
 
    Note: The data included in the PHAC does not necessarily need to be repeated in the Hardware Accomplishment Summary, however doing so may expedite the certification process.

@@ -9,9 +9,13 @@ As airborne electronic hardware becomes more complex, technology evolves and exp
 This document has been prepared to assist organizations by providing design assurance guidance for the development of airborne electronic hardware such that it safely performs its intended function, in its specified environments. This guidance should be equally applicable to current, new, and evolving technologies. The purposes of this document are to:
 
 1. Define hardware design assurance objectives.
+
 2. Describe the basis for these objectives to help ensure correct interpretation of the guidance.
+
 3. Provide descriptions of the objectives to allow the development of means of compliance with this and other guidance.
+
 4. Provide guidance for design assurance activities to meet the design assurance objectives.
+
 5. Allow flexibility in choice of processes necessary to meet the objectives of this document including improvements, as new process technologies become available.
 
 This document recommends the activities that should be performed in order to meet design assurance objectives, rather than detailing how a design should be implemented.
@@ -29,9 +33,13 @@ Certification issues are discussed only in relation to the hardware design life 
 The guidance in this document is applicable, but not limited to, the following hardware items:
 
 1. Line Replaceable Units (LRUs).
+
 2. Circuit Board Assemblies.
+
 3. Custom micro-coded components, such as Application Specific Integrated Circuits (ASICs) and Programmable Logic Devices (PLDs), including any associated macro functions.
+
 4. Integrated technology components, such as hybrids and multi-chip modules.
+
 5. Commercial-Off-The-Shelf (COTS) components.
 
 Additional considerations that refer specifically to COTS components are included in Section 11 since COTS component suppliers may not necessarily follow the design processes described by this document or provide the necessary hardware design life cycle data.
@@ -111,8 +119,11 @@ Methods or processes other than those described in this document may be used to 
 Considerations for evaluation of alternative methods or processes may include:
 
 1. Where used instead of processes prescribed by this document, processes satisfying one or more of the objectives of Section 2 through Section 9 should show an equivalent level of design assurance.
+
 2. The effect of the proposed alternative methods or processes on satisfying the hardware design assurance objectives should be assessed.
+
 3. The effect of the proposed alternative methods or processes on the life cycle data should be assessed.
+
 4. The rationale for using the proposed alternative methods or processes should be substantiated by evidence that the methods or processes will produce the expected results.
 
 ## Document Overview

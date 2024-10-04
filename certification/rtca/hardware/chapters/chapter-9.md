@@ -9,8 +9,11 @@ At completion of a project, a summary of the design processes followed, outputs 
 The applicant proposes a means of compliance for hardware. The PHAC defines the proposed means of compliance. Guidance includes:
 
 1. The PHAC, hardware verification plan and other requested data should be submitted to the certification authority for review at a point in time when the effects of design changes on the program are minimal.
+
 2. Issues identified by the certification authority concerning the planning for the hardware aspects of certification should be resolved.
+
 3. Agreement on the PHAC should be obtained with the certification authority.
+
 4. Liaison with the certification authority during the design and certification cycle as outlined in the plan should be continued and issues raised by the certification authority resolved in a timely manner.
 
 In some programs, the certification liaison is not provided by the equipment manufacturer, but by the airframe or other customer with the equipment manufacturer in a supporting role. This relationship should be defined in the PHAC and contact with the certification authority should be through the applicant for certification. It is the responsibility of the applicant for certification to ensure that data is provided to the certification authority.
@@ -26,5 +29,7 @@ The applicant provides evidence that the hardware design life cycle processes ha
 The applicant should:
 
 1. Resolve issues raised by the certification authority as a result of its reviews.
+
 2. Submit the Hardware Accomplishment Summary, Section 10.9 and Top Level Drawing, Section 10.3.2.2.1 to the certification authority.
+
 3. Submit or make available other data or evidence of compliance requested by the certification authority.

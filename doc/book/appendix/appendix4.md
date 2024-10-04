@@ -28,7 +28,7 @@ Key aspects of Quality Assurance include:
 2. **Leadership**:
 
    * Leadership and commitment: Top management must demonstrate leadership and commitment to the QMS.
-   * Quality policy: Establishing a quality policy that aligns with the organization’s purpose and strategic direction.
+   * Quality policy: Establishing a quality policy that aligns with the organization's purpose and strategic direction.
    * Organizational roles, responsibilities, and authorities: Defining roles and responsibilities to ensure effective QMS operation.
 
 3. **Planning**:
@@ -93,7 +93,7 @@ This normative reference is crucial because:
 ### Importance of Normative References
 
 - **Clarity and Precision**: Normative references provide clarity and precision, reducing ambiguity in the interpretation of the standard. This is essential for ensuring that all organizations implement the standard consistently.
-  
+
 - **Standardization Across Industries**: They help achieve standardization across different industries and sectors, as all entities referring to the primary standard will also refer to the same set of normative documents.
 
 - **Support for Auditors and Assessors**: Normative references support auditors and assessors by providing a clear framework and criteria for evaluating compliance with the primary standard.
@@ -144,7 +144,7 @@ While ISO 9001:2015 itself doesn't provide an exhaustive list of terms and defin
 
 3. **Requirement**: A need or expectation that is stated, generally implied, or obligatory.
 
-4. **Customer Satisfaction**: The customer’s perception of the degree to which their requirements have been fulfilled.
+4. **Customer Satisfaction**: The customer's perception of the degree to which their requirements have been fulfilled.
 
 5. **Process**: A set of interrelated or interacting activities that use inputs to deliver an intended result.
 
@@ -199,13 +199,18 @@ This analysis helps in aligning the QMS with the strategic direction of the orga
 
 ### Understanding the Needs and Expectations of Interested Parties
 
-**Understanding the needs and expectations of interested parties** involves identifying stakeholders who can affect or be affected by the organization’s QMS. These stakeholders include:
+**Understanding the needs and expectations of interested parties** involves identifying stakeholders who can affect or be affected by the organization's QMS. These stakeholders include:
 
 1. **Customers**: Their requirements and satisfaction levels.
+
 2. **Employees**: Their needs for training, development, and work environment.
+
 3. **Suppliers and Partners**: Their capabilities, reliability, and expectations.
+
 4. **Regulatory Bodies**: Compliance with laws, regulations, and industry standards.
+
 5. **Investors and Shareholders**: Their expectations regarding returns and corporate governance.
+
 6. **Community and Society**: Social responsibility and environmental impact.
 
 By understanding these needs and expectations, the organization can ensure that its QMS is designed to meet or exceed them, thereby improving overall satisfaction and compliance.
@@ -214,22 +219,30 @@ By understanding these needs and expectations, the organization can ensure that 
 
 **Determining the scope of the quality management system** is about defining the boundaries and applicability of the QMS within the organization. This involves:
 
-1. **Consideration of Internal and External Issues**: How these issues influence the organization’s strategic direction.
+1. **Consideration of Internal and External Issues**: How these issues influence the organization's strategic direction.
+
 2. **Identification of Products and Services**: What the organization offers and the processes involved.
+
 3. **Exclusions**: Identifying any requirements of ISO 9001:2015 that are not applicable due to the nature of the organization or its products and services, along with justifications for these exclusions.
 
-The scope should be documented and available to all relevant parties. It should reflect the organization’s activities, products, services, and the interplay with stakeholders.
+The scope should be documented and available to all relevant parties. It should reflect the organization's activities, products, services, and the interplay with stakeholders.
 
 ### Quality Management System and Its Processes
 
 **Quality management system and its processes** involve establishing, implementing, maintaining, and continually improving the QMS and its processes. This includes:
 
 1. **Process Identification**: Identifying the key processes needed for the QMS and their interrelations.
+
 2. **Process Approach**: Managing processes and their interactions to achieve intended outcomes.
+
 3. **Process Mapping**: Visualizing the processes and their flow within the QMS.
+
 4. **Performance Metrics**: Establishing key performance indicators (KPIs) to monitor and measure the effectiveness of processes.
+
 5. **Risk-Based Thinking**: Incorporating risk assessment and management into the processes to prevent undesired outcomes.
+
 6. **Resource Allocation**: Ensuring that necessary resources (human, infrastructure, environment) are available to execute processes effectively.
+
 7. **Documentation and Records**: Maintaining documented information to support the operation and control of processes.
 
 By focusing on these elements, the organization ensures that its QMS is aligned with its strategic goals, meets stakeholder expectations, and is capable of delivering consistent and high-quality products or services.
@@ -247,9 +260,13 @@ The **Leadership** section of ISO 9001:2015 emphasizes the critical role of top 
 In the general context, leadership and commitment require top management to:
 
 1. **Take Accountability**: Ensure that the QMS is effective and aligned with the strategic direction of the organization.
+
 2. **Establish Quality Objectives**: Set quality objectives that are consistent with the organization's policies and provide the necessary resources to achieve them.
+
 3. **Promote a Customer Focus**: Make sure that customer requirements are understood and met.
+
 4. **Engage, Direct, and Support People**: Motivate and support employees to contribute to the effectiveness of the QMS.
+
 5. **Continual Improvement**: Promote the use of the process approach and risk-based thinking to enhance the QMS continuously.
 
 #### Customer Focus
@@ -257,7 +274,9 @@ In the general context, leadership and commitment require top management to:
 Top management must demonstrate a strong commitment to understanding and meeting customer needs and enhancing customer satisfaction. This involves:
 
 1. **Customer Requirements**: Ensuring that customer requirements and applicable statutory and regulatory requirements are determined, understood, and consistently met.
+
 2. **Risks and Opportunities**: Addressing risks and opportunities that can affect the conformity of products and services and the ability to enhance customer satisfaction.
+
 3. **Customer Satisfaction**: Ensuring that the focus on enhancing customer satisfaction is maintained.
 
 ### Policy
@@ -267,7 +286,9 @@ Top management must demonstrate a strong commitment to understanding and meeting
 The quality policy is a formal statement from top management that outlines the organization's commitment to quality. Establishing the quality policy involves:
 
 1. **Alignment with Strategic Direction**: Ensuring the quality policy is appropriate to the purpose and context of the organization and supports its strategic direction.
+
 2. **Commitment to Requirements and Improvement**: Including a commitment to satisfy applicable requirements and to continual improvement of the QMS.
+
 3. **Framework for Objectives**: Providing a framework for setting quality objectives.
 
 #### Communicating the Quality Policy
@@ -275,7 +296,9 @@ The quality policy is a formal statement from top management that outlines the o
 Once established, the quality policy must be communicated effectively. This includes:
 
 1. **Internal Communication**: Ensuring that the quality policy is understood, implemented, and maintained at all levels of the organization.
+
 2. **Availability**: Making the quality policy available to relevant interested parties as appropriate.
+
 3. **Review and Update**: Regularly reviewing and updating the quality policy to reflect any changes in the organization or its context.
 
 ### Organizational Roles, Responsibilities and Authorities
@@ -310,7 +333,9 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 **Purpose**:
 
 - To ensure that the QMS can achieve its intended results.
+
 - To enhance desirable effects and prevent or reduce undesired effects.
+
 - To achieve continual improvement.
 
 **Approach**:
@@ -333,6 +358,7 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 **Examples**:
 
 - **Risk Mitigation**: Implementing quality control measures to reduce the risk of product defects.
+
 - **Opportunity Exploitation**: Investing in new technology to improve product quality and operational efficiency.
 
 ### Quality Objectives and Planning to Achieve Them
@@ -356,6 +382,7 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 **Examples**:
 
 - **Objective**: Reduce the defect rate by 10% within the next year.
+
 - **Plan**: Implement additional quality checks at key stages of the production process, provide training for quality inspectors, and monitor defect rates monthly.
 
 ### Planning of Changes
@@ -386,6 +413,7 @@ The **Planning** section of ISO 9001:2015 focuses on how an organization should 
 **Examples**:
 
 - **Change**: Introducing a new software system for managing quality records.
+
 - **Plan**: Develop a rollout plan that includes training for users, migrating existing records to the new system, and establishing support procedures.
 
 In summary, the **Planning** section of ISO 9001:2015 ensures that an organization systematically addresses risks and opportunities, sets and achieves quality objectives, and manages changes in a way that maintains or improves the effectiveness of its QMS. This proactive and structured approach is essential for continual improvement and sustained success in meeting customer and regulatory requirements.
@@ -405,7 +433,9 @@ An organization must determine and provide the resources needed for the establis
 The organization must ensure it has sufficient personnel with the necessary competencies to effectively implement the QMS, operate processes, and achieve conformity of products and services. This involves:
 
 - Identifying human resource needs.
+
 - Providing necessary training and development.
+
 - Ensuring staff have the appropriate skills and qualifications.
 
 #### Infrastructure
@@ -413,8 +443,11 @@ The organization must ensure it has sufficient personnel with the necessary comp
 Infrastructure refers to the facilities, equipment, and support services necessary for the operation of processes and to achieve conformity of products and services. This includes:
 
 - Buildings and workspace.
+
 - Utilities such as electricity and water.
+
 - Equipment such as machinery and tools.
+
 - Information and communication technology.
 
 #### Environment for the Operation of Processes
@@ -422,6 +455,7 @@ Infrastructure refers to the facilities, equipment, and support services necessa
 The organization must provide and manage the environment necessary for the operation of its processes. This includes both physical and non-physical factors, such as:
 
 - Physical factors: Cleanliness, temperature, humidity, lighting, and noise.
+
 - Non-physical factors: Workplace culture, morale, and well-being.
 
 #### Monitoring and Measuring Resources
@@ -433,7 +467,9 @@ The organization must provide and manage the environment necessary for the opera
 The organization must determine and provide the necessary resources to ensure valid and reliable monitoring and measurement results. This includes:
 
 - Identifying what needs to be measured and monitored.
+
 - Ensuring measurement devices are suitable and properly maintained.
+
 - Establishing processes for calibration and verification of measurement devices.
 
 ##### Measurement Traceability
@@ -447,7 +483,9 @@ Where traceability is a requirement, measurement instruments must be calibrated 
 Organizational knowledge is the information necessary for the operation of processes and to achieve conformity of products and services. This includes:
 
 - Capturing and sharing knowledge gained from experience.
+
 - Learning from lessons learned, both successes and failures.
+
 - Ensuring the availability of this knowledge to those who need it.
 
 ### Competence
@@ -455,8 +493,11 @@ Organizational knowledge is the information necessary for the operation of proce
 The organization must ensure that employees performing work affecting the quality of products and services are competent based on appropriate education, training, skills, and experience. This involves:
 
 - Determining the necessary competence for personnel performing work.
+
 - Providing training or taking other actions to achieve the necessary competence.
+
 - Evaluating the effectiveness of these actions.
+
 - Retaining documented information as evidence of competence.
 
 ### Awareness
@@ -464,8 +505,11 @@ The organization must ensure that employees performing work affecting the qualit
 Employees must be aware of:
 
 - The quality policy.
+
 - Relevant quality objectives.
+
 - Their contribution to the effectiveness of the QMS, including the benefits of improved performance.
+
 - The implications of not conforming to QMS requirements.
 
 ### Communication
@@ -473,8 +517,11 @@ Employees must be aware of:
 The organization must determine the internal and external communications relevant to the QMS, including:
 
 - What needs to be communicated.
+
 - When to communicate.
+
 - With whom to communicate.
+
 - How to communicate.
 
 ### Documented Information
@@ -490,7 +537,9 @@ Documented information required by the QMS and by ISO 9001:2015 must be controll
 When creating and updating documented information, the organization must ensure appropriate:
 
 - Identification and description (e.g., title, date, author).
+
 - Format (e.g., language, software version) and media (e.g., paper, electronic).
+
 - Review and approval for suitability and adequacy.
 
 #### Control of Documented Information
@@ -498,13 +547,17 @@ When creating and updating documented information, the organization must ensure 
 Documented information must be controlled to ensure it is:
 
 - Available and suitable for use.
+
 - Adequately protected (e.g., from loss of confidentiality, improper use, or loss of integrity).
 
 Control mechanisms must include:
 
 - Distribution, access, retrieval, and use.
+
 - Storage and preservation, including preservation of legibility.
+
 - Control of changes, ensuring that revisions are identified and traceable.
+
 - Retention and disposition, including disposal of obsolete information.
 
 In summary, the **Support** section of ISO 9001:2015 ensures that the necessary resources, competencies, awareness, communication, and documented information are in place and effectively managed. This foundation is critical for the successful implementation, maintenance, and continual improvement of the QMS, ensuring it meets organizational and customer requirements.
@@ -518,8 +571,11 @@ The **Operation** section of ISO 9001:2015 outlines the requirements for effecti
 **Operational planning and control** involve defining processes and procedures to ensure that products and services are delivered in accordance with customer requirements and applicable standards. This includes:
 
 - Establishing processes and procedures for the effective execution of operations.
+
 - Determining resource requirements, including personnel, infrastructure, and materials.
+
 - Planning and scheduling activities to meet customer demands and deadlines.
+
 - Implementing controls to ensure that operations are carried out effectively and efficiently.
 
 ### Requirements for Products and Services
@@ -529,7 +585,9 @@ The **Operation** section of ISO 9001:2015 outlines the requirements for effecti
 The organization must communicate with customers to understand their requirements, preferences, and any specific needs. This includes:
 
 - Establishing effective channels for communication with customers.
+
 - Gathering and documenting customer requirements.
+
 - Clarifying any ambiguities or uncertainties in customer requirements.
 
 #### Determining the Requirements for Products and Services
@@ -537,7 +595,9 @@ The organization must communicate with customers to understand their requirement
 The organization must determine the requirements for products and services before acceptance. This involves:
 
 - Reviewing customer requirements, including specifications, drawings, and contracts.
+
 - Identifying any legal, regulatory, or contractual requirements.
+
 - Ensuring that the organization can meet the identified requirements.
 
 #### Review of the Requirements for Products and Services
@@ -555,7 +615,9 @@ The organization must review and agree on any changes to customer requirements, 
 Design and development processes ensure that products and services meet customer requirements and are fit for their intended purpose. This includes:
 
 - Establishing procedures for designing and developing products and services.
+
 - Ensuring that design and development activities are conducted by qualified personnel.
+
 - Documenting design and development processes and outcomes.
 
 #### Design and Development Planning
@@ -563,7 +625,9 @@ Design and development processes ensure that products and services meet customer
 The organization must plan the design and development process, including:
 
 - Defining design and development objectives and criteria for success.
+
 - Identifying resources needed for design and development activities.
+
 - Establishing timelines and milestones for design and development projects.
 
 #### Design and Development Inputs
@@ -571,7 +635,9 @@ The organization must plan the design and development process, including:
 Inputs to the design and development process include:
 
 - Customer requirements and specifications.
+
 - Legal, regulatory, and contractual requirements.
+
 - Lessons learned from previous design and development projects.
 
 #### Design and Development Controls
@@ -579,7 +645,9 @@ Inputs to the design and development process include:
 Controls must be implemented to ensure that design and development activities are carried out effectively and produce the desired outcomes. This includes:
 
 - Reviews and approvals at key stages of the design and development process.
+
 - Verification and validation activities to ensure that designs meet requirements.
+
 - Configuration management to control changes to design documents and specifications.
 
 #### Design and Development Outputs
@@ -587,7 +655,9 @@ Controls must be implemented to ensure that design and development activities ar
 The outputs of the design and development process include:
 
 - Detailed design specifications, drawings, and documentation.
+
 - Prototypes or samples for testing and validation.
+
 - Plans for production, testing, and implementation.
 
 ### Control of Externally Provided Processes, Products, and Services
@@ -597,7 +667,9 @@ The outputs of the design and development process include:
 The organization must ensure that externally provided processes, products, and services meet specified requirements. This includes:
 
 - Establishing criteria for selecting external providers.
+
 - Evaluating the competence and capability of external providers.
+
 - Monitoring and controlling externally provided processes, products, and services.
 
 #### Type and Extent of Control
@@ -615,7 +687,9 @@ The organization must communicate its requirements to external providers, includ
 The organization must establish controls to ensure that production and service provision processes are carried out effectively and consistently. This includes:
 
 - Implementing documented procedures for production and service provision.
+
 - Monitoring and controlling process parameters to ensure product and service quality.
+
 - Conducting inspections and tests to verify product and service conformity.
 
 #### Identification and Traceability
@@ -623,6 +697,7 @@ The organization must establish controls to ensure that production and service p
 The organization must establish procedures for identifying and tracing products and services throughout the production and service provision process. This includes:
 
 - Assigning unique identifiers to products and services.
+
 - Maintaining records of product and service status and location.
 
 #### Property Belonging to Customers or External Providers
@@ -630,6 +705,7 @@ The organization must establish procedures for identifying and tracing products 
 The organization must identify, verify, protect, and safeguard property belonging to customers or external providers. This includes:
 
 - Establishing procedures for handling and storing customer-supplied materials or equipment.
+
 - Ensuring that customer property is not lost, damaged, or used improperly.
 
 #### Preservation
@@ -637,6 +713,7 @@ The organization must identify, verify, protect, and safeguard property belongin
 The organization must establish procedures for preserving the conformity of products and services during production and service provision. This includes:
 
 - Implementing measures to prevent contamination, damage, or deterioration.
+
 - Storing products and materials in appropriate conditions.
 
 #### Post-Delivery Activities
@@ -648,6 +725,7 @@ The organization must define processes for handling post-delivery activities, su
 The organization must establish procedures for controlling changes to production processes, products, and services. This includes:
 
 - Assessing the impact of proposed changes on product conformity and customer requirements.
+
 - Obtaining authorization before implementing changes.
 
 ### Release of Products and Services
@@ -655,6 +733,7 @@ The organization must establish procedures for controlling changes to production
 The organization must establish procedures for the release of products and services to ensure that they meet specified requirements before delivery to customers. This includes:
 
 - Conducting final inspections and tests to verify product and service conformity.
+
 - Obtaining customer approval or acceptance before delivering products and services.
 
 ### Control of Nonconforming Outputs
@@ -662,6 +741,7 @@ The organization must establish procedures for the release of products and servi
 The organization must establish procedures for identifying, segregating, and controlling nonconforming products and services to prevent their unintended use or delivery. This includes:
 
 - Documenting nonconformities and initiating corrective actions to address root causes.
+
 - Obtaining authorization before reworking or disposing of nonconforming products and services.
 
 In summary, the **Operation** section of ISO 9001:2015 outlines requirements for effectively planning, controlling, and executing operational processes to ensure that products and services meet customer requirements and are delivered consistently with high quality. This includes defining requirements, designing and developing products and services, controlling externally provided processes, production and service provision, release of products and services, and control of nonconforming outputs. These requirements help organizations establish robust processes for delivering products and services that consistently meet customer expectations.
@@ -700,7 +780,7 @@ Documented information must be retained as evidence of the results of these acti
 
 #### Customer Satisfaction
 
-Customer satisfaction is a key measure of the QMS’s effectiveness. The organization must monitor customers’ perceptions of the degree to which their needs and expectations have been fulfilled. This involves:
+Customer satisfaction is a key measure of the QMS's effectiveness. The organization must monitor customers' perceptions of the degree to which their needs and expectations have been fulfilled. This involves:
 
 1. **Methods for obtaining customer feedback**:
 
@@ -730,7 +810,8 @@ The organization must analyze and evaluate data and information arising from mon
 
 The organization must conduct internal audits at planned intervals to provide information on whether the QMS:
 
-1. **Conforms to the organization’s own requirements for its QMS and to the requirements of ISO 9001:2015**.
+1. **Conforms to the organization's own requirements for its QMS and to the requirements of ISO 9001:2015**.
+
 2. **Is effectively implemented and maintained**.
 
 **Internal audit process** involves:
@@ -759,7 +840,7 @@ The organization must conduct internal audits at planned intervals to provide in
 
 #### General
 
-Top management must review the organization’s QMS at planned intervals to ensure its continuing suitability, adequacy, effectiveness, and alignment with the strategic direction of the organization. Management reviews should be conducted regularly and documented.
+Top management must review the organization's QMS at planned intervals to ensure its continuing suitability, adequacy, effectiveness, and alignment with the strategic direction of the organization. Management reviews should be conducted regularly and documented.
 
 #### Management Review Inputs
 
@@ -789,7 +870,9 @@ Inputs to the management review must include:
 Outputs of the management review must include decisions and actions related to:
 
 1. **Opportunities for improvement**.
+
 2. **Any need for changes to the QMS**.
+
 3. **Resource needs**.
 
 Documented information must be retained as evidence of the results of management reviews, including any decisions and actions taken.
@@ -843,7 +926,7 @@ Nonconformities are instances where processes or outputs do not meet specified r
 
 ### Continual Improvement
 
-Continual improvement is an ongoing effort to enhance the organization’s processes, products, and services. It is a core principle of ISO 9001:2015 and involves systematic activities to achieve higher performance levels.
+Continual improvement is an ongoing effort to enhance the organization's processes, products, and services. It is a core principle of ISO 9001:2015 and involves systematic activities to achieve higher performance levels.
 
 1. **Plan-Do-Check-Act (PDCA) Cycle**:
 

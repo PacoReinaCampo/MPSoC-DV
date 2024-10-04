@@ -135,6 +135,7 @@ Hardware/Software Integration - The joining of hardware and software to implemen
 Independence - Separation of responsibilities which ensures the accomplishment of objective evaluation. Refers to intellectual independence, such as another individual, and not departmental or company independence.
 
    1. For verification, independence is achieved by evaluation of the technical correctness of the data by means, either someone or something, other than those used to produce the data.
+
    2. For process assurance, independence is achieved by evaluation of process compliance by means, either someone or something, other than those used to perform the process.
 
 Implementation - The act of generating a physical reality from a specification.
@@ -228,9 +229,13 @@ System Safety Assessment (SSA) - An ongoing, systematic, comprehensive evaluatio
 Test - A quantitative procedure to prove performance using stated objective criteria with pass/fail results.
 
 - Hardware Item. To determine its performance characteristics while functioning under controlled conditions.
+
 - Electronic digital computation. To ascertain the state or condition of an element, component, program, etc.
+
 - Sometimes used as a general term to include both check and diagnostic procedures.
+
 - Loosely, same as check.
+
 - Is an element of inspection and generally denotes the determination by technical means of the properties of elements of supplies, or comments thereof, including functional operation, and involves the application of established scientific principles and procedures.
 
 Testability - (1) The ability to test a hardware item sufficiently to guarantee that all possible states of the hardware item performs to its specification. (2) The ease with which a hardware item can be tested to provide evidence of compliance with its requirements.

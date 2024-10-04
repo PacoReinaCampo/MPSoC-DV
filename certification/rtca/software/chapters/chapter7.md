@@ -9,12 +9,19 @@ Table A-8 of Annex A is a summary of the objectives and outputs of the SCM proce
 The SCM process, working in cooperation with the other software life cycle processes, assists in satisfying general objectives to:
 
    a. Provide a defined and controlled configuration of the software throughout the software life cycle.
+
    b. Provide the ability to consistently replicate the Executable Object Code for software manufacture or to regenerate it in case of a need for investigation or modification.
+
    c. Provide control of process inputs and outputs during the software life cycle that ensures consistency and repeatability of process activities.
+
    d. Provide a known point for review, assessing status, and change control by control of configuration items and the establishment of baselines.
+
    e. Provide controls that ensure problems receive attention and changes are recorded, approved, and implemented.
+
    f. Provide evidence of approval of the software by control of the outputs of the software life cycle processes.
+
    g. Aid the assessment of the software product compliance with requirements.
+
    h. Ensure that secure physical archiving, recovery and control are maintained for the configuration items. The objectives for SCM are independent of software level. However, two categories of software life cycle data may exist based on the SCM controls applied to the data (subsection 7.3).
 
 ## Software Configuration Management Process Activities
@@ -76,9 +83,13 @@ Guidance includes:
 The objective of the change control activity is to provide for recording, evaluation, resolution and approval of changes throughout the software life cycle. Guidance includes:
 
    a. Change control should preserve the integrity of the configuration items and baselines by providing protection against their change.
+
    b. Change control should ensure that any change to a configuration item requires a change to its configuration identification.
+
    c. Changes to baselines and to configuration items under change control should be recorded, approved, and tracked. Problem reporting is related to change control, since resolution of a reported problem may result in changes to configuration items or baselines. Note: It is generally recognized that early implementation of change control assists the control and management of software life cycle process activities.
+
    d. Software changes should be traced to their origin and the software life cycle processes repeated from the point at which the change affects their outputs. For example, an error discovered at hardware/software integration, that is shown to result from an incorrect design, should result in design correction, code correction and repetition of the associated integral process activities.
+
    e. Throughout the change activity, software life cycle data affected by the change should be updated and records should be maintained for the change control activity. The change control activity is aided by the change review activity.
 
 ### Change Review.
@@ -86,8 +97,11 @@ The objective of the change control activity is to provide for recording, evalua
 The objective of the change review activity is to ensure problems and changes are assessed, approved or disapproved, approved changes are implemented, and feedback is provided to affected processes through problem reporting and change control methods defined during the software planning process. The change review activity should include:
 
    a. Confirmation that affected configuration items are configuration identified.
+
    b. Assessment of the impact on safety-related requirements with feedback to the system safety assessment process.
+
    c. Assessment of the problem or change, with decisions for action to be taken.
+
    d. Feedback of problem report or change impact and decisions to affected processes.
 
 ### Configuration Status Accounting
@@ -127,6 +141,7 @@ The objective of the archive and retrieval activity is to ensure that the softwa
 The objective of the software load control activity is to ensure that the Executable Object Code is loaded into the airborne system or equipment with appropriate safeguards. Software load control refers to the process by which programmed instructions and data are transferred from a master memory device into the airborne system or equipment. For example, methods may include (subject to approval by the certification authority) the installation of factory per-programmed memory devices or in situ re-programming of the airborne system or equipment using a field loading device. Whichever method is used, software load control should include:
 
    a. Procedures for part numbering and media identification that identify software configurations that are intended to be approved for loading into the airborne system or equipment.
+
    b. Whether the software is delivered as an end item or is delivered installed in the airborne system or equipment, records should be kept that confirm software compatibility with the airborne system or equipment hardware.
 
    Note: Additional guidance on software load control is provided in subsection 2.5.
@@ -136,7 +151,9 @@ The objective of the software load control activity is to ensure that the Execut
 The objective of software fife cycle environment control is to ensure that the tools used to produce the software are identified, controlled, and retrievable. The software life cycle environment tools are defined by the software planning process and identified in the Software Life Cycle Environment Configuration Index (subsection 11.15). Guidance includes:
 
    a. Configuration identification should be established for the Executable Object Code (or equivalent) of the tools used to develop, control, build, verify, and load the software.
+
    b. The SCM process for controlling qualified tools, should comply with the objectives associated with Control Category I or 2 data (subsection 7.3), as specified in paragraph 12.2.3, item b.
+
    c. Unless 7.2.9 item b applies, the SCM process for controlling the Executable Object Code (or equivalent) of tools used to build and load the software (for example, compilers, assemblers, linkage editors) should comply with the objectives associated with Control Category 2 data, as a minimum.
 
 ## Data Control Categories
@@ -146,4 +163,5 @@ Software life cycle data can be assigned to one of two categories: Control Categ
 The tables of Annex A specify the control category for each software life cycle data item, by software level. Guidance for data control categories includes:
 
    a. The SCM process objectives for software life cycle data categorized as CC should be applied according to Table 7-1.
+
    b. The SCM process objectives for software life cycle data categorized as C should be applied according to Table 7-1 as a minimum.

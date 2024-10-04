@@ -25,23 +25,37 @@ SC-167 should recognize the dynamic, evolving environment for software requireme
 To accomplish this revision, the Special Committee should consider the experience gained through the field application of the guidance material contained in DO-178 and DO-178A, as well as the as results of recent research in software engineering. The Special Committee should focus this review to address these areas:
 
    1. Examine existing industry and government standards and consider for possible adaptation or reference, where relevant.
+
    2. Assess the adequacy of existing software levels and the associated nature and degree of analysis, verification, test and assurance activities. The revised process criteria should be structured to support objective compliance demonstration.
+
    3. Examine the criteria for tools to be used for certification credit, for example, tools for software development, software configuration management and software verification.
+
    4. Examine the certification criteria for previously developed software, off-the-shelf software, databases and user-modifiable software for the system to be certified.
+
    5. Examine the certification criteria for architectural and methodical strategies used to reduce the software level or to provide verification coverage, for example, partitioning and dissimilar software.
+
    6. Examine configuration control guidelines, software quality assurance guidelines and identification conventions; and their compatibility with existing certification authority requirements for type certification, in-service modifications and equipment approval.
+
    7. Consider the impact of new technology, such as, modular architecture, data loading, packaging, and memory technology.
+
    8. Examine the need, content and delivery requirements of all documents, with special emphasis on the Software Accomplishment Summary.
+
    9. Define and consider the interfaces between the software and system life cycles.
+
    10. Review the criteria associated with making pre- and post-certification changes to a system.
+
    11. Consider the impact of evolutionary development and other alternative life cycles to the model implied by DO-178A.
 
 EUROCAE WG-12 was re-established to work with SC-167 and, to accomplish the task, five joint RTCA/EUROCAE working groups were formed to address these topics:
 
    1. Documentation Integration and Production.
+
    2. System Issues.
+
    3. Software Development.
+
    4. Software Verification.
+
    5. Software Configuration Management and Software Quality Assurance.
 
 The cooperative efforts of SC-167 and WG-12 culminated in the publication of RTCA document DO-178B and EUROCAE document ED-12B.

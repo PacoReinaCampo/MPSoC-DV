@@ -7,7 +7,9 @@ The configuration management process is intended to provide the ability to consi
 The objectives of the configuration management process are:
 
 1. Configuration items are uniquely identified and documented.
+
 2. Consistent and accurate replication of configuration items is ensured.
+
 3. A controlled method of identifying and tracking modification to configuration items is provided.
 
 ## Configuration Management Activities
@@ -15,9 +17,13 @@ The objectives of the configuration management process are:
 Guidance for the configuration management activities includes:
 
 1. Configuration items should be uniquely identified, documented and controlled. This may include, but is not limited to, hardware, design representations of hardware, tools or other data items used for certification credit and baselines.
+
 2. Baselines should be established.
+
 3. Problems should be uniquely identified, tracked and reported.
+
 4. Change control and traceability of changes should be maintained. This requires that life cycle data identified in the plans should be secure and retrievable.
+
 5. Archiving, retrieval and release of configuration items should be controlled.
 
 Various methods may be used to satisfy configuration management objectives and activities and the following paragraphs provide guidance on activities that may be used as an acceptable method.
@@ -63,10 +69,15 @@ The purpose of problem reporting, tracking and corrective action is to record pr
 Guidance includes:
 
 1. Each reported problem should be covered by a problem report.
+
 2. Problem reporting should identify the configuration of the affected configuration items.
+
 3. Problem reports that require corrective action should invoke the change control activity.
+
 4. All closed problem reports should include a description of action taken to close the problem report including the completion of data item changes that were needed to implement a corrective action.
+
 5. Not all problem reports have to be closed in order to obtain certification, however, all problem reports should be evaluated and those that are determined to have safety or certification impact should be closed.
+
 6. The problem reporting system should track the status of problem reports, including their approval and disposition.
 
 ### Change Control

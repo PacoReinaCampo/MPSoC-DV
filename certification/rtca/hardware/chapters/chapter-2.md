@@ -25,12 +25,19 @@ Note: It is recognized that these are iterative processes and changes will occur
 This information flow may include:
 
 1. Design and safety requirements allocated to hardware.
+
 2. Design assurance level for each function, along with its associated requirements and failure conditions, if applicable.
+
 3. Allocated probabilities and at risk exposure times for hardware functional failures.
+
 4. Hardware/software interface description.
+
 5. Requirements for safety strategies and design constraints, such as testability, design methods, and hardware architectures.
+
 6. Requirements for system verification activities to be performed by hardware level verification.
+
 7. Installation, ergonomic and environmental requirements allocated to hardware.
+
 8. Integration problem reports that may have an impact on requirements. These may arise as a result of activities, such as system verification, generation of system requirements or SSA.
 
 ### Information Flow from Hardware Design Life Cycle Process to System Development Process
@@ -38,9 +45,13 @@ This information flow may include:
 This information flow may include:
 
 1. Implementation of the requirements, such as mechanical drawings, schematics and parts lists.
+
 2. Hardware derived requirements that may have an impact on any allocated requirement.
+
 3. Implementation architecture, including fault containment boundaries.
+
 4. Evidence of any required system verification and validation activities performed during the hardware design life cycle.
+
 5. Product safety analysis data, such as:
 
    a. Probabilities and failure rates for designated hardware functional failures of concern to the SSA process.
@@ -52,7 +63,9 @@ This information flow may include:
    d. Latency analysis data relevant to system requirements. Examples are hardware provisions for fault monitoring, fault detection intervals and undetectable faults.
 
 6. Requirements for hardware verification activities to be performed by system level verification.
+
 7. Assumptions and analysis methods regarding installation requirements and environmental conditions necessary for the analyses to be valid.
+
 8. Problem or change reports that may have an impact on system, software or allocated hardware requirements.
 
 ### Information Flow between Hardware Design Life Cycle Process and Software Life Cycle Process
@@ -60,8 +73,11 @@ This information flow may include:
 This information flow may include:
 
 1. Derived requirements needed for hardware/software integration, such as definition of protocols, timing constraints, and addressing schemes for the interface between hardware and software.
+
 2. Instances where hardware and software verification activities require coordination.
+
 3. Identified incompatibilities between the hardware and the software, which may be part of a reporting and corrective action system.
+
 4. Safety assessment data that should also be made available to system processes.
 
 ## System Safety Assessment Processes
@@ -91,6 +107,7 @@ Note: FFPA is described in Appendix B, Section 2. Although written to address th
 If a hardware item contains functions that individually have different design assurance levels, such situations may be addressed by either of the following methods:
 
 - The entire item may be assured at the highest design assurance level.
+
 - The individual hardware functions may be assured separately at their respective hardware design assurance levels as defined by the hardware safety assessment, if their function, interfaces and shared resources can be protected from adverse effects of functions of lower design assurance levels. Design assurance of shared resources should be the design assurance level of the function with the highest level.
 
 Guidance for hardware safety assessment includes:

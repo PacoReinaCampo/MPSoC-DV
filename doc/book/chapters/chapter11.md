@@ -23,7 +23,9 @@ Another example of a design decision that becomes a derived requirement is the m
 The objectives of the validation process for derived hardware requirements are:
 
 1. Derived hardware requirements against which the hardware item is to be verified are correct and complete.
+
 2. Derived requirements are evaluated for impact on safety.
+
 3. Omissions and errors are fed back to the appropriate processes for resolution.
 
 ### Validation Process Activities
@@ -865,15 +867,25 @@ The UVM class library provides a comprehensive set of base classes and utilities
 Key classes and utilities in the UVM class library include:
 
 - **uvm_component**: Base class for all UVM components.
+
 - **uvm_test**: Base class for tests.
+
 - **uvm_env**: Base class for environments.
+
 - **uvm_agent**: Base class for agents.
+
 - **uvm_sequencer**: Base class for sequencers.
+
 - **uvm_sequence**: Base class for sequences.
+
 - **uvm_driver**: Base class for drivers.
+
 - **uvm_monitor**: Base class for monitors.
+
 - **uvm_config_db**: Utility for configuration and parameterization.
+
 - **uvm_report_server**: Utility for reporting and messaging.
+
 - **uvm_factory**: Utility for component creation and management.
 
 These classes and utilities provide a standardized way to construct verification environments, ensuring consistency and reusability across different projects and teams.
@@ -891,7 +903,9 @@ TLM is widely used in system-level design and verification, providing a higher a
 TLM has evolved over time, leading to different versions with varying levels of abstraction and capabilities:
 
 - **TLM**: The initial concept of transaction-level modeling, focusing on abstracting communication into transactions.
+
 - **TLM-1**: The first standard version, providing basic mechanisms for transaction-level communication, focusing on the communication itself rather than timing accuracy.
+
 - **TLM-2.0**: An advanced version that introduces standardized interfaces and protocols, supporting more detailed timing and communication mechanisms. TLM-2.0 is more comprehensive and includes features for interoperability and more accurate modeling of timing and synchronization.
 
 #### TLM-1 Implementation
@@ -931,8 +945,11 @@ The generic payload in TLM-2.0 is a standardized transaction data structure that
 TLM-2.0 defines core interfaces and ports for communication:
 
 - **tlm_fw_transport_if**: Forward transport interface for initiating transactions.
+
 - **tlm_bw_transport_if**: Backward transport interface for receiving responses.
+
 - **tlm_initiator_socket**: Socket used by initiators to send transactions.
+
 - **tlm_target_socket**: Socket used by targets to receive transactions.
 
 ##### Blocking Transport
@@ -966,7 +983,9 @@ TLM-2.0 includes mechanisms for modeling timing and delays, allowing for more ac
 TLM-2.0 supports various use models, including:
 
 - **Loosely-timed (LT) models**: Focus on functionality with approximate timing. Suitable for early software development and high-level architectural exploration.
+
 - **Approximately-timed (AT) models**: Provide more detailed timing information, suitable for performance analysis and detailed design exploration.
+
 - **Timed models**: Capture precise timing details for accurate hardware simulation and verification.
 
 In summary, TLM-2.0 provides a rich set of features and standardized mechanisms for high-level system modeling, supporting a range of use cases from early design exploration to detailed performance analysis and verification.
@@ -1358,6 +1377,7 @@ Configuration is typically done using `uvm_config_db`. Parameters can be set and
 ...
 
 - **uvm_resource_db**: Suitable for global settings that are rarely changed.
+
 - **uvm_config_db**: Preferred for flexible, dynamic configurations that may vary between tests.
 
 ##### Using a Configuration Class
@@ -1876,8 +1896,11 @@ By leveraging the capabilities of the UVM register layer, verification engineers
 The `uvm_component` base class is a fundamental building block in UVM, providing a framework for building modular, reusable verification components. It serves as the base class for all hierarchical components in a UVM testbench.
 
 Key features of `uvm_component` include:
+
 - **Phases**: UVM components participate in predefined simulation phases such as `build_phase`, `connect_phase`, `run_phase`, etc.
+
 - **Factory Registration**: Allows components to be created dynamically using the UVM factory.
+
 - **Configuration Database**: Enables flexible configuration of component properties.
 
 Example:
@@ -2044,7 +2067,9 @@ end
 UVM provides a variety of macros to simplify the creation and management of verification components. Some commonly used macros include:
 
 - `uvm_component_utils`: Registers a component with the UVM factory.
+
 - `uvm_object_utils`: Registers an object with the UVM factory.
+
 - `uvm_info`, `uvm_warning`, `uvm_error`, `uvm_fatal`: Logging and messaging macros.
 
 Example:
@@ -2069,14 +2094,23 @@ The UBus example demonstrates a complete UVM testbench for verifying a simple bu
 The UBus example architecture consists of several components that work together to verify the UBus protocol. These components include:
 
 - UBus Top Module
+
 - Test
+
 - Testbench Environment
+
 - UBus Environment
+
 - UBus Master Agent
+
 - UBus Master Sequencer
+
 - UBus Driver
+
 - UBus Agent Monitor
+
 - UBus Bus Monitor
+
 - UBus Interface
 
 #### UBus Top Module
@@ -2364,11 +2398,17 @@ UBus is a synchronous bus protocol that includes arbitration, address, and data 
 UBus consists of several signals that manage data transfer, address selection, and control functions:
 
 - `clk`: The clock signal driving the synchronous operation of the bus.
+
 - `reset`: Resets the bus and all connected devices.
+
 - `addr[31:0]`: The 32-bit address bus.
+
 - `data[31:0]`: The 32-bit data bus.
+
 - `control[3:0]`: Control signals for various bus operations.
+
 - `ready`: Indicates the slave's readiness to accept or provide data.
+
 - `valid`: Indicates the master's validity of the address or data on the bus.
 
 ##### Clocking

@@ -15,7 +15,9 @@ This section discusses modifications to previously developed hardware. Modificat
 Analysis activities for proposed modifications include:
 
 1. Review of the outputs of the system safety assessment process.
+
 2. Application of the guidance of Section 11.1.4 if the hardware design assurance level is increased.
+
 3. The impact of changes should be analyzed, including the consequences of changes that may result in a re-verification effort involving more than the area changed. This area may be determined by signal flow analysis, functional analysis, timing analysis, traceability analysis or other suitable means.
 
 ### Change of Aircraft Installation
@@ -23,7 +25,9 @@ Analysis activities for proposed modifications include:
 This section discusses the use in a new aircraft installation of hardware that has been previously certified at a certain hardware design assurance level and under a specific certification basis. When using previously developed hardware on new aircraft installations, the following guidance should be used:
 
 1. The system safety assessment process assesses the new aircraft installation and determines the hardware design assurance level and the certification basis. No additional effort will be required if these are the same or less stringent for the new installation as they were in the previous installation.
+
 2. If functional modifications are required for the new installation, the guidance of Section 11.1.1, Modifications to Previously Developed Hardware, should be satisfied.
+
 3. If the previous design activity did not produce the outputs required to substantiate the safety objectives of the new installation, the guidance of Section 11.1.4, Upgrading A Design Baseline, should be satisfied.
 
 ### Change of Application or Design Environment
@@ -33,7 +37,9 @@ Use of previously developed hardware may involve a new design environment, or in
 New design environments may increase or reduce some activities within the hardware design life cycle processes. Guidance includes:
 
 1. If a new design environment uses hardware design tools, the guidance of Section 11.4, Tool Assessment and Qualification, may be applicable.
+
 2. Verification of hardware interfaces should be conducted where previously developed hardware is used with different interfacing hardware.
+
 3. The need for re-verification of hardware/software interfaces should be addressed when previously developed hardware uses different software.
 
 ### Upgrading a Design Baseline
@@ -43,10 +49,15 @@ The following guidance is for hardware items whose life cycle data from a previo
 Guidance for upgrading a design baseline includes:
 
 1. The objectives of this document should be satisfied, while taking advantage of life cycle data of the previous development.
+
 2. Hardware aspects of certification should be based on the failure conditions and hardware design assurance levels as determined by the system safety assessment process. The impact of the changes to the previous application should be analyzed to determine areas of deficiency.
+
 3. Life cycle data from a previous development should be evaluated to ensure that the verification process objectives are satisfied for the hardware that is planned for implementation of the upgraded function at the required hardware design assurance level.
+
 4. Reverse engineering may be used to regenerate hardware life cycle data that is deficient or missing to satisfy the design assurance objectives of this document
+
 5. If use of product service experience is planned to satisfy the design assurance objectives of this document in upgrading a design baseline, the guidance of Section 11.3, Product Service Experience, should be addressed.
+
 6. The applicant should specify the strategy for accomplishing compliance with this document in the PHAC.
 
 ### Additional Configuration Management Considerations
@@ -54,6 +65,7 @@ Guidance for upgrading a design baseline includes:
 The configuration management process for the new application of previously developed hardware should include, in addition to the guidance of Section 7:
 
 1. Traceability from the hardware product and life cycle data of the previous application to the new application.
+
 2. Change control processes that can manage change requests from different applications of the common item.
 
 ## Commercial-Off-The-Shelf (COTS) Components Usage
@@ -67,11 +79,17 @@ Electronic component management for COTS components is an important supporting p
 Certification credit may be gained by establishing that:
 
 1. The component manufacturer can demonstrate a track record for production of high quality components.
+
 2. Quality control procedures are established at the component manufacturer.
+
 3. There is service experience supporting the successful operation of the component.
+
 4. The component has been qualified by the manufacturer or by means of additional testing, which establish the component reliability.
+
 5. The component manufacturer has control of the component quality level or that this is assured by means of additional component testing.
+
 6. The components have been selected on the basis of technical suitability of the intended application, such as component temperature range, power or voltage rating, or that additional testing or other means has been used to establish these.
+
 7. The component performance and reliability are monitored on a continuous basis, with feedback to component manufacturers concerning areas that need improvement.
 
 ### COTS Component Procurement
@@ -81,8 +99,11 @@ COTS component procurement guidance is not the intent of this document but feedb
 Major concerns include:
 
 1. Actual availability of COTS component design assurance data as required by this document.
+
 2. Variations in component parameters that depend on production batches may not be identified, even by robustness tests.
+
 3. Evolving aspects of electronic component technology.
+
 4. COTS components which become non-procurable.
 
 ## Product Service Experience
@@ -96,8 +117,11 @@ Note: Wide and successful use of an item in service may provide confidence that 
 When service experience data is used for design assurance, the relevance and acceptability of the service experience data depends on one or more of the following:
 
 1. Similarity of hardware item usage with respect to application, function, operating environment and design assurance level.
+
 2. Extent to which the design assurance data is based on the proposed configuration of the hardware item.
+
 3. Extent to which the design errors found during the service period being assessed have been eliminated, mitigated, or analyzed and determined to have no safety impact in the configuration to be used.
+
 4. Actual failure rates in operation.
 
    Note: The PHAC should specifically address those aspects where the design assurance of parts of an application relies on service experience data.
@@ -123,8 +147,11 @@ To satisfy the above criteria the applicant should:
 Service experience assessment data used to substantiate the design assurance for the proposed application should include:
 
 1. Identification of the component and its intended function in the airborne system. Identify the design assurance level, or for components used in Level A and B functions, a description of additional means of assurance for the component, such as architectural means and additional or advanced verification strategies to be applied.
+
 2. A description of the service experience data collection and assessment process, including criteria for determining the adequacy and validity of the data.
+
 3. The service experience data, including the detailed service information being considered, change history, assumptions used to analyze the service experience data and a summary of the analysis results.
+
 4. Justification for the adequacy of the service experience data relative to the intended use and required design assurance level.
 
 ## Tool Assessment and Qualification
