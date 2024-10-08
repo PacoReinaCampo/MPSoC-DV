@@ -47,7 +47,7 @@ When building a command-line program, it's essential to structure your code in a
 // Example of refactoring code into smaller functions and using Result for error handling
 ```
 
-## DEVELOPING THE LIBRARY’S FUNCTIONALITY WITH TEST DRIVEN DEVELOPMENT
+## DEVELOPING THE LIBRARY'S FUNCTIONALITY WITH TEST DRIVEN DEVELOPMENT
 
 Test-Driven Development (TDD) is an iterative development process where you write tests before writing the actual implementation code. In Rust, you can use the built-in testing framework to write tests for your functions, modules, and libraries.
 

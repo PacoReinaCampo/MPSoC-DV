@@ -26,7 +26,7 @@ Key aspects of Quality Assurance include:
 2. **Leadership**:
 
    * Leadership and commitment: Top management must demonstrate leadership and commitment to the QMS.
-   * Quality policy: Establishing a quality policy that aligns with the organization’s purpose and strategic direction.
+   * Quality policy: Establishing a quality policy that aligns with the organization's purpose and strategic direction.
    * Organizational roles, responsibilities, and authorities: Defining roles and responsibilities to ensure effective QMS operation.
 
 3. **Planning**:

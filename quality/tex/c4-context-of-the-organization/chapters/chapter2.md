@@ -1,6 +1,6 @@
 # UNDERSTANDING THE NEEDS AND EXPECTATIONS OF INTERESTED PARTIES
 
-**Understanding the needs and expectations of interested parties** involves identifying stakeholders who can affect or be affected by the organization’s QMS. These stakeholders include:
+**Understanding the needs and expectations of interested parties** involves identifying stakeholders who can affect or be affected by the organization's QMS. These stakeholders include:
 
 1. **Customers**: Their requirements and satisfaction levels.
 2. **Employees**: Their needs for training, development, and work environment.

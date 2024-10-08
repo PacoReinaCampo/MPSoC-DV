@@ -20,7 +20,7 @@ While ISO 9001:2015 itself doesn't provide an exhaustive list of terms and defin
 
 3. **Requirement**: A need or expectation that is stated, generally implied, or obligatory.
 
-4. **Customer Satisfaction**: The customer’s perception of the degree to which their requirements have been fulfilled.
+4. **Customer Satisfaction**: The customer's perception of the degree to which their requirements have been fulfilled.
 
 5. **Process**: A set of interrelated or interacting activities that use inputs to deliver an intended result.
 

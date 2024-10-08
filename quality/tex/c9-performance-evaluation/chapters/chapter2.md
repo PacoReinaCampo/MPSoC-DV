@@ -2,7 +2,7 @@
 
 The organization must conduct internal audits at planned intervals to provide information on whether the QMS:
 
-1. **Conforms to the organization’s own requirements for its QMS and to the requirements of ISO 9001:2015**.
+1. **Conforms to the organization's own requirements for its QMS and to the requirements of ISO 9001:2015**.
 2. **Is effectively implemented and maintained**.
 
 **Internal audit process** involves:

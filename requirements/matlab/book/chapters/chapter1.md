@@ -1,6 +1,6 @@
 # GET STARTED WITH MATLAB
 
-Getting started with MATLAB (Matrix Laboratory) involves understanding its environment, basic commands, and how to perform fundamental tasks. Here’s a detailed guide to help you get started:
+Getting started with MATLAB (Matrix Laboratory) involves understanding its environment, basic commands, and how to perform fundamental tasks. Here's a detailed guide to help you get started:
 
 ## INSTALLING MATLAB
 

@@ -59,7 +59,7 @@ MATLAB supports importing data from various formats:
 
 Handling large files and big data efficiently requires special functions and techniques:
 
-- **Datastore**: Manages large collections of data that don’t fit into memory.
+- **Datastore**: Manages large collections of data that don't fit into memory.
   ```matlab
   ds = datastore('largeData.csv');
   while hasdata(ds)

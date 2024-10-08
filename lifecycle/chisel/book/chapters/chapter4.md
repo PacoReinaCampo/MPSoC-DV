@@ -2,7 +2,7 @@
 
 ## COMPONENTS IN CHISEL ARE MODULES
 
-In Chisel, components are defined as modules. Modules encapsulate logic and define interfaces using IO ports. Here’s an example of a basic module:
+In Chisel, components are defined as modules. Modules encapsulate logic and define interfaces using IO ports. Here's an example of a basic module:
 
 ```scala
 import chisel3._

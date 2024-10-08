@@ -43,7 +43,7 @@ When a document cites normative references, it typically includes a section expl
 
 ### Example Section
 
-Here’s an example of how a normative references section might look in a technical document:
+Here's an example of how a normative references section might look in a technical document:
 
 **Normative References**:
 

@@ -95,9 +95,9 @@ Guidance for the requirements capture activities includes:
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-* details(**requirements**) < details(**model**) < details(**rtl**) < details(**configuration**) < details(**synthesis**)
-* details(**requirements**) < details(**model**) < details(**src**) < details(**configuration**) < details(**compilation**)
-* details(**validation**) < details(**verification**) < details(**sim**)
+   * details(**requirements**) < details(**model**) < details(**rtl**) < details(**configuration**) < details(**synthesis**)
+   * details(**requirements**) < details(**model**) < details(**src**) < details(**configuration**) < details(**compilation**)
+   * details(**validation**) < details(**verification**) < details(**sim**)
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -105,22 +105,22 @@ Guidance for the requirements capture activities includes:
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-* **Structural UML diagrams** (for Architecture and Interface)
-   * Class diagram
-   * Component diagram
-   * Composite diagram
-   * Deployment diagram
-   * Object diagram
-   * Package diagram
-   * Profile diagram
-* **Behavioral UML diagrams** (for Functionality and Registers and Interrptions)
-   * Activity diagram
-   * Communication diagram
-   * Interaction diagram
-   * Sequence diagram
-   * State diagram
-   * Timing diagram
-   * Use diagram
+   * **Structural UML diagrams** (for Architecture and Interface)
+      - Class diagram
+      - Component diagram
+      - Composite diagram
+      - Deployment diagram
+      - Object diagram
+      - Package diagram
+      - Profile diagram
+   * **Behavioral UML diagrams** (for Functionality and Registers and Interrptions)
+      - Activity diagram
+      - Communication diagram
+      - Interaction diagram
+      - Sequence diagram
+      - State diagram
+      - Timing diagram
+      - Use diagram
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 

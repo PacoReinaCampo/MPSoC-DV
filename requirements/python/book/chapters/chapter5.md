@@ -27,7 +27,7 @@ Python's import system allows you to include and reuse code from different modul
 
 ## PACKAGES
 
-Packages are a way of structuring Python’s module namespace by using "dotted module names". A package is essentially a directory that contains a special `__init__.py` file and can contain multiple modules or sub-packages.
+Packages are a way of structuring Python's module namespace by using "dotted module names". A package is essentially a directory that contains a special `__init__.py` file and can contain multiple modules or sub-packages.
 
 1. **Directory structure**:
 

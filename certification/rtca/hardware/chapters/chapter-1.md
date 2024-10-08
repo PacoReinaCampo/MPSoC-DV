@@ -82,7 +82,7 @@ Section 11 discusses additional considerations for specific known cases where so
 
 Appendix A provides guidance for the necessary hardware design life cycle data based on the hardware design assurance level that is being implemented.
 
-Appendix B contains guidance on design assurance techniques for hardware used in implementing Level A and B functions which should be applied in addition to the guidance in Section 2 through Section 11. Appendix B may be applied for hardware of design assurance Levels C and D at the applicant’s discretion.
+Appendix B contains guidance on design assurance techniques for hardware used in implementing Level A and B functions which should be applied in addition to the guidance in Section 2 through Section 11. Appendix B may be applied for hardware of design assurance Levels C and D at the applicant's discretion.
 
 The Glossary of Terms as used in this document is contained in Appendix C. Appendix D contains a list of acronyms that are used in the document and spells out their complete names.
 

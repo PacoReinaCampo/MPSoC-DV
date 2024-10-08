@@ -44,7 +44,7 @@ Nonconformities are instances where processes or outputs do not meet specified r
 
 ## CONTINUAL IMPROVEMENT
 
-Continual improvement is an ongoing effort to enhance the organization’s processes, products, and services. It is a core principle of ISO 9001:2015 and involves systematic activities to achieve higher performance levels.
+Continual improvement is an ongoing effort to enhance the organization's processes, products, and services. It is a core principle of ISO 9001:2015 and involves systematic activities to achieve higher performance levels.
 
 1. **Plan-Do-Check-Act (PDCA) Cycle**:
 

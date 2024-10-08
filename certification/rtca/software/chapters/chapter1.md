@@ -20,7 +20,7 @@ This document discusses those aspects of airworthiness certification that pertai
 
 Since certification issues are discussed only in relation to the software life cycle, the operational aspects of the resulting software are not discussed. For example, the certification aspects of user-modifiable data are beyond the scope of this document.
 
-This document does not provide guidelines concerning the structure of the applicant’s organization, the relationships between the applicant and its suppliers, or how the responsibilities are divided. Personnel qualification criteria are also beyond the scope of this document.
+This document does not provide guidelines concerning the structure of the applicant's organization, the relationships between the applicant and its suppliers, or how the responsibilities are divided. Personnel qualification criteria are also beyond the scope of this document.
 
 ## Relationship to Other Documents
 
@@ -54,4 +54,4 @@ These points need to be noted when using this document:
 
 ## Document Overview
 
-Figure 1- 1 is a pictorial overview of this document’s sections and their relationship to each other.
+Figure 1- 1 is a pictorial overview of this document's sections and their relationship to each other.

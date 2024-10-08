@@ -16,7 +16,7 @@ The applicant proposes a means of compliance that defines how the development of
 
 ## Compliance Substantiation
 
-The applicant provides evidence that the software life cycle processes satisfy the software plans. Certification authority reviews may take place at the applicant’s facilities or the applicant’s suppliers’ facilities. This may involve discussions with the applicant or its suppliers. The applicant arranges these reviews of the activities of the software life cycle processes and makes software life cycle data available as needed. The applicant should:
+The applicant provides evidence that the software life cycle processes satisfy the software plans. Certification authority reviews may take place at the applicant's facilities or the applicant's suppliers' facilities. This may involve discussions with the applicant or its suppliers. The applicant arranges these reviews of the activities of the software life cycle processes and makes software life cycle data available as needed. The applicant should:
 
    a. Resolve issues raised by the certification authority as a result of its reviews.
 

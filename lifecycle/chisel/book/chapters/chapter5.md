@@ -42,7 +42,7 @@ class Encoder4to2 extends Module {
 
 ## ARBITER
 
-An arbiter selects one of several inputs based on a priority scheme. Here’s a simple round-robin arbiter example:
+An arbiter selects one of several inputs based on a priority scheme. Here's a simple round-robin arbiter example:
 
 ```scala
 import chisel3._
@@ -84,7 +84,7 @@ class PriorityEncoder4to2 extends Module {
 
 ## COMPARATOR
 
-A comparator checks if two values are equal or their relationship (greater than, less than). Here’s an example of an 8-bit comparator:
+A comparator checks if two values are equal or their relationship (greater than, less than). Here's an example of an 8-bit comparator:
 
 ```scala
 import chisel3._

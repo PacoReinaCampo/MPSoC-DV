@@ -6,7 +6,7 @@ This document was prepared by RTCA Special Committee 180 (SC-180). It was approv
 
 RTCA SC-180 and the European Organization for Civil Aviation Equipment (EUROCAE) WG-46 jointly accomplished the development of this guidance through the consensus process.
 
-RTCA, Incorporated is a not-for-profit organization formed to advance the art and science of aviation and aviation electronic systems for the benefit of the public. The organization functions as a Federal Advisory Committee and develops consensus-based recommendations on contemporary aviation issues. RTCA’s objectives include but are not limited to:
+RTCA, Incorporated is a not-for-profit organization formed to advance the art and science of aviation and aviation electronic systems for the benefit of the public. The organization functions as a Federal Advisory Committee and develops consensus-based recommendations on contemporary aviation issues. RTCA's objectives include but are not limited to:
 
    - Coalescing aviation system user and provider technical requirements in a manner that helps government and industry meet their mutual objectives and responsibilities.
 
@@ -16,7 +16,7 @@ RTCA, Incorporated is a not-for-profit organization formed to advance the art an
 
    - Assisting in developing the relevant technical material upon which positions for the international Civil Aviation Organization and the International Telecommunication Union and other interested international organizations can be based.
 
-The organization’s recommendations are often used as the basis for government and private sector decisions as well as the foundation for many Federal Aviation Administration Technical Standard Orders.
+The organization's recommendations are often used as the basis for government and private sector decisions as well as the foundation for many Federal Aviation Administration Technical Standard Orders.
 
 Since RTCA is not an official agency of the United States Government, its recommendations may not be regarded as statements of official government policy unless so enunciated by the U.S. government organization or agency having statutory jurisdiction over any matters to which the recommendations relate.
 

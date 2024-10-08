@@ -414,7 +414,7 @@ User and group administration differs slightly in macOS from Linux. There are no
 
    * **whoami** Displays the current user name
    * **who am i** Displays your username and computer information
-   * **groups** Displays the current user’s group memberships
+   * **groups** Displays the current user's group memberships
    * **id** Prints the User ID (UID) and Group IDs (GIDs) for the current user
    * **chfn** Changes the user description used by the finger command
    * **finger** Displays user description information

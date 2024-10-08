@@ -46,19 +46,19 @@ Certification Credit - Acceptance by the Certification Authority that a process,
 
 Change Control - (1) The process of recording, evaluating, approving or disapproving, and coordinating changes to configuration items after formal establishment of their configuration identity, or to a baseline after its establishment. (2) The systematic evaluation, coordination, approval or disapproval and implementation of approved changes in a configuration of a configuration item after formal establishment of its configuration identity or to baseline after its establishment.
 
-Commercial Off-The-Shelf (COTS) Component - Component, integrated circuit or subsystem developed by a supplier for multiple customers, whose design and configuration is controlled by the supplier’s or an industry specification.
+Commercial Off-The-Shelf (COTS) Component - Component, integrated circuit or subsystem developed by a supplier for multiple customers, whose design and configuration is controlled by the supplier's or an industry specification.
 
 Note: Examples of COTS components may include resistors, capacitors, microprocessors, unprogrammed Field Programmable Gate Array and Erasable Programmable Logic Devices, other integrated circuit types and their implementable models, printed wiring assemblies and complete LRUs which are typically available from a supplier as a catalog item.
 
 Common Mode - Event which causes anomalous behavior of two or more items, subitems or functions.
 
-Complex Hardware Item - All items that are not simple are considered to be ‘complex’. See definition of Simple Hardware Item.
+Complex Hardware Item - All items that are not simple are considered to be ‘complex'. See definition of Simple Hardware Item.
 
 Compliance - Successful performance of all mandatory activities, agreement between the expected or specified result, and the actual result.
 
 Component - A self-contained part, combination of parts, subassembly or unit that performs a distinct function of a system.
 
-Component De-rating - This is a design method which increases the operational margins of components by imposing modified component usage limitations which are more restrictive than the usual or manufacturer’s component operational ratings. 
+Component De-rating - This is a design method which increases the operational margins of components by imposing modified component usage limitations which are more restrictive than the usual or manufacturer's component operational ratings. 
 
 Concurrent Engineering - A process whereby multiple disciplines participate in the hardware design process in order to ensure that the unique requirements of each discipline are considered.
 

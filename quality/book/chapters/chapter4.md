@@ -25,7 +25,7 @@ This analysis helps in aligning the QMS with the strategic direction of the orga
 
 ## UNDERSTANDING THE NEEDS AND EXPECTATIONS OF INTERESTED PARTIES
 
-**Understanding the needs and expectations of interested parties** involves identifying stakeholders who can affect or be affected by the organization’s QMS. These stakeholders include:
+**Understanding the needs and expectations of interested parties** involves identifying stakeholders who can affect or be affected by the organization's QMS. These stakeholders include:
 
 1. **Customers**: Their requirements and satisfaction levels.
 2. **Employees**: Their needs for training, development, and work environment.
@@ -40,11 +40,11 @@ By understanding these needs and expectations, the organization can ensure that 
 
 **Determining the scope of the quality management system** is about defining the boundaries and applicability of the QMS within the organization. This involves:
 
-1. **Consideration of Internal and External Issues**: How these issues influence the organization’s strategic direction.
+1. **Consideration of Internal and External Issues**: How these issues influence the organization's strategic direction.
 2. **Identification of Products and Services**: What the organization offers and the processes involved.
 3. **Exclusions**: Identifying any requirements of ISO 9001:2015 that are not applicable due to the nature of the organization or its products and services, along with justifications for these exclusions.
 
-The scope should be documented and available to all relevant parties. It should reflect the organization’s activities, products, services, and the interplay with stakeholders.
+The scope should be documented and available to all relevant parties. It should reflect the organization's activities, products, services, and the interplay with stakeholders.
 
 ## QUALITY MANAGEMENT SYSTEM AND ITS PROCESSES
 

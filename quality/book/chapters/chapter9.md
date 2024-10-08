@@ -32,7 +32,7 @@ Documented information must be retained as evidence of the results of these acti
 
 ### Customer Satisfaction
 
-Customer satisfaction is a key measure of the QMS’s effectiveness. The organization must monitor customers’ perceptions of the degree to which their needs and expectations have been fulfilled. This involves:
+Customer satisfaction is a key measure of the QMS's effectiveness. The organization must monitor customers' perceptions of the degree to which their needs and expectations have been fulfilled. This involves:
 
 1. **Methods for obtaining customer feedback**:
 
@@ -62,7 +62,7 @@ The organization must analyze and evaluate data and information arising from mon
 
 The organization must conduct internal audits at planned intervals to provide information on whether the QMS:
 
-1. **Conforms to the organization’s own requirements for its QMS and to the requirements of ISO 9001:2015**.
+1. **Conforms to the organization's own requirements for its QMS and to the requirements of ISO 9001:2015**.
 2. **Is effectively implemented and maintained**.
 
 **Internal audit process** involves:
@@ -91,7 +91,7 @@ The organization must conduct internal audits at planned intervals to provide in
 
 ### General
 
-Top management must review the organization’s QMS at planned intervals to ensure its continuing suitability, adequacy, effectiveness, and alignment with the strategic direction of the organization. Management reviews should be conducted regularly and documented.
+Top management must review the organization's QMS at planned intervals to ensure its continuing suitability, adequacy, effectiveness, and alignment with the strategic direction of the organization. Management reviews should be conducted regularly and documented.
 
 ### Management Review Inputs
 

@@ -138,7 +138,7 @@ int main() {
 
 ### Static Variables and Scope
 
-Static variables have a lifetime equal to the program’s lifetime but a scope that is limited to the block or function they are defined in.
+Static variables have a lifetime equal to the program's lifetime but a scope that is limited to the block or function they are defined in.
 
 Example:
 ```c

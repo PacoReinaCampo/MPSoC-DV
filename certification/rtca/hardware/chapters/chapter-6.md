@@ -194,7 +194,7 @@ Guidance for requirements review includes:
 
 6. The requirements should be compatible with the capabilities and limitations of available technology.
 
-7. The component’s requirements, such as performance, temperature range, de-rating and screening, should be consistent with the safety and reliability requirements.
+7. The component's requirements, such as performance, temperature range, de-rating and screening, should be consistent with the safety and reliability requirements.
 
 8. The ability to test, maintain and manufacture the hardware item should be addressed.
 

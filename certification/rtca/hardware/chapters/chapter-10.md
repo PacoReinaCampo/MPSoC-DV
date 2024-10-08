@@ -206,7 +206,7 @@ The hardware design representation data provides a definition of the hardware it
 
 #### Conceptual Design Data
 
-The conceptual design data is the data that describes the hardware item’s architecture and functional design and may include:
+The conceptual design data is the data that describes the hardware item's architecture and functional design and may include:
 
 1. A high-level description, such as a block diagram or HDL definition, which outlines the major functions and shows the flow of information between these functions.
 

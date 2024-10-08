@@ -2,13 +2,13 @@
 
 Advanced Computer Architecture encompasses various models and paradigms designed to optimize computational efficiency, parallelism, and performance in modern computing systems. These architectures are essential for addressing the increasing demands of computational tasks in various domains, including scientific simulations, data analytics, machine learning, and high-performance computing. Among these architectures, SISD, SIMD, MISD, and MIMD represent different classifications based on their approach to parallelism and instruction execution. Let's delve into each of them:
 
-- **Parallelism**: SISD offers limited parallelism, while SIMD, MISD, and MIMD architectures exploit parallelism more extensively.
+   * **Parallelism**: SISD offers limited parallelism, while SIMD, MISD, and MIMD architectures exploit parallelism more extensively.
   
-- **Data Dependencies**: SIMD and MISD architectures may encounter data dependencies, where operations are dependent on previous results. MIMD architecture allows for maximum flexibility, with independent data streams and instructions.
+   * **Data Dependencies**: SIMD and MISD architectures may encounter data dependencies, where operations are dependent on previous results. MIMD architecture allows for maximum flexibility, with independent data streams and instructions.
   
-- **Programming Model**: SIMD and MIMD architectures are more suitable for parallel programming paradigms, such as SIMD instructions in GPU programming or message passing in MIMD-based distributed systems.
+   * **Programming Model**: SIMD and MIMD architectures are more suitable for parallel programming paradigms, such as SIMD instructions in GPU programming or message passing in MIMD-based distributed systems.
 
-- **Applications**: Each architecture has its own strengths and is suitable for different applications. SIMD is efficient for data-parallel tasks, while MIMD is versatile and applicable to a wide range of parallel computing scenarios.
+   * **Applications**: Each architecture has its own strengths and is suitable for different applications. SIMD is efficient for data-parallel tasks, while MIMD is versatile and applicable to a wide range of parallel computing scenarios.
 
 In summary, advanced computer architectures like SIMD, MISD, and MIMD extend beyond the traditional SISD model to leverage parallelism and enhance computational efficiency, enabling the execution of diverse tasks across different domains. Understanding these architectures is crucial for designing and optimizing parallel algorithms, selecting appropriate hardware platforms, and achieving optimal performance in parallel computing systems.
 
@@ -114,49 +114,49 @@ In summary, the processing unit is a critical component of a computer system res
 
 SISD is the simplest and most traditional computer architecture model, where a single processing unit executes a single instruction on a single piece of data at a time. In this architecture:
 
-- **Processing Unit**: There is only one processing unit, typically a central processing unit (CPU), responsible for executing instructions.
+   * **Processing Unit**: There is only one processing unit, typically a central processing unit (CPU), responsible for executing instructions.
   
-- **Instruction Stream**: Instructions are fetched sequentially from memory and executed one at a time.
+   * **Instruction Stream**: Instructions are fetched sequentially from memory and executed one at a time.
   
-- **Data Stream**: Similarly, data is accessed sequentially from memory, and operations are performed on individual data elements.
+   * **Data Stream**: Similarly, data is accessed sequentially from memory, and operations are performed on individual data elements.
 
-- **Example**: Traditional von Neumann architecture-based computers, where a CPU executes instructions sequentially on scalar data.
+   * **Example**: Traditional von Neumann architecture-based computers, where a CPU executes instructions sequentially on scalar data.
 
 ### SIMD (Single Instruction, Multiple Data)
 
 SIMD architecture extends parallelism by allowing a single instruction to be applied simultaneously to multiple data elements. In this architecture:
 
-- **Processing Unit**: Multiple processing units, called processing elements (PEs) or vector units, execute the same instruction on different data elements in parallel.
+   * **Processing Unit**: Multiple processing units, called processing elements (PEs) or vector units, execute the same instruction on different data elements in parallel.
   
-- **Instruction Stream**: A single instruction is broadcasted to all processing units simultaneously.
+   * **Instruction Stream**: A single instruction is broadcasted to all processing units simultaneously.
   
-- **Data Stream**: Each processing unit operates on its own set of data elements, performing the same operation concurrently.
+   * **Data Stream**: Each processing unit operates on its own set of data elements, performing the same operation concurrently.
 
-- **Example**: Vector processors, graphics processing units (GPUs), and SIMD extensions in modern CPUs, where operations like vector addition or matrix multiplication are performed in parallel on multiple data elements.
+   * **Example**: Vector processors, graphics processing units (GPUs), and SIMD extensions in modern CPUs, where operations like vector addition or matrix multiplication are performed in parallel on multiple data elements.
 
 ### MISD (Multiple Instruction, Single Data)
 
 MISD architecture is less common and typically used in specialized applications. In this architecture:
 
-- **Processing Unit**: Multiple processing units operate independently, each executing a different instruction on the same set of data.
+   * **Processing Unit**: Multiple processing units operate independently, each executing a different instruction on the same set of data.
   
-- **Instruction Stream**: Each processing unit receives a unique instruction stream, possibly performing different operations on the same data.
+   * **Instruction Stream**: Each processing unit receives a unique instruction stream, possibly performing different operations on the same data.
 
-- **Data Stream**: Data is accessed by all processing units simultaneously, and each unit performs its respective operation.
+   * **Data Stream**: Data is accessed by all processing units simultaneously, and each unit performs its respective operation.
 
-- **Example**: Fault-tolerant systems or error-detecting systems, where multiple redundant processing units analyze the same input data using different algorithms to detect errors or inconsistencies.
+   * **Example**: Fault-tolerant systems or error-detecting systems, where multiple redundant processing units analyze the same input data using different algorithms to detect errors or inconsistencies.
 
 ### MIMD (Multiple Instruction, Multiple Data)
 
 MIMD architecture is the most versatile and widely used parallel computing model, allowing multiple processing units to execute different instructions on different data sets concurrently. In this architecture:
 
-- **Processing Unit**: Multiple independent processing units execute different instructions on separate data streams simultaneously.
+   * **Processing Unit**: Multiple independent processing units execute different instructions on separate data streams simultaneously.
   
-- **Instruction Stream**: Each processing unit has its own instruction stream, allowing for diverse operations to be performed concurrently.
+   * **Instruction Stream**: Each processing unit has its own instruction stream, allowing for diverse operations to be performed concurrently.
   
-- **Data Stream**: Each processing unit operates on its own set of data, which can be distinct or overlapping with other units.
+   * **Data Stream**: Each processing unit operates on its own set of data, which can be distinct or overlapping with other units.
 
-- **Example**: Cluster computing, multi-core CPUs, and distributed computing systems, where each processing unit executes its own program on different data sets, enabling parallel execution of diverse tasks.
+   * **Example**: Cluster computing, multi-core CPUs, and distributed computing systems, where each processing unit executes its own program on different data sets, enabling parallel execution of diverse tasks.
 
 ## System on Chip
 

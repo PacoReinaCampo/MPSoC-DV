@@ -1,6 +1,6 @@
 # TOP-LEVEL COMPONENTS
 
-In Python, top-level components refer to the various ways in which Python code can be executed and interacted with, including complete programs, file input, interactive input, and expression input. Let’s explore each of these components.
+In Python, top-level components refer to the various ways in which Python code can be executed and interacted with, including complete programs, file input, interactive input, and expression input. Let's explore each of these components.
 
 ## COMPLETE PYTHON PROGRAMS
 

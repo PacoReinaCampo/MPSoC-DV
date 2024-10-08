@@ -28,7 +28,7 @@ Documented information must be retained as evidence of the results of these acti
 
 ## CUSTOMER SATISFACTION
 
-Customer satisfaction is a key measure of the QMS’s effectiveness. The organization must monitor customers’ perceptions of the degree to which their needs and expectations have been fulfilled. This involves:
+Customer satisfaction is a key measure of the QMS's effectiveness. The organization must monitor customers' perceptions of the degree to which their needs and expectations have been fulfilled. This involves:
 
 1. **Methods for obtaining customer feedback**:
 

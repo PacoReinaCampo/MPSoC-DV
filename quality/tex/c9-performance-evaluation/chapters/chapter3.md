@@ -2,7 +2,7 @@
 
 ## GENERAL
 
-Top management must review the organization’s QMS at planned intervals to ensure its continuing suitability, adequacy, effectiveness, and alignment with the strategic direction of the organization. Management reviews should be conducted regularly and documented.
+Top management must review the organization's QMS at planned intervals to ensure its continuing suitability, adequacy, effectiveness, and alignment with the strategic direction of the organization. Management reviews should be conducted regularly and documented.
 
 ## MANAGEMENT REVIEW INPUTS
 

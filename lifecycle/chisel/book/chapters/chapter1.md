@@ -60,7 +60,7 @@ The traditional "Hello, World!" program introduces basic concepts in a simple co
 
 ## CHISEL HELLO WORLD
 
-Here’s a basic Chisel program to get started:
+Here's a basic Chisel program to get started:
 
 ```scala
 import chisel3._
@@ -84,7 +84,7 @@ IDEs like IntelliJ IDEA with Scala plugin or VS Code with Scala Metals are suita
 
 ## SOURCE ACCESS AND EBOOK FEATURES
 
-Chisel’s source code is available on GitHub (https://github.com/freechipsproject/chisel3). Additional resources such as ebooks and tutorials are available on educational platforms.
+Chisel's source code is available on GitHub (https://github.com/freechipsproject/chisel3). Additional resources such as ebooks and tutorials are available on educational platforms.
 
 ## FURTHER READING
 

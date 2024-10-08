@@ -535,13 +535,13 @@ This document template provides a structured approach to documenting hardware re
 
    * **Tool Name**: Name of the hardware development tool being qualified.
 
-   * **Tool Functionality**: Description of the tool’s functionality and its role in the hardware development lifecycle.
+   * **Tool Functionality**: Description of the tool's functionality and its role in the hardware development lifecycle.
 
 3. Qualification Criteria
 
    * **Qualification Standards**: Standards and guidelines used to qualify the tool, ensuring it meets DO-254 requirements and industry best practices.
 
-   * **Acceptance Criteria**: Criteria against which the tool’s performance and capabilities are evaluated for qualification purposes.
+   * **Acceptance Criteria**: Criteria against which the tool's performance and capabilities are evaluated for qualification purposes.
 
 4. Qualification Testing
 

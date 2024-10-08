@@ -23,7 +23,7 @@ In MATLAB, commands can be entered directly into the Command Window or written i
 
 ## MATRICES AND ARRAYS
 
-MATLAB excels at matrix and array operations. Here’s how to create and manipulate them:
+MATLAB excels at matrix and array operations. Here's how to create and manipulate them:
 
 ### Creating Matrices and Arrays
 

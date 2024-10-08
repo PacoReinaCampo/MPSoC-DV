@@ -2,7 +2,7 @@
 
 ## REGISTERS
 
-Registers in Chisel are used for storing state between clock cycles. Here’s an example of a simple 8-bit register:
+Registers in Chisel are used for storing state between clock cycles. Here's an example of a simple 8-bit register:
 
 ```scala
 import chisel3._

@@ -4,39 +4,39 @@ Digital information refers to data that is represented and processed using discr
 
 1. Representation
 
-- **Binary System**: Digital information is represented using the binary numbering system, which uses only two symbols: 0 and 1. In this system, each digit position represents a power of 2, and the value of the number is calculated by adding the values of the digits multiplied by their respective powers of 2.
+   * **Binary System**: Digital information is represented using the binary numbering system, which uses only two symbols: 0 and 1. In this system, each digit position represents a power of 2, and the value of the number is calculated by adding the values of the digits multiplied by their respective powers of 2.
 
-- **Bits**: The smallest unit of digital information is the bit, which is a binary digit that can have a value of either 0 or 1. Bits are typically organized into groups of eight, called bytes, which form the basis of digital data representation.
+   * **Bits**: The smallest unit of digital information is the bit, which is a binary digit that can have a value of either 0 or 1. Bits are typically organized into groups of eight, called bytes, which form the basis of digital data representation.
 
 2. Types of Data
 
-- **Numeric Data**: Numeric data, such as integers and floating-point numbers, can be represented using binary digits. Different encoding schemes are used to represent positive and negative numbers, as well as fractional values.
+   * **Numeric Data**: Numeric data, such as integers and floating-point numbers, can be represented using binary digits. Different encoding schemes are used to represent positive and negative numbers, as well as fractional values.
 
-- **Text Data**: Text characters, symbols, and alphanumeric characters are represented using binary codes, such as ASCII (American Standard Code for Information Interchange) or Unicode. Each character is assigned a unique binary code, allowing text to be stored and transmitted digitally.
+   * **Text Data**: Text characters, symbols, and alphanumeric characters are represented using binary codes, such as ASCII (American Standard Code for Information Interchange) or Unicode. Each character is assigned a unique binary code, allowing text to be stored and transmitted digitally.
 
-- **Image Data**: Images are represented as grids of pixels, with each pixel containing color information represented by binary values for red, green, and blue (RGB) components. Various image file formats, such as JPEG and PNG, use binary encoding to store image data.
+   * **Image Data**: Images are represented as grids of pixels, with each pixel containing color information represented by binary values for red, green, and blue (RGB) components. Various image file formats, such as JPEG and PNG, use binary encoding to store image data.
 
-- **Audio Data**: Audio signals are digitized by sampling the waveform at regular intervals and converting each sample into a binary value. Digital audio formats, such as MP3 and WAV, use binary encoding to represent sound waves.
+   * **Audio Data**: Audio signals are digitized by sampling the waveform at regular intervals and converting each sample into a binary value. Digital audio formats, such as MP3 and WAV, use binary encoding to represent sound waves.
 
-- **Video Data**: Video sequences are composed of frames, each of which contains image data represented in binary form. Digital video formats, such as MPEG and AVI, use binary encoding to store video data along with audio and other metadata.
+   * **Video Data**: Video sequences are composed of frames, each of which contains image data represented in binary form. Digital video formats, such as MPEG and AVI, use binary encoding to store video data along with audio and other metadata.
 
 2. Storage
 
-- **Memory**: Digital data is stored in electronic memory devices, such as RAM (Random Access Memory) and ROM (Read-Only Memory). Memory cells store binary data as patterns of electric charge or magnetic polarization, allowing it to be accessed and manipulated by digital circuits.
+   * **Memory**: Digital data is stored in electronic memory devices, such as RAM (Random Access Memory) and ROM (Read-Only Memory). Memory cells store binary data as patterns of electric charge or magnetic polarization, allowing it to be accessed and manipulated by digital circuits.
 
-- **Storage Devices**: Digital data is stored in storage devices, such as hard disk drives (HDDs), solid-state drives (SSDs), flash drives, and optical discs. These devices use magnetic, electronic, or optical methods to store and retrieve binary data.
+   * **Storage Devices**: Digital data is stored in storage devices, such as hard disk drives (HDDs), solid-state drives (SSDs), flash drives, and optical discs. These devices use magnetic, electronic, or optical methods to store and retrieve binary data.
 
 3. Processing
 
-- **Logic Operations**: Digital data is processed using logic operations, such as AND, OR, NOT, XOR, and arithmetic operations (addition, subtraction, multiplication, division). These operations manipulate binary data at the bit level to perform computations and transformations.
+   * **Logic Operations**: Digital data is processed using logic operations, such as AND, OR, NOT, XOR, and arithmetic operations (addition, subtraction, multiplication, division). These operations manipulate binary data at the bit level to perform computations and transformations.
 
-- **Algorithms**: Digital information is processed using algorithms, which are sequences of instructions that operate on binary data to perform specific tasks. Algorithms are fundamental to digital computation and are used in software applications, data processing, and computer systems.
+   * **Algorithms**: Digital information is processed using algorithms, which are sequences of instructions that operate on binary data to perform specific tasks. Algorithms are fundamental to digital computation and are used in software applications, data processing, and computer systems.
 
 5. Communication
 
-- **Data Transmission**: Digital data is transmitted over communication channels, such as wires, cables, fiber optics, and wireless networks. Communication protocols define how data is encoded, transmitted, and decoded across these channels, allowing devices to exchange information.
+   * **Data Transmission**: Digital data is transmitted over communication channels, such as wires, cables, fiber optics, and wireless networks. Communication protocols define how data is encoded, transmitted, and decoded across these channels, allowing devices to exchange information.
 
-- **Networking**: In computer networks, digital data is transmitted in the form of packets, which are structured units of data containing binary-encoded information. These packets are routed and delivered across networks using networking protocols, enabling communication between devices.
+   * **Networking**: In computer networks, digital data is transmitted in the form of packets, which are structured units of data containing binary-encoded information. These packets are routed and delivered across networks using networking protocols, enabling communication between devices.
 
 In conclusion, digital information is data that is represented, stored, processed, and transmitted using binary values. It encompasses a wide range of data types, including numeric, text, image, audio, and video data, and forms the basis of modern computing, communication, and information technology. Understanding digital information is essential for navigating the digital world and leveraging the power of digital technology in various domains.
 
@@ -48,33 +48,33 @@ A bit, short for "binary digit," is the smallest unit of data in computing and d
 
 ### Representation
 
-- **Binary System**: Computers represent all data internally using binary digits, or bits. In the binary system, each bit can represent one of two states: 0 or 1. This binary representation forms the foundation of digital computing.
+   * **Binary System**: Computers represent all data internally using binary digits, or bits. In the binary system, each bit can represent one of two states: 0 or 1. This binary representation forms the foundation of digital computing.
 
-- **Data Encoding**: Bits can be used to represent various types of data, including numbers, text, images, audio, and video. Different encoding schemes are used to map these data types to binary representations. For example, ASCII encoding represents characters using 7 or 8 bits, while Unicode encoding can use up to 32 bits per character to support a wider range of characters and symbols.
+   * **Data Encoding**: Bits can be used to represent various types of data, including numbers, text, images, audio, and video. Different encoding schemes are used to map these data types to binary representations. For example, ASCII encoding represents characters using 7 or 8 bits, while Unicode encoding can use up to 32 bits per character to support a wider range of characters and symbols.
 
 ### Storage
 
-- **Memory**: Bits are used to represent data stored in computer memory. Memory cells, such as RAM (Random Access Memory) and ROM (Read-Only Memory), store binary data as patterns of electric charge or magnetic polarization. Each memory cell typically stores one bit of information.
+   * **Memory**: Bits are used to represent data stored in computer memory. Memory cells, such as RAM (Random Access Memory) and ROM (Read-Only Memory), store binary data as patterns of electric charge or magnetic polarization. Each memory cell typically stores one bit of information.
 
-- **Storage Devices**: Storage devices, such as hard drives, solid-state drives (SSDs), and flash drives, store data in binary form. These devices consist of millions or billions of individual memory cells, each capable of storing one or more bits.
+   * **Storage Devices**: Storage devices, such as hard drives, solid-state drives (SSDs), and flash drives, store data in binary form. These devices consist of millions or billions of individual memory cells, each capable of storing one or more bits.
 
 ### Processing
 
-- **Logic Operations**: Bits are manipulated and processed using logic operations such as AND, OR, NOT, XOR, and others. These operations form the basis of digital logic circuits, which perform computations and manipulate data in electronic devices.
+   * **Logic Operations**: Bits are manipulated and processed using logic operations such as AND, OR, NOT, XOR, and others. These operations form the basis of digital logic circuits, which perform computations and manipulate data in electronic devices.
 
-- **Arithmetic and Boolean Operations**: Bits are used to perform arithmetic operations (addition, subtraction, multiplication, division) and Boolean operations (AND, OR, NOT, XOR) on binary numbers. These operations are fundamental to computer arithmetic and logic.
+   * **Arithmetic and Boolean Operations**: Bits are used to perform arithmetic operations (addition, subtraction, multiplication, division) and Boolean operations (AND, OR, NOT, XOR) on binary numbers. These operations are fundamental to computer arithmetic and logic.
 
 ### Communication
 
-- **Data Transmission**: Bits are transmitted over communication channels, such as wires, cables, and wireless connections, to exchange information between devices. Communication protocols define how data is encoded, transmitted, and decoded across these channels.
+   * **Data Transmission**: Bits are transmitted over communication channels, such as wires, cables, and wireless connections, to exchange information between devices. Communication protocols define how data is encoded, transmitted, and decoded across these channels.
 
-- **Networking**: In computer networks, data is transmitted in the form of packets, which consist of multiple bits organized according to a specific protocol. These packets are routed and delivered across networks to facilitate communication between devices.
+   * **Networking**: In computer networks, data is transmitted in the form of packets, which consist of multiple bits organized according to a specific protocol. These packets are routed and delivered across networks to facilitate communication between devices.
 
 ### Capacity
 
-- **Bit Rate**: The speed at which bits are transmitted or processed is measured in bits per second (bps) or its multiples (kilobits per second, megabits per second, gigabits per second). This metric, known as the bit rate or data rate, quantifies the rate of data transfer or processing in a system.
+   * **Bit Rate**: The speed at which bits are transmitted or processed is measured in bits per second (bps) or its multiples (kilobits per second, megabits per second, gigabits per second). This metric, known as the bit rate or data rate, quantifies the rate of data transfer or processing in a system.
 
-- **Storage Capacity**: The amount of data that can be stored in a storage device is measured in bits or its multiples (bytes, kilobytes, megabytes, gigabytes, terabytes). For example, a 1-gigabyte (GB) storage device can store approximately 8 billion bits of data.
+   * **Storage Capacity**: The amount of data that can be stored in a storage device is measured in bits or its multiples (bytes, kilobytes, megabytes, gigabytes, terabytes). For example, a 1-gigabyte (GB) storage device can store approximately 8 billion bits of data.
 
 In summary, a bit is the fundamental unit of digital information in computing. It represents the basic building block of binary data storage, processing, communication, and computation. Understanding bits and their properties is essential for grasping the inner workings of digital systems and computer technology.
 
@@ -100,15 +100,15 @@ A logic gate is a fundamental building block of digital circuits that performs a
 
 The terms "TRUE" and "FALSE" gates are not standard designations for specific types of logic gates in traditional digital logic. However, they can be understood as conceptual representations of the behavior of certain gates:
 
-- **TRUE Gate**: A gate that always produces a true (1) output regardless of the input. This behavior is similar to that of an OR gate with no inputs, which always outputs true.
+   * **TRUE Gate**: A gate that always produces a true (1) output regardless of the input. This behavior is similar to that of an OR gate with no inputs, which always outputs true.
   
-- **FALSE Gate**: A gate that always produces a false (0) output regardless of the input. This behavior is similar to that of an AND gate with no inputs, which always outputs false.
+   * **FALSE Gate**: A gate that always produces a false (0) output regardless of the input. This behavior is similar to that of an AND gate with no inputs, which always outputs false.
 
 These conceptual gates are not typically implemented as distinct components in digital circuit design but are instead represented by specific configurations or states of existing logic gates.
 
 ### AND/NAND Gate
 
-- **AND Gate**: The AND gate produces a true output (1) only when all of its inputs are true; otherwise, it produces a false output (0). Its truth table is:
+   * **AND Gate**: The AND gate produces a true output (1) only when all of its inputs are true; otherwise, it produces a false output (0). Its truth table is:
 
 | Input A | Input B | Output |
 |---------|---------|--------|
@@ -117,7 +117,7 @@ These conceptual gates are not typically implemented as distinct components in d
 |    1    |    0    |   0    |
 |    1    |    1    |   1    |
 
-- **NAND Gate**: The NAND gate produces the negation of the AND operation. It produces a false output (0) only when all of its inputs are true; otherwise, it produces a true output (1). Its truth table is the inverse of the AND gate:
+   * **NAND Gate**: The NAND gate produces the negation of the AND operation. It produces a false output (0) only when all of its inputs are true; otherwise, it produces a true output (1). Its truth table is the inverse of the AND gate:
 
 | Input A | Input B | Output |
 |---------|---------|--------|
@@ -128,7 +128,7 @@ These conceptual gates are not typically implemented as distinct components in d
 
 ### OR/NOR Gate
 
-- **OR Gate**: The OR gate produces a true output (1) if at least one of its inputs is true; otherwise, it produces a false output (0). Its truth table is:
+   * **OR Gate**: The OR gate produces a true output (1) if at least one of its inputs is true; otherwise, it produces a false output (0). Its truth table is:
 
 | Input A | Input B | Output |
 |---------|---------|--------|
@@ -137,7 +137,7 @@ These conceptual gates are not typically implemented as distinct components in d
 |    1    |    0    |   1    |
 |    1    |    1    |   1    |
 
-- **NOR Gate**: The NOR gate produces the negation of the OR operation. It produces a true output (1) only when all of its inputs are false; otherwise, it produces a false output (0). Its truth table is the inverse of the OR gate:
+   * **NOR Gate**: The NOR gate produces the negation of the OR operation. It produces a true output (1) only when all of its inputs are false; otherwise, it produces a false output (0). Its truth table is the inverse of the OR gate:
 
 | Input A | Input B | Output |
 |---------|---------|--------|
@@ -148,7 +148,7 @@ These conceptual gates are not typically implemented as distinct components in d
 
 ### XOR/XNOR Gate
 
-- **XOR Gate**: The XOR gate produces a true output (1) if exactly one of its inputs is true; otherwise, it produces a false output (0). Its truth table is:
+   * **XOR Gate**: The XOR gate produces a true output (1) if exactly one of its inputs is true; otherwise, it produces a false output (0). Its truth table is:
 
 | Input A | Input B | Output |
 |---------|---------|--------|
@@ -157,7 +157,7 @@ These conceptual gates are not typically implemented as distinct components in d
 |    1    |    0    |   1    |
 |    1    |    1    |   0    |
 
-- **XNOR Gate**: The XNOR gate produces the negation of the XOR operation. It produces a true output (1) if both inputs are the same (either both true or both false); otherwise, it produces a false output (0). Its truth table is the inverse of the XOR gate:
+   * **XNOR Gate**: The XNOR gate produces the negation of the XOR operation. It produces a true output (1) if both inputs are the same (either both true or both false); otherwise, it produces a false output (0). Its truth table is the inverse of the XOR gate:
 
 | Input A | Input B | Output |
 |---------|---------|--------|

@@ -1,6 +1,6 @@
 # ADDITIONAL CONSIDERATIONS
 
-This section provides guidance on additional considerations of design assurance that are not covered in the previous sections. These additional considerations may be used at the applicant’s discretion to satisfy some of the objectives of Section 2 through Section 9. Any use of additional considerations should be agreed with the certification authority.
+This section provides guidance on additional considerations of design assurance that are not covered in the previous sections. These additional considerations may be used at the applicant's discretion to satisfy some of the objectives of Section 2 through Section 9. Any use of additional considerations should be agreed with the certification authority.
 
 ## Use of Previously Developed Hardware
 
@@ -110,7 +110,7 @@ Major concerns include:
 
 Service experience may be used to substantiate design assurance for previously developed hardware and for COTS components. Service experience relates to data collected from any previous or current usage of the component. Data from non-airborne applications is not excluded.
 
-Note: Wide and successful use of an item in service may provide confidence that the item’s design is mature and free of errors and that the manufacturing quality of the item is demonstrated.
+Note: Wide and successful use of an item in service may provide confidence that the item's design is mature and free of errors and that the manufacturing quality of the item is demonstrated.
 
 ### Product Service Experience Data Acceptability Criteria
 
@@ -168,7 +168,7 @@ The tool assessment and qualification process may be applied to either a single 
 
 It is recognized that tools are often integrated and shared during the various life-cycle phases. If the same tool is used during both the design and the verification phase, then the tool may need to be assessed as a design tool unless separation of and protection between the two functions can be established.
 
-Note 1: If the assessment of a given tool indicates that some of its functions are used for design but other functions are used for verification, it may be worthwhile to address the functions separately and perform the assessment for each group of the tool’s assessed functions.
+Note 1: If the assessment of a given tool indicates that some of its functions are used for design but other functions are used for verification, it may be worthwhile to address the functions separately and perform the assessment for each group of the tool's assessed functions.
 
 Note 2: This assessment activity focuses as much or more on the application of the tool as the tool itself.
 
@@ -184,9 +184,9 @@ Figure 11-1 Design and Verification Tool Assessment and Qualification
 
 3. Is the Tool Output Independently Assessed? An independent assessment verifies the correctness of the tool output using an independent means. If the tool output is independently assessed, then no further assessment is necessary.
 
-   Note: Independent assessment of a design tool’s output that is generated in whole or in part by the tool may be established by the verification activities performed on the item, such as component, netlist or assembly. In this case, the integrity of the end item does not depend upon the correctness of the design tool output alone.
+   Note: Independent assessment of a design tool's output that is generated in whole or in part by the tool may be established by the verification activities performed on the item, such as component, netlist or assembly. In this case, the integrity of the end item does not depend upon the correctness of the design tool output alone.
 
-   Independent assessment of a verification tool’s output may include a manual review of the tool outputs or may include a comparison against the outputs of a separate tool capable of performing the same verification activity as the tool being assessed.
+   Independent assessment of a verification tool's output may include a manual review of the tool outputs or may include a comparison against the outputs of a separate tool capable of performing the same verification activity as the tool being assessed.
 
    The applicant may propose other methods of independent assessment as well.
 
@@ -194,17 +194,17 @@ Figure 11-1 Design and Verification Tool Assessment and Qualification
 
 5. Does the Tool have Relevant History? When it is possible to show that the tool has been previously used and has been found to produce acceptable results, then no further assessment is necessary. A discussion of the relevance of the previous tool usage versus the proposed usage of the tool should be included in the justification.
 
-   Note: The history of the tool may be based on either an airborne or non-airborne application, provided that data is available to substantiate the relevance and credibility of the tool’s history.
+   Note: The history of the tool may be based on either an airborne or non-airborne application, provided that data is available to substantiate the relevance and credibility of the tool's history.
 
 6. Establish Baseline and Problem Reporting for Tool Qualification. Establish a baseline for tool configuration management and tool problem reporting to prepare for tool qualification.
 
-7. Basic Tool Qualification. Establish and execute a plan to confirm that the tool produces correct outputs for its intended application using analysis or testing. The tool’s user guide or other description of the tool’s function and its use may be used to generate requirements.
+7. Basic Tool Qualification. Establish and execute a plan to confirm that the tool produces correct outputs for its intended application using analysis or testing. The tool's user guide or other description of the tool's function and its use may be used to generate requirements.
 
 8. Type of Tool and Level? Is the tool being considered a Level A or B hardware design tool or a Level C hardware design tool or a Level A or Level B hardware verification tool?
 
 9. Design Tool Qualification. Qualify the Level A or B design tool using the strategies described in Appendix B of this document, the tool qualification guidance of RTCA DO-178B / EUROCAE ED-12B for software development tools or other means acceptable to the certification authority. Independence of this activity from the tool development should also be established.
 
-   Note: Specific guidance for Level A and B design tool qualification is not provided here because of the variability of the circumstances of the tool usage, technology involved, visibility of the tool’s implementation and life cycle data, and other factors. Using such a design tool without independent assessment of the tool’s output or establishing relevant history is discouraged, as it may prove to be a task as challenging as the development of the hardware for which the tool is proposed to be used.
+   Note: Specific guidance for Level A and B design tool qualification is not provided here because of the variability of the circumstances of the tool usage, technology involved, visibility of the tool's implementation and life cycle data, and other factors. Using such a design tool without independent assessment of the tool's output or establishing relevant history is discouraged, as it may prove to be a task as challenging as the development of the hardware for which the tool is proposed to be used.
 
 10. Complete. Document the tool assessment, justification for the assessment decisions, and if applicable, tool qualification data. Provide specific references to installation guides, user manuals and tool qualification data, as necessary to support the tool assignment and qualification.
 
@@ -218,7 +218,7 @@ The tool assessment and qualification data should include:
 
    b. The tool designation per item 4 of Figure 11-1.
 
-   c. The tool’s history when being used to satisfy item 5 of Figure 11-1. A discussion of the relevance of the previous tool usage versus the proposed usage of the tool should be included in the justification.
+   c. The tool's history when being used to satisfy item 5 of Figure 11-1. A discussion of the relevance of the previous tool usage versus the proposed usage of the tool should be included in the justification.
 
 2. An unambiguous configuration definition to be used in tool qualification, in compliance with item 6 of Figure 11-1 , and a justification for the applicability of the tested configuration if it differs from that actually used to design or verify the end hardware item.
 
