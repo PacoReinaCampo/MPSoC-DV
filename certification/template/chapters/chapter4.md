@@ -9,6 +9,7 @@
 | Hardware Configuration Management Records                 |
 | Hardware Process Assurance Records                        |
 | Hardware Accomplishment Summary                           |
+
 :Data Required for the Final Certification Hardware Review
 
 | Data Required for the Final Certification Hardware Object |
@@ -20,6 +21,7 @@
 | Hardware Configuration Management Records                 |
 | Hardware Process Assurance Records                        |
 | Hardware Accomplishment Summary                           |
+
 :Data Required for the Final Certification Hardware Object
 
 ## Hardware Accomplishment Summary

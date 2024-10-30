@@ -5,37 +5,37 @@ digraph Project {
 
   // Peripheral Blocks
   subgraph "cluster PeripheralBlocks" { label = "Peripheral Blocks";
-    MPSoC_DBG[label="MPSoC_DBG \nPeripheral"];
-    MPSoC_DMA[label="MPSoC_DMA \nPeripheral"];
-    MPSoC_GPIO[label="MPSoC_GPIO \nPeripheral"];
-    MPSoC_MPI[label="MPSoC_MPI \nPeripheral"];
-    MPSoC_MPRAM[label="MPSoC_MPRAM \nPeripheral"];
-    MPSoC_MSI[label="MPSoC_MSI \nPeripheral"];
-    MPSoC_SPRAM[label="MPSoC_SPRAM \nPeripheral"];
-    MPSoC_UART[label="MPSoC_UART \nPeripheral"];
+    MPSoC_DBG[label="MPSoC-DBG \nPeripheral"];
+    MPSoC_DMA[label="MPSoC-DMA \nPeripheral"];
+    MPSoC_GPIO[label="MPSoC-GPIO \nPeripheral"];
+    MPSoC_MPI[label="MPSoC-MPI \nPeripheral"];
+    MPSoC_MPRAM[label="MPSoC-MPRAM \nPeripheral"];
+    MPSoC_MSI[label="MPSoC-MSI \nPeripheral"];
+    MPSoC_SPRAM[label="MPSoC-SPRAM \nPeripheral"];
+    MPSoC_UART[label="MPSoC-UART \nPeripheral"];
   }
 
   // Architecture Blocks
   subgraph "cluster ArchitectureBlocks" { label = "Architecture Blocks";
-    PU_MSP430[label="PU_MSP430 \nArchitecture"];
-    PU_OR1K[label="PU_OR1K \nArchitecture"];
-    PU_RISCV[label="PU_RISCV \nArchitecture"];
+    PU_MSP430[label="PU-MSP430 \nArchitecture"];
+    PU_OR1K[label="PU-OR1K \nArchitecture"];
+    PU_RISCV[label="PU-RISCV \nArchitecture"];
   }
 
   // Environment Blocks
   subgraph "cluster EnvironmentBlocks" { label = "Environment Blocks";
-    PU_DV[label="PU_DV \nEnvironment"];
+    PU_DV[label="PU-DV \nEnvironment"];
   }
 
   // Accelerator Blocks
   subgraph "cluster AcceleratorBlocks" { label = "Accelerator Blocks";
-    PU_NTM[label="PU_NTM \nTarget"];
-    PU_DNC[label="PU_DNC \nTarget"];
+    PU_NTM[label="PU-NTM \nTarget"];
+    PU_DNC[label="PU-DNC \nTarget"];
   }
 
   // Target Blocks
   subgraph "cluster TargetBlocks" { label = "Target Blocks";
-    PU_DefenseTech[label="PU_DefenseTech \nTarget"];
+    PU_DefenseTech[label="PU-DefenseTech \nTarget"];
   }
 
   MPSoC_DBG -> PU_MSP430;

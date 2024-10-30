@@ -12,6 +12,7 @@
 | Hardware Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
+
 :Data Required for the Hardware Planning Review
 
 | Data Required for the Hardware Planning Object                                            |
@@ -26,6 +27,7 @@
 | Hardware Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
+
 :Data Required for the Hardware Planning Object
 
 ## Hardware Configuration Management Plan

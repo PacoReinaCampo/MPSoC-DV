@@ -22,6 +22,7 @@
 | lifecycle     | IEEE STD 1735-2014   | IP-Developer  |
 |               | IEEE STD 2675-2021   | IP-DevOps     |
 |               | IEEE STD 1685-2014   | IP-Manager    |
+
 : Project Folder
 
 ## DESIGN LIFECYCLE DATA TEMPLATES
@@ -89,6 +90,7 @@
 | Hardware Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
+
 :Data Required for the Hardware Planning Review
 
 | Data Required for the Hardware Planning Object                                            |
@@ -103,6 +105,7 @@
 | Hardware Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
+
 :Data Required for the Hardware Planning Object
 
 #### Hardware Configuration Management Plan
@@ -390,6 +393,7 @@
 | Hardware Configuration Management Records            |
 | Hardware Process Assurance Records                   |
 | Hardware Tool Qualification Data                     |
+
 :Data Required for the Hardware Development Review
 
 | Data Required for the Hardware Development Object    |
@@ -407,6 +411,7 @@
 | Hardware Configuration Management Records            |
 | Hardware Process Assurance Records                   |
 | Hardware Tool Qualification Data                     |
+
 :Data Required for the Hardware Development Object
 
 #### Hardware Configuration Management Records
@@ -810,6 +815,7 @@
 | Hardware Configuration Management Records           |
 | Hardware Process Assurance Records                  |
 | Hardware Tool Qualification Data                    |
+
 :Data Required for the Hardware Verification Review
 
 | Data Required for the Hardware Verification Object  |
@@ -825,6 +831,7 @@
 | Hardware Configuration Management Records           |
 | Hardware Process Assurance Records                  |
 | Hardware Tool Qualification Data                    |
+
 :Data Required for the Hardware Verification Object
 
 #### Hardware Configuration Management Records
@@ -1168,6 +1175,7 @@
 | Hardware Configuration Management Records                 |
 | Hardware Process Assurance Records                        |
 | Hardware Accomplishment Summary                           |
+
 :Data Required for the Final Certification Hardware Review
 
 | Data Required for the Final Certification Hardware Object |
@@ -1179,6 +1187,7 @@
 | Hardware Configuration Management Records                 |
 | Hardware Process Assurance Records                        |
 | Hardware Accomplishment Summary                           |
+
 :Data Required for the Final Certification Hardware Object
 
 #### Hardware Accomplishment Summary

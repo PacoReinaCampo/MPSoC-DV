@@ -786,6 +786,7 @@ In the context of airborne electronic hardware development governed by DO-254, v
 | Hardware Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
+
 :Data Required for the Hardware Planning Review
 
 | Data Required for the Hardware Planning Object                                            |
@@ -800,6 +801,7 @@ In the context of airborne electronic hardware development governed by DO-254, v
 | Hardware Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
+
 :Data Required for the Hardware Planning Object
 
 ##### Hardware Configuration Management Plan
@@ -1163,6 +1165,7 @@ In the context of airborne electronic hardware development governed by DO-254, v
 | Hardware Configuration Management Records            |
 | Hardware Process Assurance Records                   |
 | Hardware Tool Qualification Data                     |
+
 :Data Required for the Hardware Development Review
 
 | Data Required for the Hardware Development Object    |
@@ -1180,6 +1183,7 @@ In the context of airborne electronic hardware development governed by DO-254, v
 | Hardware Configuration Management Records            |
 | Hardware Process Assurance Records                   |
 | Hardware Tool Qualification Data                     |
+
 :Data Required for the Hardware Development Object
 
 ##### Hardware Configuration Management Records
@@ -1609,6 +1613,7 @@ In the context of airborne electronic hardware development governed by DO-254, v
 | Hardware Configuration Management Records           |
 | Hardware Process Assurance Records                  |
 | Hardware Tool Qualification Data                    |
+
 :Data Required for the Hardware Verification Review
 
 | Data Required for the Hardware Verification Object  |
@@ -1624,6 +1629,7 @@ In the context of airborne electronic hardware development governed by DO-254, v
 | Hardware Configuration Management Records           |
 | Hardware Process Assurance Records                  |
 | Hardware Tool Qualification Data                    |
+
 :Data Required for the Hardware Verification Object
 
 ##### Hardware Configuration Management Records
@@ -1989,6 +1995,7 @@ In the context of airborne electronic hardware development governed by DO-254, v
 | Hardware Configuration Management Records                 |
 | Hardware Process Assurance Records                        |
 | Hardware Accomplishment Summary                           |
+
 :Data Required for the Final Certification Hardware Review
 
 | Data Required for the Final Certification Hardware Object |
@@ -2000,6 +2007,7 @@ In the context of airborne electronic hardware development governed by DO-254, v
 | Hardware Configuration Management Records                 |
 | Hardware Process Assurance Records                        |
 | Hardware Accomplishment Summary                           |
+
 :Data Required for the Final Certification Hardware Object
 
 ##### Hardware Accomplishment Summary

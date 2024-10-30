@@ -55,9 +55,9 @@
 <polygon fill="none" stroke="black" points="361.5,-76 278.5,-76 278.5,-40 361.5,-40 361.5,-76"/>
 <text text-anchor="middle" x="320" y="-54.3" font-family="Times,serif" font-size="14.00">Standard</text>
 </g>
-<!-- PU_PRF -->
+<!-- PU-PRF -->
 <g id="node2" class="node">
-<title>PU_PRF</title>
+<title>PU-PRF</title>
 <polygon fill="none" stroke="black" points="221.5,-76 150.5,-76 150.5,-40 221.5,-40 221.5,-76"/>
 <text text-anchor="middle" x="186" y="-54.3" font-family="Times,serif" font-size="14.00">PU&#45;PRF</text>
 </g>

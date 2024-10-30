@@ -15,6 +15,7 @@
 | Hardware Configuration Management Records            |
 | Hardware Process Assurance Records                   |
 | Hardware Tool Qualification Data                     |
+
 :Data Required for the Hardware Development Review
 
 | Data Required for the Hardware Development Object    |
@@ -32,6 +33,7 @@
 | Hardware Configuration Management Records            |
 | Hardware Process Assurance Records                   |
 | Hardware Tool Qualification Data                     |
+
 :Data Required for the Hardware Development Object
 
 ## Hardware Configuration Management Records

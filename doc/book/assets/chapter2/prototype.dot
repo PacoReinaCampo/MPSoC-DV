@@ -86,4 +86,9 @@ digraph Project {
   }
 
   // Sequence
+  BFM_PRF0 -> BFM_PRF2 [style="invis"]
+  BFM_PRF1 -> BFM_PRF3 [style="invis"]
+
+  Standard0 -> Standard2 [style="invis"]
+  Standard1 -> Standard3 [style="invis"]
 }

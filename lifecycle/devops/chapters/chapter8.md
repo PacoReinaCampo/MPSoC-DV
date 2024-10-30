@@ -193,6 +193,7 @@ By proactively monitoring the software system and its environment, DevOps teams 
 | Hardware Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
+
 :Data Required for the Hardware Planning Review
 
 | Data Required for the Hardware Planning Object                                            |
@@ -207,6 +208,7 @@ By proactively monitoring the software system and its environment, DevOps teams 
 | Hardware Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
+
 :Data Required for the Hardware Planning Object
 
 #### Hardware Configuration Management Plan
@@ -484,6 +486,7 @@ By proactively monitoring the software system and its environment, DevOps teams 
 | Hardware Configuration Management Records            |
 | Hardware Process Assurance Records                   |
 | Hardware Tool Qualification Data                     |
+
 :Data Required for the Hardware Development Review
 
 | Data Required for the Hardware Development Object    |
@@ -501,6 +504,7 @@ By proactively monitoring the software system and its environment, DevOps teams 
 | Hardware Configuration Management Records            |
 | Hardware Process Assurance Records                   |
 | Hardware Tool Qualification Data                     |
+
 :Data Required for the Hardware Development Object
 
 #### Hardware Configuration Management Records
@@ -827,6 +831,7 @@ By proactively monitoring the software system and its environment, DevOps teams 
 | Hardware Configuration Management Records           |
 | Hardware Process Assurance Records                  |
 | Hardware Tool Qualification Data                    |
+
 :Data Required for the Hardware Verification Review
 
 | Data Required for the Hardware Verification Object  |
@@ -842,6 +847,7 @@ By proactively monitoring the software system and its environment, DevOps teams 
 | Hardware Configuration Management Records           |
 | Hardware Process Assurance Records                  |
 | Hardware Tool Qualification Data                    |
+
 :Data Required for the Hardware Verification Object
 
 #### Hardware Configuration Management Records
@@ -1119,6 +1125,7 @@ By proactively monitoring the software system and its environment, DevOps teams 
 | Hardware Configuration Management Records                 |
 | Hardware Process Assurance Records                        |
 | Hardware Accomplishment Summary                           |
+
 :Data Required for the Final Certification Hardware Review
 
 | Data Required for the Final Certification Hardware Object |
@@ -1130,6 +1137,7 @@ By proactively monitoring the software system and its environment, DevOps teams 
 | Hardware Configuration Management Records                 |
 | Hardware Process Assurance Records                        |
 | Hardware Accomplishment Summary                           |
+
 :Data Required for the Final Certification Hardware Object
 
 #### Hardware Accomplishment Summary

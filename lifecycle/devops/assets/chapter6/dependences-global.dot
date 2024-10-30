@@ -5,65 +5,65 @@ digraph Project {
 
   // Peripheral Blocks
   subgraph "cluster PeripheralBlocks" { label = "Peripheral Blocks";
-    MPSoC_DBG[label="MPSoC_DBG \nPeripheral"];
-    MPSoC_DMA[label="MPSoC_DMA \nPeripheral"];
-    MPSoC_GPIO[label="MPSoC_GPIO \nPeripheral"];
-    MPSoC_MPI[label="MPSoC_MPI \nPeripheral"];
-    MPSoC_MPRAM[label="MPSoC_MPRAM \nPeripheral"];
-    MPSoC_MSI[label="MPSoC_MSI \nPeripheral"];
-    MPSoC_NoC[label="MPSoC_NoC \nPeripheral"];
-    MPSoC_SPRAM[label="MPSoC_SPRAM \nPeripheral"];
-    MPSoC_UART[label="MPSoC_UART \nPeripheral"];
+    MPSoC_DBG[label="MPSoC-DBG \nPeripheral"];
+    MPSoC_DMA[label="MPSoC-DMA \nPeripheral"];
+    MPSoC_GPIO[label="MPSoC-GPIO \nPeripheral"];
+    MPSoC_MPI[label="MPSoC-MPI \nPeripheral"];
+    MPSoC_MPRAM[label="MPSoC-MPRAM \nPeripheral"];
+    MPSoC_MSI[label="MPSoC-MSI \nPeripheral"];
+    MPSoC_NoC[label="MPSoC-NoC \nPeripheral"];
+    MPSoC_SPRAM[label="MPSoC-SPRAM \nPeripheral"];
+    MPSoC_UART[label="MPSoC-UART \nPeripheral"];
   }
 
   // Architecture Blocks
   subgraph "cluster ArchitectureBlocks" { label = "Architecture Blocks";
-    MPSoC_MSP430[label="MPSoC_MSP430 \nArchitecture"];
-    MPSoC_OR1K[label="MPSoC_OR1K \nArchitecture"];
-    MPSoC_RISCV[label="MPSoC_RISCV \nArchitecture"];
-    SoC_MSP430[label="SoC_MSP430 \nArchitecture"];
-    SoC_OR1K[label="SoC_OR1K \nArchitecture"];
-    SoC_RISCV[label="SoC_RISCV \nArchitecture"];
-    PU_MSP430[label="PU_MSP430 \nArchitecture"];
-    PU_OR1K[label="PU_OR1K \nArchitecture"];
-    PU_RISCV[label="PU_RISCV \nArchitecture"];
+    MPSoC_MSP430[label="MPSoC-MSP430 \nArchitecture"];
+    MPSoC_OR1K[label="MPSoC-OR1K \nArchitecture"];
+    MPSoC_RISCV[label="MPSoC-RISCV \nArchitecture"];
+    SoC_MSP430[label="SoC-MSP430 \nArchitecture"];
+    SoC_OR1K[label="SoC-OR1K \nArchitecture"];
+    SoC_RISCV[label="SoC-RISCV \nArchitecture"];
+    PU_MSP430[label="PU-MSP430 \nArchitecture"];
+    PU_OR1K[label="PU-OR1K \nArchitecture"];
+    PU_RISCV[label="PU-RISCV \nArchitecture"];
   }
 
   // Environment Blocks
   subgraph "cluster EnvironmentBlocks" { label = "Environment Blocks";
-    MPSoC_DV[label="MPSoC_DV \nEnvironment"];
-    SoC_DV[label="SoC_DV \nEnvironment"];
-    PU_DV[label="PU_DV \nEnvironment"];
+    MPSoC_DV[label="MPSoC-DV \nEnvironment"];
+    SoC_DV[label="SoC-DV \nEnvironment"];
+    PU_DV[label="PU-DV \nEnvironment"];
   }
 
   // Accelerator Blocks
   subgraph "cluster AcceleratorBlocks" { label = "Accelerator Blocks";
-    MPSoC_NTM[label="MPSoC_NTM \nAccelerator"];
-    SoC_NTM[label="SoC_NTM \nAccelerator"];
-    PU_NTM[label="PU_NTM \nAccelerator"];
+    MPSoC_NTM[label="MPSoC-NTM \nAccelerator"];
+    SoC_NTM[label="SoC-NTM \nAccelerator"];
+    PU_NTM[label="PU-NTM \nAccelerator"];
 
-    MPSoC_DNC[label="MPSoC_DNC \nAccelerator"];
-    SoC_DNC[label="SoC_DNC \nAccelerator"];
-    PU_DNC[label="PU_DNC \nAccelerator"];
+    MPSoC_DNC[label="MPSoC-DNC \nAccelerator"];
+    SoC_DNC[label="SoC-DNC \nAccelerator"];
+    PU_DNC[label="PU-DNC \nAccelerator"];
 
-    MPSoC_ANN[label="MPSoC_ANN \nAccelerator"];
-    SoC_ANN[label="SoC_ANN \nAccelerator"];
-    PU_ANN[label="PU_ANN \nAccelerator"];
+    MPSoC_ANN[label="MPSoC-ANN \nAccelerator"];
+    SoC_ANN[label="SoC-ANN \nAccelerator"];
+    PU_ANN[label="PU-ANN \nAccelerator"];
   }
 
   // Target Blocks
   subgraph "cluster TargetBlocks" { label = "Target Blocks";
-    MPSoC_EnergyTech[label="MPSoC_EnergyTech \nTarget"];
-    SoC_EnergyTech[label="SoC_EnergyTech \nTarget"];
-    PU_EnergyTech[label="PU_EnergyTech \nTarget"];
+    MPSoC_EnergyTech[label="MPSoC-EnergyTech \nTarget"];
+    SoC_EnergyTech[label="SoC-EnergyTech \nTarget"];
+    PU_EnergyTech[label="PU-EnergyTech \nTarget"];
 
-    MPSoC_FinTech[label="MPSoC_FinTech \nTarget"];
-    SoC_FinTech[label="SoC_FinTech \nTarget"];
-    PU_FinTech[label="PU_FinTech \nTarget"];
+    MPSoC_FinTech[label="MPSoC-FinTech \nTarget"];
+    SoC_FinTech[label="SoC-FinTech \nTarget"];
+    PU_FinTech[label="PU-FinTech \nTarget"];
 
-    MPSoC_DefenseTech[label="MPSoC_DefenseTech \nTarget"];
-    SoC_DefenseTech[label="SoC_DefenseTech \nTarget"];
-    PU_DefenseTech[label="PU_DefenseTech \nTarget"];
+    MPSoC_DefenseTech[label="MPSoC-DefenseTech \nTarget"];
+    SoC_DefenseTech[label="SoC-DefenseTech \nTarget"];
+    PU_DefenseTech[label="PU-DefenseTech \nTarget"];
   }
 
   // Peripheral -> Architecture

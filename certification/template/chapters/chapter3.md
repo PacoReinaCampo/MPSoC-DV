@@ -13,6 +13,7 @@
 | Hardware Configuration Management Records           |
 | Hardware Process Assurance Records                  |
 | Hardware Tool Qualification Data                    |
+
 :Data Required for the Hardware Verification Review
 
 | Data Required for the Hardware Verification Object  |
@@ -28,6 +29,7 @@
 | Hardware Configuration Management Records           |
 | Hardware Process Assurance Records                  |
 | Hardware Tool Qualification Data                    |
+
 :Data Required for the Hardware Verification Object
 
 ## Hardware Configuration Management Records

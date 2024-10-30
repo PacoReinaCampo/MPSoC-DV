@@ -123,6 +123,7 @@ By effectively managing and utilizing hardware design lifecycle data, organizati
 | Hardware Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
+
 :Data Required for the Hardware Planning Review
 
 | Data Required for the Hardware Planning Object                                            |
@@ -137,6 +138,7 @@ By effectively managing and utilizing hardware design lifecycle data, organizati
 | Hardware Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
+
 :Data Required for the Hardware Planning Object
 
 #### Hardware Configuration Management Plan
@@ -372,6 +374,7 @@ By effectively managing and utilizing hardware design lifecycle data, organizati
 | Hardware Configuration Management Records            |
 | Hardware Process Assurance Records                   |
 | Hardware Tool Qualification Data                     |
+
 :Data Required for the Hardware Development Review
 
 | Data Required for the Hardware Development Object    |
@@ -389,6 +392,7 @@ By effectively managing and utilizing hardware design lifecycle data, organizati
 | Hardware Configuration Management Records            |
 | Hardware Process Assurance Records                   |
 | Hardware Tool Qualification Data                     |
+
 :Data Required for the Hardware Development Object
 
 #### Hardware Configuration Management Records
@@ -715,6 +719,7 @@ By effectively managing and utilizing hardware design lifecycle data, organizati
 | Hardware Configuration Management Records           |
 | Hardware Process Assurance Records                  |
 | Hardware Tool Qualification Data                    |
+
 :Data Required for the Hardware Verification Review
 
 | Data Required for the Hardware Verification Object  |
@@ -730,6 +735,7 @@ By effectively managing and utilizing hardware design lifecycle data, organizati
 | Hardware Configuration Management Records           |
 | Hardware Process Assurance Records                  |
 | Hardware Tool Qualification Data                    |
+
 :Data Required for the Hardware Verification Object
 
 #### Hardware Configuration Management Records
@@ -1007,6 +1013,7 @@ By effectively managing and utilizing hardware design lifecycle data, organizati
 | Hardware Configuration Management Records                 |
 | Hardware Process Assurance Records                        |
 | Hardware Accomplishment Summary                           |
+
 :Data Required for the Final Certification Hardware Review
 
 | Data Required for the Final Certification Hardware Object |
@@ -1018,6 +1025,7 @@ By effectively managing and utilizing hardware design lifecycle data, organizati
 | Hardware Configuration Management Records                 |
 | Hardware Process Assurance Records                        |
 | Hardware Accomplishment Summary                           |
+
 :Data Required for the Final Certification Hardware Object
 
 #### Hardware Accomplishment Summary
