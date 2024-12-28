@@ -34,7 +34,7 @@ if (isJavaFun) {
 
 ### NUMBER
 
-#### Numeric Types:
+#### Numeric Types
 
    * **Type**: `byte`, `short`, `int`, `long`, `float`, `double`
    * **Description**: Represent integers and floating-point numbers of varying sizes.
@@ -65,7 +65,7 @@ char grade = 'A';
 
 Java provides wrapper classes (`Boolean`, `Byte`, `Short`, `Integer`, `Long`, `Float`, `Double`, `Character`) to convert primitive types to objects and vice versa. This process is known as boxing (primitive to wrapper) and unboxing (wrapper to primitive).
 
-### Example:
+### Example
 
 ```java
 // Boxing: converting int to Integer

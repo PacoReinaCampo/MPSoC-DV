@@ -6,7 +6,7 @@ Threads in Java allow concurrent execution of tasks and are fundamental for deve
 
 Threads in Java can be created by extending the `Thread` class or implementing the `Runnable` interface:
 
-#### Extending `Thread` class:
+#### Extending `Thread` class
 
 ```java
 class MyThread extends Thread {
@@ -20,7 +20,7 @@ MyThread thread = new MyThread();
 thread.start();
 ```
 
-#### Implementing `Runnable` interface:
+#### Implementing `Runnable` interface
 
 ```java
 class MyRunnable implements Runnable {

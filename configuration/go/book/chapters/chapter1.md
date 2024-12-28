@@ -2,7 +2,7 @@
 
 Go, also known as Golang, is an open-source programming language developed by Google in 2007 and first released in 2009. It was designed with simplicity, efficiency, and concurrency in mind, making it suitable for building scalable and reliable software systems.
 
-## KEY FEATURES OF GO LANGUAGE:
+## KEY FEATURES OF GO LANGUAGE
 
 1. **Simplicity**: Go has a simple and clean syntax, making it easy to read and write code. It emphasizes readability and clarity, which helps developers to quickly understand and maintain codebases.
 

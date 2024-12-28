@@ -2,7 +2,7 @@
 
 In Go, the `switch` statement provides a way to compare an expression against multiple values and execute different blocks of code based on the matching value. The `switch` statement can be more concise and readable than multiple `if-else` statements, especially when dealing with multiple conditions.
 
-## BASIC SWITCH STATEMENT:
+## BASIC SWITCH STATEMENT
 
 The basic syntax of the `switch` statement in Go is as follows:
 
