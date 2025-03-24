@@ -42,5 +42,5 @@
 ##                                                                               ##
 ###################################################################################
 
-tree -P '*.vhd' application > TREE-UVM-APPLICATION.txt
-tree -P '*.vhd' library > TREE-UVM-LIBRARY.txt
+tree -P '*.vhd' application > TREE-OSVVM-APPLICATION.txt
+tree -P '*.vhd' library > TREE-OSVVM-LIBRARY.txt
