@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../mpsoc/formal/riscv/osvvm/application/ahb3/peripheral_osvvm_design.vhd
-../../../../../../../../../mpsoc/formal/riscv/osvvm/application/ahb3/peripheral_osvvm_design_pkg.vhd
+../../../../../../../../mpsoc/formal/riscv/osvvm/application/ahb3/peripheral_osvvm_design.vhd
+../../../../../../../../mpsoc/formal/riscv/osvvm/application/ahb3/peripheral_osvvm_design_pkg.vhd
 
-../../../../../../../../../mpsoc/formal/riscv/osvvm/library/ahb3/peripheral_osvvm_model.vhd
-../../../../../../../../../mpsoc/formal/riscv/osvvm/library/ahb3/peripheral_osvvm_model_pkg.vhd
+../../../../../../../../mpsoc/formal/riscv/osvvm/library/ahb3/peripheral_osvvm_model.vhd
+../../../../../../../../mpsoc/formal/riscv/osvvm/library/ahb3/peripheral_osvvm_model_pkg.vhd
 
-../../../../../../../../../mpsoc/formal/riscv/osvvm/library/ahb3/peripheral_osvvm_testbench.vhd
+../../../../../../../../mpsoc/formal/riscv/osvvm/library/ahb3/peripheral_osvvm_testbench.vhd

@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../mpsoc/functional/msp430/osvvm/application/apb4/peripheral_osvvm_design.vhd
-../../../../../../../../../mpsoc/functional/msp430/osvvm/application/apb4/peripheral_osvvm_design_pkg.vhd
+../../../../../../../../mpsoc/functional/msp430/osvvm/application/apb4/peripheral_osvvm_design.vhd
+../../../../../../../../mpsoc/functional/msp430/osvvm/application/apb4/peripheral_osvvm_design_pkg.vhd
 
-../../../../../../../../../mpsoc/functional/msp430/osvvm/library/apb4/peripheral_osvvm_model.vhd
-../../../../../../../../../mpsoc/functional/msp430/osvvm/library/apb4/peripheral_osvvm_model_pkg.vhd
+../../../../../../../../mpsoc/functional/msp430/osvvm/library/apb4/peripheral_osvvm_model.vhd
+../../../../../../../../mpsoc/functional/msp430/osvvm/library/apb4/peripheral_osvvm_model_pkg.vhd
 
-../../../../../../../../../mpsoc/functional/msp430/osvvm/library/apb4/peripheral_osvvm_testbench.vhd
+../../../../../../../../mpsoc/functional/msp430/osvvm/library/apb4/peripheral_osvvm_testbench.vhd

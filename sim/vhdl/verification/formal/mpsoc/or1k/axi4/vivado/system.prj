@@ -42,8 +42,8 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../../mpsoc/formal/or1k/uvm/application/axi4/peripheral_adder.sv
-sv work ../../../../../../../../../mpsoc/formal/or1k/uvm/application/axi4/peripheral_full_adder.sv
-sv work ../../../../../../../../../mpsoc/formal/or1k/uvm/application/axi4/peripheral_half_adder.sv
+sv work ../../../../../../../../mpsoc/formal/or1k/uvm/application/axi4/peripheral_adder.sv
+sv work ../../../../../../../../mpsoc/formal/or1k/uvm/application/axi4/peripheral_full_adder.sv
+sv work ../../../../../../../../mpsoc/formal/or1k/uvm/application/axi4/peripheral_half_adder.sv
 
-sv work ../../../../../../../../../mpsoc/formal/or1k/uvm/library/axi4/peripheral_uvm_testbench.sv
+sv work ../../../../../../../../mpsoc/formal/or1k/uvm/library/axi4/peripheral_uvm_testbench.sv
