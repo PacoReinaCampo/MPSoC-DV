@@ -42,17 +42,15 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-extern crate bfm;
+extern crate bfm_library_ahb3;
 extern crate rand;
 
-use bfm::ahb3::peripheral_design::*;
-use rand::Rng;
+use bfm_library_ahb3::code::peripheral_design::*;
+use rand::random;
 
 fn main() {
-    let mut rng = rand::thread_rng();
-
-    let data_a_input: f64 = rng.gen();
-    let data_b_input: f64 = rng.gen();
+    let data_a_input: f64 = random();
+    let data_b_input: f64 = random();
 
     let data_addition_output: f64 = data_a_input + data_b_input;
     let data_subtraction_output: f64 = data_a_input - data_b_input;

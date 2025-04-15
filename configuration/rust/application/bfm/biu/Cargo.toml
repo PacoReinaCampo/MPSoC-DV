@@ -1,8 +1,9 @@
 [package]
-name = "bfm-ahb3"
+name = "bfm_biu"
 version = "0.0.0"
 authors = []
 edition = "2021"
 
 [dependencies]
-bfm = { path = "../../../library/bfm/ahb3" }
+rand = "0.9.0"
+bfm_library_biu = { path = "../../../library/bfm/biu" }
