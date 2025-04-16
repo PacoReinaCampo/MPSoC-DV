@@ -113,7 +113,7 @@
 <title>Implementation_HW</title>
 <polygon fill="none" stroke="black" points="1713,-112 1713,-150 1892,-150 1892,-112 1713,-112"/>
 <text text-anchor="middle" x="1802.5" y="-134.8" font-family="Times,serif" font-size="14.00">Implementation </text>
-<text text-anchor="middle" x="1802.5" y="-119.8" font-family="Times,serif" font-size="14.00">(VHDL/Verilog) [Yosys]</text>
+<text text-anchor="middle" x="1802.5" y="-119.8" font-family="Times,serif" font-size="14.00">(VHDL/Verilog) [GHDL/Yosys]</text>
 </g>
 <!-- Configuration_HW&#45;&gt;Implementation_HW -->
 <g id="edge6" class="edge">

@@ -146,7 +146,7 @@
 <title>Simulating_SLH</title>
 <polygon fill="none" stroke="black" points="46.5,-474.5 46.5,-512.5 339.5,-512.5 339.5,-474.5 46.5,-474.5"/>
 <text text-anchor="middle" x="193" y="-497.3" font-family="Times,serif" font-size="14.00">Simulating System Level of Hardware </text>
-<text text-anchor="middle" x="193" y="-482.3" font-family="Times,serif" font-size="14.00">(Verilator)</text>
+<text text-anchor="middle" x="193" y="-482.3" font-family="Times,serif" font-size="14.00">(GHDL / Verilator)</text>
 </g>
 <!-- Modeling_SLH&#45;&gt;Simulating_SLH -->
 <g id="edge8" class="edge">
@@ -204,7 +204,7 @@
 <title>Synthesizing_RTL</title>
 <polygon fill="none" stroke="black" points="24,-174.5 24,-212.5 404,-212.5 404,-174.5 24,-174.5"/>
 <text text-anchor="middle" x="214" y="-197.3" font-family="Times,serif" font-size="14.00">Synthesizing Register Transfer Level of Hardware </text>
-<text text-anchor="middle" x="214" y="-182.3" font-family="Times,serif" font-size="14.00">(Yosys)</text>
+<text text-anchor="middle" x="214" y="-182.3" font-family="Times,serif" font-size="14.00">(GHDL / Yosys)</text>
 </g>
 <!-- Simulating_RTL&#45;&gt;Synthesizing_RTL -->
 <g id="edge12" class="edge">
