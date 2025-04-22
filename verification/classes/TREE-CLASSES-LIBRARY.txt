@@ -1,6 +1,6 @@
 library
 ├── bfm
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_agent.sv
 │   │   ├── peripheral_driver.sv
 │   │   ├── peripheral_environment.sv
@@ -67,7 +67,7 @@ library
 │       ├── peripheral_test.sv
 │       └── peripheral_transaction.sv
 ├── core
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_agent.sv
 │   │   ├── peripheral_driver.sv
 │   │   ├── peripheral_environment.sv
@@ -134,7 +134,7 @@ library
 │       ├── peripheral_test.sv
 │       └── peripheral_transaction.sv
 ├── mpsoc
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_agent.sv
 │   │   ├── peripheral_driver.sv
 │   │   ├── peripheral_environment.sv
@@ -207,7 +207,7 @@ library
 │       ├── peripheral_test.sv
 │       └── peripheral_transaction.sv
 ├── pu
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_agent.sv
 │   │   ├── peripheral_driver.sv
 │   │   ├── peripheral_environment.sv
@@ -280,7 +280,7 @@ library
 │       ├── peripheral_test.sv
 │       └── peripheral_transaction.sv
 └── soc
-    ├── ahb3
+    ├── ahb4
     │   ├── peripheral_agent.sv
     │   ├── peripheral_driver.sv
     │   ├── peripheral_environment.sv

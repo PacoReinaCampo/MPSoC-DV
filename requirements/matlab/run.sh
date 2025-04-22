@@ -46,10 +46,12 @@ cd application/bfm/ahb3; octave peripheral_test.m; cd ../../..
 cd application/bfm/apb4; octave peripheral_test.m; cd ../../..
 cd application/bfm/axi4; octave peripheral_test.m; cd ../../..
 cd application/bfm/bb; octave peripheral_test.m; cd ../../..
+cd application/bfm/biu; octave peripheral_test.m; cd ../../..
 cd application/bfm/wb; octave peripheral_test.m; cd ../../..
 
 cd application/core/ahb3; octave peripheral_test.m; cd ../../..
 cd application/core/apb4; octave peripheral_test.m; cd ../../..
 cd application/core/axi4; octave peripheral_test.m; cd ../../..
 cd application/core/bb; octave peripheral_test.m; cd ../../..
+cd application/core/biu; octave peripheral_test.m; cd ../../..
 cd application/core/wb; octave peripheral_test.m; cd ../../..

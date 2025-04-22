@@ -1,6 +1,6 @@
 library
 ├── bfm
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_uvm_agent.sv
 │   │   ├── peripheral_uvm_driver.sv
 │   │   ├── peripheral_uvm_environment.sv
@@ -73,7 +73,7 @@ library
 │       ├── peripheral_uvm_testbench.sv
 │       └── peripheral_uvm_test.sv
 ├── core
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_uvm_agent.sv
 │   │   ├── peripheral_uvm_driver.sv
 │   │   ├── peripheral_uvm_environment.sv
@@ -146,7 +146,7 @@ library
 │       ├── peripheral_uvm_testbench.sv
 │       └── peripheral_uvm_test.sv
 ├── mpsoc
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_uvm_agent.sv
 │   │   ├── peripheral_uvm_driver.sv
 │   │   ├── peripheral_uvm_environment.sv
@@ -225,7 +225,7 @@ library
 │       ├── peripheral_uvm_testbench.sv
 │       └── peripheral_uvm_test.sv
 ├── pu
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_uvm_agent.sv
 │   │   ├── peripheral_uvm_driver.sv
 │   │   ├── peripheral_uvm_environment.sv
@@ -304,7 +304,7 @@ library
 │       ├── peripheral_uvm_testbench.sv
 │       └── peripheral_uvm_test.sv
 └── soc
-    ├── ahb3
+    ├── ahb4
     │   ├── peripheral_uvm_agent.sv
     │   ├── peripheral_uvm_driver.sv
     │   ├── peripheral_uvm_environment.sv

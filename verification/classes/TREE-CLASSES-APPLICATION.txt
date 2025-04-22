@@ -1,6 +1,6 @@
 application
 ├── bfm
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
 │   ├── apb4
@@ -19,7 +19,7 @@ application
 │       ├── peripheral_design.sv
 │       └── peripheral_testbench.sv
 ├── core
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
 │   ├── apb4
@@ -38,7 +38,7 @@ application
 │       ├── peripheral_design.sv
 │       └── peripheral_testbench.sv
 ├── mpsoc
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
 │   ├── apb4
@@ -57,7 +57,7 @@ application
 │       ├── peripheral_design.sv
 │       └── peripheral_testbench.sv
 ├── pu
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
 │   ├── apb4
@@ -76,7 +76,7 @@ application
 │       ├── peripheral_design.sv
 │       └── peripheral_testbench.sv
 └── soc
-    ├── ahb3
+    ├── ahb4
     │   ├── peripheral_design.sv
     │   └── peripheral_testbench.sv
     ├── apb4

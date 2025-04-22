@@ -64,7 +64,7 @@ module mpsoc_spram_testbench;
   wire                                     HRESETn;
   wire                                     HCLK;
 
-  // AHB3 signals
+  // AHB4 signals
   wire                                     mst_spram_HSEL;
   wire               [PLEN           -1:0] mst_spram_HADDR;
   wire               [XLEN           -1:0] mst_spram_HWDATA;
@@ -83,8 +83,8 @@ module mpsoc_spram_testbench;
   // Body
   //////////////////////////////////////////////////////////////////////////////
 
-  // DUT AHB3
-  mpsoc_ahb3_spram #(
+  // DUT AHB4
+  mpsoc_ahb4_spram #(
     .MEM_SIZE          ( 256 ),
     .MEM_DEPTH         ( 256 ),
     .PLEN              ( PLEN ),
@@ -92,7 +92,7 @@ module mpsoc_spram_testbench;
     .TECHNOLOGY        ( TECHNOLOGY ),
     .REGISTERED_OUTPUT ( "NO" )
   )
-  ahb3_spram (
+  ahb4_spram (
     .HRESETn   ( HRESETn ),
     .HCLK      ( HCLK    ),
 

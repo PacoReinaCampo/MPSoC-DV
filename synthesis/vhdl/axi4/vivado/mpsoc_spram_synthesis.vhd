@@ -44,7 +44,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
-use work.mpsoc_spram_ahb3_pkg.all;
+use work.mpsoc_spram_ahb4_pkg.all;
 
 entity mpsoc_spram_testbench is
 end mpsoc_spram_testbench;
@@ -58,7 +58,7 @@ architecture RTL of mpsoc_spram_testbench is
   signal HRESETn : std_logic;
   signal HCLK    : std_logic;
 
-  -- AHB3 signals
+  -- AHB4 signals
   signal mst_spram_HSEL      : std_logic;
   signal mst_spram_HADDR     : std_logic_vector(PLEN-1 downto 0);
   signal mst_spram_HWDATA    : std_logic_vector(XLEN-1 downto 0);
@@ -76,7 +76,7 @@ architecture RTL of mpsoc_spram_testbench is
   ------------------------------------------------------------------------------
   -- Components
   ------------------------------------------------------------------------------
-  component mpsoc_ahb3_spram
+  component mpsoc_ahb4_spram
     generic (
       MEM_SIZE          : integer := 256;  -- Memory in Bytes
       MEM_DEPTH         : integer := 256;  -- Memory depth
@@ -112,8 +112,8 @@ begin
   -- Module Body
   ------------------------------------------------------------------------------
 
-  -- DUT AHB3
-  ahb3_spram : mpsoc_ahb3_spram
+  -- DUT AHB4
+  ahb4_spram : mpsoc_ahb4_spram
     generic map (
       MEM_SIZE          => 256,
       MEM_DEPTH         => 256,

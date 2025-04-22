@@ -160,6 +160,6 @@ configuration
 
 lifecycle
 · IEEE STD 1735-2014: IP-Developer
-· IEEE STD 2675-2021: IP-DevOps
+· IEEE STD 2675-2021: IP-Operator
 · IEEE STD 1685-2014: IP-Manager
 ```

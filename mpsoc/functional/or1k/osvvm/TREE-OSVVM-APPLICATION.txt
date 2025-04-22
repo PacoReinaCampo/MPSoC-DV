@@ -1,5 +1,5 @@
 application
-├── ahb3
+├── ahb4
 │   ├── peripheral_osvvm_design_pkg.vhd
 │   └── peripheral_osvvm_design.vhd
 ├── apb4

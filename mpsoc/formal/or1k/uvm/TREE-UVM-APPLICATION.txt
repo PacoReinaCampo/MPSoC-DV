@@ -1,5 +1,5 @@
 application
-├── ahb3
+├── ahb4
 │   ├── peripheral_adder.sv
 │   ├── peripheral_full_adder.sv
 │   └── peripheral_half_adder.sv

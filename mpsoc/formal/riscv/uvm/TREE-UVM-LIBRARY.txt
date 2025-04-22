@@ -1,5 +1,5 @@
 library
-├── ahb3
+├── ahb4
 │   ├── peripheral_uvm_agent.sv
 │   ├── peripheral_uvm_coverage.sv
 │   ├── peripheral_uvm_driver.sv
