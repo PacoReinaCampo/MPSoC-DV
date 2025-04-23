@@ -1,162 +1,139 @@
-`include "peripheral_uvm_transaction.sv"
+////////////////////////////////////////////////////////////////////////////////
+//                                            __ _      _     _               //
+//                                           / _(_)    | |   | |              //
+//                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
+//               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |              //
+//              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |              //
+//               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|              //
+//                  | |                                                       //
+//                  |_|                                                       //
+//                                                                            //
+//                                                                            //
+//              Peripheral-NTM for MPSoC                                      //
+//              Neural Turing Machine for MPSoC                               //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2022-2025 by the author(s)
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+////////////////////////////////////////////////////////////////////////////////
+// Author(s):
+//   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-import peripheral_axi4_pkg::*;
+class peripheral_uvm_driver extends uvm_driver #(peripheral_uvm_sequence_item);
+  // Virtual Interface
+  virtual peripheral_design_if vif;
 
-class peripheral_uvm_driver extends uvm_driver #(peripheral_uvm_transaction);
-  // Declaration of component utils to register with factory
-  peripheral_uvm_transaction       transaction;
-
-  // Declaration of Virtual interface
-  virtual peripheral_uvm_interface vif;
-
-  // Declaration of component utils to register with factory
+  // Utility declaration
   `uvm_component_utils(peripheral_uvm_driver)
 
-  uvm_analysis_port #(peripheral_uvm_transaction) driver2rm_port;
-
-  // Method name : new
-  // Description : constructor
-  function new(string name, uvm_component parent);
+  // Constructor
+  function new(string name = "peripheral_uvm_driver", uvm_component parent = null);
     super.new(name, parent);
-  endfunction : new
+  endfunction
 
-  // Method name : build_phase
-  // Description : construct the components
+  // Build phase
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if (!uvm_config_db#(virtual peripheral_uvm_interface)::get(this, "", "intf", vif)) begin
-      `uvm_fatal("NO_VIF", {"virtual interface must be set for: ", get_full_name(), ".vif"});
+    if (!uvm_config_db#(virtual peripheral_design_if)::get(this, "", "vif", vif)) begin
+      `uvm_fatal(get_type_name(), "Not set at top level");
     end
-    driver2rm_port = new("driver2rm_port", this);
-  endfunction : build_phase
+  endfunction
 
-  // Method name : run_phase
-  // Description : Drive the transaction info to DUT
-  virtual task run_phase(uvm_phase phase);
-    reset();
+  // Run phase
+  task run_phase(uvm_phase phase);
     forever begin
+      // Driver to the DUT
       seq_item_port.get_next_item(req);
-      write_drive();
-      read_drive();
-      `uvm_info(get_full_name(), $sformatf("TRANSACTION FROM DRIVER"), UVM_LOW);
-      req.print();
-      @(vif.dr_cb);
-      $cast(rsp, req.clone());
-      rsp.set_id_info(req);
-      driver2rm_port.write(rsp);
-      seq_item_port.item_done();
-      seq_item_port.put(rsp);
-    end
-  endtask : run_phase
 
-  // Method name : drive
-  // Description : Driving the dut inputs
-  task write_drive();
+      // Single Write Transaction
+      write_phase_single();
+
+      // Single Read Transaction
+      read_phase_single();
+
+      seq_item_port.item_done();
+    end
+  endtask
+
+  // Task: Single Write Transaction
+  task write_phase_single;
     begin
       // Operate in a synchronous manner
       @(posedge vif.aclk);
 
       // Address Phase
-      vif.dr_cb.awid    <= 0;
-      vif.dr_cb.awadr   <= req.address;
-      vif.dr_cb.awvalid <= 1;
-      vif.dr_cb.awlen   <= AXI_BURST_LENGTH_1;
-      vif.dr_cb.awsize  <= AXI_BURST_SIZE_WORD;
-      vif.dr_cb.awburst <= AXI_BURST_TYPE_FIXED;
-      vif.dr_cb.awlock  <= AXI_LOCK_NORMAL;
-      vif.dr_cb.awcache <= 0;
-      vif.dr_cb.awprot  <= AXI_PROTECTION_NORMAL;
+      vif.awid    <= 0;
+      vif.awadr   <= AXI_ADDRESS_TEST;
+      vif.awvalid <= 1;
+      vif.awlen   <= AXI_BURST_LENGTH_1;
+      vif.awsize  <= AXI_BURST_SIZE_WORD;
+      vif.awburst <= AXI_BURST_TYPE_FIXED;
+      vif.awlock  <= AXI_LOCK_NORMAL;
+      vif.awcache <= 0;
+      vif.awprot  <= AXI_PROTECTION_NORMAL;
       @(posedge vif.awready);
 
       // Data Phase
-      vif.dr_cb.awvalid <= 0;
-      vif.dr_cb.awadr   <= 'bX;
-      vif.dr_cb.wid     <= 0;
-      vif.dr_cb.wvalid  <= 1;
-      vif.dr_cb.wrdata  <= req.wrdata;
-      vif.dr_cb.wstrb   <= 4'hF;
-      vif.dr_cb.wlast   <= 1;
+      vif.awvalid <= 0;
+      vif.awadr   <= 'bX;
+      vif.wid     <= 0;
+      vif.wvalid  <= 1;
+      vif.wrdata  <= req.wrdata;
+      vif.wstrb   <= 4'hF;
+      vif.wlast   <= 1;
       @(posedge vif.wready);
 
       // Response Phase
-      vif.dr_cb.wid    <= 0;
-      vif.dr_cb.wvalid <= 0;
-      vif.dr_cb.wrdata <= 'bX;
-      vif.dr_cb.wstrb  <= 0;
-      vif.dr_cb.wlast  <= 0;
+      vif.wid    <= 0;
+      vif.wvalid <= 0;
+      vif.wrdata <= 'bX;
+      vif.wstrb  <= 0;
+      vif.wlast  <= 0;
     end
   endtask
 
-  task read_drive();
+  // Task: Single Read Transaction
+  task read_phase_single;
     begin
       // Address Phase
-      vif.dr_cb.arid    <= 0;
-      vif.dr_cb.araddr  <= req.address;
-      vif.dr_cb.arvalid <= 1;
-      vif.dr_cb.arlen   <= AXI_BURST_LENGTH_1;
-      vif.dr_cb.arsize  <= AXI_BURST_SIZE_WORD;
-      vif.dr_cb.arlock  <= AXI_LOCK_NORMAL;
-      vif.dr_cb.arcache <= 0;
-      vif.dr_cb.arprot  <= AXI_PROTECTION_NORMAL;
-      vif.dr_cb.rready  <= 0;
+      vif.arid    <= 0;
+      vif.araddr  <= AXI_ADDRESS_TEST;
+      vif.arvalid <= 1;
+      vif.arlen   <= AXI_BURST_LENGTH_1;
+      vif.arsize  <= AXI_BURST_SIZE_WORD;
+      vif.arlock  <= AXI_LOCK_NORMAL;
+      vif.arcache <= 0;
+      vif.arprot  <= AXI_PROTECTION_NORMAL;
+      vif.rready  <= 0;
       @(posedge vif.arready);
 
       // Data Phase
-      vif.dr_cb.arvalid <= 0;
-      vif.dr_cb.rready  <= 1;
+      vif.arvalid <= 0;
+      vif.rready  <= 1;
       @(posedge vif.rvalid);
 
-      vif.dr_cb.rready <= 0;
+      vif.rready <= 0;
       @(negedge vif.rvalid);
 
-      vif.dr_cb.araddr <= 'bx;
+      vif.araddr <= 'bx;
     end
   endtask
-
-  // Method name : reset
-  // Description : Driving the dut inputs
-  task reset();
-    // Global Signals
-    vif.dr_cb.aresetn <= 0;  // Active LOW
-
-    // Write Address Channel
-    vif.dr_cb.awid    <= 0;  // Address Write ID
-    vif.dr_cb.awadr   <= 0;  // Write Address
-    vif.dr_cb.awlen   <= 0;  // Burst Length
-    vif.dr_cb.awsize  <= 0;  // Burst Size
-    vif.dr_cb.awburst <= 0;  // Burst Type
-    vif.dr_cb.awlock  <= 0;  // Lock Type
-    vif.dr_cb.awcache <= 0;  // Cache Type
-    vif.dr_cb.awprot  <= 0;  // Protection Type
-    vif.dr_cb.awvalid <= 0;  // Write Address Valid
-
-    // Write Data Channel
-    vif.dr_cb.wid     <= 0;  // Write ID
-    vif.dr_cb.wrdata  <= 0;  // Write Data
-    vif.dr_cb.wstrb   <= 0;  // Write Strobes
-    vif.dr_cb.wlast   <= 0;  // Write Last
-    vif.dr_cb.wvalid  <= 0;  // Write Valid
-
-    // Write Response CHannel
-    vif.dr_cb.bid     <= 0;  // Response ID
-    vif.dr_cb.bresp   <= 0;  // Write Response
-    vif.dr_cb.bvalid  <= 0;  // Write Response Valid   
-
-    // Read Address Channel
-    vif.dr_cb.arid    <= 0;  // Read Address ID
-    vif.dr_cb.araddr  <= 0;  // Read Address
-    vif.dr_cb.arlen   <= 0;  // Burst Length
-    vif.dr_cb.arsize  <= 0;  // Burst Size
-    vif.dr_cb.arlock  <= 0;  // Lock Type
-    vif.dr_cb.arcache <= 0;  // Cache Type
-    vif.dr_cb.arprot  <= 0;  // Protection Type
-    vif.dr_cb.arvalid <= 0;  // Read Address Valid
-
-    // Read Data Channel
-    vif.dr_cb.rready  <= 0;  // Read Ready
-
-    repeat (5) @(posedge vif.aclk);
-
-    vif.dr_cb.aresetn <= 1;  // Inactive HIGH
-  endtask
-endclass : peripheral_uvm_driver
+endclass

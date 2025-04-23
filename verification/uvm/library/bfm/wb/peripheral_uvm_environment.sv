@@ -1,39 +1,71 @@
-`include "peripheral_uvm_reference_model.sv"
-`include "peripheral_uvm_scoreboard.sv"
+////////////////////////////////////////////////////////////////////////////////
+//                                            __ _      _     _               //
+//                                           / _(_)    | |   | |              //
+//                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
+//               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |              //
+//              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |              //
+//               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|              //
+//                  | |                                                       //
+//                  |_|                                                       //
+//                                                                            //
+//                                                                            //
+//              Peripheral-NTM for MPSoC                                      //
+//              Neural Turing Machine for MPSoC                               //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2022-2025 by the author(s)
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+////////////////////////////////////////////////////////////////////////////////
+// Author(s):
+//   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-class peripheral_uvm_entironment extends uvm_env;
-  // Declaration components
-  peripheral_uvm_agent                                  agent;
-  peripheral_uvm_reference_model                        reference_model;
-  peripheral_uvm_coverage #(peripheral_uvm_transaction) coverage;
-  peripheral_uvm_scoreboard                             scoreboard;
+class peripheral_uvm_environment extends uvm_env;
+  // Utility declaration
+  `uvm_component_utils(peripheral_uvm_environment)
 
-  // Declaration of component utils to register with factory
-  `uvm_component_utils(peripheral_uvm_entironment)
+  // Agent method instantiation
+  peripheral_uvm_agent      agent;
 
-  // Method name : new
-  // Description : constructor
-  function new(string name, uvm_component parent);
+  // ScoreBoard method instantiation
+  peripheral_uvm_scoreboard scoreboard;
+
+  // Constructor
+  function new(string name = "environment", uvm_component parent = null);
     super.new(name, parent);
-  endfunction : new
+  endfunction
 
-  // Method name : build_phase
-  // Description : constructor
+  // Build phase
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    agent           = peripheral_uvm_agent::type_id::create("agent", this);
-    reference_model = peripheral_uvm_reference_model::type_id::create("reference_model", this);
-    coverage        = peripheral_uvm_coverage#(peripheral_uvm_transaction)::type_id::create("coverage", this);
-    scoreboard      = peripheral_uvm_scoreboard::type_id::create("scoreboard", this);
-  endfunction : build_phase
 
-  // Method name : build_phase
-  // Description : constructor
+    // Create agent method
+    agent      = peripheral_uvm_agent::type_id::create("agent", this);
+
+    // Create scoreboard method
+    scoreboard = peripheral_uvm_scoreboard::type_id::create("scoreboard", this);
+  endfunction
+
+  // Connect phase
   function void connect_phase(uvm_phase phase);
-    super.connect_phase(phase);
-    agent.driver.driver2rm_port.connect(reference_model.rm_export);
-    agent.monitor.monitor2scoreboard_port.connect(scoreboard.monitor2scoreboard_export);
-    reference_model.rm2scoreboard_port.connect(coverage.analysis_export);
-    reference_model.rm2scoreboard_port.connect(scoreboard.rm2scoreboard_export);
-  endfunction : connect_phase
-endclass : peripheral_uvm_entironment
+    // Connecting the driver and sequencer port
+    agent.monitor.item_collect_port.connect(scoreboard.item_collect_export);
+  endfunction
+endclass

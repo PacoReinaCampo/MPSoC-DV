@@ -1,188 +1,91 @@
-interface peripheral_uvm_interface (
-    input logic clk_i
+////////////////////////////////////////////////////////////////////////////////
+//                                            __ _      _     _               //
+//                                           / _(_)    | |   | |              //
+//                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |              //
+//               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |              //
+//              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |              //
+//               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|              //
+//                  | |                                                       //
+//                  |_|                                                       //
+//                                                                            //
+//                                                                            //
+//              Peripheral-NTM for MPSoC                                      //
+//              Neural Turing Machine for MPSoC                               //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2022-2025 by the author(s)
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+////////////////////////////////////////////////////////////////////////////////
+// Author(s):
+//   Paco Reina Campo <pacoreinacampo@queenfield.tech>
+
+interface peripheral_design_if (
+  input logic aclk
 );
 
-  logic                        rst_ni;  // Asynchronous reset active low
+  // Global Signals
+  logic        aresetn; // Active LOW
 
-  logic [AXI_ID_WIDTH    -1:0] axi_aw_id;
-  logic [AXI_ADDR_WIDTH  -1:0] axi_aw_addr;
-  logic [                 7:0] axi_aw_len;
-  logic [                 2:0] axi_aw_size;
-  logic [                 1:0] axi_aw_burst;
-  logic                        axi_aw_lock;
-  logic [                 3:0] axi_aw_cache;
-  logic [                 2:0] axi_aw_prot;
-  logic [                 3:0] axi_aw_qos;
-  logic [                 3:0] axi_aw_region;
-  logic [AXI_USER_WIDTH  -1:0] axi_aw_user;
-  logic                        axi_aw_valid;
-  logic                        axi_aw_ready;
+  // Write Address Channel
+  logic [ 3:0] awid;     // Address Write ID
+  logic [31:0] awadr;    // Write Address
+  logic [ 3:0] awlen;    // Burst Length
+  logic [ 2:0] awsize;   // Burst Size
+  logic [ 1:0] awburst;  // Burst Type
+  logic [ 1:0] awlock;   // Lock Type
+  logic [ 3:0] awcache;  // Cache Type
+  logic [ 2:0] awprot;   // Protection Type
+  logic        awvalid;  // Write Address Valid
+  logic        awready;  // Write Address Ready
 
-  logic [AXI_ID_WIDTH    -1:0] axi_ar_id;
-  logic [AXI_ADDR_WIDTH  -1:0] axi_ar_addr;
-  logic [                 7:0] axi_ar_len;
-  logic [                 2:0] axi_ar_size;
-  logic [                 1:0] axi_ar_burst;
-  logic                        axi_ar_lock;
-  logic [                 3:0] axi_ar_cache;
-  logic [                 2:0] axi_ar_prot;
-  logic [                 3:0] axi_ar_qos;
-  logic [                 3:0] axi_ar_region;
-  logic [AXI_USER_WIDTH  -1:0] axi_ar_user;
-  logic                        axi_ar_valid;
-  logic                        axi_ar_ready;
+  // Write Data Channel
+  logic [ 3:0] wid;     // Write ID
+  logic [31:0] wrdata;  // Write Data
+  logic [ 3:0] wstrb;   // Write Strobes
+  logic        wlast;   // Write Last
+  logic        wvalid;  // Write Valid
+  logic        wready;  // Write Ready
 
-  logic [AXI_DATA_WIDTH  -1:0] axi_w_data;
-  logic [AXI_STRB_WIDTH  -1:0] axi_w_strb;
-  logic                        axi_w_last;
-  logic [AXI_USER_WIDTH  -1:0] axi_w_user;
-  logic                        axi_w_valid;
-  logic                        axi_w_ready;
+  // Write Response CHannel
+  logic [3:0] bid;     // Response ID
+  logic [1:0] bresp;   // Write Response
+  logic       bvalid;  // Write Response Valid
+  logic       bready;  // Response Ready
 
-  logic [AXI_ID_WIDTH    -1:0] axi_r_id;
-  logic [AXI_DATA_WIDTH  -1:0] axi_r_data;
-  logic [                 1:0] axi_r_resp;
-  logic                        axi_r_last;
-  logic [AXI_USER_WIDTH  -1:0] axi_r_user;
-  logic                        axi_r_valid;
-  logic                        axi_r_ready;
+  // Read Address Channel
+  logic [ 3:0] arid;     // Read Address ID
+  logic [31:0] araddr;   // Read Address
+  logic [ 3:0] arlen;    // Burst Length
+  logic [ 2:0] arsize;   // Burst Size
+  logic [ 1:0] arlock;   // Lock Type
+  logic [ 3:0] arcache;  // Cache Type
+  logic [ 2:0] arprot;   // Protection Type
+  logic        arvalid;  // Read Address Valid
+  logic        arready;  // Read Address Ready
 
-  logic [AXI_ID_WIDTH    -1:0] axi_b_id;
-  logic [                 1:0] axi_b_resp;
-  logic [AXI_USER_WIDTH  -1:0] axi_b_user;
-  logic                        axi_b_valid;
-  logic                        axi_b_ready;
-
-  logic                        req_o;
-  logic                        we_o;
-  logic [AXI_ADDR_WIDTH  -1:0] addr_o;
-  logic [AXI_DATA_WIDTH/8-1:0] be_o;
-  logic [AXI_DATA_WIDTH  -1:0] data_o;
-  logic [AXI_DATA_WIDTH  -1:0] data_i;
-
-  // Clocking block and modport declaration for driver
-  clocking dr_cb @(posedge clk_i);
-    output                        rst_ni; // Asynchronous reset active low
-
-    output [AXI_ID_WIDTH    -1:0] axi_aw_id;
-    output [AXI_ADDR_WIDTH  -1:0] axi_aw_addr;
-    output [                 7:0] axi_aw_len;
-    output [                 2:0] axi_aw_size;
-    output [                 1:0] axi_aw_burst;
-    output                        axi_aw_lock;
-    output [                 3:0] axi_aw_cache;
-    output [                 2:0] axi_aw_prot;
-    output [                 3:0] axi_aw_qos;
-    output [                 3:0] axi_aw_region;
-    output [AXI_USER_WIDTH  -1:0] axi_aw_user;
-    output                        axi_aw_valid;
-    input                         axi_aw_ready;
-
-    output [AXI_ID_WIDTH    -1:0] axi_ar_id;
-    output [AXI_ADDR_WIDTH  -1:0] axi_ar_addr;
-    output [                 7:0] axi_ar_len;
-    output [                 2:0] axi_ar_size;
-    output [                 1:0] axi_ar_burst;
-    output                        axi_ar_lock;
-    output [                 3:0] axi_ar_cache;
-    output [                 2:0] axi_ar_prot;
-    output [                 3:0] axi_ar_qos;
-    output [                 3:0] axi_ar_region;
-    output [AXI_USER_WIDTH  -1:0] axi_ar_user;
-    output                        axi_ar_valid;
-    input                         axi_ar_ready;
-
-    output [AXI_DATA_WIDTH  -1:0] axi_w_data;
-    output [AXI_STRB_WIDTH  -1:0] axi_w_strb;
-    output                        axi_w_last;
-    output [AXI_USER_WIDTH  -1:0] axi_w_user;
-    output                        axi_w_valid;
-    input                         axi_w_ready;
-
-    input  [AXI_ID_WIDTH    -1:0] axi_r_id;
-    input  [AXI_DATA_WIDTH  -1:0] axi_r_data;
-    input  [                 1:0] axi_r_resp;
-    input                         axi_r_last;
-    input  [AXI_USER_WIDTH  -1:0] axi_r_user;
-    input                         axi_r_valid;
-    output                        axi_r_ready;
-
-    input  [AXI_ID_WIDTH    -1:0] axi_b_id;
-    input  [                 1:0] axi_b_resp;
-    input  [AXI_USER_WIDTH  -1:0] axi_b_user;
-    input                         axi_b_valid;
-    output                        axi_b_ready;
-
-    input                         req_o;
-    input                         we_o;
-    input  [AXI_ADDR_WIDTH  -1:0] addr_o;
-    input  [AXI_DATA_WIDTH/8-1:0] be_o;
-    input  [AXI_DATA_WIDTH  -1:0] data_o;
-    output [AXI_DATA_WIDTH  -1:0] data_i;
-  endclocking
-
-  modport DRV(clocking dr_cb, input clk_i);
-
-  // Clocking block and modport declaration for monitor
-  clocking rc_cb @(negedge clk_i);
-    input                        rst_ni;  // Asynchronous reset active low
-
-    input [AXI_ID_WIDTH    -1:0] axi_aw_id;
-    input [AXI_ADDR_WIDTH  -1:0] axi_aw_addr;
-    input [                 7:0] axi_aw_len;
-    input [                 2:0] axi_aw_size;
-    input [                 1:0] axi_aw_burst;
-    input                        axi_aw_lock;
-    input [                 3:0] axi_aw_cache;
-    input [                 2:0] axi_aw_prot;
-    input [                 3:0] axi_aw_qos;
-    input [                 3:0] axi_aw_region;
-    input [AXI_USER_WIDTH  -1:0] axi_aw_user;
-    input                        axi_aw_valid;
-    input                        axi_aw_ready;
-
-    input [AXI_ID_WIDTH    -1:0] axi_ar_id;
-    input [AXI_ADDR_WIDTH  -1:0] axi_ar_addr;
-    input [                 7:0] axi_ar_len;
-    input [                 2:0] axi_ar_size;
-    input [                 1:0] axi_ar_burst;
-    input                        axi_ar_lock;
-    input [                 3:0] axi_ar_cache;
-    input [                 2:0] axi_ar_prot;
-    input [                 3:0] axi_ar_qos;
-    input [                 3:0] axi_ar_region;
-    input [AXI_USER_WIDTH  -1:0] axi_ar_user;
-    input                        axi_ar_valid;
-    input                        axi_ar_ready;
-
-    input [AXI_DATA_WIDTH  -1:0] axi_w_data;
-    input [AXI_STRB_WIDTH  -1:0] axi_w_strb;
-    input                        axi_w_last;
-    input [AXI_USER_WIDTH  -1:0] axi_w_user;
-    input                        axi_w_valid;
-    input                        axi_w_ready;
-
-    input [AXI_ID_WIDTH    -1:0] axi_r_id;
-    input [AXI_DATA_WIDTH  -1:0] axi_r_data;
-    input [                 1:0] axi_r_resp;
-    input                        axi_r_last;
-    input [AXI_USER_WIDTH  -1:0] axi_r_user;
-    input                        axi_r_valid;
-    input                        axi_r_ready;
-
-    input [AXI_ID_WIDTH    -1:0] axi_b_id;
-    input [                 1:0] axi_b_resp;
-    input [AXI_USER_WIDTH  -1:0] axi_b_user;
-    input                        axi_b_valid;
-    input                        axi_b_ready;
-
-    input                        req_o;
-    input                        we_o;
-    input [AXI_ADDR_WIDTH  -1:0] addr_o;
-    input [AXI_DATA_WIDTH/8-1:0] be_o;
-    input [AXI_DATA_WIDTH  -1:0] data_o;
-    input [AXI_DATA_WIDTH  -1:0] data_i;
-  endclocking
-
-  modport RCV(clocking rc_cb, input clk_i);
+  // Read Data Channel
+  logic [ 3:0] rid;     // Read ID
+  logic [31:0] rdata;   // Read Data
+  logic [ 1:0] rresp;   // Read Response
+  logic        rlast;   // Read Last
+  logic        rvalid;  // Read Valid
+  logic        rready;  // Read Ready
 endinterface
