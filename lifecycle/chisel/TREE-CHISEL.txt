@@ -1,12 +1,12 @@
 library
 ├── bfm
-│   ├── peripheral_ahb3_test.scala
+│   ├── peripheral_ahb4_test.scala
 │   ├── peripheral_apb4_test.scala
 │   ├── peripheral_axi4_test.scala
 │   ├── peripheral_bb_test.scala
 │   ├── peripheral_biu_test.scala
 │   ├── peripheral_wb_test.scala
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_design.scala
 │   ├── apb4
 │   │   └── peripheral_design.scala
@@ -19,13 +19,13 @@ library
 │   └── wb
 │       └── peripheral_design.scala
 ├── core
-│   ├── peripheral_ahb3_test.scala
+│   ├── peripheral_ahb4_test.scala
 │   ├── peripheral_apb4_test.scala
 │   ├── peripheral_axi4_test.scala
 │   ├── peripheral_bb_test.scala
 │   ├── peripheral_biu_test.scala
 │   ├── peripheral_wb_test.scala
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_design.scala
 │   ├── apb4
 │   │   └── peripheral_design.scala
@@ -38,13 +38,13 @@ library
 │   └── wb
 │       └── peripheral_design.scala
 ├── mpsoc
-│   ├── peripheral_ahb3_test.scala
+│   ├── peripheral_ahb4_test.scala
 │   ├── peripheral_apb4_test.scala
 │   ├── peripheral_axi4_test.scala
 │   ├── peripheral_bb_test.scala
 │   ├── peripheral_biu_test.scala
 │   ├── peripheral_wb_test.scala
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_design.scala
 │   ├── apb4
 │   │   └── peripheral_design.scala
@@ -57,13 +57,13 @@ library
 │   └── wb
 │       └── peripheral_design.scala
 ├── pu
-│   ├── peripheral_ahb3_test.scala
+│   ├── peripheral_ahb4_test.scala
 │   ├── peripheral_apb4_test.scala
 │   ├── peripheral_axi4_test.scala
 │   ├── peripheral_bb_test.scala
 │   ├── peripheral_biu_test.scala
 │   ├── peripheral_wb_test.scala
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_design.scala
 │   ├── apb4
 │   │   └── peripheral_design.scala
@@ -76,13 +76,13 @@ library
 │   └── wb
 │       └── peripheral_design.scala
 └── soc
-    ├── peripheral_ahb3_test.scala
+    ├── peripheral_ahb4_test.scala
     ├── peripheral_apb4_test.scala
     ├── peripheral_axi4_test.scala
     ├── peripheral_bb_test.scala
     ├── peripheral_biu_test.scala
     ├── peripheral_wb_test.scala
-    ├── ahb3
+    ├── ahb4
     │   └── peripheral_design.scala
     ├── apb4
     │   └── peripheral_design.scala

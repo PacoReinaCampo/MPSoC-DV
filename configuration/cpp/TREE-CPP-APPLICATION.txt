@@ -1,6 +1,6 @@
 application
 ├── bfm
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── main.cpp
 │   ├── apb4
 │   │   └── main.cpp
@@ -13,7 +13,7 @@ application
 │   └── wb
 │       └── main.cpp
 ├── core
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── main.cpp
 │   ├── apb4
 │   │   └── main.cpp
@@ -26,7 +26,7 @@ application
 │   └── wb
 │       └── main.cpp
 ├── mpsoc
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── main.cpp
 │   ├── apb4
 │   │   └── main.cpp
@@ -39,7 +39,7 @@ application
 │   └── wb
 │       └── main.cpp
 ├── pu
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── main.cpp
 │   ├── apb4
 │   │   └── main.cpp
@@ -52,7 +52,7 @@ application
 │   └── wb
 │       └── main.cpp
 └── soc
-    ├── ahb3
+    ├── ahb4
     │   └── main.cpp
     ├── apb4
     │   └── main.cpp

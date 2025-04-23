@@ -1,0 +1,24 @@
+digraph structural_class_ahb4 {
+  // ahb4 bus node
+  ahb4_bus [label="{ahb4 bus|+ ClockFrequency : int|+ DataWidth : int|+ SupportsBurst : bool|+ SupportsMultiMaster : bool|+ SupportsProtocols : bool}" shape=record];
+  
+  // ahb4 Master node
+  ahb4Master [label="{ahb4Master|+ ID : int|+ Priority : int}" shape=record];
+  
+  // ahb4 Slave node
+  ahb4Slave [label="{ahb4Slave|+ ID : int}" shape=record];
+  
+  // ahb4 bus to ahb4 Master relationship
+  ahb4_bus -> ahb4Master [label="Controls"];
+  
+  // ahb4 bus to ahb4 Slave relationship
+  ahb4_bus -> ahb4Slave [label="Connected to"];
+  
+  // Additional attributes for ahb4 Master
+  ahb4Master -> ahb4_Arbitration [label="Uses"];
+  ahb4_Arbitration [label="{ahb4_Arbitration|+ ArbitrationType : string}" shape=record];
+  
+  // Additional attributes for ahb4 Slave
+  ahb4Slave -> ahb4_Protocol [label="Uses"];
+  ahb4_Protocol [label="{ahb4_Protocol|+ ProtocolVersion : string}" shape=record];
+}

@@ -1,12 +1,12 @@
 library
 ├── bfm
-│   ├── peripheral_ahb3_test.java
+│   ├── peripheral_ahb4_test.java
 │   ├── peripheral_apb4_test.java
 │   ├── peripheral_axi4_test.java
 │   ├── peripheral_bb_test.java
 │   ├── peripheral_biu_test.java
 │   ├── peripheral_wb_test.java
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_design.java
 │   ├── apb4
 │   │   └── peripheral_design.java
@@ -19,13 +19,13 @@ library
 │   └── wb
 │       └── peripheral_design.java
 ├── core
-│   ├── peripheral_ahb3_test.java
+│   ├── peripheral_ahb4_test.java
 │   ├── peripheral_apb4_test.java
 │   ├── peripheral_axi4_test.java
 │   ├── peripheral_bb_test.java
 │   ├── peripheral_biu_test.java
 │   ├── peripheral_wb_test.java
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_design.java
 │   ├── apb4
 │   │   └── peripheral_design.java
@@ -38,13 +38,13 @@ library
 │   └── wb
 │       └── peripheral_design.java
 ├── mpsoc
-│   ├── peripheral_ahb3_test.java
+│   ├── peripheral_ahb4_test.java
 │   ├── peripheral_apb4_test.java
 │   ├── peripheral_axi4_test.java
 │   ├── peripheral_bb_test.java
 │   ├── peripheral_biu_test.java
 │   ├── peripheral_wb_test.java
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_design.java
 │   ├── apb4
 │   │   └── peripheral_design.java
@@ -57,13 +57,13 @@ library
 │   └── wb
 │       └── peripheral_design.java
 ├── pu
-│   ├── peripheral_ahb3_test.java
+│   ├── peripheral_ahb4_test.java
 │   ├── peripheral_apb4_test.java
 │   ├── peripheral_axi4_test.java
 │   ├── peripheral_bb_test.java
 │   ├── peripheral_biu_test.java
 │   ├── peripheral_wb_test.java
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_design.java
 │   ├── apb4
 │   │   └── peripheral_design.java
@@ -76,13 +76,13 @@ library
 │   └── wb
 │       └── peripheral_design.java
 └── soc
-    ├── peripheral_ahb3_test.java
+    ├── peripheral_ahb4_test.java
     ├── peripheral_apb4_test.java
     ├── peripheral_axi4_test.java
     ├── peripheral_bb_test.java
     ├── peripheral_biu_test.java
     ├── peripheral_wb_test.java
-    ├── ahb3
+    ├── ahb4
     │   └── peripheral_design.java
     ├── apb4
     │   └── peripheral_design.java

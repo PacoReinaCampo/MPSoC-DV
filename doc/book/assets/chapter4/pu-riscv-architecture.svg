@@ -255,11 +255,11 @@
 <polygon fill="none" stroke="black" points="294,-68 240,-68 240,-32 294,-32 294,-68"/>
 <text text-anchor="middle" x="267" y="-46.3" font-family="Times,serif" font-size="14.00">axi4</text>
 </g>
-<!-- bus_ahb3 -->
+<!-- bus_ahb4 -->
 <g id="node32" class="node">
-<title>bus_ahb3</title>
+<title>bus_ahb4</title>
 <polygon fill="none" stroke="black" points="222,-68 168,-68 168,-32 222,-32 222,-68"/>
-<text text-anchor="middle" x="195" y="-46.3" font-family="Times,serif" font-size="14.00">ahb3</text>
+<text text-anchor="middle" x="195" y="-46.3" font-family="Times,serif" font-size="14.00">ahb4</text>
 </g>
 <!-- bus_biu -->
 <g id="node33" class="node">

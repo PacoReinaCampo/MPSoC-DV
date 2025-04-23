@@ -1,6 +1,6 @@
 library
 ├── bfm
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_behavioral_activity.dot
 │   │   ├── peripheral_behavioral_communication.dot
 │   │   ├── peripheral_behavioral_interaction.dot
@@ -91,7 +91,7 @@ library
 │       ├── peripheral_structural_package.dot
 │       └── peripheral_structural_profile.dot
 ├── core
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_behavioral_activity.dot
 │   │   ├── peripheral_behavioral_communication.dot
 │   │   ├── peripheral_behavioral_interaction.dot
@@ -182,7 +182,7 @@ library
 │       ├── peripheral_structural_package.dot
 │       └── peripheral_structural_profile.dot
 ├── mpsoc
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_behavioral_activity.dot
 │   │   ├── peripheral_behavioral_communication.dot
 │   │   ├── peripheral_behavioral_interaction.dot
@@ -273,7 +273,7 @@ library
 │       ├── peripheral_structural_package.dot
 │       └── peripheral_structural_profile.dot
 ├── pu
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_behavioral_activity.dot
 │   │   ├── peripheral_behavioral_communication.dot
 │   │   ├── peripheral_behavioral_interaction.dot
@@ -364,7 +364,7 @@ library
 │       ├── peripheral_structural_package.dot
 │       └── peripheral_structural_profile.dot
 └── soc
-    ├── ahb3
+    ├── ahb4
     │   ├── peripheral_behavioral_activity.dot
     │   ├── peripheral_behavioral_communication.dot
     │   ├── peripheral_behavioral_interaction.dot

@@ -1,7 +1,0 @@
-[package]
-name = "bfm_library_ahb3"
-version = "0.0.0"
-authors = []
-edition = "2021"
-
-[dependencies]

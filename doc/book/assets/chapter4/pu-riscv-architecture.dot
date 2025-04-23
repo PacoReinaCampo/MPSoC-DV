@@ -57,7 +57,7 @@ digraph Project {
     }
     subgraph "cluster interface" { label = "interface";
       bus_axi4[shape=box, label="axi4"];
-      bus_ahb3[shape=box, label="ahb3"];
+      bus_ahb4[shape=box, label="ahb4"];
       bus_biu[shape=box, label="biu"];
       bus_wb[shape=box, label="wb"];
     }

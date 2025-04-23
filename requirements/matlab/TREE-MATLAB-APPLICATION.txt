@@ -1,6 +1,6 @@
 application
 ├── bfm
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_test.m
 │   ├── apb4
 │   │   └── peripheral_test.m
@@ -13,7 +13,7 @@ application
 │   └── wb
 │       └── peripheral_test.m
 └── core
-    ├── ahb3
+    ├── ahb4
     │   └── peripheral_test.m
     ├── apb4
     │   └── peripheral_test.m

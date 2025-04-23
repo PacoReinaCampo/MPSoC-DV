@@ -1,6 +1,6 @@
 application
 ├── bfm
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_test.java
 │   ├── apb4
 │   │   └── peripheral_test.java
@@ -13,7 +13,7 @@ application
 │   └── wb
 │       └── peripheral_test.java
 ├── core
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_test.java
 │   ├── apb4
 │   │   └── peripheral_test.java
@@ -26,7 +26,7 @@ application
 │   └── wb
 │       └── peripheral_test.java
 ├── mpsoc
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_test.java
 │   ├── apb4
 │   │   └── peripheral_test.java
@@ -39,7 +39,7 @@ application
 │   └── wb
 │       └── peripheral_test.java
 ├── pu
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_test.java
 │   ├── apb4
 │   │   └── peripheral_test.java
@@ -52,7 +52,7 @@ application
 │   └── wb
 │       └── peripheral_test.java
 └── soc
-    ├── ahb3
+    ├── ahb4
     │   └── peripheral_test.java
     ├── apb4
     │   └── peripheral_test.java

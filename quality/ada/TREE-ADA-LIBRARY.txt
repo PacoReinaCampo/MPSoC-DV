@@ -1,6 +1,6 @@
 library
 ├── bfm
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_design.adb
 │   │   └── peripheral_design.ads
 │   ├── apb4
@@ -19,7 +19,7 @@ library
 │       ├── peripheral_design.adb
 │       └── peripheral_design.ads
 ├── core
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_design.adb
 │   │   └── peripheral_design.ads
 │   ├── apb4
@@ -38,7 +38,7 @@ library
 │       ├── peripheral_design.adb
 │       └── peripheral_design.ads
 ├── mpsoc
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_design.adb
 │   │   └── peripheral_design.ads
 │   ├── apb4
@@ -57,7 +57,7 @@ library
 │       ├── peripheral_design.adb
 │       └── peripheral_design.ads
 ├── pu
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_design.adb
 │   │   └── peripheral_design.ads
 │   ├── apb4
@@ -76,7 +76,7 @@ library
 │       ├── peripheral_design.adb
 │       └── peripheral_design.ads
 └── soc
-    ├── ahb3
+    ├── ahb4
     │   ├── peripheral_design.adb
     │   └── peripheral_design.ads
     ├── apb4

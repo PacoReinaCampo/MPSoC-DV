@@ -1,6 +1,6 @@
 library
 ├── bfm
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_design.psl
 │   ├── apb4
 │   │   └── peripheral_design.psl
@@ -13,7 +13,7 @@ library
 │   └── wb
 │       └── peripheral_design.psl
 ├── core
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_design.psl
 │   ├── apb4
 │   │   └── peripheral_design.psl
@@ -26,7 +26,7 @@ library
 │   └── wb
 │       └── peripheral_design.psl
 ├── mpsoc
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_design.psl
 │   ├── apb4
 │   │   └── peripheral_design.psl
@@ -39,7 +39,7 @@ library
 │   └── wb
 │       └── peripheral_design.psl
 ├── pu
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_design.psl
 │   ├── apb4
 │   │   └── peripheral_design.psl
@@ -52,7 +52,7 @@ library
 │   └── wb
 │       └── peripheral_design.psl
 └── soc
-    ├── ahb3
+    ├── ahb4
     │   └── peripheral_design.psl
     ├── apb4
     │   └── peripheral_design.psl

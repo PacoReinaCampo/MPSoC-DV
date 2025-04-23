@@ -42,7 +42,7 @@
 ##                                                                               ##
 ###################################################################################
 
-javac ahb3/peripheral_design.java; javac peripheral_ahb3_test.java; java peripheral_ahb3_test
+javac ahb4/peripheral_design.java; javac peripheral_ahb4_test.java; java peripheral_ahb4_test
 javac apb4/peripheral_design.java; javac peripheral_apb4_test.java; java peripheral_apb4_test
 javac axi4/peripheral_design.java; javac peripheral_axi4_test.java; java peripheral_axi4_test
 javac bb/peripheral_design.java; javac peripheral_bb_test.java; java peripheral_bb_test

@@ -1,6 +1,6 @@
 library
 ├── bfm
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_design.py
 │   ├── apb4
 │   │   └── peripheral_design.py
@@ -13,7 +13,7 @@ library
 │   └── wb
 │       └── peripheral_design.py
 ├── core
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_design.py
 │   ├── apb4
 │   │   └── peripheral_design.py
@@ -26,7 +26,7 @@ library
 │   └── wb
 │       └── peripheral_design.py
 ├── mpsoc
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_design.py
 │   ├── apb4
 │   │   └── peripheral_design.py
@@ -39,7 +39,7 @@ library
 │   └── wb
 │       └── peripheral_design.py
 ├── pu
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── peripheral_design.py
 │   ├── apb4
 │   │   └── peripheral_design.py
@@ -52,7 +52,7 @@ library
 │   └── wb
 │       └── peripheral_design.py
 └── soc
-    ├── ahb3
+    ├── ahb4
     │   └── peripheral_design.py
     ├── apb4
     │   └── peripheral_design.py

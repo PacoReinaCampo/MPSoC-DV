@@ -1,6 +1,6 @@
 library
 ├── bfm
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_design.c
 │   │   └── peripheral_design.h
 │   ├── apb4
@@ -19,7 +19,7 @@ library
 │       ├── peripheral_design.c
 │       └── peripheral_design.h
 ├── core
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_design.c
 │   │   └── peripheral_design.h
 │   ├── apb4
@@ -38,7 +38,7 @@ library
 │       ├── peripheral_design.c
 │       └── peripheral_design.h
 ├── mpsoc
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_design.c
 │   │   └── peripheral_design.h
 │   ├── apb4
@@ -57,7 +57,7 @@ library
 │       ├── peripheral_design.c
 │       └── peripheral_design.h
 ├── pu
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── peripheral_design.c
 │   │   └── peripheral_design.h
 │   ├── apb4
@@ -76,7 +76,7 @@ library
 │       ├── peripheral_design.c
 │       └── peripheral_design.h
 └── soc
-    ├── ahb3
+    ├── ahb4
     │   ├── peripheral_design.c
     │   └── peripheral_design.h
     ├── apb4

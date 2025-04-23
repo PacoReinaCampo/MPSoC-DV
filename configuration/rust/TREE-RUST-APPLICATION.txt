@@ -1,6 +1,6 @@
 application
 ├── bfm
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── src
 │   │       └── main.rs
 │   ├── apb4
@@ -19,7 +19,7 @@ application
 │       └── src
 │           └── main.rs
 ├── core
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── src
 │   │       └── main.rs
 │   ├── apb4
@@ -38,7 +38,7 @@ application
 │       └── src
 │           └── main.rs
 ├── mpsoc
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── src
 │   │       └── main.rs
 │   ├── apb4
@@ -57,7 +57,7 @@ application
 │       └── src
 │           └── main.rs
 ├── pu
-│   ├── ahb3
+│   ├── ahb4
 │   │   └── src
 │   │       └── main.rs
 │   ├── apb4
@@ -76,7 +76,7 @@ application
 │       └── src
 │           └── main.rs
 └── soc
-    ├── ahb3
+    ├── ahb4
     │   └── src
     │       └── main.rs
     ├── apb4

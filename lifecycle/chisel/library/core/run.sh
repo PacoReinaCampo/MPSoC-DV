@@ -43,7 +43,7 @@
 ###################################################################################
 
 javac apb4/peripheral_design.scala; javac peripheral_apb4_test.scala; java peripheral_apb4_test
-javac ahb3/peripheral_design.scala; javac peripheral_ahb3_test.scala; java peripheral_ahb3_test
+javac ahb4/peripheral_design.scala; javac peripheral_ahb4_test.scala; java peripheral_ahb4_test
 javac axi4/peripheral_design.scala; javac peripheral_axi4_test.scala; java peripheral_axi4_test
 javac bb/peripheral_design.scala; javac peripheral_bb_test.scala; java peripheral_bb_test
 javac wb/peripheral_design.scala; javac peripheral_wb_test.scala; java peripheral_wb_test

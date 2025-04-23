@@ -1,6 +1,6 @@
 application
 ├── bfm
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── build-or1k.sh
 │   │   ├── build-riscv.sh
 │   │   ├── build-x86.sh
@@ -49,7 +49,7 @@ application
 │       ├── main.c
 │       └── simulate-riscv.sh
 ├── core
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── build-or1k.sh
 │   │   ├── build-riscv.sh
 │   │   ├── build-x86.sh
@@ -98,7 +98,7 @@ application
 │       ├── main.c
 │       └── simulate-riscv.sh
 ├── mpsoc
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── build-or1k.sh
 │   │   ├── build-riscv.sh
 │   │   ├── build-x86.sh
@@ -147,7 +147,7 @@ application
 │       ├── main.c
 │       └── simulate-riscv.sh
 ├── pu
-│   ├── ahb3
+│   ├── ahb4
 │   │   ├── build-or1k.sh
 │   │   ├── build-riscv.sh
 │   │   ├── build-x86.sh
@@ -196,7 +196,7 @@ application
 │       ├── main.c
 │       └── simulate-riscv.sh
 └── soc
-    ├── ahb3
+    ├── ahb4
     │   ├── build-or1k.sh
     │   ├── build-riscv.sh
     │   ├── build-x86.sh

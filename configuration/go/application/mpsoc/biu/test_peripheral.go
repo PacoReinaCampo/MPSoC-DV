@@ -49,7 +49,7 @@ import (
   "fmt"
   "math/rand"
 
-  "go/library/bfm/ahb3"
+  "go/library/bfm/ahb4"
 )
 
 func main() {

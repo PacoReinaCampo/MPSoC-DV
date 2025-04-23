@@ -279,7 +279,7 @@ source simulate.sh
 ```
 
 ```
-cd sim/verilog/regression/ahb3/verilator
+cd sim/verilog/regression/ahb4/verilator
 source simulate.sh
 ```
 
@@ -341,7 +341,7 @@ source simulate.sh
 ```
 
 ```
-cd sim/vhdl/regression/ahb3/ghdl
+cd sim/vhdl/regression/ahb4/ghdl
 source simulate.sh
 ```
 
@@ -372,7 +372,7 @@ source simulate.sh
 ```
 
 ```
-cd sim/verilog/regression/ahb3/iverilog
+cd sim/verilog/regression/ahb4/iverilog
 source simulate.sh
 ```
 

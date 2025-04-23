@@ -42,13 +42,13 @@
 ##                                                                               ##
 ###################################################################################
 
-java application/bfm/ahb3/peripheral_test.java
+java application/bfm/ahb4/peripheral_test.java
 java application/bfm/apb4/peripheral_test.java
 java application/bfm/axi4/peripheral_test.java
 java application/bfm/bb/peripheral_test.java
 java application/bfm/biu/peripheral_test.java
 java application/bfm/wb/peripheral_test.java
-java application/core/ahb3/peripheral_test.java
+java application/core/ahb4/peripheral_test.java
 java application/core/apb4/peripheral_test.java
 java application/core/axi4/peripheral_test.java
 java application/core/bb/peripheral_test.java

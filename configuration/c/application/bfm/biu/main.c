@@ -47,7 +47,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "../../../library/bfm/ahb3/peripheral_design.h"
+#include "../../../library/bfm/ahb4/peripheral_design.h"
 
 int main() {
   srand(time(NULL));

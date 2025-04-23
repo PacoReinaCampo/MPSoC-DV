@@ -1,0 +1,9 @@
+[package]
+name = "core_ahb4"
+version = "0.0.0"
+authors = []
+edition = "2021"
+
+[dependencies]
+rand = "0.9.0"
+core_library_ahb4 = { path = "../../../library/core/ahb4" }
