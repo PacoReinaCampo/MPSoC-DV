@@ -1,7 +1,7 @@
 import peripheral_bb_pkg::*;
 
 class peripheral_uvm_transaction extends uvm_sequence_item;
-  // Declaration of peripheral_adder transaction fields
+  // Declaration of peripheral_design transaction fields
   bit               ram_rst;  // Asynchronous reset active low
 
   rand bit [AW-1:0] ram_addr;  // RAM address

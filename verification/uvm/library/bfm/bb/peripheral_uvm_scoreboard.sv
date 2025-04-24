@@ -39,7 +39,7 @@ class peripheral_uvm_scoreboard extends uvm_scoreboard;
   endfunction : connect_phase
 
   // Method name : run
-  // Description : comparing peripheral_adder expected and actual transactions
+  // Description : comparing peripheral_design expected and actual transactions
   virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
     forever begin

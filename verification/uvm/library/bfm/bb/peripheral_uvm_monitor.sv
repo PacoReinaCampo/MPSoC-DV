@@ -41,7 +41,7 @@ class peripheral_uvm_monitor extends uvm_monitor;
   endtask : run_phase
 
   // Method name : collect_actual_trans
-  // Description : run task for collecting peripheral_adder transactions
+  // Description : run task for collecting peripheral_design transactions
   task collect_write_transaction();
     begin
       @(posedge vif.ram_clk);

@@ -5,7 +5,7 @@ class peripheral_uvm_coverage #(type T = peripheral_uvm_transaction) extends uvm
   // Declaration of component utils to register with factory
   `uvm_component_utils(peripheral_uvm_coverage)
 
-  // Functional coverage: covergroup for peripheral_adder
+  // Functional coverage: covergroup for peripheral_design
   covergroup peripheral_uvm_cg;
     option.per_instance = 1;
     option.goal = 100;
@@ -40,7 +40,7 @@ class peripheral_uvm_coverage #(type T = peripheral_uvm_transaction) extends uvm
   endfunction
 
   // Method name : sample
-  // Description : sampling peripheral_adder coverage
+  // Description : sampling peripheral_design coverage
   function void write(T t);
     this.cov_transaction = t;
     peripheral_uvm_cg.sample();

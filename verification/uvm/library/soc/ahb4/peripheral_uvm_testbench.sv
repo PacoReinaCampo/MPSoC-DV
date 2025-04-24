@@ -56,12 +56,12 @@ module peripheral_uvm_testbench;
     rst = 0;
   end
 
-  peripheral_adder_if vif (
+  peripheral_design_if vif (
     clk,
     rst
   );
 
-  peripheral_adder dut (
+  peripheral_design dut (
     .clk(vif.clk),
     .rst(vif.rst),
 
@@ -73,7 +73,7 @@ module peripheral_uvm_testbench;
 
   initial begin
     // set interface in config_db
-    uvm_config_db#(virtual peripheral_adder_if)::set(uvm_root::get(), "*", "vif", vif);
+    uvm_config_db#(virtual peripheral_design_if)::set(uvm_root::get(), "*", "vif", vif);
     // Dump waves
     $dumpfile("dump.vcd");
     $dumpvars(0);

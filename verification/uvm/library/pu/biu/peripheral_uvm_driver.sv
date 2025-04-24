@@ -38,7 +38,7 @@
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
 class peripheral_uvm_driver extends uvm_driver #(peripheral_uvm_sequence_item);
-  virtual peripheral_adder_if vif;
+  virtual peripheral_design_if vif;
   `uvm_component_utils(peripheral_uvm_driver)
 
   function new(string name = "peripheral_uvm_driver", uvm_component parent = null);
@@ -47,7 +47,7 @@ class peripheral_uvm_driver extends uvm_driver #(peripheral_uvm_sequence_item);
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if (!uvm_config_db#(virtual peripheral_adder_if)::get(this, "", "vif", vif)) begin
+    if (!uvm_config_db#(virtual peripheral_design_if)::get(this, "", "vif", vif)) begin
       `uvm_fatal(get_type_name(), "Not set at top level");
     end
   endfunction

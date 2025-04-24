@@ -1,5 +1,5 @@
 class peripheral_uvm_transaction extends uvm_sequence_item;
-  // Declaration of peripheral_adder transaction fields
+  // Declaration of peripheral_design transaction fields
   // Global Signals
   bit             aresetn;  // Active LOW
 

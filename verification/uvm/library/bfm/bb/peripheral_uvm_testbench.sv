@@ -26,11 +26,11 @@ module peripheral_uvm_testbench;
   peripheral_uvm_interface vif (ram_clk);
 
   // BlackBone Memory DUT Instantation
-  peripheral_spram_bb #(
+  peripheral_design #(
     .AW      (AW),       // Address bus
     .DW      (DW),       // Data bus
     .MEM_SIZE(MEM_SIZE)  // Memory size in bytes
-  ) bb_spram (
+  ) dut (
     .ram_clk (vif.ram_clk),  // RAM clock
 
     .ram_addr(vif.ram_addr),  // RAM address
