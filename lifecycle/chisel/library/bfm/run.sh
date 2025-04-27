@@ -47,4 +47,4 @@ javac ahb4/peripheral_design.scala; javac peripheral_ahb4_test.scala; java perip
 javac axi4/peripheral_design.scala; javac peripheral_axi4_test.scala; java peripheral_axi4_test
 javac bb/peripheral_design.scala; javac peripheral_bb_test.scala; java peripheral_bb_test
 javac wb/peripheral_design.scala; javac peripheral_wb_test.scala; java peripheral_wb_test
-javac biu/peripheral_design.scala; javac peripheral_biu_test.scala; java peripheral_biu_test
+javac tl/peripheral_design.scala; javac peripheral_tl_test.scala; java peripheral_tl_test

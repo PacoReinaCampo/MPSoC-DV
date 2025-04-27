@@ -4,7 +4,7 @@ library
 │   ├── peripheral_apb4_test.scala
 │   ├── peripheral_axi4_test.scala
 │   ├── peripheral_bb_test.scala
-│   ├── peripheral_biu_test.scala
+│   ├── peripheral_tl_test.scala
 │   ├── peripheral_wb_test.scala
 │   ├── ahb4
 │   │   └── peripheral_design.scala
@@ -14,7 +14,7 @@ library
 │   │   └── peripheral_design.scala
 │   ├── bb
 │   │   └── peripheral_design.scala
-│   ├── biu
+│   ├── tl
 │   │   └── peripheral_design.scala
 │   └── wb
 │       └── peripheral_design.scala
@@ -23,7 +23,7 @@ library
 │   ├── peripheral_apb4_test.scala
 │   ├── peripheral_axi4_test.scala
 │   ├── peripheral_bb_test.scala
-│   ├── peripheral_biu_test.scala
+│   ├── peripheral_tl_test.scala
 │   ├── peripheral_wb_test.scala
 │   ├── ahb4
 │   │   └── peripheral_design.scala
@@ -33,7 +33,7 @@ library
 │   │   └── peripheral_design.scala
 │   ├── bb
 │   │   └── peripheral_design.scala
-│   ├── biu
+│   ├── tl
 │   │   └── peripheral_design.scala
 │   └── wb
 │       └── peripheral_design.scala
@@ -42,7 +42,7 @@ library
 │   ├── peripheral_apb4_test.scala
 │   ├── peripheral_axi4_test.scala
 │   ├── peripheral_bb_test.scala
-│   ├── peripheral_biu_test.scala
+│   ├── peripheral_tl_test.scala
 │   ├── peripheral_wb_test.scala
 │   ├── ahb4
 │   │   └── peripheral_design.scala
@@ -52,7 +52,7 @@ library
 │   │   └── peripheral_design.scala
 │   ├── bb
 │   │   └── peripheral_design.scala
-│   ├── biu
+│   ├── tl
 │   │   └── peripheral_design.scala
 │   └── wb
 │       └── peripheral_design.scala
@@ -61,7 +61,7 @@ library
 │   ├── peripheral_apb4_test.scala
 │   ├── peripheral_axi4_test.scala
 │   ├── peripheral_bb_test.scala
-│   ├── peripheral_biu_test.scala
+│   ├── peripheral_tl_test.scala
 │   ├── peripheral_wb_test.scala
 │   ├── ahb4
 │   │   └── peripheral_design.scala
@@ -71,7 +71,7 @@ library
 │   │   └── peripheral_design.scala
 │   ├── bb
 │   │   └── peripheral_design.scala
-│   ├── biu
+│   ├── tl
 │   │   └── peripheral_design.scala
 │   └── wb
 │       └── peripheral_design.scala
@@ -80,7 +80,7 @@ library
     ├── peripheral_apb4_test.scala
     ├── peripheral_axi4_test.scala
     ├── peripheral_bb_test.scala
-    ├── peripheral_biu_test.scala
+    ├── peripheral_tl_test.scala
     ├── peripheral_wb_test.scala
     ├── ahb4
     │   └── peripheral_design.scala
@@ -90,7 +90,7 @@ library
     │   └── peripheral_design.scala
     ├── bb
     │   └── peripheral_design.scala
-    ├── biu
+    ├── tl
     │   └── peripheral_design.scala
     └── wb
         └── peripheral_design.scala

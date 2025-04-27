@@ -12,7 +12,7 @@ library
 │   ├── bb
 │   │   ├── peripheral_design.cpp
 │   │   └── peripheral_design.hpp
-│   ├── biu
+│   ├── tl
 │   │   ├── peripheral_design.cpp
 │   │   └── peripheral_design.hpp
 │   └── wb
@@ -31,7 +31,7 @@ library
 │   ├── bb
 │   │   ├── peripheral_design.cpp
 │   │   └── peripheral_design.hpp
-│   ├── biu
+│   ├── tl
 │   │   ├── peripheral_design.cpp
 │   │   └── peripheral_design.hpp
 │   └── wb
@@ -50,7 +50,7 @@ library
 │   ├── bb
 │   │   ├── peripheral_design.cpp
 │   │   └── peripheral_design.hpp
-│   ├── biu
+│   ├── tl
 │   │   ├── peripheral_design.cpp
 │   │   └── peripheral_design.hpp
 │   └── wb
@@ -69,7 +69,7 @@ library
 │   ├── bb
 │   │   ├── peripheral_design.cpp
 │   │   └── peripheral_design.hpp
-│   ├── biu
+│   ├── tl
 │   │   ├── peripheral_design.cpp
 │   │   └── peripheral_design.hpp
 │   └── wb
@@ -88,7 +88,7 @@ library
     ├── bb
     │   ├── peripheral_design.cpp
     │   └── peripheral_design.hpp
-    ├── biu
+    ├── tl
     │   ├── peripheral_design.cpp
     │   └── peripheral_design.hpp
     └── wb

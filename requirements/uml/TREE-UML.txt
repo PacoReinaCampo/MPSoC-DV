@@ -60,7 +60,7 @@ library
 │   │   ├── peripheral_structural_object.dot
 │   │   ├── peripheral_structural_package.dot
 │   │   └── peripheral_structural_profile.dot
-│   ├── biu
+│   ├── tl
 │   │   ├── peripheral_behavioral_activity.dot
 │   │   ├── peripheral_behavioral_communication.dot
 │   │   ├── peripheral_behavioral_interaction.dot
@@ -151,7 +151,7 @@ library
 │   │   ├── peripheral_structural_object.dot
 │   │   ├── peripheral_structural_package.dot
 │   │   └── peripheral_structural_profile.dot
-│   ├── biu
+│   ├── tl
 │   │   ├── peripheral_behavioral_activity.dot
 │   │   ├── peripheral_behavioral_communication.dot
 │   │   ├── peripheral_behavioral_interaction.dot
@@ -242,7 +242,7 @@ library
 │   │   ├── peripheral_structural_object.dot
 │   │   ├── peripheral_structural_package.dot
 │   │   └── peripheral_structural_profile.dot
-│   ├── biu
+│   ├── tl
 │   │   ├── peripheral_behavioral_activity.dot
 │   │   ├── peripheral_behavioral_communication.dot
 │   │   ├── peripheral_behavioral_interaction.dot
@@ -333,7 +333,7 @@ library
 │   │   ├── peripheral_structural_object.dot
 │   │   ├── peripheral_structural_package.dot
 │   │   └── peripheral_structural_profile.dot
-│   ├── biu
+│   ├── tl
 │   │   ├── peripheral_behavioral_activity.dot
 │   │   ├── peripheral_behavioral_communication.dot
 │   │   ├── peripheral_behavioral_interaction.dot
@@ -424,7 +424,7 @@ library
     │   ├── peripheral_structural_object.dot
     │   ├── peripheral_structural_package.dot
     │   └── peripheral_structural_profile.dot
-    ├── biu
+    ├── tl
     │   ├── peripheral_behavioral_activity.dot
     │   ├── peripheral_behavioral_communication.dot
     │   ├── peripheral_behavioral_interaction.dot

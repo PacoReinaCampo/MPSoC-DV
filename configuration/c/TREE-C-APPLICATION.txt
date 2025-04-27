@@ -32,7 +32,7 @@ application
 │   │   ├── include-arithmetic.txt
 │   │   ├── main.c
 │   │   └── simulate-riscv.sh
-│   ├── biu
+│   ├── tl
 │   │   ├── build-or1k.sh
 │   │   ├── build-riscv.sh
 │   │   ├── build-x86.sh
@@ -81,7 +81,7 @@ application
 │   │   ├── include-arithmetic.txt
 │   │   ├── main.c
 │   │   └── simulate-riscv.sh
-│   ├── biu
+│   ├── tl
 │   │   ├── build-or1k.sh
 │   │   ├── build-riscv.sh
 │   │   ├── build-x86.sh
@@ -130,7 +130,7 @@ application
 │   │   ├── include-arithmetic.txt
 │   │   ├── main.c
 │   │   └── simulate-riscv.sh
-│   ├── biu
+│   ├── tl
 │   │   ├── build-or1k.sh
 │   │   ├── build-riscv.sh
 │   │   ├── build-x86.sh
@@ -179,7 +179,7 @@ application
 │   │   ├── include-arithmetic.txt
 │   │   ├── main.c
 │   │   └── simulate-riscv.sh
-│   ├── biu
+│   ├── tl
 │   │   ├── build-or1k.sh
 │   │   ├── build-riscv.sh
 │   │   ├── build-x86.sh
@@ -228,7 +228,7 @@ application
     │   ├── include-arithmetic.txt
     │   ├── main.c
     │   └── simulate-riscv.sh
-    ├── biu
+    ├── tl
     │   ├── build-or1k.sh
     │   ├── build-riscv.sh
     │   ├── build-x86.sh

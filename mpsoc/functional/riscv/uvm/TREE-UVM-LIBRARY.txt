@@ -55,7 +55,7 @@ library
 │   ├── peripheral_uvm_testbench.sv
 │   ├── peripheral_uvm_test.sv
 │   └── peripheral_uvm_transaction.sv
-├── biu
+├── tl
 │   ├── peripheral_uvm_agent.sv
 │   ├── peripheral_uvm_coverage.sv
 │   ├── peripheral_uvm_driver.sv

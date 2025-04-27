@@ -11,7 +11,7 @@ application
 ├── bb
 │   ├── peripheral_osvvm_design_pkg.vhd
 │   └── peripheral_osvvm_design.vhd
-├── biu
+├── tl
 │   ├── peripheral_osvvm_design_pkg.vhd
 │   └── peripheral_osvvm_design.vhd
 └── wb

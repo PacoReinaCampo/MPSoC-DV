@@ -12,7 +12,7 @@ application
 │   ├── bb
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
-│   ├── biu
+│   ├── tl
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
 │   └── wb
@@ -31,7 +31,7 @@ application
 │   ├── bb
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
-│   ├── biu
+│   ├── tl
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
 │   └── wb
@@ -50,7 +50,7 @@ application
 │   ├── bb
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
-│   ├── biu
+│   ├── tl
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
 │   └── wb
@@ -69,7 +69,7 @@ application
 │   ├── bb
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
-│   ├── biu
+│   ├── tl
 │   │   ├── peripheral_design.sv
 │   │   └── peripheral_testbench.sv
 │   └── wb
@@ -88,7 +88,7 @@ application
     ├── bb
     │   ├── peripheral_design.sv
     │   └── peripheral_testbench.sv
-    ├── biu
+    ├── tl
     │   ├── peripheral_design.sv
     │   └── peripheral_testbench.sv
     └── wb

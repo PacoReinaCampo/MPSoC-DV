@@ -8,7 +8,7 @@ application
 │   │   └── test_peripheral.go
 │   ├── bb
 │   │   └── test_peripheral.go
-│   ├── biu
+│   ├── tl
 │   │   └── test_peripheral.go
 │   └── wb
 │       └── test_peripheral.go
@@ -21,7 +21,7 @@ application
 │   │   └── test_peripheral.go
 │   ├── bb
 │   │   └── test_peripheral.go
-│   ├── biu
+│   ├── tl
 │   │   └── test_peripheral.go
 │   └── wb
 │       └── test_peripheral.go
@@ -34,7 +34,7 @@ application
 │   │   └── test_peripheral.go
 │   ├── bb
 │   │   └── test_peripheral.go
-│   ├── biu
+│   ├── tl
 │   │   └── test_peripheral.go
 │   └── wb
 │       └── test_peripheral.go
@@ -47,7 +47,7 @@ application
 │   │   └── test_peripheral.go
 │   ├── bb
 │   │   └── test_peripheral.go
-│   ├── biu
+│   ├── tl
 │   │   └── test_peripheral.go
 │   └── wb
 │       └── test_peripheral.go
@@ -60,7 +60,7 @@ application
     │   └── test_peripheral.go
     ├── bb
     │   └── test_peripheral.go
-    ├── biu
+    ├── tl
     │   └── test_peripheral.go
     └── wb
         └── test_peripheral.go

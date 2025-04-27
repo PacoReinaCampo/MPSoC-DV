@@ -4,7 +4,7 @@ library
 │   ├── peripheral_apb4_test.java
 │   ├── peripheral_axi4_test.java
 │   ├── peripheral_bb_test.java
-│   ├── peripheral_biu_test.java
+│   ├── peripheral_tl_test.java
 │   ├── peripheral_wb_test.java
 │   ├── ahb4
 │   │   └── peripheral_design.java
@@ -14,7 +14,7 @@ library
 │   │   └── peripheral_design.java
 │   ├── bb
 │   │   └── peripheral_design.java
-│   ├── biu
+│   ├── tl
 │   │   └── peripheral_design.java
 │   └── wb
 │       └── peripheral_design.java
@@ -23,7 +23,7 @@ library
 │   ├── peripheral_apb4_test.java
 │   ├── peripheral_axi4_test.java
 │   ├── peripheral_bb_test.java
-│   ├── peripheral_biu_test.java
+│   ├── peripheral_tl_test.java
 │   ├── peripheral_wb_test.java
 │   ├── ahb4
 │   │   └── peripheral_design.java
@@ -33,7 +33,7 @@ library
 │   │   └── peripheral_design.java
 │   ├── bb
 │   │   └── peripheral_design.java
-│   ├── biu
+│   ├── tl
 │   │   └── peripheral_design.java
 │   └── wb
 │       └── peripheral_design.java
@@ -42,7 +42,7 @@ library
 │   ├── peripheral_apb4_test.java
 │   ├── peripheral_axi4_test.java
 │   ├── peripheral_bb_test.java
-│   ├── peripheral_biu_test.java
+│   ├── peripheral_tl_test.java
 │   ├── peripheral_wb_test.java
 │   ├── ahb4
 │   │   └── peripheral_design.java
@@ -52,7 +52,7 @@ library
 │   │   └── peripheral_design.java
 │   ├── bb
 │   │   └── peripheral_design.java
-│   ├── biu
+│   ├── tl
 │   │   └── peripheral_design.java
 │   └── wb
 │       └── peripheral_design.java
@@ -61,7 +61,7 @@ library
 │   ├── peripheral_apb4_test.java
 │   ├── peripheral_axi4_test.java
 │   ├── peripheral_bb_test.java
-│   ├── peripheral_biu_test.java
+│   ├── peripheral_tl_test.java
 │   ├── peripheral_wb_test.java
 │   ├── ahb4
 │   │   └── peripheral_design.java
@@ -71,7 +71,7 @@ library
 │   │   └── peripheral_design.java
 │   ├── bb
 │   │   └── peripheral_design.java
-│   ├── biu
+│   ├── tl
 │   │   └── peripheral_design.java
 │   └── wb
 │       └── peripheral_design.java
@@ -80,7 +80,7 @@ library
     ├── peripheral_apb4_test.java
     ├── peripheral_axi4_test.java
     ├── peripheral_bb_test.java
-    ├── peripheral_biu_test.java
+    ├── peripheral_tl_test.java
     ├── peripheral_wb_test.java
     ├── ahb4
     │   └── peripheral_design.java
@@ -90,7 +90,7 @@ library
     │   └── peripheral_design.java
     ├── bb
     │   └── peripheral_design.java
-    ├── biu
+    ├── tl
     │   └── peripheral_design.java
     └── wb
         └── peripheral_design.java

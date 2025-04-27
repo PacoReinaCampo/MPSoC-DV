@@ -15,7 +15,7 @@ application
 │   ├── peripheral_adder.sv
 │   ├── peripheral_full_adder.sv
 │   └── peripheral_half_adder.sv
-├── biu
+├── tl
 │   ├── peripheral_adder.sv
 │   ├── peripheral_full_adder.sv
 │   └── peripheral_half_adder.sv

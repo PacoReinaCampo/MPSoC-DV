@@ -1,0 +1,24 @@
+digraph structural_class_tl {
+  // tl bus node
+  biu_bus [label="{tl bus|+ ClockFrequency : int|+ DataWidth : int|+ SupportsBurst : bool|+ SupportsMultiMaster : bool|+ SupportsProtocols : bool}" shape=record];
+  
+  // tl Master node
+  biuMaster [label="{biuMaster|+ ID : int|+ Priority : int}" shape=record];
+  
+  // tl Slave node
+  biuSlave [label="{biuSlave|+ ID : int}" shape=record];
+  
+  // tl bus to tl Master relationship
+  biu_bus -> biuMaster [label="Controls"];
+  
+  // tl bus to tl Slave relationship
+  biu_bus -> biuSlave [label="Connected to"];
+  
+  // Additional attributes for tl Master
+  biuMaster -> biu_Arbitration [label="Uses"];
+  biu_Arbitration [label="{biu_Arbitration|+ ArbitrationType : string}" shape=record];
+  
+  // Additional attributes for tl Slave
+  biuSlave -> biu_Protocol [label="Uses"];
+  biu_Protocol [label="{biu_Protocol|+ ProtocolVersion : string}" shape=record];
+}

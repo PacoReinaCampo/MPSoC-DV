@@ -261,11 +261,11 @@
 <polygon fill="none" stroke="black" points="222,-68 168,-68 168,-32 222,-32 222,-68"/>
 <text text-anchor="middle" x="195" y="-46.3" font-family="Times,serif" font-size="14.00">ahb4</text>
 </g>
-<!-- bus_biu -->
+<!-- bus_tl -->
 <g id="node33" class="node">
-<title>bus_biu</title>
+<title>bus_tl</title>
 <polygon fill="none" stroke="black" points="150,-68 96,-68 96,-32 150,-32 150,-68"/>
-<text text-anchor="middle" x="123" y="-46.3" font-family="Times,serif" font-size="14.00">biu</text>
+<text text-anchor="middle" x="123" y="-46.3" font-family="Times,serif" font-size="14.00">tl</text>
 </g>
 <!-- bus_wb -->
 <g id="node34" class="node">

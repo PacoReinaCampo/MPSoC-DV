@@ -15,7 +15,7 @@ library
 │   ├── peripheral_osvvm_model_pkg.vhd
 │   ├── peripheral_osvvm_model.vhd
 │   └── peripheral_osvvm_testbench.vhd
-├── biu
+├── tl
 │   ├── peripheral_osvvm_model_pkg.vhd
 │   ├── peripheral_osvvm_model.vhd
 │   └── peripheral_osvvm_testbench.vhd

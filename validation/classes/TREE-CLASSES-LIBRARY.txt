@@ -44,7 +44,7 @@ library
 │   │   ├── peripheral_testbench.sv
 │   │   ├── peripheral_test.sv
 │   │   └── peripheral_transaction.sv
-│   ├── biu
+│   ├── tl
 │   │   ├── peripheral_agent.sv
 │   │   ├── peripheral_driver.sv
 │   │   ├── peripheral_environment.sv
@@ -111,7 +111,7 @@ library
 │   │   ├── peripheral_testbench.sv
 │   │   ├── peripheral_test.sv
 │   │   └── peripheral_transaction.sv
-│   ├── biu
+│   ├── tl
 │   │   ├── peripheral_agent.sv
 │   │   ├── peripheral_driver.sv
 │   │   ├── peripheral_environment.sv
@@ -182,7 +182,7 @@ library
 │   │   ├── peripheral_testbench.sv
 │   │   ├── peripheral_test.sv
 │   │   └── peripheral_transaction.sv
-│   ├── biu
+│   ├── tl
 │   │   ├── peripheral_agent.sv
 │   │   ├── peripheral_driver.sv
 │   │   ├── peripheral_environment.sv
@@ -255,7 +255,7 @@ library
 │   │   ├── peripheral_testbench.sv
 │   │   ├── peripheral_test.sv
 │   │   └── peripheral_transaction.sv
-│   ├── biu
+│   ├── tl
 │   │   ├── peripheral_agent.sv
 │   │   ├── peripheral_driver.sv
 │   │   ├── peripheral_environment.sv
@@ -328,7 +328,7 @@ library
     │   ├── peripheral_testbench.sv
     │   ├── peripheral_test.sv
     │   └── peripheral_transaction.sv
-    ├── biu
+    ├── tl
     │   ├── peripheral_agent.sv
     │   ├── peripheral_driver.sv
     │   ├── peripheral_environment.sv

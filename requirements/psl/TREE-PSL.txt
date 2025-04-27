@@ -8,7 +8,7 @@ library
 │   │   └── peripheral_design.psl
 │   ├── bb
 │   │   └── peripheral_design.psl
-│   ├── biu
+│   ├── tl
 │   │   └── peripheral_design.psl
 │   └── wb
 │       └── peripheral_design.psl
@@ -21,7 +21,7 @@ library
 │   │   └── peripheral_design.psl
 │   ├── bb
 │   │   └── peripheral_design.psl
-│   ├── biu
+│   ├── tl
 │   │   └── peripheral_design.psl
 │   └── wb
 │       └── peripheral_design.psl
@@ -34,7 +34,7 @@ library
 │   │   └── peripheral_design.psl
 │   ├── bb
 │   │   └── peripheral_design.psl
-│   ├── biu
+│   ├── tl
 │   │   └── peripheral_design.psl
 │   └── wb
 │       └── peripheral_design.psl
@@ -47,7 +47,7 @@ library
 │   │   └── peripheral_design.psl
 │   ├── bb
 │   │   └── peripheral_design.psl
-│   ├── biu
+│   ├── tl
 │   │   └── peripheral_design.psl
 │   └── wb
 │       └── peripheral_design.psl
@@ -60,7 +60,7 @@ library
     │   └── peripheral_design.psl
     ├── bb
     │   └── peripheral_design.psl
-    ├── biu
+    ├── tl
     │   └── peripheral_design.psl
     └── wb
         └── peripheral_design.psl
