@@ -43,7 +43,7 @@
 ###################################################################################
 
 # Package
-addpath(genpath('../../../library/bfm/ahb4'));
+addpath(genpath('../../../library/bfm/tl'));
   
 # Signals
 DATA_A_IN = rand(1);

@@ -43,7 +43,7 @@
 ###################################################################################
 
 # Package
-addpath(genpath('../../../library/core/ahb4'));
+addpath(genpath('../../../library/core/tl'));
   
 # Signals
 DATA_A_IN = rand(1);

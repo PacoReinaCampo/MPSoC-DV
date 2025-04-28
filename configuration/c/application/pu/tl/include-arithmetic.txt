@@ -46,5 +46,5 @@
 # State-Feedback Sources
 #####################################################################
 
-SOURCES_ARITHMETIC =	../../../library/bfm/ahb4/peripheral_design.h \
-			../../../library/bfm/ahb4/peripheral_design.c
+SOURCES_ARITHMETIC =	../../../library/bfm/tl/peripheral_design.h \
+			../../../library/bfm/tl/peripheral_design.c

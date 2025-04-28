@@ -46,7 +46,7 @@
 #include <iostream>
 #include <random>
 
-#include "../../../library/bfm/ahb4/peripheral_design.hpp"
+#include "../../../library/bfm/tl/peripheral_design.hpp"
 
 using namespace std;
 

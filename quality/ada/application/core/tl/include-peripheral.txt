@@ -46,4 +46,4 @@
 # State-Feedback Sources
 #####################################################################
 
-PERIPHERAL_SOURCES =	-I../../../library/core/ahb4
+PERIPHERAL_SOURCES =	-I../../../library/core/tl
