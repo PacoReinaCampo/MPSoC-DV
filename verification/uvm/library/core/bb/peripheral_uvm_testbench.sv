@@ -25,7 +25,7 @@ module peripheral_uvm_testbench;
   // Creatinng instance of interface, in order to connect DUT and testcase
   peripheral_uvm_interface vif (ram_clk);
 
-  // BlackBone Memory DUT Instantation
+  // BackBone Memory DUT Instantation
   peripheral_design #(
     .AW      (AW),       // Address bus
     .DW      (DW),       // Data bus

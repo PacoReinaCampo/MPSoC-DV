@@ -38,30 +38,51 @@
 
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
+use std.textio.all;
+use ieee.std_logic_textio.all;
 
 package peripheral_types_model_pkg is
+  type integer_array is array (integer range <>) of integer;
 
-  ------------------------------------------------------------------------------
-  -- Constants
-  ------------------------------------------------------------------------------
+  procedure TestInit (TestName        : string; variable Results : inout integer_array);
+  procedure TestInit (TestName        : string; variable Results : inout integer_array; variable Count : inout natural);
+  procedure AccumulateResults (IntVal : integer; Num : integer; variable Results : inout integer_array);
+  procedure PrintResults (Results     : integer_array);
 
-  ------------------------------------------------------------------------------
-  -- Components
-  ------------------------------------------------------------------------------
+end peripheral_types_model_pkg;
 
-  component peripheral_types_model is
-    generic (
-      DATA_SIZE : positive := 4
-      );
-    port (
-      RST : in std_logic;
-      CLK : in std_logic;
+package body peripheral_types_model_pkg is
+  procedure TestInit (TestName : string; variable Results : inout integer_array) is
+  begin
+    write(OUTPUT, LF&LF & TestName & LF);
+    Results := (Results'range => 0);
+    write(OUTPUT, "1st 20 values = ");
+  end;
 
-      DATA_A_IN : in  unsigned(DATA_SIZE-1 downto 0);
-      DATA_B_IN : in  unsigned(DATA_SIZE-1 downto 0);
-      DATA_OUT  : out unsigned(DATA_SIZE downto 0)
-      );
-  end component peripheral_types_model;
+  procedure TestInit (TestName : string; variable Results : inout integer_array; variable Count : inout natural) is
+  begin
+    Count   := Count + 1;
+    write(OUTPUT, LF&LF & "Test " & integer'image(Count) & ": " & TestName & LF);
+    Results := (Results'range => 0);
+    write(OUTPUT, "1st 20 values = ");
+  end;
 
+  procedure AccumulateResults (IntVal : integer; Num : integer; variable Results : inout integer_array) is
+  begin
+    Results(IntVal) := Results(IntVal) + 1;
+    if Num < 20 then
+      write(OUTPUT, integer'image(IntVal) & " ");
+    end if;
+  end;
+
+  procedure PrintResults (Results : integer_array) is
+  begin
+    write(OUTPUT, LF & "Accumulated Results.  Expecting approximately 1000 of each per weight." & LF);
+    for i in Results'range loop
+      if Results(i) > 0 then
+        write(OUTPUT, "**  ");
+        write(OUTPUT, integer'image(i) & " : " & integer'image(Results(i)) & LF);
+      end if;
+    end loop;
+  end;
 end peripheral_types_model_pkg;
