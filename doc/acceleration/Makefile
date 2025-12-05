@@ -64,6 +64,7 @@ PANDOC_OPTIONS=-f markdown       \
     -V linestretch='1'           \
     -V geometry:margin=2cm       \
     -V links-as-notes=true       \
+    --highlight-style=tango      \
     --metadata-file=metadata.md
 
 PANDOC_PDF_OPTIONS=

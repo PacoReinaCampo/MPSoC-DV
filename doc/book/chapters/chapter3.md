@@ -42,9 +42,9 @@ Guidance for the planning process includes:
 
 6. The design environment should be chosen, including the tools, procedures, software and hardware that are to be used to develop, verify and control the hardware item and the life cycle data.
 
-   a. If certification credit is sought for use of tools in combination, the sequence of operation of the tools should be specified in the respective plan.
+   1. If certification credit is sought for use of tools in combination, the sequence of operation of the tools should be specified in the respective plan.
 
-   b. The design environment can affect the design of a product. Section 11.4 provides guidance for the assessment of tools and determining when tool qualification may be necessary.
+   2. The design environment can affect the design of a product. Section 11.4 provides guidance for the assessment of tools and determining when tool qualification may be necessary.
 
 7. The process for deviating from the established plans, if deviations become necessary and affect certification, should be identified.
 
@@ -71,41 +71,41 @@ process by software level.
 
 The purpose of the software planning process is to define the means of producing software which will satisfy the system requirements and provide the level of confidence which is consistent with airworthiness requirements. The objectives of the software planning process are:
 
-   a. The activities of the software development processes and integral processes of the software life cycle that will address the system requirements and software level(s) are defined (subsection 4.2).
+   1. The activities of the software development processes and integral processes of the software life cycle that will address the system requirements and software level(s) are defined (subsection 4.2).
 
-   b. The software life cycle(s), including the inter- relationships between the processes, their sequencing, feedback mechanisms, and transition criteria are determined (section 3).
+   2. The software life cycle(s), including the inter- relationships between the processes, their sequencing, feedback mechanisms, and transition criteria are determined (section 3).
 
-   c. The software life cycle environment, including the methods and tools to be used for the activities of each software life cycle process have been selected (subsection 4.4).
+   3. The software life cycle environment, including the methods and tools to be used for the activities of each software life cycle process have been selected (subsection 4.4).
 
-   d. Additional considerations, such as those discussed in section 12, have been addressed, if necessary.
+   4. Additional considerations, such as those discussed in section 12, have been addressed, if necessary.
 
-   e. Software development standards consistent with the system safety objectives for the software to be produced are defined (subsection 4.5).
+   5. Software development standards consistent with the system safety objectives for the software to be produced are defined (subsection 4.5).
 
-   f. Software plans that comply with subsection 4.3 and section 11 have been produced.
+   6. Software plans that comply with subsection 4.3 and section 11 have been produced.
 
-   g. Development and revision of the software plans are coordinated (subsection 4.3).
+   7. Development and revision of the software plans are coordinated (subsection 4.3).
 
 ### Software Planning Process Activities
 
 Effective planning is a determining factor in producing software that satisfies the guidelines of this document. Guidance for the software planning process includes:
 
-   a. The software plans should be developed at a point in time in the software life cycle that provides timely direction to the personnel performing the software development processes and integral processes. See also the guidelines of subsection 9. I.
+   1. The software plans should be developed at a point in time in the software life cycle that provides timely direction to the personnel performing the software development processes and integral processes. See also the guidelines of subsection 9. I.
 
-   b. The software development standards to be used for the project should be defined or selected.
+   2. The software development standards to be used for the project should be defined or selected.
 
-   c. Methods and tools should be chosen that provide error prevention in the software development processes.
+   3. Methods and tools should be chosen that provide error prevention in the software development processes.
 
-   d. The software planning process should provide coordination between the software development and integral processes to provide consistency among strategies in the software plans.
+   4. The software planning process should provide coordination between the software development and integral processes to provide consistency among strategies in the software plans.
 
-   e. The software planning process should include a means to revise the software plans as a project progresses.
+   5. The software planning process should include a means to revise the software plans as a project progresses.
 
-   f. When multiple-version dissimilar software is used in a system, the software planning process should choose the methods and tools to achieve the error avoidance or detection necessary to satisfy the system safety objectives.
+   6. When multiple-version dissimilar software is used in a system, the software planning process should choose the methods and tools to achieve the error avoidance or detection necessary to satisfy the system safety objectives.
 
-   g. For the software planning process to be complete, the software plans and software development standards should be under change control and reviews of them completed (subsection 4.6).
+   7. For the software planning process to be complete, the software plans and software development standards should be under change control and reviews of them completed (subsection 4.6).
 
-   h. If deactivated code is planned (subsection 2.4), the software planning process should describe how the deactivated code (selected options, flight test) will be defined, verified and handled to achieve system safety objectives.
+   8. If deactivated code is planned (subsection 2.4), the software planning process should describe how the deactivated code (selected options, flight test) will be defined, verified and handled to achieve system safety objectives.
 
-   i. If user-modifiable code is planned, the process, tools, environment, and data items substantiating the guidelines of paragraph 5.2.3 should be specified in the software plans and standards.
+   9. If user-modifiable code is planned, the process, tools, environment, and data items substantiating the guidelines of paragraph 5.2.3 should be specified in the software plans and standards.
 
 Other software life cycle processes may begin before completion of the software planning process if the plans and procedures for the specific process activity are available.
 
@@ -125,15 +125,15 @@ The purpose of the software plans is to define the means of satisfying the objec
 
 Guidance for the software plans includes:
 
-   a. The software plans should comply with this document.
+1. The software plans should comply with this document.
 
-   b. The software plans should define the criteria for transition between software life cycle processes by specifying:
+2. The software plans should define the criteria for transition between software life cycle processes by specifying:
 
-      (1) The inputs to the process, including feedback from other processes.
-      (2) Any integral process activities that may be required to act on these inputs.
-      (3) Availability of tools, methods, plans and procedures.
+   1. The inputs to the process, including feedback from other processes.
+   2. Any integral process activities that may be required to act on these inputs.
+   3. Availability of tools, methods, plans and procedures.
 
-   c. The software plans should state the procedures to be used to implement software changes prior to use on a certified aircraft or engine. Such changes may be as a result of feedback from other processes and may cause a change to the software plans.
+3. The software plans should state the procedures to be used to implement software changes prior to use on a certified aircraft or engine. Such changes may be as a result of feedback from other processes and may cause a change to the software plans.
 
 ### Software Life Cycle Environment Planning
 
@@ -157,15 +157,15 @@ The considerations presented above may affect:
 
 The software development environment is a significant factor in the production of high quality software. The software development environment can also adversely affect the production of airborne software in several ways. For example, a compiler could introduce errors by producing a corrupted output or a linker could fail to reveal a memory allocation error that is present. Guidance for the selection of software development environment methods and tools includes:
 
-   a. During the software planning proces s, the software development environment should be chosen to minimize its potential risk to the final airborne software.
+   1. During the software planning proces s, the software development environment should be chosen to minimize its potential risk to the final airborne software.
 
-   b. The use of qualified tools or combinations of tools and parts of the software development environment should be chosen to achieve the necessary level of confidence that an error introduced by one part would be detected by another. An acceptable environment is produced when both parts are consistently used together.
+   2. The use of qualified tools or combinations of tools and parts of the software development environment should be chosen to achieve the necessary level of confidence that an error introduced by one part would be detected by another. An acceptable environment is produced when both parts are consistently used together.
 
-   c. Software verification process activities or software development standards, which include consideration of the software level, should be defined to minimize potential software development environment-related errors.
+   3. Software verification process activities or software development standards, which include consideration of the software level, should be defined to minimize potential software development environment-related errors.
 
-   d. If certification credit is sought for use of the tools in combination, the sequence of operation of the tools should be specified in the appropriate plan.
+   4. If certification credit is sought for use of the tools in combination, the sequence of operation of the tools should be specified in the appropriate plan.
 
-   e. If optional features of software development tools are chosen for use in a project, the effects of the options should be examined and specified in the appropriate plan.
+   5. If optional features of software development tools are chosen for use in a project, the effects of the options should be examined and specified in the appropriate plan.
 
    Note: This is especially important where the tool directly generates part of the software product. In this context, compilers are probably the most important tools to consider.
 
@@ -173,29 +173,29 @@ The software development environment is a significant factor in the production o
 
 Upon successful completion of verification of the software product, the compiler is considered acceptable for that product. For this to be valid, the software verification process activities need to consider particular features of the programming language and compiler. The software planning process considers these features when choosing a programming language and planning for verification. Guidance includes:
 
-   a. Some compilers have features intended to optimize performance of the object code. If the test cases give coverage consistent with the software level, the correctness of the optimization need not be verified. Otherwise, the impact of these features on structural coverage analysis should be determined following the guidelines of subparagraph 6.4.4.2.
+   1. Some compilers have features intended to optimize performance of the object code. If the test cases give coverage consistent with the software level, the correctness of the optimization need not be verified. Otherwise, the impact of these features on structural coverage analysis should be determined following the guidelines of subparagraph 6.4.4.2.
 
-   b. To implement certain features, compilers for some languages may produce object code that is not directly traceable to the source code, for example, initialization, built-in error detection or exception handling (subparagraph 6.4.4.2, item b). The software planning process should provide a means to detect this object code and to ensure verification coverage and define the means in the appropriate plan.
+   2. To implement certain features, compilers for some languages may produce object code that is not directly traceable to the source code, for example, initialization, built-in error detection or exception handling (subparagraph 6.4.4.2, item b). The software planning process should provide a means to detect this object code and to ensure verification coverage and define the means in the appropriate plan.
 
-   c. If a new compiler, linkage editor or loader version is introduced, or compiler options are changed during the software life cycle, previous tests and coverage analyses may no longer be valid. The verification planning should provide a means of re-verification which is consistent with the guidelines of section 6 and paragraph 12.1.3.
+   3. If a new compiler, linkage editor or loader version is introduced, or compiler options are changed during the software life cycle, previous tests and coverage analyses may no longer be valid. The verification planning should provide a means of re-verification which is consistent with the guidelines of section 6 and paragraph 12.1.3.
 
 #### Software Test Environment
 
 The purpose of software test environment planning is to define the methods, tools, procedures and hardware that will be used to test the outputs of the integration process. Testing may be performed using the target computer, a target computer emulator or a host computer simulator. Guidance includes:
 
-   a. The emulator or simulator may need to be qualified as described in subsection 12.2.
+   1. The emulator or simulator may need to be qualified as described in subsection 12.2.
 
-   b. The differences between the target computer and the emulator or simulator, and the effects of these differences on the ability to detect errors and verify functionality, should be considered. Detection of those errors should be provided by other software verification process activities and specified in the Software Verification Plan.
+   2. The differences between the target computer and the emulator or simulator, and the effects of these differences on the ability to detect errors and verify functionality, should be considered. Detection of those errors should be provided by other software verification process activities and specified in the Software Verification Plan.
 
 ### Software Test Environment
 
 The purpose of the software development standards is to define the rules and constraints for the software development processes. The software development standards include the Software Requirements Standards, the Software Design Standards and the Software Code Standards. The software verification process uses these standards as a basis for evaluating the compliance of actual outputs of a process with intended outputs. Guidance for software development standards includes:
 
-   a. The software development standards should comply with section 11.
+   1. The software development standards should comply with section 11.
 
-   b. The software development standards should enable software components of a given software product or related set of products to be uniformly designed and implemented.
+   2. The software development standards should enable software components of a given software product or related set of products to be uniformly designed and implemented.
 
-   c. The software development standards should disallow the use of constructs or methods that produce outputs that cannot be verified or that are not compatible with safety-related requirements.
+   3. The software development standards should disallow the use of constructs or methods that produce outputs that cannot be verified or that are not compatible with safety-related requirements.
 
    Note: In developing standards, consideration can be given to previous experience. Constraints and rules on development, design, and coding methods can be included to control complexity. Defensive programming practices may be considered to improve robustness.
 
@@ -203,93 +203,93 @@ The purpose of the software development standards is to define the rules and con
 
 Reviews and assurance of the software planning process are conducted to ensure that the software plans and software development standards comply with the guidelines of this document and means are provided to execute them. Guidance includes:
 
-   a. The chosen methods will enable the objectives of this document to be satisfied.
+   1. The chosen methods will enable the objectives of this document to be satisfied.
 
-   b. The software life cycle processes can be applied consistently.
+   2. The software life cycle processes can be applied consistently.
 
-   c. Each process produces evidence that its outputs can be traced to their activity and inputs, showing the degree of independence of the activity, the environment, and the methods to be used.
+   3. Each process produces evidence that its outputs can be traced to their activity and inputs, showing the degree of independence of the activity, the environment, and the methods to be used.
 
-   d. The outputs of the software planning process are consistent and comply with section 11.
+   4. The outputs of the software planning process are consistent and comply with section 11.
 
 ## TRADITIONAL MECHANICS
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ### Newtonian Mechanics
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 #### First Newton Law
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 #### Second Newton Law
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 #### Third Newton Law
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ### Lagrangian Mechanics
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ### Hamiltonian Mechanics
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ## TRADITIONAL INFORMATION
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ### Traditional Bit
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ![Automata Theory](assets/chapter3/automata-theory.svg){width=6cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ### Traditional Logic Gate
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 #### Traditional YES/NOT Gate
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 #### Traditional AND/NAND Gate
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 #### Traditional OR/NOR Gate
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 #### Traditional XOR/XNOR Gate
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ### Traditional Combinational Logic
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 #### Traditional Arithmetic Circuits
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 #### Traditional Logic Circuits
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ### Traditional Finite State Machine
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ### Traditional Pushdown Automaton
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ## TRADITIONAL NEURAL NETWORK
 
@@ -297,7 +297,7 @@ A neural network is a computational model inspired by the way biological neural 
 
 Here's a detailed explanation of neural networks:
 
-I. Basic Components
+**I. Basic Components**
 
 1. **Neurons (Nodes)**: The fundamental units of a neural network. Each neuron receives one or more inputs, processes them, and produces an output. This output can be passed to other neurons.
 
@@ -313,7 +313,7 @@ I. Basic Components
    * **Tanh**: Maps input values to a range between -1 and 1.
    * **ReLU (Rectified Linear Unit)**: Outputs the input directly if it is positive; otherwise, it outputs zero. Variants include Leaky ReLU and Parametric ReLU.
 
-II. Training a Neural Network
+**II. Training a Neural Network**
 
 Training involves adjusting the weights and biases to minimize the error between the network's predictions and the actual target values. This process typically includes the following steps:
 
@@ -327,7 +327,7 @@ Training involves adjusting the weights and biases to minimize the error between
 
 4. **Updating Weights and Biases**: Using the computed gradients to update the parameters, thus reducing the error over time.
 
-III. Types of Neural Networks
+**III. Types of Neural Networks**
 
 1. **Feedforward Neural Network (FNN)**: The simplest type where connections between the nodes do not form cycles. Data flows in one direction, from input to output.
 
@@ -337,7 +337,7 @@ III. Types of Neural Networks
 
 4. **Transformer Networks**: Utilizes self-attention mechanisms to handle sequential data without the limitations of RNNs. Widely used in natural language processing tasks like translation and text generation.
 
-IV. Applications of Neural Networks
+**IV. Applications of Neural Networks**
 
 Neural networks have been applied across a variety of fields due to their ability to learn and generalize from data:
 
@@ -353,14 +353,16 @@ Neural networks have been applied across a variety of fields due to their abilit
 
 6. **Autonomous Systems**: Self-driving cars, robotics.
 
-V. Advantages and Challenges
+**V. Advantages and Challenges**
 
-1. Advantages:
+1. **Advantages**:
+
    * **Flexibility**: Can be adapted to various tasks and data types.
    * **Scalability**: Can handle large amounts of data and complex models.
    * **Performance**: Often achieves state-of-the-art results in many AI tasks.
 
-2. Challenges:
+2. **Challenges**:
+
    * **Training Time**: Requires significant computational resources and time to train, especially for deep networks.
    * **Data Requirements**: Needs large amounts of labeled data for effective training.
    * **Interpretability**: Often considered "black boxes" due to the difficulty in understanding how they make decisions.
@@ -392,19 +394,19 @@ Here's a more detailed explanation:
 
 In summary, while the Perceptron Neural Network represents a simple and foundational concept in neural network theory, its limitations have spurred the development of more sophisticated architectures capable of handling complex patterns and non-linear relationships in data.
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 $h_{t} = \sigma_{g}(W_{h} \cdot x_{t}+U_{h} \cdot h_{t-1}+b_{h})$
 
 $y_{t} = \sigma_{g}(W_{y} \cdot h_{t}+b_{y})$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 $h_{t} = \sigma_{g}(W_{h} \star x_{t}+U_{h} \star h_{t-1}+b_{h})$
 
 $y_{t} = \sigma_{g}(W_{y} \star h_{t}+b_{y})$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ### Traditional Feedforward Neural Network
 
@@ -426,13 +428,13 @@ $h_{t} = \sigma_{g}(W_{h} \cdot x_{t}+U_{h} \cdot h_{t-1}+b_{h})$
 
 $y_{t} = \sigma_{g}(W_{y} \cdot h_{t}+b_{y})$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 $h_{t} = \sigma_{g}(W_{h} \star x_{t}+U_{h} \star h_{t-1}+b_{h})$
 
 $y_{t} = \sigma_{g}(W_{y} \star h_{t}+b_{y})$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ### Traditional Long Short Term Memory Neural Network
 
@@ -462,7 +464,7 @@ Here's a deeper dive into how LSTMs work:
 
 Overall, LSTMs have become a cornerstone in the field of deep learning, enabling the development of more powerful and sophisticated models for sequential data processing and prediction.
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 $a_{t} = \sigma_{g}(W_{a} \cdot x_{t}+U_{a} \cdot h_{t-1}+b_{a})$
 
@@ -472,13 +474,13 @@ $i_{t} = \sigma_{g}(W_{i} \cdot x_{t}+U_{i} \cdot h_{t-1}+b_{i})$
 
 $o_{t} = \sigma_{g}(W_{o} \cdot x_{t}+U_{o} \cdot h_{t-1}+b_{o})$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 $c_{t} = f_{t} \circ c_{t-1}+i_{t} \circ a_{t}$
 
 $h_{t} = o_{t} \circ \sigma_{g}(c_{t})$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 $a_{t} = \sigma_{g}(W_{a} \star x_{t}+U_{a} \star h_{t-1}+b_{a})$
 
@@ -488,13 +490,13 @@ $i_{t} = \sigma_{g}(W_{i} \star x_{t}+U_{i} \star h_{t-1}+b_{i})$
 
 $o_{t} = \sigma_{g}(W_{o} \star x_{t}+U_{o} \star h_{t-1}+b_{o})$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 $c_{t} = f_{t} \circ c_{t-1}+i_{t} \circ a_{t}$
 
 $h_{t} = o_{t} \circ \sigma_{g}(c_{t})$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ### Traditional Neural Turing Machine
 
@@ -524,91 +526,91 @@ Overall, the Neural Turing Machine represents a significant advancement in the f
 
 * Definitions
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${{\mathcal{D}}(\mathbf{u},\mathbf{v})={\frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u} \| \cdot \| \mathbf{v} \|}}}$$
+  $${{\mathcal{D}}(\mathbf{u},\mathbf{v})={\frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u} \| \cdot \| \mathbf{v} \|}}}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
 * Reading
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$$\sum_{i=0}^{M-1} w_t(i) = 1$$
+  $$\sum_{i=0}^{M-1} w_t(i) = 1$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$$\quad 0 \leq w_t(i) \leq 1$$
+  $$\quad 0 \leq w_t(i) \leq 1$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$$\mathbf{r}_t \longleftarrow \sum_{i=0}^{M-1}{w_t(i) \mathbf{M}_t(i)}$$
+  $$\mathbf{r}_t \longleftarrow \sum_{i=0}^{M-1}{w_t(i) \mathbf{M}_t(i)}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
 * Writing
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$$\mathbf{\tilde{M}}_t(i) \longleftarrow \mathbf{M}_{t-1}(i) \left[\mathbf{1}-w_t(i) \mathbf{e}_t\right]$$
+  $$\mathbf{\tilde{M}}_t(i) \longleftarrow \mathbf{M}_{t-1}(i) \left[\mathbf{1}-w_t(i) \mathbf{e}_t\right]$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$$\mathbf{M}_t(i) \longleftarrow \mathbf{\tilde{M}}_t(i) + w_t(i)\, \mathbf{a}_t$$
+  $$\mathbf{M}_t(i) \longleftarrow \mathbf{\tilde{M}}_t(i) + w_t(i)\, \mathbf{a}_t$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
 * Addressing
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$$w^c_t(i) \longleftarrow \frac{\exp\bigg(\beta_t \mathcal{D} \big[\mathbf{k}_t, \mathbf{M}_t(i)\big]\bigg)}{\sum_{j=0}^{N-1} \exp\bigg(\beta_t \mathcal{D} \big[\mathbf{k}_t, \mathbf{M}_t(j)\big]\bigg)}$$
+  $$w^c_t(i) \longleftarrow \frac{\exp\bigg(\beta_t \mathcal{D} \big[\mathbf{k}_t, \mathbf{M}_t(i)\big]\bigg)}{\sum_{j=0}^{N-1} \exp\bigg(\beta_t \mathcal{D} \big[\mathbf{k}_t, \mathbf{M}_t(j)\big]\bigg)}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$$\mathbf{w}^g_t \longleftarrow g_t \mathbf{w}^c_{t}  + (1-g_t) \mathbf{w}_{t-1}$$
+  $$\mathbf{w}^g_t \longleftarrow g_t \mathbf{w}^c_{t}  + (1-g_t) \mathbf{w}_{t-1}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$$\tilde{w}_t(i) \longleftarrow \sum_{j=0}^{N-1} w^g_t(j)\, s_t(i-j)$$
+  $$\tilde{w}_t(i) \longleftarrow \sum_{j=0}^{N-1} w^g_t(j)\, s_t(i-j)$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$$w_t(i) \longleftarrow \frac{\tilde{w}_t(i)^{\gamma_t}}{\sum_{j=0}^{N-1} \tilde{w}_t(j)^{\gamma_t}}$$
+  $$w_t(i) \longleftarrow \frac{\tilde{w}_t(i)^{\gamma_t}}{\sum_{j=0}^{N-1} \tilde{w}_t(j)^{\gamma_t}}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
 * Interfaces
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\xi_{t}=W_{\xi}[h_{t}^{1};\cdots;h_{t}^{L}] = [\mathbf {k}_{t}^{w};{\hat {\beta_{t}^{w}}};\mathbf {\hat {e}}_{t};\mathbf {v}_{t};{\hat {g}}_{t}^{a};{\hat {g}}_{t}^{w}]}$$
+  $${\xi_{t}=W_{\xi}[h_{t}^{1};\cdots;h_{t}^{L}] = [\mathbf {k}_{t}^{w};{\hat {\beta_{t}^{w}}};\mathbf {\hat {e}}_{t};\mathbf {v}_{t};{\hat {g}}_{t}^{a};{\hat {g}}_{t}^{w}]}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\rho_{t}=W_{\rho}[h_{t}^{1};\cdots;h_{t}^{L}] = [\mathbf {k}_{t}^{r,1};\cdots;\mathbf {k}_{t}^{r,R};{\hat {\beta}}_{t}^{r,1};\cdots;{\hat {\beta}}_{t}^{r,R};{\hat {f_{t}^{1}}};\cdots;{\hat {f_{t}^{R}}};{\hat {\boldsymbol {\pi}}}_{t}^{1};\cdots;{\hat {\boldsymbol {\pi}}}_{t}^{R}]}$$
+  $${\rho_{t}=W_{\rho}[h_{t}^{1};\cdots;h_{t}^{L}] = [\mathbf {k}_{t}^{r,1};\cdots;\mathbf {k}_{t}^{r,R};{\hat {\beta}}_{t}^{r,1};\cdots;{\hat {\beta}}_{t}^{r,R};{\hat {f_{t}^{1}}};\cdots;{\hat {f_{t}^{R}}};{\hat {\boldsymbol {\pi}}}_{t}^{1};\cdots;{\hat {\boldsymbol {\pi}}}_{t}^{R}]}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
 * Output Vector
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\mathbf y_{t} = W_{y} \mathbf h_{t} + W_{r}^{i} \mathbf {r}_{t}^{i}}$$
+  $${\mathbf y_{t} = W_{y} \mathbf h_{t} + W_{r}^{i} \mathbf {r}_{t}^{i}}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-![Neural Turing Machine Top](assets/chapter3/ntm_top.jpg){width=6cm}
+  ![Neural Turing Machine Top](assets/chapter3/ntm_top.jpg){width=6cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-![Neural Turing Machine Heads](assets/chapter3/ntm_heads.jpg){width=6cm}
+  ![Neural Turing Machine Heads](assets/chapter3/ntm_heads.jpg){width=6cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-![Neural Turing Machine Addressing](assets/chapter3/ntm_addressing.jpg){width=6cm}
+  ![Neural Turing Machine Addressing](assets/chapter3/ntm_addressing.jpg){width=6cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
 ### Traditional Differentiable Neural Computer Neural Network
 
@@ -632,107 +634,107 @@ Overall, the Differentiable Neural Computer represents a significant advancement
 
 * Definitions
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${{\mathcal{D}}(\mathbf{u},\mathbf{v})={\frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u} \| \cdot \| \mathbf{v} \|}}}$$
+  $${{\mathcal{D}}(\mathbf{u},\mathbf{v})={\frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u} \| \cdot \| \mathbf{v} \|}}}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${{\mathcal{C}}(M,\mathbf{k},\beta)[i]={\frac{\exp\{{\mathcal{D}}(\mathbf{k},M[i,\cdot])\beta \}}{\sum_{j}\exp\{{\mathcal{D}}(\mathbf{k},M[j,\cdot])\beta \}}}}$$
+  $${{\mathcal{C}}(M,\mathbf{k},\beta)[i]={\frac{\exp\{{\mathcal{D}}(\mathbf{k},M[i,\cdot])\beta \}}{\sum_{j}\exp\{{\mathcal{D}}(\mathbf{k},M[j,\cdot])\beta \}}}}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\sigma(x)=\frac{1}{1+e^{-x}}}$$
+  $${\sigma(x)=\frac{1}{1+e^{-x}}}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${{\text{oneplus}}(x)=1+\log(1+e^{x})}$$
+  $${{\text{oneplus}}(x)=1+\log(1+e^{x})}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${{\text{softmax}}(\mathbf{x})_{j}={\frac{e^{x_{j}}}{\sum_{k=1}^{K}e^{x_{k}}}}}$$
+  $${{\text{softmax}}(\mathbf{x})_{j}={\frac{e^{x_{j}}}{\sum_{k=1}^{K}e^{x_{k}}}}}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
 * Addressing
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${M_{t}=M_{t-1}\circ (E-\mathbf{w}_{t}^{w}\mathbf{e}_{t}^{\intercal})+\mathbf{w}_{t}^{w}\mathbf{v}_{t}^{\intercal}}$$
+  $${M_{t}=M_{t-1}\circ (E-\mathbf{w}_{t}^{w}\mathbf{e}_{t}^{\intercal})+\mathbf{w}_{t}^{w}\mathbf{v}_{t}^{\intercal}}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\mathbf{u}_{t}=(\mathbf{u}_{t-1}+\mathbf{w}_{t-1}^{w}-\mathbf{u}_{t-1}\circ \mathbf{w}_{t-1}^{w})\circ{\boldsymbol{\psi}}_{t}}$$
+  $${\mathbf{u}_{t}=(\mathbf{u}_{t-1}+\mathbf{w}_{t-1}^{w}-\mathbf{u}_{t-1}\circ \mathbf{w}_{t-1}^{w})\circ{\boldsymbol{\psi}}_{t}}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\mathbf{p}_{t}=\left(1-\sum_{i}\mathbf{w}_{t}^{w}[i]\right)\mathbf{p}_{t-1}+\mathbf{w}_{t}^{w}}$$
+  $${\mathbf{p}_{t}=\left(1-\sum_{i}\mathbf{w}_{t}^{w}[i]\right)\mathbf{p}_{t-1}+\mathbf{w}_{t}^{w}}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${L_{t}=(\mathbf{1}-\mathbf{I})\left[(1-\mathbf{w}_{t}^{w}[i]-\mathbf{w}_{t}^{j})L_{t-1}[i,j]+\mathbf{w}_{t}^{w}[i]\mathbf{p}_{t-1}^{j}\right]}$$
+  $${L_{t}=(\mathbf{1}-\mathbf{I})\left[(1-\mathbf{w}_{t}^{w}[i]-\mathbf{w}_{t}^{j})L_{t-1}[i,j]+\mathbf{w}_{t}^{w}[i]\mathbf{p}_{t-1}^{j}\right]}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\mathbf{w}_{t}^{w}=g_{t}^{w}[g_{t}^{a}\mathbf{a}_{t}+(1-g_{t}^{a})\mathbf{c}_{t}^{w}]}$$
+  $${\mathbf{w}_{t}^{w}=g_{t}^{w}[g_{t}^{a}\mathbf{a}_{t}+(1-g_{t}^{a})\mathbf{c}_{t}^{w}]}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\mathbf{w}_{t}^{r,i}={\boldsymbol{\pi}}_{t}^{i}[1]\mathbf{b}_{t}^{i}+{\boldsymbol{\pi}}_{t}^{i}[2]\mathbf{c}_{t}^{r,i}+{\boldsymbol{\pi}}_{t}^{i}[3]\mathbf{f}_{t}^{i}}$$
+  $${\mathbf{w}_{t}^{r,i}={\boldsymbol{\pi}}_{t}^{i}[1]\mathbf{b}_{t}^{i}+{\boldsymbol{\pi}}_{t}^{i}[2]\mathbf{c}_{t}^{r,i}+{\boldsymbol{\pi}}_{t}^{i}[3]\mathbf{f}_{t}^{i}}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\mathbf{r}_{t}^{i}=M_{t}^{\intercal}\mathbf{w}_{t}^{r,i}}$$
+  $${\mathbf{r}_{t}^{i}=M_{t}^{\intercal}\mathbf{w}_{t}^{r,i}}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\mathbf{a}_{t}[\phi_{t}[j]]=(1-\mathbf{u}_{t}[\phi_{t}[j]])\prod_{i=1}^{j-1}\mathbf{u}_{t}[\phi_{t}[i]]}$$
+  $${\mathbf{a}_{t}[\phi_{t}[j]]=(1-\mathbf{u}_{t}[\phi_{t}[j]])\prod_{i=1}^{j-1}\mathbf{u}_{t}[\phi_{t}[i]]}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\mathbf{c}_{t}^{w}={\mathcal{C}}(M_{t-1},\mathbf{k}_{t}^{w},\beta_{t}^{w})}$$
+  $${\mathbf{c}_{t}^{w}={\mathcal{C}}(M_{t-1},\mathbf{k}_{t}^{w},\beta_{t}^{w})}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\mathbf{c}_{t}^{r,i}={\mathcal{C}}(M_{t-1},\mathbf{k}_{t}^{r,i},\beta_{t}^{r,i})}$$
+  $${\mathbf{c}_{t}^{r,i}={\mathcal{C}}(M_{t-1},\mathbf{k}_{t}^{r,i},\beta_{t}^{r,i})}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\mathbf{f}_{t}^{i}=L_{t}\mathbf{w}_{t-1}^{r,i}}$$
+  $${\mathbf{f}_{t}^{i}=L_{t}\mathbf{w}_{t-1}^{r,i}}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\mathbf{b}_{t}^{i}=L_{t}^{\intercal}\mathbf{w}_{t-1}^{r,i}}$$
+  $${\mathbf{b}_{t}^{i}=L_{t}^{\intercal}\mathbf{w}_{t-1}^{r,i}}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${{\boldsymbol{\psi}}_{t}=\prod_{i=1}^{R}\left(\mathbf{1}-f_{t}^{i}\mathbf{w}_{t-1}^{r,i}\right)}$$
+  $${{\boldsymbol{\psi}}_{t}=\prod_{i=1}^{R}\left(\mathbf{1}-f_{t}^{i}\mathbf{w}_{t-1}^{r,i}\right)}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
 * Interfaces
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\xi_{t}=W_{\xi}[h_{t}^{1};\cdots;h_{t}^{L}] = [\mathbf {k}_{t}^{w};{\hat {\beta_{t}^{w}}};\mathbf {\hat {e}}_{t};\mathbf {v}_{t};{\hat {g}}_{t}^{a};{\hat {g}}_{t}^{w}]}$$
+  $${\xi_{t}=W_{\xi}[h_{t}^{1};\cdots;h_{t}^{L}] = [\mathbf {k}_{t}^{w};{\hat {\beta_{t}^{w}}};\mathbf {\hat {e}}_{t};\mathbf {v}_{t};{\hat {g}}_{t}^{a};{\hat {g}}_{t}^{w}]}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\rho_{t}=W_{\rho}[h_{t}^{1};\cdots;h_{t}^{L}] = [\mathbf {k}_{t}^{r,1};\cdots;\mathbf {k}_{t}^{r,R};{\hat {\beta}}_{t}^{r,1};\cdots;{\hat {\beta}}_{t}^{r,R};{\hat {f_{t}^{1}}};\cdots;{\hat {f_{t}^{R}}};{\hat {\boldsymbol {\pi}}}_{t}^{1};\cdots;{\hat {\boldsymbol {\pi}}}_{t}^{R}]}$$
+  $${\rho_{t}=W_{\rho}[h_{t}^{1};\cdots;h_{t}^{L}] = [\mathbf {k}_{t}^{r,1};\cdots;\mathbf {k}_{t}^{r,R};{\hat {\beta}}_{t}^{r,1};\cdots;{\hat {\beta}}_{t}^{r,R};{\hat {f_{t}^{1}}};\cdots;{\hat {f_{t}^{R}}};{\hat {\boldsymbol {\pi}}}_{t}^{1};\cdots;{\hat {\boldsymbol {\pi}}}_{t}^{R}]}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
 * Output Vector
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$${\mathbf y_{t} = W_{y} \mathbf h_{t} + W_{r}^{i} \mathbf {r}_{t}^{i}}$$
+  $${\mathbf y_{t} = W_{y} \mathbf h_{t} + W_{r}^{i} \mathbf {r}_{t}^{i}}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-![Differentiable Neural Computer](assets/chapter3/dnc.png){width=17cm}
+  ![Differentiable Neural Computer](assets/chapter3/dnc.png){width=17cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
 ### Traditional Attention Neural Network
 
@@ -763,51 +765,51 @@ Overall, Attention Neural Networks represent a powerful and flexible architectur
 
 $${{{\text{attention}}(Q, K, V)={\text{softmax}}\left({\frac{QK^{\mathrm{T}}}{\sqrt{d_{k}}}}\right)V}}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 * Query vector
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$$q_{i}=x_{i}W_{Q}$$
+  $$q_{i}=x_{i}W_{Q}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
 * Key Vector
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$$k_{i}=x_{i}W_{K}$$
+  $$k_{i}=x_{i}W_{K}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
 * Value Vector
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-$$v_{i}=x_{i}W_{V}$$
+  $$v_{i}=x_{i}W_{V}$$
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-![Transformer Inputs Vector](assets/chapter3/ntm_inputs_vector.png){width=6cm}
+  ![Transformer Inputs Vector](assets/chapter3/ntm_inputs_vector.png){width=6cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-![Transformer Multi Head Attention](assets/chapter3/ntm_multi_head_attention.png){width=6cm}
+  ![Transformer Multi Head Attention](assets/chapter3/ntm_multi_head_attention.png){width=6cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-![Transformer Scaled Dot Product Attention](assets/chapter3/ntm_scaled_dot_product_attention.png){width=6cm}
+  ![Transformer Scaled Dot Product Attention](assets/chapter3/ntm_scaled_dot_product_attention.png){width=6cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-![Transformer Decoder](assets/chapter3/ntm_decoder.png){width=6cm}
+  ![Transformer Decoder](assets/chapter3/ntm_decoder.png){width=6cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
-![Transformer Encoder](assets/chapter3/ntm_encoder.png){width=6cm}
+  ![Transformer Encoder](assets/chapter3/ntm_encoder.png){width=6cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+  INSERT HERE
 
 ## TRADITIONAL COMPUTER ARCHITECTURE
 
@@ -847,11 +849,11 @@ The von Neumann architecture, proposed by the mathematician and physicist John v
    * One limitation of the von Neumann architecture is the bottleneck created by the single shared memory bus, which can lead to performance limitations as the CPU and memory compete for access to the memory bus.
    * This bottleneck can affect the overall performance of the system, particularly in applications with high memory bandwidth requirements.
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ![von Neumann Architecture](assets/chapter3/von-neumann-architecture.svg){width=6cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 #### Traditional RISC-V
 
@@ -903,7 +905,7 @@ In summary, RISC-V with Von Neumann Architecture integrates the simplicity and m
 
 ![RV32IMAC](assets/chapter3/RV32IMAC.svg){width=10cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 #### Traditional MSP430
 
@@ -983,11 +985,11 @@ The Harvard architecture, named after the Harvard Mark I computer developed in t
    * The Harvard architecture is commonly associated with Reduced Instruction Set Computer (RISC) designs, which emphasize simplicity and efficiency in instruction execution.
    * RISC architectures often leverage the Harvard architecture's separate instruction and data memory to streamline instruction fetching and execution, leading to improved performance and power efficiency.
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ![Harvard Architecture (PU-4004)](assets/chapter3/harvard-architecture.svg)
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 #### Traditional RISC-V
 
@@ -1034,7 +1036,7 @@ In summary, RISC-V with Harvard Architecture combines the simplicity and modular
 
 ![RV32IMAC](assets/chapter3/RV32IMAC.svg){width=10cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 #### Traditional OpenRISC
 
@@ -1187,19 +1189,19 @@ Advancements and Trends:
 
 In summary, the processing unit is a critical component of a computer system responsible for executing instructions and performing calculations. It encompasses the ALU, control unit, and registers, and operates according to the fetch-decode-execute cycle. Advances in processing unit design include increased parallelism, specialized accelerators, heterogeneous computing, efficiency improvements, and the emergence of domain-specific architectures tailored for specific applications. These advancements play a crucial role in driving innovation and performance improvements in modern computing systems.
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ![PU DefenseTech Dependences](assets/chapter3/dependences-pu-defensetech.svg){width=10cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ![PU EnergyTech Dependences](assets/chapter3/dependences-pu-energytech.svg){width=10cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ![PU FinTech Dependences](assets/chapter3/dependences-pu-fintech.svg){width=10cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 #### Traditional SISD
 
@@ -1343,19 +1345,19 @@ Challenges and Considerations:
 
 In conclusion, System on Chip (SoC) architecture represents a highly integrated approach to designing electronic systems, offering advantages such as integration, performance, power efficiency, and scalability. SoCs are pervasive in a wide range of applications spanning mobile devices, consumer electronics, automotive systems, industrial automation, and embedded computing. However, designing and manufacturing SoCs pose challenges related to complexity, integration, verification, security, and customization, which require careful consideration and expertise to overcome.
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ![SoC DefenseTech Dependences](assets/chapter3/dependences-soc-defensetech.svg){width=10cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ![SoC EnergyTech Dependences](assets/chapter3/dependences-soc-energytech.svg){width=10cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ![SoC FinTech Dependences](assets/chapter3/dependences-soc-fintech.svg){width=10cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 #### Traditional Bus on Chip
 
@@ -1677,16 +1679,16 @@ Applications of Multi-Processor System on Chip (MPSoC):
 
 Overall, Multi-Processor System on Chip (MPSoC) architecture offers a versatile and efficient platform for a wide range of applications, combining high performance, energy efficiency, flexibility, and scalability on a single chip.
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ![MPSoC DefenseTech Dependences](assets/chapter3/dependences-mpsoc-defensetech.svg){width=10cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ![MPSoC EnergyTech Dependences](assets/chapter3/dependences-mpsoc-energytech.svg){width=10cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ![MPSoC FinTech Dependences](assets/chapter3/dependences-mpsoc-fintech.svg){width=10cm}
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE

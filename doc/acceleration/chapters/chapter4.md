@@ -36,7 +36,7 @@ The von Neumann architecture, proposed by the mathematician and physicist John v
    * One limitation of the von Neumann architecture is the bottleneck created by the single shared memory bus, which can lead to performance limitations as the CPU and memory compete for access to the memory bus.
    * This bottleneck can affect the overall performance of the system, particularly in applications with high memory bandwidth requirements.
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ### RISC-V
 
@@ -164,7 +164,7 @@ The Harvard architecture, named after the Harvard Mark I computer developed in t
    * The Harvard architecture is commonly associated with Reduced Instruction Set Computer (RISC) designs, which emphasize simplicity and efficiency in instruction execution.
    * RISC architectures often leverage the Harvard architecture's separate instruction and data memory to streamline instruction fetching and execution, leading to improved performance and power efficiency.
 
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+INSERT HERE
 
 ### RISC-V
 

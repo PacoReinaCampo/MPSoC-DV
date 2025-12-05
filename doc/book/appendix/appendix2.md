@@ -6,7 +6,7 @@ The standard structure for packaging, integrating, and reusing Intellectual Prop
 
 2. **Components of IP-XACT**
 
-   a. **Component Description**: Each IP block is described in a `component` element, which includes:
+   1. **Component Description**: Each IP block is described in a `component` element, which includes:
 
       - **Vendor, Library, Name, Version (VLNV)**: Unique identifiers for the IP.
       - **Model**: This describes the underlying implementation of the IP, which could be RTL (Register Transfer Level), behavioral model, or structural netlist.
@@ -17,13 +17,13 @@ The standard structure for packaging, integrating, and reusing Intellectual Prop
       - **Filesets**: Lists the files associated with the IP, including source files (Verilog, VHDL), simulation models, and documentation.
       - **Constraints**: Physical and timing constraints relevant to the IP.
 
-   b. **Design Description**: This element captures the system-level design using multiple IP components, specifying how they interconnect:
+   2. **Design Description**: This element captures the system-level design using multiple IP components, specifying how they interconnect:
 
       - **Component Instances**: Instances of IP components used in the design.
       - **Interconnections**: Connections between ports and interfaces of different IP blocks.
       - **Hierarchical Designs**: Support for hierarchical designs, allowing the creation of complex systems from simpler sub-components.
 
-   c. **Generator Chain**: Specifies the tools and scripts necessary to process the IP, such as synthesis, simulation, and verification scripts.
+   3. **Generator Chain**: Specifies the tools and scripts necessary to process the IP, such as synthesis, simulation, and verification scripts.
 
 3. **Packaging Process**: The IP packaging process involves encapsulating the IP along with its metadata and associated files into a standardized format. The key steps are:
 
@@ -60,7 +60,7 @@ The standard structure for packaging, integrating, and reusing Intellectual Prop
 
 2. **Components of IP-XACT**
 
-   a. **Component Description**: Each IP block is described in a `component` element, which includes:
+   1. **Component Description**: Each IP block is described in a `component` element, which includes:
 
       - **Vendor, Library, Name, Version (VLNV)**: Unique identifiers for the IP.
       - **Model**: This describes the underlying implementation of the IP, which could be RTL (Register Transfer Level), behavioral model, or structural netlist.
@@ -71,13 +71,13 @@ The standard structure for packaging, integrating, and reusing Intellectual Prop
       - **Filesets**: Lists the files associated with the IP, including source files (Verilog, VHDL), simulation models, and documentation.
       - **Constraints**: Physical and timing constraints relevant to the IP.
 
-   b. **Design Description**: This element captures the system-level design using multiple IP components, specifying how they interconnect:
+   2. **Design Description**: This element captures the system-level design using multiple IP components, specifying how they interconnect:
 
       - **Component Instances**: Instances of IP components used in the design.
       - **Interconnections**: Connections between ports and interfaces of different IP blocks.
       - **Hierarchical Designs**: Support for hierarchical designs, allowing the creation of complex systems from simpler sub-components.
 
-   c. **Generator Chain**: Specifies the tools and scripts necessary to process the IP, such as synthesis, simulation, and verification scripts.
+   3. **Generator Chain**: Specifies the tools and scripts necessary to process the IP, such as synthesis, simulation, and verification scripts.
 
 3. **Packaging Process**: The IP packaging process involves encapsulating the IP along with its metadata and associated files into a standardized format. The key steps are:
 
@@ -318,26 +318,26 @@ Interoperability is a cornerstone of the IP-XACT standard, ensuring that IP comp
 
    * **Example**:
 
-```xml
-<spirit:component>
-  <spirit:vendor>Acme</spirit:vendor>
-  <spirit:library>peripherals</spirit:library>
-  <spirit:name>uart</spirit:name>
-  <spirit:version>1.0</spirit:version>
-  <spirit:ports>
-    <spirit:port>
-      <spirit:name>clk</spirit:name>
-      <spirit:direction>in</spirit:direction>
-      <spirit:wire>
-        <spirit:vector>
-          <spirit:left>0</spirit:left>
-          <spirit:right>0</spirit:right>
-        </spirit:vector>
-      </spirit:wire>
-    </spirit:port>
-  </spirit:ports>
-</spirit:component>
-```
+      ```xml
+      <spirit:component>
+        <spirit:vendor>Acme</spirit:vendor>
+        <spirit:library>peripherals</spirit:library>
+        <spirit:name>uart</spirit:name>
+        <spirit:version>1.0</spirit:version>
+        <spirit:ports>
+          <spirit:port>
+            <spirit:name>clk</spirit:name>
+            <spirit:direction>in</spirit:direction>
+            <spirit:wire>
+              <spirit:vector>
+                <spirit:left>0</spirit:left>
+                <spirit:right>0</spirit:right>
+              </spirit:vector>
+            </spirit:wire>
+          </spirit:port>
+        </spirit:ports>
+      </spirit:component>
+      ```
 
 2. **IP Packaging and Exchange**
 
@@ -404,30 +404,30 @@ The interface definition descriptions in IEEE STD 1685 (IP-XACT) play a critical
 
    * **Example**:
 
-```xml
-<spirit:ports>
-  <spirit:port>
-    <spirit:name>clk</spirit:name>
-    <spirit:direction>in</spirit:direction>
-    <spirit:wire>
-      <spirit:vector>
-        <spirit:left>0</spirit:left>
-        <spirit:right>0</spirit:right>
-      </spirit:vector>
-    </spirit:wire>
-  </spirit:port>
-  <spirit:port>
-    <spirit:name>data_in</spirit:name>
-    <spirit:direction>in</spirit:direction>
-    <spirit:wire>
-      <spirit:vector>
-        <spirit:left>31</spirit:left>
-        <spirit:right>0</spirit:right>
-      </spirit:vector>
-    </spirit:wire>
-  </spirit:port>
-</spirit:ports>
-```
+      ```xml
+      <spirit:ports>
+        <spirit:port>
+          <spirit:name>clk</spirit:name>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wire>
+            <spirit:vector>
+              <spirit:left>0</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>data_in</spirit:name>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wire>
+            <spirit:vector>
+              <spirit:left>31</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+      </spirit:ports>
+      ```
 
 2. **Bus Interfaces**
 
@@ -442,24 +442,24 @@ The interface definition descriptions in IEEE STD 1685 (IP-XACT) play a critical
 
    * **Example**:
 
-```xml
-<spirit:busInterfaces>
-  <spirit:busInterface>
-    <spirit:name>AXI4_Lite</spirit:name>
-    <spirit:busType spirit:vendor="AMBA" spirit:library="busDefinition" spirit:name="AXI4Lite" spirit:version="1.0"/>
-    <spirit:abstractionType spirit:vendor="IEEE" spirit:library="standard" spirit:name="tlm" spirit:version="2.0"/>
-    <spirit:master>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort spirit:name="AWVALID"/>
-          <spirit:physicalPort spirit:name="AWVALID"/>
-        </spirit:portMap>
-        <!-- Additional port mappings -->
-      </spirit:portMaps>
-    </spirit:master>
-  </spirit:busInterface>
-</spirit:busInterfaces>
-```
+      ```xml
+      <spirit:busInterfaces>
+        <spirit:busInterface>
+          <spirit:name>AXI4_Lite</spirit:name>
+          <spirit:busType spirit:vendor="AMBA" spirit:library="busDefinition" spirit:name="AXI4Lite" spirit:version="1.0"/>
+          <spirit:abstractionType spirit:vendor="IEEE" spirit:library="standard" spirit:name="tlm" spirit:version="2.0"/>
+          <spirit:master>
+            <spirit:portMaps>
+              <spirit:portMap>
+                <spirit:logicalPort spirit:name="AWVALID"/>
+                <spirit:physicalPort spirit:name="AWVALID"/>
+              </spirit:portMap>
+              <!-- Additional port mappings -->
+            </spirit:portMaps>
+          </spirit:master>
+        </spirit:busInterface>
+      </spirit:busInterfaces>
+      ```
 
 3. **Parameters**
 
@@ -474,20 +474,20 @@ The interface definition descriptions in IEEE STD 1685 (IP-XACT) play a critical
 
    * **Example**:
 
-```xml
-<spirit:parameters>
-  <spirit:parameter>
-    <spirit:name>DATA_WIDTH</spirit:name>
-    <spirit:dataType>integer</spirit:dataType>
-    <spirit:value>32</spirit:value>
-  </spirit:parameter>
-  <spirit:parameter>
-    <spirit:name>ADDR_WIDTH</spirit:name>
-    <spirit:dataType>integer</spirit:dataType>
-    <spirit:value>16</spirit:value>
-  </spirit:parameter>
-</spirit:parameters>
-```
+      ```xml
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>DATA_WIDTH</spirit:name>
+          <spirit:dataType>integer</spirit:dataType>
+          <spirit:value>32</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ADDR_WIDTH</spirit:name>
+          <spirit:dataType>integer</spirit:dataType>
+          <spirit:value>16</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      ```
 
 4. **Memory Maps**
 
@@ -501,29 +501,29 @@ The interface definition descriptions in IEEE STD 1685 (IP-XACT) play a critical
 
    * **Example**:
 
-```xml
-<spirit:memoryMaps>
-  <spirit:memoryMap>
-    <spirit:name>RegMap</spirit:name>
-    <spirit:addressBlock>
-      <spirit:name>ControlRegisters</spirit:name>
-      <spirit:baseAddress>0x00000000</spirit:baseAddress>
-      <spirit:range>0x1000</spirit:range>
-      <spirit:width>32</spirit:width>
-      <spirit:usage>register</spirit:usage>
-      <spirit:registers>
-        <spirit:register>
-          <spirit:name>STATUS</spirit:name>
-          <spirit:addressOffset>0x0000</spirit:addressOffset>
-          <spirit:size>32</spirit:size>
-          <spirit:access>read-only</spirit:access>
-        </spirit:register>
-        <!-- Additional registers -->
-      </spirit:registers>
-    </spirit:addressBlock>
-  </spirit:memoryMap>
-</spirit:memoryMaps>
-```
+      ```xml
+      <spirit:memoryMaps>
+        <spirit:memoryMap>
+          <spirit:name>RegMap</spirit:name>
+          <spirit:addressBlock>
+            <spirit:name>ControlRegisters</spirit:name>
+            <spirit:baseAddress>0x00000000</spirit:baseAddress>
+            <spirit:range>0x1000</spirit:range>
+            <spirit:width>32</spirit:width>
+            <spirit:usage>register</spirit:usage>
+            <spirit:registers>
+              <spirit:register>
+                <spirit:name>STATUS</spirit:name>
+                <spirit:addressOffset>0x0000</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+              </spirit:register>
+              <!-- Additional registers -->
+            </spirit:registers>
+          </spirit:addressBlock>
+        </spirit:memoryMap>
+      </spirit:memoryMaps>
+      ```
 
 5. **Interconnections**
 
@@ -537,19 +537,19 @@ The interface definition descriptions in IEEE STD 1685 (IP-XACT) play a critical
 
    * **Example**:
 
-```xml
-<spirit:interconnections>
-  <spirit:interconnection>
-    <spirit:name>UART_to_Bus</spirit:name>
-    <spirit:connections>
-      <spirit:connection>
-        <spirit:source>uart/AXI4_Lite</spirit:source>
-        <spirit:destination>bus/AXI4_Lite</spirit:destination>
-      </spirit:connection>
-    </spirit:connections>
-  </spirit:interconnection>
-</spirit:interconnections>
-```
+      ```xml
+      <spirit:interconnections>
+        <spirit:interconnection>
+          <spirit:name>UART_to_Bus</spirit:name>
+          <spirit:connections>
+            <spirit:connection>
+              <spirit:source>uart/AXI4_Lite</spirit:source>
+              <spirit:destination>bus/AXI4_Lite</spirit:destination>
+            </spirit:connection>
+          </spirit:connections>
+        </spirit:interconnection>
+      </spirit:interconnections>
+      ```
 
 ### Benefits of Standardized Interface Definitions
 
@@ -582,15 +582,15 @@ In IEEE STD 1685 (IP-XACT), component descriptions are fundamental to ensuring t
 
    * **Example**:
 
-```xml
-<spirit:component>
-  <spirit:vendor>Acme</spirit:vendor>
-  <spirit:library>peripherals</spirit:library>
-  <spirit:name>uart</spirit:name>
-  <spirit:version>1.0</spirit:version>
-  <!-- Additional general information -->
-</spirit:component>
-```
+      ```xml
+      <spirit:component>
+        <spirit:vendor>Acme</spirit:vendor>
+        <spirit:library>peripherals</spirit:library>
+        <spirit:name>uart</spirit:name>
+        <spirit:version>1.0</spirit:version>
+        <!-- Additional general information -->
+      </spirit:component>
+      ```
 
 2. **Ports**
 
@@ -605,30 +605,30 @@ In IEEE STD 1685 (IP-XACT), component descriptions are fundamental to ensuring t
 
    * **Example**:
 
-```xml
-<spirit:ports>
-  <spirit:port>
-    <spirit:name>clk</spirit:name>
-    <spirit:direction>in</spirit:direction>
-    <spirit:wire>
-      <spirit:vector>
-        <spirit:left>0</spirit:left>
-        <spirit:right>0</spirit:right>
-      </spirit:vector>
-    </spirit:wire>
-  </spirit:port>
-  <spirit:port>
-    <spirit:name>data_in</spirit:name>
-    <spirit:direction>in</spirit:direction>
-    <spirit:wire>
-      <spirit:vector>
-        <spirit:left>31</spirit:left>
-        <spirit:right>0</spirit:right>
-      </spirit:vector>
-    </spirit:wire>
-  </spirit:port>
-</spirit:ports>
-```
+      ```xml
+      <spirit:ports>
+        <spirit:port>
+          <spirit:name>clk</spirit:name>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wire>
+            <spirit:vector>
+              <spirit:left>0</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>data_in</spirit:name>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wire>
+            <spirit:vector>
+              <spirit:left>31</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+      </spirit:ports>
+      ```
 
 3. **Parameters**
 
@@ -643,20 +643,20 @@ In IEEE STD 1685 (IP-XACT), component descriptions are fundamental to ensuring t
 
    * **Example**:
 
-```xml
-<spirit:parameters>
-  <spirit:parameter>
-    <spirit:name>DATA_WIDTH</spirit:name>
-    <spirit:dataType>integer</spirit:dataType>
-    <spirit:value>32</spirit:value>
-  </spirit:parameter>
-  <spirit:parameter>
-    <spirit:name>ADDR_WIDTH</spirit:name>
-    <spirit:dataType>integer</spirit:dataType>
-    <spirit:value>16</spirit:value>
-  </spirit:parameter>
-</spirit:parameters>
-```
+      ```xml
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>DATA_WIDTH</spirit:name>
+          <spirit:dataType>integer</spirit:dataType>
+          <spirit:value>32</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ADDR_WIDTH</spirit:name>
+          <spirit:dataType>integer</spirit:dataType>
+          <spirit:value>16</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      ```
 
 4. **Bus Interfaces**
 
@@ -671,24 +671,24 @@ In IEEE STD 1685 (IP-XACT), component descriptions are fundamental to ensuring t
 
    * **Example**:
 
-```xml
-<spirit:busInterfaces>
-  <spirit:busInterface>
-    <spirit:name>AXI4_Lite</spirit:name>
-    <spirit:busType spirit:vendor="AMBA" spirit:library="busDefinition" spirit:name="AXI4Lite" spirit:version="1.0"/>
-    <spirit:abstractionType spirit:vendor="IEEE" spirit:library="standard" spirit:name="tlm" spirit:version="2.0"/>
-    <spirit:master>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort spirit:name="AWVALID"/>
-          <spirit:physicalPort spirit:name="AWVALID"/>
-        </spirit:portMap>
-        <!-- Additional port mappings -->
-      </spirit:portMaps>
-    </spirit:master>
-  </spirit:busInterface>
-</spirit:busInterfaces>
-```
+      ```xml
+      <spirit:busInterfaces>
+        <spirit:busInterface>
+          <spirit:name>AXI4_Lite</spirit:name>
+          <spirit:busType spirit:vendor="AMBA" spirit:library="busDefinition" spirit:name="AXI4Lite" spirit:version="1.0"/>
+          <spirit:abstractionType spirit:vendor="IEEE" spirit:library="standard" spirit:name="tlm" spirit:version="2.0"/>
+          <spirit:master>
+            <spirit:portMaps>
+              <spirit:portMap>
+                <spirit:logicalPort spirit:name="AWVALID"/>
+                <spirit:physicalPort spirit:name="AWVALID"/>
+              </spirit:portMap>
+              <!-- Additional port mappings -->
+            </spirit:portMaps>
+          </spirit:master>
+        </spirit:busInterface>
+      </spirit:busInterfaces>
+      ```
 
 5. **Memory Maps**
 
@@ -702,29 +702,29 @@ In IEEE STD 1685 (IP-XACT), component descriptions are fundamental to ensuring t
 
    * **Example**:
 
-```xml
-<spirit:memoryMaps>
-  <spirit:memoryMap>
-    <spirit:name>RegMap</spirit:name>
-    <spirit:addressBlock>
-      <spirit:name>ControlRegisters</spirit:name>
-      <spirit:baseAddress>0x00000000</spirit:baseAddress>
-      <spirit:range>0x1000</spirit:range>
-      <spirit:width>32</spirit:width>
-      <spirit:usage>register</spirit:usage>
-      <spirit:registers>
-        <spirit:register>
-          <spirit:name>STATUS</spirit:name>
-          <spirit:addressOffset>0x0000</spirit:addressOffset>
-          <spirit:size>32</spirit:size>
-          <spirit:access>read-only</spirit:access>
-        </spirit:register>
-        <!-- Additional registers -->
-      </spirit:registers>
-    </spirit:addressBlock>
-  </spirit:memoryMap>
-</spirit:memoryMaps>
-```
+      ```xml
+      <spirit:memoryMaps>
+        <spirit:memoryMap>
+          <spirit:name>RegMap</spirit:name>
+          <spirit:addressBlock>
+            <spirit:name>ControlRegisters</spirit:name>
+            <spirit:baseAddress>0x00000000</spirit:baseAddress>
+            <spirit:range>0x1000</spirit:range>
+            <spirit:width>32</spirit:width>
+            <spirit:usage>register</spirit:usage>
+            <spirit:registers>
+              <spirit:register>
+                <spirit:name>STATUS</spirit:name>
+                <spirit:addressOffset>0x0000</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+              </spirit:register>
+              <!-- Additional registers -->
+            </spirit:registers>
+          </spirit:addressBlock>
+        </spirit:memoryMap>
+      </spirit:memoryMaps>
+      ```
 
 6. **Filesets**
 
@@ -738,21 +738,21 @@ In IEEE STD 1685 (IP-XACT), component descriptions are fundamental to ensuring t
 
    * **Example**:
 
-```xml
-<spirit:fileSets>
-  <spirit:fileSet>
-    <spirit:name>sourceFiles</spirit:name>
-    <spirit:file>
-      <spirit:name>uart.vhdl</spirit:name>
-      <spirit:fileType>VHDL</spirit:fileType>
-    </spirit:file>
-    <spirit:file>
-      <spirit:name>uart_tb.vhdl</spirit:name>
-      <spirit:fileType>VHDL</spirit:fileType>
-    </spirit:file>
-  </spirit:fileSet>
-</spirit:fileSets>
-```
+      ```xml
+      <spirit:fileSets>
+        <spirit:fileSet>
+          <spirit:name>sourceFiles</spirit:name>
+          <spirit:file>
+            <spirit:name>uart.vhdl</spirit:name>
+            <spirit:fileType>VHDL</spirit:fileType>
+          </spirit:file>
+          <spirit:file>
+            <spirit:name>uart_tb.vhdl</spirit:name>
+            <spirit:fileType>VHDL</spirit:fileType>
+          </spirit:file>
+        </spirit:fileSet>
+      </spirit:fileSets>
+      ```
 
 7. **Documentation**
 
@@ -765,15 +765,15 @@ In IEEE STD 1685 (IP-XACT), component descriptions are fundamental to ensuring t
 
    * **Example**:
 
-```xml
-<spirit:documentation>
-  <spirit:description>This UART component provides serial communication capabilities.</spirit:description>
-  <spirit:reference>
-    <spirit:name>UART Datasheet</spirit:name>
-    <spirit:uri>datasheets/uart.pdf</spirit:uri>
-  </spirit:reference>
-</spirit:documentation>
-```
+      ```xml
+      <spirit:documentation>
+        <spirit:description>This UART component provides serial communication capabilities.</spirit:description>
+        <spirit:reference>
+          <spirit:name>UART Datasheet</spirit:name>
+          <spirit:uri>datasheets/uart.pdf</spirit:uri>
+        </spirit:reference>
+      </spirit:documentation>
+      ```
 
 8. **Modeling Information**
 
@@ -787,18 +787,18 @@ In IEEE STD 1685 (IP-XACT), component descriptions are fundamental to ensuring t
 
    * **Example**:
 
-```xml
-<spirit:modeling>
-  <spirit:views>
-    <spirit:view>
-      <spirit:name>rtl</spirit:name>
-      <spirit:envIdentifier>VHDL</spirit:envIdentifier>
-      <spirit:language>VHDL</spirit:language>
-
-    </spirit:view>
-  </spirit:views>
-</spirit:modeling>
-```
+      ```xml
+      <spirit:modeling>
+        <spirit:views>
+          <spirit:view>
+            <spirit:name>rtl</spirit:name>
+            <spirit:envIdentifier>VHDL</spirit:envIdentifier>
+            <spirit:language>VHDL</spirit:language>
+      
+          </spirit:view>
+        </spirit:views>
+      </spirit:modeling>
+      ```
 
 9. **Generators**
 
@@ -812,15 +812,15 @@ In IEEE STD 1685 (IP-XACT), component descriptions are fundamental to ensuring t
 
    * **Example**:
 
-```xml
-<spirit:generators>
-  <spirit:generator>
-    <spirit:name>ConfigGen</spirit:name>
-    <spirit:type>code generator</spirit:type>
-    <spirit:command>scripts/configgen.py</spirit:command>
-  </spirit:generator>
-</spirit:generators>
-```
+      ```xml
+      <spirit:generators>
+        <spirit:generator>
+          <spirit:name>ConfigGen</spirit:name>
+          <spirit:type>code generator</spirit:type>
+          <spirit:command>scripts/configgen.py</spirit:command>
+        </spirit:generator>
+      </spirit:generators>
+      ```
 
 ### Benefits of Component Descriptions
 
@@ -853,15 +853,15 @@ In IEEE STD 1685 (IP-XACT), design descriptions are a key aspect that defines ho
 
    * **Example**:
 
-```xml
-<spirit:design>
-  <spirit:vendor>Acme</spirit:vendor>
-  <spirit:library>systems</spirit:library>
-  <spirit:name>uart_system</spirit:name>
-  <spirit:version>1.0</spirit:version>
-  <!-- Additional metadata -->
-</spirit:design>
-```
+      ```xml
+      <spirit:design>
+        <spirit:vendor>Acme</spirit:vendor>
+        <spirit:library>systems</spirit:library>
+        <spirit:name>uart_system</spirit:name>
+        <spirit:version>1.0</spirit:version>
+        <!-- Additional metadata -->
+      </spirit:design>
+      ```
 
 2. **Component Instances**
 
@@ -875,24 +875,24 @@ In IEEE STD 1685 (IP-XACT), design descriptions are a key aspect that defines ho
 
    * **Example**:
 
-```xml
-<spirit:componentInstances>
-  <spirit:componentInstance>
-    <spirit:instanceName>uart0</spirit:instanceName>
-    <spirit:componentRef spirit:vendor="Acme" spirit:library="peripherals" spirit:name="uart" spirit:version="1.0"/>
-    <spirit:configurableElementValues>
-      <spirit:configurableElementValue spirit:referenceId="DATA_WIDTH">8</spirit:configurableElementValue>
-    </spirit:configurableElementValues>
-  </spirit:componentInstance>
-  <spirit:componentInstance>
-    <spirit:instanceName>uart1</spirit:instanceName>
-    <spirit:componentRef spirit:vendor="Acme" spirit:library="peripherals" spirit:name="uart" spirit:version="1.0"/>
-    <spirit:configurableElementValues>
-      <spirit:configurableElementValue spirit:referenceId="DATA_WIDTH">16</spirit:configurableElementValue>
-    </spirit:configurableElementValues>
-  </spirit:componentInstance>
-</spirit:componentInstances>
-```
+      ```xml
+      <spirit:componentInstances>
+        <spirit:componentInstance>
+          <spirit:instanceName>uart0</spirit:instanceName>
+          <spirit:componentRef spirit:vendor="Acme" spirit:library="peripherals" spirit:name="uart" spirit:version="1.0"/>
+          <spirit:configurableElementValues>
+            <spirit:configurableElementValue spirit:referenceId="DATA_WIDTH">8</spirit:configurableElementValue>
+          </spirit:configurableElementValues>
+        </spirit:componentInstance>
+        <spirit:componentInstance>
+          <spirit:instanceName>uart1</spirit:instanceName>
+          <spirit:componentRef spirit:vendor="Acme" spirit:library="peripherals" spirit:name="uart" spirit:version="1.0"/>
+          <spirit:configurableElementValues>
+            <spirit:configurableElementValue spirit:referenceId="DATA_WIDTH">16</spirit:configurableElementValue>
+          </spirit:configurableElementValues>
+        </spirit:componentInstance>
+      </spirit:componentInstances>
+      ```
 
 3. **Interconnections**
 
@@ -906,21 +906,21 @@ In IEEE STD 1685 (IP-XACT), design descriptions are a key aspect that defines ho
 
    * **Example**:
 
-```xml
-<spirit:interconnections>
-  <spirit:interconnection>
-    <spirit:name>uart0_to_uart1</spirit:name>
-    <spirit:connections>
-      <spirit:connection>
-        <spirit:sourceInstanceRef>uart0</spirit:sourceInstanceRef>
-        <spirit:sourcePortRef>tx</spirit:sourcePortRef>
-        <spirit:destinationInstanceRef>uart1</spirit:destinationInstanceRef>
-        <spirit:destinationPortRef>rx</spirit:destinationPortRef>
-      </spirit:connection>
-    </spirit:connections>
-  </spirit:interconnection>
-</spirit:interconnections>
-```
+      ```xml
+      <spirit:interconnections>
+        <spirit:interconnection>
+          <spirit:name>uart0_to_uart1</spirit:name>
+          <spirit:connections>
+            <spirit:connection>
+              <spirit:sourceInstanceRef>uart0</spirit:sourceInstanceRef>
+              <spirit:sourcePortRef>tx</spirit:sourcePortRef>
+              <spirit:destinationInstanceRef>uart1</spirit:destinationInstanceRef>
+              <spirit:destinationPortRef>rx</spirit:destinationPortRef>
+            </spirit:connection>
+          </spirit:connections>
+        </spirit:interconnection>
+      </spirit:interconnections>
+      ```
 
 4. **Hierarchical Designs**
 
@@ -934,17 +934,17 @@ In IEEE STD 1685 (IP-XACT), design descriptions are a key aspect that defines ho
 
    * **Example**:
 
-```xml
-<spirit:designInstances>
-  <spirit:designInstance>
-    <spirit:instanceName>uart_subsystem</spirit:instanceName>
-    <spirit:designRef spirit:vendor="Acme" spirit:library="subsystems" spirit:name="uart_subsystem" spirit:version="1.0"/>
-    <spirit:configurableElementValues>
-      <spirit:configurableElementValue spirit:referenceId="NUM_UARTS">2</spirit:configurableElementValue>
-    </spirit:configurableElementValues>
-  </spirit:designInstance>
-</spirit:designInstances>
-```
+      ```xml
+      <spirit:designInstances>
+        <spirit:designInstance>
+          <spirit:instanceName>uart_subsystem</spirit:instanceName>
+          <spirit:designRef spirit:vendor="Acme" spirit:library="subsystems" spirit:name="uart_subsystem" spirit:version="1.0"/>
+          <spirit:configurableElementValues>
+            <spirit:configurableElementValue spirit:referenceId="NUM_UARTS">2</spirit:configurableElementValue>
+          </spirit:configurableElementValues>
+        </spirit:designInstance>
+      </spirit:designInstances>
+      ```
 
 5. **Configurations**
 
@@ -958,24 +958,24 @@ In IEEE STD 1685 (IP-XACT), design descriptions are a key aspect that defines ho
 
    * **Example**:
 
-```xml
-<spirit:configurations>
-  <spirit:configuration>
-    <spirit:name>default</spirit:name>
-    <spirit:parameterValues>
-      <spirit:parameterValue spirit:referenceId="clock_frequency">50MHz</spirit:parameterValue>
-    </spirit:parameterValues>
-    <spirit:instanceConfigurations>
-      <spirit:instanceConfiguration>
-        <spirit:instanceRef>uart0</spirit:instanceRef>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="BAUD_RATE">115200</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:instanceConfiguration>
-    </spirit:instanceConfigurations>
-  </spirit:configuration>
-</spirit:configurations>
-```
+      ```xml
+      <spirit:configurations>
+        <spirit:configuration>
+          <spirit:name>default</spirit:name>
+          <spirit:parameterValues>
+            <spirit:parameterValue spirit:referenceId="clock_frequency">50MHz</spirit:parameterValue>
+          </spirit:parameterValues>
+          <spirit:instanceConfigurations>
+            <spirit:instanceConfiguration>
+              <spirit:instanceRef>uart0</spirit:instanceRef>
+              <spirit:configurableElementValues>
+                <spirit:configurableElementValue spirit:referenceId="BAUD_RATE">115200</spirit:configurableElementValue>
+              </spirit:configurableElementValues>
+            </spirit:instanceConfiguration>
+          </spirit:instanceConfigurations>
+        </spirit:configuration>
+      </spirit:configurations>
+      ```
 
 ### Benefits of Standardized Design Descriptions
 
@@ -1010,15 +1010,15 @@ In IEEE STD 1685 (IP-XACT), abstractor descriptions are crucial for defining and
 
    * **Example**:
 
-```xml
-<spirit:abstractor>
-  <spirit:vendor>Acme</spirit:vendor>
-  <spirit:library>abstractors</spirit:library>
-  <spirit:name>bus_converter</spirit:name>
-  <spirit:version>1.0</spirit:version>
-  <!-- Additional metadata -->
-</spirit:abstractor>
-```
+      ```xml
+      <spirit:abstractor>
+        <spirit:vendor>Acme</spirit:vendor>
+        <spirit:library>abstractors</spirit:library>
+        <spirit:name>bus_converter</spirit:name>
+        <spirit:version>1.0</spirit:version>
+        <!-- Additional metadata -->
+      </spirit:abstractor>
+      ```
 
 2. **Ports**
 
@@ -1033,30 +1033,30 @@ In IEEE STD 1685 (IP-XACT), abstractor descriptions are crucial for defining and
 
    * **Example**:
 
-```xml
-<spirit:ports>
-  <spirit:port>
-    <spirit:name>clk</spirit:name>
-    <spirit:direction>in</spirit:direction>
-    <spirit:wire>
-      <spirit:vector>
-        <spirit:left>0</spirit:left>
-        <spirit:right>0</spirit:right>
-      </spirit:vector>
-    </spirit:wire>
-  </spirit:port>
-  <spirit:port>
-    <spirit:name>data_in</spirit:name>
-    <spirit:direction>in</spirit:direction>
-    <spirit:wire>
-      <spirit:vector>
-        <spirit:left>31</spirit:left>
-        <spirit:right>0</spirit:right>
-      </spirit:vector>
-    </spirit:wire>
-  </spirit:port>
-</spirit:ports>
-```
+      ```xml
+      <spirit:ports>
+        <spirit:port>
+          <spirit:name>clk</spirit:name>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wire>
+            <spirit:vector>
+              <spirit:left>0</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>data_in</spirit:name>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wire>
+            <spirit:vector>
+              <spirit:left>31</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+      </spirit:ports>
+      ```
 
 3. **Parameters**
 
@@ -1071,20 +1071,20 @@ In IEEE STD 1685 (IP-XACT), abstractor descriptions are crucial for defining and
 
    * **Example**:
 
-```xml
-<spirit:parameters>
-  <spirit:parameter>
-    <spirit:name>BUS_WIDTH</spirit:name>
-    <spirit:dataType>integer</spirit:dataType>
-    <spirit:value>32</spirit:value>
-  </spirit:parameter>
-  <spirit:parameter>
-    <spirit:name>FREQUENCY</spirit:name>
-    <spirit:dataType>integer</spirit:dataType>
-    <spirit:value>100</spirit:value>
-  </spirit:parameter>
-</spirit:parameters>
-```
+      ```xml
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>BUS_WIDTH</spirit:name>
+          <spirit:dataType>integer</spirit:dataType>
+          <spirit:value>32</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>FREQUENCY</spirit:name>
+          <spirit:dataType>integer</spirit:dataType>
+          <spirit:value>100</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      ```
 
 4. **Bus Interfaces**
 
@@ -1099,24 +1099,24 @@ In IEEE STD 1685 (IP-XACT), abstractor descriptions are crucial for defining and
 
    * **Example**:
 
-```xml
-<spirit:busInterfaces>
-  <spirit:busInterface>
-    <spirit:name>AXI4_Lite</spirit:name>
-    <spirit:busType spirit:vendor="AMBA" spirit:library="busDefinition" spirit:name="AXI4Lite" spirit:version="1.0"/>
-    <spirit:abstractionType spirit:vendor="IEEE" spirit:library="standard" spirit:name="tlm" spirit:version="2.0"/>
-    <spirit:slave>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort spirit:name="AWVALID"/>
-          <spirit:physicalPort spirit:name="AWVALID"/>
-        </spirit:portMap>
-        <!-- Additional port mappings -->
-      </spirit:portMaps>
-    </spirit:slave>
-  </spirit:busInterface>
-</spirit:busInterfaces>
-```
+      ```xml
+      <spirit:busInterfaces>
+        <spirit:busInterface>
+          <spirit:name>AXI4_Lite</spirit:name>
+          <spirit:busType spirit:vendor="AMBA" spirit:library="busDefinition" spirit:name="AXI4Lite" spirit:version="1.0"/>
+          <spirit:abstractionType spirit:vendor="IEEE" spirit:library="standard" spirit:name="tlm" spirit:version="2.0"/>
+          <spirit:slave>
+            <spirit:portMaps>
+              <spirit:portMap>
+                <spirit:logicalPort spirit:name="AWVALID"/>
+                <spirit:physicalPort spirit:name="AWVALID"/>
+              </spirit:portMap>
+              <!-- Additional port mappings -->
+            </spirit:portMaps>
+          </spirit:slave>
+        </spirit:busInterface>
+      </spirit:busInterfaces>
+      ```
 
 5. **Views**
 
@@ -1130,15 +1130,15 @@ In IEEE STD 1685 (IP-XACT), abstractor descriptions are crucial for defining and
 
    * **Example**:
 
-```xml
-<spirit:views>
-  <spirit:view>
-    <spirit:name>rtl</spirit:name>
-    <spirit:envIdentifier>VHDL</spirit:envIdentifier>
-    <spirit:language>VHDL</spirit:language>
-  </spirit:view>
-</spirit:views>
-```
+      ```xml
+      <spirit:views>
+        <spirit:view>
+          <spirit:name>rtl</spirit:name>
+          <spirit:envIdentifier>VHDL</spirit:envIdentifier>
+          <spirit:language>VHDL</spirit:language>
+        </spirit:view>
+      </spirit:views>
+      ```
 
 6. **File Sets**
 
@@ -1152,17 +1152,17 @@ In IEEE STD 1685 (IP-XACT), abstractor descriptions are crucial for defining and
 
    * **Example**:
 
-```xml
-<spirit:fileSets>
-  <spirit:fileSet>
-    <spirit:name>sourceFiles</spirit:name>
-    <spirit:file>
-      <spirit:name>bus_converter.vhdl</spirit:name>
-      <spirit:fileType>VHDL</spirit:fileType>
-    </spirit:file>
-  </spirit:fileSet>
-</spirit:fileSets>
-```
+      ```xml
+      <spirit:fileSets>
+        <spirit:fileSet>
+          <spirit:name>sourceFiles</spirit:name>
+          <spirit:file>
+            <spirit:name>bus_converter.vhdl</spirit:name>
+            <spirit:fileType>VHDL</spirit:fileType>
+          </spirit:file>
+        </spirit:fileSet>
+      </spirit:fileSets>
+      ```
 
 7. **Documentation**
 
@@ -1175,15 +1175,15 @@ In IEEE STD 1685 (IP-XACT), abstractor descriptions are crucial for defining and
 
    * **Example**:
 
-```xml
-<spirit:documentation>
-  <spirit:description>This abstractor converts signals from the AXI4-Lite protocol to the custom bus protocol.</spirit:description>
-  <spirit:reference>
-    <spirit:name>AXI4-Lite to Custom Bus Converter Manual</spirit:name>
-    <spirit:uri>docs/axi4_to_custom_converter.pdf</spirit:uri>
-  </spirit:reference>
-</spirit:documentation>
-```
+      ```xml
+      <spirit:documentation>
+        <spirit:description>This abstractor converts signals from the AXI4-Lite protocol to the custom bus protocol.</spirit:description>
+        <spirit:reference>
+          <spirit:name>AXI4-Lite to Custom Bus Converter Manual</spirit:name>
+          <spirit:uri>docs/axi4_to_custom_converter.pdf</spirit:uri>
+        </spirit:reference>
+      </spirit:documentation>
+      ```
 
 ### Benefits of Abstractor Descriptions
 
@@ -1218,15 +1218,15 @@ Generator chain descriptions in IEEE STD 1685 (IP-XACT) outline the sequence and
 
    * **Example**:
 
-```xml
-<spirit:generatorChain>
-  <spirit:vendor>Acme</spirit:vendor>
-  <spirit:library>generators</spirit:library>
-  <spirit:name>rtl_gen_chain</spirit:name>
-  <spirit:version>1.0</spirit:version>
-  <!-- Additional metadata -->
-</spirit:generatorChain>
-```
+      ```xml
+      <spirit:generatorChain>
+        <spirit:vendor>Acme</spirit:vendor>
+        <spirit:library>generators</spirit:library>
+        <spirit:name>rtl_gen_chain</spirit:name>
+        <spirit:version>1.0</spirit:version>
+        <!-- Additional metadata -->
+      </spirit:generatorChain>
+      ```
 
 2. **Generator Instances**
 
@@ -1240,17 +1240,17 @@ Generator chain descriptions in IEEE STD 1685 (IP-XACT) outline the sequence and
 
    * **Example**:
 
-```xml
-<spirit:generatorInstances>
-  <spirit:generatorInstance>
-    <spirit:instanceName>rtl_gen</spirit:instanceName>
-    <spirit:generatorRef spirit:vendor="Acme" spirit:library="generators" spirit:name="rtl_generator" spirit:version="1.0"/>
-    <spirit:configurableElementValues>
-      <spirit:configurableElementValue spirit:referenceId="DATA_WIDTH">32</spirit:configurableElementValue>
-    </spirit:configurableElementValues>
-  </spirit:generatorInstance>
-</spirit:generatorInstances>
-```
+      ```xml
+      <spirit:generatorInstances>
+        <spirit:generatorInstance>
+          <spirit:instanceName>rtl_gen</spirit:instanceName>
+          <spirit:generatorRef spirit:vendor="Acme" spirit:library="generators" spirit:name="rtl_generator" spirit:version="1.0"/>
+          <spirit:configurableElementValues>
+            <spirit:configurableElementValue spirit:referenceId="DATA_WIDTH">32</spirit:configurableElementValue>
+          </spirit:configurableElementValues>
+        </spirit:generatorInstance>
+      </spirit:generatorInstances>
+      ```
 
 3. **Parameters**
 
@@ -1265,15 +1265,15 @@ Generator chain descriptions in IEEE STD 1685 (IP-XACT) outline the sequence and
 
    * **Example**:
 
-```xml
-<spirit:parameters>
-  <spirit:parameter>
-    <spirit:name>DATA_WIDTH</spirit:name>
-    <spirit:dataType>integer</spirit:dataType>
-    <spirit:value>32</spirit:value>
-  </spirit:parameter>
-</spirit:parameters>
-```
+      ```xml
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>DATA_WIDTH</spirit:name>
+          <spirit:dataType>integer</spirit:dataType>
+          <spirit:value>32</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      ```
 
 4. **Dependencies**
 
@@ -1286,15 +1286,15 @@ Generator chain descriptions in IEEE STD 1685 (IP-XACT) outline the sequence and
 
    * **Example**:
 
-```xml
-<spirit:dependencies>
-  <spirit:dependency>
-    <spirit:dependencyType>sequential</spirit:dependencyType>
-    <spirit:dependentInstanceRef>rtl_gen</spirit:dependentInstanceRef>
-    <spirit:dependencyInstanceRef>rtl_gen2</spirit:dependencyInstanceRef>
-  </spirit:dependency>
-</spirit:dependencies>
-```
+      ```xml
+      <spirit:dependencies>
+        <spirit:dependency>
+          <spirit:dependencyType>sequential</spirit:dependencyType>
+          <spirit:dependentInstanceRef>rtl_gen</spirit:dependentInstanceRef>
+          <spirit:dependencyInstanceRef>rtl_gen2</spirit:dependencyInstanceRef>
+        </spirit:dependency>
+      </spirit:dependencies>
+      ```
 
 5. Execution Order
 
@@ -1306,12 +1306,12 @@ Generator chain descriptions in IEEE STD 1685 (IP-XACT) outline the sequence and
 
    * **Example**:
 
-```xml
-<spirit:executionOrder>
-  <spirit:generatorInstanceRef>rtl_gen</spirit:generatorInstanceRef>
-  <spirit:generatorInstanceRef>rtl_gen2</spirit:generatorInstanceRef>
-</spirit:executionOrder>
-```
+      ```xml
+      <spirit:executionOrder>
+        <spirit:generatorInstanceRef>rtl_gen</spirit:generatorInstanceRef>
+        <spirit:generatorInstanceRef>rtl_gen2</spirit:generatorInstanceRef>
+      </spirit:executionOrder>
+      ```
 
 ### Benefits of Generator Chain Descriptions
 
@@ -1346,17 +1346,17 @@ Design configuration descriptions in IEEE STD 1685 (IP-XACT) provide a standardi
 
    * **Example**:
 
-```xml
-<spirit:configurations>
-  <spirit:configuration>
-    <spirit:vendor>Acme</spirit:vendor>
-    <spirit:library>configurations</spirit:library>
-    <spirit:name>default</spirit:name>
-    <spirit:version>1.0</spirit:version>
-    <!-- Additional metadata -->
-  </spirit:configuration>
-</spirit:configurations>
-```
+      ```xml
+      <spirit:configurations>
+        <spirit:configuration>
+          <spirit:vendor>Acme</spirit:vendor>
+          <spirit:library>configurations</spirit:library>
+          <spirit:name>default</spirit:name>
+          <spirit:version>1.0</spirit:version>
+          <!-- Additional metadata -->
+        </spirit:configuration>
+      </spirit:configurations>
+      ```
 
 2. **Component Configuration**
 
@@ -1370,17 +1370,17 @@ Design configuration descriptions in IEEE STD 1685 (IP-XACT) provide a standardi
 
    * **Example**:
 
-```xml
-<spirit:componentInstances>
-  <spirit:componentInstance>
-    <spirit:instanceName>uart0</spirit:instanceName>
-    <spirit:componentRef spirit:vendor="Acme" spirit:library="peripherals" spirit:name="uart" spirit:version="1.0"/>
-    <spirit:configurableElementValues>
-      <spirit:configurableElementValue spirit:referenceId="BAUD_RATE">115200</spirit:configurableElementValue>
-    </spirit:configurableElementValues>
-  </spirit:componentInstance>
-</spirit:componentInstances>
-```
+      ```xml
+      <spirit:componentInstances>
+        <spirit:componentInstance>
+          <spirit:instanceName>uart0</spirit:instanceName>
+          <spirit:componentRef spirit:vendor="Acme" spirit:library="peripherals" spirit:name="uart" spirit:version="1.0"/>
+          <spirit:configurableElementValues>
+            <spirit:configurableElementValue spirit:referenceId="BAUD_RATE">115200</spirit:configurableElementValue>
+          </spirit:configurableElementValues>
+        </spirit:componentInstance>
+      </spirit:componentInstances>
+      ```
 
 3. **Parameter Settings**
 
@@ -1393,14 +1393,14 @@ Design configuration descriptions in IEEE STD 1685 (IP-XACT) provide a standardi
 
    * **Example**:
 
-```xml
-<spirit:parameters>
-  <spirit:parameter>
-    <spirit:name>CLOCK_FREQ</spirit:name>
-    <spirit:value>100MHz</spirit:value>
-  </spirit:parameter>
-</spirit:parameters>
-```
+      ```xml
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>CLOCK_FREQ</spirit:name>
+          <spirit:value>100MHz</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      ```
 
 4. **Conditional Configuration**
 
@@ -1413,14 +1413,14 @@ Design configuration descriptions in IEEE STD 1685 (IP-XACT) provide a standardi
 
    * **Example**:
 
-```xml
-<spirit:conditionalConfigurations>
-  <spirit:conditionalConfiguration>
-    <spirit:condition>isClockEnabled</spirit:condition>
-    <spirit:configurationRef>withClock</spirit:configurationRef>
-  </spirit:conditionalConfiguration>
-</spirit:conditionalConfigurations>
-```
+      ```xml
+      <spirit:conditionalConfigurations>
+        <spirit:conditionalConfiguration>
+          <spirit:condition>isClockEnabled</spirit:condition>
+          <spirit:configurationRef>withClock</spirit:configurationRef>
+        </spirit:conditionalConfiguration>
+      </spirit:conditionalConfigurations>
+      ```
 
 5. **Design Constraints**
 
@@ -1433,14 +1433,14 @@ Design configuration descriptions in IEEE STD 1685 (IP-XACT) provide a standardi
 
    * **Example**:
 
-```xml
-<spirit:designConstraints>
-  <spirit:constraint>
-    <spirit:type>timing</spirit:type>
-    <spirit:value>100ns</spirit:value>
-  </spirit:constraint>
-</spirit:designConstraints>
-```
+      ```xml
+      <spirit:designConstraints>
+        <spirit:constraint>
+          <spirit:type>timing</spirit:type>
+          <spirit:value>100ns</spirit:value>
+        </spirit:constraint>
+      </spirit:designConstraints>
+      ```
 
 ### Benefits of Design Configuration Descriptions
 
@@ -1475,15 +1475,15 @@ Catalog descriptions in IEEE STD 1685 (IP-XACT) serve as a standardized format f
 
    * **Example**:
 
-```xml
-<spirit:catalog>
-  <spirit:vendor>Acme</spirit:vendor>
-  <spirit:library>IP Catalog</spirit:library>
-  <spirit:name>IP Library</spirit:name>
-  <spirit:version>1.0</spirit:version>
-  <!-- Additional metadata -->
-</spirit:catalog>
-```
+      ```xml
+      <spirit:catalog>
+        <spirit:vendor>Acme</spirit:vendor>
+        <spirit:library>IP Catalog</spirit:library>
+        <spirit:name>IP Library</spirit:name>
+        <spirit:version>1.0</spirit:version>
+        <!-- Additional metadata -->
+      </spirit:catalog>
+      ```
 
 2. **IP Component Listings**
 
@@ -1499,13 +1499,13 @@ Catalog descriptions in IEEE STD 1685 (IP-XACT) serve as a standardized format f
 
    * **Example**:
 
-```xml
-<spirit:component>
-  <spirit:name>UART Controller</spirit:name>
-  <spirit:description>A UART controller IP core for serial communication.</spirit:description>
-  <!-- Interfaces, parameters, configuration options -->
-</spirit:component>
-```
+      ```xml
+      <spirit:component>
+        <spirit:name>UART Controller</spirit:name>
+        <spirit:description>A UART controller IP core for serial communication.</spirit:description>
+        <!-- Interfaces, parameters, configuration options -->
+      </spirit:component>
+      ```
 
 3. **Search and Filtering Options**
 
@@ -1518,12 +1518,12 @@ Catalog descriptions in IEEE STD 1685 (IP-XACT) serve as a standardized format f
 
    * **Example**:
 
-```xml
-<spirit:searchOptions>
-  <spirit:searchCriteria>name, description, interfaces</spirit:searchCriteria>
-  <spirit:filteringOptions>interface_type, protocol</spirit:filteringOptions>
-</spirit:searchOptions>
-```
+      ```xml
+      <spirit:searchOptions>
+        <spirit:searchCriteria>name, description, interfaces</spirit:searchCriteria>
+        <spirit:filteringOptions>interface_type, protocol</spirit:filteringOptions>
+      </spirit:searchOptions>
+      ```
 
 4. **Documentation Links**
 
@@ -1536,12 +1536,12 @@ Catalog descriptions in IEEE STD 1685 (IP-XACT) serve as a standardized format f
 
    * **Example**:
 
-```xml
-<spirit:documentation>
-  <spirit:type>datasheet</spirit:type>
-  <spirit:uri>docs/uart_datasheet.pdf</spirit:uri>
-</spirit:documentation>
-```
+      ```xml
+      <spirit:documentation>
+        <spirit:type>datasheet</spirit:type>
+        <spirit:uri>docs/uart_datasheet.pdf</spirit:uri>
+      </spirit:documentation>
+      ```
 
 5. **Vendor Information**
 
@@ -1555,19 +1555,19 @@ Catalog descriptions in IEEE STD 1685 (IP-XACT) serve as a standardized format f
 
    * **Example**:
 
-```xml
-<spirit:vendorInfo>
-  <spirit:name>Acme Technologies</spirit:name>
-  <spirit:contact>
-    <spirit:email>info@acmetech.com</spirit:email>
-    <spirit:website>www.acmetech.com</spirit:website>
-  </spirit:contact>
-  <spirit:supportResources>
-    <spirit:forum>forum.acmetech.com</spirit:forum>
-    <spirit:knowledgeBase>kb.acmetech.com</spirit:knowledgeBase>
-  </spirit:supportResources>
-</spirit:vendorInfo>
-```
+      ```xml
+      <spirit:vendorInfo>
+        <spirit:name>Acme Technologies</spirit:name>
+        <spirit:contact>
+          <spirit:email>info@acmetech.com</spirit:email>
+          <spirit:website>www.acmetech.com</spirit:website>
+        </spirit:contact>
+        <spirit:supportResources>
+          <spirit:forum>forum.acmetech.com</spirit:forum>
+          <spirit:knowledgeBase>kb.acmetech.com</spirit:knowledgeBase>
+        </spirit:supportResources>
+      </spirit:vendorInfo>
+      ```
 
 ### Benefits of Catalog Descriptions
 

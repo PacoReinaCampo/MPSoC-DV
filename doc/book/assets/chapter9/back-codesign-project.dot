@@ -1,6 +1,6 @@
 digraph Project {
   // Introduction
-  graph [rankdir = LR, splines=ortho];
+  graph [rankdir = TB, splines=ortho];
   node[shape=record];
 
   // Blocks

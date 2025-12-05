@@ -45,15 +45,7 @@
 dot -Tsvg hardware-project.dot > hardware-project.svg
 dot -Tsvg software-project.dot > software-project.svg
 
-dot -Tsvg codesign-project.dot > codesign-project.svg
-
 dot -Tsvg front-codesign-project.dot > front-codesign-project.svg
 dot -Tsvg back-codesign-project.dot > back-codesign-project.svg
 
-dot -Tpng hardware-project.dot > hardware-project.png
-dot -Tpng software-project.dot > software-project.png
-
-dot -Tpng front-codesign-project.dot > front-codesign-project.png
-dot -Tpng back-codesign-project.dot > back-codesign-project.png
-
-dot -Tpng codesign-project.dot > codesign-project.png
+dot -Tsvg codesign-project.dot > codesign-project.svg

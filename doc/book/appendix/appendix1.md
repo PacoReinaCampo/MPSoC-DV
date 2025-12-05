@@ -4,7 +4,7 @@
 
 The Recommended Practice for Encryption and Management of Electronic Design Intellectual Property (IP) provides guidelines and best practices for securing and managing IP components used in electronic designs. It outlines strategies for encrypting sensitive IP, managing encryption keys, and implementing secure workflows to protect intellectual property from unauthorized access, tampering, or theft.
 
-I. Key Components of the Recommended Practice
+**I. Key Components of the Recommended Practice**
 
    1. **Encryption Algorithms and Techniques**:
 
@@ -38,7 +38,7 @@ I. Key Components of the Recommended Practice
       - **Security Incident Response**: Establish incident response procedures and protocols to detect, investigate, and respond to security incidents or breaches involving IP theft, unauthorized access, or data leakage.
       - **Security Audits and Reviews**: Conduct regular security audits, reviews, and assessments of encryption practices, key management procedures, and IP protection mechanisms to identify areas for improvement and ensure ongoing compliance with security requirements.
 
-II. Benefits of Implementing the Recommended Practice
+**II. Benefits of Implementing the Recommended Practice**
 
    1. **Protection of Intellectual Property**: Safeguard sensitive IP components and design assets from unauthorized access, tampering, or theft, preserving their confidentiality, integrity, and availability.
 

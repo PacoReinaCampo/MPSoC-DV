@@ -28,11 +28,11 @@ Guidance for the requirements capture activities includes:
 
 2. The safety requirements from the PSSA related to the hardware item should be identified. These may include:
 
-   a. Design assurance levels imposed on the functions to be implemented in the hardware.
+   1. Design assurance levels imposed on the functions to be implemented in the hardware.
 
-   b. Probabilistic requirements for malfunctions or loss of function.
+   2. Probabilistic requirements for malfunctions or loss of function.
 
-   c. Hardware architectural and functional safety attributes, such as those outlined in Section 2.3.1, selected to meet the functional allocation.
+   3. Hardware architectural and functional safety attributes, such as those outlined in Section 2.3.1, selected to meet the functional allocation.
 
 3. Design constraints due to production processes, standards, procedures, technology, design environment and design guidance should be identified.
 
@@ -40,25 +40,25 @@ Guidance for the requirements capture activities includes:
 
    Note: Derived requirements may address conditions, such as:
 
-   a. Specific constraints to ensure that functions of a higher design assurance level can withstand anomalies of functions of a lower design assurance level as seen at the interface of the function with the lower design assurance level.
+   1. Specific constraints to ensure that functions of a higher design assurance level can withstand anomalies of functions of a lower design assurance level as seen at the interface of the function with the lower design assurance level.
 
-   b. The range of data inputs considering typical and full-scale data values as well as the high and low states of bits in data words or control registers.
+   2. The range of data inputs considering typical and full-scale data values as well as the high and low states of bits in data words or control registers.
 
-   c. Power-up reset or other reset states.
+   3. Power-up reset or other reset states.
 
-   d. Supply voltage and current demands.
+   4. Supply voltage and current demands.
 
-   e. Performance of time-related functions, such as filters, integrators and delays.
+   5. Performance of time-related functions, such as filters, integrators and delays.
 
-   f. State machine transitions that are possible, whether they are anticipated or not.
+   6. State machine transitions that are possible, whether they are anticipated or not.
 
-   g. Signal timing relationships or electrical conditions under normal and worst-case conditions.
+   7. Signal timing relationships or electrical conditions under normal and worst-case conditions.
 
-   h. Signal noise and cross-talk.
+   8. Signal noise and cross-talk.
 
-   i. Signal glitches in asynchronous logic circuits.
+   9. Signal glitches in asynchronous logic circuits.
 
-   j. Specific constraints to control unused functions.
+   10. Specific constraints to control unused functions.
 
 5. Derived requirements should be fed back to the SSA process so that the effects on the system requirements can be assessed.
 
@@ -76,7 +76,7 @@ The Hardware Project Workflow illustrates the interconnected phases involved in 
 
 * Hardware Project Workflow
 
-![Hardware Project Workflow](assets/chapter9/hardware-project.svg)
+  ![Hardware Project Workflow](assets/chapter9/hardware-project.svg)
 
 Hardware DevOps represents the application of DevOps principles and practices to the hardware development lifecycle. It aims to break down silos between design, verification, manufacturing, and operations teams by fostering collaboration, automating workflows (like continuous integration and testing), and implementing robust configuration management. This approach accelerates development cycles, improves product quality, enhances traceability, and allows for more efficient management of complex hardware projects, adapting software development agility to the hardware domain.
 
@@ -123,7 +123,7 @@ The Unified Modeling Language (UML) offers a standardized graphical notation for
 
 Structural UML diagrams are primarily concerned with representing the static aspects of a system. In a hardware context, diagrams like Component, Package, and Composite Structure diagrams are invaluable for illustrating the organization of hardware blocks, their interconnections, ports, interfaces, and the overall physical or logical architecture of the hardware item, providing a clear blueprint of the system's structure.
 
-   * **Behavioral UML diagrams** (for Functionality and Registers and Interrptions)
+   * **Behavioral UML diagrams** (for Functionality and Registers and Interruptions)
       - Activity diagram
       - Communication diagram
       - Interaction diagram
