@@ -1,4 +1,4 @@
-# IP CORES DEVOPS
+# IP CORES OPERATIONS
 
 IEEE 2675-2021, titled "Standard for DevOps: Building Reliable and Secure Systems Including Application Build, Package and Deployment," provides guidelines and best practices for implementing DevOps principles. It aims to ensure the development of reliable, secure, and high-quality software systems.
 
@@ -242,11 +242,11 @@ Criteria for Tailored Conformance
 
 Conformance in IEEE 2675 is about ensuring that DevOps practices meet the standard's requirements for reliability, security, and efficiency. Full conformance to outcomes focuses on achieving the desired results, while full conformance to tasks emphasizes following prescribed procedures. Tailored conformance allows for customization, provided it is justified, documented, and approved. By adhering to these conformance criteria, organizations can effectively implement DevOps practices that are aligned with IEEE 2675, leading to the development of high-quality, secure, and reliable software systems.
 
-## DEVOPS CONCEPTS
+## OPERATION CONCEPTS
 
 IEEE 2675 provides a comprehensive framework for implementing DevOps practices. Understanding the value, principles, impact on organizational culture, and integration with lifecycle processes is crucial for effective adoption.
 
-### Value of DevOps
+### Value of Operations
 
 Key Benefits
 
@@ -262,7 +262,7 @@ Key Benefits
 
 6. **Cost Efficiency**: By automating repetitive tasks and optimizing resource usage, DevOps helps in reducing operational costs. Improved efficiency and reduced downtime contribute to overall cost savings.
 
-### DevOps Principles
+### Operation Principles
 
 Core Principles
 
@@ -278,7 +278,7 @@ Core Principles
 
 6. **Monitoring and Feedback**: Implement continuous monitoring of applications and infrastructure. Use feedback from monitoring tools to proactively address issues and optimize performance.
 
-### DevOps and Organizational Culture
+### Operations and Organizational Culture
 
 Cultural Transformation
 
@@ -292,7 +292,7 @@ Cultural Transformation
 
 5. **Agility**: Foster an agile mindset that embraces change and adapts quickly to new information and circumstances. This flexibility is crucial for responding to evolving market conditions and customer needs.
 
-### DevOps and Lifecycle Processes
+### Operations and Lifecycle Processes
 
 Integration with Lifecycle Processes
 
@@ -308,7 +308,7 @@ Integration with Lifecycle Processes
 
 IEEE 2675 emphasizes the value of DevOps in enhancing collaboration, speeding up delivery, improving quality, and increasing reliability. The core principles of DevOps, including automation, continuous improvement, and a customer-centric approach, are essential for achieving these benefits. DevOps requires a cultural transformation that promotes shared responsibility, learning, trust, and agility. Integrating DevOps practices with lifecycle processes ensures that development, testing, deployment, operations, and maintenance are streamlined and efficient. By adhering to these concepts, organizations can effectively implement DevOps, leading to the development of high-quality, secure, and reliable software systems.
 
-## RELATION OF SOFTWARE LIFE CYCLE PROCESSES TO DEVOPS
+## RELATION OF SOFTWARE LIFE CYCLE PROCESSES TO OPERATIONS
 
 IEEE 2675 provides a framework for integrating DevOps practices with the traditional software life cycle processes. This integration ensures that software development and operations are streamlined, efficient, and aligned with organizational goals.
 

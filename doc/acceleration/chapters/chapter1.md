@@ -10,7 +10,8 @@ Newtonian mechanics, also known as classical mechanics or Newtonian physics, is 
 
 1. **Newton's Laws of Motion**:
 
-   * Newton's laws of motion are the cornerstone of Newtonian mechanics. They describe the relationship between the motion of an object and the forces acting upon it.
+   Newton's laws of motion are the cornerstone of Newtonian mechanics. They describe the relationship between the motion of an object and the forces acting upon it.
+
    * **First Law (Law of Inertia)**: An object remains at rest or in uniform motion in a straight line unless acted upon by an external force.
    * **Second Law (Law of Acceleration)**: The acceleration of an object is directly proportional to the net force acting upon it and inversely proportional to its mass. Mathematically, $F = ma$, where $F$ is the force, $m$ is the mass, and $a$ is the acceleration.
    * **Third Law (Action-Reaction Law)**: For every action, there is an equal and opposite reaction. When one object exerts a force on another object, the second object exerts an equal and opposite force on the first object.

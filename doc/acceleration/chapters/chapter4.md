@@ -103,8 +103,8 @@ The MSP430 is a family of microcontroller units (MCUs) developed by Texas Instru
 3. **Peripheral Integration**:
 
    * MSP430 MCUs come with a wide range of integrated peripherals, including but not limited to:
-      - Analog-to-digital converters (ADC)
-      - Digital-to-analog converters (DAC)
+      - Analog-to-Digital converters (ADC)
+      - Digital-to-Analog converters (DAC)
       - Universal Serial Communication Interfaces (USCI) supporting protocols like UART, SPI, and I2C
       - Timers and PWM (Pulse Width Modulation) modules
       - GPIO (General Purpose Input/Output) pins

@@ -2,13 +2,13 @@
 
 Digital information refers to data that is represented and processed using discrete, binary values. In digital form, information is represented using a series of binary digits (bits), where each bit can have one of two possible values: 0 or 1. This binary representation forms the foundation of digital computing and communication systems.
 
-1. Representation
+1. **Representation**
 
    * **Binary System**: Digital information is represented using the binary numbering system, which uses only two symbols: 0 and 1. In this system, each digit position represents a power of 2, and the value of the number is calculated by adding the values of the digits multiplied by their respective powers of 2.
 
    * **Bits**: The smallest unit of digital information is the bit, which is a binary digit that can have a value of either 0 or 1. Bits are typically organized into groups of eight, called bytes, which form the basis of digital data representation.
 
-2. Types of Data
+2. **Types of Data**
 
    * **Numeric Data**: Numeric data, such as integers and floating-point numbers, can be represented using binary digits. Different encoding schemes are used to represent positive and negative numbers, as well as fractional values.
 
@@ -20,19 +20,19 @@ Digital information refers to data that is represented and processed using discr
 
    * **Video Data**: Video sequences are composed of frames, each of which contains image data represented in binary form. Digital video formats, such as MPEG and AVI, use binary encoding to store video data along with audio and other metadata.
 
-2. Storage
+2. **Storage**
 
    * **Memory**: Digital data is stored in electronic memory devices, such as RAM (Random Access Memory) and ROM (Read-Only Memory). Memory cells store binary data as patterns of electric charge or magnetic polarization, allowing it to be accessed and manipulated by digital circuits.
 
    * **Storage Devices**: Digital data is stored in storage devices, such as hard disk drives (HDDs), solid-state drives (SSDs), flash drives, and optical discs. These devices use magnetic, electronic, or optical methods to store and retrieve binary data.
 
-3. Processing
+3. **Processing**
 
    * **Logic Operations**: Digital data is processed using logic operations, such as AND, OR, NOT, XOR, and arithmetic operations (addition, subtraction, multiplication, division). These operations manipulate binary data at the bit level to perform computations and transformations.
 
    * **Algorithms**: Digital information is processed using algorithms, which are sequences of instructions that operate on binary data to perform specific tasks. Algorithms are fundamental to digital computation and are used in software applications, data processing, and computer systems.
 
-5. Communication
+5. **Communication**
 
    * **Data Transmission**: Digital data is transmitted over communication channels, such as wires, cables, fiber optics, and wireless networks. Communication protocols define how data is encoded, transmitted, and decoded across these channels, allowing devices to exchange information.
 
@@ -40,7 +40,7 @@ Digital information refers to data that is represented and processed using discr
 
 In conclusion, digital information is data that is represented, stored, processed, and transmitted using binary values. It encompasses a wide range of data types, including numeric, text, image, audio, and video data, and forms the basis of modern computing, communication, and information technology. Understanding digital information is essential for navigating the digital world and leveraging the power of digital technology in various domains.
 
-![Automata Theory](assets/chapter2/automata-theory.svg){width=6cm}
+![Automata Theory](../../../assets/chapter2/automata-theory.svg){width=6cm}
 
 ## Bit
 
