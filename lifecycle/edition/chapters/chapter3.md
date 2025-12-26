@@ -49,11 +49,13 @@ Los proyectos de la organización QueenField se clasifican según la lista:
   · fixed
   · float
 · math
-  · fixed
-  · float
+  · real
+  · complex
 · algebra
-  · fixed
-  · float
+  · scalar
+  · vector
+  · matrix
+  · tensor
 · nn
   · pnn
   · fnn

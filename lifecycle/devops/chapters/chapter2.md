@@ -23,48 +23,55 @@ By focusing on code quality, collaboration, and automation during the CODE phase
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 * Save credentials
-```
-git config --global credential.helper cache # TEMPORAL
-git config --global credential.helper store # FIXED
-git pull
-```
+
+  ```
+  git config --global credential.helper cache # TEMPORAL
+  git config --global credential.helper store # FIXED
+  git pull
+  ```
 
 * Recursively clone repository "REPOSITORY" of user "USER"
-```
-git clone --recursive https://github.com/USER/REPOSITORY.git
-```
+
+  ```
+  git clone --recursive https://github.com/USER/REPOSITORY.git
+  ```
 
 * Remove submodule "repository"
-```
-git rm -rf repository
-```
+
+  ```
+  git rm -rf repository
+  ```
 
 * Add submodule "repository" with the content of the repository "REPOSITORY" of the user "USER"
-```
-git submodule add --force https://github.com/USER/REPOSITORY.git repository
-```
+
+  ```
+  git submodule add --force https://github.com/USER/REPOSITORY.git repository
+  ```
 
 * Save work "WORK"
-```
-git add *
-git commit -m "WORK"
-git push origin master
-```
+
+  ```
+  git add *
+  git commit -m "WORK"
+  git push origin master
+  ```
 
 * Remove last commit
-```
-git reset --hard HEAD^
-git push origin -f
-```
+
+  ```
+  git reset --hard HEAD^
+  git push origin -f
+  ```
 
 * Update repository "FORKED-REPOSITORY" of the user "USER"
-```
-git remote add upstream https://github.com/USER/FORKED-REPOSITORY.git
-git fetch upstream
-git checkout master
-git rebase upstream/master
-git push -f origin master
-```
+
+  ```
+  git remote add upstream https://github.com/USER/FORKED-REPOSITORY.git
+  git fetch upstream
+  git checkout master
+  git rebase upstream/master
+  git push -f origin master
+  ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -73,20 +80,23 @@ git push -f origin master
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
 * Save credentials
-```
-svn checkout --username USER --password PASSWORD https://github.com/USER/REPOSITORY
-```
+
+  ```
+  svn checkout --username USER --password PASSWORD https://github.com/USER/REPOSITORY
+  ```
 
 * Remove submodule "repository"
-```
-svn delete repository
-```
+
+  ```
+  svn delete repository
+  ```
 
 * Save work "WORK"
-```
-git add *
-svn commit -m "WORK"
-```
+
+  ```
+  git add *
+  svn commit -m "WORK"
+  ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
