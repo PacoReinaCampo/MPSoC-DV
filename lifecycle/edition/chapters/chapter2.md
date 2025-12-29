@@ -82,7 +82,7 @@ Markdown es un lenguaje de marcado ligero y fácil de usar que permite formatear
 
 2. **Encabezados**: Para crear encabezados, se utilizan uno o más símbolos `#` al inicio de la línea. Cuantos más `#` haya, más pequeño será el encabezado. Por ejemplo:
 
-   ```
+   ```bash
    # Encabezado 1
    ## Encabezado 2
    ### Encabezado 3
@@ -94,14 +94,14 @@ Markdown es un lenguaje de marcado ligero y fácil de usar que permite formatear
    * Para texto en *cursiva*, se utilizan un asterisco `*` o un guion bajo `_` alrededor del texto.
    * Ejemplo:
 
-     ```
+     ```bash
      **texto en negrita**
      *texto en cursiva*
      ```
 
 4. **Listas**: Markdown permite crear listas ordenadas (numeradas) y no ordenadas (viñetas). Para listas no ordenadas se utilizan asteriscos `*`, guiones `-` o signos más `+`, y para listas ordenadas se usa simplemente el número seguido de un punto.
 
-   ```
+   ```bash
    * Elemento 1
    * Elemento 2
       * Subelemento A
@@ -114,20 +114,20 @@ Markdown es un lenguaje de marcado ligero y fácil de usar que permite formatear
    * Para crear enlaces, se encierra el texto del enlace entre corchetes `[ ]` y la URL entre paréntesis `( )`.
    * Para insertar imágenes, se utiliza un formato similar al de los enlaces, pero precedido de un signo de exclamación `!`.
 
-   ```
+   ```bash
    [Texto del enlace](http://ejemplo.com)
    ![Texto alternativo](ruta/a/la/imagen.jpg)
    ```
 
 6. **Bloques de código**: Para incluir bloques de código o texto preformateado, se utiliza el símbolo de comillas invertidas triples ``` ``` al inicio y al final del bloque.
 
-   ```
+   ```bash
    Código aquí
    ```
 
 7. **Citas**: Para citar texto, se utiliza el símbolo `>` al principio de la línea.
 
-   ```
+   ```bash
    > Esto es una cita.
    ```
 

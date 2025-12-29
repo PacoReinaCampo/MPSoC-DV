@@ -227,7 +227,7 @@ This Hardware Process Assurance Plan outlines the framework for maintaining high
 
    * **Review Procedures**: HPARs undergo review by designated personnel to ensure accuracy, completeness, and compliance with DO-254 standards and internal procedures. Reviews include verification of data integrity, alignment with audit findings, and adherence to documentation standards.
 
-   * **Approval Workflow**: Approved HPARs are signed off by authorized personnel, such as the Process Assurance Manager or Quality Assurance Manager, to verify the accuracy and validity of recorded information.
+   * **Approval WorkFlow**: Approved HPARs are signed off by authorized personnel, such as the Process Assurance Manager or Quality Assurance Manager, to verify the accuracy and validity of recorded information.
 
 6. **Record Access**
 

@@ -24,6 +24,7 @@ Un comando en la terminal tiene la siguiente estructura básica:
 ```bash
 comando [opciones] [argumentos]
 ```
+
 - **comando**: El nombre del programa o la utilidad que deseas ejecutar.
 - **opciones**: Modificadores que alteran el comportamiento del comando.
 - **argumentos**: Los datos sobre los que opera el comando.

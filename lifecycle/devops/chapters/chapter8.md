@@ -297,7 +297,7 @@ By proactively monitoring the software system and its environment, DevOps teams 
    * Retention Periods
 5. **Record Review and Approval**
    * Review Procedures
-   * Approval Workflow
+   * Approval WorkFlow
 6. **Record Access**
    * Access Control
    * Confidentiality Policies
@@ -467,7 +467,7 @@ By proactively monitoring the software system and its environment, DevOps teams 
    * Version Control
 6. **Design Review**
    * Review Process
-   * Approval Workflow
+   * Approval WorkFlow
 
 ### Data Required for the Hardware Development
 

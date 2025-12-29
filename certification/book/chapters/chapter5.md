@@ -6,7 +6,7 @@ The hardware design process in DO-254 encompasses a series of structured and ite
 
 **Objective**: To define and document the hardware requirements based on system-level requirements and safety assessments.
 
-Key Activities: Requirements Capture Process
+**Key Activities**: Requirements Capture Process
 
 1. **Gathering Requirements**: Collect requirements from various sources, including system specifications, safety assessments, and stakeholder inputs.
 2. **Analyzing Requirements**: Ensure that the requirements are clear, complete, and feasible. This involves assessing their technical and safety implications.
@@ -18,7 +18,7 @@ Key Activities: Requirements Capture Process
 
 **Objective**: To develop high-level design concepts that meet the specified hardware requirements.
 
-Key Activities: Conceptual Design Process
+**Key Activities**: Conceptual Design Process
 
 1. **Creating Architectural Models**: Develop block diagrams and architectural models to represent the high-level design of the hardware.
 2. **Component Selection**: Identify and select key components and technologies that will be used in the design.
@@ -31,7 +31,7 @@ Key Activities: Conceptual Design Process
 
 **Objective**: To translate the conceptual design into detailed specifications and schematics.
 
-Key Activities: Detailed Design Process
+**Key Activities**: Detailed Design Process
 
 1. **Developing Schematics**: Create detailed schematics, layout diagrams, and wiring diagrams based on the conceptual design.
 2. **Detailed Analysis**: Perform detailed analyses, such as worst-case analysis, thermal analysis, and signal integrity analysis, to ensure the design meets all requirements.
@@ -43,7 +43,7 @@ Key Activities: Detailed Design Process
 
 **Objective**: To realize the detailed design in physical hardware.
 
-Key Activities: Implementation Process
+**Key Activities**: Implementation Process
 
 1. **Manufacturing Prototypes**: Produce initial prototypes or small-scale production units based on the detailed design.
 2. **Assembly and Integration**: Assemble and integrate the hardware components to create functional units.
@@ -55,7 +55,7 @@ Key Activities: Implementation Process
 
 **Objective**: To transition the hardware from development to full-scale production.
 
-Key Activities: Production Transition
+**Key Activities**: Production Transition
 
 1. **Pilot Production Runs**: Conduct pilot production runs to validate manufacturing processes and identify any potential production issues.
 2. **Production Planning**: Develop detailed production plans, including resource allocation, production schedules, and quality control measures.
@@ -67,7 +67,7 @@ Key Activities: Production Transition
 
 **Objective**: To verify that the hardware meets all specified requirements and is ready for operational deployment.
 
-Key Activities: Acceptance Test
+**Key Activities**: Acceptance Test
 
 1. **Developing Test Plans**: Create detailed acceptance test plans that outline the test procedures, criteria, and environments.
 2. **Conducting Tests**: Perform acceptance tests to validate hardware functionality, performance, and compliance with requirements.
@@ -80,7 +80,7 @@ Key Activities: Acceptance Test
 
 **Objective**: To produce hardware units in large quantities for operational use.
 
-Key Activities: Series Production
+**Key Activities**: Series Production
 
 1. **Scaling Production**: Scale up production processes to produce hardware units in the required quantities.
 2. **Quality Control**: Implement rigorous quality control measures to ensure consistency and reliability in mass production.

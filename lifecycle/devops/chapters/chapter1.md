@@ -8,7 +8,7 @@ In DevOps, the "PLAN" phase refers to the initial stage where teams strategize a
 
 3. **Tool Selection**: DevOps relies heavily on automation and tooling to streamline processes. During the planning phase, teams select the appropriate tools for version control, continuous integration, continuous delivery/deployment, monitoring, and other aspects of the DevOps pipeline.
 
-4. **Workflow Design**: Teams design the workflow that will guide the development and deployment process. This includes defining branching strategies for version control, establishing testing protocols, deciding on deployment strategies (e.g., blue-green deployments, canary releases), and creating rollback plans.
+4. **WorkFlow Design**: Teams design the workflow that will guide the development and deployment process. This includes defining branching strategies for version control, establishing testing protocols, deciding on deployment strategies (e.g., blue-green deployments, canary releases), and creating rollback plans.
 
 5. **Risk Assessment**: Identifying potential risks and challenges early on is essential for effective planning. Teams assess risks related to technology, resource availability, dependencies, and compliance requirements. Strategies for mitigating these risks are developed as part of the plan.
 
@@ -22,15 +22,15 @@ By thoroughly planning and strategizing in the initial phase, teams can lay a so
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-* Hardware Project Workflow
+* Hardware Project WorkFlow
 
-  ![Hardware Project Workflow](assets/chapter1/hardware-project.svg){height=6cm}
+  ![Hardware Project WorkFlow](assets/chapter1/hardware-project.svg){height=6cm}
 
   .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-* Software Project Workflow
+* Software Project WorkFlow
 
-  ![Software Project Workflow](assets/chapter1/software-project.svg){height=6cm}
+  ![Software Project WorkFlow](assets/chapter1/software-project.svg){height=6cm}
 
   .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
@@ -52,7 +52,7 @@ By thoroughly planning and strategizing in the initial phase, teams can lay a so
 |               | IEEE STD 0754-2019   | Float Point   |
 |               | IEEE STD 1754-1994   | RISC 32 Bit   |
 | requirements  | IEEE STD 1850-2010   | PSL           |
-|               | OMG-2.5.1            | UML           |
+|               | OMG 2.5.1            | UML           |
 | model         | IEEE STD 1076-2019   | VHDL          |
 |               | IEEE STD 1800-2017   | SystemVerilog |
 | validation    | IEEE STD 1076-2019   | OSVVM         |

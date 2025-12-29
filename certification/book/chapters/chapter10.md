@@ -227,7 +227,7 @@ By effectively managing and utilizing hardware design lifecycle data, organizati
    * Retention Periods
 5. **Record Review and Approval**
    * Review Procedures
-   * Approval Workflow
+   * Approval WorkFlow
 6. **Record Access**
    * Access Control
    * Confidentiality Policies

@@ -8,7 +8,7 @@ Un modelo es una representación simplificada de algo más complejo. Puede ser f
 
 ### Modelo del Sistema (model)
 
-```
+```bash
 · Crear fichero
 · Definir librerias
 · Definir entidad
@@ -45,7 +45,7 @@ Un modelo es una representación simplificada de algo más complejo. Puede ser f
 
 ### Señales de Modelo
 
-```
+```bash
 · Señales de control
   · Señal de entrada
     · Señal de entrada START
@@ -84,7 +84,7 @@ Es el proceso de evaluación y verificación para determinar si el hardware fina
 
 ### Validación del Sistema (validation)
 
-```
+```bash
 · Crear fichero
 · Definir librerias
 · Definir entidad
@@ -121,7 +121,7 @@ Confirmar que el hardware diseñado y construido satisface las necesidades opera
 
 ### Señales de Validación
 
-```
+```bash
 · Señales de control
   · Señal de entrada
     · Señal de entrada START
@@ -160,7 +160,7 @@ Proceso de planificación y creación de una estructura, sistema, producto o ser
 
 ### Diseño del Sistema (rtl)
 
-```
+```bash
 · Crear fichero
 · Definir librerias
 · Definir entidad
@@ -197,7 +197,7 @@ Proceso de planificación y creación de una estructura, sistema, producto o ser
 
 ### Señales de Diseño
 
-```
+```bash
 · Señales de control
   · Señal de entrada
     · Señal de entrada START
@@ -236,7 +236,7 @@ Es el proceso de evaluación y revisión sistemática de los productos de trabaj
 
 ### Verificación del Sistema (verification)
 
-```
+```bash
 · Crear fichero
 · Definir librerias
 · Definir entidad
@@ -273,7 +273,7 @@ Confirmar que el diseño, la implementación y la integración del hardware cump
 
 ### Señales de Verificación
 
-```
+```bash
 · Señales de control
   · Señal de entrada
     · Señal de entrada START
