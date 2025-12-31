@@ -24,7 +24,7 @@ By focusing on code quality, collaboration, and automation during the CODE phase
 
 * Save credentials
 
-  ```
+  ```bash
   git config --global credential.helper cache # TEMPORAL
   git config --global credential.helper store # FIXED
   git pull
@@ -32,25 +32,25 @@ By focusing on code quality, collaboration, and automation during the CODE phase
 
 * Recursively clone repository "REPOSITORY" of user "USER"
 
-  ```
+  ```bash
   git clone --recursive https://github.com/USER/REPOSITORY.git
   ```
 
 * Remove submodule "repository"
 
-  ```
+  ```bash
   git rm -rf repository
   ```
 
 * Add submodule "repository" with the content of the repository "REPOSITORY" of the user "USER"
 
-  ```
+  ```bash
   git submodule add --force https://github.com/USER/REPOSITORY.git repository
   ```
 
 * Save work "WORK"
 
-  ```
+  ```bash
   git add *
   git commit -m "WORK"
   git push origin master
@@ -58,14 +58,14 @@ By focusing on code quality, collaboration, and automation during the CODE phase
 
 * Remove last commit
 
-  ```
+  ```bash
   git reset --hard HEAD^
   git push origin -f
   ```
 
 * Update repository "FORKED-REPOSITORY" of the user "USER"
 
-  ```
+  ```bash
   git remote add upstream https://github.com/USER/FORKED-REPOSITORY.git
   git fetch upstream
   git checkout master
@@ -81,19 +81,19 @@ By focusing on code quality, collaboration, and automation during the CODE phase
 
 * Save credentials
 
-  ```
+  ```bash
   svn checkout --username USER --password PASSWORD https://github.com/USER/REPOSITORY
   ```
 
 * Remove submodule "repository"
 
-  ```
+  ```bash
   svn delete repository
   ```
 
 * Save work "WORK"
 
-  ```
+  ```bash
   git add *
   svn commit -m "WORK"
   ```
@@ -112,19 +112,19 @@ By focusing on code quality, collaboration, and automation during the CODE phase
 
 VHDL, or VHSIC Hardware Description Language, is a programming language used to model and simulate the behavior and structure of electronic systems. Developed in the 1980s by the U.S. Department of Defense, VHDL allows designers to describe the functionality of digital circuits at a high level of abstraction before synthesizing the design into physical hardware. This language supports concurrent programming, which is essential for capturing the parallel nature of hardware operations, making it widely used in the design and verification of integrated circuits (ICs) and field-programmable gate arrays (FPGAs).
 
-```
+```bash
 find . -type f -name '*.vhd' -exec emacs -batch {} -f vhdl-beautify-buffer -f save-buffer \;
 ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-```
+```bash
 find . -type f -name '*.vhd' -exec vhdl2verilog {} \;
 ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-```
+```bash
 · Create file
 · Define libraries
 · Define entity
@@ -163,7 +163,7 @@ find . -type f -name '*.vhd' -exec vhdl2verilog {} \;
 
 SystemVerilog is an advanced hardware description and verification language that builds upon the foundations of Verilog, adding extensive features to support modern digital design and verification. Introduced in the early 2000s, SystemVerilog includes enhancements for system-level design, such as object-oriented programming constructs, assertions for formal verification, and complex testbench capabilities. These features make it a powerful tool for both designing sophisticated digital systems and ensuring their correctness through comprehensive simulation and verification processes.
 
-```
+```bash
 find . -type f -name '*.sv' -exec verible-verilog-format \
 --inplace \
 --wrap_spaces=2 \
@@ -187,13 +187,13 @@ find . -type f -name '*.sv' -exec verible-verilog-format \
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-```
+```bash
 find . -type f -name '*.sv' -exec verilog2vhdl {} \;
 ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-```
+```bash
 · Create file
 · Define libraries
 · Define entity
@@ -260,19 +260,19 @@ Rust is a modern systems programming language created by Mozilla Research, with 
 
 VHDL, or VHSIC Hardware Description Language, is a high-level language used for the design and documentation of digital systems. Developed in the 1980s under the U.S. Department of Defense's Very High Speed Integrated Circuit (VHSIC) program, VHDL allows engineers to describe the behavior and structure of electronic systems, from simple logic gates to complex integrated circuits. VHDL supports both behavioral and structural modeling, enabling designers to create simulations to verify functionality before hardware implementation. Its concurrency capabilities make it ideal for capturing the parallelism inherent in hardware design.
 
-```
+```bash
 find . -type f -name '*.vhd' -exec emacs -batch {} -f vhdl-beautify-buffer -f save-buffer \;
 ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-```
+```bash
 find . -type f -name '*.vhd' -exec vhdl2verilog {} \;
 ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-```
+```bash
 · Create file
 · Define libraries
 · Define entity
@@ -311,7 +311,7 @@ find . -type f -name '*.vhd' -exec vhdl2verilog {} \;
 
 Verilog is a hardware description language (HDL) used extensively in the design and verification of digital circuits. Created in the mid-1980s by Phil Moorby at Gateway Design Automation, Verilog provides a way to model the behavior and structure of electronic systems. Like VHDL, it supports both behavioral and structural descriptions but is often considered more intuitive due to its C-like syntax. Verilog is widely used in industry for designing application-specific integrated circuits (ASICs) and field-programmable gate arrays (FPGAs), facilitating the development of complex digital systems through its robust simulation and synthesis capabilities.
 
-```
+```bash
 find . -type f -name '*.sv' -exec verible-verilog-format \
 --inplace \
 --wrap_spaces=2 \
@@ -335,13 +335,13 @@ find . -type f -name '*.sv' -exec verible-verilog-format \
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-```
+```bash
 find . -type f -name '*.sv' -exec verilog2vhdl {} \;
 ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-```
+```bash
 · Create file
 · Define libraries
 · Define entity

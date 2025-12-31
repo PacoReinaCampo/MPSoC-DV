@@ -152,7 +152,7 @@ Application-Specific Integrated Circuits (ASICs) are custom-designed integrated 
 
 type:
 
-```
+```bash
 cd synthesis/qflow
 source flow.sh
 ```
@@ -169,7 +169,7 @@ source flow.sh
 
 type:
 
-```
+```bash
 cd synthesis/symbiflow
 source flow.sh
 ```

@@ -7,7 +7,7 @@ Los capítulos presentes en la documentación se presentan en la lista.
 * Capítulo 4. Architecture
 * Capítulo 5. Instructions
 * Capítulo 6. Formats
-* Capítulo 7. Traps
+* Capítulo 7. Exceptions
 * Capítulo 8. Registers
 * Capítulo 9. Requirements
 * Capítulo 10. Model
@@ -48,7 +48,7 @@ Un "Capítulo 5" para cada Programa.
 
 Un "Capítulo 6" para cada Programa.
 
-## Capítulo 7. Traps
+## Capítulo 7. Exceptions
 
 Un "Capítulo 7" para cada Programa.
 
