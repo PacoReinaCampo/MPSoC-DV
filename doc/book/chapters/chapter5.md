@@ -1,6 +1,6 @@
 # INSTRUCTIONS
 
-INSERT HERE
+`INSERT HERE`
 
 | prefix | isa width | alpha code | instruction width | extension description                                                        |
 |--------|:----------|:-----------|:------------------|:-----------------------------------------------------------------------------|
@@ -64,15 +64,15 @@ INSERT HERE
 
 :Instruction Set Extensions
 
-INSERT HERE
+`INSERT HERE`
 
 ## PERCEPTRON NEURAL NETWORK
 
-INSERT HERE
+`INSERT HERE`
 
 ### PU-PNN
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -81,7 +81,7 @@ source BUILD-x86
 ./PU-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -90,11 +90,11 @@ source BUILD-RISCV
 spike pk PU-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### SoC-PNN
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -103,7 +103,7 @@ source BUILD-x86
 ./SoC-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -112,11 +112,11 @@ source BUILD-RISCV
 spike pk SoC-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### MPSoC-PNN
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -125,7 +125,7 @@ source BUILD-x86
 ./MPSoC-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -134,15 +134,15 @@ source BUILD-RISCV
 spike pk MPSoC-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ## FEEDWORWARD NEURAL NETWORK
 
-INSERT HERE
+`INSERT HERE`
 
 ### PU-FNN
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -151,7 +151,7 @@ source BUILD-x86
 ./PU-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -160,11 +160,11 @@ source BUILD-RISCV
 spike pk PU-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### SoC-FNN
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -173,7 +173,7 @@ source BUILD-x86
 ./SoC-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -182,11 +182,11 @@ source BUILD-RISCV
 spike pk SoC-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### MPSoC-FNN
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -195,7 +195,7 @@ source BUILD-x86
 ./MPSoC-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -204,15 +204,15 @@ source BUILD-RISCV
 spike pk MPSoC-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ## LONG SHORT TERM MEMORY NEURAL NETWORK
 
-INSERT HERE
+`INSERT HERE`
 
 ### PU-LSTM
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -221,7 +221,7 @@ source BUILD-x86
 ./PU-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -230,11 +230,11 @@ source BUILD-RISCV
 spike pk PU-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### SoC-LSTM
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -243,7 +243,7 @@ source BUILD-x86
 ./SoC-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -252,11 +252,11 @@ source BUILD-RISCV
 spike pk SoC-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### MPSoC-LSTM
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -265,7 +265,7 @@ source BUILD-x86
 ./MPSoC-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -274,15 +274,15 @@ source BUILD-RISCV
 spike pk MPSoC-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ## NEURAL TURING MACHINE NEURAL NETWORK
 
-INSERT HERE
+`INSERT HERE`
 
 ### PU-NTM
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -291,7 +291,7 @@ source BUILD-x86
 ./PU-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -300,11 +300,11 @@ source BUILD-RISCV
 spike pk PU-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### SoC-NTM
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -313,7 +313,7 @@ source BUILD-x86
 ./SoC-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -322,11 +322,11 @@ source BUILD-RISCV
 spike pk SoC-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### MPSoC-NTM
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -335,7 +335,7 @@ source BUILD-x86
 ./MPSoC-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -344,15 +344,15 @@ source BUILD-RISCV
 spike pk MPSoC-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ## DIFFERENTIABLE NEURAL COMPUTER NEURAL NETWORK
 
-INSERT HERE
+`INSERT HERE`
 
 ### PU-DNC
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -361,7 +361,7 @@ source BUILD-x86
 ./PU-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -370,11 +370,11 @@ source BUILD-RISCV
 spike pk PU-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### SoC-DNC
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -383,7 +383,7 @@ source BUILD-x86
 ./SoC-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -392,11 +392,11 @@ source BUILD-RISCV
 spike pk SoC-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### MPSoC-DNC
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -405,7 +405,7 @@ source BUILD-x86
 ./MPSoC-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -414,15 +414,15 @@ source BUILD-RISCV
 spike pk MPSoC-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ## ATTENTION NEURAL NETWORK
 
-INSERT HERE
+`INSERT HERE`
 
 ### PU-ANN
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -431,7 +431,7 @@ source BUILD-x86
 ./PU-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -440,11 +440,11 @@ source BUILD-RISCV
 spike pk PU-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### SoC-ANN
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -453,7 +453,7 @@ source BUILD-x86
 ./SoC-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -462,11 +462,11 @@ source BUILD-RISCV
 spike pk SoC-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### MPSoC-ANN
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -475,7 +475,7 @@ source BUILD-x86
 ./MPSoC-x86.run
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
@@ -484,4 +484,4 @@ source BUILD-RISCV
 spike pk MPSoC-riscv.elf
 ```
 
-INSERT HERE
+`INSERT HERE`

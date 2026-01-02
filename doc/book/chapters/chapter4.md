@@ -2,19 +2,19 @@
 
 ![PU-4004-Architecture](assets/chapter4/pu-4004-architecture.svg){width=10cm}
 
-INSERT HERE
+`INSERT HERE`
 
 ![PU-MSP430-Architecture](assets/chapter4/pu-msp430-architecture.svg){width=10cm}
 
-INSERT HERE
+`INSERT HERE`
 
 ![PU-OR1K-Architecture](assets/chapter4/pu-or1k-architecture.svg){width=10cm}
 
-INSERT HERE
+`INSERT HERE`
 
 ![PU-RISCV-Architecture](assets/chapter4/pu-riscv-architecture.svg){width=10cm}
 
-INSERT HERE
+`INSERT HERE`
 
 ```cpp
 class traditional_classes {
@@ -31,11 +31,11 @@ class traditional_classes {
 };
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ## PHILOSOPHERS TRADITIONAL
 
-INSERT HERE
+`INSERT HERE`
 
 ```cpp
 class traditional_philosophers : private traditional_classes {
@@ -52,143 +52,143 @@ class traditional_philosophers : private traditional_classes {
 };
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Perceptron Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-PNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-PNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-PNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ### Feedforward Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-FNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-FNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-FNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ### Long Short Term Memory Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-LSTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-LSTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-LSTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ### Neural Turing Machine Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-NTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-NTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-NTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ### Differentiable Neural Computer Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-DNC
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-DNC
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-DNC
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ### Attention Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-ANN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-ANN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-ANN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ## SOLDIERS TRADITIONAL
 
-INSERT HERE
+`INSERT HERE`
 
 ```cpp
 class traditional_soldiers : private traditional_classes {
@@ -205,143 +205,143 @@ class traditional_soldiers : private traditional_classes {
 };
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Perceptron Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-PNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-PNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-PNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ### Feedforward Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-FNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-FNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-FNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ### Long Short Term Memory Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-LSTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-LSTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-LSTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ### Neural Turing Machine Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-NTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-NTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-NTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ### Differentiable Neural Computer Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-DNC
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-DNC
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-DNC
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ### Attention Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-ANN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-ANN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-ANN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ## WORKERS TRADITIONAL
 
-INSERT HERE
+`INSERT HERE`
 
 ```cpp
 class traditional_workers : private traditional_classes {
@@ -358,136 +358,136 @@ class traditional_workers : private traditional_classes {
 };
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Perceptron Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-PNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-PNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-PNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ### Feedforward Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-FNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-FNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-FNN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ### Long Short Term Memory Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-LSTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-LSTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-LSTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ### Neural Turing Machine Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-NTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-NTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-NTM
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ### Differentiable Neural Computer Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-DNC
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-DNC
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-DNC
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 ### Attention Neural Network
 
-INSERT HERE
+`INSERT HERE`
 
 #### PU-ANN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### SoC-ANN
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 #### MPSoC-ANN
 
 ...
 
-INSERT HERE
+`INSERT HERE`

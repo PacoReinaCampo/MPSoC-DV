@@ -4,7 +4,7 @@ digraph Project {
   node[shape=record];
 
   // Blocks
-  subgraph "cluster Workflow" { label = "Back-End Workflow";
+  subgraph "cluster WorkFlow" { label = "Back-End WorkFlow";
     subgraph "cluster Hardware" { label = "Hardware";
       Planning_SLH[label="Planning Switch Level of Hardware \n(magic)"];
       Placing_SLH[label="Placing Switch Level of Hardware \n(graywolf)"];

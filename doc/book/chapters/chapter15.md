@@ -1,6 +1,6 @@
 # IMPLEMENTATION
 
-INSERT HERE
+`INSERT HERE`
 
 ## IMPLEMENTATION PROCESS
 
@@ -96,49 +96,49 @@ Considerations include:
 
 2. Updating of all documentation related to changes is performed in compliance with approved configuration management plans.
 
-INSERT HERE
+`INSERT HERE`
 
-![Advanced Workflow](assets/chapter15/advanced-workflow.svg){width=8cm}
+![Advanced WorkFlow](assets/chapter15/advanced-workflow.svg){width=8cm}
 
-INSERT HERE
+`INSERT HERE`
 
 * MODEL
 
-INSERT HERE
+`INSERT HERE`
 
 ![State Space Model](assets/chapter15/state-space-model.svg){width=8cm}
 
-INSERT HERE
+`INSERT HERE`
 
 ${\dot {x} (t) = {A} (t) {x} (t) + {B} (t) {u} (t)}$
 
 ${ {y} (t) = {C} (t) {x} (t) + {D} (t) {u} (t)}$
 
-INSERT HERE
+`INSERT HERE`
 
 ![Feedback State Space Model](assets/chapter15/feedback-state-space-model.svg){width=8cm}
 
-INSERT HERE
+`INSERT HERE`
 
 * HARDWARE/SOFTWARE DESIGN
 
-INSERT HERE
+`INSERT HERE`
 
 * IMPLEMENTATION
 
-INSERT HERE
+`INSERT HERE`
 
 ![Architecture](assets/chapter15/reduced-architecture.svg)
 
-INSERT HERE
+`INSERT HERE`
 
 ![Architecture](assets/chapter15/extended-architecture.svg)
 
-INSERT HERE
+`INSERT HERE`
 
-![Hardware Workflow](assets/chapter15/hardware-workflow.svg){width=6cm}
+![Hardware WorkFlow](assets/chapter15/hardware-workflow.svg){width=6cm}
 
-INSERT HERE
+`INSERT HERE`
 
 **A. FRONT-END ENGINEERING**
 
@@ -166,18 +166,18 @@ On the Physical Gate Level only gates are used that are physically available on 
 
 A Switch Level representation of a circuit is a netlist utilizing single transistors as cells. Switch Level modeling is possible in Verilog and VHDL, but is seldom used in modern designs, as in modern digital ASIC or FPGA flows the physical gates are considered the atomic build blocks of the logic circuit.
 
-INSERT HERE
+`INSERT HERE`
 
 1. Settings → Apps → Apps & features → Related settings, Programs and Features → Turn Windows features on or off → Windows Subsystem for Linux
 
 2. Microsoft Store → INSTALL UBUNTU
 
-INSERT HERE
+`INSERT HERE`
 
 Front-End and Back-End Library
 type:
 
-```
+```bash
 sudo apt update
 sudo apt upgrade
 
@@ -199,12 +199,12 @@ sudo apt install -y tk-dev
 sudo apt install -y tcsh
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 Synthesizer Library
 type:
 
-```
+```bash
 sudo apt update
 sudo apt upgrade
 ```
@@ -231,15 +231,15 @@ sudo apt install -y libboost-filesystem-dev
 sudo apt install -y zlib1g-dev
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ## FRONT-END OPEN SOURCE TOOLS
 
-INSERT HERE
+`INSERT HERE`
 
 ![Front-End](assets/chapter15/front-end.svg){width=6cm}
 
-INSERT HERE
+`INSERT HERE`
 
 ### Modeling System Level of Hardware
 
@@ -249,11 +249,11 @@ INSERT HERE
 
 type:
 
-```
+```bash
 git clone https://github.com/emacs-mirror/emacs
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Simulating System Level of Hardware
 
@@ -263,7 +263,7 @@ INSERT HERE
 
 type:
 
-```
+```bash
 git clone http://git.veripool.org/git/verilator
 
 cd verilator
@@ -288,7 +288,7 @@ cd sim/verilog/regression/axi4/verilator
 source simulate.sh
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Verifying System Level of Hardware
 
@@ -298,11 +298,11 @@ INSERT HERE
 
 type:
 
-```
+```bash
 git clone https://github.com/QueenField/UVM
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Describing Register Transfer Level of Hardware
 
@@ -312,11 +312,11 @@ INSERT HERE
 
 type:
 
-```
+```bash
 git clone https://github.com/emacs-mirror/emacs
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Simulating Register Transfer Level of Hardware
 
@@ -326,7 +326,7 @@ INSERT HERE
 
 type:
 
-```
+```bash
 git clone https://github.com/ghdl/ghdl
 
 cd ghdl
@@ -350,13 +350,13 @@ cd sim/vhdl/regression/axi4/ghdl
 source simulate.sh
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 **Verilog Hardware Description Language Simulator**
 
 type:
 
-```
+```bash
 git clone https://github.com/steveicarus/iverilog
 
 cd iverilog
@@ -381,7 +381,7 @@ cd sim/verilog/regression/axi4/iverilog
 source simulate.sh
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Synthesizing Register Transfer Level of Hardware
 
@@ -391,7 +391,7 @@ INSERT HERE
 
 type:
 
-```
+```bash
 git clone https://github.com/YosysHQ/yosys
 
 cd yosys
@@ -404,7 +404,7 @@ cd synthesis/yosys
 source synthesize.sh
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 **VHDL Hardware Description Language Synthesizer**
 
@@ -424,7 +424,7 @@ cd synthesis/yosys
 source synthesize.sh
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Optimizing Register Transfer Level of Hardware
 
@@ -434,7 +434,7 @@ INSERT HERE
 
 type:
 
-```
+```bash
 git clone https://github.com/YosysHQ/yosys
 
 cd yosys
@@ -447,7 +447,7 @@ cd synthesis/yosys
 source synthesize.sh
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Verifying Register Transfer Level of Hardware
 
@@ -457,25 +457,25 @@ INSERT HERE
 
 type:
 
-```
+```bash
 git clone https://github.com/YosysHQ/SymbiYosys
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ## BACK-END OPEN SOURCE TOOLS
 
-INSERT HERE
+`INSERT HERE`
 
 ![Back-End](assets/chapter15/back-end.svg){width=6cm}
 
-INSERT HERE
+`INSERT HERE`
 
 **Library**
 
 type:
 
-```
+```bash
 sudo apt update
 sudo apt upgrade
 
@@ -497,13 +497,13 @@ sudo apt install -y tk-dev
 sudo apt install -y tcsh
 ```
 
-INSERT HERE
+`INSERT HERE`
 
-**Back-End Workflow Qflow**
+**Back-End WorkFlow Qflow**
 
 type:
 
-```
+```bash
 git clone https://github.com/RTimothyEdwards/qflow
 
 cd qflow
@@ -517,7 +517,7 @@ mkdir qflow
 cd qflow
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Planning Switch Level of Hardware
 
@@ -527,7 +527,7 @@ INSERT HERE
 
 type:
 
-```
+```bash
 git clone https://github.com/RTimothyEdwards/magic
 
 cd magic
@@ -536,7 +536,7 @@ make
 sudo make install
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Placing Switch Level of Hardware
 
@@ -546,7 +546,7 @@ INSERT HERE
 
 type:
 
-```
+```bash
 git clone https://github.com/rubund/graywolf
 
 cd graywolf
@@ -557,7 +557,7 @@ make
 sudo make install
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Timing Switch Level of Hardware
 
@@ -567,7 +567,7 @@ INSERT HERE
 
 type:
 
-```
+```bash
 git clone https://github.com/The-OpenROAD-Project/OpenSTA
 
 cd OpenSTA
@@ -578,7 +578,7 @@ make
 sudo make install
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Routing Switch Level of Hardware
 
@@ -588,7 +588,7 @@ INSERT HERE
 
 type:
 
-```
+```bash
 git clone https://github.com/RTimothyEdwards/qrouter
 
 cd qrouter
@@ -597,7 +597,7 @@ make
 sudo make install
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Simulating Switch Level of Hardware
 
@@ -607,7 +607,7 @@ INSERT HERE
 
 type:
 
-```
+```bash
 git clone https://github.com/RTimothyEdwards/irsim
 
 cd irsim
@@ -616,7 +616,7 @@ make
 sudo make install
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Verifying Switch Level of Hardware LVS
 
@@ -626,7 +626,7 @@ INSERT HERE
 
 type:
 
-```
+```bash
 git clone https://github.com/RTimothyEdwards/netgen
 
 cd netgen
@@ -640,7 +640,7 @@ cd synthesis/qflow
 source flow.sh
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Checking Switch Level of Hardware DRC
 
@@ -650,7 +650,7 @@ INSERT HERE
 
 type:
 
-```
+```bash
 git clone https://github.com/RTimothyEdwards/magic
 
 cd magic
@@ -659,7 +659,7 @@ make
 sudo make install
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### Printing Switch Level of Hardware GDS
 
@@ -669,7 +669,7 @@ INSERT HERE
 
 type:
 
-```
+```bash
 git clone https://github.com/RTimothyEdwards/magic
 
 cd magic
@@ -678,4 +678,4 @@ make
 sudo make install
 ```
 
-INSERT HERE
+`INSERT HERE`

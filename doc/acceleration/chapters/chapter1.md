@@ -1,6 +1,6 @@
 # Mechanics
 
-INSERT HERE
+`INSERT HERE`
 
 ## Newtonian Mechanics
 
@@ -89,35 +89,35 @@ Newtonian mechanics, also known as classical mechanics or Newtonian physics, is 
 
 Despite its limitations, Newtonian mechanics remains a powerful and invaluable tool for understanding and predicting the behavior of macroscopic objects in a wide range of practical applications. Its simplicity, clarity, and predictive power make it an essential foundation for the study of physics and engineering, serving as a starting point for more advanced theories and models in modern science.
 
-INSERT HERE
+`INSERT HERE`
 
 ### First Newton Law
 
-INSERT HERE
+`INSERT HERE`
 
 $$\vec F=\vec 0 \to \frac {d{\vec p}}{dt}=\vec 0$$
 
-INSERT HERE
+`INSERT HERE`
 
 ### Second Newton Law
 
-INSERT HERE
+`INSERT HERE`
 
 $$\vec p=m{\vec v}$$
 
 $$\vec F=\frac {d{\vec p}}{dt}$$
 
-INSERT HERE
+`INSERT HERE`
 
 ### Third Newton Law
 
-INSERT HERE
+`INSERT HERE`
 
 $$\vec {p}=\vec p_{1}+\vec p_{2}$$
 
 $$\frac {d \vec p}{dt}=\frac {d \vec p_{1}}{dt}+\frac {d \vec p_{2}}{dt}$$
 
-INSERT HERE
+`INSERT HERE`
 
 ## Lagrangian Mechanics
 
@@ -199,11 +199,11 @@ Lagrangian mechanics, named after the mathematician Joseph-Louis Lagrange, is a 
 
 Lagrangian mechanics offers a powerful and elegant framework for describing the dynamics of mechanical systems, providing a coordinate-independent formulation based on the principle of least action. By representing systems in terms of generalized coordinates and deriving the Euler-Lagrange equations, Lagrangian mechanics facilitates the analysis of complex systems with multiple degrees of freedom, constraints, and non-Cartesian coordinate systems. Its applications span classical mechanics, celestial mechanics, quantum mechanics, and field theory, making it a versatile and indispensable tool for physicists, engineers, and scientists in various disciplines.
 
-INSERT HERE
+`INSERT HERE`
 
 $${\frac {d}{dt}}\left({\frac {\partial L(q_{i}(t),{\dot {q}}_{i}(t),t)}{\partial {\dot {q}}_{i}}}\right)-{\frac {\partial L(q_{i}(t),{\dot {q}}_{i}(t),t)}{\partial q_{i}}}=0$$
 
-INSERT HERE
+`INSERT HERE`
 
 ## Hamiltonian Mechanics
 
@@ -280,8 +280,8 @@ Hamiltonian mechanics, named after the mathematician and physicist William Rowan
 
 Hamiltonian mechanics provides a powerful and elegant framework for describing the dynamics of mechanical systems, offering a different perspective from Lagrangian mechanics. By introducing the Hamiltonian function and canonical variables, Hamiltonian mechanics facilitates the analysis of complex systems with multiple degrees of freedom and provides insights into the conservation laws and symmetries governing their behavior. Its applications span classical mechanics, celestial mechanics, statistical mechanics, and quantum mechanics, making it a versatile and indispensable tool for physicists, engineers, and scientists in various disciplines.
 
-INSERT HERE
+`INSERT HERE`
 
 $$H\left(\mathbf {q} ,\mathbf {p} ,t\right)=\sum_{i}{\dot {q_{i}}}p_{i}-L(q_{j},{\dot {q_{j}}},t)$$
 
-INSERT HERE
+`INSERT HERE`

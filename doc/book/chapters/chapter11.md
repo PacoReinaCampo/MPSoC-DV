@@ -1,6 +1,6 @@
 # HARDWARE VALIDATION
 
-INSERT HERE
+`INSERT HERE`
 
 ## VALIDATION PROCESS
 
@@ -56,127 +56,127 @@ Guidance for validation process activities includes:
 
 7. Requirement omissions and errors should be fed back to the appropriate process for resolution.
 
-INSERT HERE
+`INSERT HERE`
 
 $$Validation(UVM): Model(HDL)=Functionality(HDL)?$$
 
-INSERT HERE
+`INSERT HERE`
 
 $$FormalValidation(UVM): Model(HDL)=Requirements(PSL)?$$
 
-INSERT HERE
+`INSERT HERE`
 
 ![Hardware Validation](assets/chapter11/hardware-validation.svg)
 
-INSERT HERE
+`INSERT HERE`
 
 ## TESTS METHODOLOGY
 
-INSERT HERE
+`INSERT HERE`
 
 ### Testbench Architecture
 
-INSERT HERE
+`INSERT HERE`
 
 #### Stimulus
 
-INSERT HERE
+`INSERT HERE`
 
 #### Asserts
 
-INSERT HERE
+`INSERT HERE`
 
 ### Bus Validation
 
-INSERT HERE
+`INSERT HERE`
 
 #### AMBA4 AXI-Lite Bus
 
-INSERT HERE
+`INSERT HERE`
 
 #### AMBA4 AHB-Lite Bus
 
-INSERT HERE
+`INSERT HERE`
 
 #### WishBone Bus
 
-INSERT HERE
+`INSERT HERE`
 
 ### Design Under Validation
 
-INSERT HERE
+`INSERT HERE`
 
 ## PROCEDURES METHODOLOGY
 
-INSERT HERE
+`INSERT HERE`
 
 ### Procedures Testbench Architecture
 
-INSERT HERE
+`INSERT HERE`
 
 #### Procedures Stimulus
 
-INSERT HERE
+`INSERT HERE`
 
 #### Procedures Asserts
 
-INSERT HERE
+`INSERT HERE`
 
 ### Bus Validation
 
-INSERT HERE
+`INSERT HERE`
 
 #### AMBA4 AXI-Lite Bus
 
-INSERT HERE
+`INSERT HERE`
 
 #### AMBA4 AHB-Lite Bus
 
-INSERT HERE
+`INSERT HERE`
 
 #### WishBone Bus
 
-INSERT HERE
+`INSERT HERE`
 
 ### Design Under Validation
 
-INSERT HERE
+`INSERT HERE`
 
 ## CLASSES METHODOLOGY
 
-INSERT HERE
+`INSERT HERE`
 
 ### Classes Testbench Architecture
 
-INSERT HERE
+`INSERT HERE`
 
 #### Classes Stimulus
 
-INSERT HERE
+`INSERT HERE`
 
 #### Classes Asserts
 
-INSERT HERE
+`INSERT HERE`
 
 ### Bus Validation
 
-INSERT HERE
+`INSERT HERE`
 
 #### AMBA4 AXI-Lite Bus
 
-INSERT HERE
+`INSERT HERE`
 
 #### AMBA4 AHB-Lite Bus
 
-INSERT HERE
+`INSERT HERE`
 
 #### WishBone Bus
 
-INSERT HERE
+`INSERT HERE`
 
 ### Design Under Validation
 
-INSERT HERE
+`INSERT HERE`
 
 ## OSVVM METHODOLOGY
 
@@ -1004,7 +1004,7 @@ Modeling data items involves defining the structure and properties of the transa
 
 Constraint layering is used to apply constraints to randomize the fields of the data items. Constraints can be layered to apply different sets of constraints based on the context or scenario.
 
-```systemverilog
+```sv
 class base_transaction extends uvm_sequence_item;
   rand bit [7:0] address;
   rand bit [31:0] data;
@@ -1039,7 +1039,7 @@ endclass
 
 Control fields, or "knobs", are used to adjust the behavior of the verification components dynamically. These fields can be configured through the UVM configuration database, enabling flexibility in controlling the verification environment without modifying the code.
 
-```systemverilog
+```sv
 class transaction_knobs extends uvm_object;
   bit enable_error_injection;
   bit [15:0] max_transactions;
@@ -1060,7 +1060,7 @@ Transaction-level components are responsible for generating, processing, and mon
 
 The driver is responsible for driving the transactions onto the DUT's interface. It extends from `uvm_driver` and implements the `run_phase` method to fetch transactions from the sequencer and drive them onto the interface.
 
-```systemverilog
+```sv
 class my_driver extends uvm_driver<base_transaction>;
   virtual dut_if dut_interface;
 
@@ -1093,7 +1093,7 @@ endclass
 
 The sequencer manages the flow of transactions. It generates or selects transactions to be sent to the driver.
 
-```systemverilog
+```sv
 class my_sequencer extends uvm_sequencer<base_transaction>;
   `uvm_component_utils(my_sequencer)
 
@@ -1139,7 +1139,7 @@ TLM-based drivers use TLM interfaces for more abstract communication.
 
 The monitor observes the DUT's interface and collects data for analysis. It extends from `uvm_monitor` and typically implements the `run_phase` method to capture transactions from the DUT.
 
-```systemverilog
+```sv
 class my_monitor extends uvm_monitor;
   virtual dut_if dut_interface;
   uvm_analysis_port#(base_transaction) ap;
@@ -1188,7 +1188,7 @@ An agent can operate in active or passive mode. In active mode, it generates and
 
 The agent instantiates and connects the driver, sequencer, and monitor.
 
-```systemverilog
+```sv
 class my_agent extends uvm_agent;
   my_driver drv;
   my_sequencer seqr;
@@ -1222,7 +1222,7 @@ endclass
 
 The environment class encapsulates agents and other components, creating a complete verification environment.
 
-```systemverilog
+```sv
 class my_env extends uvm_env;
   my_agent agent;
 
@@ -1303,7 +1303,7 @@ By following these guidelines, you can develop reusable and robust verification 
 
 A top-level environment encapsulates all the components needed for verification. This environment includes agents, scoreboards, monitors, and other verification components. It provides a cohesive structure to manage the interactions between these components.
 
-```systemverilog
+```sv
 class top_env extends uvm_env;
   my_agent agent;
   my_scoreboard scoreboard;
@@ -1335,7 +1335,7 @@ Verification components such as drivers, sequencers, monitors, and agents are in
 
 Test classes define specific verification scenarios. Each test class inherits from `uvm_test` and configures the environment, sequences, and other parameters needed for the test.
 
-```systemverilog
+```sv
 class base_test extends uvm_test;
   top_env env;
 
@@ -1386,7 +1386,7 @@ Configuration is typically done using `uvm_config_db`. Parameters can be set and
 
 A configuration class encapsulates all the parameters needed for a component. This class is then used to configure the component during the build phase.
 
-```systemverilog
+```sv
 class my_config extends uvm_object;
   bit enable_error_injection;
   int max_transactions;
@@ -1423,7 +1423,7 @@ The base test class sets up the environment and provides common functionality fo
 
 Derived test classes extend the base test and implement specific scenarios.
 
-```systemverilog
+```sv
 class my_test extends base_test;
   `uvm_component_utils(my_test)
 
@@ -1470,7 +1470,7 @@ Test-specific frames define the context and conditions for the test, ensuring me
 
 A virtual sequencer coordinates multiple sequencers, allowing for complex, multi-interface tests.
 
-```systemverilog
+```sv
 class my_virtual_sequencer extends uvm_sequencer;
   my_sequencer seq1;
   my_sequencer seq2;
@@ -1489,7 +1489,7 @@ endclass
 
 A virtual sequence orchestrates other sequences, providing a higher level of control over the verification process.
 
-```systemverilog
+```sv
 class my_virtual_sequence extends uvm_sequence;
   `uvm_object_utils(my_virtual_sequence)
 
@@ -1533,7 +1533,7 @@ Correctness checks ensure the DUT behaves as expected. These checks are implemen
 
 The scoreboard collects and compares results, ensuring the DUT's output matches expected values.
 
-```systemverilog
+```sv
 class my_scoreboard extends uvm_scoreboard;
   uvm_analysis_export#(base_transaction) analysis_export;
 
@@ -1588,7 +1588,7 @@ Coverage methods can be functional or code-based. Functional coverage captures s
 
 Functional coverage models are implemented using SystemVerilog covergroups and coverpoints.
 
-```systemverilog
+```sv
 class my_coverage extends uvm_subscriber#(base_transaction);
   covergroup cg;
     coverpoint trans.address;
@@ -1648,7 +1648,7 @@ The UVM register layer provides a rich API for accessing and manipulating regist
 
 These methods are used to perform front-door access to the registers through the bus interface.
 
-```systemverilog
+```sv
 reg_model.REG1.write(status, value);
 reg_model.REG1.read(status, value);
 ```
@@ -1659,7 +1659,7 @@ reg_model.REG1.read(status, value);
 
 These methods are used for back-door access, directly accessing the register value without going through the bus interface.
 
-```systemverilog
+```sv
 reg_model.REG1.peek(value);
 reg_model.REG1.poke(value);
 ```
@@ -1670,7 +1670,7 @@ reg_model.REG1.poke(value);
 
 These methods are used to get or set the register field values in the register model without actually accessing the hardware.
 
-```systemverilog
+```sv
 reg_model.REG1.FIELD1.set(value);
 value = reg_model.REG1.FIELD1.get();
 ```
@@ -1681,7 +1681,7 @@ value = reg_model.REG1.FIELD1.get();
 
 This method randomizes the field values of a register according to their constraints.
 
-```systemverilog
+```sv
 reg_model.REG1.randomize();
 ```
 
@@ -1691,7 +1691,7 @@ reg_model.REG1.randomize();
 
 This method writes the current values from the register model to the hardware using front-door access.
 
-```systemverilog
+```sv
 reg_model.REG1.update(status);
 ```
 
@@ -1701,7 +1701,7 @@ reg_model.REG1.update(status);
 
 This method reads the current values from the hardware into the register model, ensuring synchronization.
 
-```systemverilog
+```sv
 reg_model.REG1.mirror(status);
 ```
 
@@ -1865,7 +1865,7 @@ A bus monitor observes bus transactions and updates the register model to reflec
 
 Randomizing field values allows for extensive testing of different register states and transitions, uncovering edge cases and potential issues.
 
-```systemverilog
+```sv
 reg_model.REG1.randomize();
 ```
 
@@ -1873,7 +1873,7 @@ reg_model.REG1.randomize();
 
 Pre-defined sequences provide common register access patterns and scenarios, facilitating efficient and thorough verification.
 
-```systemverilog
+```sv
 class my_reg_sequence extends uvm_sequence;
   `uvm_object_utils(my_reg_sequence)
 
@@ -1905,7 +1905,7 @@ Key features of `uvm_component` include:
 
 Example:
 
-```systemverilog
+```sv
 class my_component extends uvm_component;
   `uvm_component_utils(my_component)
 
@@ -1940,7 +1940,7 @@ The UVM factory is a mechanism for creating objects and components dynamically a
 
 To use the factory, components and objects must be registered using macros such as `uvm_component_utils` and `uvm_object_utils`.
 
-```systemverilog
+```sv
 class my_component extends uvm_component;
   `uvm_component_utils(my_component)
   // ...
@@ -1953,7 +1953,7 @@ endclass
 
 Overrides allow one component or object type to be replaced with another at runtime, facilitating easier configuration changes and extending testbenches without modifying the original code.
 
-```systemverilog
+```sv
 uvm_factory::set_type_override_by_type(original_type::get_type(), override_type::get_type());
 ```
 
@@ -1969,7 +1969,7 @@ Callbacks are a mechanism to add custom behavior to UVM components without modif
 
 ...
 
-```systemverilog
+```sv
 class my_callback extends uvm_callback;
   `uvm_object_utils(my_callback)
 
@@ -2029,7 +2029,7 @@ Sequences can pre-generate items before sending them to the sequencer, allowing 
 
 Sequences can target different sequencers, enabling coordination between multiple protocol layers or functional units.
 
-```systemverilog
+```sv
 task body();
   my_seq1.start(p_sequencer);
   my_seq2.start(other_sequencer);
@@ -2056,7 +2056,7 @@ To use the CLI, UVM provides built-in macros and functions to parse and handle c
 
 UVM-aware command-line processing involves using the UVM configuration database and factory to set up the environment based on CLI arguments.
 
-```systemverilog
+```sv
 if ($test$plusargs("enable_feature")) begin
   uvm_config_db#(bit)::set(null, "uvm_test_top", "enable_feature", 1);
 end
@@ -2074,7 +2074,7 @@ UVM provides a variety of macros to simplify the creation and management of veri
 
 Example:
 
-```systemverilog
+```sv
 `uvm_info("MY_TAG", "This is an informational message", UVM_LOW)
 `uvm_warning("MY_TAG", "This is a warning message")
 `uvm_error("MY_TAG", "This is an error message")
@@ -2117,7 +2117,7 @@ The UBus example architecture consists of several components that work together 
 
 The top module instantiates the DUT and connects it to the UVM testbench components. It provides the necessary signals and interfaces for the UBus protocol.
 
-```systemverilog
+```sv
 module ubus_top;
   // Clock and reset signals
   reg clk;
@@ -2152,7 +2152,7 @@ endmodule
 
 A UVM test sets up the environment and specifies the sequences to be executed. It configures the UBus environment and starts the verification process.
 
-```systemverilog
+```sv
 class ubus_test extends uvm_test;
   `uvm_component_utils(ubus_test)
 
@@ -2184,7 +2184,7 @@ endclass
 
 The testbench environment instantiates and connects all the necessary components for verifying the UBus protocol. It includes agents, monitors, and scoreboards.
 
-```systemverilog
+```sv
 class ubus_env extends uvm_env;
   `uvm_component_utils(ubus_env)
 
@@ -2209,7 +2209,7 @@ endclass
 
 The UBus environment is a specialized environment for the UBus protocol, integrating specific agents and monitors required for UBus verification.
 
-```systemverilog
+```sv
 class ubus_env extends uvm_env;
   `uvm_component_utils(ubus_env)
 
@@ -2237,7 +2237,7 @@ endclass
 
 The UBus master agent contains the sequencer, driver, and monitor components necessary for generating and monitoring bus transactions from the master perspective.
 
-```systemverilog
+```sv
 class ubus_master_agent extends uvm_agent;
   `uvm_component_utils(ubus_master_agent)
 
@@ -2267,7 +2267,7 @@ endclass
 
 The UBus master sequencer is responsible for managing sequences and providing transactions to the driver.
 
-```systemverilog
+```sv
 class ubus_master_sequencer extends uvm_sequencer #(ubus_transaction);
   `uvm_component_utils(ubus_master_sequencer)
 
@@ -2281,7 +2281,7 @@ endclass
 
 The UBus driver converts sequence items into pin-level activity on the bus interface.
 
-```systemverilog
+```sv
 class ubus_driver extends uvm_driver #(ubus_transaction);
   `uvm_component_utils(ubus_driver)
 
@@ -2305,7 +2305,7 @@ endclass
 
 The UBus agent monitor observes bus transactions and converts them into analysis transactions for further processing.
 
-```systemverilog
+```sv
 class ubus_monitor extends uvm_monitor;
   `uvm_component_utils(ubus_monitor)
 
@@ -2352,7 +2352,7 @@ The monitor performs protocol checks and collects coverage information, ensuring
 
 The UBus interface defines the signals and structure of the UBus protocol.
 
-```systemverilog
+```sv
 interface ubus_if(input bit clk);
   logic [31:0] addr;
   logic [31:0] data;

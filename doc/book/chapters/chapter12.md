@@ -1,6 +1,6 @@
-## HARDWARE DESIGN
+# HARDWARE DESIGN
 
-INSERT HERE
+`INSERT HERE`
 
 ## DETAILED DESIGN PROCESS
 
@@ -40,12 +40,12 @@ Guidance for the detailed design activities includes:
 
 ## LANGUAGES
 
-INSERT HERE
+`INSERT HERE`
 
 ### VHDL Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### Verilog Language
 
-INSERT HERE
+`INSERT HERE`

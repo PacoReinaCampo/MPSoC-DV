@@ -1,6 +1,6 @@
 # DESIGN LIFECYCLE DATA
 
-INSERT HERE
+`INSERT HERE`
 
 | **Folder**    | **Normative**        | **Technology** |
 |:--------------|:---------------------|:---------------|
@@ -8,7 +8,7 @@ INSERT HERE
 |               | IEEE STD 0754-2019   | Float Point    |
 |               | IEEE STD 1754-1994   | RISC 32 Bit    |
 | requirements  | IEEE STD 1850-2010   | PSL            |
-|               | OMG-2.5.1.           | UML            |
+|               | OMG 2.5.1            | UML            |
 | model         | IEEE STD 1076-2019   | VHDL           |
 |               | IEEE STD 1800-2017   | SystemVerilog  |
 | validation    | IEEE STD 1076-2019   | OSVVM          |
@@ -215,7 +215,7 @@ INSERT HERE
 
 5. **Record Review and Approval**
    * Review Procedures
-   * Approval Workflow
+   * Approval WorkFlow
 
 6. **Record Access**
    * Access Control

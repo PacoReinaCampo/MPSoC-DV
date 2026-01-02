@@ -919,7 +919,7 @@ In the context of airborne electronic hardware development governed by DO-254, v
 
 5. **Record Review and Approval**
    * Review Procedures
-   * Approval Workflow
+   * Approval WorkFlow
 
 6. **Record Access**
    * Access Control
@@ -1146,7 +1146,7 @@ In the context of airborne electronic hardware development governed by DO-254, v
 
 6. **Design Review**
    * Review Process
-   * Approval Workflow
+   * Approval WorkFlow
 
 #### Data Required for the Hardware Development
 

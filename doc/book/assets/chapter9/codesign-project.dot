@@ -4,7 +4,7 @@ digraph Project {
   node[shape=record];
 
   // Blocks
-  subgraph "cluster Workflow" { label = "Workflow";
+  subgraph "cluster WorkFlow" { label = "WorkFlow";
     subgraph "cluster Hardware" { label = "Hardware";
       Creation_HW[label="Creation \n(VHDL/Verilog) [Vi]"];
       Production_HW[label="Production \n(VHDL/Verilog) [Vi]"];

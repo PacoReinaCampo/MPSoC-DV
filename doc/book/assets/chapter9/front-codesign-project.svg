@@ -10,9 +10,9 @@
 <title>Project</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-587 658,-587 658,4 -4,4"/>
 <g id="clust1" class="cluster">
-<title>cluster Workflow</title>
+<title>cluster WorkFlow</title>
 <polygon fill="none" stroke="black" points="8,-8 8,-575 646,-575 646,-8 8,-8"/>
-<text text-anchor="middle" x="327" y="-559.8" font-family="Times,serif" font-size="14.00">Front&#45;End Workflow</text>
+<text text-anchor="middle" x="327" y="-559.8" font-family="Times,serif" font-size="14.00">Front&#45;End WorkFlow</text>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster Software</title>

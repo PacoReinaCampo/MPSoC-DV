@@ -1,20 +1,20 @@
 # DATA FORMATS
 
-INSERT HERE
+`INSERT HERE`
 
 ## INSTRUCTION CACHE
 
-INSERT HERE
+`INSERT HERE`
 
 ### Instruction Inputs/Outputs AMBA4 AXI-Lite Bus
 
-INSERT HERE
+`INSERT HERE`
 
 #### Signals of the Read and Write Address channels
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 | Write Port | Read Port  |  Size            | Direction | Description                              |
 |------------|:-----------|:-----------------|:----------|:-----------------------------------------|
@@ -34,13 +34,13 @@ INSERT HERE
 
 :Signals of the Read and Write Address channels
 
-INSERT HERE
+`INSERT HERE`
 
 #### Signals of the Read and Write Data channels
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 | Write Port | Read Port  |  Size            | Direction | Description                           |
 |------------|:-----------|:-----------------|:----------|:--------------------------------------|
@@ -55,13 +55,13 @@ INSERT HERE
 
 :Signals of the Read and Write Data channels
 
-INSERT HERE
+`INSERT HERE`
 
 #### Signals of the Write Response channel
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 | Write Port | Size             | Direction | Description                                     |
 |------------|:-----------------|:----------|:------------------------------------------------|
@@ -73,11 +73,11 @@ INSERT HERE
 
 :Signals of the Write Response channel
 
-INSERT HERE
+`INSERT HERE`
 
 ### Instruction Inputs/Outputs AMBA4 AHB-Lite Bus
 
-INSERT HERE
+`INSERT HERE`
 
 | Port         |  Size  | Direction | Description                           |
 |--------------|:-------|:----------|:--------------------------------------|
@@ -99,11 +99,11 @@ INSERT HERE
 
 :Instruction Inputs/Outputs AMBA4 AHB-Lite Bus
 
-INSERT HERE
+`INSERT HERE`
 
 ### Instruction Inputs/Outputs WishBone Bus
 
-INSERT HERE
+`INSERT HERE`
 
 | Port    |  Size  | Direction | Description                     |
 |---------|:-------|:----------|:--------------------------------|
@@ -123,21 +123,21 @@ INSERT HERE
 
 :Instruction Inputs/Outputs WishBone Bus
 
-INSERT HERE
+`INSERT HERE`
 
 ## DATA CACHE
 
-INSERT HERE
+`INSERT HERE`
 
 ### Data Inputs/Outputs AMBA4 AXI-Lite Bus
 
-INSERT HERE
+`INSERT HERE`
 
 #### Signals of the Read and Write Address channels
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 | Write Port | Read Port  |  Size            | Direction | Description                              |
 |------------|:-----------|:-----------------|:----------|:-----------------------------------------|
@@ -157,13 +157,13 @@ INSERT HERE
 
 :Signals of the Read and Write Address channels
 
-INSERT HERE
+`INSERT HERE`
 
 #### Signals of the Read and Write Data channels
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 | Write Port | Read Port  |  Size            | Direction | Description                           |
 |------------|:-----------|:-----------------|:----------|:--------------------------------------|
@@ -178,13 +178,13 @@ INSERT HERE
 
 :Signals of the Read and Write Data channels
 
-INSERT HERE
+`INSERT HERE`
 
 #### Signals of the Write Response channel
 
 ...
 
-INSERT HERE
+`INSERT HERE`
 
 | Write Port | Size             | Direction | Description                                     |
 |------------|:-----------------|:----------|:------------------------------------------------|
@@ -196,11 +196,11 @@ INSERT HERE
 
 :Signals of the Write Response channel
 
-INSERT HERE
+`INSERT HERE`
 
 ### Data Inputs/Outputs AMBA4 AHB-Lite Bus
 
-INSERT HERE
+`INSERT HERE`
 
 | Port         |  Size  | Direction | Description                    |
 |--------------|:-------|:----------|:-------------------------------|
@@ -222,11 +222,11 @@ INSERT HERE
 
 :Data Inputs/Outputs AMBA4 AHB-Lite Bus
 
-INSERT HERE
+`INSERT HERE`
 
 ### Data Inputs/Outputs WishBone Bus
 
-INSERT HERE
+`INSERT HERE`
 
 | Port    |  Size  | Direction | Description                     |
 |---------|:-------|:----------|:--------------------------------|
@@ -246,4 +246,4 @@ INSERT HERE
 
 :Data Inputs/Outputs WishBone Bus
 
-INSERT HERE
+`INSERT HERE`

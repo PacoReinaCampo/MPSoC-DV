@@ -1,4 +1,4 @@
-## HARDWARE MODEL
+# HARDWARE MODEL
 
 ## CONCEPTUAL DESIGN PROCESS
 
@@ -36,12 +36,12 @@ Guidance for the conceptual design activities includes:
 
 ## LANGUAGES
 
-INSERT HERE
+`INSERT HERE`
 
 ### VHDL Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### SystemVerilog Language
 
-INSERT HERE
+`INSERT HERE`

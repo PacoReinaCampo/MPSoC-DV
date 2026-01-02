@@ -4,7 +4,7 @@ digraph Project {
   node[shape=record];
 
   // Blocks
-  subgraph "cluster Workflow" { label = "Front-End Workflow";
+  subgraph "cluster WorkFlow" { label = "Front-End WorkFlow";
     subgraph "cluster Software" { label = "Software";
       Requirements_SW[label="Requirements \n(Matlab/Python/PSL/UML) [Vi]"];
       Model_SW[label="Software Model \n(C/C++/Go/Rust) [Vi]"];

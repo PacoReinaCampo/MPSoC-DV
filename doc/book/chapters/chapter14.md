@@ -1,6 +1,6 @@
 # CONFIGURATION
 
-INSERT HERE
+`INSERT HERE`
 
 ## CONFIGURATION MANAGEMENT PROCESS
 
@@ -142,24 +142,24 @@ Table 7-1 defines the configuration management activities that are to be perform
 
 Appendix A identifies the control category for each data item as a function of hardware design assurance level. For example, in Table A-1 , HC1 applies to hardware requirements for all assurance levels while HC2 applies to hardware review and analysis results for all assurance levels.
 
-INSERT HERE
+`INSERT HERE`
 
 ## LANGUAGES
 
-INSERT HERE
+`INSERT HERE`
 
 ### C Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### C++ Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### GO Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### RUST Language
 
-INSERT HERE
+`INSERT HERE`

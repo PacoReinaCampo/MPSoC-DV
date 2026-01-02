@@ -19,7 +19,7 @@ The Recommended Practice for Encryption and Management of Electronic Design Inte
       - **Key Storage**: Store encryption keys securely using hardware security modules (HSMs), key vaults, or secure key management systems to protect against theft or unauthorized access.
       - **Key Rotation**: Regularly rotate encryption keys to mitigate the risk of compromise or leakage due to prolonged exposure.
 
-   3. **Secure Workflows and Protocols**:
+   3. **Secure WorkFlows and Protocols**:
 
       - **Secure Communication Protocols**: Use secure communication protocols such as TLS (Transport Layer Security) or SSH (Secure Shell) to protect data transmission between systems, devices, or users.
       - **Secure File Formats**: Encrypt IP components using secure file formats or containers, such as encrypted ZIP files or proprietary encryption formats, to prevent unauthorized access or modification.
@@ -68,7 +68,7 @@ IEEE STD 1735 is a standard developed by the Institute of Electrical and Electro
    * The standard defines encryption algorithms and techniques suitable for protecting electronic design IP, including symmetric and asymmetric encryption, hashing, and digital signatures.
    * It outlines key management practices for securely generating, distributing, storing, and rotating encryption keys used to protect IP assets.
 
-3. **Secure Workflows and Protocols**:
+3. **Secure WorkFlows and Protocols**:
 
    * IEEE STD 1735 specifies secure workflows and protocols for managing encrypted electronic design IP, including secure communication channels, access controls, and authentication mechanisms.
    * It provides recommendations for integrating encryption and key management into existing design and development processes, tools, and environments.

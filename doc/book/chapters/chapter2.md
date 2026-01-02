@@ -1,4 +1,4 @@
-# TOOLCHAIN
+# WORKPATH
 
 A toolchain is a collection of programming tools used to create a software product or system, typically for a specific target platform or architecture. In the context of embedded systems and hardware development, this includes compilers to translate high-level code, assemblers for low-level instructions, linkers to combine code modules, debuggers for troubleshooting, and simulators or emulators for testing before deploying on physical hardware. The choice of toolchain is critical as it directly impacts development efficiency, code optimization, and compatibility with the target hardware.
 
@@ -8,7 +8,7 @@ The hardware development process involves translating a conceptual design into a
 
 type:
 
-```
+```bash
 cd synthesis/yosys
 source synthesize.sh
 ```
@@ -21,7 +21,7 @@ Application-Specific Integrated Circuits (ASICs) are custom-designed integrated 
 
 type:
 
-```
+```bash
 cd synthesis/qflow
 source flow.sh
 ```
@@ -50,7 +50,7 @@ Field-Programmable Gate Arrays (FPGAs) provide a flexible platform for modeling 
 
 type:
 
-```
+```bash
 cd synthesis/symbiflow
 source flow.sh
 ```
@@ -269,7 +269,7 @@ This standard C "Hello QueenField!" program, when compiled for bare-metal OpenRI
 
 type:
 
-```
+```bash
 rm -rf hello_c.elf
 rm -rf hello_c.hex
 
@@ -283,7 +283,7 @@ This script first removes any previous build artifacts (`hello_c.elf`, `hello_c.
 
 type:
 
-```
+```bash
 export PATH=/opt/or1k-elf-gcc/bin:${PATH}
 
 or1k-sim -f or1ksim.cfg hello_c.elf
@@ -312,7 +312,7 @@ Similar to C, running this C++ "Hello QueenField!" program on bare-metal OpenRIS
 
 type:
 
-```
+```bash
 rm -rf hello_cpp.elf
 rm -rf hello_cpp.hex
 
@@ -326,7 +326,7 @@ This script prepares for and builds the C++ application. It removes old build fi
 
 type:
 
-```
+```bash
 export PATH=/opt/or1k-elf-g++/bin:${PATH}
 
 or1k-sim -f or1ksim.cfg hello_cpp.elf
@@ -411,7 +411,7 @@ Ensuring compliance and interoperability across the diverse landscape of RISC-V 
 
 type:
 
-```
+```bash
 export PATH=/opt/riscv-elf-gcc/bin:${PATH}
 
 rm -rf tests
@@ -448,7 +448,7 @@ The ISA 32 tests for RISC-V focus on evaluating the 32-bit instruction set archi
 
 elf2hex.sh:
 
-```
+```bash
 riscv32-unknown-elf-objcopy -O ihex rv32mi-p-breakpoint rv32mi-p-breakpoint.hex
 riscv32-unknown-elf-objcopy -O ihex rv32mi-p-csr rv32mi-p-csr.hex
 
@@ -460,7 +460,7 @@ This `elf2hex.sh` script automates the conversion of compiled RISC-V 32-bit test
 
 type:
 
-```
+```bash
 export PATH=/opt/riscv-elf-gcc/bin:${PATH}
 
 spike rv32mi-p-breakpoint
@@ -480,7 +480,7 @@ The ISA 64 tests for RISC-V extend the evaluation to the 64-bit instruction set 
 
 elf2hex.sh:
 
-```
+```bash
 riscv64-unknown-elf-objcopy -O ihex rv64mi-p-breakpoint rv64mi-p-breakpoint.hex
 riscv64-unknown-elf-objcopy -O ihex rv64mi-p-csr rv64mi-p-csr.hex
 
@@ -492,7 +492,7 @@ This version of the `elf2hex.sh` script performs the same function as the 32-bit
 
 type:
 
-```
+```bash
 export PATH=/opt/riscv-elf-gcc/bin:${PATH}
 
 spike rv64mi-p-breakpoint
@@ -512,7 +512,7 @@ The ISA 128 tests for RISC-V focus on the 128-bit instruction set architecture, 
 
 elf2hex.sh:
 
-```
+```bash
 riscv128-unknown-elf-objcopy -O ihex rv128mi-p-breakpoint rv128mi-p-breakpoint.hex
 riscv128-unknown-elf-objcopy -O ihex rv128mi-p-csr rv128mi-p-csr.hex
 
@@ -524,7 +524,7 @@ This script is intended for the experimental or future 128-bit RISC-V architectu
 
 type:
 
-```
+```bash
 export PATH=/opt/riscv-elf-gcc/bin:${PATH}
 
 spike rv128mi-p-breakpoint
@@ -561,7 +561,7 @@ Compiling and running this C "Hello QueenField!" program on bare-metal RISC-V re
 
 type:
 
-```
+```bash
 rm -rf hello_c.elf
 rm -rf hello_c.hex
 
@@ -575,7 +575,7 @@ This script builds the bare-metal C application for a 64-bit RISC-V target. It f
 
 type:
 
-```
+```bash
 export PATH=/opt/riscv-elf-gcc/bin:${PATH}
 
 spike pk hello_c.elf
@@ -604,7 +604,7 @@ To run this C++ "Hello QueenField!" program on bare-metal RISC-V, the `iostream`
 
 type:
 
-```
+```bash
 rm -rf hello_cpp.elf
 rm -rf hello_cpp.hex
 
@@ -618,7 +618,7 @@ This script builds the bare-metal C++ application for RV64. After cleaning old f
 
 type:
 
-```
+```bash
 export PATH=/opt/riscv-elf-gcc/bin:${PATH}
 
 spike pk hello_cpp.elf
@@ -647,7 +647,7 @@ Running Go applications like this "Hello QueenField!" example in a pure bare-met
 
 type:
 
-```
+```bash
 rm -rf hello_go.elf
 rm -rf hello_go.hex
 
@@ -690,7 +690,7 @@ GNU Linux support for RISC-V provides a full-featured operating system environme
 
 type:
 
-```
+```bash
 export PATH=/opt/riscv-elf-gcc/bin:${PATH}
 
 git clone --recursive https://git.busybox.net/busybox
@@ -706,7 +706,7 @@ This sequence of commands downloads and builds BusyBox for a 64-bit RISC-V Linux
 
 type:
 
-```
+```bash
 export PATH=/opt/riscv-elf-gcc/bin:${PATH}
 
 git clone --recursive https://github.com/torvalds/linux
@@ -722,7 +722,7 @@ These commands download the Linux kernel source code and compile it for the 64-b
 
 type:
 
-```
+```bash
 export PATH=/opt/riscv-elf-gcc/bin:${PATH}
 
 qemu-system-riscv64 -nographic -machine virt \
@@ -737,7 +737,7 @@ This command uses QEMU (`qemu-system-riscv64`) to emulate a 64-bit RISC-V virtua
 
 type:
 
-```
+```bash
 export PATH=/opt/riscv-elf-gcc/bin:${PATH}
 
 git clone --recursive https://github.com/buildroot/buildroot
@@ -764,7 +764,7 @@ This demonstrates using Buildroot to create and run a complete 32-bit RISC-V Lin
 
 type:
 
-```
+```bash
 export PATH=/opt/riscv-elf-gcc/bin:${PATH}
 
 git clone --recursive https://github.com/buildroot/buildroot
@@ -813,7 +813,7 @@ GNU Fedora distribution for RISC-V offers a cutting-edge platform with the lates
 
 type:
 
-```
+```bash
 export PATH=/opt/riscv-elf-gcc/bin:${PATH}
 
 qemu-system-riscv64 \

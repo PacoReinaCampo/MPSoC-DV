@@ -72,11 +72,11 @@ Guidance for the requirements capture activities includes:
 
 ## LANGUAGES
 
-The Hardware Project Workflow illustrates the interconnected phases involved in bringing a hardware concept to realization. It typically begins with requirements definition and architectural planning, progresses through detailed design and implementation using hardware description languages, undergoes rigorous verification and validation using simulation and formal methods, and culminates in synthesis, physical implementation, and testing. This workflow emphasizes iterative refinement and feedback loops between stages to manage complexity and ensure quality throughout the development process.
+The Hardware Project WorkFlow illustrates the interconnected phases involved in bringing a hardware concept to realization. It typically begins with requirements definition and architectural planning, progresses through detailed design and implementation using hardware description languages, undergoes rigorous verification and validation using simulation and formal methods, and culminates in synthesis, physical implementation, and testing. This workflow emphasizes iterative refinement and feedback loops between stages to manage complexity and ensure quality throughout the development process.
 
-* Hardware Project Workflow
+* Hardware Project WorkFlow
 
-  ![Hardware Project Workflow](assets/chapter9/hardware-project.svg)
+  ![Hardware Project WorkFlow](assets/chapter9/hardware-project.svg){height=7cm}
 
 Hardware DevOps represents the application of DevOps principles and practices to the hardware development lifecycle. It aims to break down silos between design, verification, manufacturing, and operations teams by fostering collaboration, automating workflows (like continuous integration and testing), and implementing robust configuration management. This approach accelerates development cycles, improves product quality, enhances traceability, and allows for more efficient management of complex hardware projects, adapting software development agility to the hardware domain.
 
@@ -90,13 +90,13 @@ Hardware DevOps represents the application of DevOps principles and practices to
 
 :Hardware DevOps
 
-The Front-End CoDesign Project Workflow specifically addresses the initial phases of hardware development where system-level decisions are made, often involving close interaction between hardware and software design teams. This stage includes capturing requirements, defining the system architecture, partitioning functionality between hardware and software, creating high-level models (e.g., using SystemC or Matlab/Simulink), and performing early-stage verification and performance analysis to validate architectural choices before committing to detailed implementation.
+The Front-End CoDesign Project WorkFlow specifically addresses the initial phases of hardware development where system-level decisions are made, often involving close interaction between hardware and software design teams. This stage includes capturing requirements, defining the system architecture, partitioning functionality between hardware and software, creating high-level models (e.g., using SystemC or Matlab/Simulink), and performing early-stage verification and performance analysis to validate architectural choices before committing to detailed implementation.
 
-![Front-End CoDesign Project Workflow](assets/chapter9/front-codesign-project.svg)
+![Front-End CoDesign Project WorkFlow](assets/chapter9/front-codesign-project.svg){height=7cm}
 
-The Back-End CoDesign Project Workflow focuses on the subsequent stages of hardware implementation, translating the architectural and functional specifications defined in the front-end into a physical realization. This involves detailed Register Transfer Level (RTL) coding, logic synthesis to convert RTL into a gate-level netlist, physical design including placement and routing, timing closure, power analysis, and final verification steps like gate-level simulation and formal equivalence checking to ensure the manufactured hardware matches the intended design.
+The Back-End CoDesign Project WorkFlow focuses on the subsequent stages of hardware implementation, translating the architectural and functional specifications defined in the front-end into a physical realization. This involves detailed Register Transfer Level (RTL) coding, logic synthesis to convert RTL into a gate-level netlist, physical design including placement and routing, timing closure, power analysis, and final verification steps like gate-level simulation and formal equivalence checking to ensure the manufactured hardware matches the intended design.
 
-![Back-End CoDesign Project Workflow](assets/chapter9/back-codesign-project.svg)
+![Back-End CoDesign Project WorkFlow](assets/chapter9/back-codesign-project.svg){height=7cm}
 
 The progression through the hardware design flow inherently involves an increase in the level of detail and specificity. Starting from abstract requirements that define *what* the system must do, the process moves to models that capture behavior, then to RTL or source code describing the implementation structure, followed by configuration details for tools, and finally to synthesis or compilation results which represent the concrete hardware or executable software, respectively. Each step adds layers of implementation detail to the initial concept.
 
@@ -134,7 +134,7 @@ Structural UML diagrams are primarily concerned with representing the static asp
 
 Behavioral UML diagrams capture the dynamic aspects and interactions within a system. State Machine diagrams are particularly useful for modeling the behavior of control logic and protocols, Sequence diagrams can illustrate interactions between hardware components over time, and Activity diagrams can model data flow and processing steps. These help specify and understand the functionality, register operations, and interrupt handling logic within the hardware design.
 
-![UML Diagrams Overview](assets/chapter9/uml_diagrams_overview.svg)
+![UML Diagrams Overview](assets/chapter9/uml_diagrams_overview.svg){height=5cm}
 
 The UML Diagrams Overview graphic serves as a helpful reference, visually categorizing the suite of UML diagrams into structural and behavioral groups. This classification aids designers in selecting the most appropriate diagram type for the specific aspect of the hardware system they need to model, whether it's the static architecture, the dynamic interactions between components, or the behavior of individual elements, thereby facilitating clearer and more effective system documentation and communication.
 
