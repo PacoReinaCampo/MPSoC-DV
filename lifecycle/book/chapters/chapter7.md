@@ -56,7 +56,7 @@ Hardware Configuration Management (CM) Records are essential documents that capt
 
 - **Current Status**: The current status of the configuration item (e.g., in development, under review, approved, released, retired).
 - **Status Changes**: Records of any status changes, including the date and reason for the change.
-- **Lifecycle Stage**: The lifecycle stage of the configuration item (e.g., design, testing, production).
+- **LifeCycle Stage**: The lifecycle stage of the configuration item (e.g., design, testing, production).
 
 ### Configuration Audits
 

@@ -4,8 +4,8 @@
 
 Chisel supports several types and constants that are essential for digital circuit design:
 
-- **Numeric Types:** `UInt`, `SInt`, `Bool`
-- **Constants:** Defined using Scala's syntax, e.g., `val myConst = 42.U`
+- **Numeric Types**: `UInt`, `SInt`, `Bool`
+- **Constants**: Defined using Scala's syntax, e.g., `val myConst = 42.U`
 
 ## COMBINATIONAL CIRCUITS
 
@@ -99,9 +99,9 @@ class VecExample extends Module {
 
 ## WIRE, REG, AND IO
 
-- **Wire:** Used for combinational logic connections.
-- **Reg:** Used for storing values between clock cycles.
-- **IO:** Declares the interface of a module, specifying inputs and outputs.
+- **Wire**: Used for combinational logic connections.
+- **Reg**: Used for storing values between clock cycles.
+- **IO**: Declares the interface of a module, specifying inputs and outputs.
 
 ## CHISEL GENERATES HARDWARE
 

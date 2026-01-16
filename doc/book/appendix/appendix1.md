@@ -394,7 +394,7 @@ Interoperability refers to the ability of different systems, devices, applicatio
    * Standardization efforts and governance frameworks play a crucial role in promoting interoperability by defining common standards, protocols, and best practices.
    * Collaboration among industry stakeholders, standardization bodies, and regulatory agencies is essential to develop and adopt interoperability standards and guidelines.
 
-4. **Lifecycle Management**:
+4. **LifeCycle Management**:
 
    * Interoperability considerations should be integrated throughout the system lifecycle, from design and development to deployment, operation, and maintenance.
    * Regular testing, validation, and monitoring are necessary to ensure ongoing interoperability and compatibility as systems evolve and change over time.
@@ -471,7 +471,7 @@ Key management is the process of generating, storing, distributing, using, and d
 
 ### Challenges in Key Management
 
-1. **Key Lifecycle Management**:
+1. **Key LifeCycle Management**:
 
    * Managing keys throughout their lifecycle, including generation, distribution, usage, rotation, and destruction, can be complex and resource-intensive.
    * Poorly managed key lifecycles can lead to security vulnerabilities, compliance issues, and operational disruptions.

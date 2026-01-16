@@ -18,64 +18,7 @@ library
 │   │   └── peripheral_design.scala
 │   └── wb
 │       └── peripheral_design.scala
-├── core
-│   ├── peripheral_ahb4_test.scala
-│   ├── peripheral_apb4_test.scala
-│   ├── peripheral_axi4_test.scala
-│   ├── peripheral_bb_test.scala
-│   ├── peripheral_tl_test.scala
-│   ├── peripheral_wb_test.scala
-│   ├── ahb4
-│   │   └── peripheral_design.scala
-│   ├── apb4
-│   │   └── peripheral_design.scala
-│   ├── axi4
-│   │   └── peripheral_design.scala
-│   ├── bb
-│   │   └── peripheral_design.scala
-│   ├── tl
-│   │   └── peripheral_design.scala
-│   └── wb
-│       └── peripheral_design.scala
-├── mpsoc
-│   ├── peripheral_ahb4_test.scala
-│   ├── peripheral_apb4_test.scala
-│   ├── peripheral_axi4_test.scala
-│   ├── peripheral_bb_test.scala
-│   ├── peripheral_tl_test.scala
-│   ├── peripheral_wb_test.scala
-│   ├── ahb4
-│   │   └── peripheral_design.scala
-│   ├── apb4
-│   │   └── peripheral_design.scala
-│   ├── axi4
-│   │   └── peripheral_design.scala
-│   ├── bb
-│   │   └── peripheral_design.scala
-│   ├── tl
-│   │   └── peripheral_design.scala
-│   └── wb
-│       └── peripheral_design.scala
-├── pu
-│   ├── peripheral_ahb4_test.scala
-│   ├── peripheral_apb4_test.scala
-│   ├── peripheral_axi4_test.scala
-│   ├── peripheral_bb_test.scala
-│   ├── peripheral_tl_test.scala
-│   ├── peripheral_wb_test.scala
-│   ├── ahb4
-│   │   └── peripheral_design.scala
-│   ├── apb4
-│   │   └── peripheral_design.scala
-│   ├── axi4
-│   │   └── peripheral_design.scala
-│   ├── bb
-│   │   └── peripheral_design.scala
-│   ├── tl
-│   │   └── peripheral_design.scala
-│   └── wb
-│       └── peripheral_design.scala
-└── soc
+└── core
     ├── peripheral_ahb4_test.scala
     ├── peripheral_apb4_test.scala
     ├── peripheral_axi4_test.scala
@@ -95,4 +38,4 @@ library
     └── wb
         └── peripheral_design.scala
 
-35 directories, 60 files
+14 directories, 24 files

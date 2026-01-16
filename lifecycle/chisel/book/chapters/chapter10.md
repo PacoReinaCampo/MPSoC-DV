@@ -3,11 +3,11 @@
 ## A LITTLE BIT OF SCALA
 
 Understanding basic Scala concepts is essential for effective Chisel programming. Key Scala concepts include:
-- **Functions and Methods:** Defining reusable code blocks.
-- **Objects and Classes:** Structuring code and data.
-- **Traits:** Defining interfaces and mixin behavior.
-- **Pattern Matching:** Powerful control structure for conditional execution.
-- **Case Classes:** Immutable data structures with convenient features like pattern matching and `copy` method.
+- **Functions and Methods**: Defining reusable code blocks.
+- **Objects and Classes**: Structuring code and data.
+- **Traits**: Defining interfaces and mixin behavior.
+- **Pattern Matching**: Powerful control structure for conditional execution.
+- **Case Classes**: Immutable data structures with convenient features like pattern matching and `copy` method.
 
 ## LIGHTWEIGHT COMPONENTS WITH FUNCTIONS
 

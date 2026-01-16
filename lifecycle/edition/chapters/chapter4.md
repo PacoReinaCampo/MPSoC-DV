@@ -2,13 +2,13 @@
 
 Los capítulos presentes en la documentación se presentan en la lista.
 
-* Capítulo 2. Introduction
-* Capítulo 3. Organization
+* Capítulo 2. WorkPath
+* Capítulo 3. Plan
 * Capítulo 4. Architecture
 * Capítulo 5. Instructions
-* Capítulo 6. Formats
-* Capítulo 7. Exceptions
-* Capítulo 8. Registers
+* Capítulo 6. Data Formats
+* Capítulo 7. Registers
+* Capítulo 8. Exceptions
 * Capítulo 9. Requirements
 * Capítulo 10. Model
 * Capítulo 11. Validation
@@ -21,22 +21,22 @@ Los apéndices presentes en la documentación se presentan en la lista.
 
 * Appendix A. IP Cores Management
 * Appendix B. IP Cores Development
-* Appendix C. IP Cores DevOps
+* Appendix C. IP Cores Operations
 * Appendix D. Quality Assurance
 * Appendix E. Certification
-* Appendix F. Design Lifecycle Data
+* Appendix F. Design LifeCycle Data
 
 `INSERT HERE`
 
-## Capítulo 2. Introduction
+## Capítulo 2. WorkPath
 
 Un "Capítulo 2" para cada Programa.
 
-## Capítulo 3. Organization
+## Capítulo 3. Plan
 
 Un "Capítulo 3" para cada Programa.
 
-## Capítulo 4. Plan
+## Capítulo 4. Architecture
 
 Un "Capítulo 4" para cada Programa.
 
@@ -44,15 +44,15 @@ Un "Capítulo 4" para cada Programa.
 
 Un "Capítulo 5" para cada Programa.
 
-## Capítulo 6. Formats
+## Capítulo 6. Data Formats
 
 Un "Capítulo 6" para cada Programa.
 
-## Capítulo 7. Exceptions
+## Capítulo 7. Registers
 
 Un "Capítulo 7" para cada Programa.
 
-## Capítulo 8. Registers
+## Capítulo 8. Exceptions
 
 Un "Capítulo 8" para cada Programa.
 
@@ -112,7 +112,7 @@ Se conserva para toda la Organización QueenField.
 
 Se conserva para toda la Organización QueenField.
 
-## Apéndice C. IP Cores DevOps
+## Apéndice C. IP Cores Operations
 
 Se conserva para toda la Organización QueenField.
 
@@ -124,7 +124,7 @@ Se conserva para toda la Organización QueenField.
 
 Se conserva para toda la Organización QueenField.
 
-## Apéndice F. Design Lifecycle Data
+## Apéndice F. Design LifeCycle Data
 
 Se conserva para toda la Organización QueenField.
 

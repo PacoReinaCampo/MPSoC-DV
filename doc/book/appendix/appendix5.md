@@ -721,7 +721,7 @@ By effectively managing the certification liaison process, organizations can ens
 
 In the context of airborne electronic hardware development governed by DO-254, various types of data are generated and managed throughout the hardware design lifecycle. These data encompass plans, standards, design documents, validation and verification data, test criteria, problem reports, configuration management records, process assurance records, and accomplishment summaries.
 
-### Design Lifecycle Data Templates
+### Design LifeCycle Data Templates
 
 * Data Required for the Hardware Planning
    * Hardware Configuration Management Plan

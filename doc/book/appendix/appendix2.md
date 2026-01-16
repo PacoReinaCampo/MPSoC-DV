@@ -1649,7 +1649,7 @@ Data visibility refers to the accessibility and availability of data within a sy
    * **Attribute-based Access Control (ABAC)**: Access to data is determined based on attributes associated with users, resources, and environmental conditions.
    * **Access Policies**: Explicit rules and policies define who can access which data under specific circumstances, ensuring data confidentiality, integrity, and availability.
 
-4. **Data Lifecycle**:
+4. **Data LifeCycle**:
 
    * **Creation**: Data is generated or captured by sensors, applications, or user interactions.
    * **Storage**: Data is stored in databases, file systems, or other storage mediums, where its visibility may be controlled based on access permissions and encryption.

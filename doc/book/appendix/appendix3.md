@@ -84,7 +84,7 @@ Each normative reference contributes to different aspects of the standard:
 
 2. **Quality Assurance**: Standards such as ISO/IEC 25010 and IEEE 730 help define quality metrics and assurance processes. By integrating these references, IEEE 2675 ensures that the developed systems are of high quality, meeting predefined standards for performance, reliability, and user satisfaction.
 
-3. **Lifecycle Processes**: References like IEEE 12207 offer detailed processes for software lifecycle management, which aligns with the continuous integration and continuous delivery (CI/CD) pipelines emphasized in IEEE 2675. These lifecycle processes ensure structured development, deployment, and maintenance practices.
+3. **LifeCycle Processes**: References like IEEE 12207 offer detailed processes for software lifecycle management, which aligns with the continuous integration and continuous delivery (CI/CD) pipelines emphasized in IEEE 2675. These lifecycle processes ensure structured development, deployment, and maintenance practices.
 
 4. **Documentation and Compliance**: Standards such as IEEE 829 ensure that all documentation is thorough, consistent, and adheres to industry best practices. Proper documentation is crucial in DevOps for tracking changes, managing configurations, and ensuring transparency.
 
@@ -292,9 +292,9 @@ Cultural Transformation
 
 5. **Agility**: Foster an agile mindset that embraces change and adapts quickly to new information and circumstances. This flexibility is crucial for responding to evolving market conditions and customer needs.
 
-### Operations and Lifecycle Processes
+### Operations and LifeCycle Processes
 
-Integration with Lifecycle Processes
+Integration with LifeCycle Processes
 
 1. **Development**: Integrate DevOps practices early in the development lifecycle. Use version control, automated testing, and continuous integration to ensure that code is always in a deployable state.
 

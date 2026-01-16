@@ -16,9 +16,9 @@
 |               | IEEE STD 1364-2005   | Verilog        |
 | verification  | IEEE STD 1800.2-2020 | UVM            |
 | configuration | IEEE STD 1666-2011   | SystemC        |
-| certification | RTCA DO-254          |                |
-|               | RTCA DO-178C         |                |
-| quality       | ISO 9001-2015        |                |
+| certification | RTCA DO-254          | IP-Certifier   |
+|               | RTCA DO-178C         | IP-Certifier   |
+| quality       | ISO 9001-2015        | IP-Manager     |
 | lifecycle     | IEEE STD 1735-2014   | IP-Developer   |
 |               | IEEE STD 2675-2021   | IP-Operator    |
 |               | IEEE STD 1685-2014   | IP-Manager     |

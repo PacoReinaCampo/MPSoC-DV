@@ -6,44 +6,49 @@ Chisel is a hardware description language embedded in Scala, designed to support
 
 ### macOS
 
-1. **Install Scala:**
+1. **Install Scala**:
    * Download Scala from https://www.scala-lang.org/download/
    * Follow installation instructions.
 
-2. **Install SBT (Scala Build Tool):**
+2. **Install SBT (Scala Build Tool)**:
    * Download SBT from https://www.scala-sbt.org/download.html
    * Follow installation instructions.
 
-3. **Install Verilator (for Verilog simulation):**
+3. **Install Verilator (for Verilog simulation)**:
+
    ```bash
    brew install verilator
    ```
 
-4. **Install Chisel:**
+4. **Install Chisel**:
    * Chisel can be added as a dependency to your SBT project:
+
      ```scala
      libraryDependencies += "edu.berkeley.cs" %% "chisel3" % "3.5.1"
      ```
 
 ### Linux/Ubuntu
 
-1. **Install Scala:**
+1. **Install Scala**:
+
    ```bash
    sudo apt-get update
    sudo apt-get install scala
    ```
 
-2. **Install SBT:**
+2. **Install SBT**:
+
    ```bash
    sudo apt-get install sbt
    ```
 
-3. **Install Verilator:**
+3. **Install Verilator**:
+
    ```bash
    sudo apt-get install verilator
    ```
 
-4. **Install Chisel:**
+4. **Install Chisel**:
    * Add Chisel as a dependency in your SBT project (similar to macOS).
 
 ### Windows

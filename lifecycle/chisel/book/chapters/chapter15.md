@@ -21,6 +21,7 @@ Before publishing a Chisel library, ensure:
 Set up your Chisel library project:
 
 1. **Create Project**: Initialize a new Scala project using SBT.
+
    ```bash
    sbt new chisel/chisel-template.g8
    ```
@@ -32,11 +33,13 @@ Set up your Chisel library project:
 Publish your Chisel library:
 
 1. **Publish to Sonatype**: Publish your library to Sonatype.
+
    ```bash
    sbt publishSigned
    ```
 
 2. **Release Version**: Release the version on Sonatype after verification.
+
    ```bash
    sbt sonatypeRelease
    ```
@@ -48,11 +51,13 @@ Publish your Chisel library:
 Set up your environment for contributing to Chisel:
 
 1. **Clone Repository**: Clone the Chisel repository from GitHub.
+
    ```bash
    git clone https://github.com/freechipsproject/chisel3.git
    ```
 
 2. **Build Chisel**: Build Chisel using SBT.
+
    ```bash
    cd chisel3
    sbt compile
@@ -63,6 +68,7 @@ Set up your environment for contributing to Chisel:
 Test your changes in Chisel:
 
 1. **Run Tests**: Execute tests to ensure functionality.
+
    ```bash
    sbt test
    ```
@@ -72,6 +78,7 @@ Test your changes in Chisel:
 Contribute your changes to Chisel:
 
 1. **Create Branch**: Create a new branch for your changes.
+
    ```bash
    git checkout -b my-feature-branch
    ```
@@ -79,11 +86,13 @@ Contribute your changes to Chisel:
 2. **Implement Changes**: Make necessary changes and test them.
    
 3. **Commit Changes**: Commit your changes with descriptive messages.
+
    ```bash
    git commit -am "Implemented feature X"
    ```
 
 4. **Push Branch**: Push your branch to GitHub.
+
    ```bash
    git push origin my-feature-branch
    ```
