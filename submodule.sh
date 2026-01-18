@@ -42,5 +42,17 @@
 ##                                                                               ##
 ###################################################################################
 
+# Remove Submodule
+git rm -rf architecture/mpsoc-riscv
+git rm -rf architecture/mpsoc-or1k
+
+git rm -rf intelligence/mpsoc-ntm
+
 # Update Submodule
 git submodule update --init --recursive --remote
+
+# Add Submodule
+git submodule add --force https://github.com/PacoReinaCampo/MPSoC-RISCV.git architecture/mpsoc-riscv
+git submodule add --force https://github.com/PacoReinaCampo/MPSoC-OR1K.git architecture/mpsoc-or1k
+
+git submodule add --force https://github.com/PacoReinaCampo/MPSoC-NTM.git intelligence/mpsoc-ntm

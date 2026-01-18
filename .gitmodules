@@ -1,9 +1,9 @@
-[submodule "mpsoc-msp430"]
-	path = mpsoc-msp430
-	url = https://github.com/PacoReinaCampo/MPSoC-MSP430.git
-[submodule "mpsoc-or1k"]
-	path = mpsoc-or1k
-	url = https://github.com/PacoReinaCampo/MPSoC-OR1K.git
-[submodule "mpsoc-riscv"]
-	path = mpsoc-riscv
+[submodule "architecture/mpsoc-riscv"]
+	path = architecture/mpsoc-riscv
 	url = https://github.com/PacoReinaCampo/MPSoC-RISCV.git
+[submodule "architecture/mpsoc-or1k"]
+	path = architecture/mpsoc-or1k
+	url = https://github.com/PacoReinaCampo/MPSoC-OR1K.git
+[submodule "intelligence/mpsoc-ntm"]
+	path = intelligence/mpsoc-ntm
+	url = https://github.com/PacoReinaCampo/MPSoC-NTM.git
