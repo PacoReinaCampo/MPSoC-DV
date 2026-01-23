@@ -600,15 +600,15 @@ Overall, the Neural Turing Machine represents a significant advancement in the f
 
   `INSERT HERE`
 
-  ![Neural Turing Machine Top](assets/chapter3/ntm_top.jpg){width=6cm}
+  ![Neural Turing Machine Top](assets/chapter3/accelerator_top.jpg){width=6cm}
 
   `INSERT HERE`
 
-  ![Neural Turing Machine Heads](assets/chapter3/ntm_heads.jpg){width=6cm}
+  ![Neural Turing Machine Heads](assets/chapter3/accelerator_heads.jpg){width=6cm}
 
   `INSERT HERE`
 
-  ![Neural Turing Machine Addressing](assets/chapter3/ntm_addressing.jpg){width=6cm}
+  ![Neural Turing Machine Addressing](assets/chapter3/accelerator_addressing.jpg){width=6cm}
 
   `INSERT HERE`
 
@@ -791,23 +791,23 @@ $${{{\text{attention}}(Q, K, V)={\text{softmax}}\left({\frac{QK^{\mathrm{T}}}{\s
 
   `INSERT HERE`
 
-  ![Transformer Inputs Vector](assets/chapter3/ntm_inputs_vector.png){width=6cm}
+  ![Transformer Inputs Vector](assets/chapter3/accelerator_inputs_vector.png){width=6cm}
 
   `INSERT HERE`
 
-  ![Transformer Multi Head Attention](assets/chapter3/ntm_multi_head_attention.png){width=6cm}
+  ![Transformer Multi Head Attention](assets/chapter3/accelerator_multi_head_attention.png){width=6cm}
 
   `INSERT HERE`
 
-  ![Transformer Scaled Dot Product Attention](assets/chapter3/ntm_scaled_dot_product_attention.png){width=6cm}
+  ![Transformer Scaled Dot Product Attention](assets/chapter3/accelerator_scaled_dot_product_attention.png){width=6cm}
 
   `INSERT HERE`
 
-  ![Transformer Decoder](assets/chapter3/ntm_decoder.png){width=6cm}
+  ![Transformer Decoder](assets/chapter3/accelerator_decoder.png){width=6cm}
 
   `INSERT HERE`
 
-  ![Transformer Encoder](assets/chapter3/ntm_encoder.png){width=6cm}
+  ![Transformer Encoder](assets/chapter3/accelerator_encoder.png){width=6cm}
 
   `INSERT HERE`
 

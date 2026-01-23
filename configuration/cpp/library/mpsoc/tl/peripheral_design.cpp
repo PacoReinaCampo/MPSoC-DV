@@ -48,22 +48,22 @@
 
 using namespace std;
 
-double ScalarArithmetic::ntm_scalar_adder(double data_a_in, double data_b_in) {
+double ScalarArithmetic::accelerator_scalar_adder(double data_a_in, double data_b_in) {
   // calculating addition
   return data_a_in + data_b_in;
 }
 
-double ScalarArithmetic::ntm_scalar_subtract(double data_a_in, double data_b_in) {
+double ScalarArithmetic::accelerator_scalar_subtract(double data_a_in, double data_b_in) {
   // calculating addition
   return data_a_in - data_b_in;
 }
 
-double ScalarArithmetic::ntm_scalar_multiplier(double data_a_in, double data_b_in) {
+double ScalarArithmetic::accelerator_scalar_multiplier(double data_a_in, double data_b_in) {
   // calculating multiplication
   return data_a_in * data_b_in;
 }
 
-double ScalarArithmetic::ntm_scalar_divider(double data_a_in, double data_b_in) {
+double ScalarArithmetic::accelerator_scalar_divider(double data_a_in, double data_b_in) {
   // calculating division
   return data_a_in / data_b_in;
 }

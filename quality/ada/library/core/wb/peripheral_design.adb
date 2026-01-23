@@ -47,7 +47,7 @@ use Ada.Text_IO;
 
 package body peripheral_design is
 
-  procedure ntm_scalar_adder (
+  procedure accelerator_scalar_adder (
     data_a_in : in float;
     data_b_in : in float;
     
@@ -55,9 +55,9 @@ package body peripheral_design is
   ) is
   begin
     data_out := data_a_in + data_b_in;
-  end ntm_scalar_adder;
+  end accelerator_scalar_adder;
 
-  procedure ntm_scalar_substractor (
+  procedure accelerator_scalar_substractor (
     data_a_in : in float;
     data_b_in : in float;
     
@@ -65,9 +65,9 @@ package body peripheral_design is
   ) is
   begin
     data_out := data_a_in - data_b_in;
-  end ntm_scalar_substractor;
+  end accelerator_scalar_substractor;
 
-  procedure ntm_scalar_multiplier (
+  procedure accelerator_scalar_multiplier (
     data_a_in : in float;
     data_b_in : in float;
     
@@ -75,9 +75,9 @@ package body peripheral_design is
   ) is
   begin
     data_out := data_a_in * data_b_in;
-  end ntm_scalar_multiplier;
+  end accelerator_scalar_multiplier;
 
-  procedure ntm_scalar_divider (
+  procedure accelerator_scalar_divider (
     data_a_in : in float;
     data_b_in : in float;
     
@@ -85,6 +85,6 @@ package body peripheral_design is
   ) is
   begin
     data_out := data_a_in / data_b_in;
-  end ntm_scalar_divider;
+  end accelerator_scalar_divider;
 
 end peripheral_design;

@@ -53,12 +53,12 @@ class peripheral_apb4_test {
     double data_a_in = random.nextDouble();
     double data_b_in = random.nextDouble();
 
-    assert peripheral_design.ntm_scalar_adder(data_a_in, data_b_in) == data_a_in + data_b_in;
+    assert peripheral_design.accelerator_scalar_adder(data_a_in, data_b_in) == data_a_in + data_b_in;
 
-    assert peripheral_design.ntm_scalar_subtractor(data_a_in, data_b_in) == data_a_in - data_b_in;
+    assert peripheral_design.accelerator_scalar_subtractor(data_a_in, data_b_in) == data_a_in - data_b_in;
 
-    assert peripheral_design.ntm_scalar_multiplier(data_a_in, data_b_in) == data_a_in * data_b_in;
+    assert peripheral_design.accelerator_scalar_multiplier(data_a_in, data_b_in) == data_a_in * data_b_in;
 
-    assert peripheral_design.ntm_scalar_divider(data_a_in, data_b_in) == data_a_in / data_b_in;
+    assert peripheral_design.accelerator_scalar_divider(data_a_in, data_b_in) == data_a_in / data_b_in;
   }
 }

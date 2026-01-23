@@ -61,19 +61,19 @@ int main() {
 
   data_out = data_a_in + data_b_in;
 
-  assert(ntm_scalar_adder(data_a_in, data_b_in) == data_out);
+  assert(accelerator_scalar_adder(data_a_in, data_b_in) == data_out);
 
   data_out = data_a_in - data_b_in;
 
-  assert(ntm_scalar_subtractor(data_a_in, data_b_in) == data_out);
+  assert(accelerator_scalar_subtractor(data_a_in, data_b_in) == data_out);
 
   data_out = data_a_in * data_b_in;
 
-  assert(ntm_scalar_multiplier(data_a_in, data_b_in) == data_out);
+  assert(accelerator_scalar_multiplier(data_a_in, data_b_in) == data_out);
 
   data_out = data_a_in / data_b_in;
 
-  assert(ntm_scalar_divider(data_a_in, data_b_in) == data_out);
+  assert(accelerator_scalar_divider(data_a_in, data_b_in) == data_out);
 
   return 0;
 }

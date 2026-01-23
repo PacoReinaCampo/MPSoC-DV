@@ -64,7 +64,7 @@ fn main() {
         data_out: data_addition_output
     };
 
-    assert_eq!(addition.ntm_scalar_adder(), addition.data_out);
+    assert_eq!(addition.accelerator_scalar_adder(), addition.data_out);
 
     let subtraction = ScalarArithmetic {
         data_a_in: data_a_input,
@@ -73,7 +73,7 @@ fn main() {
         data_out: data_subtraction_output
     };
 
-    assert_eq!(subtraction.ntm_scalar_subtractor(), subtraction.data_out);
+    assert_eq!(subtraction.accelerator_scalar_subtractor(), subtraction.data_out);
 
     let multiplication = ScalarArithmetic {
         data_a_in: data_a_input,
@@ -82,7 +82,7 @@ fn main() {
         data_out: data_multiplication_output
     };
 
-    assert_eq!(multiplication.ntm_scalar_multiplier(), multiplication.data_out);
+    assert_eq!(multiplication.accelerator_scalar_multiplier(), multiplication.data_out);
 
     let division = ScalarArithmetic {
         data_a_in: data_a_input,
@@ -91,5 +91,5 @@ fn main() {
         data_out: data_division_output
     };
 
-    assert_eq!(division.ntm_scalar_divider(), division.data_out);
+    assert_eq!(division.accelerator_scalar_divider(), division.data_out);
 }

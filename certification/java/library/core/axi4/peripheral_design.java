@@ -45,7 +45,7 @@
 package axi4;
 
 public class peripheral_design {
-  public static double ntm_scalar_adder(double data_a_in, double data_b_in) {
+  public static double accelerator_scalar_adder(double data_a_in, double data_b_in) {
     double data_out;
  
     data_out = data_a_in + data_b_in;
@@ -53,7 +53,7 @@ public class peripheral_design {
     return data_out;
   }
 
-  public static double ntm_scalar_subtractor(double data_a_in, double data_b_in) {
+  public static double accelerator_scalar_subtractor(double data_a_in, double data_b_in) {
     double data_out;
  
     data_out = data_a_in - data_b_in;
@@ -61,7 +61,7 @@ public class peripheral_design {
     return data_out;
   }
 
-  public static double ntm_scalar_multiplier(double data_a_in, double data_b_in) {
+  public static double accelerator_scalar_multiplier(double data_a_in, double data_b_in) {
     double data_out;
  
     data_out = data_a_in * data_b_in;
@@ -69,7 +69,7 @@ public class peripheral_design {
     return data_out;
   }
 
-  public static double ntm_scalar_divider(double data_a_in, double data_b_in) {
+  public static double accelerator_scalar_divider(double data_a_in, double data_b_in) {
     double data_out;
  
     data_out = data_a_in / data_b_in;

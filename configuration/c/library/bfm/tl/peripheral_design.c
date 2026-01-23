@@ -47,22 +47,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-double ntm_scalar_adder(double data_a_in, double data_b_in) {
+double accelerator_scalar_adder(double data_a_in, double data_b_in) {
   // calculating addition
   return data_a_in + data_b_in;
 }
 
-double ntm_scalar_subtractor(double data_a_in, double data_b_in) {
+double accelerator_scalar_subtractor(double data_a_in, double data_b_in) {
   // calculating addition
   return data_a_in - data_b_in;
 }
 
-double ntm_scalar_multiplier(double data_a_in, double data_b_in) {
+double accelerator_scalar_multiplier(double data_a_in, double data_b_in) {
   // calculating addition
   return data_a_in * data_b_in;
 }
 
-double ntm_scalar_divider(double data_a_in, double data_b_in) {
+double accelerator_scalar_divider(double data_a_in, double data_b_in) {
   // calculating addition
   return data_a_in / data_b_in;
 }
