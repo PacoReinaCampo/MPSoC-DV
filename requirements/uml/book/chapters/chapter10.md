@@ -7,10 +7,10 @@ In Unified Modeling Language (UML), "Simple Classifiers" are foundational elemen
    * They encapsulate simple, indivisible values or entities that are treated as atomic units within the system being modeled.
 
 2. **Types of Simple Classifiers**:
-   a. **Primitive Types**: Primitive types represent basic data types built into programming languages, such as integers, floating-point numbers, characters, and booleans. They correspond to the built-in data types supported by programming languages and are typically predefined within the UML standard.
-   b. **Enumeration Types**: Enumeration types define a set of named values or symbols, where each value represents a distinct constant. Enumeration types are used to model data with predefined, distinct states or categories.
-   c. **Data Types**: Data types represent user-defined or application-specific data structures, such as records, structures, or tuples. They encapsulate collections of attributes or properties that describe the structure and organization of data.
-   d. **Interfaces**: Interfaces define a contract specifying a set of operations that a class or component must implement. While interfaces may contain method signatures, they are considered simple classifiers because they represent a single, atomic unit of abstraction.
+   * **Primitive Types**: Primitive types represent basic data types built into programming languages, such as integers, floating-point numbers, characters, and booleans. They correspond to the built-in data types supported by programming languages and are typically predefined within the UML standard.
+   * **Enumeration Types**: Enumeration types define a set of named values or symbols, where each value represents a distinct constant. Enumeration types are used to model data with predefined, distinct states or categories.
+   * **Data Types**: Data types represent user-defined or application-specific data structures, such as records, structures, or tuples. They encapsulate collections of attributes or properties that describe the structure and organization of data.
+   * **Interfaces**: Interfaces define a contract specifying a set of operations that a class or component must implement. While interfaces may contain method signatures, they are considered simple classifiers because they represent a single, atomic unit of abstraction.
    
 3. **Attributes and Operations**:
    * Simple classifiers may have associated attributes and operations that define their characteristics and behavior.

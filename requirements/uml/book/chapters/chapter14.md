@@ -8,15 +8,14 @@ In Unified Modeling Language (UML), "State Machines" provide a graphical represe
    * State machines are commonly used to model the behavior of reactive systems, such as software components, embedded systems, user interfaces, and communication protocols.
 
 2. **Elements of State Machines**:
-   a. **States**: States represent the different conditions or modes that an object or system can be in at any given time. Each state represents a stable situation or configuration of the system.
-   b. **Transitions**: Transitions represent the change of state triggered by events or stimuli. They define the conditions under which a transition can occur and the actions or behaviors associated with the transition.
-   c. **Events**: Events represent the stimuli or occurrences that trigger state transitions. They can be internal or external and may carry additional data or parameters.
-   d. **Actions**: Actions represent the behaviors or operations performed when a state transition occurs. They specify the effects of transitioning from one state to another.
+   * **States**: States represent the different conditions or modes that an object or system can be in at any given time. Each state represents a stable situation or configuration of the system.
+   * **Transitions**: Transitions represent the change of state triggered by events or stimuli. They define the conditions under which a transition can occur and the actions or behaviors associated with the transition.
+   * **Events**: Events represent the stimuli or occurrences that trigger state transitions. They can be internal or external and may carry additional data or parameters.
+   * **Actions**: Actions represent the behaviors or operations performed when a state transition occurs. They specify the effects of transitioning from one state to another.
 
-3. **Types of State Machines**:
-   * UML defines two main types of state machines:
-     a. **Behavioral State Machines**: Also known as activity diagrams, behavioral state machines model the behavior of an object or system in response to events over time. They focus on the dynamic aspects of the system, including control flow, concurrency, and synchronization.
-     b. **Protocol State Machines**: Also known as statechart diagrams, protocol state machines model the lifecycle and behavior of an object or system in response to events and conditions. They focus on the states and transitions that define the protocol or sequence of operations.
+3. **Types of State Machines**: UML defines two main types of state machines:
+   * **Behavioral State Machines**: Also known as activity diagrams, behavioral state machines model the behavior of an object or system in response to events over time. They focus on the dynamic aspects of the system, including control flow, concurrency, and synchronization.
+   * **Protocol State Machines**: Also known as statechart diagrams, protocol state machines model the lifecycle and behavior of an object or system in response to events and conditions. They focus on the states and transitions that define the protocol or sequence of operations.
 
 4. **Representation in UML**:
    * State machines are represented graphically in UML diagrams using state diagrams or statechart diagrams.

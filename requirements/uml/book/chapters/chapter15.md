@@ -8,13 +8,13 @@ In Unified Modeling Language (UML), "Activities" represent the dynamic aspects o
    * Activities are used to model the operational aspects of a system, including business processes, algorithms, workflows, use case scenarios, and system behaviors.
 
 2. **Elements of Activities**:
-   a. **Actions**: Actions represent the basic units of behavior within an activity. They can be atomic actions (e.g., assignments, method calls) or complex actions (e.g., loops, decisions).
-   b. **Control Nodes**: Control nodes define the flow of control within an activity. They include initial nodes, final nodes, decision nodes, merge nodes, fork nodes, and join nodes.
-   c. **Flow of Control**: The flow of control specifies the order in which actions are executed within the activity. It is represented by control edges connecting actions and control nodes.
-   d. **Decisions and Branching**: Decisions and branching constructs, such as decision nodes and guards, control the flow of execution based on conditions or expressions.
-   e. **Iteration and Looping**: Iteration and looping constructs, such as loop nodes and iteration edges, allow actions to be repeated multiple times based on conditions or iteration counts.
-   f. **Concurrency**: Concurrency constructs, such as fork nodes and join nodes, enable actions to be executed concurrently or in parallel threads.
-   g. **Exception Handling**: Exception handling constructs, such as exception handlers and interruptible regions, specify how errors or exceptional conditions are handled within the activity.
+   * **Actions**: Actions represent the basic units of behavior within an activity. They can be atomic actions (e.g., assignments, method calls) or complex actions (e.g., loops, decisions).
+   * **Control Nodes**: Control nodes define the flow of control within an activity. They include initial nodes, final nodes, decision nodes, merge nodes, fork nodes, and join nodes.
+   * **Flow of Control**: The flow of control specifies the order in which actions are executed within the activity. It is represented by control edges connecting actions and control nodes.
+   * **Decisions and Branching**: Decisions and branching constructs, such as decision nodes and guards, control the flow of execution based on conditions or expressions.
+   * **Iteration and Looping**: Iteration and looping constructs, such as loop nodes and iteration edges, allow actions to be repeated multiple times based on conditions or iteration counts.
+   * **Concurrency**: Concurrency constructs, such as fork nodes and join nodes, enable actions to be executed concurrently or in parallel threads.
+   * **Exception Handling**: Exception handling constructs, such as exception handlers and interruptible regions, specify how errors or exceptional conditions are handled within the activity.
 
 3. **Representation in UML**:
    * Activities are represented graphically in UML diagrams using activity diagrams.

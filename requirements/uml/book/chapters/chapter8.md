@@ -16,12 +16,11 @@ In the Unified Modeling Language (UML), "Values" refer to the instances or concr
    * Parameters in UML operation signatures represent inputs, outputs, or return values of operations (methods). Parameter values define the specific data passed to or returned from operations during method invocation.
    * Parameter values correspond to the actual arguments supplied when calling operations or methods on objects.
 
-4. **Literal Values**:
-   * UML defines various types of literal values to represent constant data. These include:
-     - Integer literals: Represent integer values (e.g., 1, 42, -10).
-     - Real literals: Represent floating-point or decimal values (e.g., 3.14, -0.5, 100.0).
-     - String literals: Represent sequences of characters enclosed in quotation marks (e.g., "Hello, World!", "UML").
-     - Boolean literals: Represent boolean values (e.g., true, false).
+4. **Literal Values**: UML defines various types of literal values to represent constant data. These include:
+   * Integer literals: Represent integer values (e.g., 1, 42, -10).
+   * Real literals: Represent floating-point or decimal values (e.g., 3.14, -0.5, 100.0).
+   * String literals: Represent sequences of characters enclosed in quotation marks (e.g., "Hello, World!", "UML").
+   * Boolean literals: Represent boolean values (e.g., true, false).
 
 5. **Enumeration Values**:
    * Enumeration values are instances of enumeration types defined in UML models. Each enumeration value corresponds to one of the named constants defined within the enumeration.

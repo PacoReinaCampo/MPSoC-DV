@@ -7,12 +7,12 @@ In Unified Modeling Language (UML), "Common Behavior" refers to the standardized
    * It defines how model elements respond to stimuli, events, or actions, including the execution of operations, handling of messages, and state transitions.
 
 2. **Types of Common Behavior**:
-   a. **Operations**: Operations represent behaviors or functionalities that model elements can perform. They define the interface through which objects interact with each other and manipulate their internal state.
-   b. **Messages**: Messages are used to communicate between objects or components in UML models. They represent asynchronous or synchronous interactions, where one object sends a message to another object to request or provide information or trigger a behavior.
-   c. **State Transitions**: State transitions describe the changes in the state of objects or components over time. They represent the movement of objects from one state to another in response to events or stimuli.
-   d. **Control Flow**: Control flow defines the sequence of actions or operations executed by objects or components in response to events or triggers. It represents the order in which behaviors are performed within a system.
-   e. **Concurrency**: Concurrency refers to the simultaneous execution of multiple behaviors or operations within a system. It allows for parallelism and multitasking, enabling efficient utilization of system resources.
-   f. **Exception Handling**: Exception handling defines how errors, exceptions, or unexpected conditions are handled within the system. It specifies the actions taken to recover from errors and maintain system integrity.
+   * **Operations**: Operations represent behaviors or functionalities that model elements can perform. They define the interface through which objects interact with each other and manipulate their internal state.
+   * **Messages**: Messages are used to communicate between objects or components in UML models. They represent asynchronous or synchronous interactions, where one object sends a message to another object to request or provide information or trigger a behavior.
+   * **State Transitions**: State transitions describe the changes in the state of objects or components over time. They represent the movement of objects from one state to another in response to events or stimuli.
+   * **Control Flow**: Control flow defines the sequence of actions or operations executed by objects or components in response to events or triggers. It represents the order in which behaviors are performed within a system.
+   * **Concurrency**: Concurrency refers to the simultaneous execution of multiple behaviors or operations within a system. It allows for parallelism and multitasking, enabling efficient utilization of system resources.
+   * **Exception Handling**: Exception handling defines how errors, exceptions, or unexpected conditions are handled within the system. It specifies the actions taken to recover from errors and maintain system integrity.
 
 3. **Representation in UML**:
    * Common behavior is represented graphically in UML diagrams using symbols, notations, and diagrams that depict the dynamic aspects of the system.

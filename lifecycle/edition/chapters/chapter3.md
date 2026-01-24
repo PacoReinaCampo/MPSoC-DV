@@ -6,7 +6,7 @@ Los programas de la organización QueenField son:
 
 Los proyectos de la organización QueenField son:
 
-`Project` = [`Environment`, `Accelerator`, `Architecture`]
+`Project` = [`MPSoC`, `SoC`, `PU`]
 
 Los ambientes de la organización QueenField son:
 
@@ -15,10 +15,6 @@ Los ambientes de la organización QueenField son:
 Los aceleradores de la organización QueenField son:
 
 `Accelerator` = [`Intelligence`, `State`, `Algebra`]
-
-Las arquitecturas de la organización QueenField son:
-
-`Architecture` = [`MPSoC`, `SoC`, `PU`]
 
 Las ISAs de la organización QueenField son:
 
@@ -29,8 +25,7 @@ Las ISAs de la organización QueenField son:
   · Project
     · Environment
       · Accelerator
-        · Architecture
-          · ISA
+        · ISA
 ```
 
 Las inteligencias de la organización QueenField son:
@@ -43,7 +38,7 @@ Los estados de la organización QueenField son:
 
 Los algebras de la organización QueenField son:
 
-`Algebra` = [`scalar`, `vector`, `matrix`, `tensor`]
+`Algebra` = [`Scalar`, `Vector`, `Matrix`, `Tensor`]
 
 ```bash
 · algebra
@@ -53,11 +48,11 @@ Los algebras de la organización QueenField son:
 
 Las matemáticas de la organización QueenField son:
 
-`Math` = [`real`, `complex`]
+`Math` = [`Real`, `Complex`]
 
 Las aritmética de la organización QueenField son:
 
-`Arithmetic` = [`integer`, `fixed`, `float`]
+`Arithmetic` = [`Integer`, `Fixed`, `Float`]
 
 `INSERT HERE`
 

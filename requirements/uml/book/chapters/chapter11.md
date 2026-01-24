@@ -7,10 +7,10 @@ In Unified Modeling Language (UML), "Structured Classifiers" are elements used t
    * They allow for the decomposition of complex systems into smaller, manageable units, where each unit encapsulates its own attributes, operations, and relationships.
 
 2. **Types of Structured Classifiers**:
-   a. **Classes**: In UML class diagrams, classes can be structured classifiers when they contain attributes, operations, and relationships with other classes. Classes represent templates for creating objects with shared characteristics and behaviors.
-   b. **Components**: Components are modular units of software that encapsulate functionality and data. Structured classifiers in component diagrams represent components and their internal structures, including provided and required interfaces, ports, and connectors.
-   c. **Data Types**: Structured data types, such as records, structures, or tuples, are represented as structured classifiers in UML. They encapsulate multiple attributes or parts that collectively define the structure of the data type.
-   d. **Composite Structures**: Composite structures represent assemblies or compositions of interconnected elements, such as classes, components, or instances. They define how parts or components are combined to form larger, more complex structures.
+   * **Classes**: In UML class diagrams, classes can be structured classifiers when they contain attributes, operations, and relationships with other classes. Classes represent templates for creating objects with shared characteristics and behaviors.
+   * **Components**: Components are modular units of software that encapsulate functionality and data. Structured classifiers in component diagrams represent components and their internal structures, including provided and required interfaces, ports, and connectors.
+   * **Data Types**: Structured data types, such as records, structures, or tuples, are represented as structured classifiers in UML. They encapsulate multiple attributes or parts that collectively define the structure of the data type.
+   * **Composite Structures**: Composite structures represent assemblies or compositions of interconnected elements, such as classes, components, or instances. They define how parts or components are combined to form larger, more complex structures.
 
 3. **Internal Structure**:
    * Structured classifiers have an internal structure composed of parts, attributes, operations, and connectors.
