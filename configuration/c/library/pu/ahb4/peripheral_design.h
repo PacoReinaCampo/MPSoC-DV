@@ -51,7 +51,7 @@
 #define SIZE_J_IN 3
 #define SIZE_K_IN 3
 
-double accelerator_scalar_adder(double, double);
-double accelerator_scalar_subtractor(double, double);
-double accelerator_scalar_multiplier(double, double);
-double accelerator_scalar_divider(double, double);
+double peripheral_scalar_adder(double, double);
+double peripheral_scalar_subtractor(double, double);
+double peripheral_scalar_multiplier(double, double);
+double peripheral_scalar_divider(double, double);

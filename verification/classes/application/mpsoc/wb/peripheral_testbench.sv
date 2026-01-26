@@ -46,7 +46,7 @@ module peripheral_testbench;
 
   wire [8:0] out;
 
-  accelerator_design dut (
+  peripheral_design dut (
     .clk(clk),
     .rst(rst),
 

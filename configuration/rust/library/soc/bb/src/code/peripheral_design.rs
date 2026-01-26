@@ -50,22 +50,22 @@ pub struct ScalarArithmetic {
 }
 
 impl ScalarArithmetic {
-    pub fn accelerator_scalar_adder(&self) -> f64 {
+    pub fn peripheral_scalar_adder(&self) -> f64 {
         // calculating addition
         return self.data_a_in + self.data_b_in
     }
 
-    pub fn accelerator_scalar_subtractor(&self) -> f64 {
+    pub fn peripheral_scalar_subtractor(&self) -> f64 {
         // calculating subtraction
         return self.data_a_in - self.data_b_in
     }
 
-    pub fn accelerator_scalar_multiplier(&self) -> f64 {
+    pub fn peripheral_scalar_multiplier(&self) -> f64 {
         // calculating multiplication
         return self.data_a_in * self.data_b_in
     }
 
-    pub fn accelerator_scalar_divider(&self) -> f64 {
+    pub fn peripheral_scalar_divider(&self) -> f64 {
         // calculating division
         return self.data_a_in / self.data_b_in
     }

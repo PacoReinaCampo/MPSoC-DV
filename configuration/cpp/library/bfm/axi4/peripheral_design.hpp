@@ -47,15 +47,15 @@
 
 using namespace std;
 
-double accelerator_scalar_adder(double, double);
-double accelerator_scalar_subtract(double, double);
-double accelerator_scalar_multiplier(double, double);
-double accelerator_scalar_divider(double, double);
+double peripheral_scalar_adder(double, double);
+double peripheral_scalar_subtract(double, double);
+double peripheral_scalar_multiplier(double, double);
+double peripheral_scalar_divider(double, double);
 
 class ScalarArithmetic {
  public:
-  double accelerator_scalar_adder(double data_a_in, double data_b_in);
-  double accelerator_scalar_subtract(double data_a_in, double data_b_in);
-  double accelerator_scalar_multiplier(double data_a_in, double data_b_in);
-  double accelerator_scalar_divider(double data_a_in, double data_b_in);
+  double peripheral_scalar_adder(double data_a_in, double data_b_in);
+  double peripheral_scalar_subtract(double data_a_in, double data_b_in);
+  double peripheral_scalar_multiplier(double data_a_in, double data_b_in);
+  double peripheral_scalar_divider(double data_a_in, double data_b_in);
 };

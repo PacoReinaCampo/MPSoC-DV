@@ -59,7 +59,7 @@ procedure peripheral_test is
 
 begin
 
-  peripheral_design.accelerator_scalar_adder(
+  peripheral_design.peripheral_scalar_adder(
     data_a_in => data_a_in,
     data_b_in => data_b_in,
     data_out  => data_out
@@ -71,7 +71,7 @@ begin
 
   New_Line;
 
-  peripheral_design.accelerator_scalar_substractor(
+  peripheral_design.peripheral_scalar_substractor(
     data_a_in => data_a_in,
     data_b_in => data_b_in,
     data_out  => data_out
@@ -83,7 +83,7 @@ begin
 
   New_Line;
 
-  peripheral_design.accelerator_scalar_multiplier(
+  peripheral_design.peripheral_scalar_multiplier(
     data_a_in => data_a_in,
     data_b_in => data_b_in,
     data_out  => data_out
@@ -95,7 +95,7 @@ begin
 
   New_Line;
 
-  peripheral_design.accelerator_scalar_divider(
+  peripheral_design.peripheral_scalar_divider(
     data_a_in => data_a_in,
     data_b_in => data_b_in,
     data_out  => data_out

@@ -47,28 +47,28 @@ use Ada.Text_IO;
 
 package peripheral_design is
 
-  procedure accelerator_scalar_adder (
+  procedure peripheral_scalar_adder (
     data_a_in : in float;
     data_b_in : in float;
     
     data_out : out float
   );
 
-  procedure accelerator_scalar_substractor (
+  procedure peripheral_scalar_substractor (
     data_a_in : in float;
     data_b_in : in float;
     
     data_out : out float
   );
 
-  procedure accelerator_scalar_multiplier (
+  procedure peripheral_scalar_multiplier (
     data_a_in : in float;
     data_b_in : in float;
     
     data_out : out float
   );
 
-  procedure accelerator_scalar_divider (
+  procedure peripheral_scalar_divider (
     data_a_in : in float;
     data_b_in : in float;
     

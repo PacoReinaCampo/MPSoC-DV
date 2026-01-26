@@ -44,38 +44,38 @@
 
 import random
 
-from scalar import accelerator_scalar_adder as scalar_adder
-from scalar import accelerator_scalar_subtractor as scalar_subtractor
-from scalar import accelerator_scalar_multiplier as scalar_multiplier
-from scalar import accelerator_scalar_divider as scalar_divider
+from scalar import peripheral_scalar_adder as scalar_adder
+from scalar import peripheral_scalar_subtractor as scalar_subtractor
+from scalar import peripheral_scalar_multiplier as scalar_multiplier
+from scalar import peripheral_scalar_divider as scalar_divider
 
 def test_scalar_adder():
 
   data_a_in = random.random()
   data_b_in = random.random()
 
-  assert scalar_adder.accelerator_scalar_adder(data_a_in, data_b_in) == data_a_in + data_b_in
+  assert scalar_adder.peripheral_scalar_adder(data_a_in, data_b_in) == data_a_in + data_b_in
 
 def test_scalar_subtractor():
 
   data_a_in = random.random()
   data_b_in = random.random()
 
-  assert scalar_subtractor.accelerator_scalar_subtractor(data_a_in, data_b_in) == data_a_in - data_b_in
+  assert scalar_subtractor.peripheral_scalar_subtractor(data_a_in, data_b_in) == data_a_in - data_b_in
 
 def test_scalar_multiplier():
   
   data_a_in = random.random()
   data_b_in = random.random()
 
-  assert scalar_multiplier.accelerator_scalar_multiplier(data_a_in, data_b_in) == data_a_in * data_b_in
+  assert scalar_multiplier.peripheral_scalar_multiplier(data_a_in, data_b_in) == data_a_in * data_b_in
 
 def test_scalar_divider():
   
   data_a_in = random.random()
   data_b_in = random.random()
 
-  assert scalar_divider.accelerator_scalar_divider(data_a_in, data_b_in) == data_a_in / data_b_in
+  assert scalar_divider.peripheral_scalar_divider(data_a_in, data_b_in) == data_a_in / data_b_in
 
 
 test_scalar_adder()
