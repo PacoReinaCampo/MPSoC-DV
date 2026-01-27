@@ -65,19 +65,19 @@ int main() {
 
   data_out = data_a_in + data_b_in;
 
-  assert(Arithmetic.accelerator_scalar_adder(data_a_in, data_b_in) == data_out);
+  assert(Arithmetic.peripheral_scalar_adder(data_a_in, data_b_in) == data_out);
 
   data_out = data_a_in - data_b_in;
 
-  assert(Arithmetic.accelerator_scalar_subtract(data_a_in, data_b_in) == data_out);
+  assert(Arithmetic.peripheral_scalar_subtract(data_a_in, data_b_in) == data_out);
 
   data_out = data_a_in * data_b_in;
 
-  assert(Arithmetic.accelerator_scalar_multiplier(data_a_in, data_b_in) == data_out);
+  assert(Arithmetic.peripheral_scalar_multiplier(data_a_in, data_b_in) == data_out);
 
   data_out = data_a_in / data_b_in;
 
-  assert(Arithmetic.accelerator_scalar_divider(data_a_in, data_b_in) == data_out);
+  assert(Arithmetic.peripheral_scalar_divider(data_a_in, data_b_in) == data_out);
 
   return 0;
 }
