@@ -153,4 +153,3 @@ Z2 : Float := Y + Y;    -- Resolves to Float version
 ```
 
 This manual outline covers the detailed aspects of visibility rules in the Ada programming language, including declarative regions, scope of declarations, visibility, overriding indicators, use clauses, renaming declarations for objects, exceptions, packages, subprograms, and generics, as well as the context of overload resolution. Each section can be expanded with specific syntax rules, examples, and further details as needed.
-

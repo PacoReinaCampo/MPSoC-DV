@@ -118,4 +118,3 @@ Label_Name:
 ```
 
 This manual outline covers the detailed aspects of statements in the Ada programming language, including simple and compound statements, assignment statements, control flow statements like if and case, loop statements, block statements, exit statements, and goto statements. Each section can be expanded with specific syntax rules, examples, and further details as needed.
-

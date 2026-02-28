@@ -215,4 +215,3 @@ subtype Positive_Integer is Integer range 1 .. Integer'Last;
 ```
 
 This manual outline covers the detailed aspects of names and expressions in the Ada programming language, including various ways to reference and manipulate data using names, literals, aggregates, expressions, operators, type conversions, allocators, and static expressions. Each section can be expanded with specific syntax rules, examples, and further details as needed.
-

@@ -58,4 +58,3 @@ pragma Task_Dispatching_Policy (FIFO_Within_Priorities);
 ## RESERVED WORDS
 
 Reserved words in Ada are keywords that have special meaning and cannot be used as identifiers. Examples include `declare`, `begin`, `end`, `procedure`, `function`, `if`, `else`, `case`, `loop`, `while`, `for`, `and`, `or`, `not`, `type`, `subtype`, `is`, `null`, `exception`, `return`, `package`, `task`, `protected`, `private`, `with`, `use`, `interface`, `procedure`, `function`, `generic`, `task`, `body`, `in`, `out`, `access`, `new`, `reverse`, `range`, `delta`, `digits`, `of`, `mod`, `rem`, `exit`, `goto`, `raise`, `exception`, `all`, `some`, `abs`, `sqr`, `sqrt`, `exp`, `log`, `sin`, `cos`, `tan`, `arctan`, `succ`, `pred`, `min`, `max`, `rem`, `mod`, `abs`, `not`, `and`, `or`, `xor`, `function`, `procedure`, `entry`, `requeue`, `delay`, `until`, `select`, `when`, `others`, `abort`, `end`,
-

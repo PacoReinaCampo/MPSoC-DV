@@ -116,4 +116,3 @@ end Square;
 ```
 
 This manual outline covers the detailed aspects of subprograms in the Ada programming language, including subprogram declarations, formal parameter modes, subprogram bodies, subprogram calls, return statements, overloading of operators, null procedures, and expression functions. Each section can be expanded with specific syntax rules, examples, and further details as needed.
-

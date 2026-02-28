@@ -83,4 +83,3 @@
   ```
 
 This manual outline covers the detailed aspects of program structure and compilation issues in the Ada programming language, including separate compilation with compilation units and library units, context clauses (`with`, `use`, `renames`), subunits, the compilation process, pragmas, program units, environment-level visibility rules, and elaboration control. Each section can be expanded with specific syntax rules, examples, and further details as needed.
-

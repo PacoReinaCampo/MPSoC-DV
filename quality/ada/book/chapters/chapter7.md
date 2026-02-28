@@ -164,4 +164,3 @@ end My_Package;
 ### Finalization
 
 Finalization in Ada ensures that all actions are completed before moving on.
-

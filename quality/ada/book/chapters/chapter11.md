@@ -113,4 +113,3 @@ pragma Optimize (Off);  -- Turn off optimizations
 ```
 
 This manual outline covers the detailed aspects of exceptions in the Ada programming language, including exception declarations, exception handlers, raise statements and expressions, exception handling using the `Ada.Exceptions` package, pragmas `Assert` and `Assertion_Policy`, an example of exception handling, suppressing checks for optimization, and considerations for exceptions and optimization. Each section can be expanded with specific syntax rules, examples, and further details as needed.
-

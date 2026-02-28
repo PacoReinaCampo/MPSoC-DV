@@ -342,4 +342,3 @@ end Consumer;
 ```
 
 This manual outline covers the detailed aspects of tasks and synchronization in the Ada programming language, including task units and objects, task execution and activation, task dependence and termination, protected units and objects for synchronization, intertask communication using entries and accept statements, delay statements and time operations, select statements for event handling, abort mechanisms, task and entry attributes, shared variables, and an example illustrating tasking and synchronization. Each section can be expanded with specific syntax rules, examples, and further details as needed.
-

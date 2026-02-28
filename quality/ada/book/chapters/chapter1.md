@@ -37,4 +37,3 @@ The Ada Reference Manual (ARM), maintained by the Ada Resource Association (ARA)
    * **ARM**: Ada Reference Manual, the definitive source of language specifications and rules.
 
 This manual outline covers the essential aspects of the Ada programming language, focusing on scope, normative references, and key terms and definitions. Each section can be further expanded with specific details and examples as required.
-

@@ -182,4 +182,3 @@ end Stack;
 ```
 
 This manual outline covers the detailed aspects of generic units in the Ada programming language, including generic declarations, generic bodies, generic instantiation, formal objects, formal types (private, scalar, array, access, interface), formal subprograms, formal packages, and an example of a generic package. Each section can be expanded with specific syntax rules, examples, and further details as needed.
-

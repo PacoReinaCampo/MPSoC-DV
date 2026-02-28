@@ -236,4 +236,3 @@ end Process;
 ```
 
 This manual outline covers the detailed aspects of declarations and types in the Ada programming language, including various types, subtype declarations, array types, discriminants, record types, tagged types, access types, and declarative parts. Each section can be expanded with specific syntax rules, examples, and further details as needed.
-
