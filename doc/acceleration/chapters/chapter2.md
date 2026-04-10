@@ -40,7 +40,7 @@ Digital information refers to data that is represented and processed using discr
 
 In conclusion, digital information is data that is represented, stored, processed, and transmitted using binary values. It encompasses a wide range of data types, including numeric, text, image, audio, and video data, and forms the basis of modern computing, communication, and information technology. Understanding digital information is essential for navigating the digital world and leveraging the power of digital technology in various domains.
 
-![Automata Theory](../../../assets/chapter2/automata-theory.svg){width=6cm}
+![Automata Theory](assets/chapter2/automata-theory.svg){width=6cm}
 
 ## Bit
 

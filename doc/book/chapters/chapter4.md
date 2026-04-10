@@ -16,478 +16,86 @@
 
 `INSERT HERE`
 
-```cpp
-class traditional_classes {
-   private:
-      int number_pu;
-      int number_soc;
-      int number_mpsoc;
+## INTEGER BASE
 
-   public:
-      void traditional_method_0();  // method 0
-      void traditional_method_1();  // method 1
-      void traditional_method_2();  // method 2
-      void traditional_method_3();  // method 3
-};
-```
-
-`INSERT HERE`
-
-## PHILOSOPHERS TRADITIONAL
-
-`INSERT HERE`
-
-```cpp
-class traditional_philosophers : private traditional_classes {
-   private:
-      int number_p_pu;
-      int number_p_soc;
-      int number_p_mpsoc;
-
-   public:
-      void traditional_method_p0();  // method 0
-      void traditional_method_p1();  // method 1
-      void traditional_method_p2();  // method 2
-      void traditional_method_p3();  // method 3
-};
-```
-
-`INSERT HERE`
-
-### Perceptron Neural Network
-
-`INSERT HERE`
-
-#### PU-PNN
-
-...
-
-`INSERT HERE`
-
-#### SoC-PNN
-
-...
-
-`INSERT HERE`
-
-#### MPSoC-PNN
-
-...
-
-`INSERT HERE`
-
-### Feedforward Neural Network
-
-`INSERT HERE`
-
-#### PU-FNN
-
-...
-
-`INSERT HERE`
-
-#### SoC-FNN
-
-...
-
-`INSERT HERE`
-
-#### MPSoC-FNN
-
-...
-
-`INSERT HERE`
-
-### Long Short Term Memory Neural Network
-
-`INSERT HERE`
-
-#### PU-LSTM
-
-...
-
-`INSERT HERE`
-
-#### SoC-LSTM
-
-...
-
-`INSERT HERE`
-
-#### MPSoC-LSTM
-
-...
-
-`INSERT HERE`
-
-### Neural Turing Machine Neural Network
-
-`INSERT HERE`
-
-#### PU-NTM
-
-...
-
-`INSERT HERE`
-
-#### SoC-NTM
-
-...
-
-`INSERT HERE`
-
-#### MPSoC-NTM
-
-...
-
-`INSERT HERE`
-
-### Differentiable Neural Computer Neural Network
-
-`INSERT HERE`
-
-#### PU-DNC
-
-...
-
-`INSERT HERE`
-
-#### SoC-DNC
-
-...
-
-`INSERT HERE`
-
-#### MPSoC-DNC
-
-...
-
-`INSERT HERE`
-
-### Attention Neural Network
-
-`INSERT HERE`
-
-#### PU-ANN
-
-...
-
-`INSERT HERE`
-
-#### SoC-ANN
-
-...
-
-`INSERT HERE`
-
-#### MPSoC-ANN
-
-...
-
-`INSERT HERE`
-
-## SOLDIERS TRADITIONAL
-
-`INSERT HERE`
-
-```cpp
-class traditional_soldiers : private traditional_classes {
-   private:
-      int number_s_pu;
-      int number_s_soc;
-      int number_s_mpsoc;
-
-   public:
-      void traditional_method_s0();  // method 0
-      void traditional_method_s1();  // method 1
-      void traditional_method_s2();  // method 2
-      void traditional_method_s3();  // method 3
-};
-```
-
-`INSERT HERE`
-
-### Perceptron Neural Network
-
-`INSERT HERE`
-
-#### PU-PNN
-
-...
-
-`INSERT HERE`
-
-#### SoC-PNN
-
-...
-
 `INSERT HERE`
 
-#### MPSoC-PNN
+## INTEGER STANDARD
 
-...
-
-`INSERT HERE`
-
-### Feedforward Neural Network
-
-`INSERT HERE`
-
-#### PU-FNN
-
-...
-
-`INSERT HERE`
-
-#### SoC-FNN
-
-...
-
-`INSERT HERE`
-
-#### MPSoC-FNN
-
-...
-
-`INSERT HERE`
-
-### Long Short Term Memory Neural Network
-
-`INSERT HERE`
-
-#### PU-LSTM
-
-...
-
-`INSERT HERE`
-
-#### SoC-LSTM
-
-...
-
-`INSERT HERE`
-
-#### MPSoC-LSTM
-
-...
-
-`INSERT HERE`
-
-### Neural Turing Machine Neural Network
-
-`INSERT HERE`
-
-#### PU-NTM
-
-...
-
-`INSERT HERE`
-
-#### SoC-NTM
-
-...
-
-`INSERT HERE`
-
-#### MPSoC-NTM
-
-...
-
-`INSERT HERE`
-
-### Differentiable Neural Computer Neural Network
-
-`INSERT HERE`
-
-#### PU-DNC
-
-...
-
-`INSERT HERE`
-
-#### SoC-DNC
-
-...
-
-`INSERT HERE`
-
-#### MPSoC-DNC
-
-...
-
-`INSERT HERE`
-
-### Attention Neural Network
-
-`INSERT HERE`
-
-#### PU-ANN
-
-...
-
-`INSERT HERE`
-
-#### SoC-ANN
-
-...
-
-`INSERT HERE`
-
-#### MPSoC-ANN
-
-...
-
-`INSERT HERE`
-
-## WORKERS TRADITIONAL
-
-`INSERT HERE`
-
-```cpp
-class traditional_workers : private traditional_classes {
-   private:
-      int number_w_pu;
-      int number_w_soc;
-      int number_w_mpsoc;
-
-   public:
-      void traditional_method_w0();  // method 0
-      void traditional_method_w1();  // method 1
-      void traditional_method_w2();  // method 2
-      void traditional_method_w3();  // method 3
-};
-```
-
-`INSERT HERE`
-
-### Perceptron Neural Network
-
-`INSERT HERE`
-
-#### PU-PNN
-
-...
-
-`INSERT HERE`
-
-#### SoC-PNN
-
-...
-
-`INSERT HERE`
-
-#### MPSoC-PNN
-
-...
-
-`INSERT HERE`
-
-### Feedforward Neural Network
-
 `INSERT HERE`
 
-#### PU-FNN
+## REAL SPECIFIC
 
-...
-
 `INSERT HERE`
 
-#### SoC-FNN
+### Real Arithmetic
 
-...
-
 `INSERT HERE`
-
-#### MPSoC-FNN
 
-...
+#### Single Precision Float-Point
 
 `INSERT HERE`
 
-### Long Short Term Memory Neural Network
+#### Double Precision Float-Point
 
 `INSERT HERE`
 
-#### PU-LSTM
+#### Quadruple Precision Float-Point
 
-...
-
 `INSERT HERE`
-
-#### SoC-LSTM
 
-...
+### Real Algebra
 
 `INSERT HERE`
 
-#### MPSoC-LSTM
+#### Vector Algebra
 
-...
-
 `INSERT HERE`
 
-### Neural Turing Machine Neural Network
+#### Matrix Algebra
 
 `INSERT HERE`
-
-#### PU-NTM
 
-...
+#### Tensor Algebra
 
 `INSERT HERE`
 
-#### SoC-NTM
+### Real Cryptography
 
-...
-
 `INSERT HERE`
-
-#### MPSoC-NTM
 
-...
+#### Vector Cryptography
 
 `INSERT HERE`
 
-### Differentiable Neural Computer Neural Network
+#### Matrix Cryptography
 
 `INSERT HERE`
 
-#### PU-DNC
+#### Tensor Cryptography
 
-...
-
 `INSERT HERE`
-
-#### SoC-DNC
 
-...
+### Real Parallelism
 
 `INSERT HERE`
 
-#### MPSoC-DNC
+### Real Privilege
 
-...
-
 `INSERT HERE`
 
-### Attention Neural Network
+#### User
 
 `INSERT HERE`
-
-#### PU-ANN
 
-...
+#### Supervisor
 
 `INSERT HERE`
 
-#### SoC-ANN
+#### Hypervisor
 
-...
-
 `INSERT HERE`
-
-#### MPSoC-ANN
 
-...
+#### Machine
 
 `INSERT HERE`

@@ -113,7 +113,7 @@ Other software life cycle processes may begin before completion of the software 
 
 The purpose of the software plans is to define the means of satisfying the objectives of this document. They specify the organizations that will perform those activities. The software plans are:
 
-   - The Plan for Software Aspects of Certification (subsection 1 1. 1) serves as the primary means for communicating the proposed development methods to the certification authority for agreement, and defines the means of compliance with this document.
+   - The Plan for Software Aspects of Certification (subsection 1.1.1) serves as the primary means for communicating the proposed development methods to the certification authority for agreement, and defines the means of compliance with this document.
 
    - The Software Development Plan (subsection 11.2) defines the software life cycle(s) and software development environment.
 
@@ -302,6 +302,7 @@ Here's a detailed explanation of neural networks:
 1. **Neurons (Nodes)**: The fundamental units of a neural network. Each neuron receives one or more inputs, processes them, and produces an output. This output can be passed to other neurons.
 
 2. **Layers**:
+
    * **Input Layer**: The first layer that receives the input data. Each neuron in this layer represents a feature or attribute of the input data.
    * **Hidden Layers**: Layers between the input and output layers where intermediate processing occurs. A neural network can have multiple hidden layers, each transforming the input data in complex ways.
    * **Output Layer**: The final layer that produces the network's output. The number of neurons in this layer depends on the specific task, such as classification (one neuron per class) or regression (a single neuron for continuous output).
@@ -309,6 +310,7 @@ Here's a detailed explanation of neural networks:
 3. **Weights and Biases**: Connections between neurons have associated weights that determine the importance of each input. Biases are additional parameters added to the weighted sum to help the network fit the data better.
 
 4. **Activation Functions**: Functions applied to the output of each neuron to introduce non-linearity into the network, allowing it to learn complex patterns. Common activation functions include:
+
    * **Sigmoid**: Maps input values to a range between 0 and 1.
    * **Tanh**: Maps input values to a range between -1 and 1.
    * **ReLU (Rectified Linear Unit)**: Outputs the input directly if it is positive; otherwise, it outputs zero. Variants include Leaky ReLU and Parametric ReLU.
@@ -322,6 +324,7 @@ Training involves adjusting the weights and biases to minimize the error between
 2. **Loss Function**: A function that measures the difference between the predicted output and the actual target values. Common loss functions include Mean Squared Error (MSE) for regression tasks and Cross-Entropy Loss for classification tasks.
 
 3. **Backward Propagation (Backpropagation)**: An algorithm used to compute the gradients of the loss function with respect to each weight and bias. This involves:
+
    * **Calculating Gradients**: Using the chain rule of calculus to compute the gradient of the loss function for each parameter in the network.
    * **Gradient Descent**: An optimization algorithm that adjusts the weights and biases in the direction opposite to the gradient to minimize the loss. Variants include Stochastic Gradient Descent (SGD), Mini-Batch Gradient Descent, and advanced optimizers like Adam, RMSprop, and AdaGrad.
 
@@ -377,6 +380,7 @@ A Perceptron Neural Network is one of the simplest types of artificial neural ne
 Here's a more detailed explanation:
 
 1. **Architecture**: The Perceptron consists of three main components:
+
    * **Input Layer**: This layer contains input nodes, each representing a feature of the input data. Each input node is associated with a weight that determines its contribution to the output.
    * **Weights**: Each connection between an input node and the perceptron node has an associated weight, which reflects the importance of the input node.
    * **Activation Function**: After computing the weighted sum of inputs, the perceptron applies an activation function to produce the output. The output is typically binary, representing a decision boundary that separates the input space into two classes.
@@ -384,10 +388,12 @@ Here's a more detailed explanation:
 2. **Training**: The training process for a perceptron involves adjusting the weights based on the error between the predicted output and the actual output. This adjustment is typically performed using a learning algorithm called the perceptron learning rule, which updates the weights to minimize the error.
 
 3. **Limitations**: Perceptrons have some limitations that restrict their applicability to certain types of problems:
+
    * **Linear Separability**: Perceptrons can only learn linear decision boundaries, which limits their ability to handle complex patterns in the data.
    * **Single Layer**: Since perceptrons consist of a single layer, they cannot learn non-linear mappings or hierarchical representations of data.
 
 4. **Extensions**: Despite their limitations, perceptrons have been extended and adapted in various ways to address more complex tasks:
+
    * **Multilayer Perceptrons (MLPs)**: By stacking multiple layers of perceptrons and using non-linear activation functions, MLPs can learn non-linear decision boundaries and hierarchical representations of data.
    * **Activation Functions**: Different activation functions, such as sigmoid, tanh, or ReLU, can be used to introduce non-linearity into the model and enable learning of complex relationships.
    * **Deep Learning**: Perceptrons serve as the foundation for deep learning architectures, which consist of multiple layers of interconnected nodes. Deep learning models have achieved remarkable success in various domains, including image recognition, natural language processing, and reinforcement learning.
@@ -505,10 +511,12 @@ The Neural Turing Machine (NTM) is a groundbreaking architecture that combines n
 Here's a deeper dive into how the Neural Turing Machine works:
 
 1. **Architecture**: At its core, the NTM consists of two main components:
+
    * **Controller**: This component is analogous to the processing unit in a traditional computer. It typically takes the form of a recurrent neural network (RNN) or a feedforward neural network (FNN) and interacts with the external memory module.
    * **Memory**: The memory module acts as an external storage space that the controller can read from and write to. It is typically implemented as a large, addressable memory matrix with read and write heads for accessing specific locations.
 
 2. **Memory Operations**: The NTM supports four fundamental memory operations:
+
    * **Read**: The controller can read from specific locations in the memory matrix using a read head. The content of the memory at the selected locations is retrieved and provided as input to the controller.
    * **Write**: The controller can write to specific locations in the memory matrix using a write head. It outputs a vector representing the content to be written, along with write weights indicating which locations to update.
    * **Addressing Mechanism**: The NTM uses mechanisms such as content-based addressing and location-based addressing to determine which memory locations to read from or write to, allowing it to learn to store and retrieve information efficiently.
@@ -517,6 +525,7 @@ Here's a deeper dive into how the Neural Turing Machine works:
 3. **Training**: The NTM is trained using gradient descent optimization algorithms and backpropagation through time, similar to other neural network architectures. During training, the network learns to perform tasks by interacting with the external memory and adjusting its parameters (weights and biases) to minimize a loss function.
 
 4. **Applications**: The Neural Turing Machine has been applied to various tasks that require complex reasoning and algorithmic manipulation of data, including:
+
    * **Algorithm Learning**: Learning to execute algorithms, such as sorting or copying sequences.
    * **Program Induction**: Inferring programs from input-output examples.
    * **Sequential Prediction**: Making predictions or generating sequences based on past observations.
@@ -745,19 +754,23 @@ Here's a deeper exploration of the key components and functionalities of Attenti
 1. **Attention Mechanisms**: At the heart of Attention Neural Networks are attention mechanisms, which enable the network to learn to focus on specific parts of the input data while performing a task. Attention mechanisms assign importance weights to different elements of the input, allowing the network to attend to the most relevant information at each step of computation.
 
 2. **Types of Attention**:
+
    * **Soft Attention**: In soft attention mechanisms, attention weights are computed as a distribution over all input elements using a scoring function. This distribution is then used to compute a weighted sum of input elements, where the weights represent the importance of each element.
    * **Hard Attention**: In hard attention mechanisms, the network selects a subset of input elements to attend to at each step, making explicit decisions about which parts of the input to focus on. This approach is often more computationally expensive but can lead to more interpretable attention patterns.
 
 3. **Architecture**:
+
    * **Encoder-Decoder Architecture**: Attention Neural Networks are commonly used in encoder-decoder architectures, where an encoder processes the input sequence and produces a context representation, and a decoder generates an output sequence based on the context representation and previous output.
    * **Self-Attention**: Self-attention mechanisms, also known as intra-attention, allow a network to attend to different parts of the input sequence when computing the representation of each element. This is particularly useful for tasks involving sequential data, such as natural language processing and time series analysis.
 
 4. **Applications**:
+
    * **Machine Translation**: Attention mechanisms have been highly successful in machine translation tasks, allowing the network to align words between the source and target languages more effectively and generate more accurate translations.
    * **Question Answering**: Attention Neural Networks have been applied to question answering tasks, where the network needs to attend to relevant parts of the input text to generate accurate answers.
    * **Image Captioning**: In image captioning tasks, attention mechanisms enable the network to focus on different regions of an image when generating textual descriptions, improving the quality and relevance of the captions.
 
 5. **Advantages**:
+
    * **Interpretability**: Attention mechanisms provide insights into which parts of the input data are most relevant for the task, making the model more interpretable and transparent.
    * **Flexibility**: Attention Neural Networks can handle variable-length input sequences and focus on different parts of the input dynamically, making them suitable for a wide range of tasks involving sequential data.
 
