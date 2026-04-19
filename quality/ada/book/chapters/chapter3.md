@@ -103,7 +103,7 @@ type Real is digits 15;
 
 ### Floating Point Types
 
-Floating-point types in Ada represent real numbers with a defined range and precision.
+Floating-Point types in Ada represent real numbers with a defined range and precision.
 
 ```ada
 type Float is digits 6 range -1.0E38 .. 1.0E38;

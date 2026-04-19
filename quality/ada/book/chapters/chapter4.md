@@ -59,7 +59,7 @@ Literals in Ada are constant values used directly in expressions.
 ### Numeric Literals
 
 ```ada
-123, 3.14, 16#1A#, 2#1010#  -- Decimal, Floating-point, Hexadecimal, Binary
+123, 3.14, 16#1A#, 2#1010#  -- Decimal, Floating-Point, Hexadecimal, Binary
 ```
 
 ### Character Literals

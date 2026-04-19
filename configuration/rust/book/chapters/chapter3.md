@@ -25,7 +25,7 @@ let integer: i32 = 42;
 let unsigned_integer: u32 = 42;
 let byte: u8 = b'A'; // byte literal
 
-// Floating-point types
+// Floating-Point types
 let float: f64 = 3.14;
 
 // Boolean type
