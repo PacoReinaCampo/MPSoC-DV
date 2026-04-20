@@ -4,7 +4,7 @@
 
 A top-level environment encapsulates all the components needed for verification. This environment includes agents, scoreboards, monitors, and other verification components. It provides a cohesive structure to manage the interactions between these components.
 
-```systemverilog
+```sv
 class top_env extends uvm_env;
   my_agent agent;
   my_scoreboard scoreboard;
@@ -36,7 +36,7 @@ Verification components such as drivers, sequencers, monitors, and agents are in
 
 Test classes define specific verification scenarios. Each test class inherits from `uvm_test` and configures the environment, sequences, and other parameters needed for the test.
 
-```systemverilog
+```sv
 class base_test extends uvm_test;
   top_env env;
 
@@ -78,7 +78,7 @@ Configuration is typically done using `uvm_config_db`. Parameters can be set and
 
 A configuration class encapsulates all the parameters needed for a component. This class is then used to configure the component during the build phase.
 
-```systemverilog
+```sv
 class my_config extends uvm_object;
   bit enable_error_injection;
   int max_transactions;
@@ -111,7 +111,7 @@ The base test class sets up the environment and provides common functionality fo
 
 Derived test classes extend the base test and implement specific scenarios.
 
-```systemverilog
+```sv
 class my_test extends base_test;
   `uvm_component_utils(my_test)
 
@@ -148,7 +148,7 @@ Test-specific frames define the context and conditions for the test, ensuring me
 
 A virtual sequencer coordinates multiple sequencers, allowing for complex, multi-interface tests.
 
-```systemverilog
+```sv
 class my_virtual_sequencer extends uvm_sequencer;
   my_sequencer seq1;
   my_sequencer seq2;
@@ -165,7 +165,7 @@ endclass
 
 A virtual sequence orchestrates other sequences, providing a higher level of control over the verification process.
 
-```systemverilog
+```sv
 class my_virtual_sequence extends uvm_sequence;
   `uvm_object_utils(my_virtual_sequence)
 
@@ -203,7 +203,7 @@ Correctness checks ensure the DUT behaves as expected. These checks are implemen
 
 The scoreboard collects and compares results, ensuring the DUT's output matches expected values.
 
-```systemverilog
+```sv
 class my_scoreboard extends uvm_scoreboard;
   uvm_analysis_export#(base_transaction) analysis_export;
 
@@ -246,7 +246,7 @@ Coverage methods can be functional or code-based. Functional coverage captures s
 
 Functional coverage models are implemented using SystemVerilog covergroups and coverpoints.
 
-```systemverilog
+```sv
 class my_coverage extends uvm_subscriber#(base_transaction);
   covergroup cg;
     coverpoint trans.address;

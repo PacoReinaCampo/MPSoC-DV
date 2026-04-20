@@ -42,7 +42,7 @@ class peripheral_environment;
   peripheral_scoreboard scoreboard;
 
   mailbox               monitor_to_scoreboard;
-  function new(virtual add_if vif);
+  function new(virtual peripheral_design_if vif);
     monitor_to_scoreboard = new();
     agent                 = new(vif, monitor_to_scoreboard);
     scoreboard            = new(monitor_to_scoreboard);

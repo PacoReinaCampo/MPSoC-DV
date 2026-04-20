@@ -11,7 +11,7 @@ Key features of `uvm_component` include:
 
 Example:
 
-```systemverilog
+```sv
 class my_component extends uvm_component;
   `uvm_component_utils(my_component)
 
@@ -42,7 +42,7 @@ The UVM factory is a mechanism for creating objects and components dynamically a
 
 To use the factory, components and objects must be registered using macros such as `uvm_component_utils` and `uvm_object_utils`.
 
-```systemverilog
+```sv
 class my_component extends uvm_component;
   `uvm_component_utils(my_component)
   // ...
@@ -53,7 +53,7 @@ endclass
 
 Overrides allow one component or object type to be replaced with another at runtime, facilitating easier configuration changes and extending testbenches without modifying the original code.
 
-```systemverilog
+```sv
 uvm_factory::set_type_override_by_type(original_type::get_type(), override_type::get_type());
 ```
 
@@ -65,7 +65,7 @@ Callbacks are a mechanism to add custom behavior to UVM components without modif
 
 ### Example
 
-```systemverilog
+```sv
 class my_callback extends uvm_callback;
   `uvm_object_utils(my_callback)
 
@@ -117,7 +117,7 @@ Sequences can pre-generate items before sending them to the sequencer, allowing 
 
 Sequences can target different sequencers, enabling coordination between multiple protocol layers or functional units.
 
-```systemverilog
+```sv
 task body();
   my_seq1.start(p_sequencer);
   my_seq2.start(other_sequencer);
@@ -138,7 +138,7 @@ To use the CLI, UVM provides built-in macros and functions to parse and handle c
 
 UVM-aware command-line processing involves using the UVM configuration database and factory to set up the environment based on CLI arguments.
 
-```systemverilog
+```sv
 if ($test$plusargs("enable_feature")) begin
   uvm_config_db#(bit)::set(null, "uvm_test_top", "enable_feature", 1);
 end
@@ -154,7 +154,7 @@ UVM provides a variety of macros to simplify the creation and management of veri
 
 Example:
 
-```systemverilog
+```sv
 `uvm_info("MY_TAG", "This is an informational message", UVM_LOW)
 `uvm_warning("MY_TAG", "This is a warning message")
 `uvm_error("MY_TAG", "This is an error message")

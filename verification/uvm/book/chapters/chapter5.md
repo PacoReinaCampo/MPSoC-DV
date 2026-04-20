@@ -24,7 +24,7 @@ The UVM register layer provides a rich API for accessing and manipulating regist
 
 These methods are used to perform front-door access to the registers through the bus interface.
 
-```systemverilog
+```sv
 reg_model.REG1.write(status, value);
 reg_model.REG1.read(status, value);
 ```
@@ -33,7 +33,7 @@ reg_model.REG1.read(status, value);
 
 These methods are used for back-door access, directly accessing the register value without going through the bus interface.
 
-```systemverilog
+```sv
 reg_model.REG1.peek(value);
 reg_model.REG1.poke(value);
 ```
@@ -42,7 +42,7 @@ reg_model.REG1.poke(value);
 
 These methods are used to get or set the register field values in the register model without actually accessing the hardware.
 
-```systemverilog
+```sv
 reg_model.REG1.FIELD1.set(value);
 value = reg_model.REG1.FIELD1.get();
 ```
@@ -51,7 +51,7 @@ value = reg_model.REG1.FIELD1.get();
 
 This method randomizes the field values of a register according to their constraints.
 
-```systemverilog
+```sv
 reg_model.REG1.randomize();
 ```
 
@@ -59,7 +59,7 @@ reg_model.REG1.randomize();
 
 This method writes the current values from the register model to the hardware using front-door access.
 
-```systemverilog
+```sv
 reg_model.REG1.update(status);
 ```
 
@@ -67,7 +67,7 @@ reg_model.REG1.update(status);
 
 This method reads the current values from the hardware into the register model, ensuring synchronization.
 
-```systemverilog
+```sv
 reg_model.REG1.mirror(status);
 ```
 
@@ -183,7 +183,7 @@ A bus monitor observes bus transactions and updates the register model to reflec
 
 Randomizing field values allows for extensive testing of different register states and transitions, uncovering edge cases and potential issues.
 
-```systemverilog
+```sv
 reg_model.REG1.randomize();
 ```
 
@@ -191,7 +191,7 @@ reg_model.REG1.randomize();
 
 Pre-defined sequences provide common register access patterns and scenarios, facilitating efficient and thorough verification.
 
-```systemverilog
+```sv
 class my_reg_sequence extends uvm_sequence;
   `uvm_object_utils(my_reg_sequence)
 

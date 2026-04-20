@@ -43,9 +43,9 @@ class peripheral_agent;
   peripheral_generator generator;
 
   mailbox              generator_to_driver;
-  virtual add_if       vif;
+  virtual peripheral_design_if       vif;
 
-  function new(virtual add_if vif, mailbox monitor_to_scoreboard);
+  function new(virtual peripheral_design_if vif, mailbox monitor_to_scoreboard);
     generator_to_driver = new();
 
     driver              = new(generator_to_driver, vif);

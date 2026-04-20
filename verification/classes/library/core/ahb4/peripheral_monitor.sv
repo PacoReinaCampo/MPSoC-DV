@@ -39,12 +39,12 @@
 
 class peripheral_monitor;
   // Interface instantiation
-  virtual add_if vif;
+  virtual peripheral_design_if vif;
 
   mailbox monitor_to_scoreboard;
 
   // Constructor
-  function new(mailbox monitor_to_scoreboard, virtual add_if vif);
+  function new(mailbox monitor_to_scoreboard, virtual peripheral_design_if vif);
     this.vif = vif;
 
     this.monitor_to_scoreboard = monitor_to_scoreboard;

@@ -50,10 +50,10 @@ class peripheral_agent;
   mailbox generator_to_driver;
 
   // Virtual Interface
-  virtual add_if vif;
+  virtual peripheral_design_if vif;
 
   // Constructor
-  function new(virtual add_if vif, mailbox monitor_to_scoreboard);
+  function new(virtual peripheral_design_if vif, mailbox monitor_to_scoreboard);
     generator_to_driver = new();
 
     // Create driver method

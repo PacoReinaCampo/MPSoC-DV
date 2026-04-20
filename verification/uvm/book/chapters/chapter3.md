@@ -10,7 +10,7 @@ Modeling data items involves defining the structure and properties of the transa
 
 Constraint layering is used to apply constraints to randomize the fields of the data items. Constraints can be layered to apply different sets of constraints based on the context or scenario.
 
-```systemverilog
+```sv
 class base_transaction extends uvm_sequence_item;
   rand bit [7:0] address;
   rand bit [31:0] data;
@@ -43,7 +43,7 @@ endclass
 
 Control fields, or "knobs", are used to adjust the behavior of the verification components dynamically. These fields can be configured through the UVM configuration database, enabling flexibility in controlling the verification environment without modifying the code.
 
-```systemverilog
+```sv
 class transaction_knobs extends uvm_object;
   bit enable_error_injection;
   bit [15:0] max_transactions;
@@ -64,7 +64,7 @@ Transaction-level components are responsible for generating, processing, and mon
 
 The driver is responsible for driving the transactions onto the DUT's interface. It extends from `uvm_driver` and implements the `run_phase` method to fetch transactions from the sequencer and drive them onto the interface.
 
-```systemverilog
+```sv
 class my_driver extends uvm_driver<base_transaction>;
   virtual dut_if dut_interface;
 
@@ -97,7 +97,7 @@ endclass
 
 The sequencer manages the flow of transactions. It generates or selects transactions to be sent to the driver.
 
-```systemverilog
+```sv
 class my_sequencer extends uvm_sequencer<base_transaction>;
   `uvm_component_utils(my_sequencer)
 
@@ -133,7 +133,7 @@ TLM-based drivers use TLM interfaces for more abstract communication.
 
 The monitor observes the DUT's interface and collects data for analysis. It extends from `uvm_monitor` and typically implements the `run_phase` method to capture transactions from the DUT.
 
-```systemverilog
+```sv
 class my_monitor extends uvm_monitor;
   virtual dut_if dut_interface;
   uvm_analysis_port#(base_transaction) ap;
@@ -178,7 +178,7 @@ An agent can operate in active or passive mode. In active mode, it generates and
 
 The agent instantiates and connects the driver, sequencer, and monitor.
 
-```systemverilog
+```sv
 class my_agent extends uvm_agent;
   my_driver drv;
   my_sequencer seqr;
@@ -210,7 +210,7 @@ endclass
 
 The environment class encapsulates agents and other components, creating a complete verification environment.
 
-```systemverilog
+```sv
 class my_env extends uvm_env;
   my_agent agent;
 

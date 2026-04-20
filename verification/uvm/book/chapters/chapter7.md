@@ -23,7 +23,7 @@ The UBus example architecture consists of several components that work together 
 
 The top module instantiates the DUT and connects it to the UVM testbench components. It provides the necessary signals and interfaces for the UBus protocol.
 
-```systemverilog
+```sv
 module ubus_top;
   // Clock and reset signals
   reg clk;
@@ -58,7 +58,7 @@ endmodule
 
 A UVM test sets up the environment and specifies the sequences to be executed. It configures the UBus environment and starts the verification process.
 
-```systemverilog
+```sv
 class ubus_test extends uvm_test;
   `uvm_component_utils(ubus_test)
 
@@ -90,7 +90,7 @@ endclass
 
 The testbench environment instantiates and connects all the necessary components for verifying the UBus protocol. It includes agents, monitors, and scoreboards.
 
-```systemverilog
+```sv
 class ubus_env extends uvm_env;
   `uvm_component_utils(ubus_env)
 
@@ -115,7 +115,7 @@ endclass
 
 The UBus environment is a specialized environment for the UBus protocol, integrating specific agents and monitors required for UBus verification.
 
-```systemverilog
+```sv
 class ubus_env extends uvm_env;
   `uvm_component_utils(ubus_env)
 
@@ -143,7 +143,7 @@ endclass
 
 The UBus master agent contains the sequencer, driver, and monitor components necessary for generating and monitoring bus transactions from the master perspective.
 
-```systemverilog
+```sv
 class ubus_master_agent extends uvm_agent;
   `uvm_component_utils(ubus_master_agent)
 
@@ -173,7 +173,7 @@ endclass
 
 The UBus master sequencer is responsible for managing sequences and providing transactions to the driver.
 
-```systemverilog
+```sv
 class ubus_master_sequencer extends uvm_sequencer #(ubus_transaction);
   `uvm_component_utils(ubus_master_sequencer)
 
@@ -187,7 +187,7 @@ endclass
 
 The UBus driver converts sequence items into pin-level activity on the bus interface.
 
-```systemverilog
+```sv
 class ubus_driver extends uvm_driver #(ubus_transaction);
   `uvm_component_utils(ubus_driver)
 
@@ -211,7 +211,7 @@ endclass
 
 The UBus agent monitor observes bus transactions and converts them into analysis transactions for further processing.
 
-```systemverilog
+```sv
 class ubus_monitor extends uvm_monitor;
   `uvm_component_utils(ubus_monitor)
 
@@ -250,7 +250,7 @@ The monitor performs protocol checks and collects coverage information, ensuring
 
 The UBus interface defines the signals and structure of the UBus protocol.
 
-```systemverilog
+```sv
 interface ubus_if(input bit clk);
   logic [31:0] addr;
   logic [31:0] data;

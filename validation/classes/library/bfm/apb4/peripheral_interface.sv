@@ -37,7 +37,7 @@
 // Author(s):
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-interface add_if (
+interface peripheral_design_if (
   input logic aclk
 );
 

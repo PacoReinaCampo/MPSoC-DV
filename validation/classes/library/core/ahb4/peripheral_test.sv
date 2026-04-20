@@ -47,7 +47,7 @@
 
 program peripheral_test (
   // Interface instantiation
-  add_if vif
+  peripheral_design_if vif
 );
 
   // Environment method instantiation

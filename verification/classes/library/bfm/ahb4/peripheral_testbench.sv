@@ -53,10 +53,10 @@ module peripheral_testbench;
   end
 
   // Interface instantiation
-  add_if vif (aclk);
+  peripheral_design_if vif (aclk);
 
   // DUT instantiation
-  peripheral_bfm_slave_generic_axi4 dut (
+  peripheral_design dut (
     // Global Signals
     .aclk   (vif.aclk),
     .aresetn(vif.aresetn),
