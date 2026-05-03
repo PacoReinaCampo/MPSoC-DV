@@ -2,26 +2,27 @@
 
 `INSERT HERE`
 
-| **Folder**    | **Normative**        | **Technology** |
-|:--------------|:---------------------|:---------------|
-| doc           | IEEE STD 1801-2013   | Low Power      |
-|               | IEEE STD 0754-2019   | Float Point    |
-|               | IEEE STD 1754-1994   | RISC 32 Bit    |
-| requirements  | IEEE STD 1850-2010   | PSL            |
-|               | OMG 2.5.1            | UML            |
-| model         | IEEE STD 1076-2019   | VHDL           |
-|               | IEEE STD 1800-2017   | SystemVerilog  |
-| validation    | IEEE STD 1076-2019   | OSVVM          |
-| rtl/src       | IEEE STD 1076-2019   | VHDL           |
-|               | IEEE STD 1364-2005   | Verilog        |
-| verification  | IEEE STD 1800.2-2020 | UVM            |
-| configuration | IEEE STD 1666-2011   | SystemC        |
-| certification | RTCA DO-254          | IP-Certifier   |
-|               | RTCA DO-178C         | IP-Certifier   |
-| quality       | ISO 9001-2015        | IP-Manager     |
-| lifecycle     | IEEE STD 1735-2014   | IP-Developer   |
-|               | IEEE STD 2675-2021   | IP-Operator    |
-|               | IEEE STD 1685-2014   | IP-Manager     |
+| **Folder**    | **Normative**          | **Technology**  | **Target**     |
+|:--------------|:-----------------------|:----------------|:---------------|
+| doc           | `IEEE STD 1801-2013`   | IP-Researcher   | Low Power      |
+|               | `IEEE STD 0754-2019`   | IP-Researcher   | Float Point    |
+|               | `IEEE STD 1754-1994`   | IP-Researcher   | RISC 32/64 Bit |
+| requirements  | `IEEE STD 1850-2010`   | IP-Manager      | PSL            |
+|               | `OMG 2.5.1`            | IP-Manager      | UML            |
+| model         | `IEEE STD 1076-2019`   | IP-Developer    | VHDL           |
+|               | `IEEE STD 1800-2017`   | IP-Developer    | SystemVerilog  |
+| validation    | `IEEE STD 1076-2019`   | IP-Validator    | OSVVM          |
+| rtl/src       | `IEEE STD 1076-2019`   | IP-Developer    | VHDL           |
+|               | `IEEE STD 1364-2005`   | IP-Developer    | Verilog        |
+| verification  | `IEEE STD 1800.2-2020` | IP-Verifyier    | UVM            |
+| configuration | `IEEE STD 1666-2011`   | IP-Configurator | SystemC        |
+| certification | `RTCA DO-254`          | IP-Certifier    | Hardware       |
+|               | `RTCA DO-178C`         | IP-Certifier    | Software       |
+| quality       | `ISO 9001-2015`        | IP-Manager      | Quality        |
+|               | `ISO 21500-2021`       | IP-Manager      | Management     |
+| lifecycle     | `IEEE STD 1735-2014`   | IP-Developer    | IP Encryption  |
+|               | `IEEE STD 2675-2021`   | IP-Operator     | IP DevOps      |
+|               | `IEEE STD 1685-2014`   | IP-Manager      | IP XACT        |
 
 :Project Folder
 
