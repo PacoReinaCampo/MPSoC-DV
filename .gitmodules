@@ -7,3 +7,9 @@
 [submodule "intelligence/mpsoc-ntm"]
 	path = intelligence/mpsoc-ntm
 	url = https://github.com/PacoReinaCampo/MPSoC-NTM.git
+[submodule "intelligence/mpsoc-dnc"]
+	path = intelligence/mpsoc-dnc
+	url = https://github.com/PacoReinaCampo/MPSoC-DNC.git
+[submodule "intelligence/mpsoc-ann"]
+	path = intelligence/mpsoc-ann
+	url = https://github.com/PacoReinaCampo/MPSoC-ANN.git

@@ -47,6 +47,8 @@ git rm -rf architecture/mpsoc-riscv
 git rm -rf architecture/mpsoc-or1k
 
 git rm -rf intelligence/mpsoc-ntm
+git rm -rf intelligence/mpsoc-dnc
+git rm -rf intelligence/mpsoc-ann
 
 # Update Submodule
 git submodule update --init --recursive --remote
@@ -56,3 +58,5 @@ git submodule add --force https://github.com/PacoReinaCampo/MPSoC-RISCV.git arch
 git submodule add --force https://github.com/PacoReinaCampo/MPSoC-OR1K.git architecture/mpsoc-or1k
 
 git submodule add --force https://github.com/PacoReinaCampo/MPSoC-NTM.git intelligence/mpsoc-ntm
+git submodule add --force https://github.com/PacoReinaCampo/MPSoC-DNC.git intelligence/mpsoc-dnc
+git submodule add --force https://github.com/PacoReinaCampo/MPSoC-ANN.git intelligence/mpsoc-ann
