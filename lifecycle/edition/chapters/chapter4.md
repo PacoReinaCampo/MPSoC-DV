@@ -132,31 +132,38 @@ Se conserva para toda la Organización QueenField.
 
 ```bash
 doc
-· IEEE STD 1801-2013: Low Power
-· IEEE STD 0754-2019: Float Point
-· IEEE STD 1754-1994: RISC 32 Bit
+· IEEE STD 1801-2013: IP-Researcher
+· IEEE STD 0754-2019: IP-Researcher
+· IEEE STD 1754-1994: IP-Researcher
 
 requirements
-· IEEE STD 1850-2010: PSL
+· IEEE STD 1850-2010: IP-Manager
+· OMG 2.5.1: IP-Manager
 
 model
-· IEEE STD 1076-2019: VHDL
-· IEEE STD 1800-2017: SystemVerilog
+· IEEE STD 1076-2019: IP-Developer
+· IEEE STD 1800-2017: IP-Developer
 
 validation
-· IEEE STD 1076-2019: Procedures
-· IEEE STD 1076-2019: OSVVM
+· IEEE STD 1076-2019: IP-Validator
 
 rtl
-· IEEE STD 1076-2019: VHDL
-· IEEE STD 1364-2005: Verilog
+· IEEE STD 1076-2019: IP-Developer
+· IEEE STD 1364-2005: IP-Developer
 
 verification
-· IEEE STD 1800-2017: Classes
-· IEEE STD 1800-2020: UVM
+· IEEE STD 1800.2-2020: IP-Verifyier
 
 configuration
-· IEEE STD 1666-2011: SystemC
+· IEEE STD 1666-2011: IP-Configurator
+
+certification
+· RTCA DO-254: IP-Certifier
+· RTCA DO-178C: IP-Certifier
+
+quality
+· ISO 9001-2015: IP-Manager
+· ISO 21500-2021: IP-Manager
 
 lifecycle
 · IEEE STD 1735-2014: IP-Developer
