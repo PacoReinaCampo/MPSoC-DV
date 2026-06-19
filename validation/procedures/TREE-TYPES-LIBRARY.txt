@@ -1,0 +1,128 @@
+library
+├── bfm
+│   ├── ahb4
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   ├── apb4
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   ├── axi4
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   ├── bb
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   ├── tl
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   └── wb
+│       ├── peripheral_types_model_pkg.vhd
+│       ├── peripheral_types_model.vhd
+│       └── peripheral_types_testbench.vhd
+├── core
+│   ├── ahb4
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   ├── apb4
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   ├── axi4
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   ├── bb
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   ├── tl
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   └── wb
+│       ├── peripheral_types_model_pkg.vhd
+│       ├── peripheral_types_model.vhd
+│       └── peripheral_types_testbench.vhd
+├── mpsoc
+│   ├── ahb4
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   ├── apb4
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   ├── axi4
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   ├── bb
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   ├── tl
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   └── wb
+│       ├── peripheral_types_model_pkg.vhd
+│       ├── peripheral_types_model.vhd
+│       └── peripheral_types_testbench.vhd
+├── pu
+│   ├── ahb4
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   ├── apb4
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   ├── axi4
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   ├── bb
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   ├── tl
+│   │   ├── peripheral_types_model_pkg.vhd
+│   │   ├── peripheral_types_model.vhd
+│   │   └── peripheral_types_testbench.vhd
+│   └── wb
+│       ├── peripheral_types_model_pkg.vhd
+│       ├── peripheral_types_model.vhd
+│       └── peripheral_types_testbench.vhd
+└── soc
+    ├── ahb4
+    │   ├── peripheral_types_model_pkg.vhd
+    │   ├── peripheral_types_model.vhd
+    │   └── peripheral_types_testbench.vhd
+    ├── apb4
+    │   ├── peripheral_types_model_pkg.vhd
+    │   ├── peripheral_types_model.vhd
+    │   └── peripheral_types_testbench.vhd
+    ├── axi4
+    │   ├── peripheral_types_model_pkg.vhd
+    │   ├── peripheral_types_model.vhd
+    │   └── peripheral_types_testbench.vhd
+    ├── bb
+    │   ├── peripheral_types_model_pkg.vhd
+    │   ├── peripheral_types_model.vhd
+    │   └── peripheral_types_testbench.vhd
+    ├── tl
+    │   ├── peripheral_types_model_pkg.vhd
+    │   ├── peripheral_types_model.vhd
+    │   └── peripheral_types_testbench.vhd
+    └── wb
+        ├── peripheral_types_model_pkg.vhd
+        ├── peripheral_types_model.vhd
+        └── peripheral_types_testbench.vhd
+
+35 directories, 90 files

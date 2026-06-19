@@ -1,0 +1,98 @@
+application
+├── bfm
+│   ├── ahb4
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── apb4
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── axi4
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── bb
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── tl
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   └── wb
+│       ├── peripheral_design.sv
+│       └── peripheral_testbench.sv
+├── core
+│   ├── ahb4
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── apb4
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── axi4
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── bb
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── tl
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   └── wb
+│       ├── peripheral_design.sv
+│       └── peripheral_testbench.sv
+├── mpsoc
+│   ├── ahb4
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── apb4
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── axi4
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── bb
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── tl
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   └── wb
+│       ├── peripheral_design.sv
+│       └── peripheral_testbench.sv
+├── pu
+│   ├── ahb4
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── apb4
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── axi4
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── bb
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   ├── tl
+│   │   ├── peripheral_design.sv
+│   │   └── peripheral_testbench.sv
+│   └── wb
+│       ├── peripheral_design.sv
+│       └── peripheral_testbench.sv
+└── soc
+    ├── ahb4
+    │   ├── peripheral_design.sv
+    │   └── peripheral_testbench.sv
+    ├── apb4
+    │   ├── peripheral_design.sv
+    │   └── peripheral_testbench.sv
+    ├── axi4
+    │   ├── peripheral_design.sv
+    │   └── peripheral_testbench.sv
+    ├── bb
+    │   ├── peripheral_design.sv
+    │   └── peripheral_testbench.sv
+    ├── tl
+    │   ├── peripheral_design.sv
+    │   └── peripheral_testbench.sv
+    └── wb
+        ├── peripheral_design.sv
+        └── peripheral_testbench.sv
+
+35 directories, 60 files
