@@ -1,0 +1,630 @@
+= RV Instructions Code
+
+[cols="1,4", options="header"]
+|===
+| instruction | code
+| vcompress_vm
+a|
+[source,c]
+----
+// vcompress vd, vs2, vs1
+require(P.any_vector_extensions());
+require(P.VU.vstart->read() == 0);
+require_align(insn.rd(), P.VU.vflmul);
+require_align(insn.rs2(), P.VU.vflmul);
+require(insn.rd() != insn.rs2());
+require_noover(insn.rd(), P.VU.vflmul, insn.rs1(), 1);
+
+reg_t pos = 0;
+
+VI_GENERAL_LOOP_BASE
+  if (P.VU.mask_elt(rs1_num, i)) {
+    switch (sew) {
+    case e8:
+      P.VU.elt<uint8_t>(rd_num, pos, true) = P.VU.elt<uint8_t>(rs2_num, i);
+      break;
+    case e16:
+      P.VU.elt<uint16_t>(rd_num, pos, true) = P.VU.elt<uint16_t>(rs2_num, i);
+      break;
+    case e32:
+      P.VU.elt<uint32_t>(rd_num, pos, true) = P.VU.elt<uint32_t>(rs2_num, i);
+      break;
+    default:
+      P.VU.elt<uint64_t>(rd_num, pos, true) = P.VU.elt<uint64_t>(rs2_num, i);
+      break;
+    }
+
+    ++pos;
+  }
+VI_LOOP_END_BASE;
+----
+| vcpop_m
+a|
+[source,c]
+----
+// vmpopc rd, vs2, vm
+require(P.VU.vsew >= e8 && P.VU.vsew <= e64);
+require_vector(true);
+reg_t vl = P.VU.vl->read();
+reg_t rs2_num = insn.rs2();
+require(P.VU.vstart->read() == 0);
+reg_t popcount = 0;
+for (reg_t i=P.VU.vstart->read(); i<vl; ++i) {
+  bool vs2_bit = P.VU.mask_elt(rs2_num, i);
+  popcount += vs2_bit && (insn.v_vm() \|\| P.VU.mask_elt(0, i));
+}
+WRITE_RD(popcount);
+----
+| vdivu_vv
+a|
+[source,c]
+----
+// vdivu.vv vd, vs2, vs1
+VI_VV_ULOOP
+({
+  if (vs1 == 0)
+    vd = -1;
+  else
+    vd = vs2 / vs1;
+})
+----
+| vdiv_vv
+a|
+[source,c]
+----
+// vdiv.vv vd, vs2, vs1
+VI_VV_LOOP
+({
+  if (vs1 == 0)
+    vd = -1;
+  else if (vs2 == (INT64_MIN >> (64 - sew)) && vs1 == -1)
+    vd = vs2;
+  else
+    vd = vs2 / vs1;
+})
+----
+| vfirst_m
+a|
+[source,c]
+----
+// vmfirst rd, vs2
+require(P.VU.vsew >= e8 && P.VU.vsew <= e64);
+require_vector(true);
+reg_t vl = P.VU.vl->read();
+reg_t rs2_num = insn.rs2();
+require(P.VU.vstart->read() == 0);
+reg_t pos = -1;
+for (reg_t i=P.VU.vstart->read(); i < vl; ++i) {
+  VI_LOOP_ELEMENT_SKIP()
+
+  if (P.VU.mask_elt(rs2_num, i)) {
+    pos = i;
+    break;
+  }
+}
+WRITE_RD(pos);
+----
+| vid_v
+a|
+[source,c]
+----
+// vmpopc rd, vs2, vm
+require(P.VU.vsew >= e8 && P.VU.vsew <= e64);
+require_vector(true);
+reg_t sew = P.VU.vsew;
+reg_t rd_num = insn.rd();
+require_align(rd_num, P.VU.vflmul);
+require_vm;
+
+for (reg_t i = P.VU.vstart->read() ; i < P.VU.vl->read(); ++i) {
+  VI_LOOP_ELEMENT_SKIP();
+
+  switch (sew) {
+  case e8:
+    P.VU.elt<uint8_t>(rd_num, i, true) = i;
+    break;
+  case e16:
+    P.VU.elt<uint16_t>(rd_num, i, true) = i;
+    break;
+  case e32:
+    P.VU.elt<uint32_t>(rd_num, i, true) = i;
+    break;
+  default:
+    P.VU.elt<uint64_t>(rd_num, i, true) = i;
+    break;
+  }
+}
+
+P.VU.vstart->write(0);
+----
+| viota_m
+a|
+[source,c]
+----
+// vmpopc rd, vs2, vm
+require(P.VU.vsew >= e8 && P.VU.vsew <= e64);
+require_vector(true);
+reg_t vl = P.VU.vl->read();
+reg_t sew = P.VU.vsew;
+reg_t rd_num = insn.rd();
+reg_t rs2_num = insn.rs2();
+require(P.VU.vstart->read() == 0);
+require_vm;
+require_align(rd_num, P.VU.vflmul);
+require_noover(rd_num, P.VU.vflmul, rs2_num, 1);
+
+int cnt = 0;
+for (reg_t i = 0; i < vl; ++i) {
+  bool do_mask = P.VU.mask_elt(0, i);
+
+  bool has_one = false;
+  if (insn.v_vm() == 1 \|\| (insn.v_vm() == 0 && do_mask)) {
+    if (P.VU.mask_elt(rs2_num, i)) {
+      has_one = true;
+    }
+  }
+
+  // Bypass masked-off elements
+  if ((insn.v_vm() == 0) && !do_mask)
+    continue;
+
+  switch (sew) {
+  case e8:
+    P.VU.elt<uint8_t>(rd_num, i, true) = cnt;
+    break;
+  case e16:
+    P.VU.elt<uint16_t>(rd_num, i, true) = cnt;
+    break;
+  case e32:
+    P.VU.elt<uint32_t>(rd_num, i, true) = cnt;
+    break;
+  default:
+    P.VU.elt<uint64_t>(rd_num, i, true) = cnt;
+    break;
+  }
+
+  if (has_one) {
+    cnt++;
+  }
+}
+
+----
+| vmacc_vv
+a|
+[source,c]
+----
+// vmacc.vv: vd[i] = +(vs1[i] * vs2[i]) + vd[i]
+VI_VV_LOOP
+({
+  vd = vs1 * vs2 + vd;
+})
+----
+| vmadd_vv
+a|
+[source,c]
+----
+// vmadd: vd[i] = (vd[i] * vs1[i]) + vs2[i]
+VI_VV_LOOP
+({
+  vd = vd * vs1 + vs2;
+})
+----
+| vmand_mm
+a|
+[source,c]
+----
+// vmand.mm vd, vs2, vs1
+VI_LOOP_MASK(vs2 & vs1);
+----
+| vmandn_mm
+a|
+[source,c]
+----
+// vmandn.mm vd, vs2, vs1
+VI_LOOP_MASK(vs2 & !vs1);
+----
+| vmnand_mm
+a|
+[source,c]
+----
+// vmnand.mm vd, vs2, vs1
+VI_LOOP_MASK(!(vs2 & vs1));
+----
+| vmnor_mm
+a|
+[source,c]
+----
+// vmnor.mm vd, vs2, vs1
+VI_LOOP_MASK(!(vs2 \| vs1));
+----
+| vmor_mm
+a|
+[source,c]
+----
+// vmor.mm vd, vs2, vs1
+VI_LOOP_MASK(vs2 \| vs1);
+----
+| vmorn_mm
+a|
+[source,c]
+----
+// vmorn.mm vd, vs2, vs1
+VI_LOOP_MASK(vs2 \| !vs1);
+----
+| vmsbf_m
+a|
+[source,c]
+----
+// vmsbf.m vd, vs2, vm
+require(P.VU.vsew >= e8 && P.VU.vsew <= e64);
+require_vector(true);
+require(P.VU.vstart->read() == 0);
+require_vm;
+require(insn.rd() != insn.rs2());
+
+reg_t vl = P.VU.vl->read();
+reg_t rd_num = insn.rd();
+reg_t rs2_num = insn.rs2();
+
+bool has_one = false;
+for (reg_t i = P.VU.vstart->read(); i < vl; ++i) {
+  bool vs2_lsb = P.VU.mask_elt(rs2_num, i);
+  bool do_mask = P.VU.mask_elt(0, i);
+
+  if (insn.v_vm() == 1 \|\| (insn.v_vm() == 0 && do_mask)) {
+    bool res = false;
+    if (!has_one && !vs2_lsb) {
+      res = true;
+    } else if (!has_one && vs2_lsb) {
+      has_one = true;
+    }
+
+    P.VU.set_mask_elt(rd_num, i, res);
+  }
+}
+----
+| vmsif_m
+a|
+[source,c]
+----
+// vmsif.m rd, vs2, vm
+require(P.VU.vsew >= e8 && P.VU.vsew <= e64);
+require_vector(true);
+require(P.VU.vstart->read() == 0);
+require_vm;
+require(insn.rd() != insn.rs2());
+
+reg_t vl = P.VU.vl->read();
+reg_t rd_num = insn.rd();
+reg_t rs2_num = insn.rs2();
+
+bool has_one = false;
+for (reg_t i = P.VU.vstart->read(); i < vl; ++i) {
+  bool vs2_lsb = P.VU.mask_elt(rs2_num, i);
+  bool do_mask = P.VU.mask_elt(0, i);
+
+  if (insn.v_vm() == 1 \|\| (insn.v_vm() == 0 && do_mask)) {
+    bool res = false;
+    if (!has_one && !vs2_lsb) {
+      res = true;
+    } else if (!has_one && vs2_lsb) {
+      has_one = true;
+      res = true;
+    }
+
+    P.VU.set_mask_elt(rd_num, i, res);
+  }
+}
+----
+| vmsof_m
+a|
+[source,c]
+----
+// vmsof.m rd, vs2, vm
+require(P.VU.vsew >= e8 && P.VU.vsew <= e64);
+require_vector(true);
+require(P.VU.vstart->read() == 0);
+require_vm;
+require(insn.rd() != insn.rs2());
+
+reg_t vl = P.VU.vl->read();
+reg_t rd_num = insn.rd();
+reg_t rs2_num = insn.rs2();
+
+bool has_one = false;
+for (reg_t i = P.VU.vstart->read() ; i < vl; ++i) {
+  bool vs2_lsb = P.VU.mask_elt(rs2_num, i);
+  bool do_mask = P.VU.mask_elt(0, i);
+
+  if (insn.v_vm() == 1 \|\| (insn.v_vm() == 0 && do_mask)) {
+    bool res = false;
+    if (!has_one && vs2_lsb) {
+      has_one = true;
+      res = true;
+    }
+
+    P.VU.set_mask_elt(rd_num, i, res);
+  }
+}
+----
+| vmulhsu_vv
+a|
+[source,c]
+----
+// vmulhsu.vv vd, vs2, vs1
+require(p->extension_enabled('V') \|\| P.VU.vsew < e64);
+
+VI_VV_SU_LOOP({
+  vd = ((int128_t)vs2 * (uint128_t)vs1) >> sew;
+})
+----
+| vmulhu_vv
+a|
+[source,c]
+----
+// vmulhu vd, vs2, vs1
+require(p->extension_enabled('V') \|\| P.VU.vsew < e64);
+
+VI_VV_ULOOP
+({
+  vd = ((uint128_t)vs2 * vs1) >> sew;
+})
+----
+| vmulh_vv
+a|
+[source,c]
+----
+// vmulh vd, vs2, vs1
+require(p->extension_enabled('V') \|\| P.VU.vsew < e64);
+
+VI_VV_LOOP
+({
+  vd = ((int128_t)vs2 * vs1) >> sew;
+})
+----
+| vmul_vv
+a|
+[source,c]
+----
+// vmul vd, vs2, vs1
+VI_VV_LOOP
+({
+  vd = vs2 * vs1;
+})
+----
+| vmxnor_mm
+a|
+[source,c]
+----
+// vmnxor.mm vd, vs2, vs1
+VI_LOOP_MASK(!(vs2 ^ vs1));
+----
+| vmxor_mm
+a|
+[source,c]
+----
+// vmxor.mm vd, vs2, vs1
+VI_LOOP_MASK(vs2 ^ vs1);
+----
+| vnmsac_vv
+a|
+[source,c]
+----
+// vmsac.vv: vd[i] = -(vs1[i] * vs2[i]) + vd[i]
+VI_VV_LOOP
+({
+  vd = -(vs1 * vs2) + vd;
+})
+----
+| vnmsub_vv
+a|
+[source,c]
+----
+// vnmsub.vv: vd[i] = -(vd[i] * vs1[i]) + vs2[i]
+VI_VV_LOOP
+({
+  vd = -(vd * vs1) + vs2;
+})
+----
+| vremu_vv
+a|
+[source,c]
+----
+// vremu.vv vd, vs2, vs1
+VI_VV_ULOOP
+({
+  if (vs1 == 0)
+    vd = vs2;
+  else
+    vd = vs2 % vs1;
+})
+----
+| vrem_vv
+a|
+[source,c]
+----
+// vrem.vv vd, vs2, vs1
+VI_VV_LOOP
+({
+  if (vs1 == 0)
+    vd = vs2;
+  else if (vs2 == -(((intmax_t)1) << (sew - 1)) && vs1 == -1)
+    vd = 0;
+  else {
+    vd = vs2 % vs1;
+  }
+})
+----
+| vsext_vf2
+a|
+[source,c]
+----
+VI_VV_EXT(2, int);
+----
+| vsext_vf4
+a|
+[source,c]
+----
+VI_VV_EXT(4, int);
+----
+| vsext_vf8
+a|
+[source,c]
+----
+VI_VV_EXT(8, int);
+----
+| vwaddu_vv
+a|
+[source,c]
+----
+// vwaddu.vv vd, vs2, vs1
+VI_CHECK_DSS(true);
+VI_VV_LOOP_WIDEN
+({
+  VI_WIDE_OP_AND_ASSIGN(vs2, vs1, 0, +, +, uint);
+})
+----
+| vwaddu_wv
+a|
+[source,c]
+----
+// vwaddu.wv vd, vs2, vs1
+VI_CHECK_DDS(true);
+VI_VV_LOOP_WIDEN
+({
+  VI_WIDE_WVX_OP(vs1, +, uint);
+})
+----
+| vwadd_vv
+a|
+[source,c]
+----
+// vwadd.vv vd, vs2, vs1
+VI_CHECK_DSS(true);
+VI_VV_LOOP_WIDEN
+({
+  VI_WIDE_OP_AND_ASSIGN(vs2, vs1, 0, +, +, int);
+})
+----
+| vwadd_wv
+a|
+[source,c]
+----
+// vwadd.wv vd, vs2, vs1
+VI_CHECK_DDS(true);
+VI_VV_LOOP_WIDEN
+({
+  VI_WIDE_WVX_OP(vs1, +, int);
+})
+----
+| vwmaccsu_vv
+a|
+[source,c]
+----
+// vwmaccsu.vv vd, vs2, vs1
+VI_CHECK_DSS(true);
+VI_VV_LOOP_WIDEN
+({
+  VI_WIDE_OP_AND_ASSIGN_MIX(vs2, vs1, vd_w, *, +, int, uint, int);
+})
+----
+| vwmaccu_vv
+a|
+[source,c]
+----
+// vwmaccu.vv vd, vs2, vs1
+VI_CHECK_DSS(true);
+VI_VV_LOOP_WIDEN
+({
+  VI_WIDE_OP_AND_ASSIGN(vs2, vs1, vd_w, *, +, uint);
+})
+----
+| vwmacc_vv
+a|
+[source,c]
+----
+// vwmacc.vv vd, vs2, vs1
+VI_CHECK_DSS(true);
+VI_VV_LOOP_WIDEN
+({
+  VI_WIDE_OP_AND_ASSIGN(vs2, vs1, vd_w, *, +, int);
+})
+----
+| vwmulsu_vv
+a|
+[source,c]
+----
+// vwmulsu.vv vd, vs2, vs1
+VI_CHECK_DSS(true);
+VI_VV_LOOP_WIDEN
+({
+  VI_WIDE_OP_AND_ASSIGN_MIX(vs2, vs1, 0, *, +, uint, int, uint)
+})
+----
+| vwmulu_vv
+a|
+[source,c]
+----
+// vwmulu.vv vd, vs2, vs1
+VI_CHECK_DSS(true);
+VI_VV_LOOP_WIDEN
+({
+  VI_WIDE_OP_AND_ASSIGN(vs2, vs1, 0, *, +, uint);
+})
+----
+| vwmul_vv
+a|
+[source,c]
+----
+// vwmul.vv vd, vs2, vs1
+VI_CHECK_DSS(true);
+VI_VV_LOOP_WIDEN
+({
+  VI_WIDE_OP_AND_ASSIGN(vs2, vs1, 0, *, +, int);
+})
+----
+| vwsubu_vv
+a|
+[source,c]
+----
+// vwsubu.vv vd, vs2, vs1
+VI_CHECK_DSS(true);
+VI_VV_LOOP_WIDEN
+({
+  VI_WIDE_OP_AND_ASSIGN(vs2, vs1, 0, -, +, uint);
+})
+----
+| vwsubu_wv
+a|
+[source,c]
+----
+// vwsubu.wv vd, vs2, vs1
+VI_CHECK_DDS(true);
+VI_VV_LOOP_WIDEN
+({
+  VI_WIDE_WVX_OP(vs1, -, uint);
+})
+----
+| vwsub_vv
+a|
+[source,c]
+----
+// vwsub.vv vd, vs2, vs1
+VI_CHECK_DSS(true);
+VI_VV_LOOP_WIDEN
+({
+  VI_WIDE_OP_AND_ASSIGN(vs2, vs1, 0, -, +, int);
+})
+----
+| vwsub_wv
+a|
+[source,c]
+----
+// vwsub.wv vd, vs2, vs1
+VI_CHECK_DDS(true);
+VI_VV_LOOP_WIDEN
+({
+  VI_WIDE_WVX_OP(vs1, -, int);
+})
+----
+|===

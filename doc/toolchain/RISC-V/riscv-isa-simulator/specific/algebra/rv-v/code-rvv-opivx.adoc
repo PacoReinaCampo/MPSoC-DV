@@ -1,0 +1,672 @@
+= RV Instructions Code
+
+[cols="1,4", options="header"]
+|===
+| instruction | code
+| vadc_vxm
+a|
+[source,c]
+----
+// vadc.vxm vd, vs2, rs1, v0
+VI_XI_LOOP_WITH_CARRY
+({
+  vd = (uint128_t)((op_mask & rs1) + (op_mask & vs2) + carry);
+})
+----
+| vadd_vx
+a|
+[source,c]
+----
+// vadd.vx vd, rs1, vs2, vm
+VI_VX_LOOP
+({
+  vd = rs1 + vs2;
+})
+----
+| vand_vx
+a|
+[source,c]
+----
+// vand.vx vd, rs1, vs2, vm
+VI_VX_LOOP
+({
+  vd = rs1 & vs2;
+})
+----
+| vmadc_vx
+a|
+[source,c]
+----
+// vadc.vx vd, vs2, rs1
+#include "vmadc_vxm.h"
+----
+| vmadc_vxm
+a|
+[source,c]
+----
+// vadc.vx vd, vs2, rs1, v0
+VI_XI_LOOP_CARRY
+({
+  res = (((op_mask & rs1) + (op_mask & vs2) + carry) >> sew) & 0x1u;
+})
+----
+| vmaxu_vx
+a|
+[source,c]
+----
+// vmaxu.vx vd, vs2, rs1, vm   # vector-scalar
+VI_VX_ULOOP
+({
+  if (rs1 >= vs2) {
+    vd = rs1;
+  } else {
+    vd = vs2;
+  }
+})
+----
+| vmax_vx
+a|
+[source,c]
+----
+// vmax.vx vd, vs2, rs1, vm   # vector-scalar
+VI_VX_LOOP
+({
+  if (rs1 >= vs2) {
+    vd = rs1;
+  } else {
+    vd = vs2;
+  }
+
+})
+----
+| vmerge_vxm
+a|
+[source,c]
+----
+// vmerge.vxm vd, vs2, rs1
+VI_VX_MERGE_LOOP
+({
+  vd = use_first ? rs1 : vs2;
+})
+----
+| vminu_vx
+a|
+[source,c]
+----
+// vminu.vx vd, vs2, rs1, vm   # vector-scalar
+VI_VX_ULOOP
+({
+  if (rs1 <= vs2) {
+    vd = rs1;
+  } else {
+    vd = vs2;
+  }
+
+})
+----
+| vmin_vx
+a|
+[source,c]
+----
+// vminx.vx vd, vs2, rs1, vm   # vector-scalar
+VI_VX_LOOP
+({
+  if (rs1 <= vs2) {
+    vd = rs1;
+  } else {
+    vd = vs2;
+  }
+
+
+})
+----
+| vmsbc_vx
+a|
+[source,c]
+----
+// vmsbc.vx vd, vs2, rs1
+#include "vmsbc_vxm.h"
+----
+| vmsbc_vxm
+a|
+[source,c]
+----
+// vmsbc.vxm vd, vs2, rs1, v0
+VI_XI_LOOP_CARRY
+({
+  res = (((op_mask & vs2) - (op_mask & rs1) - carry) >> sew) & 0x1u;
+})
+----
+| vmseq_vx
+a|
+[source,c]
+----
+// vseq.vx vd, vs2, rs1
+VI_VX_LOOP_CMP
+({
+  res = rs1 == vs2;
+})
+----
+| vmsgtu_vx
+a|
+[source,c]
+----
+// vsgtu.vx  vd, vs2, rs1
+VI_VX_ULOOP_CMP
+({
+  res = vs2 > rs1;
+})
+----
+| vmsgt_vx
+a|
+[source,c]
+----
+// vsgt.vx  vd, vs2, rs1
+VI_VX_LOOP_CMP
+({
+  res = vs2 > rs1;
+})
+----
+| vmsleu_vx
+a|
+[source,c]
+----
+// vsleu.vx  vd, vs2, rs1
+VI_VX_ULOOP_CMP
+({
+  res = vs2 <= rs1;
+})
+----
+| vmsle_vx
+a|
+[source,c]
+----
+// vsle.vx vd, vs2, rs1
+VI_VX_LOOP_CMP
+({
+  res = vs2 <= rs1;
+})
+----
+| vmsltu_vx
+a|
+[source,c]
+----
+// vsltu.vx  vd, vs2, vs1
+VI_VX_ULOOP_CMP
+({
+  res = vs2 < rs1;
+})
+----
+| vmslt_vx
+a|
+[source,c]
+----
+// vslt.vx  vd, vs2, vs1
+VI_VX_LOOP_CMP
+({
+  res = vs2 < rs1;
+})
+----
+| vmsne_vx
+a|
+[source,c]
+----
+// vsne.vx  vd, vs2, rs1
+VI_VX_LOOP_CMP
+({
+  res = vs2 != rs1;
+})
+----
+| vmv_v_x
+a|
+[source,c]
+----
+// vmv.v.x vd, rs1
+VI_VX_MERGE_LOOP
+({
+  vd = rs1;
+})
+----
+| vnclipu_wx
+a|
+[source,c]
+----
+// vnclipu: vd[i] = clip(round(vs2[i] + rnd) >> rs1[i])
+VI_VX_LOOP_NARROW
+({
+  VRM xrm = P.VU.get_vround_mode();
+  uint64_t uint_max = UINT64_MAX >> (64 - P.VU.vsew);
+  uint64_t sign_mask = UINT64_MAX << P.VU.vsew;
+  uint128_t result = vs2_u;
+  unsigned shift = rs1 & ((sew * 2) - 1);
+
+  // rounding
+  INT_ROUNDING(result, xrm, shift);
+
+  result = result >> shift;
+
+  // saturation
+  if (result & sign_mask) {
+    result = uint_max;
+    P_SET_OV(1);
+  }
+
+  vd = result;
+})
+----
+| vnclip_wx
+a|
+[source,c]
+----
+// vnclip: vd[i] = clip(round(vs2[i] + rnd) >> rs1[i])
+VI_VX_LOOP_NARROW
+({
+  VRM xrm = P.VU.get_vround_mode();
+  int64_t int_max = INT64_MAX >> (64 - P.VU.vsew);
+  int64_t int_min = INT64_MIN >> (64 - P.VU.vsew);
+  int128_t result = vs2;
+  unsigned shift = rs1 & ((sew * 2) - 1);
+
+  // rounding
+  INT_ROUNDING(result, xrm, shift);
+
+  result = result >> shift;
+
+  // saturation
+  if (result < int_min) {
+    result = int_min;
+    P_SET_OV(1);
+  } else if (result > int_max) {
+    result = int_max;
+    P_SET_OV(1);
+  }
+
+  vd = result;
+})
+----
+| vnsra_wx
+a|
+[source,c]
+----
+// vnsra.vx vd, vs2, rs1
+VI_VX_LOOP_NSHIFT
+({
+  vd = vs2 >> (rs1 & (sew * 2 - 1));
+})
+----
+| vnsrl_wx
+a|
+[source,c]
+----
+// vnsrl.vx vd, vs2, rs1
+VI_VX_LOOP_NSHIFT
+({
+  vd = vs2_u >> (rs1 & (sew * 2 - 1));
+})
+----
+| vor_vx
+a|
+[source,c]
+----
+// vor
+VI_VX_LOOP
+({
+  vd = rs1 \| vs2;
+})
+----
+| vrgather_vx
+a|
+[source,c]
+----
+// vrgather.vx vd, vs2, rs1, vm # vd[i] = (rs1 >= VLMAX) ? 0 : vs2[rs1];
+require_align(insn.rd(), P.VU.vflmul);
+require_align(insn.rs2(), P.VU.vflmul);
+require(insn.rd() != insn.rs2());
+require_vm;
+
+reg_t rs1 = RS1;
+
+VI_LOOP_BASE
+  switch (sew) {
+  case e8:
+    P.VU.elt<uint8_t>(rd_num, i, true) = rs1 >= P.VU.vlmax ? 0 : P.VU.elt<uint8_t>(rs2_num, rs1);
+    break;
+  case e16:
+    P.VU.elt<uint16_t>(rd_num, i, true) = rs1 >= P.VU.vlmax ? 0 : P.VU.elt<uint16_t>(rs2_num, rs1);
+    break;
+  case e32:
+    P.VU.elt<uint32_t>(rd_num, i, true) = rs1 >= P.VU.vlmax ? 0 : P.VU.elt<uint32_t>(rs2_num, rs1);
+    break;
+  default:
+    P.VU.elt<uint64_t>(rd_num, i, true) = rs1 >= P.VU.vlmax ? 0 : P.VU.elt<uint64_t>(rs2_num, rs1);
+    break;
+  }
+VI_LOOP_END;
+----
+| vrsub_vx
+a|
+[source,c]
+----
+// vrsub.vx vd, vs2, rs1, vm   # vd[i] = rs1 - vs2[i]
+VI_VX_LOOP
+({
+  vd = rs1 - vs2;
+})
+----
+| vsaddu_vx
+a|
+[source,c]
+----
+// vsaddu vd, vs2, rs1
+VI_VX_ULOOP
+({
+  bool sat = false;
+  vd = vs2 + rs1;
+
+  sat = vd < vs2;
+  vd \|= -(vd < vs2);
+
+  P_SET_OV(sat);
+
+})
+----
+| vsadd_vx
+a|
+[source,c]
+----
+// vsadd.vx vd, vs2, rs1
+VI_CHECK_SSS(false);
+VI_LOOP_BASE
+bool sat = false;
+switch (sew) {
+case e8: {
+  VX_PARAMS(e8);
+  vd = sat_add<int8_t, uint8_t>(vs2, rs1, sat);
+  break;
+}
+case e16: {
+  VX_PARAMS(e16);
+  vd = sat_add<int16_t, uint16_t>(vs2, rs1, sat);
+  break;
+}
+case e32: {
+  VX_PARAMS(e32);
+  vd = sat_add<int32_t, uint32_t>(vs2, rs1, sat);
+  break;
+}
+default: {
+  VX_PARAMS(e64);
+  vd = sat_add<int64_t, uint64_t>(vs2, rs1, sat);
+  break;
+}
+}
+P_SET_OV(sat);
+VI_LOOP_END
+----
+| vsbc_vxm
+a|
+[source,c]
+----
+// vsbc.vxm vd, vs2, rs1, v0
+VI_XI_LOOP_WITH_CARRY
+({
+  vd = (uint128_t)((op_mask & vs2) - (op_mask & rs1) - carry);
+})
+----
+| vslidedown_vx
+a|
+[source,c]
+----
+//vslidedown.vx vd, vs2, rs1
+VI_CHECK_SLIDE(false);
+
+const uint128_t sh = RS1;
+VI_LOOP_BASE
+
+reg_t offset = 0;
+bool is_valid = (i + sh) < P.VU.vlmax;
+
+if (is_valid) {
+  offset = sh;
+}
+
+switch (sew) {
+case e8: {
+  VI_XI_SLIDEDOWN_PARAMS(e8, offset);
+  vd = is_valid ? vs2 : 0;
+}
+break;
+case e16: {
+  VI_XI_SLIDEDOWN_PARAMS(e16, offset);
+  vd = is_valid ? vs2 : 0;
+}
+break;
+case e32: {
+  VI_XI_SLIDEDOWN_PARAMS(e32, offset);
+  vd = is_valid ? vs2 : 0;
+}
+break;
+default: {
+  VI_XI_SLIDEDOWN_PARAMS(e64, offset);
+  vd = is_valid ? vs2 : 0;
+}
+break;
+}
+VI_LOOP_END
+----
+| vslideup_vx
+a|
+[source,c]
+----
+//vslideup.vx vd, vs2, rs1
+VI_CHECK_SLIDE(true);
+
+const reg_t offset = RS1;
+VI_LOOP_BASE
+if (P.VU.vstart->read() < offset && i < offset)
+  continue;
+
+switch (sew) {
+case e8: {
+  VI_XI_SLIDEUP_PARAMS(e8, offset);
+  vd = vs2;
+}
+break;
+case e16: {
+  VI_XI_SLIDEUP_PARAMS(e16, offset);
+  vd = vs2;
+}
+break;
+case e32: {
+  VI_XI_SLIDEUP_PARAMS(e32, offset);
+  vd = vs2;
+}
+break;
+default: {
+  VI_XI_SLIDEUP_PARAMS(e64, offset);
+  vd = vs2;
+}
+break;
+}
+VI_LOOP_END
+----
+| vsll_vx
+a|
+[source,c]
+----
+// vsll
+VI_VX_ULOOP
+({
+  vd = vs2 << (rs1 & (sew - 1));
+})
+----
+| vsmul_vx
+a|
+[source,c]
+----
+// vsmul.vx vd, vs2, rs1
+require(p->extension_enabled('V') \|\| P.VU.vsew < e64);
+
+VI_VX_LOOP
+({
+  VRM xrm = P.VU.get_vround_mode();
+  int64_t int_max = INT64_MAX >> (64 - P.VU.vsew);
+  int64_t int_min = INT64_MIN >> (64 - P.VU.vsew);
+
+  bool overflow = rs1 == vs2 && rs1 == int_min;
+  int128_t result = (int128_t)rs1 * (int128_t)vs2;
+
+  // rounding
+  INT_ROUNDING(result, xrm, sew - 1);
+
+  // remove guard bits
+  result = result >> (sew - 1);
+
+  // max saturation
+  if (overflow) {
+    result = int_max;
+    P_SET_OV(1);
+  }
+
+  vd = result;
+})
+----
+| vsra_vx
+a|
+[source,c]
+----
+// vsra.vx vd, vs2, rs1
+VI_VX_LOOP
+({
+  vd = vs2 >> (rs1 & (sew - 1));
+})
+----
+| vsrl_vx
+a|
+[source,c]
+----
+// vsrl.vx vd, vs2, rs1
+VI_VX_ULOOP
+({
+  vd = vs2 >> (rs1 & (sew - 1));
+})
+----
+| vssra_vx
+a|
+[source,c]
+----
+// vssra.vx vd, vs2, rs1
+VI_VX_LOOP
+({
+  VRM xrm = P.VU.get_vround_mode();
+  int sh = rs1 & (sew - 1);
+  int128_t val = vs2;
+
+  INT_ROUNDING(val, xrm, sh);
+  vd = val >> sh;
+})
+----
+| vssrl_vx
+a|
+[source,c]
+----
+// vssrl.vx vd, vs2, rs1
+VI_VX_ULOOP
+({
+  VRM xrm = P.VU.get_vround_mode();
+  int sh = rs1 & (sew - 1);
+  uint128_t val = vs2;
+
+  INT_ROUNDING(val, xrm, sh);
+  vd = val >> sh;
+})
+----
+| vssubu_vx
+a|
+[source,c]
+----
+// vssubu.vx vd, vs2, rs1
+VI_CHECK_SSS(false);
+VI_LOOP_BASE
+bool sat = false;
+
+switch (sew) {
+case e8: {
+  VX_U_PARAMS(e8);
+  vd = sat_subu<uint8_t>(vs2, rs1, sat);
+  break;
+}
+case e16: {
+  VX_U_PARAMS(e16);
+  vd = sat_subu<uint16_t>(vs2, rs1, sat);
+  break;
+}
+case e32: {
+  VX_U_PARAMS(e32);
+  vd = sat_subu<uint32_t>(vs2, rs1, sat);
+  break;
+}
+default: {
+  VX_U_PARAMS(e64);
+  vd = sat_subu<uint64_t>(vs2, rs1, sat);
+  break;
+}
+}
+P_SET_OV(sat);
+VI_LOOP_END
+----
+| vssub_vx
+a|
+[source,c]
+----
+// vssub.vx vd, vs2, rs1
+VI_CHECK_SSS(false);
+VI_LOOP_BASE
+bool sat = false;
+
+switch (sew) {
+case e8: {
+  VX_PARAMS(e8);
+  vd = sat_sub<int8_t, uint8_t>(vs2, rs1, sat);
+  break;
+}
+case e16: {
+  VX_PARAMS(e16);
+  vd = sat_sub<int16_t, uint16_t>(vs2, rs1, sat);
+  break;
+}
+case e32: {
+  VX_PARAMS(e32);
+  vd = sat_sub<int32_t, uint32_t>(vs2, rs1, sat);
+  break;
+}
+default: {
+  VX_PARAMS(e64);
+  vd = sat_sub<int64_t, uint64_t>(vs2, rs1, sat);
+  break;
+}
+}
+P_SET_OV(sat);
+VI_LOOP_END
+----
+| vsub_vx
+a|
+[source,c]
+----
+// vsub: vd[i] = (vd[i] * x[rs1]) - vs2[i]
+VI_VX_LOOP
+({
+  vd = vs2 - rs1;
+})
+----
+| vxor_vx
+a|
+[source,c]
+----
+// vxor
+VI_VX_LOOP
+({
+  vd = rs1 ^ vs2;
+})
+----
+|===

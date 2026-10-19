@@ -1,0 +1,1905 @@
+[#insns-aes32dsi, reftext="AES final round decrypt (RV32)"]
+=== aes32dsi
+
+Synopsis::
+AES final round decryption instruction for RV32.
+
+Mnemonic::
+aes32dsi rd, rs1, rs2, bs
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0x15},
+{bits: 2, name: 'bs'},
+]}
+....
+
+Description::
+This instruction sources a single byte from `rs2` according to `bs`.
+To this it applies the inverse AES SBox operation, and XOR's the result with
+`rs1`.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+Operation::
+[source,sail]
+--
+function clause execute (AES32DSI (bs,rs2,rs1,rd)) = {
+  let shamt   : bits( 5) = bs @ 0b000; /* shamt = bs*8 */
+  let si      : bits( 8) = (X(rs2)[31..0] >> shamt)[7..0]; /* SBox Input */
+  let so      : bits(32) = 0x000000 @ aes_sbox_inv(si);
+  let result  : bits(32) = X(rs1)[31..0] ^ rol32(so, unsigned(shamt));
+  X(rd) = EXTS(result); RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknd>> (RV32)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV32)
+| v1.0.0
+| Frozen
+| <<zk>> (RV32)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-aes32dsmi, reftext="AES middle round decrypt (RV32)"]
+=== aes32dsmi
+
+Synopsis::
+AES middle round decryption instruction for RV32.
+
+Mnemonic::
+aes32dsmi rd, rs1, rs2, bs
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0x17},
+{bits: 2, name: 'bs'},
+]}
+....
+
+Description::
+This instruction sources a single byte from `rs2` according to `bs`.
+To this it applies the inverse AES SBox operation, and a partial inverse
+MixColumn, before XOR'ing the result with `rs1`.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+Operation::
+[source,sail]
+--
+function clause execute (AES32DSMI (bs,rs2,rs1,rd)) = {
+  let shamt   : bits( 5) = bs @ 0b000; /* shamt = bs*8 */
+  let si      : bits( 8) = (X(rs2)[31..0] >> shamt)[7..0]; /* SBox Input */
+  let so      : bits( 8) = aes_sbox_inv(si);
+  let mixed   : bits(32) = aes_mixcolumn_byte_inv(so);
+  let result  : bits(32) = X(rs1)[31..0] ^ rol32(mixed, unsigned(shamt));
+  X(rd) = EXTS(result); RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknd>> (RV32)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV32)
+| v1.0.0
+| Frozen
+| <<zk>> (RV32)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-aes32esi, reftext="AES final round encrypt (RV32)"]
+=== aes32esi
+
+Synopsis::
+AES final round encryption instruction for RV32.
+
+Mnemonic::
+aes32esi rd, rs1, rs2, bs
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0x11},
+{bits: 2, name: 'bs'},
+]}
+....
+
+Description::
+This instruction sources a single byte from `rs2` according to `bs`.
+To this it applies the forward AES SBox operation,
+before XOR'ing the result with `rs1`.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+Operation::
+[source,sail]
+--
+function clause execute (AES32ESI (bs,rs2,rs1,rd)) = {
+  let shamt   : bits( 5) = bs @ 0b000; /* shamt = bs*8 */
+  let si      : bits( 8) = (X(rs2)[31..0] >> shamt)[7..0]; /* SBox Input */
+  let so      : bits(32) = 0x000000 @ aes_sbox_fwd(si);
+  let result  : bits(32) = X(rs1)[31..0] ^ rol32(so, unsigned(shamt));
+  X(rd) = EXTS(result); RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zkne>> (RV32)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV32)
+| v1.0.0
+| Frozen
+| <<zk>> (RV32)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-aes32esmi, reftext="AES middle round encrypt (RV32)"]
+=== aes32esmi
+
+Synopsis::
+AES middle round encryption instruction for RV32.
+
+Mnemonic::
+aes32esmi rd, rs1, rs2, bs
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0x13},
+{bits: 2, name: 'bs'},
+]}
+....
+
+Description::
+This instruction sources a single byte from `rs2` according to `bs`.
+To this it applies the forward AES SBox operation, and a partial forward
+MixColumn, before XOR'ing the result with `rs1`.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+Operation::
+[source,sail]
+--
+function clause execute (AES32ESMI (bs,rs2,rs1,rd)) = {
+  let shamt   : bits( 5) = bs @ 0b000; /* shamt = bs*8 */
+  let si      : bits( 8) = (X(rs2)[31..0] >> shamt)[7..0]; /* SBox Input */
+  let so      : bits( 8) = aes_sbox_fwd(si);
+  let mixed   : bits(32) = aes_mixcolumn_byte_fwd(so);
+  let result  : bits(32) = X(rs1)[31..0] ^ rol32(mixed, unsigned(shamt));
+  X(rd) = EXTS(result); RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zkne>> (RV32)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV32)
+| v1.0.0
+| Frozen
+| <<zk>> (RV32)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-aes64ds, reftext="AES decrypt final round (RV64)"]
+=== aes64ds
+
+Synopsis::
+AES final round decryption instruction for RV64.
+
+Mnemonic::
+aes64ds rd, rs1, rs2
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0x1d},
+{bits: 2, name: 0x0},
+]}
+....
+
+Description::
+Uses the two 64-bit source registers to represent the entire AES state,
+and produces _half_ of the next round output, applying the Inverse ShiftRows
+and SubBytes steps.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+.Note To Software Developers
+[NOTE,caption="SH"]
+====
+The following code snippet shows the final round of the AES block decryption.
+`t0` and `t1` hold the current round state.
+`t2` and `t3` hold the next round state.
+
+  aes64ds t2, t0, t1
+  aes64ds t3, t1, t0
+
+Note the reversed register order of the second instruction.
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (AES64DS(rs2, rs1, rd)) = {
+  let sr : bits(64) = aes_rv64_shiftrows_inv(X(rs2)[63..0], X(rs1)[63..0]);
+  let wd : bits(64) = sr[63..0];
+  X(rd) = aes_apply_inv_sbox_to_each_byte(wd);
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknd>> (RV64)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV64)
+| v1.0.0
+| Frozen
+| <<zk>> (RV64)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-aes64dsm, reftext="AES decrypt middle round (RV64)"]
+=== aes64dsm
+
+Synopsis::
+AES middle round decryption instruction for RV64.
+
+Mnemonic::
+aes64dsm rd, rs1, rs2
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0x1f},
+{bits: 2, name: 0x0},
+]}
+....
+
+Description::
+Uses the two 64-bit source registers to represent the entire AES state,
+and produces _half_ of the next round output, applying the Inverse ShiftRows,
+SubBytes and MixColumns steps.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+.Note To Software Developers
+[NOTE,caption="SH"]
+====
+The following code snippet shows one middle round of the AES block decryption.
+`t0` and `t1` hold the current round state.
+`t2` and `t3` hold the next round state.
+
+  aes64dsm t2, t0, t1
+  aes64dsm t3, t1, t0
+
+Note the reversed register order of the second instruction.
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (AES64DSM(rs2, rs1, rd)) = {
+  let sr : bits(64) = aes_rv64_shiftrows_inv(X(rs2)[63..0], X(rs1)[63..0]);
+  let wd : bits(64) = sr[63..0];
+  let sb : bits(64) = aes_apply_inv_sbox_to_each_byte(wd);
+  X(rd)  = aes_mixcolumn_inv(sb[63..32]) @ aes_mixcolumn_inv(sb[31..0]);
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknd>> (RV64)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV64)
+| v1.0.0
+| Frozen
+| <<zk>> (RV64)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-aes64es, reftext="AES encrypt final round instruction (RV64)"]
+=== aes64es
+
+Synopsis::
+AES final round encryption instruction for RV64.
+
+Mnemonic::
+aes64es rd, rs1, rs2
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0x19},
+{bits: 2, name: 0x0},
+]}
+....
+
+Description::
+Uses the two 64-bit source registers to represent the entire AES state,
+and produces _half_ of the next round output, applying the ShiftRows and
+SubBytes steps.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+.Note To Software Developers
+[NOTE,caption="SH"]
+====
+The following code snippet shows the final round of the AES block encryption.
+`t0` and `t1` hold the current round state.
+`t2` and `t3` hold the next round state.
+
+  aes64es t2, t0, t1
+  aes64es t3, t1, t0
+
+Note the reversed register order of the second instruction.
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (AES64ES(rs2, rs1, rd)) = {
+  let sr : bits(64) = aes_rv64_shiftrows_fwd(X(rs2)[63..0], X(rs1)[63..0]);
+  let wd : bits(64) = sr[63..0];
+  X(rd) = aes_apply_fwd_sbox_to_each_byte(wd);
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zkne>> (RV64)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV64)
+| v1.0.0
+| Frozen
+| <<zk>> (RV64)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-aes64esm, reftext="AES encrypt middle round instruction (RV64)"]
+=== aes64esm
+
+Synopsis::
+AES middle round encryption instruction for RV64.
+
+Mnemonic::
+aes64esm rd, rs1, rs2
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0x1b},
+{bits: 2, name: 0x0},
+]}
+....
+
+Description::
+Uses the two 64-bit source registers to represent the entire AES state,
+and produces _half_ of the next round output, applying the ShiftRows,
+SubBytes and MixColumns steps.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+.Note To Software Developers
+[NOTE,caption="SH"]
+====
+The following code snippet shows one middle round of the AES block encryption.
+`t0` and `t1` hold the current round state.
+`t2` and `t3` hold the next round state.
+
+  aes64esm t2, t0, t1
+  aes64esm t3, t1, t0
+
+Note the reversed register order of the second instruction.
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (AES64ESM(rs2, rs1, rd)) = {
+  let sr : bits(64) = aes_rv64_shiftrows_fwd(X(rs2)[63..0], X(rs1)[63..0]);
+  let wd : bits(64) = sr[63..0];
+  let sb : bits(64) = aes_apply_fwd_sbox_to_each_byte(wd);
+  X(rd)  =  aes_mixcolumn_fwd(sb[63..32]) @ aes_mixcolumn_fwd(sb[31..0]);
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zkne>> (RV64)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV64)
+| v1.0.0
+| Frozen
+| <<zk>> (RV64)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-aes64im, reftext="AES Decrypt KeySchedule MixColumns (RV64)"]
+=== aes64im
+
+Synopsis::
+This instruction accelerates the inverse MixColumns step of the AES
+Block Cipher, and is used to aid creation of the decryption KeySchedule.
+
+Mnemonic::
+aes64im rd, rs1
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x13},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x1},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 0x0},
+{bits: 5, name: 0x18},
+{bits: 2, name: 0x0},
+]}
+....
+
+Description::
+The instruction applies the inverse MixColumns
+transformation to two columns of the state array, packed into a single
+64-bit register.
+It is used to create the inverse cipher KeySchedule, according to
+the equivalent inverse cipher construction in
+cite:[nist:fips:197] (Page 23, Section 5.3.5).
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+Operation::
+[source,sail]
+--
+function clause execute (AES64IM(rs1, rd)) = {
+  let w0 : bits(32) = aes_mixcolumn_inv(X(rs1)[31.. 0]);
+  let w1 : bits(32) = aes_mixcolumn_inv(X(rs1)[63..32]);
+  X(rd)  = w1 @ w0;
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknd>> (RV64)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV64)
+| v1.0.0
+| Frozen
+| <<zk>> (RV64)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-aes64ks1i, reftext="AES Key Schedule Instruction 1 (RV64)"]
+=== aes64ks1i
+
+Synopsis::
+This instruction implements part of the KeySchedule operation for the
+AES Block cipher involving the SBox operation.
+
+Mnemonic::
+aes64ks1i rd, rs1, rnum
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x13},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x1},
+{bits: 5, name: 'rs1'},
+{bits: 4, name: 'rnum'},
+{bits: 1, name: 0x1},
+{bits: 5, name: 0x18},
+{bits: 2, name: 0},
+]}
+....
+
+Description::
+This instruction implements the rotation, SubBytes and Round Constant
+addition steps of the AES block cipher Key Schedule.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+Note that `rnum` must be in the range `0x0..0xA`.
+The values `0xB..0xF` are reserved.
+
+Operation::
+[source,sail]
+--
+function clause execute (AES64KS1I(rnum, rs1, rd)) = {
+  if(unsigned(rnum) > 10) then {
+    handle_illegal();  RETIRE_SUCCESS
+  } else {
+    let tmp1 : bits(32) = X(rs1)[63..32];
+    let rc   : bits(32) = aes_decode_rcon(rnum); /* round number -> round constant */
+    let tmp2 : bits(32) = if (rnum ==0xA) then tmp1 else ror32(tmp1, 8);
+    let tmp3 : bits(32) = aes_subword_fwd(tmp2);
+    let result : bits(64) = (tmp3 ^ rc) @ (tmp3 ^ rc);
+    X(rd) = EXTZ(result);
+    RETIRE_SUCCESS
+  }
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zkne>> (RV64)
+| v1.0.0
+| Frozen
+| <<zknd>> (RV64)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV64)
+| v1.0.0
+| Frozen
+| <<zk>> (RV64)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-aes64ks2, reftext="AES Key Schedule Instruction 2 (RV64)"]
+=== aes64ks2
+
+Synopsis::
+This instruction implements part of the KeySchedule operation for the
+AES Block cipher.
+
+Mnemonic::
+aes64ks2 rd, rs1, rs2
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0x1f},
+{bits: 2, name: 0x1},
+]}
+....
+
+Description::
+This instruction implements the additional XOR'ing of key words as
+part of the AES block cipher Key Schedule.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+Operation::
+[source,sail]
+--
+function clause execute (AES64KS2(rs2, rs1, rd)) = {
+  let w0 : bits(32) = X(rs1)[63..32] ^ X(rs2)[31..0];
+  let w1 : bits(32) = X(rs1)[63..32] ^ X(rs2)[31..0] ^ X(rs2)[63..32];
+  X(rd)  = w1 @ w0;
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zkne>> (RV64)
+| v1.0.0
+| Frozen
+| <<zknd>> (RV64)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV64)
+| v1.0.0
+| Frozen
+| <<zk>> (RV64)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sha256sig0, reftext="SHA2-256 Sigma0 instruction"]
+=== sha256sig0
+
+Synopsis::
+Implements the Sigma0 transformation function as used in
+the SHA2-256 hash function cite:[nist:fips:180:4] (Section 4.1.2).
+
+Mnemonic::
+sha256sig0 rd, rs1
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x13},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x1},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 0x2},
+{bits: 5, name: 0x8},
+{bits: 2, name: 0x0},
+]}
+....
+
+Description::
+This instruction is supported for both RV32 and RV64 base architectures.
+For RV32, the entire `XLEN` source register is operated on.
+For RV64, the low `32` bits of the source register are operated on, and the
+result sign extended to `XLEN` bits.
+Though named for SHA2-256, the instruction works for both the
+SHA2-224 and SHA2-256 parameterisations as described in
+cite:[nist:fips:180:4].
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+Operation::
+[source,sail]
+--
+function clause execute (SHA256SIG0(rs1,rd)) = {
+  let inb    : bits(32) = X(rs1)[31..0];
+  let result : bits(32) = ror32(inb,  7) ^ ror32(inb, 18) ^ (inb >>  3);
+  X(rd)      = EXTS(result);
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknh>>
+| v1.0.0
+| Frozen
+| <<zkn>>
+| v1.0.0
+| Frozen
+| <<zk>>
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sha256sig1, reftext="SHA2-256 Sigma1 instruction"]
+=== sha256sig1
+
+Synopsis::
+Implements the Sigma1 transformation function as used in
+the SHA2-256 hash function cite:[nist:fips:180:4] (Section 4.1.2).
+
+Mnemonic::
+sha256sig1 rd, rs1
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x13},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x1},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 0x3},
+{bits: 5, name: 0x8},
+{bits: 2, name: 0x0},
+]}
+....
+
+Description::
+This instruction is supported for both RV32 and RV64 base architectures.
+For RV32, the entire `XLEN` source register is operated on.
+For RV64, the low `32` bits of the source register are operated on, and the
+result sign extended to `XLEN` bits.
+Though named for SHA2-256, the instruction works for both the
+SHA2-224 and SHA2-256 parameterisations as described in
+cite:[nist:fips:180:4].
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+Operation::
+[source,sail]
+--
+function clause execute (SHA256SIG1(rs1,rd)) = {
+  let inb    : bits(32) = X(rs1)[31..0];
+  let result : bits(32) = ror32(inb, 17) ^ ror32(inb, 19) ^ (inb >> 10);
+  X(rd)      = EXTS(result);
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknh>>
+| v1.0.0
+| Frozen
+| <<zkn>>
+| v1.0.0
+| Frozen
+| <<zk>>
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sha256sum0, reftext="SHA2-256 Sum0 instruction"]
+=== sha256sum0
+
+Synopsis::
+Implements the Sum0 transformation function as used in
+the SHA2-256 hash function cite:[nist:fips:180:4] (Section 4.1.2).
+
+Mnemonic::
+sha256sum0 rd, rs1
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x13},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x1},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 0x0},
+{bits: 5, name: 0x8},
+{bits: 2, name: 0x0},
+]}
+....
+
+Description::
+This instruction is supported for both RV32 and RV64 base architectures.
+For RV32, the entire `XLEN` source register is operated on.
+For RV64, the low `32` bits of the source register are operated on, and the
+result sign extended to `XLEN` bits.
+Though named for SHA2-256, the instruction works for both the
+SHA2-224 and SHA2-256 parameterisations as described in
+cite:[nist:fips:180:4].
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+Operation::
+[source,sail]
+--
+function clause execute (SHA256SUM0(rs1,rd)) = {
+  let inb    : bits(32) = X(rs1)[31..0];
+  let result : bits(32) = ror32(inb,  2) ^ ror32(inb, 13) ^ ror32(inb, 22);
+  X(rd)      = EXTS(result);
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknh>>
+| v1.0.0
+| Frozen
+| <<zkn>>
+| v1.0.0
+| Frozen
+| <<zk>>
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sha256sum1, reftext="SHA2-256 Sum1 instruction"]
+=== sha256sum1
+
+Synopsis::
+Implements the Sum1 transformation function as used in
+the SHA2-256 hash function cite:[nist:fips:180:4] (Section 4.1.2).
+
+Mnemonic::
+sha256sum1 rd, rs1
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x13},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x1},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 0x1},
+{bits: 5, name: 0x8},
+{bits: 2, name: 0x0},
+]}
+....
+
+Description::
+This instruction is supported for both RV32 and RV64 base architectures.
+For RV32, the entire `XLEN` source register is operated on.
+For RV64, the low `32` bits of the source register are operated on, and the
+result sign extended to `XLEN` bits.
+Though named for SHA2-256, the instruction works for both the
+SHA2-224 and SHA2-256 parameterisations as described in
+cite:[nist:fips:180:4].
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+Operation::
+[source,sail]
+--
+function clause execute (SHA256SUM1(rs1,rd)) = {
+  let inb    : bits(32) = X(rs1)[31..0];
+  let result : bits(32) = ror32(inb,  6) ^ ror32(inb, 11) ^ ror32(inb, 25);
+  X(rd)      = EXTS(result);
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknh>>
+| v1.0.0
+| Frozen
+| <<zkn>>
+| v1.0.0
+| Frozen
+| <<zk>>
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sha512sig0, reftext="SHA2-512 Sigma0 instruction (RV64)"]
+=== sha512sig0
+
+Synopsis::
+Implements the Sigma0 transformation function as used in
+the SHA2-512 hash function cite:[nist:fips:180:4] (Section 4.1.3).
+
+Mnemonic::
+sha512sig0 rd, rs1
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x13},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x1},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 0x6},
+{bits: 5, name: 0x8},
+{bits: 2, name: 0x0},
+]}
+....
+
+Description::
+This instruction is supported for the RV64 base architecture.
+It implements the Sigma0 transform of the SHA2-512 hash function.
+cite:[nist:fips:180:4].
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+Operation::
+[source,sail]
+--
+function clause execute (SHA512SIG0(rs1, rd)) = {
+  X(rd) = ror64(X(rs1),  1) ^ ror64(X(rs1),  8) ^ (X(rs1) >> 7);
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknh>> (RV64)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV64)
+| v1.0.0
+| Frozen
+| <<zk>> (RV64)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sha512sig0h, reftext="SHA2-512 Sigma0 high (RV32)"]
+=== sha512sig0h
+
+Synopsis::
+Implements the _high half_ of the Sigma0 transformation, as
+used in the SHA2-512 hash function cite:[nist:fips:180:4] (Section 4.1.3).
+
+Mnemonic::
+sha512sig0h rd, rs1, rs2
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0xe},
+{bits: 2, name: 0x1},
+]}
+....
+
+Description::
+This instruction is implemented on RV32 only.
+Used to compute the Sigma0 transform of the SHA2-512 hash function
+in conjunction with the <<insns-sha512sig0l,`sha512sig0l`>> instruction.
+The transform is a 64-bit to 64-bit function, so the input and output
+are each represented by two 32-bit registers.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+[TIP]
+.Note to software developers
+====
+The entire Sigma0 transform for SHA2-512 may be computed on RV32
+using the following instruction sequence:
+
+ sha512sig0l    t0, a0, a1
+ sha512sig0h    t1, a1, a0
+
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (SHA512SIG0H(rs2, rs1, rd)) = {
+  X(rd) = EXTS((X(rs1) >>  1) ^ (X(rs1) >>  7) ^ (X(rs1) >>  8) ^
+               (X(rs2) << 31)                  ^ (X(rs2) << 24) );
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknh>> (RV32)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV32)
+| v1.0.0
+| Frozen
+| <<zk>> (RV32)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sha512sig0l, reftext="SHA2-512 Sigma0 low (RV32)"]
+=== sha512sig0l
+
+Synopsis::
+Implements the _low half_ of the Sigma0 transformation, as
+used in the SHA2-512 hash function cite:[nist:fips:180:4] (Section 4.1.3).
+
+Mnemonic::
+sha512sig0l rd, rs1, rs2
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0xa},
+{bits: 2, name: 0x1},
+]}
+....
+
+Description::
+This instruction is implemented on RV32 only.
+Used to compute the Sigma0 transform of the SHA2-512 hash function
+in conjunction with the <<insns-sha512sig0h,`sha512sig0h`>> instruction.
+The transform is a 64-bit to 64-bit function, so the input and output
+are each represented by two 32-bit registers.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+[TIP]
+.Note to software developers
+====
+The entire Sigma0 transform for SHA2-512 may be computed on RV32
+using the following instruction sequence:
+
+ sha512sig0l    t0, a0, a1
+ sha512sig0h    t1, a1, a0
+
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (SHA512SIG0L(rs2, rs1, rd)) = {
+  X(rd) = EXTS((X(rs1) >>  1) ^ (X(rs1) >>  7) ^ (X(rs1) >>  8) ^
+               (X(rs2) << 31) ^ (X(rs2) << 25) ^ (X(rs2) << 24) );
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknh>> (RV32)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV32)
+| v1.0.0
+| Frozen
+| <<zk>> (RV32)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sha512sig1, reftext="SHA2-512 Sigma1 instruction (RV64)"]
+=== sha512sig1
+
+Synopsis::
+Implements the Sigma1 transformation function as used in
+the SHA2-512 hash function cite:[nist:fips:180:4] (Section 4.1.3).
+
+Mnemonic::
+sha512sig1 rd, rs1
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x13},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x1},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 0x7},
+{bits: 5, name: 0x8},
+{bits: 2, name: 0x0},
+]}
+....
+
+Description::
+This instruction is supported for the RV64 base architecture.
+It implements the Sigma1 transform of the SHA2-512 hash function.
+cite:[nist:fips:180:4].
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+Operation::
+[source,sail]
+--
+function clause execute (SHA512SIG1(rs1, rd)) = {
+  X(rd) = ror64(X(rs1), 19) ^ ror64(X(rs1), 61) ^ (X(rs1) >> 6);
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknh>> (RV64)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV64)
+| v1.0.0
+| Frozen
+| <<zk>> (RV64)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sha512sig1h, reftext="SHA2-512 Sigma1 high (RV32)"]
+=== sha512sig1h
+
+Synopsis::
+Implements the _high half_ of the Sigma1 transformation, as
+used in the SHA2-512 hash function cite:[nist:fips:180:4] (Section 4.1.3).
+
+Mnemonic::
+sha512sig1h rd, rs1, rs2
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0xf},
+{bits: 2, name: 0x1},
+]}
+....
+
+Description::
+This instruction is implemented on RV32 only.
+Used to compute the Sigma1 transform of the SHA2-512 hash function
+in conjunction with the <<insns-sha512sig1l,`sha512sig1l`>> instruction.
+The transform is a 64-bit to 64-bit function, so the input and output
+are each represented by two 32-bit registers.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+[TIP]
+.Note to software developers
+====
+The entire Sigma1 transform for SHA2-512 may be computed on RV32
+using the following instruction sequence:
+
+ sha512sig1l    t0, a0, a1
+ sha512sig1h    t1, a1, a0
+
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (SHA512SIG1H(rs2, rs1, rd)) = {
+  X(rd) = EXTS((X(rs1) <<  3) ^ (X(rs1) >>  6) ^ (X(rs1) >> 19) ^
+               (X(rs2) >> 29)                  ^ (X(rs2) << 13) );
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknh>> (RV32)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV32)
+| v1.0.0
+| Frozen
+| <<zk>> (RV32)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sha512sig1l, reftext="SHA2-512 Sigma1 low (RV32)"]
+=== sha512sig1l
+
+Synopsis::
+Implements the _low half_ of the Sigma1 transformation, as
+used in the SHA2-512 hash function cite:[nist:fips:180:4] (Section 4.1.3).
+
+Mnemonic::
+sha512sig1l rd, rs1, rs2
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0xb},
+{bits: 2, name: 0x1},
+]}
+....
+
+Description::
+This instruction is implemented on RV32 only.
+Used to compute the Sigma1 transform of the SHA2-512 hash function
+in conjunction with the <<insns-sha512sig1h,`sha512sig1h`>> instruction.
+The transform is a 64-bit to 64-bit function, so the input and output
+are each represented by two 32-bit registers.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+[TIP]
+.Note to software developers
+====
+The entire Sigma1 transform for SHA2-512 may be computed on RV32
+using the following instruction sequence:
+
+ sha512sig1l    t0, a0, a1
+ sha512sig1h    t1, a1, a0
+
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (SHA512SIG1L(rs2, rs1, rd)) = {
+  X(rd) = EXTS((X(rs1) <<  3) ^ (X(rs1) >>  6) ^ (X(rs1) >> 19) ^
+               (X(rs2) >> 29) ^ (X(rs2) << 26) ^ (X(rs2) << 13) );
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknh>> (RV32)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV32)
+| v1.0.0
+| Frozen
+| <<zk>> (RV32)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sha512sum0, reftext="SHA2-512 Sum0 instruction (RV64)"]
+=== sha512sum0
+
+Synopsis::
+Implements the Sum0 transformation function as used in
+the SHA2-512 hash function cite:[nist:fips:180:4] (Section 4.1.3).
+
+Mnemonic::
+sha512sum0 rd, rs1
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x13},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x1},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 0x4},
+{bits: 5, name: 0x8},
+{bits: 2, name: 0x0},
+]}
+....
+
+Description::
+This instruction is supported for the RV64 base architecture.
+It implements the Sum0 transform of the SHA2-512 hash function.
+cite:[nist:fips:180:4].
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+Operation::
+[source,sail]
+--
+function clause execute (SHA512SUM0(rs1, rd)) = {
+  X(rd) = ror64(X(rs1), 28) ^ ror64(X(rs1), 34) ^ ror64(X(rs1) ,39);
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknh>> (RV64)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV64)
+| v1.0.0
+| Frozen
+| <<zk>> (RV64)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sha512sum0r, reftext="SHA2-512 Sum0 (RV32)"]
+=== sha512sum0r
+
+Synopsis::
+Implements the Sum0 transformation, as
+used in the SHA2-512 hash function cite:[nist:fips:180:4] (Section 4.1.3).
+
+Mnemonic::
+sha512sum0r rd, rs1, rs2
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0x8},
+{bits: 2, name: 0x1},
+]}
+....
+
+Description::
+This instruction is implemented on RV32 only.
+Used to compute the Sum0 transform of the SHA2-512 hash function.
+The transform is a 64-bit to 64-bit function, so the input and output
+is represented by two 32-bit registers.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+[TIP]
+.Note to software developers
+====
+The entire Sum0 transform for SHA2-512 may be computed on RV32
+using the following instruction sequence:
+
+ sha512sum0r    t0, a0, a1
+ sha512sum0r    t1, a1, a0
+
+Note the reversed source register ordering.
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (SHA512SUM0R(rs2, rs1, rd)) = {
+  X(rd) = EXTS((X(rs1) << 25) ^ (X(rs1) << 30) ^ (X(rs1) >> 28) ^
+               (X(rs2) >>  7) ^ (X(rs2) >>  2) ^ (X(rs2) <<  4) );
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknh>> (RV32)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV32)
+| v1.0.0
+| Frozen
+| <<zk>> (RV32)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sha512sum1, reftext="SHA2-512 Sum1 instruction (RV64)"]
+=== sha512sum1
+
+Synopsis::
+Implements the Sum1 transformation function as used in
+the SHA2-512 hash function cite:[nist:fips:180:4] (Section 4.1.3).
+
+Mnemonic::
+sha512sum1 rd, rs1
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x13},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x1},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 0x5},
+{bits: 5, name: 0x8},
+{bits: 2, name: 0x0},
+]}
+....
+
+Description::
+This instruction is supported for the RV64 base architecture.
+It implements the Sum1 transform of the SHA2-512 hash function.
+cite:[nist:fips:180:4].
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+Operation::
+[source,sail]
+--
+function clause execute (SHA512SUM1(rs1, rd)) = {
+  X(rd) = ror64(X(rs1), 14) ^ ror64(X(rs1), 18) ^ ror64(X(rs1) ,41);
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknh>> (RV64)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV64)
+| v1.0.0
+| Frozen
+| <<zk>> (RV64)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sha512sum1r, reftext="SHA2-512 Sum1 (RV32)"]
+=== sha512sum1r
+
+Synopsis::
+Implements the Sum1 transformation, as
+used in the SHA2-512 hash function cite:[nist:fips:180:4] (Section 4.1.3).
+
+Mnemonic::
+sha512sum1r rd, rs1, rs2
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0x9},
+{bits: 2, name: 0x1},
+]}
+....
+
+Description::
+This instruction is implemented on RV32 only.
+Used to compute the Sum1 transform of the SHA2-512 hash function.
+The transform is a 64-bit to 64-bit function, so the input and output
+is represented by two 32-bit registers.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+[TIP]
+.Note to software developers
+====
+The entire Sum1 transform for SHA2-512 may be computed on RV32
+using the following instruction sequence:
+
+ sha512sum1r    t0, a0, a1
+ sha512sum1r    t1, a1, a0
+
+Note the reversed source register ordering.
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (SHA512SUM1R(rs2, rs1, rd)) = {
+  X(rd) = EXTS((X(rs1) << 23) ^ (X(rs1) >> 14) ^ (X(rs1) >> 18) ^
+               (X(rs2) >>  9) ^ (X(rs2) << 18) ^ (X(rs2) << 14) );
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zknh>> (RV32)
+| v1.0.0
+| Frozen
+| <<zkn>> (RV32)
+| v1.0.0
+| Frozen
+| <<zk>> (RV32)
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sm3p0, reftext="SM3 P0 transform"]
+=== sm3p0
+
+Synopsis::
+Implements the _P0_ transformation function as used in
+the SM3 hash function cite:[gbt:sm3,iso:sm3].
+
+Mnemonic::
+sm3p0 rd, rs1
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x13},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x1},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 0x8},
+{bits: 5, name: 0x8},
+{bits: 2, name: 0x0},
+]}
+....
+
+Description::
+This instruction is supported for the RV32 and RV64 base architectures.
+It implements the _P0_ transform of the SM3 hash function cite:[gbt:sm3,iso:sm3].
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+.Supporting Material
+[NOTE]
+====
+This instruction is based on work done in cite:[MJS:LWSHA:20].
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (SM3P0(rs1, rd)) = {
+  let r1     : bits(32) = X(rs1)[31..0];
+  let result : bits(32) =  r1 ^ rol32(r1,  9) ^ rol32(r1, 17);
+  X(rd) = EXTS(result);
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zksh>>
+| v1.0.0
+| Frozen
+| <<zks>>
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sm3p1, reftext="SM3 P1 transform"]
+=== sm3p1
+
+Synopsis::
+Implements the _P1_ transformation function as used in
+the SM3 hash function cite:[gbt:sm3,iso:sm3].
+
+Mnemonic::
+sm3p1 rd, rs1
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x13},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x1},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 0x9},
+{bits: 5, name: 0x8},
+{bits: 2, name: 0x0},
+]}
+....
+
+Description::
+This instruction is supported for the RV32 and RV64 base architectures.
+It implements the _P1_ transform of the SM3 hash function cite:[gbt:sm3,iso:sm3].
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+.Supporting Material
+[NOTE]
+====
+This instruction is based on work done in cite:[MJS:LWSHA:20].
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (SM3P1(rs1, rd)) = {
+  let r1     : bits(32) = X(rs1)[31..0];
+  let result : bits(32) =  r1 ^ rol32(r1, 15) ^ rol32(r1, 23);
+  X(rd) = EXTS(result);
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zksh>>
+| v1.0.0
+| Frozen
+| <<zks>>
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sm4ed, reftext="SM4 Encrypt/Decrypt Instruction"]
+=== sm4ed
+
+Synopsis::
+Accelerates the block encrypt/decrypt operation of the SM4 block cipher
+cite:[gbt:sm4, iso:sm4].
+
+Mnemonic::
+sm4ed rd, rs1, rs2, bs
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0x18},
+{bits: 2, name: 'bs'},
+]}
+....
+
+Description::
+Implements a T-tables in hardware style approach to accelerating the
+SM4 round function.
+A byte is extracted from `rs2` based on `bs`, to which the SBox and
+linear layer transforms are applied, before the result is XOR'd with
+`rs1` and written back to `rd`.
+This instruction exists on RV32 and RV64 base architectures.
+On RV64, the 32-bit result is sign extended to XLEN bits.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+Operation::
+[source,sail]
+--
+function clause execute (SM4ED (bs,rs2,rs1,rd)) = {
+  let shamt : bits(5)  = bs @ 0b000; /* shamt = bs*8 */
+  let sb_in : bits(8)  = (X(rs2)[31..0] >> shamt)[7..0];
+  let x     : bits(32) = 0x000000 @ sm4_sbox(sb_in);
+  let y     : bits(32) = x ^ (x               <<  8) ^ ( x               <<  2) ^
+                             (x               << 18) ^ ((x & 0x0000003F) << 26) ^
+                             ((x & 0x000000C0) << 10);
+  let z     : bits(32) = rol32(y, unsigned(shamt));
+  let result: bits(32) = z ^ X(rs1)[31..0];
+  X(rd)                = EXTS(result);
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zksed>>
+| v1.0.0
+| Frozen
+| <<zks>>
+| v1.0.0
+| Frozen
+|===
+
+[#insns-sm4ks, reftext="SM4 Key Schedule Instruction"]
+=== sm4ks
+
+Synopsis::
+Accelerates the Key Schedule operation of the SM4 block cipher
+cite:[gbt:sm4, iso:sm4].
+
+Mnemonic::
+sm4ks rd, rs1, rs2, bs
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 0x33},
+{bits: 5, name: 'rd'},
+{bits: 3, name: 0x0},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'rs2'},
+{bits: 5, name: 0x1a},
+{bits: 2, name: 'bs'},
+]}
+....
+
+Description::
+Implements a T-tables in hardware style approach to accelerating the
+SM4 Key Schedule.
+A byte is extracted from `rs2` based on `bs`, to which the SBox and
+linear layer transforms are applied, before the result is XOR'd with
+`rs1` and written back to `rd`.
+This instruction exists on RV32 and RV64 base architectures.
+On RV64, the 32-bit result is sign extended to XLEN bits.
+This instruction must _always_ be implemented such that its execution
+latency does not depend on the data being operated on.
+
+Operation::
+[source,sail]
+--
+function clause execute (SM4KS (bs,rs2,rs1,rd)) = {
+  let shamt : bits(5)  = (bs @ 0b000); /* shamt = bs*8 */
+  let sb_in : bits(8)  = (X(rs2)[31..0] >> shamt)[7..0];
+  let x     : bits(32) = 0x000000 @ sm4_sbox(sb_in);
+  let y     : bits(32) = x ^ ((x & 0x00000007) << 29) ^ ((x & 0x000000FE) <<  7) ^
+                             ((x & 0x00000001) << 23) ^ ((x & 0x000000F8) << 13) ;
+  let z     : bits(32) = rol32(y, unsigned(shamt));
+  let result: bits(32) = z ^ X(rs1)[31..0];
+  X(rd) = EXTS(result);
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+[%header,cols="4,2,2"]
+|===
+|Extension
+|Minimum version
+|Lifecycle state
+
+| <<zksed>>
+| v1.0.0
+| Frozen
+| <<zks>>
+| v1.0.0
+| Frozen
+|===

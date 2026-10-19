@@ -1,0 +1,22 @@
+page:
+  size: A4
+  layout: landscape
+  margin: [2cm, 2cm, 2cm, 2cm]
+
+base:
+  font-family: Times-Roman
+  font-size: 11
+  line-height-length: 1.4
+
+heading:
+  font-family: Helvetica
+  font-style: bold
+  font-color: #333333
+
+title-page:
+  align: center
+
+footer:
+  recto:
+    right:
+      content: "{page-number}"

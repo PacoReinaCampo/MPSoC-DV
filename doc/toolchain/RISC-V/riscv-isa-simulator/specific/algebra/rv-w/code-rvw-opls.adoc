@@ -1,0 +1,414 @@
+= RV Instructions Code
+
+[cols="1,4", options="header"]
+|===
+| instruction | code
+| vl1re16_v
+a|
+[source,c]
+----
+// vl1re16.v vd, (rs1)
+VI_LD_WHOLE(uint16);
+----
+| vl1re32_v
+a|
+[source,c]
+----
+// vl1re32.v vd, (rs1)
+VI_LD_WHOLE(uint32);
+----
+| vl1re64_v
+a|
+[source,c]
+----
+// vl1re64.v vd, (rs1)
+VI_LD_WHOLE(uint64);
+----
+| vl1re8_v
+a|
+[source,c]
+----
+// vl1re8.v vd, (rs1)
+VI_LD_WHOLE(uint8);
+----
+| vl2re16_v
+a|
+[source,c]
+----
+// vl2e16.v vd, (rs1)
+VI_LD_WHOLE(uint16);
+----
+| vl2re32_v
+a|
+[source,c]
+----
+// vl2re32.v vd, (rs1)
+VI_LD_WHOLE(uint32);
+----
+| vl2re64_v
+a|
+[source,c]
+----
+// vl2re64.v vd, (rs1)
+VI_LD_WHOLE(uint64);
+----
+| vl2re8_v
+a|
+[source,c]
+----
+// vl2re8.v vd, (rs1)
+VI_LD_WHOLE(uint8);
+----
+| vl4re16_v
+a|
+[source,c]
+----
+// vl4re16.v vd, (rs1)
+VI_LD_WHOLE(uint16);
+----
+| vl4re32_v
+a|
+[source,c]
+----
+// vl4re32.v vd, (rs1)
+VI_LD_WHOLE(uint32);
+----
+| vl4re64_v
+a|
+[source,c]
+----
+// vl4re64.v vd, (rs1)
+VI_LD_WHOLE(uint64);
+----
+| vl4re8_v
+a|
+[source,c]
+----
+// vl4re8.v vd, (rs1)
+VI_LD_WHOLE(uint8);
+----
+| vl8re16_v
+a|
+[source,c]
+----
+// vl8re16.v vd, (rs1)
+VI_LD_WHOLE(uint16);
+----
+| vl8re32_v
+a|
+[source,c]
+----
+// vl8re32.v vd, (rs1)
+VI_LD_WHOLE(uint32);
+----
+| vl8re64_v
+a|
+[source,c]
+----
+// vl8re64.v vd, (rs1)
+VI_LD_WHOLE(uint64);
+----
+| vl8re8_v
+a|
+[source,c]
+----
+// vl8re8.v vd, (rs1)
+VI_LD_WHOLE(uint8);
+----
+| vle16ff_v
+a|
+[source,c]
+----
+// vle16ff.v and vlseg[2-8]e16ff.v
+VI_LDST_FF(int16);
+----
+| vle16_v
+a|
+[source,c]
+----
+// vle16.v and vlseg[2-8]e16.v
+VI_LD(0, (i * nf + fn), int16, false);
+----
+| vle32ff_v
+a|
+[source,c]
+----
+// vle32ff.v and vlseg[2-8]e32ff.v
+VI_LDST_FF(int32);
+----
+| vle32_v
+a|
+[source,c]
+----
+// vle32.v and vlseg[2-8]e32.v
+VI_LD(0, (i * nf + fn), int32, false);
+----
+| vle64ff_v
+a|
+[source,c]
+----
+// vle64ff.v and vlseg[2-8]e64ff.v
+VI_LDST_FF(int64);
+----
+| vle64_v
+a|
+[source,c]
+----
+// vle64.v and vlseg[2-8]e64.v
+VI_LD(0, (i * nf + fn), int64, false);
+----
+| vle8ff_v
+a|
+[source,c]
+----
+// vle8ff.v and vlseg[2-8]e8ff.v
+VI_LDST_FF(int8);
+----
+| vle8_v
+a|
+[source,c]
+----
+// vle8.v and vlseg[2-8]e8.v
+VI_LD(0, (i * nf + fn), int8, false);
+----
+| vlm_v
+a|
+[source,c]
+----
+// vle1.v and vlseg[2-8]e8.v
+VI_LD(0, (i * nf + fn), int8, true);
+----
+| vloxei16_v
+a|
+[source,c]
+----
+// vlxei16.v and vlxseg[2-8]e16.v
+VI_LD_INDEX(e16, true);
+----
+| vloxei32_v
+a|
+[source,c]
+----
+// vlxe32.v and vlxseg[2-8]ei32.v
+VI_LD_INDEX(e32, true);
+----
+| vloxei64_v
+a|
+[source,c]
+----
+// vlxei64.v and vlxseg[2-8]ei64.v
+VI_LD_INDEX(e64, true);
+
+----
+| vloxei8_v
+a|
+[source,c]
+----
+// vlxei8.v and vlxseg[2-8]ei8.v
+VI_LD_INDEX(e8, true);
+----
+| vlse16_v
+a|
+[source,c]
+----
+// vlse16.v and vlsseg[2-8]e16.v
+VI_LD(i * RS2, fn, int16, false);
+----
+| vlse32_v
+a|
+[source,c]
+----
+// vlse32.v and vlsseg[2-8]e32.v
+VI_LD(i * RS2, fn, int32, false);
+----
+| vlse64_v
+a|
+[source,c]
+----
+// vlse64.v and vlsseg[2-8]e64.v
+VI_LD(i * RS2, fn, int64, false);
+----
+| vlse8_v
+a|
+[source,c]
+----
+// vlse8.v and vlsseg[2-8]e8.v
+VI_LD(i * RS2, fn, int8, false);
+----
+| vluxei16_v
+a|
+[source,c]
+----
+// vlxei16.v and vlxseg[2-8]e16.v
+VI_LD_INDEX(e16, true);
+----
+| vluxei32_v
+a|
+[source,c]
+----
+// vlxe32.v and vlxseg[2-8]ei32.v
+VI_LD_INDEX(e32, true);
+----
+| vluxei64_v
+a|
+[source,c]
+----
+// vlxei64.v and vlxseg[2-8]ei64.v
+VI_LD_INDEX(e64, true);
+
+----
+| vluxei8_v
+a|
+[source,c]
+----
+// vlxei8.v and vlxseg[2-8]ei8.v
+VI_LD_INDEX(e8, true);
+----
+| vs1r_v
+a|
+[source,c]
+----
+// vs1r.v vs3, (rs1)
+VI_ST_WHOLE
+----
+| vs2r_v
+a|
+[source,c]
+----
+// vs2r.v vs3, (rs1)
+VI_ST_WHOLE
+----
+| vs4r_v
+a|
+[source,c]
+----
+// vs4r.v vs3, (rs1)
+VI_ST_WHOLE
+----
+| vs8r_v
+a|
+[source,c]
+----
+// vs8r.v vs3, (rs1)
+VI_ST_WHOLE
+----
+| vse16_v
+a|
+[source,c]
+----
+// vse16.v and vsseg[2-8]e16.v
+VI_ST(0, (i * nf + fn), uint16, false);
+----
+| vse32_v
+a|
+[source,c]
+----
+// vse32.v and vsseg[2-8]e32.v
+VI_ST(0, (i * nf + fn), uint32, false);
+----
+| vse64_v
+a|
+[source,c]
+----
+// vse64.v and vsseg[2-8]e64.v
+VI_ST(0, (i * nf + fn), uint64, false);
+----
+| vse8_v
+a|
+[source,c]
+----
+// vse8.v and vsseg[2-8]e8.v
+VI_ST(0, (i * nf + fn), uint8, false);
+----
+| vsm_v
+a|
+[source,c]
+----
+// vse1.v
+VI_ST(0, (i * nf + fn), uint8, true);
+----
+| vsoxei16_v
+a|
+[source,c]
+----
+// vsxei16.v and vsxseg[2-8]ei16.v
+VI_ST_INDEX(e16, true);
+----
+| vsoxei32_v
+a|
+[source,c]
+----
+// vsxei32.v and vsxseg[2-8]ei32.v
+VI_ST_INDEX(e32, true);
+----
+| vsoxei64_v
+a|
+[source,c]
+----
+// vsxei64.v and vsxseg[2-8]ei64.v
+VI_ST_INDEX(e64, true);
+----
+| vsoxei8_v
+a|
+[source,c]
+----
+// vsxei8.v and vsxseg[2-8]ei8.v
+VI_ST_INDEX(e8, true);
+----
+| vsse16_v
+a|
+[source,c]
+----
+// vsse16v and vssseg[2-8]e16.v
+VI_ST(i * RS2, fn, uint16, false);
+----
+| vsse32_v
+a|
+[source,c]
+----
+// vsse32.v and vssseg[2-8]e32.v
+VI_ST(i * RS2, fn, uint32, false);
+----
+| vsse64_v
+a|
+[source,c]
+----
+// vsse64.v and vssseg[2-8]e64.v
+VI_ST(i * RS2, fn, uint64, false);
+----
+| vsse8_v
+a|
+[source,c]
+----
+// vsse8.v and vssseg[2-8]e8.v
+VI_ST(i * RS2, fn, uint8, false);
+----
+| vsuxei16_v
+a|
+[source,c]
+----
+// vsuxe16.v
+VI_ST_INDEX(e16, true);
+----
+| vsuxei32_v
+a|
+[source,c]
+----
+// vsuxe32.v
+VI_ST_INDEX(e32, true);
+----
+| vsuxei64_v
+a|
+[source,c]
+----
+// vsuxe64.v
+VI_ST_INDEX(e64, true);
+----
+| vsuxei8_v
+a|
+[source,c]
+----
+// vsuxe8.v
+VI_ST_INDEX(e8, true);
+----
+|===

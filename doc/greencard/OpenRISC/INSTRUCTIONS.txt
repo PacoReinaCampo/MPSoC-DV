@@ -1,0 +1,54 @@
+instructions
+├── base
+│   ├── ORBIS32
+│   │   ├── description.md
+│   │   ├── instructions.md
+│   │   └── pseudocode.md
+│   └── ORBIS64
+│       ├── description.md
+│       ├── instructions.md
+│       └── pseudocode.md
+├── specific
+│   ├── ORVDX32
+│   │   ├── description.md
+│   │   ├── instructions.md
+│   │   └── pseudocode.md
+│   ├── ORVDX64
+│   │   ├── description.md
+│   │   ├── instructions.md
+│   │   └── pseudocode.md
+│   ├── ORWDX32
+│   │   ├── description.md
+│   │   ├── instructions.md
+│   │   └── pseudocode.md
+│   ├── ORWDX64
+│   │   ├── description.md
+│   │   ├── instructions.md
+│   │   └── pseudocode.md
+│   ├── ORYDX32
+│   │   ├── description.md
+│   │   ├── instructions.md
+│   │   └── pseudocode.md
+│   └── ORYDX64
+│       ├── description.md
+│       ├── instructions.md
+│       └── pseudocode.md
+└── standard
+    ├── ORFPX128
+    │   ├── description.md
+    │   ├── instructions.md
+    │   └── pseudocode.md
+    ├── ORFPX16
+    │   ├── description.md
+    │   ├── instructions.md
+    │   └── pseudocode.md
+    ├── ORFPX32
+    │   ├── description.md
+    │   ├── instructions.md
+    │   └── pseudocode.md
+    └── ORFPX64
+        ├── description.md
+        ├── instructions.md
+        └── pseudocode.md
+
+15 directories, 36 files

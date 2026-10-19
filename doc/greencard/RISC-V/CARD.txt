@@ -1,0 +1,59 @@
+card
+├── base
+│   ├── rv-e
+│   │   └── greencard.md
+│   └── rv-i
+│       └── greencard.md
+├── specific
+│   ├── Algebra
+│   │   ├── rv-v
+│   │   │   └── greencard.md
+│   │   ├── rv-w
+│   │   │   └── greencard.md
+│   │   └── rv-y
+│   │       └── greencard.md
+│   ├── Arithmetic
+│   │   ├── rv-d
+│   │   │   └── greencard.md
+│   │   ├── rv-f
+│   │   │   └── greencard.md
+│   │   └── rv-q
+│   │       └── greencard.md
+│   ├── Cryptography
+│   │   ├── rv-vk
+│   │   │   └── greencard.md
+│   │   ├── rv-wk
+│   │   │   └── greencard.md
+│   │   ├── rv-xk
+│   │   │   └── greencard.md
+│   │   └── rv-yk
+│   │       └── greencard.md
+│   ├── Parallelism
+│   │   ├── rv-b
+│   │   │   └── greencard.md
+│   │   ├── rv-n
+│   │   │   └── greencard.md
+│   │   ├── rv-p
+│   │   │   └── greencard.md
+│   │   └── rv-t
+│   │       └── greencard.md
+│   └── Privilege
+│       ├── rv-h
+│       │   └── greencard.md
+│       ├── rv-m
+│       │   └── greencard.md
+│       ├── rv-s
+│       │   └── greencard.md
+│       └── rv-u
+│           └── greencard.md
+└── standard
+    ├── rv-a
+    │   └── greencard.md
+    ├── rv-c
+    │   └── greencard.md
+    ├── rv-m
+    │   └── greencard.md
+    └── rv-o
+        └── greencard.md
+
+32 directories, 24 files

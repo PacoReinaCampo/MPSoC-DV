@@ -1,0 +1,632 @@
+= RV Instructions Code
+
+[cols="1,4", options="header"]
+|===
+| instruction | code
+| vadc_vvm
+a|
+[source,c]
+----
+// vadc.vvm vd, vs2, rs1, v0
+VI_VV_LOOP_WITH_CARRY
+({
+  vd = (uint128_t)((op_mask & vs1) + (op_mask & vs2) + carry);
+})
+----
+| vadd_vv
+a|
+[source,c]
+----
+// vadd.vv vd, vs1, vs2, vm
+VI_VV_LOOP
+({
+  vd = vs1 + vs2;
+})
+----
+| vand_vv
+a|
+[source,c]
+----
+// vand.vv vd, vs1, vs2, vm
+VI_VV_LOOP
+({
+  vd = vs1 & vs2;
+})
+----
+| vmadc_vv
+a|
+[source,c]
+----
+// vmadc.vvm vd, vs2, rs1
+#include "vmadc_vvm.h"
+----
+| vmadc_vvm
+a|
+[source,c]
+----
+// vmadc.vvm vd, vs2, rs1, v0
+VI_VV_LOOP_CARRY
+({
+  res = (((op_mask & vs1) + (op_mask & vs2) + carry) >> sew) & 0x1u;
+})
+----
+| vmaxu_vv
+a|
+[source,c]
+----
+// vmaxu.vv vd, vs2, vs1, vm   # Vector-vector
+VI_VV_ULOOP
+({
+  if (vs1 >= vs2) {
+    vd = vs1;
+  } else {
+    vd = vs2;
+  }
+})
+----
+| vmax_vv
+a|
+[source,c]
+----
+// vmax.vv vd, vs2, vs1, vm   # Vector-vector
+VI_VV_LOOP
+({
+  if (vs1 >= vs2) {
+    vd = vs1;
+  } else {
+    vd = vs2;
+  }
+
+})
+----
+| vmerge_vvm
+a|
+[source,c]
+----
+// vmerge.vvm vd, vs2, vs1
+VI_VV_MERGE_LOOP
+({
+  vd = use_first ? vs1 : vs2;
+})
+----
+| vminu_vv
+a|
+[source,c]
+----
+// vminu.vv vd, vs2, vs1, vm   # Vector-vector
+VI_VV_ULOOP
+({
+  if (vs1 <= vs2) {
+    vd = vs1;
+  } else {
+    vd = vs2;
+  }
+})
+----
+| vmin_vv
+a|
+[source,c]
+----
+// vmin.vv vd, vs2, vs1, vm   # Vector-vector
+VI_VV_LOOP
+({
+  if (vs1 <= vs2) {
+    vd = vs1;
+  } else {
+    vd = vs2;
+  }
+
+
+})
+----
+| vmsbc_vv
+a|
+[source,c]
+----
+// vmsbc.vv vd, vs2, rs1
+#include "vmsbc_vvm.h"
+----
+| vmsbc_vvm
+a|
+[source,c]
+----
+// vmsbc.vvm vd, vs2, rs1, v0
+VI_VV_LOOP_CARRY
+({
+  res = (((op_mask & vs2) - (op_mask & vs1) - carry) >> sew) & 0x1u;
+})
+----
+| vmseq_vv
+a|
+[source,c]
+----
+// vseq.vv vd, vs2, vs1
+VI_VV_LOOP_CMP
+({
+  res = vs2 == vs1;
+})
+
+----
+| vmsleu_vv
+a|
+[source,c]
+----
+// vsleu.vv vd, vs2, vs1
+VI_VV_ULOOP_CMP
+({
+  res = vs2 <= vs1;
+})
+----
+| vmsle_vv
+a|
+[source,c]
+----
+// vsle.vv vd, vs2, vs1
+VI_VV_LOOP_CMP
+({
+  res = vs2 <= vs1;
+})
+----
+| vmsltu_vv
+a|
+[source,c]
+----
+// vsltu.vv  vd, vs2, vs1
+VI_VV_ULOOP_CMP
+({
+  res = vs2 < vs1;
+})
+----
+| vmslt_vv
+a|
+[source,c]
+----
+// vslt.vv  vd, vd2, vs1
+VI_VV_LOOP_CMP
+({
+  res = vs2 < vs1;
+})
+----
+| vmsne_vv
+a|
+[source,c]
+----
+// vneq.vv  vd, vs2, vs1
+VI_VV_LOOP_CMP
+({
+  res = vs2 != vs1;
+})
+----
+| vmv_v_v
+a|
+[source,c]
+----
+// vvmv.v.v vd, vs1
+VI_VV_MERGE_LOOP
+({
+  vd = vs1;
+})
+----
+| vnclipu_wv
+a|
+[source,c]
+----
+// vnclipu: vd[i] = clip(round(vs2[i] + rnd) >> vs1[i])
+VI_VV_LOOP_NARROW
+({
+  VRM xrm = P.VU.get_vround_mode();
+  uint64_t uint_max = UINT64_MAX >> (64 - P.VU.vsew);
+  uint64_t sign_mask = UINT64_MAX << P.VU.vsew;
+  uint128_t result = vs2_u;
+  unsigned shift = vs1 & ((sew * 2) - 1);
+
+  // rounding
+  INT_ROUNDING(result, xrm, shift);
+
+  result = result >> shift;
+
+  // saturation
+  if (result & sign_mask) {
+    result = uint_max;
+    P_SET_OV(1);
+  }
+
+  vd = result;
+})
+----
+| vnclip_wv
+a|
+[source,c]
+----
+// vnclip: vd[i] = clip(round(vs2[i] + rnd) >> vs1[i])
+VI_VV_LOOP_NARROW
+({
+  VRM xrm = P.VU.get_vround_mode();
+  int64_t int_max = INT64_MAX >> (64 - P.VU.vsew);
+  int64_t int_min = INT64_MIN >> (64 - P.VU.vsew);
+  int128_t result = vs2;
+  unsigned shift = vs1 & ((sew * 2) - 1);
+
+  // rounding
+  INT_ROUNDING(result, xrm, shift);
+
+  result = result >> shift;
+
+  // saturation
+  if (result < int_min) {
+    result = int_min;
+    P_SET_OV(1);
+  } else if (result > int_max) {
+    result = int_max;
+    P_SET_OV(1);
+  }
+
+  vd = result;
+})
+----
+| vnsra_wv
+a|
+[source,c]
+----
+// vnsra.vv vd, vs2, vs1
+VI_VV_LOOP_NSHIFT
+({
+  vd = vs2 >> (vs1 & (sew * 2 - 1));
+})
+----
+| vnsrl_wv
+a|
+[source,c]
+----
+// vnsrl.vv vd, vs2, vs1
+VI_VV_LOOP_NSHIFT
+({
+  vd = vs2_u >> (vs1 & (sew * 2 - 1));
+})
+----
+| vor_vv
+a|
+[source,c]
+----
+// vor
+VI_VV_LOOP
+({
+  vd = vs1 \| vs2;
+})
+----
+| vrgatherei16_vv
+a|
+[source,c]
+----
+// vrgatherei16.vv vd, vs2, vs1, vm # vd[i] = (vs1[i] >= VLMAX) ? 0 : vs2[vs1[i]];
+float vemul = (16.0 / P.VU.vsew * P.VU.vflmul);
+require(vemul >= 0.125 && vemul <= 8);
+require_align(insn.rd(), P.VU.vflmul);
+require_align(insn.rs2(), P.VU.vflmul);
+require_align(insn.rs1(), vemul);
+require_noover(insn.rd(), P.VU.vflmul, insn.rs1(), vemul);
+require(insn.rd() != insn.rs2());
+require_vm;
+
+VI_LOOP_BASE
+  switch (sew) {
+  case e8: {
+    auto vs1 = P.VU.elt<uint16_t>(rs1_num, i);
+    P.VU.elt<uint8_t>(rd_num, i, true) = vs1 >= P.VU.vlmax ? 0 : P.VU.elt<uint8_t>(rs2_num, vs1);
+    break;
+  }
+  case e16: {
+    auto vs1 = P.VU.elt<uint16_t>(rs1_num, i);
+    P.VU.elt<uint16_t>(rd_num, i, true) = vs1 >= P.VU.vlmax ? 0 : P.VU.elt<uint16_t>(rs2_num, vs1);
+    break;
+  }
+  case e32: {
+    auto vs1 = P.VU.elt<uint16_t>(rs1_num, i);
+    P.VU.elt<uint32_t>(rd_num, i, true) = vs1 >= P.VU.vlmax ? 0 : P.VU.elt<uint32_t>(rs2_num, vs1);
+    break;
+  }
+  default: {
+    auto vs1 = P.VU.elt<uint16_t>(rs1_num, i);
+    P.VU.elt<uint64_t>(rd_num, i, true) = vs1 >= P.VU.vlmax ? 0 : P.VU.elt<uint64_t>(rs2_num, vs1);
+    break;
+  }
+  }
+VI_LOOP_END;
+----
+| vrgather_vv
+a|
+[source,c]
+----
+// vrgather.vv vd, vs2, vs1, vm # vd[i] = (vs1[i] >= VLMAX) ? 0 : vs2[vs1[i]];
+require_align(insn.rd(), P.VU.vflmul);
+require_align(insn.rs2(), P.VU.vflmul);
+require_align(insn.rs1(), P.VU.vflmul);
+require(insn.rd() != insn.rs2() && insn.rd() != insn.rs1());
+require_vm;
+
+VI_LOOP_BASE
+  switch (sew) {
+  case e8: {
+    auto vs1 = P.VU.elt<uint8_t>(rs1_num, i);
+    //if (i > 255) continue;
+    P.VU.elt<uint8_t>(rd_num, i, true) = vs1 >= P.VU.vlmax ? 0 : P.VU.elt<uint8_t>(rs2_num, vs1);
+    break;
+  }
+  case e16: {
+    auto vs1 = P.VU.elt<uint16_t>(rs1_num, i);
+    P.VU.elt<uint16_t>(rd_num, i, true) = vs1 >= P.VU.vlmax ? 0 : P.VU.elt<uint16_t>(rs2_num, vs1);
+    break;
+  }
+  case e32: {
+    auto vs1 = P.VU.elt<uint32_t>(rs1_num, i);
+    P.VU.elt<uint32_t>(rd_num, i, true) = vs1 >= P.VU.vlmax ? 0 : P.VU.elt<uint32_t>(rs2_num, vs1);
+    break;
+  }
+  default: {
+    auto vs1 = P.VU.elt<uint64_t>(rs1_num, i);
+    P.VU.elt<uint64_t>(rd_num, i, true) = vs1 >= P.VU.vlmax ? 0 : P.VU.elt<uint64_t>(rs2_num, vs1);
+    break;
+  }
+  }
+VI_LOOP_END;
+----
+| vsaddu_vv
+a|
+[source,c]
+----
+// vsaddu vd, vs2, vs1
+VI_VV_ULOOP
+({
+  bool sat = false;
+  vd = vs2 + vs1;
+
+  sat = vd < vs2;
+  vd \|= -(vd < vs2);
+
+  P_SET_OV(sat);
+})
+----
+| vsadd_vv
+a|
+[source,c]
+----
+// vsadd.vv vd, vs2, vs1
+VI_CHECK_SSS(true);
+VI_LOOP_BASE
+bool sat = false;
+switch (sew) {
+case e8: {
+  VV_PARAMS(e8);
+  vd = sat_add<int8_t, uint8_t>(vs2, vs1, sat);
+  break;
+}
+case e16: {
+  VV_PARAMS(e16);
+  vd = sat_add<int16_t, uint16_t>(vs2, vs1, sat);
+  break;
+}
+case e32: {
+  VV_PARAMS(e32);
+  vd = sat_add<int32_t, uint32_t>(vs2, vs1, sat);
+  break;
+}
+default: {
+  VV_PARAMS(e64);
+  vd = sat_add<int64_t, uint64_t>(vs2, vs1, sat);
+  break;
+}
+}
+P_SET_OV(sat);
+VI_LOOP_END
+----
+| vsbc_vvm
+a|
+[source,c]
+----
+// vsbc.vvm vd, vs2, rs1, v0
+VI_VV_LOOP_WITH_CARRY
+({
+  vd = (uint128_t)((op_mask & vs2) - (op_mask & vs1) - carry);
+})
+----
+| vsll_vv
+a|
+[source,c]
+----
+// vsll
+VI_VV_ULOOP
+({
+  vd = vs2 << (vs1 & (sew - 1));
+})
+----
+| vsmul_vv
+a|
+[source,c]
+----
+// vsmul.vv vd, vs2, vs1
+require(p->extension_enabled('V') \|\| P.VU.vsew < e64);
+
+VI_VV_LOOP
+({
+  VRM xrm = P.VU.get_vround_mode();
+  int64_t int_max = INT64_MAX >> (64 - P.VU.vsew);
+  int64_t int_min = INT64_MIN >> (64 - P.VU.vsew);
+
+  bool overflow = vs1 == vs2 && vs1 == int_min;
+  int128_t result = (int128_t)vs1 * (int128_t)vs2;
+
+  // rounding
+  INT_ROUNDING(result, xrm, sew - 1);
+
+  // remove guard bits
+  result = result >> (sew - 1);
+
+  // max saturation
+  if (overflow) {
+    result = int_max;
+    P_SET_OV(1);
+  }
+
+  vd = result;
+})
+----
+| vsra_vv
+a|
+[source,c]
+----
+// vsra.vv  vd, vs2, vs1
+VI_VV_LOOP
+({
+  vd = vs2 >> (vs1 & (sew - 1));
+})
+----
+| vsrl_vv
+a|
+[source,c]
+----
+// vsrl.vv  vd, vs2, vs1
+VI_VV_ULOOP
+({
+  vd = vs2 >> (vs1 & (sew - 1));
+})
+----
+| vssra_vv
+a|
+[source,c]
+----
+// vssra.vv vd, vs2, vs1
+VI_VV_LOOP
+({
+  VRM xrm = P.VU.get_vround_mode();
+  int sh = vs1 & (sew - 1);
+  int128_t val = vs2;
+
+  INT_ROUNDING(val, xrm, sh);
+  vd = val >> sh;
+})
+----
+| vssrl_vv
+a|
+[source,c]
+----
+// vssrl.vv vd, vs2, vs1
+VI_VV_ULOOP
+({
+  VRM xrm = P.VU.get_vround_mode();
+  int sh = vs1 & (sew - 1);
+  uint128_t val = vs2;
+
+  INT_ROUNDING(val, xrm, sh);
+  vd = val >> sh;
+})
+----
+| vssubu_vv
+a|
+[source,c]
+----
+// vssubu.vv vd, vs2, vs1
+VI_CHECK_SSS(true);
+VI_LOOP_BASE
+bool sat = false;
+
+switch (sew) {
+case e8: {
+  VV_U_PARAMS(e8);
+  vd = sat_subu<uint8_t>(vs2, vs1, sat);
+  break;
+}
+case e16: {
+  VV_U_PARAMS(e16);
+  vd = sat_subu<uint16_t>(vs2, vs1, sat);
+  break;
+}
+case e32: {
+  VV_U_PARAMS(e32);
+  vd = sat_subu<uint32_t>(vs2, vs1, sat);
+  break;
+}
+default: {
+  VV_U_PARAMS(e64);
+  vd = sat_subu<uint64_t>(vs2, vs1, sat);
+  break;
+}
+}
+P_SET_OV(sat);
+
+VI_LOOP_END
+----
+| vssub_vv
+a|
+[source,c]
+----
+// vssub.vv vd, vs2, vs1
+VI_CHECK_SSS(true);
+VI_LOOP_BASE
+bool sat = false;
+
+switch (sew) {
+case e8: {
+  VV_PARAMS(e8);
+  vd = sat_sub<int8_t, uint8_t>(vs2, vs1, sat);
+  break;
+}
+case e16: {
+  VV_PARAMS(e16);
+  vd = sat_sub<int16_t, uint16_t>(vs2, vs1, sat);
+  break;
+}
+case e32: {
+  VV_PARAMS(e32);
+  vd = sat_sub<int32_t, uint32_t>(vs2, vs1, sat);
+  break;
+}
+default: {
+  VV_PARAMS(e64);
+  vd = sat_sub<int64_t, uint64_t>(vs2, vs1, sat);
+  break;
+}
+}
+P_SET_OV(sat);
+VI_LOOP_END
+----
+| vsub_vv
+a|
+[source,c]
+----
+// vsub
+VI_VV_LOOP
+({
+  vd = vs2 - vs1;
+})
+----
+| vwredsumu_vs
+a|
+[source,c]
+----
+// vwredsum.vs vd, vs2, vs1
+VI_VV_ULOOP_WIDE_REDUCTION
+({
+  vd_0_res += vs2;
+})
+----
+| vwredsum_vs
+a|
+[source,c]
+----
+// vwredsum.vs vd, vs2, vs1
+VI_VV_LOOP_WIDE_REDUCTION
+({
+  vd_0_res += vs2;
+})
+----
+| vxor_vv
+a|
+[source,c]
+----
+// vxor
+VI_VV_LOOP
+({
+  vd = vs1 ^ vs2;
+})
+----
+|===

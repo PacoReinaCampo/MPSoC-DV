@@ -1,0 +1,107 @@
+exceptions
+├── base
+│   ├── rv-e
+│   │   ├── causes.md
+│   │   ├── exceptions.md
+│   │   └── traps.md
+│   └── rv-i
+│       ├── causes.md
+│       ├── exceptions.md
+│       └── traps.md
+├── specific
+│   ├── Algebra
+│   │   ├── rv-v
+│   │   │   ├── causes.md
+│   │   │   ├── exceptions.md
+│   │   │   └── traps.md
+│   │   ├── rv-w
+│   │   │   ├── causes.md
+│   │   │   ├── exceptions.md
+│   │   │   └── traps.md
+│   │   └── rv-y
+│   │       ├── causes.md
+│   │       ├── exceptions.md
+│   │       └── traps.md
+│   ├── Arithmetic
+│   │   ├── rv-d
+│   │   │   ├── causes.md
+│   │   │   ├── exceptions.md
+│   │   │   └── traps.md
+│   │   ├── rv-f
+│   │   │   ├── causes.md
+│   │   │   ├── exceptions.md
+│   │   │   └── traps.md
+│   │   └── rv-q
+│   │       ├── causes.md
+│   │       ├── exceptions.md
+│   │       └── traps.md
+│   ├── Cryptography
+│   │   ├── rv-vk
+│   │   │   ├── causes.md
+│   │   │   ├── exceptions.md
+│   │   │   └── traps.md
+│   │   ├── rv-wk
+│   │   │   ├── causes.md
+│   │   │   ├── exceptions.md
+│   │   │   └── traps.md
+│   │   ├── rv-xk
+│   │   │   ├── causes.md
+│   │   │   ├── exceptions.md
+│   │   │   └── traps.md
+│   │   └── rv-yk
+│   │       ├── causes.md
+│   │       ├── exceptions.md
+│   │       └── traps.md
+│   ├── Parallelism
+│   │   ├── rv-b
+│   │   │   ├── causes.md
+│   │   │   ├── exceptions.md
+│   │   │   └── traps.md
+│   │   ├── rv-n
+│   │   │   ├── causes.md
+│   │   │   ├── exceptions.md
+│   │   │   └── traps.md
+│   │   ├── rv-p
+│   │   │   ├── causes.md
+│   │   │   ├── exceptions.md
+│   │   │   └── traps.md
+│   │   └── rv-t
+│   │       ├── causes.md
+│   │       ├── exceptions.md
+│   │       └── traps.md
+│   └── Privilege
+│       ├── rv-h
+│       │   ├── causes.md
+│       │   ├── exceptions.md
+│       │   └── traps.md
+│       ├── rv-m
+│       │   ├── causes.md
+│       │   ├── exceptions.md
+│       │   └── traps.md
+│       ├── rv-s
+│       │   ├── causes.md
+│       │   ├── exceptions.md
+│       │   └── traps.md
+│       └── rv-u
+│           ├── causes.md
+│           ├── exceptions.md
+│           └── traps.md
+└── standard
+    ├── rv-a
+    │   ├── causes.md
+    │   ├── exceptions.md
+    │   └── traps.md
+    ├── rv-c
+    │   ├── causes.md
+    │   ├── exceptions.md
+    │   └── traps.md
+    ├── rv-m
+    │   ├── causes.md
+    │   ├── exceptions.md
+    │   └── traps.md
+    └── rv-o
+        ├── causes.md
+        ├── exceptions.md
+        └── traps.md
+
+32 directories, 72 files

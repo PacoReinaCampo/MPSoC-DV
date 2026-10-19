@@ -1,0 +1,602 @@
+= RISC-V W Extension
+
+== Formats
+
+[%autowidth,float="center",align="center",options="nowrap"]
+|========================================================================================
+    |31 |27 | 26 |  25  |24 | 20 | 19 | 15 | 1 4 | 12 |   11    |   7   | 6  | 0  |
+ 4+^|funct7          2+^|rs2  2+^|rs1   2+^|funct3 2+^|rd            2+^|opcode  <|R-type
+ 6+^|imm[11:0]                2+^|rs1   2+^|funct3 2+^|rd            2+^|opcode  <|I-type
+ 4+^|imm[11:5]       2+^|rs2  2+^|rs1   2+^|funct3 2+^|imm[4:0]      2+^|opcode  <|S-type
+ 4+^|imm[12\|10:5]   2+^|rs2  2+^|rs1   2+^|funct3 2+^|imm[4:1\|11]  2+^|opcode  <|B-type
+10+^|imm[31:12]                                    2+^|rd            2+^|opcode  <|U-type
+10+^|imm[20\|10:1\|11\|19:12]                      2+^|rd            2+^|opcode  <|J-type
+|========================================================================================
+
+== Instructions
+
+[%autowidth,float="center",align="center",options="nowrap"]
+|===
+| Category     | Operands         | Operation
+| `OPIWW`      | matrix-matrix    | Integer
+| `OPIWX`      | matrix-scalar    | Integer
+| `OPIWI`      | matrix-immediate | Integer
+| `OPFWW`      | matrix-matrix    | Float
+| `OPFWF`      | matrix-scalar    | Float
+| `OPMWW`      | matrix-matrix    | Mask
+| `OPMWX`      | matrix-scalar    | Mask
+| `OPCFG`      | scalars-imms     | Configuration
+|===
+
+=== OPCFG (Configuration Setting)
+
+|===
+| Name        | Opcode / Argument                                  | Format                      | Pseudo-Code
+| `wsetivli`  | `31=1 30=1 zimm10   zimm5 14..12=0x7 rd 6..0=0x57` | `wsetvli rd, rs1, wtypei`   | `rd = new wl, rs1 = AVL, wtypei = new wtype setting`
+| `wsetvli`   | `31=0 zimm11          rs1 14..12=0x7 rd 6..0=0x57` | `wsetivli rd, uimm, wtypei` | `rd = new wl, uimm = AVL, wtypei = new wtype setting`
+| `wsetvl`    | `31=1 30..25=0x0 rs2  rs1 14..12=0x7 rd 6..0=0x57` | `wsetvl  rd, rs1, rs2`      | `rd = new wl, rs1 = AVL, rs2 = new wtype value`
+|===
+
+=== OPLS (Matrix Loads and Store)
+
+.Matrix Unit-Stride Instructions (including segment part)
+
+|===
+| Name      | Opcode / Argument                                                | Format                   | Pseudo-Code
+| `wlm.v`   | `31..28=0 27..26=0 25=1 24..20=0xb rs1 14..12=0x0  wd 6..0=0x07` | `wlm.v   wd, (rs1)`      | `Load byte matrix of length ceil(wl/8)`
+| `wsm.v`   | `31..28=0 27..26=0 25=1 24..20=0xb rs1 14..12=0x0 ws3 6..0=0x27` | `wsm.v   ws3, (rs1)`     | `Store byte matrix of length ceil(wl/8)`
+| `wle8.v`  | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x0  wd 6..0=0x07`      | `wle8.v  wd, (rs1), vm`  | `8-bit unit-stride load`
+| `wle16.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x5  wd 6..0=0x07`      | `wle16.v wd, (rs1), vm`  | `16-bit unit-stride load`
+| `wle32.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x6  wd 6..0=0x07`      | `wle32.v wd, (rs1), vm`  | `32-bit unit-stride load`
+| `wle64.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x7  wd 6..0=0x07`      | `wle64.v wd, (rs1), vm`  | `64-bit unit-stride load`
+| `wse8.v`  | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x0 ws3 6..0=0x27`      | `wse8.v  ws3, (rs1), vm` | `8-bit unit-stride store`
+| `wse16.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x5 ws3 6..0=0x27`      | `wse16.v ws3, (rs1), vm` | `16-bit unit-stride store`
+| `wse32.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x6 ws3 6..0=0x27`      | `wse32.v ws3, (rs1), vm` | `32-bit unit-stride store`
+| `wse64.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x7 ws3 6..0=0x27`      | `wse64.v ws3, (rs1), vm` | `64-bit unit-stride store`
+|===
+
+.Matrix Indexed-Unordered Instructions (including segment part)
+
+|===
+| Name         | Opcode / Argument                                      | Format                            | Pseudo-Code
+| `wluxei8.v`  | `nf 28=0 27..26=1 vm ws2 rs1 14..12=0x0  wd 6..0=0x07` | `wluxei8.v    wd, (rs1), ws2, vm` | `unordered  8-bit indexed load of SEW data`
+| `wluxei16.v` | `nf 28=0 27..26=1 vm ws2 rs1 14..12=0x5  wd 6..0=0x07` | `wluxei16.v   wd, (rs1), ws2, vm` | `unordered 16-bit indexed load of SEW data`
+| `wluxei32.v` | `nf 28=0 27..26=1 vm ws2 rs1 14..12=0x6  wd 6..0=0x07` | `wluxei32.v   wd, (rs1), ws2, vm` | `unordered 32-bit indexed load of SEW data`
+| `wluxei64.v` | `nf 28=0 27..26=1 vm ws2 rs1 14..12=0x7  wd 6..0=0x07` | `wluxei64.v   wd, (rs1), ws2, vm` | `unordered 64-bit indexed load of SEW data`
+| `wsuxei8.v`  | `nf 28=0 27..26=1 vm ws2 rs1 14..12=0x0 ws3 6..0=0x27` | `wsuxei8.v   ws3, (rs1), ws2, vm` | `unordered  8-bit indexed store of SEW data`
+| `wsuxei16.v` | `nf 28=0 27..26=1 vm ws2 rs1 14..12=0x5 ws3 6..0=0x27` | `wsuxei16.v  ws3, (rs1), ws2, vm` | `unordered 16-bit indexed store of SEW data`
+| `wsuxei32.v` | `nf 28=0 27..26=1 vm ws2 rs1 14..12=0x6 ws3 6..0=0x27` | `wsuxei32.v  ws3, (rs1), ws2, vm` | `unordered 32-bit indexed store of SEW data`
+| `wsuxei64.v` | `nf 28=0 27..26=1 vm ws2 rs1 14..12=0x7 ws3 6..0=0x27` | `wsuxei64.v  ws3, (rs1), ws2, vm` | `unordered 64-bit indexed store of SEW data`
+|===
+
+.Matrix Strided Instructions (including segment part)
+
+|===
+| Name       | Opcode / Argument                                      | Format                           | Pseudo-Code
+| `wlse8.v`  | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x0  wd 6..0=0x07` | `wlse8.v    wd,  (rs1), rs2, vm` | `8-bit strided load`
+| `wlse16.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x5  wd 6..0=0x07` | `wlse16.v   wd,  (rs1), rs2, vm` | `16-bit strided load`
+| `wlse32.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x6  wd 6..0=0x07` | `wlse32.v   wd,  (rs1), rs2, vm` | `32-bit strided load`
+| `wlse64.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x7  wd 6..0=0x07` | `wlse64.v   wd,  (rs1), rs2, vm` | `64-bit strided load`
+| `wsse8.v`  | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x0 ws3 6..0=0x27` | `wsse8.v    ws3, (rs1), rs2, vm` | `8-bit strided store`
+| `wsse16.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x5 ws3 6..0=0x27` | `wsse16.v   ws3, (rs1), rs2, vm` | `16-bit strided store`
+| `wsse32.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x6 ws3 6..0=0x27` | `wsse32.v   ws3, (rs1), rs2, vm` | `32-bit strided store`
+| `wsse64.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x7 ws3 6..0=0x27` | `wsse64.v   ws3, (rs1), rs2, vm` | `64-bit strided store`
+|===
+
+.Matrix Indexed-Ordered Instructions (including segment part)
+
+|===
+| Name         | Opcode / Argument                                      | Format                             | Pseudo-Code
+| `wloxei8.v`  | `nf 28=0 27..26=3 vm ws2 rs1 14..12=0x0  wd 6..0=0x07` | `wloxei8.v    wd, (rs1), ws2, vm`  | `ordered  8-bit indexed load of SEW data`
+| `wloxei16.v` | `nf 28=0 27..26=3 vm ws2 rs1 14..12=0x5  wd 6..0=0x07` | `wloxei16.v   wd, (rs1), ws2, vm`  | `ordered 16-bit indexed load of SEW data`
+| `wloxei32.v` | `nf 28=0 27..26=3 vm ws2 rs1 14..12=0x6  wd 6..0=0x07` | `wloxei32.v   wd, (rs1), ws2, vm`  | `ordered 32-bit indexed load of SEW data`
+| `wloxei64.v` | `nf 28=0 27..26=3 vm ws2 rs1 14..12=0x7  wd 6..0=0x07` | `wloxei64.v   wd, (rs1), ws2, vm`  | `ordered 64-bit indexed load of SEW data`
+| `wsoxei8.v`  | `nf 28=0 27..26=3 vm ws2 rs1 14..12=0x0 ws3 6..0=0x27` | `wsoxei8.v    ws3, (rs1), ws2, vm` | `ordered  8-bit indexed store of SEW data`
+| `wsoxei16.v` | `nf 28=0 27..26=3 vm ws2 rs1 14..12=0x5 ws3 6..0=0x27` | `wsoxei16.v   ws3, (rs1), ws2, vm` | `ordered 16-bit indexed store of SEW data`
+| `wsoxei32.v` | `nf 28=0 27..26=3 vm ws2 rs1 14..12=0x6 ws3 6..0=0x27` | `wsoxei32.v   ws3, (rs1), ws2, vm` | `ordered 32-bit indexed store of SEW data`
+| `wsoxei64.v` | `nf 28=0 27..26=3 vm ws2 rs1 14..12=0x7 ws3 6..0=0x27` | `wsoxei64.v   ws3, (rs1), ws2, vm` | `ordered 64-bit indexed store of SEW data`
+|===
+
+.Unit-stride Fault-Only-First Loads
+
+|===
+| Name        | Opcode / Argument                                              | Format                      | Pseudo-Code
+| `wle8ff.v`  | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x0  wd 6..0=0x07` | `wle8ff.v    wd, (rs1), vm` | `8-bit unit-stride fault-only-first load`
+| `wle16ff.v` | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x5  wd 6..0=0x07` | `wle16ff.v   wd, (rs1), vm` | `16-bit unit-stride fault-only-first load`
+| `wle32ff.v` | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x6  wd 6..0=0x07` | `wle32ff.v   wd, (rs1), vm` | `32-bit unit-stride fault-only-first load`
+| `wle64ff.v` | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x7  wd 6..0=0x07` | `wle64ff.v   wd, (rs1), vm` | `64-bit unit-stride fault-only-first load`
+|===
+
+.Matrix Load/Store Whole Registers
+
+|===
+| Name        | Opcode / Argument                                                      | Format                 | Pseudo-Code
+| `wl1re8.v`  | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 wd  6..0=0x07` | `wl1re8.v    v3, (a0)` | `Load v3 with VLEN/8 bytes held at address in a0`
+| `wl1re16.v` | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 wd  6..0=0x07` | `wl1re16.v   v3, (a0)` | `Load v3 with VLEN/16 halfwords held at address in a0`
+| `wl1re32.v` | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x6 wd  6..0=0x07` | `wl1re32.v   v3, (a0)` | `Load v3 with VLEN/32 words held at address in a0`
+| `wl1re64.v` | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x7 wd  6..0=0x07` | `wl1re64.v   v3, (a0)` | `Load v3 with VLEN/64 doublewords held at address in a0`
+| `wl2re8.v`  | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 wd  6..0=0x07` | `wl2re8.v    v2, (a0)` | `Load v2-v3 with 2*VLEN/8 bytes from address in a0`
+| `wl2re16.v` | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 wd  6..0=0x07` | `wl2re16.v   v2, (a0)` | `Load v2-v3 with 2*VLEN/16 halfwords held at address in a0`
+| `wl2re32.v` | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x6 wd  6..0=0x07` | `wl2re32.v   v2, (a0)` | `Load v2-v3 with 2*VLEN/32 words held at address in a0`
+| `wl2re64.v` | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x7 wd  6..0=0x07` | `wl2re64.v   v2, (a0)` | `Load v2-v3 with 2*VLEN/64 doublewords held at address in a0`
+| `wl4re8.v`  | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 wd  6..0=0x07` | `wl4re8.v    v4, (a0)` | `Load v4-v7 with 4*VLEN/8 bytes from address in a0`
+| `wl4re16.v` | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 wd  6..0=0x07` | `wl4re16.v   v4, (a0)` | `Load v4-v7 with 4*VLEN/16 bytes from address in a0`
+| `wl4re32.v` | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x6 wd  6..0=0x07` | `wl4re32.v   v4, (a0)` | `Load v4-v7 with 4*VLEN/32 bytes from address in a0`
+| `wl4re64.v` | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x7 wd  6..0=0x07` | `wl4re64.v   v4, (a0)` | `Load v4-v7 with 4*VLEN/64 bytes from address in a0`
+| `wl8re8.v`  | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 wd  6..0=0x07` | `wl8re8.v    v8, (a0)` | `Load v8-v15 with 8*VLEN/8 bytes from address in a0`
+| `wl8re16.v` | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 wd  6..0=0x07` | `wl8re16.v   v8, (a0)` | `Load v8-v15 with 8*VLEN/16 bytes from address in a0`
+| `wl8re32.v` | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x6 wd  6..0=0x07` | `wl8re32.v   v8, (a0)` | `Load v8-v15 with 8*VLEN/32 bytes from address in a0`
+| `wl8re64.v` | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x7 wd  6..0=0x07` | `wl8re64.v   v8, (a0)` | `Load v8-v15 with 8*VLEN/64 bytes from address in a0`
+| `ws1r.v`    | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 ws3 6..0=0x27` | `ws1r.v v3, (a1)`      | `Store v3 to address in a1`
+| `ws2r.v`    | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 ws3 6..0=0x27` | `ws2r.v v2, (a1)`      | `Store v2-v3 to address in a1`
+| `ws4r.v`    | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 ws3 6..0=0x27` | `ws4r.v v4, (a1)`      | `Store v4-v7 to address in a1`
+| `ws8r.v`    | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 ws3 6..0=0x27` | `ws8r.v v8, (a1)`      | `Store v8-v15 to address in a1`
+|===
+
+=== Matrix Float-Point Instructions
+
+.OPFWF
+
+|===
+| Name              | Opcode / Argument                                       | Format                             | Pseudo-Code
+| `wfadd.vf`        | `31..26=0x00 vm ws2 rs1 14..12=0x5 wd 6..0=0x57`        | `wfadd.vf wd, ws2, rs1, vm`        | `wd[i][j] = ws2[i][j] + f[rs1], matrix-scalar`
+| `wfsub.vf`        | `31..26=0x02 vm ws2 rs1 14..12=0x5 wd 6..0=0x57`        | `wfsub.vf wd, ws2, rs1, vm`        | `wd[i][j] = ws2[i][j] - f[rs1], matrix-scalar`
+| `wfmin.vf`        | `31..26=0x04 vm ws2 rs1 14..12=0x5 wd 6..0=0x57`        | `wfmin.vf wd, ws2, rs1, vm`        | `Floating-point minimum, matrix-scalar`
+| `wfmax.vf`        | `31..26=0x06 vm ws2 rs1 14..12=0x5 wd 6..0=0x57`        | `wfmax.vf wd, ws2, rs1, vm`        | `Floating-point maximum, matrix-scalar`
+| `wfsgnj.vf`       | `31..26=0x08 vm ws2 rs1 14..12=0x5 wd 6..0=0x57`        | `wfsgnj.vf wd, ws2, rs1, vm`       | `Floating-Point Sign-Injection, matrix-scalar`
+| `wfsgnjn.vf`      | `31..26=0x09 vm ws2 rs1 14..12=0x5 wd 6..0=0x57`        | `wfsgnjn.vf wd, ws2, rs1, vm`      | `Floating-Point Sign-Injection, matrix-scalar`
+| `wfsgnjx.vf`      | `31..26=0x0a vm ws2 rs1 14..12=0x5 wd 6..0=0x57`        | `wfsgnjx.vf wd, ws2, rs1, vm`      | `Floating-Point Sign-Injection, matrix-scalar`
+| `wfslide1up.vf`   | `31..26=0x0e vm ws2 rs1 14..12=0x5 wd 6..0=0x57`        | `wfslide1up.vf wd, ws2, rs1, vm`   | `wd[0][0] = f[rs1], wd[i+1][j+1] = ws2[i][j]`
+| `wfslide1down.vf` | `31..26=0x0f vm ws2 rs1 14..12=0x5 wd 6..0=0x57`        | `wfslide1down.vf wd, ws2, rs1, vm` | `wd[i][j] = ws2[i+1][j+1], wd[wl-1] = f[rs1]`
+| `wfmv.s.f`        | `31..26=0x10 25=1 24..20=0 rs1 14..12=0x5 wd 6..0=0x57` | `wfmv.s.f wd, rs1`                 | `wd[0][0] = f[rs1] (ws2=0)`
+|===
+
+|===
+| Name          | Opcode / Argument                                       | Format                         | Pseudo-Code
+| `wfmerge.vfm` | `31..26=0x17 25=0 ws2 rs1 14..12=0x5 wd 6..0=0x57`      | `wfmerge.vfm wd, ws2, rs1, v0` | `wd[i][j] = v0.mask[i][j] ? f[rs1] : ws2[i][j]`
+| `wfmv.v.f`    | `31..26=0x17 25=1 24..20=0 rs1 14..12=0x5 wd 6..0=0x57` | `wfmv.v.f wd, rs1`             | `wd[i][j] = f[rs1]`
+| `wmfeq.vf`    | `31..26=0x18 vm ws2 rs1 14..12=0x5 wd 6..0=0x57`        | `wmfeq.vf wd, ws2, rs1, vm`    | `Compare equal, matrix-scalar`
+| `wmfle.vf`    | `31..26=0x19 vm ws2 rs1 14..12=0x5 wd 6..0=0x57`        | `wmfle.vf wd, ws2, rs1, vm`    | `Compare less than or equal, matrix-scalar`
+| `wmflt.vf`    | `31..26=0x1b vm ws2 rs1 14..12=0x5 wd 6..0=0x57`        | `wmflt.vf wd, ws2, rs1, vm`    | `Compare less than, matrix-scalar`
+| `wmfne.vf`    | `31..26=0x1c vm ws2 rs1 14..12=0x5 wd 6..0=0x57`        | `wmfne.vf wd, ws2, rs1, vm`    | `Compare not equal, matrix-scalar`
+| `wmfgt.vf`    | `31..26=0x1d vm ws2 rs1 14..12=0x5 wd 6..0=0x57`        | `wmfgt.vf wd, ws2, rs1, vm`    | `Compare greater than, matrix-scalar`
+| `wmfge.vf`    | `31..26=0x1f vm ws2 rs1 14..12=0x5 wd 6..0=0x57`        | `wmfge.vf wd, ws2, rs1, vm`    | `Compare greater than or equal, matrix-scalar`
+|===
+
+|===
+| Name         | Opcode / Argument                                | Format                        | Pseudo-Code
+| `wfdiv.vf`   | `31..26=0x20 vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfdiv.vf wd, ws2, rs1, vm`   | `Floating-point divide, matrix-scalar`
+| `wfrdiv.vf`  | `31..26=0x21 vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfrdiv.vf wd, ws2, rs1, vm`  | `wd[i][j] = f[rs1]/ws2[i][j], scalar-matrix`
+| `wfmul.vf`   | `31..26=0x24 vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfmul.vf wd, ws2, rs1, vm`   | `Floating-point multiply, matrix-scalar`
+| `wfrsub.vf`  | `31..26=0x27 vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfrsub.vf wd, ws2, rs1, vm`  | `wd[i][j] = f[rs1] - ws2[i][j], scalar-matrix`
+| `wfmadd.vf`  | `31..26=0x28 vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfmadd.vf wd, rs1, ws2, vm`  | `wd[i][j] = +(f[rs1] * wd[i][j]) + ws2[i][j]`
+| `wfnmadd.vf` | `31..26=0x29 vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfnmadd.vf wd, rs1, ws2, vm` | `wd[i][j] = -(f[rs1] * wd[i][j]) - ws2[i][j]`
+| `wfmsub.vf`  | `31..26=0x2a vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfmsub.vf wd, rs1, ws2, vm`  | `wd[i][j] = +(f[rs1] * wd[i][j]) - ws2[i][j]`
+| `wfnmsub.vf` | `31..26=0x2b vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfnmsub.vf wd, rs1, ws2, vm` | `wd[i][j] = -(f[rs1] * wd[i][j]) + ws2[i][j]`
+| `wfmacc.vf`  | `31..26=0x2c vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfmacc.vf wd, rs1, ws2, vm`  | `wd[i][j] = +(f[rs1] * ws2[i][j]) + wd[i][j]`
+| `wfnmacc.vf` | `31..26=0x2d vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfnmacc.vf wd, rs1, ws2, vm` | `wd[i][j] = -(f[rs1] * ws2[i][j]) - wd[i][j]`
+| `wfmsac.vf`  | `31..26=0x2e vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfmsac.vf wd, rs1, ws2, vm`  | `wd[i][j] = +(f[rs1] * ws2[i][j]) - wd[i][j]`
+| `wfnmsac.vf` | `31..26=0x2f vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfnmsac.vf wd, rs1, ws2, vm` | `wd[i][j] = -(f[rs1] * ws2[i][j]) + wd[i][j]`
+|===
+
+|===
+| Name          | Opcode / Argument                                | Format                         | Pseudo-Code
+| `wfwadd.vf`   | `31..26=0x30 vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfwadd.vf wd, ws2, rs1, vm`   | `2*SEW = SEW + SEW, matrix-scalar`
+| `wfwsub.vf`   | `31..26=0x32 vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfwsub.vf wd, ws2, rs1, vm`   | `2*SEW = SEW - SEW, matrix-scalar`
+| `wfwadd.wf`   | `31..26=0x34 vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfwadd.wf wd, ws2, rs1, vm`   | `2*SEW = 2*SEW + SEW, matrix-scalar`
+| `wfwsub.wf`   | `31..26=0x36 vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfwsub.wf wd, ws2, rs1, vm`   | `2*SEW = 2*SEW - SEW, matrix-scalar`
+| `wfwmul.vf`   | `31..26=0x38 vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfwmul.vf wd, ws2, rs1, vm`   | `Widening floating-point multiply, matrix-scalar`
+| `wfwmacc.vf`  | `31..26=0x3c vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfwmacc.vf wd, rs1, ws2, vm`  | `wd[i][j] = +(f[rs1] * ws2[i][j]) + wd[i][j]`
+| `wfwnmacc.vf` | `31..26=0x3d vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfwnmacc.vf wd, rs1, ws2, vm` | `wd[i][j] = -(f[rs1] * ws2[i][j]) - wd[i][j]`
+| `wfwmsac.vf`  | `31..26=0x3e vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfwmsac.vf wd, rs1, ws2, vm`  | `wd[i][j] = +(f[rs1] * ws2[i][j]) - wd[i][j]`
+| `wfwnmsac.vf` | `31..26=0x3f vm ws2 rs1 14..12=0x5 wd 6..0=0x57` | `wfwnmsac.vf wd, rs1, ws2, vm` | `wd[i][j] = -(f[rs1] * ws2[i][j]) + wd[i][j]`
+|===
+
+.OPFWW
+
+|===
+| Name           | Opcode / Argument                                       | Format                          | Pseudo-Code
+| `wfadd.vv`     | `31..26=0x00 vm ws2 ws1 14..12=0x1 wd 6..0=0x57`        | `wfadd.vv wd, ws2, ws1, vm`     | `wd[i][j] = ws1[i][j] + ws2[i][j], matrix-matrix`
+| `wfredusum.ws` | `31..26=0x01 vm ws2 ws1 14..12=0x1 wd 6..0=0x57`        | `wfredusum.ws wd, ws2, ws1, vm` | `Unordered sum`
+| `wfsub.vv`     | `31..26=0x02 vm ws2 ws1 14..12=0x1 wd 6..0=0x57`        | `wfsub.vv wd, ws2, ws1, vm`     | `wd[i][j] = ws1[i][j] - ws2[i][j], matrix-matrix`
+| `wfredosum.ws` | `31..26=0x03 vm ws2 ws1 14..12=0x1 wd 6..0=0x57`        | `wfredosum.ws wd, ws2, ws1, vm` | `Ordered sum`
+| `wfmin.vv`     | `31..26=0x04 vm ws2 ws1 14..12=0x1 wd 6..0=0x57`        | `wfmin.vv wd, ws2, ws1, vm`     | `Floating-point minimum, matrix-matrix`
+| `wfredmin.ws`  | `31..26=0x05 vm ws2 ws1 14..12=0x1 wd 6..0=0x57`        | `wfredmin.ws  wd, ws2, ws1, vm` | `Minimum value`
+| `wfmax.vv`     | `31..26=0x06 vm ws2 ws1 14..12=0x1 wd 6..0=0x57`        | `wfmax.vv wd, ws2, ws1, vm`     | `Floating-point maximum, matrix-matrix`
+| `wfredmax.ws`  | `31..26=0x07 vm ws2 ws1 14..12=0x1 wd 6..0=0x57`        | `wfredmax.ws  wd, ws2, ws1, vm` | `Maximum value`
+| `wfsgnj.vv`    | `31..26=0x08 vm ws2 ws1 14..12=0x1 wd 6..0=0x57`        | `wfsgnj.vv wd, ws2, ws1, vm`    | `Floating-Point Sign-Injection, matrix-matrix`
+| `wfsgnjn.vv`   | `31..26=0x09 vm ws2 ws1 14..12=0x1 wd 6..0=0x57`        | `wfsgnjn.vv wd, ws2, ws1, vm`   | `Floating-Point Sign-Injection, matrix-matrix`
+| `wfsgnjx.vv`   | `31..26=0x0a vm ws2 ws1 14..12=0x1 wd 6..0=0x57`        | `wfsgnjx.vv wd, ws2, ws1, vm`   | `Floating-Point Sign-Injection, matrix-matrix`
+| `wfmv.f.s`     | `31..26=0x10 25=1 ws2 19..15=0 14..12=0x1 rd 6..0=0x57` | `wfmv.f.s rd, ws2`              | `f[rd] = ws2[0][0] (rs1=0)`
+|===
+
+|===
+| Name       | Opcode / Argument                                | Format                      | Pseudo-Code
+| `wmfeq.vv` | `31..26=0x18 vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wmfeq.vv wd, ws2, ws1, vm` | `Compare equal, matrix-matrix`
+| `wmfle.vv` | `31..26=0x19 vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wmfle.vv wd, ws2, ws1, vm` | `Compare less than or equal, matrix-matrix`
+| `wmflt.vv` | `31..26=0x1b vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wmflt.vv wd, ws2, ws1, vm` | `Compare less than, matrix-matrix`
+| `wmfne.vv` | `31..26=0x1c vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wmfne.vv wd, ws2, ws1, vm` | `Compare not equal, matrix-matrix`
+|===
+
+|===
+| Name         | Opcode / Argument                                | Format                        | Pseudo-Code
+| `wfdiv.vv`   | `31..26=0x20 vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfdiv.vv wd, ws2, ws1, vm`   | `Floating-point divide, matrix-matrix`
+| `wfmul.vv`   | `31..26=0x24 vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfmul.vv wd, ws2, ws1, vm`   | `Floating-point multiply, matrix-matrix`
+| `wfmadd.vv`  | `31..26=0x28 vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfmadd.vv wd, ws1, ws2, vm`  | `wd[i][j] = +(ws1[i][j] * wd[i][j]) + ws2[i][j]`
+| `wfnmadd.vv` | `31..26=0x29 vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfnmadd.vv wd, ws1, ws2, vm` | `wd[i][j] = -(ws1[i][j] * wd[i][j]) - ws2[i][j]`
+| `wfmsub.vv`  | `31..26=0x2a vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfmsub.vv wd, ws1, ws2, vm`  | `wd[i][j] = +(ws1[i][j] * wd[i][j]) - ws2[i][j]`
+| `wfnmsub.vv` | `31..26=0x2b vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfnmsub.vv wd, ws1, ws2, vm` | `wd[i][j] = -(ws1[i][j] * wd[i][j]) + ws2[i][j]`
+| `wfmacc.vv`  | `31..26=0x2c vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfmacc.vv wd, ws1, ws2, vm`  | `wd[i][j] = +(ws1[i][j] * ws2[i][j]) + wd[i][j]`
+| `wfnmacc.vv` | `31..26=0x2d vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfnmacc.vv wd, ws1, ws2, vm` | `wd[i][j] = -(ws1[i][j] * ws2[i][j]) - wd[i][j]`
+| `wfmsac.vv`  | `31..26=0x2e vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfmsac.vv wd, ws1, ws2, vm`  | `wd[i][j] = +(ws1[i][j] * ws2[i][j]) - wd[i][j]`
+| `wfnmsac.vv` | `31..26=0x2f vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfnmsac.vv wd, ws1, ws2, vm` | `wd[i][j] = -(ws1[i][j] * ws2[i][j]) + wd[i][j]`
+|===
+
+|===
+| Name               | Opcode / Argument                                        | Format                         | Pseudo-Code
+| `wfcvt.xu.f.v`     | `31..26=0x12 vm ws2 19..15=0x00 14..12=0x1 wd 6..0=0x57` | `wfcvt.xu.f.v wd, ws2, vm`     | `Convert float to unsigned integer`
+| `wfcvt.x.f.v`      | `31..26=0x12 vm ws2 19..15=0x01 14..12=0x1 wd 6..0=0x57` | `wfcvt.x.f.v  wd, ws2, vm`     | `Convert float to signed integer`
+| `wfcvt.f.xu.v`     | `31..26=0x12 vm ws2 19..15=0x02 14..12=0x1 wd 6..0=0x57` | `wfcvt.f.xu.v wd, ws2, vm`     | `Convert unsigned integer to float`
+| `wfcvt.f.x.v`      | `31..26=0x12 vm ws2 19..15=0x03 14..12=0x1 wd 6..0=0x57` | `wfcvt.f.x.v  wd, ws2, vm`     | `Convert signed integer to float.`
+| `wfcvt.rtz.xu.f.v` | `31..26=0x12 vm ws2 19..15=0x06 14..12=0x1 wd 6..0=0x57` | `wfcvt.rtz.xu.f.v wd, ws2, vm` | `Convert float to unsigned integer, truncating`
+| `wfcvt.rtz.x.f.v`  | `31..26=0x12 vm ws2 19..15=0x07 14..12=0x1 wd 6..0=0x57` | `wfcvt.rtz.x.f.v  wd, ws2, vm` | `Convert float to signed integer, truncating`
+|===
+
+|===
+| Name                | Opcode / Argument                                        | Format                          | Pseudo-Code
+| `wfwcvt.xu.f.v`     | `31..26=0x12 vm ws2 19..15=0x08 14..12=0x1 wd 6..0=0x57` | `wfwcvt.xu.f.v wd, ws2, vm`     | `Convert float to double-width unsigned integer`
+| `wfwcvt.x.f.v`      | `31..26=0x12 vm ws2 19..15=0x09 14..12=0x1 wd 6..0=0x57` | `wfwcvt.x.f.v  wd, ws2, vm`     | `Convert float to double-width signed integer`
+| `wfwcvt.f.xu.v`     | `31..26=0x12 vm ws2 19..15=0x0A 14..12=0x1 wd 6..0=0x57` | `wfwcvt.f.xu.v wd, ws2, vm`     | `Convert unsigned integer to double-width float`
+| `wfwcvt.f.x.v`      | `31..26=0x12 vm ws2 19..15=0x0B 14..12=0x1 wd 6..0=0x57` | `wfwcvt.f.x.v  wd, ws2, vm`     | `Convert signed integer to double-width float`
+| `wfwcvt.f.f.v`      | `31..26=0x12 vm ws2 19..15=0x0C 14..12=0x1 wd 6..0=0x57` | `wfwcvt.f.f.v wd, ws2, vm`      | `Convert single-width float to double-width float`
+| `wfwcvt.rtz.xu.f.v` | `31..26=0x12 vm ws2 19..15=0x0E 14..12=0x1 wd 6..0=0x57` | `wfwcvt.rtz.xu.f.v wd, ws2, vm` | `Convert float to double-width unsigned integer, truncating`
+| `wfwcvt.rtz.x.f.v`  | `31..26=0x12 vm ws2 19..15=0x0F 14..12=0x1 wd 6..0=0x57` | `wfwcvt.rtz.x.f.v  wd, ws2, vm` | `Convert float to double-width signed integer, truncating`
+|===
+
+|===
+| Name                | Opcode / Argument                                        | Format                          | Pseudo-Code
+| `wfncvt.xu.f.w`     | `31..26=0x12 vm ws2 19..15=0x10 14..12=0x1 wd 6..0=0x57` | `wfncvt.xu.f.w wd, ws2, vm`     | `Convert double-width float to unsigned integer`
+| `wfncvt.x.f.w`      | `31..26=0x12 vm ws2 19..15=0x11 14..12=0x1 wd 6..0=0x57` | `wfncvt.x.f.w  wd, ws2, vm`     | `Convert double-width float to signed integer`
+| `wfncvt.f.xu.w`     | `31..26=0x12 vm ws2 19..15=0x12 14..12=0x1 wd 6..0=0x57` | `wfncvt.f.xu.w wd, ws2, vm`     | `Convert double-width unsigned integer to float`
+| `wfncvt.f.x.w`      | `31..26=0x12 vm ws2 19..15=0x13 14..12=0x1 wd 6..0=0x57` | `wfncvt.f.x.w  wd, ws2, vm`     | `Convert double-width signed integer to float`
+| `wfncvt.f.f.w`      | `31..26=0x12 vm ws2 19..15=0x14 14..12=0x1 wd 6..0=0x57` | `wfncvt.f.f.w wd, ws2, vm`      | `Convert double-width float to single-width float`
+| `wfncvt.rod.f.f.w`  | `31..26=0x12 vm ws2 19..15=0x15 14..12=0x1 wd 6..0=0x57` | `wfncvt.rod.f.f.w wd, ws2, vm`  | `Convert double-width float to single-width float, rounding towards odd`
+| `wfncvt.rtz.xu.f.w` | `31..26=0x12 vm ws2 19..15=0x16 14..12=0x1 wd 6..0=0x57` | `wfncvt.rtz.xu.f.w wd, ws2, vm` | `Convert double-width float to unsigned integer, truncating`
+| `wfncvt.rtz.x.f.w`  | `31..26=0x12 vm ws2 19..15=0x17 14..12=0x1 wd 6..0=0x57` | `wfncvt.rtz.x.f.w  wd, ws2, vm` | `Convert double-width float to signed integer, truncating`
+|===
+
+|===
+| Name         | Opcode / Argument                                        | Format                   | Pseudo-Code
+| `wfsqrt.v`   | `31..26=0x13 vm ws2 19..15=0x00 14..12=0x1 wd 6..0=0x57` | `wfsqrt.v   wd, ws2, vm` | `Floating-Point square root, matrix-matrix`
+| `wfrsqrt7.v` | `31..26=0x13 vm ws2 19..15=0x04 14..12=0x1 wd 6..0=0x57` | `wfrsqrt7.v wd, ws2, vm` | `Floating-Point reciprocal square-root estimate to 7 bits, matrix-matrix`
+| `wfrec7.v`   | `31..26=0x13 vm ws2 19..15=0x05 14..12=0x1 wd 6..0=0x57` | `wfrec7.v   wd, ws2, vm` | `Floating-Point reciprocal estimate to 7 bits, matrix-matrix`
+| `wfclass.v`  | `31..26=0x13 vm ws2 19..15=0x10 14..12=0x1 wd 6..0=0x57` | `wfclass.v  wd, ws2, vm` | `Floating-Point classify, matrix-matrix`
+|===
+
+|===
+| Name            | Opcode / Argument                                | Format                           | Pseudo-Code
+| `wfwadd.vv`     | `31..26=0x30 vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfwadd.vv wd, ws2, ws1, vm`     | `2*SEW = SEW + SEW, matrix-matrix`
+| `wfwredusum.ws` | `31..26=0x31 vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfwredusum.ws wd, ws2, ws1, vm` | `Unordered sum`
+| `wfwsub.vv`     | `31..26=0x32 vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfwsub.vv wd, ws2, ws1, vm`     | `2*SEW = SEW - SEW, matrix-matrix`
+| `wfwredosum.ws` | `31..26=0x33 vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfwredosum.ws wd, ws2, ws1, vm` | `Ordered sum`
+| `wfwadd.wv`     | `31..26=0x34 vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfwadd.wv  wd, ws2, ws1, vm`    | `2*SEW = 2*SEW + SEW, matrix-matrix`
+| `wfwsub.wv`     | `31..26=0x36 vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfwsub.wv  wd, ws2, ws1, vm`    | `2*SEW = 2*SEW - SEW, matrix-matrix`
+| `wfwmul.vv`     | `31..26=0x38 vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfwmul.vv    wd, ws2, ws1, vm`  | `Widening floating-point multiply, matrix-matrix`
+| `wfwmacc.vv`    | `31..26=0x3c vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfwmacc.vv wd, ws1, ws2, vm`    | `wd[i][j] = +(ws1[i][j] * ws2[i][j]) + wd[i][j]`
+| `wfwnmacc.vv`   | `31..26=0x3d vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfwnmacc.vv wd, ws1, ws2, vm`   | `wd[i][j] = -(ws1[i][j] * ws2[i][j]) - wd[i][j]`
+| `wfwmsac.vv`    | `31..26=0x3e vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfwmsac.vv wd, ws1, ws2, vm`    | `wd[i][j] = +(ws1[i][j] * ws2[i][j]) - wd[i][j]`
+| `wfwnmsac.vv`   | `31..26=0x3f vm ws2 ws1 14..12=0x1 wd 6..0=0x57` | `wfwnmsac.vv wd, ws1, ws2, vm`   | `wd[i][j] = -(ws1[i][j] * ws2[i][j]) + wd[i][j]`
+|===
+
+=== Matrix Integer Instructions
+
+.OPIWX
+
+|===
+| Name            | Opcode / Argument                                | Format                           | Pseudo-Code
+| `wadd.vx`       | `31..26=0x00 vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wadd.vx wd, ws2, rs1, vm`       | `Single-Width Integer Add, matrix-scalar`
+| `wsub.vx`       | `31..26=0x02 vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wsub.vx wd, ws2, rs1, vm`       | `Single-Width Integer Subtract, matrix-scalar`
+| `wrsub.vx`      | `31..26=0x03 vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wrsub.vx wd, ws2, rs1, vm`      | `wd[i][j] = x[rs1] - ws2[i][j]`
+| `wminu.vx`      | `31..26=0x04 vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wminu.vx wd, ws2, rs1, vm`      | `Unsigned Integer Minimum, matrix-scalar`
+| `wmin.vx`       | `31..26=0x05 vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wmin.vx wd, ws2, rs1, vm`       | `Signed Integer Minimum, matrix-scalar`
+| `wmaxu.vx`      | `31..26=0x06 vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wmaxu.vx wd, ws2, rs1, vm`      | `Unsigned Integer Maximum, matrix-scalar`
+| `wmax.vx`       | `31..26=0x07 vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wmax.vx wd, ws2, rs1, vm`       | `Signed Integer Maximum, matrix-scalar`
+| `wand.vx`       | `31..26=0x09 vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wand.vx wd, ws2, rs1, vm`       | `Bitwise logical And, matrix-scalar`
+| `wor.vx`        | `31..26=0x0a vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wor.vx wd, ws2, rs1, vm`        | `Bitwise logical Or, matrix-scalar`
+| `wxor.vx`       | `31..26=0x0b vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wxor.vx wd, ws2, rs1, vm`       | `Bitwise logical Xor, matrix-scalar`
+| `wrgather.vx`   | `31..26=0x0c vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wrgather.vx wd, ws2, rs1, vm`   | `wd[i][j] = (x[rs1] >= VLMAX) ? 0 : ws2[x[rs1]]`
+| `wslideup.vx`   | `31..26=0x0e vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wslideup.vx wd, ws2, rs1, vm`   | `wd[i+x[rs1]] = ws2[i][j]`
+| `wslidedown.vx` | `31..26=0x0f vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wslidedown.vx wd, ws2, rs1, vm` | `wd[i][j] = ws2[i+x[rs1]]`
+|===
+
+|===
+| Name         | Opcode / Argument                                       | Format                        | Pseudo-Code
+| `wadc.vxm`   | `31..26=0x10 25=0 ws2 rs1 14..12=0x4 wd 6..0=0x57`      | `wadc.vxm wd, ws2, rs1, v0`   | `vd[i][j] = vs2[i][j] + x[rs1] + v0.mask[i][j], matrix-scalar`
+| `wmadc.vxm`  | `31..26=0x11 25=0 ws2 rs1 14..12=0x4 wd 6..0=0x57`      | `wmadc.vxm wd, ws2, rs1, v0`  | `vd.mask[i][j] = carry_out(vs2[i][j] + x[rs1] + v0.mask[i][j]), matrix-scalar`
+| `wmadc.vx`   | `31..26=0x11 25=1 ws2 rs1 14..12=0x4 wd 6..0=0x57`      | `wmadc.vx wd, ws2, rs1`       | `vd.mask[i][j] = carry_out(vs2[i][j] + x[rs1]), matrix-scalar, no carry-in`
+| `wsbc.vxm`   | `31..26=0x12 25=0 ws2 rs1 14..12=0x4 wd 6..0=0x57`      | `wsbc.vxm wd, ws2, rs1, v0`   | `vd[i][j] = vs2[i][j] - x[rs1] - v0.mask[i][j], matrix-scalar`
+| `wmsbc.vxm`  | `31..26=0x13 25=0 ws2 rs1 14..12=0x4 wd 6..0=0x57`      | `wmsbc.vxm wd, ws2, rs1, v0`  | `vd.mask[i][j] = borrow_out(vs2[i][j] - x[rs1] - v0.mask[i][j]), matrix-scalar`
+| `wmsbc.vx`   | `31..26=0x13 25=1 ws2 rs1 14..12=0x4 wd 6..0=0x57`      | `wmsbc.vx wd, ws2, rs1`       | `vd.mask[i][j] = borrow_out(vs2[i][j] - x[rs1]), matrix-scalar, no borrow-in`
+| `wmerge.vxm` | `31..26=0x17 25=0 ws2 rs1 14..12=0x4 wd 6..0=0x57`      | `wmerge.vxm wd, ws2, rs1, v0` | `wd[i][j] = v0.mask[i][j] ? x[rs1] : ws2[i][j]`
+| `wmv.v.x`    | `31..26=0x17 25=1 24..20=0 rs1 14..12=0x4 wd 6..0=0x57` | `wmv.v.x wd, rs1`             | `wd[i][j] = x[rs1]`
+| `wmseq.vx`   | `31..26=0x18 vm ws2 rs1 14..12=0x4 wd 6..0=0x57`        | `wmseq.vx wd, ws2, rs1, vm`   | `Set if equal, matrix-scalar`
+| `wmsne.vx`   | `31..26=0x19 vm ws2 rs1 14..12=0x4 wd 6..0=0x57`        | `wmsne.vx wd, ws2, rs1, vm`   | `Set if not equal, matrix-scalar`
+| `wmsltu.vx`  | `31..26=0x1a vm ws2 rs1 14..12=0x4 wd 6..0=0x57`        | `wmsltu.vx wd, ws2, rs1, vm`  | `Set if less than, unsigned, matrix-scalar`
+| `wmslt.vx`   | `31..26=0x1b vm ws2 rs1 14..12=0x4 wd 6..0=0x57`        | `wmslt.vx wd, ws2, rs1, vm`   | `Set if less than, signed, matrix-scalar`
+| `wmsleu.vx`  | `31..26=0x1c vm ws2 rs1 14..12=0x4 wd 6..0=0x57`        | `wmsleu.vx wd, ws2, rs1, vm`  | `Set if less than or equal, unsigned, matrix-scalar`
+| `wmsle.vx`   | `31..26=0x1d vm ws2 rs1 14..12=0x4 wd 6..0=0x57`        | `wmsle.vx wd, ws2, rs1, vm`   | `Set if less than or equal, signed, matrix-scalar`
+| `wmsgtu.vx`  | `31..26=0x1e vm ws2 rs1 14..12=0x4 wd 6..0=0x57`        | `wmsgtu.vx wd, ws2, rs1, vm`  | `Set if greater than, unsigned, matrix-scalar`
+| `wmsgt.vx`   | `31..26=0x1f vm ws2 rs1 14..12=0x4 wd 6..0=0x57`        | `wmsgt.vx wd, ws2, rs1, vm`   | `Set if greater than, signed, matrix-scalar`
+|===
+
+|===
+| Name         | Opcode / Argument                                | Format                        | Pseudo-Code
+| `wsaddu.vx`  | `31..26=0x20 vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wsaddu.vx wd, ws2, rs1, vm`  | `Saturating adds of unsigned integer, matrix-scalar`
+| `wsadd.vx`   | `31..26=0x21 vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wsadd.vx wd, ws2, rs1, vm`   | `Saturating adds of signed integers, matrix-scalar`
+| `wssubu.vx`  | `31..26=0x22 vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wssubu.vx wd, ws2, rs1, vm`  | `Saturating subtract of unsigned integers, matrix-scalar`
+| `wssub.vx`   | `31..26=0x23 vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wssub.vx wd, ws2, rs1, vm`   | `Saturating subtract of signed integers, matrix-scalar`
+| `wsll.vx`    | `31..26=0x25 vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wsll.vx wd, ws2, rs1, vm`    | `Single-Width Bit Shift, matrix-scalar`
+| `wsmul.vx`   | `31..26=0x27 vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wsmul.vx wd, ws2, rs1, vm`   | `wd[i][j] = clip(roundoff_signed(ws2[i][j]*x[rs1], SEW-1))`
+| `wsrl.vx`    | `31..26=0x28 vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wsrl.vx wd, ws2, rs1, vm`    | `Single-Width Bit Shift, matrix-scalar`
+| `wsra.vx`    | `31..26=0x29 vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wsra.vx wd, ws2, rs1, vm`    | `Single-Width Bit Shift, matrix-scalar`
+| `wssrl.vx`   | `31..26=0x2a vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wssrl.vx wd, ws2, rs1, vm`   | `wd[i][j] = roundoff_unsigned(ws2[i][j], x[rs1])`
+| `wssra.vx`   | `31..26=0x2b vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wssra.vx wd, ws2, rs1, vm`   | `wd[i][j] = roundoff_signed(ws2[i][j], x[rs1])`
+| `wnsrl.wx`   | `31..26=0x2c vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wnsrl.wx wd, ws2, rs1, vm`   | `SEW = (2*SEW) >> SEW, matrix-scalar`
+| `wnsra.wx`   | `31..26=0x2d vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wnsra.wx wd, ws2, rs1, vm`   | `SEW = (2*SEW) >> SEW, matrix-scalar`
+| `wnclipu.wx` | `31..26=0x2e vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wnclipu.wx wd, ws2, rs1, vm` | `wd[i][j] = clip(roundoff_unsigned(ws2[i][j], x[rs1]))`
+| `wnclip.wx`  | `31..26=0x2f vm ws2 rs1 14..12=0x4 wd 6..0=0x57` | `wnclip.wx wd, ws2, rs1, vm`  | `wd[i][j] = clip(roundoff_signed(ws2[i][j], x[rs1]))`
+|===
+
+.OPIWW
+
+|===
+| Name              | Opcode / Argument                                | Format                             | Pseudo-Code
+| `wadd.vv`         | `31..26=0x00 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wadd.vv wd, ws2, ws1, vm`         | `Single-Width Integer Add, matrix-matrix`
+| `wsub.vv`         | `31..26=0x02 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wsub.vv wd, ws2, ws1, vm`         | `Single-Width Integer Subtract, matrix-matrix`
+| `wminu.vv`        | `31..26=0x04 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wminu.vv wd, ws2, ws1, vm`        | `Unsigned Integer Minimum, matrix-matrix`
+| `wmin.vv`         | `31..26=0x05 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wmin.vv wd, ws2, ws1, vm`         | `Signed Integer Minimum, matrix-matrix`
+| `wmaxu.vv`        | `31..26=0x06 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wmaxu.vv wd, ws2, ws1, vm`        | `Unsigned Integer Maximum, matrix-matrix`
+| `wmax.vv`         | `31..26=0x07 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wmax.vv wd, ws2, ws1, vm`         | `Signed Integer Maximum, matrix-matrix`
+| `wand.vv`         | `31..26=0x09 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wand.vv wd, ws2, ws1, vm`         | `Bitwise logical And, matrix-matrix`
+| `wor.vv`          | `31..26=0x0a vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wor.vv wd, ws2, ws1, vm`          | `Bitwise logical Or, matrix-matrix`
+| `wxor.vv`         | `31..26=0x0b vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wxor.vv wd, ws2, ws1, vm`         | `Bitwise logical Xor, matrix-matrix`
+| `wrgather.vv`     | `31..26=0x0c vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wrgather.vv wd, ws2, ws1, vm`     | `wd[i][j] = (ws1[i][j] >= VLMAX) ? 0 : ws2[ws1[i][j]]`
+| `wrgatherei16.vv` | `31..26=0x0e vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wrgatherei16.vv wd, ws2, ws1, vm` | `wd[i][j] = (ws1[i][j] >= VLMAX) ? 0 : ws2[ws1[i][j]]`
+|===
+
+|===
+| Name         | Opcode / Argument                                       | Format                        | Pseudo-Code
+| `wadc.vvm`   | `31..26=0x10 25=0 ws2 ws1 14..12=0x0 wd 6..0=0x57`      | `wadc.vvm wd, ws2, ws1, v0`   | `wd[i][j] = ws2[i][j] + ws1[i][j] + v0.mask[i][j], matrix-matrix`
+| `wmadc.vvm`  | `31..26=0x11 25=0 ws2 ws1 14..12=0x0 wd 6..0=0x57`      | `wmadc.vvm wd, ws2, ws1, v0`  | `wd.mask[i][j] = carry_out(ws2[i][j] + ws1[i][j] + v0.mask[i][j]), matrix-matrix`
+| `wmadc.vv`   | `31..26=0x11 25=1 ws2 ws1 14..12=0x0 wd 6..0=0x57`      | `wmadc.vv wd, ws2, ws1`       | `wd.mask[i][j] = carry_out(ws2[i][j] + ws1[i][j]), matrix-matrix, no carry-in`
+| `wsbc.vvm`   | `31..26=0x12 25=0 ws2 ws1 14..12=0x0 wd 6..0=0x57`      | `wsbc.vvm wd, ws2, ws1, v0`   | `wd[i][j] = ws2[i][j] - ws1[i][j] - v0.mask[i][j], matrix-matrix`
+| `wmsbc.vvm`  | `31..26=0x13 25=0 ws2 ws1 14..12=0x0 wd 6..0=0x57`      | `wmsbc.vvm wd, ws2, ws1, v0`  | `wd.mask[i][j] = borrow_out(ws2[i][j] - ws1[i][j] - v0.mask[i][j]), matrix-matrix`
+| `wmsbc.vv`   | `31..26=0x13 25=1 ws2 ws1 14..12=0x0 wd 6..0=0x57`      | `wmsbc.vv wd, ws2, ws1`       | `wd.mask[i][j] = borrow_out(ws2[i][j] - ws1[i][j]), matrix-matrix, no borrow-in`
+| `wmerge.vvm` | `31..26=0x17 25=0 ws2 ws1 14..12=0x0 wd 6..0=0x57`      | `wmerge.vvm wd, ws2, ws1, v0` | `wd[i][j] = v0.mask[i][j] ? ws1[i][j] : ws2[i][j]`
+| `wmv.v.v`    | `31..26=0x17 25=1 24..20=0 ws1 14..12=0x0 wd 6..0=0x57` | `wmv.v.v wd, ws1`             | `wd[i][j] = ws1[i][j]`
+| `wmseq.vv`   | `31..26=0x18 vm ws2 ws1 14..12=0x0 wd 6..0=0x57`        | `wmseq.vv wd, ws2, ws1, vm`   | `Set if equal, matrix-matrix`
+| `wmsne.vv`   | `31..26=0x19 vm ws2 ws1 14..12=0x0 wd 6..0=0x57`        | `wmsne.vv wd, ws2, ws1, vm`   | `Set if not equal, matrix-matrix`
+| `wmsltu.vv`  | `31..26=0x1a vm ws2 ws1 14..12=0x0 wd 6..0=0x57`        | `wmsltu.vv wd, ws2, ws1, vm`  | `Set if less than, unsigned, matrix-matrix`
+| `wmslt.vv`   | `31..26=0x1b vm ws2 ws1 14..12=0x0 wd 6..0=0x57`        | `wmslt.vv wd, ws2, ws1, vm`   | `Set if less than, signed, matrix-matrix`
+| `wmsleu.vv`  | `31..26=0x1c vm ws2 ws1 14..12=0x0 wd 6..0=0x57`        | `wmsleu.vv wd, ws2, ws1, vm`  | `Set if less than or equal, unsigned, matrix-matrix`
+| `wmsle.vv`   | `31..26=0x1d vm ws2 ws1 14..12=0x0 wd 6..0=0x57`        | `wmsle.vv wd, ws2, ws1, vm`   | `Set if less than or equal, signed, matrix-matrix`
+|===
+
+|===
+| Name         | Opcode / Argument                                | Format                        | Pseudo-Code
+| `wsaddu.vv`  | `31..26=0x20 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wsaddu.vv wd, ws2, ws1, vm`  | `Saturating adds of unsigned integer, matrix-matrix`
+| `wsadd.vv`   | `31..26=0x21 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wsadd.vv wd, ws2, ws1, vm`   | `matrix-matrix`
+| `wssubu.vv`  | `31..26=0x22 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wssubu.vv wd, ws2, ws1, vm`  | `matrix-matrix`
+| `wssub.vv`   | `31..26=0x23 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wssub.vv wd, ws2, ws1, vm`   | `matrix-matrix`
+| `wsll.vv`    | `31..26=0x25 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wsll.vv wd, ws2, ws1, vm`    | `Single-Width Bit Shift, matrix-matrix`
+| `wsmul.vv`   | `31..26=0x27 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wsmul.vv wd, ws2, ws1, vm`   | `wd[i][j] = clip(roundoff_signed(ws2[i][j]*ws1[i][j], SEW-1))`
+| `wsrl.vv`    | `31..26=0x28 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wsrl.vv wd, ws2, ws1, vm`    | `Single-Width Bit Shift, matrix-matrix`
+| `wsra.vv`    | `31..26=0x29 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wsra.vv wd, ws2, ws1, vm`    | `Single-Width Bit Shift, matrix-matrix`
+| `wssrl.vv`   | `31..26=0x2a vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wssrl.vv wd, ws2, ws1, vm`   | `wd[i][j] = roundoff_unsigned(ws2[i][j], ws1[i][j])`
+| `wssra.vv`   | `31..26=0x2b vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wssra.vv wd, ws2, ws1, vm`   | `wd[i][j] = roundoff_signed(ws2[i][j],ws1[i][j])`
+| `wnsrl.wv`   | `31..26=0x2c vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wnsrl.wv wd, ws2, ws1, vm`   | `SEW = (2*SEW) >> SEW, matrix-matrix`
+| `wnsra.wv`   | `31..26=0x2d vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wnsra.wv wd, ws2, ws1, vm`   | `SEW = (2*SEW) >> SEW, matrix-matrix`
+| `wnclipu.wv` | `31..26=0x2e vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wnclipu.wv wd, ws2, ws1, vm` | `wd[i][j] = clip(roundoff_unsigned(ws2[i][j], ws1[i][j]))`
+| `wnclip.wv`  | `31..26=0x2f vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wnclip.wv wd, ws2, ws1, vm`  | `wd[i][j] = clip(roundoff_signed(ws2[i][j], ws1[i][j]))`
+|===
+
+|===
+| Name           | Opcode / Argument                                | Format                          | Pseudo-Code
+| `wwredsumu.ws` | `31..26=0x30 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wwredsumu.ws wd, ws2, ws1, vm` | `2*SEW = 2*SEW + sum(zero-extend(SEW))`
+| `wwredsum.ws`  | `31..26=0x31 vm ws2 ws1 14..12=0x0 wd 6..0=0x57` | `wwredsum.ws  wd, ws2, ws1, vm` | `2*SEW = 2*SEW + sum(sign-extend(SEW))`
+|===
+
+.OPIWI
+
+|===
+| Name            | Opcode / Argument                                  | Format                            | Pseudo-Code
+| `wadd.vi`       | `31..26=0x00 vm ws2 simm5 14..12=0x3 wd 6..0=0x57` | `wadd.vi wd, ws2, imm, vm`        | `Single-Width Integer Add, matrix-immediate`
+| `wrsub.vi`      | `31..26=0x03 vm ws2 simm5 14..12=0x3 wd 6..0=0x57` | `wrsub.vi wd, ws2, imm, vm`       | `wd[i][j] = imm - ws2[i][j]`
+| `wand.vi`       | `31..26=0x09 vm ws2 simm5 14..12=0x3 wd 6..0=0x57` | `wand.vi wd, ws2, imm, vm`        | `Bitwise logical And, matrix-immediate`
+| `wor.vi`        | `31..26=0x0a vm ws2 simm5 14..12=0x3 wd 6..0=0x57` | `wor.vi wd, ws2, imm, vm`         | `Bitwise logical Or, matrix-immediate`
+| `wxor.vi`       | `31..26=0x0b vm ws2 simm5 14..12=0x3 wd 6..0=0x57` | `wxor.vi wd, ws2, imm, vm`        | `Bitwise logical Xor, matrix-immediate`
+| `wrgather.vi`   | `31..26=0x0c vm ws2 simm5 14..12=0x3 wd 6..0=0x57` | `wrgather.vi wd, ws2, uimm, vm`   | `wd[i][j] =  (uimm >= VLMAX)  ? 0 : ws2[uimm]`
+| `wslideup.vi`   | `31..26=0x0e vm ws2 simm5 14..12=0x3 wd 6..0=0x57` | `wslideup.vi wd, ws2, uimm, vm`   | `wd[i+uimm] = ws2[i][j]`
+| `wslidedown.vi` | `31..26=0x0f vm ws2 simm5 14..12=0x3 wd 6..0=0x57` | `wslidedown.vi wd, ws2, uimm, vm` | `wd[i][j] = ws2[i+uimm]`
+|===
+
+|===
+| Name         | Opcode / Argument                                         | Format                        | Pseudo-Code
+| `wadc.vim`   | `31..26=0x10 25=0 ws2 simm5 14..12=0x3 wd 6..0=0x57`      | `wadc.vim wd, ws2, imm, v0`   | `wd[i][j] = ws2[i][j] + imm + v0.mask[i][j], matrix-immediate`
+| `wmadc.vim`  | `31..26=0x11 25=0 ws2 simm5 14..12=0x3 wd 6..0=0x57`      | `wmadc.vim wd, ws2, imm, v0`  | `wd.mask[i][j] = carry_out(ws2[i][j] + imm + v0.mask[i][j]), matrix-immediate`
+| `wmadc.vi`   | `31..26=0x11 25=1 ws2 simm5 14..12=0x3 wd 6..0=0x57`      | `wmadc.vi wd, ws2, imm`       | `matrix-immediate, no carry-in`
+| `wmerge.vim` | `31..26=0x17 25=0 ws2 simm5 14..12=0x3 wd 6..0=0x57`      | `wmerge.vim wd, ws2, imm, v0` | `wd[i][j] = v0.mask[i][j] ? imm : ws2[i][j]`
+| `wmv.v.i`    | `31..26=0x17 25=1 24..20=0 simm5 14..12=0x3 wd 6..0=0x57` | `wmv.v.i wd, imm`             | `wd[i][j] = imm`
+| `wmseq.vi`   | `31..26=0x18 vm ws2 simm5 14..12=0x3 wd 6..0=0x57`        | `wmseq.vi wd, ws2, imm, vm`   | `Set if equal, matrix-immediate`
+| `wmsne.vi`   | `31..26=0x19 vm ws2 simm5 14..12=0x3 wd 6..0=0x57`        | `wmsne.vi wd, ws2, imm, vm`   | `Set if not equal, matrix-immediate`
+| `wmsleu.vi`  | `31..26=0x1c vm ws2 simm5 14..12=0x3 wd 6..0=0x57`        | `wmsleu.vi wd, ws2, imm, vm`  | `Set if less than or equal, unsigned, matrix-immediate`
+| `wmsle.vi`   | `31..26=0x1d vm ws2 simm5 14..12=0x3 wd 6..0=0x57`        | `wmsle.vi wd, ws2, imm, vm`   | `Set if less than or equal, signed, matrix-immediate`
+| `wmsgtu.vi`  | `31..26=0x1e vm ws2 simm5 14..12=0x3 wd 6..0=0x57`        | `wmsgtu.vi wd, ws2, imm, vm`  | `Set if greater than, unsigned, matrix-immediate`
+| `wmsgt.vi`   | `31..26=0x1f vm ws2 simm5 14..12=0x3 wd 6..0=0x57`        | `wmsgt.vi wd, ws2, imm, vm`   | `Set if greater than, signed, matrix-immediate`
+|===
+
+|===
+| Name         | Opcode / Argument                                       | Format                         | Pseudo-Code
+| `wsaddu.vi`  | `31..26=0x20 vm ws2 simm5 14..12=0x3 wd 6..0=0x57`      | `wsaddu.vi wd, ws2, imm, vm`   | `Saturating adds of unsigned integer, matrix-immediate`
+| `wsadd.vi`   | `31..26=0x21 vm ws2 simm5 14..12=0x3 wd 6..0=0x57`      | `wsadd.vi wd, ws2, imm, vm`    | `matrix-immediate`
+| `wsll.vi`    | `31..26=0x25 vm ws2 simm5 14..12=0x3 wd 6..0=0x57`      | `wsll.vi wd, ws2, uimm, vm`    | `Single-Width Bit Shift, matrix-immediate`
+| `wmv1r.v`    | `31..26=0x27 25=1 ws2 19..15=0 14..12=0x3 wd 6..0=0x57` | `wmv1r.v v1, v2`               | `Copy v1=v2`
+| `wmv2r.v`    | `31..26=0x27 25=1 ws2 19..15=1 14..12=0x3 wd 6..0=0x57` | `wmv2r.v v10, v12`             | `Copy v10=v12; v11=v13`
+| `wmv4r.v`    | `31..26=0x27 25=1 ws2 19..15=3 14..12=0x3 wd 6..0=0x57` | `wmv4r.v v4, v8`               | `Copy v4=v8; v5=v9; v6=v10; v7=v11`
+| `wmv8r.v`    | `31..26=0x27 25=1 ws2 19..15=7 14..12=0x3 wd 6..0=0x57` | `wmv8r.v v0, v8`               | `Copy v0=v8; v1=v9; ...; v7=v15`
+| `wsrl.vi`    | `31..26=0x28 vm ws2 simm5 14..12=0x3 wd 6..0=0x57`      | `wsrl.vi wd, ws2, uimm, vm`    | `Single-Width Bit Shift, matrix-immediate`
+| `wsra.vi`    | `31..26=0x29 vm ws2 simm5 14..12=0x3 wd 6..0=0x57`      | `wsra.vi wd, ws2, uimm, vm`    | `Single-Width Bit Shift, matrix-immediate`
+| `wssrl.vi`   | `31..26=0x2a vm ws2 simm5 14..12=0x3 wd 6..0=0x57`      | `wssrl.vi wd, ws2, uimm, vm`   | `wd[i][j] = roundoff_unsigned(ws2[i][j], uimm)`
+| `wssra.vi`   | `31..26=0x2b vm ws2 simm5 14..12=0x3 wd 6..0=0x57`      | `wssra.vi wd, ws2, uimm, vm`   | `wd[i][j] = roundoff_signed(ws2[i][j], uimm)`
+| `wnsrl.wi`   | `31..26=0x2c vm ws2 simm5 14..12=0x3 wd 6..0=0x57`      | `wnsrl.wi wd, ws2, uimm, vm`   | `SEW = (2*SEW) >> SEW, matrix-immediate`
+| `wnsra.wi`   | `31..26=0x2d vm ws2 simm5 14..12=0x3 wd 6..0=0x57`      | `wnsra.wi wd, ws2, uimm, vm`   | `SEW = (2*SEW) >> SEW, matrix-immediate`
+| `wnclipu.wi` | `31..26=0x2e vm ws2 simm5 14..12=0x3 wd 6..0=0x57`      | `wnclipu.wi wd, ws2, uimm, vm` | `wd[i][j] = clip(roundoff_unsigned(ws2[i][j], uimm))`
+| `wnclip.wi`  | `31..26=0x2f vm ws2 simm5 14..12=0x3 wd 6..0=0x57`      | `wnclip.wi wd, ws2, uimm, vm`  | `wd[i][j] = clip(roundoff_signed(ws2[i][j], uimm))`
+|===
+
+.OPI (Matrix Integer Extension Instructions)
+
+|===
+| Name        | Opcode / Argument                                     | Format                  | Pseudo-Code
+| `wzext.vf8` | `31..26=0x12 vm ws2 19..15=2 14..12=0x2 wd 6..0=0x57` | `wzext.vf8 wd, ws2, vm` | `Zero-extend SEW/8 source to SEW destination`
+| `wsext.vf8` | `31..26=0x12 vm ws2 19..15=3 14..12=0x2 wd 6..0=0x57` | `wsext.vf8 wd, ws2, vm` | `Sign-extend SEW/8 source to SEW destination`
+| `wzext.vf4` | `31..26=0x12 vm ws2 19..15=4 14..12=0x2 wd 6..0=0x57` | `wzext.vf4 wd, ws2, vm` | `Zero-extend SEW/4 source to SEW destination`
+| `wsext.vf4` | `31..26=0x12 vm ws2 19..15=5 14..12=0x2 wd 6..0=0x57` | `wsext.vf4 wd, ws2, vm` | `Sign-extend SEW/4 source to SEW destination`
+| `wzext.vf2` | `31..26=0x12 vm ws2 19..15=6 14..12=0x2 wd 6..0=0x57` | `wzext.vf2 wd, ws2, vm` | `Zero-extend SEW/2 source to SEW destination`
+| `wsext.vf2` | `31..26=0x12 vm ws2 19..15=7 14..12=0x2 wd 6..0=0x57` | `wsext.vf2 wd, ws2, vm` | `Sign-extend SEW/2 source to SEW destination`
+|===
+
+|===
+| Name           | Opcode / Argument                                  | Format                      | Pseudo-Code
+| `wcompress.vm` | `31..26=0x17 25=1 ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wcompress.vm wd, ws2, ws1` | `Compress into wd elements of ws2 where ws1 is enabled`
+| `wmandn.mm`    | `31..26=0x18 25=1 ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wmandn.mm wd, ws2, ws1`    | `wd.mask[i][j] =   ws2.mask[i][j] && !ws1.mask[i][j]`
+| `wmand.mm`     | `31..26=0x19 25=1 ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wmand.mm wd, ws2, ws1`     | `wd.mask[i][j] =   ws2.mask[i][j] &&  ws1.mask[i][j]`
+| `wmor.mm`      | `31..26=0x1a 25=1 ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wmxor.mm  wd, ws2, ws1`    | `wd.mask[i][j] =   ws2.mask[i][j] ^^  ws1.mask[i][j]`
+| `wmxor.mm`     | `31..26=0x1b 25=1 ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wmor.mm  wd, ws2, ws1`     | `wd.mask[i][j] =   ws2.mask[i][j] \|\|  ws1.mask[i][j]`
+| `wmorn.mm`     | `31..26=0x1c 25=1 ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wmorn.mm  wd, ws2, ws1`    | `wd.mask[i][j] =   ws2.mask[i][j] \|\| !ws1.mask[i][j]`
+| `wmnand.mm`    | `31..26=0x1d 25=1 ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wmnand.mm wd, ws2, ws1`    | `wd.mask[i][j] = !(ws2.mask[i][j] &&  ws1.mask[i][j])`
+| `wmnor.mm`     | `31..26=0x1e 25=1 ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wmnor.mm  wd, ws2, ws1`    | `wd.mask[i][j] = !(ws2.mask[i][j] \|\|  ws1.mask[i][j])`
+| `wmxnor.mm`    | `31..26=0x1f 25=1 ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wmxnor.mm wd, ws2, ws1`    | `wd.mask[i][j] = !(ws2.mask[i][j] ^^  ws1.mask[i][j])`
+|===
+
+|===
+| Name       | Opcode / Argument                                             | Format                 | Pseudo-Code
+| `wmsbf.m`  | `31..26=0x14 vm ws2 19..15=0x01 14..12=0x2 wd 6..0=0x57`      | `wmsbf.m wd, ws2, vm`  | `set-before-first mask bit`
+| `wmsof.m`  | `31..26=0x14 vm ws2 19..15=0x02 14..12=0x2 wd 6..0=0x57`      | `wmsof.m wd, ws2, vm`  | `set-only-first mask bit`
+| `wmsif.m`  | `31..26=0x14 vm ws2 19..15=0x03 14..12=0x2 wd 6..0=0x57`      | `wmsif.m wd, ws2, vm`  | `set-including-first mask bit`
+| `wiota.m`  | `31..26=0x14 vm ws2 19..15=0x10 14..12=0x2 wd 6..0=0x57`      | `wiota.m wd, ws2, vm`  |
+| `wid.v`    | `31..26=0x14 vm 24..20=0 19..15=0x11 14..12=0x2 wd 6..0=0x57` | `wid.v wd, vm`         | `Write element ID to destination`
+| `wcpop.m`  | `31..26=0x10 vm ws2 19..15=0x10 14..12=0x2 rd 6..0=0x57`      | `wcpop.m rd, ws2, vm`  | `x[rd] = sum_i ( ws2.mask[i][j] && v0.mask[i][j])`
+| `wfirst.m` | `31..26=0x10 vm ws2 19..15=0x11 14..12=0x2 rd 6..0=0x57`      | `wfirst.m rd, ws2, vm` | `x[rd] even if wl=0 (with the value -1, since no mask elements are active)`
+|===
+
+|===
+| Name         | Opcode / Argument                                | Format                        | Pseudo-Code
+| `wdivu.vv`   | `31..26=0x20 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wdivu.vv wd, ws2, ws1, vm`   | `2*SEW-bit = SEW-bit / SEW-bit, matrix-matrix`
+| `wdiv.vv`    | `31..26=0x21 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wdiv.vv wd, ws2, ws1, vm`    | `2*SEW-bit = SEW-bit / SEW-bit, matrix-matrix`
+| `wremu.vv`   | `31..26=0x22 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wremu.vv wd, ws2, ws1, vm`   | `2*SEW-bit = SEW-bit % SEW-bit, matrix-matrix`
+| `wrem.vv`    | `31..26=0x23 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wrem.vv wd, ws2, ws1, vm`    | `2*SEW-bit = SEW-bit % SEW-bit, matrix-matrix`
+| `wmulhu.vv`  | `31..26=0x24 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wmulhu.vv wd, ws2, ws1, vm`  | `2*SEW-bit = SEW-bit * SEW-bit, matrix-matrix`
+| `wmul.vv`    | `31..26=0x25 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wmul.vv wd, ws2, ws1, vm`    | `2*SEW-bit = SEW-bit * SEW-bit, matrix-matrix`
+| `wmulhsu.vv` | `31..26=0x26 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wmulhsu.vv wd, ws2, ws1, vm` | `2*SEW-bit = SEW-bit * SEW-bit, matrix-matrix`
+| `wmulh.vv`   | `31..26=0x27 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wmulh.vv wd, ws2, ws1, vm`   | `2*SEW-bit = SEW-bit * SEW-bit, matrix-matrix`
+| `wmadd.vv`   | `31..26=0x29 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wmadd.vv wd, ws1, ws2, vm`   | `wd[i][j] = (ws1[i][j] * wd[i][j]) + ws2[i][j]`
+| `wnmsub.vv`  | `31..26=0x2b vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wnmsub.vv wd, ws1, ws2, vm`  | `wd[i][j] = -(ws1[i][j] * wd[i][j]) + ws2[i][j]`
+| `wmacc.vv`   | `31..26=0x2d vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wmacc.vv wd, ws1, ws2, vm`   | `wd[i][j] = +(ws1[i][j] * ws2[i][j]) + wd[i][j]`
+| `wnmsac.vv`  | `31..26=0x2f vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wnmsac.vv wd, ws1, ws2, vm`  | `wd[i][j] = -(ws1[i][j] * ws2[i][j]) + wd[i][j]`
+|===
+
+|===
+| Name          | Opcode / Argument                                | Format                         | Pseudo-Code
+| `wwaddu.vv`   | `31..26=0x30 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wwaddu.vv  wd, ws2, ws1, vm`  | `2*SEW = SEW + SEW, matrix-matrix`
+| `wwadd.vv`    | `31..26=0x31 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wwadd.vv  wd, ws2, ws1, vm`   | `2*SEW = SEW + SEW, matrix-matrix`
+| `wwsubu.vv`   | `31..26=0x32 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wwsubu.vv  wd, ws2, ws1, vm`  | `2*SEW = SEW - SEW, matrix-matrix`
+| `wwsub.vv`    | `31..26=0x33 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wwsub.vv  wd, ws2, ws1, vm`   | `2*SEW = SEW - SEW, matrix-matrix`
+| `wwaddu.wv`   | `31..26=0x34 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wwaddu.wv  wd, ws2, ws1, vm`  | `2*SEW = 2*SEW + SEW, matrix-matrix`
+| `wwadd.wv`    | `31..26=0x35 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wwadd.wv  wd, ws2, ws1, vm`   | `2*SEW = 2*SEW + SEW, matrix-matrix`
+| `wwsubu.wv`   | `31..26=0x36 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wwsubu.wv  wd, ws2, ws1, vm`  | `2*SEW = 2*SEW - SEW, matrix-matrix`
+| `wwsub.wv`    | `31..26=0x37 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wwsub.wv  wd, ws2, ws1, vm`   | `2*SEW = 2*SEW - SEW, matrix-matrix`
+| `wwmulu.vv`   | `31..26=0x38 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wwmulu.vv wd, ws2, ws1, vm`   | `2*SEW-bit = SEW-bit * SEW-bit, matrix-matrix`
+| `wwmulsu.vv`  | `31..26=0x3a vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wwmulsu.vv wd, ws2, ws1, vm`  | `2*SEW-bit = SEW-bit * SEW-bit, matrix-matrix`
+| `wwmul.vv`    | `31..26=0x3b vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wwmul.vv  wd, ws2, ws1, vm`   | `2*SEW-bit = SEW-bit * SEW-bit, matrix-matrix`
+| `wwmaccu.vv`  | `31..26=0x3c vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wwmaccu.vv wd, ws1, ws2, vm`  | `wd[i][j] = +(ws1[i][j] * ws2[i][j]) + wd[i][j]`
+| `wwmacc.vv`   | `31..26=0x3d vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wwmacc.vv wd, ws1, ws2, vm`   | `wd[i][j] = +(ws1[i][j] * ws2[i][j]) + wd[i][j]`
+| `wwmaccsu.vv` | `31..26=0x3f vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wwmaccsu.vv wd, ws1, ws2, vm` | `wd[i][j] = +(signed(ws1[i][j]) * unsigned(ws2[i][j])) + wd[i][j]`
+|===
+
+=== Matrix Mask Instructions
+
+.OPMWW
+
+|===
+| Name          | Opcode / Argument                                | Format                         | Pseudo-Code
+| `wredsum.ws`  | `31..26=0x00 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wredsum.ws  wd, ws2, ws1, vm` | `wd[0][0] =  sum( ws1[0][0], ws2[*])`
+| `wredand.ws`  | `31..26=0x01 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wredand.ws  wd, ws2, ws1, vm` | `wd[0][0] =  and( ws1[0][0], ws2[*])`
+| `wredor.ws`   | `31..26=0x02 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wredor.ws   wd, ws2, ws1, vm` | `wd[0][0] =   or( ws1[0][0], ws2[*])`
+| `wredxor.ws`  | `31..26=0x03 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wredxor.ws  wd, ws2, ws1, vm` | `wd[0][0] =  xor( ws1[0][0], ws2[*])`
+| `wredminu.ws` | `31..26=0x04 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wredminu.ws wd, ws2, ws1, vm` | `wd[0][0] = minu( ws1[0][0], ws2[*])`
+| `wredmin.ws`  | `31..26=0x05 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wredmin.ws  wd, ws2, ws1, vm` | `wd[0][0] =  min( ws1[0][0], ws2[*])`
+| `wredmaxu.ws` | `31..26=0x06 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wredmaxu.ws wd, ws2, ws1, vm` | `wd[0][0] = maxu( ws1[0][0], ws2[*])`
+| `wredmax.ws`  | `31..26=0x07 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wredmax.ws  wd, ws2, ws1, vm` | `wd[0][0] =  max( ws1[0][0], ws2[*])`
+| `waaddu.vv`   | `31..26=0x08 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `waadd.vv    wd, ws2, ws1, vm` | `roundoff_signed(ws2[i][j] + ws1[i][j], 1)`
+| `waadd.vv`    | `31..26=0x09 vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `waadd.vv    wd, ws2, ws1, vm` | `roundoff_signed(ws2[i][j] + ws1[i][j], 1)`
+| `wasubu.vv`   | `31..26=0x0a vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wasubu.vv   wd, ws2, ws1, vm` | `roundoff_unsigned(ws2[i][j] - ws1[i][j], 1)`
+| `wasub.vv`    | `31..26=0x0b vm ws2 ws1 14..12=0x2 wd 6..0=0x57` | `wasub.vv    wd, ws2, ws1, vm` | `roundoff_signed(ws2[i][j] - ws1[i][j], 1)`
+|===
+
+|===
+| Name      | Opcode / Argument                                       | Format            | Pseudo-Code
+| `wmv.x.s` | `31..26=0x10 25=1 ws2 19..15=0 14..12=0x2 rd 6..0=0x57` | `wmv.x.s rd, ws2` | `x[rd] = ws2[0][0] (ws1=0)`
+|===
+
+.OPMWX
+
+|===
+| Name        | Opcode / Argument                                | Format                       | Pseudo-Code
+| `waaddu.vx` | `31..26=0x08 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `waaddu.vx wd, ws2, rs1, vm` | `roundoff_unsigned(ws2[i][j] + x[rs1], 1)`
+| `waadd.vx`  | `31..26=0x09 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `waadd.vx wd, ws2, rs1, vm`  | `roundoff_signed(ws2[i][j] + x[rs1], 1)`
+| `wasubu.vx` | `31..26=0x0a vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wasubu.vx wd, ws2, rs1, vm` | `roundoff_unsigned(ws2[i][j] - x[rs1], 1)`
+| `wasub.vx`  | `31..26=0x0b vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wasub.vx wd, ws2, rs1, vm`  | `roundoff_signed(ws2[i][j] - x[rs1], 1)`
+|===
+
+|===
+| Name             | Opcode / Argument                                       | Format                             | Pseudo-Code
+| `wmv.s.x`        | `31..26=0x10 25=1 24..20=0 rs1 14..12=0x6 wd 6..0=0x57` | `wmv.s.x wd, rs1`                  | `wd[0][0] = x[rs1] (ws2=0)`
+| `wslide1up.vx`   | `31..26=0x0e vm ws2 rs1 14..12=0x6 wd 6..0=0x57`        | `wslide1up.vx  wd, ws2, rs1, vm`   | `wd[0][0] = x[rs1], wd[i+1][j+1] = ws2[i][j]`
+| `wslide1down.vx` | `31..26=0x0f vm ws2 rs1 14..12=0x6 wd 6..0=0x57`        | `wslide1down.vx  wd, ws2, rs1, vm` | `wd[i][j] = ws2[i+1][j+1], wd[wl-1]=x[rs1]`
+|===
+
+|===
+| Name         | Opcode / Argument                                | Format                        | Pseudo-Code
+| `wdivu.vx`   | `31..26=0x20 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wdivu.vx wd, ws2, rs1, vm`   | `2*SEW-bit = SEW-bit / SEW-bit, matrix-scalar`
+| `wdiv.vx`    | `31..26=0x21 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wdiv.vx wd, ws2, rs1, vm`    | `2*SEW-bit = SEW-bit / SEW-bit, matrix-scalar`
+| `wremu.vx`   | `31..26=0x22 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wremu.vx wd, ws2, rs1, vm`   | `2*SEW-bit = SEW-bit % SEW-bit, matrix-scalar`
+| `wrem.vx`    | `31..26=0x23 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wrem.vx wd, ws2, rs1, vm`    | `2*SEW-bit = SEW-bit % SEW-bit, matrix-scalar`
+| `wmulhu.vx`  | `31..26=0x24 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wmulhu.vx wd, ws2, rs1, vm`  | `2*SEW-bit = SEW-bit * SEW-bit, matrix-scalar`
+| `wmul.vx`    | `31..26=0x25 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wmul.vx wd, ws2, rs1, vm`    | `2*SEW-bit = SEW-bit * SEW-bit, matrix-scalar`
+| `wmulhsu.vx` | `31..26=0x26 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wmulh.vx wd, ws2, rs1, vm`   | `2*SEW-bit = SEW-bit * SEW-bit, matrix-scalar`
+| `wmulh.vx`   | `31..26=0x27 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wmulhsu.vx wd, ws2, rs1, vm` | `2*SEW-bit = SEW-bit * SEW-bit, matrix-scalar`
+| `wmadd.vx`   | `31..26=0x29 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wmadd.vx wd, rs1, ws2, vm`   | `wd[i][j] = (x[rs1] * wd[i][j]) + ws2[i][j]`
+| `wnmsub.vx`  | `31..26=0x2b vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wnmsub.vx wd, rs1, ws2, vm`  | `wd[i][j] = -(x[rs1] * wd[i][j]) + ws2[i][j]`
+| `wmacc.vx`   | `31..26=0x2d vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wmacc.vx wd, rs1, ws2, vm`   | `wd[i][j] = +(x[rs1] * ws2[i][j]) + wd[i][j]`
+| `wnmsac.vx`  | `31..26=0x2f vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wnmsac.vx wd, rs1, ws2, vm`  | `wd[i][j] = -(x[rs1] * ws2[i][j]) + wd[i][j]`
+|===
+
+|===
+| Name          | Opcode / Argument                                | Format                         | Pseudo-Code
+| `wwaddu.vx`   | `31..26=0x30 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wwaddu.vx wd, ws2, rs1, vm`   | `2*SEW = SEW + SEW, matrix-scalar`
+| `wwadd.vx`    | `31..26=0x31 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wwadd.vx wd, ws2, rs1, vm`    | `2*SEW = SEW + SEW, matrix-scalar`
+| `wwsubu.vx`   | `31..26=0x32 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wwsubu.vx wd, ws2, rs1, vm`   | `2*SEW = SEW - SEW, matrix-scalar`
+| `wwsub.vx`    | `31..26=0x33 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wwsub.vx wd, ws2, rs1, vm`    | `2*SEW = SEW - SEW, matrix-scalar`
+| `wwaddu.wx`   | `31..26=0x34 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wwaddu.wx wd, ws2, rs1, vm`   | `2*SEW = 2*SEW + SEW, matrix-scalar`
+| `wwadd.wx`    | `31..26=0x35 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wwadd.wx wd, ws2, rs1, vm`    | `2*SEW = 2*SEW + SEW, matrix-scalar`
+| `wwsubu.wx`   | `31..26=0x36 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wwsubu.wx wd, ws2, rs1, vm`   | `2*SEW = 2*SEW - SEW, matrix-scalar`
+| `wwsub.wx`    | `31..26=0x37 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wwsub.wx wd, ws2, rs1, vm`    | `2*SEW = 2*SEW - SEW, matrix-scalar`
+| `wwmulu.vx`   | `31..26=0x38 vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wwmulu.vx wd, ws2, rs1, vm`   | `2*SEW-bit = SEW-bit * SEW-bit, matrix-scalar`
+| `wwmulsu.vx`  | `31..26=0x3a vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wwmulsu.vx wd, ws2, rs1, vm`  | `2*SEW-bit = SEW-bit * SEW-bit, matrix-scalar`
+| `wwmul.vx`    | `31..26=0x3b vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wwmul.vx wd, ws2, rs1, vm`    | `2*SEW-bit = SEW-bit * SEW-bit, matrix-scalar`
+| `wwmaccu.vx`  | `31..26=0x3c vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wwmaccu.vx wd, rs1, ws2, vm`  | `wd[i][j] = +(x[rs1] * ws2[i][j]) + wd[i][j]`
+| `wwmacc.vx`   | `31..26=0x3d vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wwmacc.vx wd, rs1, ws2, vm`   | `wd[i][j] = +(x[rs1] * ws2[i][j]) + wd[i][j]`
+| `wwmaccus.vx` | `31..26=0x3e vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wwmaccus.vx wd, rs1, ws2, vm` | `wd[i][j] = +(unsigned(x[rs1]) * signed(ws2[i][j])) + wd[i][j]`
+| `wwmaccsu.vx` | `31..26=0x3f vm ws2 rs1 14..12=0x6 wd 6..0=0x57` | `wwmaccsu.vx wd, rs1, ws2, vm` | `wd[i][j] = +(signed(x[rs1]) * unsigned(ws2[i][j])) + wd[i][j]`
+|===

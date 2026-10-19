@@ -1,0 +1,602 @@
+= RISC-V Y Extension
+
+== Formats
+
+[%autowidth,float="center",align="center",options="nowrap"]
+|========================================================================================
+    |31 |27 | 26 |  25  |24 | 20 | 19 | 15 | 1 4 | 12 |   11    |   7   | 6  | 0  |
+ 4+^|funct7          2+^|rs2  2+^|rs1   2+^|funct3 2+^|rd            2+^|opcode  <|R-type
+ 6+^|imm[11:0]                2+^|rs1   2+^|funct3 2+^|rd            2+^|opcode  <|I-type
+ 4+^|imm[11:5]       2+^|rs2  2+^|rs1   2+^|funct3 2+^|imm[4:0]      2+^|opcode  <|S-type
+ 4+^|imm[12\|10:5]   2+^|rs2  2+^|rs1   2+^|funct3 2+^|imm[4:1\|11]  2+^|opcode  <|B-type
+10+^|imm[31:12]                                    2+^|rd            2+^|opcode  <|U-type
+10+^|imm[20\|10:1\|11\|19:12]                      2+^|rd            2+^|opcode  <|J-type
+|========================================================================================
+
+== Instructions
+
+[%autowidth,float="center",align="center",options="nowrap"]
+|===
+| Category     | Operands         | Operation
+| `OPIYY`      | tensor-tensor    | Integer
+| `OPIYX`      | tensor-scalar    | Integer
+| `OPIYI`      | tensor-immediate | Integer
+| `OPFYY`      | tensor-tensor    | Float
+| `OPFYF`      | tensor-scalar    | Float
+| `OPMYY`      | tensor-tensor    | Mask
+| `OPMYX`      | tensor-scalar    | Mask
+| `OPCFG`      | scalars-imms     | Configuration
+|===
+
+=== OPCFG (Configuration Setting)
+
+|===
+| Name        | Opcode / Argument                                  | Format                      | Pseudo-Code
+| `ysetivli`  | `31=1 30=1 zimm10   zimm5 14..12=0x7 rd 6..0=0x57` | `ysetvli rd, rs1, ytypei`   | `rd = new yl, rs1 = AVL, ytypei = new ytype setting`
+| `ysetvli`   | `31=0 zimm11          rs1 14..12=0x7 rd 6..0=0x57` | `ysetivli rd, uimm, ytypei` | `rd = new yl, uimm = AVL, ytypei = new ytype setting`
+| `ysetvl`    | `31=1 30..25=0x0 rs2  rs1 14..12=0x7 rd 6..0=0x57` | `ysetvl  rd, rs1, rs2`      | `rd = new yl, rs1 = AVL, rs2 = new ytype value`
+|===
+
+=== OPLS (Tensor Loads and Store)
+
+.Tensor Unit-Stride Instructions (including segment part)
+
+|===
+| Name      | Opcode / Argument                                                | Format                   | Pseudo-Code
+| `ylm.v`   | `31..28=0 27..26=0 25=1 24..20=0xb rs1 14..12=0x0  yd 6..0=0x07` | `ylm.v   yd, (rs1)`      | `Load byte tensor of length ceil(yl/8)`
+| `ysm.v`   | `31..28=0 27..26=0 25=1 24..20=0xb rs1 14..12=0x0 ys3 6..0=0x27` | `ysm.v   ys3, (rs1)`     | `Store byte tensor of length ceil(yl/8)`
+| `yle8.v`  | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x0  yd 6..0=0x07`      | `yle8.v  yd, (rs1), vm`  | `8-bit unit-stride load`
+| `yle16.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x5  yd 6..0=0x07`      | `yle16.v yd, (rs1), vm`  | `16-bit unit-stride load`
+| `yle32.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x6  yd 6..0=0x07`      | `yle32.v yd, (rs1), vm`  | `32-bit unit-stride load`
+| `yle64.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x7  yd 6..0=0x07`      | `yle64.v yd, (rs1), vm`  | `64-bit unit-stride load`
+| `yse8.v`  | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x0 ys3 6..0=0x27`      | `yse8.v  ys3, (rs1), vm` | `8-bit unit-stride store`
+| `yse16.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x5 ys3 6..0=0x27`      | `yse16.v ys3, (rs1), vm` | `16-bit unit-stride store`
+| `yse32.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x6 ys3 6..0=0x27`      | `yse32.v ys3, (rs1), vm` | `32-bit unit-stride store`
+| `yse64.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x7 ys3 6..0=0x27`      | `yse64.v ys3, (rs1), vm` | `64-bit unit-stride store`
+|===
+
+.Tensor Indexed-Unordered Instructions (including segment part)
+
+|===
+| Name         | Opcode / Argument                                      | Format                            | Pseudo-Code
+| `yluxei8.v`  | `nf 28=0 27..26=1 vm ys2 rs1 14..12=0x0  yd 6..0=0x07` | `yluxei8.v    yd, (rs1), ys2, vm` | `unordered  8-bit indexed load of SEW data`
+| `yluxei16.v` | `nf 28=0 27..26=1 vm ys2 rs1 14..12=0x5  yd 6..0=0x07` | `yluxei16.v   yd, (rs1), ys2, vm` | `unordered 16-bit indexed load of SEW data`
+| `yluxei32.v` | `nf 28=0 27..26=1 vm ys2 rs1 14..12=0x6  yd 6..0=0x07` | `yluxei32.v   yd, (rs1), ys2, vm` | `unordered 32-bit indexed load of SEW data`
+| `yluxei64.v` | `nf 28=0 27..26=1 vm ys2 rs1 14..12=0x7  yd 6..0=0x07` | `yluxei64.v   yd, (rs1), ys2, vm` | `unordered 64-bit indexed load of SEW data`
+| `ysuxei8.v`  | `nf 28=0 27..26=1 vm ys2 rs1 14..12=0x0 ys3 6..0=0x27` | `ysuxei8.v   ys3, (rs1), ys2, vm` | `unordered  8-bit indexed store of SEW data`
+| `ysuxei16.v` | `nf 28=0 27..26=1 vm ys2 rs1 14..12=0x5 ys3 6..0=0x27` | `ysuxei16.v  ys3, (rs1), ys2, vm` | `unordered 16-bit indexed store of SEW data`
+| `ysuxei32.v` | `nf 28=0 27..26=1 vm ys2 rs1 14..12=0x6 ys3 6..0=0x27` | `ysuxei32.v  ys3, (rs1), ys2, vm` | `unordered 32-bit indexed store of SEW data`
+| `ysuxei64.v` | `nf 28=0 27..26=1 vm ys2 rs1 14..12=0x7 ys3 6..0=0x27` | `ysuxei64.v  ys3, (rs1), ys2, vm` | `unordered 64-bit indexed store of SEW data`
+|===
+
+.Tensor Strided Instructions (including segment part)
+
+|===
+| Name       | Opcode / Argument                                      | Format                           | Pseudo-Code
+| `ylse8.v`  | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x0  yd 6..0=0x07` | `ylse8.v    yd,  (rs1), rs2, vm` | `8-bit strided load`
+| `ylse16.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x5  yd 6..0=0x07` | `ylse16.v   yd,  (rs1), rs2, vm` | `16-bit strided load`
+| `ylse32.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x6  yd 6..0=0x07` | `ylse32.v   yd,  (rs1), rs2, vm` | `32-bit strided load`
+| `ylse64.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x7  yd 6..0=0x07` | `ylse64.v   yd,  (rs1), rs2, vm` | `64-bit strided load`
+| `ysse8.v`  | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x0 ys3 6..0=0x27` | `ysse8.v    ys3, (rs1), rs2, vm` | `8-bit strided store`
+| `ysse16.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x5 ys3 6..0=0x27` | `ysse16.v   ys3, (rs1), rs2, vm` | `16-bit strided store`
+| `ysse32.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x6 ys3 6..0=0x27` | `ysse32.v   ys3, (rs1), rs2, vm` | `32-bit strided store`
+| `ysse64.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x7 ys3 6..0=0x27` | `ysse64.v   ys3, (rs1), rs2, vm` | `64-bit strided store`
+|===
+
+.Tensor Indexed-Ordered Instructions (including segment part)
+
+|===
+| Name         | Opcode / Argument                                      | Format                             | Pseudo-Code
+| `yloxei8.v`  | `nf 28=0 27..26=3 vm ys2 rs1 14..12=0x0  yd 6..0=0x07` | `yloxei8.v    yd, (rs1), ys2, vm`  | `ordered  8-bit indexed load of SEW data`
+| `yloxei16.v` | `nf 28=0 27..26=3 vm ys2 rs1 14..12=0x5  yd 6..0=0x07` | `yloxei16.v   yd, (rs1), ys2, vm`  | `ordered 16-bit indexed load of SEW data`
+| `yloxei32.v` | `nf 28=0 27..26=3 vm ys2 rs1 14..12=0x6  yd 6..0=0x07` | `yloxei32.v   yd, (rs1), ys2, vm`  | `ordered 32-bit indexed load of SEW data`
+| `yloxei64.v` | `nf 28=0 27..26=3 vm ys2 rs1 14..12=0x7  yd 6..0=0x07` | `yloxei64.v   yd, (rs1), ys2, vm`  | `ordered 64-bit indexed load of SEW data`
+| `ysoxei8.v`  | `nf 28=0 27..26=3 vm ys2 rs1 14..12=0x0 ys3 6..0=0x27` | `ysoxei8.v    ys3, (rs1), ys2, vm` | `ordered  8-bit indexed store of SEW data`
+| `ysoxei16.v` | `nf 28=0 27..26=3 vm ys2 rs1 14..12=0x5 ys3 6..0=0x27` | `ysoxei16.v   ys3, (rs1), ys2, vm` | `ordered 16-bit indexed store of SEW data`
+| `ysoxei32.v` | `nf 28=0 27..26=3 vm ys2 rs1 14..12=0x6 ys3 6..0=0x27` | `ysoxei32.v   ys3, (rs1), ys2, vm` | `ordered 32-bit indexed store of SEW data`
+| `ysoxei64.v` | `nf 28=0 27..26=3 vm ys2 rs1 14..12=0x7 ys3 6..0=0x27` | `ysoxei64.v   ys3, (rs1), ys2, vm` | `ordered 64-bit indexed store of SEW data`
+|===
+
+.Unit-stride Fault-Only-First Loads
+
+|===
+| Name        | Opcode / Argument                                              | Format                      | Pseudo-Code
+| `yle8ff.v`  | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x0  yd 6..0=0x07` | `yle8ff.v    yd, (rs1), vm` | `8-bit unit-stride fault-only-first load`
+| `yle16ff.v` | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x5  yd 6..0=0x07` | `yle16ff.v   yd, (rs1), vm` | `16-bit unit-stride fault-only-first load`
+| `yle32ff.v` | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x6  yd 6..0=0x07` | `yle32ff.v   yd, (rs1), vm` | `32-bit unit-stride fault-only-first load`
+| `yle64ff.v` | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x7  yd 6..0=0x07` | `yle64ff.v   yd, (rs1), vm` | `64-bit unit-stride fault-only-first load`
+|===
+
+.Tensor Load/Store Whole Registers
+
+|===
+| Name        | Opcode / Argument                                                      | Format                 | Pseudo-Code
+| `yl1re8.v`  | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 yd  6..0=0x07` | `yl1re8.v    v3, (a0)` | `Load v3 with VLEN/8 bytes held at address in a0`
+| `yl1re16.v` | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 yd  6..0=0x07` | `yl1re16.v   v3, (a0)` | `Load v3 with VLEN/16 halfwords held at address in a0`
+| `yl1re32.v` | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x6 yd  6..0=0x07` | `yl1re32.v   v3, (a0)` | `Load v3 with VLEN/32 words held at address in a0`
+| `yl1re64.v` | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x7 yd  6..0=0x07` | `yl1re64.v   v3, (a0)` | `Load v3 with VLEN/64 doublewords held at address in a0`
+| `yl2re8.v`  | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 yd  6..0=0x07` | `yl2re8.v    v2, (a0)` | `Load v2-v3 with 2*VLEN/8 bytes from address in a0`
+| `yl2re16.v` | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 yd  6..0=0x07` | `yl2re16.v   v2, (a0)` | `Load v2-v3 with 2*VLEN/16 halfwords held at address in a0`
+| `yl2re32.v` | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x6 yd  6..0=0x07` | `yl2re32.v   v2, (a0)` | `Load v2-v3 with 2*VLEN/32 words held at address in a0`
+| `yl2re64.v` | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x7 yd  6..0=0x07` | `yl2re64.v   v2, (a0)` | `Load v2-v3 with 2*VLEN/64 doublewords held at address in a0`
+| `yl4re8.v`  | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 yd  6..0=0x07` | `yl4re8.v    v4, (a0)` | `Load v4-v7 with 4*VLEN/8 bytes from address in a0`
+| `yl4re16.v` | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 yd  6..0=0x07` | `yl4re16.v   v4, (a0)` | `Load v4-v7 with 4*VLEN/16 bytes from address in a0`
+| `yl4re32.v` | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x6 yd  6..0=0x07` | `yl4re32.v   v4, (a0)` | `Load v4-v7 with 4*VLEN/32 bytes from address in a0`
+| `yl4re64.v` | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x7 yd  6..0=0x07` | `yl4re64.v   v4, (a0)` | `Load v4-v7 with 4*VLEN/64 bytes from address in a0`
+| `yl8re8.v`  | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 yd  6..0=0x07` | `yl8re8.v    v8, (a0)` | `Load v8-v15 with 8*VLEN/8 bytes from address in a0`
+| `yl8re16.v` | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 yd  6..0=0x07` | `yl8re16.v   v8, (a0)` | `Load v8-v15 with 8*VLEN/16 bytes from address in a0`
+| `yl8re32.v` | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x6 yd  6..0=0x07` | `yl8re32.v   v8, (a0)` | `Load v8-v15 with 8*VLEN/32 bytes from address in a0`
+| `yl8re64.v` | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x7 yd  6..0=0x07` | `yl8re64.v   v8, (a0)` | `Load v8-v15 with 8*VLEN/64 bytes from address in a0`
+| `ys1r.v`    | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 ys3 6..0=0x27` | `ys1r.v v3, (a1)`      | `Store v3 to address in a1`
+| `ys2r.v`    | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 ys3 6..0=0x27` | `ys2r.v v2, (a1)`      | `Store v2-v3 to address in a1`
+| `ys4r.v`    | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 ys3 6..0=0x27` | `ys4r.v v4, (a1)`      | `Store v4-v7 to address in a1`
+| `ys8r.v`    | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 ys3 6..0=0x27` | `ys8r.v v8, (a1)`      | `Store v8-v15 to address in a1`
+|===
+
+=== Tensor Float-Point Instructions
+
+.OPFYF
+
+|===
+| Name              | Opcode / Argument                                       | Format                             | Pseudo-Code
+| `yfadd.vf`        | `31..26=0x00 vm ys2 rs1 14..12=0x5 yd 6..0=0x57`        | `yfadd.vf yd, ys2, rs1, vm`        | `yd[i][j][k] = ys2[i][j][k] + f[rs1], tensor-scalar`
+| `yfsub.vf`        | `31..26=0x02 vm ys2 rs1 14..12=0x5 yd 6..0=0x57`        | `yfsub.vf yd, ys2, rs1, vm`        | `yd[i][j][k] = ys2[i][j][k] - f[rs1], tensor-scalar`
+| `yfmin.vf`        | `31..26=0x04 vm ys2 rs1 14..12=0x5 yd 6..0=0x57`        | `yfmin.vf yd, ys2, rs1, vm`        | `Floating-point minimum, tensor-scalar`
+| `yfmax.vf`        | `31..26=0x06 vm ys2 rs1 14..12=0x5 yd 6..0=0x57`        | `yfmax.vf yd, ys2, rs1, vm`        | `Floating-point maximum, tensor-scalar`
+| `yfsgnj.vf`       | `31..26=0x08 vm ys2 rs1 14..12=0x5 yd 6..0=0x57`        | `yfsgnj.vf yd, ys2, rs1, vm`       | `Floating-Point Sign-Injection, tensor-scalar`
+| `yfsgnjn.vf`      | `31..26=0x09 vm ys2 rs1 14..12=0x5 yd 6..0=0x57`        | `yfsgnjn.vf yd, ys2, rs1, vm`      | `Floating-Point Sign-Injection, tensor-scalar`
+| `yfsgnjx.vf`      | `31..26=0x0a vm ys2 rs1 14..12=0x5 yd 6..0=0x57`        | `yfsgnjx.vf yd, ys2, rs1, vm`      | `Floating-Point Sign-Injection, tensor-scalar`
+| `yfslide1up.vf`   | `31..26=0x0e vm ys2 rs1 14..12=0x5 yd 6..0=0x57`        | `yfslide1up.vf yd, ys2, rs1, vm`   | `yd[0][0][0] = f[rs1], yd[i+1][j+1][k+1] = ys2[i][j][k]`
+| `yfslide1down.vf` | `31..26=0x0f vm ys2 rs1 14..12=0x5 yd 6..0=0x57`        | `yfslide1down.vf yd, ys2, rs1, vm` | `yd[i][j][k] = ys2[i+1][j+1][k+1], yd[yl-1] = f[rs1]`
+| `yfmv.s.f`        | `31..26=0x10 25=1 24..20=0 rs1 14..12=0x5 yd 6..0=0x57` | `yfmv.s.f yd, rs1`                 | `yd[0][0][0] = f[rs1] (ys2=0)`
+|===
+
+|===
+| Name          | Opcode / Argument                                       | Format                         | Pseudo-Code
+| `yfmerge.vfm` | `31..26=0x17 25=0 ys2 rs1 14..12=0x5 yd 6..0=0x57`      | `yfmerge.vfm yd, ys2, rs1, v0` | `yd[i][j][k] = v0.mask[i][j][k] ? f[rs1] : ys2[i][j][k]`
+| `yfmv.v.f`    | `31..26=0x17 25=1 24..20=0 rs1 14..12=0x5 yd 6..0=0x57` | `yfmv.v.f yd, rs1`             | `yd[i][j][k] = f[rs1]`
+| `ymfeq.vf`    | `31..26=0x18 vm ys2 rs1 14..12=0x5 yd 6..0=0x57`        | `ymfeq.vf yd, ys2, rs1, vm`    | `Compare equal, tensor-scalar`
+| `ymfle.vf`    | `31..26=0x19 vm ys2 rs1 14..12=0x5 yd 6..0=0x57`        | `ymfle.vf yd, ys2, rs1, vm`    | `Compare less than or equal, tensor-scalar`
+| `ymflt.vf`    | `31..26=0x1b vm ys2 rs1 14..12=0x5 yd 6..0=0x57`        | `ymflt.vf yd, ys2, rs1, vm`    | `Compare less than, tensor-scalar`
+| `ymfne.vf`    | `31..26=0x1c vm ys2 rs1 14..12=0x5 yd 6..0=0x57`        | `ymfne.vf yd, ys2, rs1, vm`    | `Compare not equal, tensor-scalar`
+| `ymfgt.vf`    | `31..26=0x1d vm ys2 rs1 14..12=0x5 yd 6..0=0x57`        | `ymfgt.vf yd, ys2, rs1, vm`    | `Compare greater than, tensor-scalar`
+| `ymfge.vf`    | `31..26=0x1f vm ys2 rs1 14..12=0x5 yd 6..0=0x57`        | `ymfge.vf yd, ys2, rs1, vm`    | `Compare greater than or equal, tensor-scalar`
+|===
+
+|===
+| Name         | Opcode / Argument                                | Format                        | Pseudo-Code
+| `yfdiv.vf`   | `31..26=0x20 vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfdiv.vf yd, ys2, rs1, vm`   | `Floating-point divide, tensor-scalar`
+| `yfrdiv.vf`  | `31..26=0x21 vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfrdiv.vf yd, ys2, rs1, vm`  | `yd[i][j][k] = f[rs1]/ys2[i][j][k], scalar-tensor`
+| `yfmul.vf`   | `31..26=0x24 vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfmul.vf yd, ys2, rs1, vm`   | `Floating-point multiply, tensor-scalar`
+| `yfrsub.vf`  | `31..26=0x27 vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfrsub.vf yd, ys2, rs1, vm`  | `yd[i][j][k] = f[rs1] - ys2[i][j][k], scalar-tensor`
+| `yfmadd.vf`  | `31..26=0x28 vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfmadd.vf yd, rs1, ys2, vm`  | `yd[i][j][k] = +(f[rs1] * yd[i][j][k]) + ys2[i][j][k]`
+| `yfnmadd.vf` | `31..26=0x29 vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfnmadd.vf yd, rs1, ys2, vm` | `yd[i][j][k] = -(f[rs1] * yd[i][j][k]) - ys2[i][j][k]`
+| `yfmsub.vf`  | `31..26=0x2a vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfmsub.vf yd, rs1, ys2, vm`  | `yd[i][j][k] = +(f[rs1] * yd[i][j][k]) - ys2[i][j][k]`
+| `yfnmsub.vf` | `31..26=0x2b vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfnmsub.vf yd, rs1, ys2, vm` | `yd[i][j][k] = -(f[rs1] * yd[i][j][k]) + ys2[i][j][k]`
+| `yfmacc.vf`  | `31..26=0x2c vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfmacc.vf yd, rs1, ys2, vm`  | `yd[i][j][k] = +(f[rs1] * ys2[i][j][k]) + yd[i][j][k]`
+| `yfnmacc.vf` | `31..26=0x2d vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfnmacc.vf yd, rs1, ys2, vm` | `yd[i][j][k] = -(f[rs1] * ys2[i][j][k]) - yd[i][j][k]`
+| `yfmsac.vf`  | `31..26=0x2e vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfmsac.vf yd, rs1, ys2, vm`  | `yd[i][j][k] = +(f[rs1] * ys2[i][j][k]) - yd[i][j][k]`
+| `yfnmsac.vf` | `31..26=0x2f vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfnmsac.vf yd, rs1, ys2, vm` | `yd[i][j][k] = -(f[rs1] * ys2[i][j][k]) + yd[i][j][k]`
+|===
+
+|===
+| Name          | Opcode / Argument                                | Format                         | Pseudo-Code
+| `yfwadd.vf`   | `31..26=0x30 vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfwadd.vf yd, ys2, rs1, vm`   | `2*SEW = SEW + SEW, tensor-scalar`
+| `yfwsub.vf`   | `31..26=0x32 vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfwsub.vf yd, ys2, rs1, vm`   | `2*SEW = SEW - SEW, tensor-scalar`
+| `yfwadd.wf`   | `31..26=0x34 vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfwadd.wf yd, ys2, rs1, vm`   | `2*SEW = 2*SEW + SEW, tensor-scalar`
+| `yfwsub.wf`   | `31..26=0x36 vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfwsub.wf yd, ys2, rs1, vm`   | `2*SEW = 2*SEW - SEW, tensor-scalar`
+| `yfwmul.vf`   | `31..26=0x38 vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfwmul.vf yd, ys2, rs1, vm`   | `Widening floating-point multiply, tensor-scalar`
+| `yfwmacc.vf`  | `31..26=0x3c vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfwmacc.vf yd, rs1, ys2, vm`  | `yd[i][j][k] = +(f[rs1] * ys2[i][j][k]) + yd[i][j][k]`
+| `yfwnmacc.vf` | `31..26=0x3d vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfwnmacc.vf yd, rs1, ys2, vm` | `yd[i][j][k] = -(f[rs1] * ys2[i][j][k]) - yd[i][j][k]`
+| `yfwmsac.vf`  | `31..26=0x3e vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfwmsac.vf yd, rs1, ys2, vm`  | `yd[i][j][k] = +(f[rs1] * ys2[i][j][k]) - yd[i][j][k]`
+| `yfwnmsac.vf` | `31..26=0x3f vm ys2 rs1 14..12=0x5 yd 6..0=0x57` | `yfwnmsac.vf yd, rs1, ys2, vm` | `yd[i][j][k] = -(f[rs1] * ys2[i][j][k]) + yd[i][j][k]`
+|===
+
+.OPFYY
+
+|===
+| Name           | Opcode / Argument                                       | Format                          | Pseudo-Code
+| `yfadd.vv`     | `31..26=0x00 vm ys2 ys1 14..12=0x1 yd 6..0=0x57`        | `yfadd.vv yd, ys2, ys1, vm`     | `yd[i][j][k] = ys1[i][j][k] + ys2[i][j][k], tensor-tensor`
+| `yfredusum.ys` | `31..26=0x01 vm ys2 ys1 14..12=0x1 yd 6..0=0x57`        | `yfredusum.ys yd, ys2, ys1, vm` | `Unordered sum`
+| `yfsub.vv`     | `31..26=0x02 vm ys2 ys1 14..12=0x1 yd 6..0=0x57`        | `yfsub.vv yd, ys2, ys1, vm`     | `yd[i][j][k] = ys1[i][j][k] - ys2[i][j][k], tensor-tensor`
+| `yfredosum.ys` | `31..26=0x03 vm ys2 ys1 14..12=0x1 yd 6..0=0x57`        | `yfredosum.ys yd, ys2, ys1, vm` | `Ordered sum`
+| `yfmin.vv`     | `31..26=0x04 vm ys2 ys1 14..12=0x1 yd 6..0=0x57`        | `yfmin.vv yd, ys2, ys1, vm`     | `Floating-point minimum, tensor-tensor`
+| `yfredmin.ys`  | `31..26=0x05 vm ys2 ys1 14..12=0x1 yd 6..0=0x57`        | `yfredmin.ys  yd, ys2, ys1, vm` | `Minimum value`
+| `yfmax.vv`     | `31..26=0x06 vm ys2 ys1 14..12=0x1 yd 6..0=0x57`        | `yfmax.vv yd, ys2, ys1, vm`     | `Floating-point maximum, tensor-tensor`
+| `yfredmax.ys`  | `31..26=0x07 vm ys2 ys1 14..12=0x1 yd 6..0=0x57`        | `yfredmax.ys  yd, ys2, ys1, vm` | `Maximum value`
+| `yfsgnj.vv`    | `31..26=0x08 vm ys2 ys1 14..12=0x1 yd 6..0=0x57`        | `yfsgnj.vv yd, ys2, ys1, vm`    | `Floating-Point Sign-Injection, tensor-tensor`
+| `yfsgnjn.vv`   | `31..26=0x09 vm ys2 ys1 14..12=0x1 yd 6..0=0x57`        | `yfsgnjn.vv yd, ys2, ys1, vm`   | `Floating-Point Sign-Injection, tensor-tensor`
+| `yfsgnjx.vv`   | `31..26=0x0a vm ys2 ys1 14..12=0x1 yd 6..0=0x57`        | `yfsgnjx.vv yd, ys2, ys1, vm`   | `Floating-Point Sign-Injection, tensor-tensor`
+| `yfmv.f.s`     | `31..26=0x10 25=1 ys2 19..15=0 14..12=0x1 rd 6..0=0x57` | `yfmv.f.s rd, ys2`              | `f[rd] = ys2[0][0][0] (rs1=0)`
+|===
+
+|===
+| Name       | Opcode / Argument                                | Format                      | Pseudo-Code
+| `ymfeq.vv` | `31..26=0x18 vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `ymfeq.vv yd, ys2, ys1, vm` | `Compare equal, tensor-tensor`
+| `ymfle.vv` | `31..26=0x19 vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `ymfle.vv yd, ys2, ys1, vm` | `Compare less than or equal, tensor-tensor`
+| `ymflt.vv` | `31..26=0x1b vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `ymflt.vv yd, ys2, ys1, vm` | `Compare less than, tensor-tensor`
+| `ymfne.vv` | `31..26=0x1c vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `ymfne.vv yd, ys2, ys1, vm` | `Compare not equal, tensor-tensor`
+|===
+
+|===
+| Name         | Opcode / Argument                                | Format                        | Pseudo-Code
+| `yfdiv.vv`   | `31..26=0x20 vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfdiv.vv yd, ys2, ys1, vm`   | `Floating-point divide, tensor-tensor`
+| `yfmul.vv`   | `31..26=0x24 vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfmul.vv yd, ys2, ys1, vm`   | `Floating-point multiply, tensor-tensor`
+| `yfmadd.vv`  | `31..26=0x28 vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfmadd.vv yd, ys1, ys2, vm`  | `yd[i][j][k] = +(ys1[i][j][k] * yd[i][j][k]) + ys2[i][j][k]`
+| `yfnmadd.vv` | `31..26=0x29 vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfnmadd.vv yd, ys1, ys2, vm` | `yd[i][j][k] = -(ys1[i][j][k] * yd[i][j][k]) - ys2[i][j][k]`
+| `yfmsub.vv`  | `31..26=0x2a vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfmsub.vv yd, ys1, ys2, vm`  | `yd[i][j][k] = +(ys1[i][j][k] * yd[i][j][k]) - ys2[i][j][k]`
+| `yfnmsub.vv` | `31..26=0x2b vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfnmsub.vv yd, ys1, ys2, vm` | `yd[i][j][k] = -(ys1[i][j][k] * yd[i][j][k]) + ys2[i][j][k]`
+| `yfmacc.vv`  | `31..26=0x2c vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfmacc.vv yd, ys1, ys2, vm`  | `yd[i][j][k] = +(ys1[i][j][k] * ys2[i][j][k]) + yd[i][j][k]`
+| `yfnmacc.vv` | `31..26=0x2d vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfnmacc.vv yd, ys1, ys2, vm` | `yd[i][j][k] = -(ys1[i][j][k] * ys2[i][j][k]) - yd[i][j][k]`
+| `yfmsac.vv`  | `31..26=0x2e vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfmsac.vv yd, ys1, ys2, vm`  | `yd[i][j][k] = +(ys1[i][j][k] * ys2[i][j][k]) - yd[i][j][k]`
+| `yfnmsac.vv` | `31..26=0x2f vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfnmsac.vv yd, ys1, ys2, vm` | `yd[i][j][k] = -(ys1[i][j][k] * ys2[i][j][k]) + yd[i][j][k]`
+|===
+
+|===
+| Name               | Opcode / Argument                                        | Format                         | Pseudo-Code
+| `yfcvt.xu.f.v`     | `31..26=0x12 vm ys2 19..15=0x00 14..12=0x1 yd 6..0=0x57` | `yfcvt.xu.f.v yd, ys2, vm`     | `Convert float to unsigned integer`
+| `yfcvt.x.f.v`      | `31..26=0x12 vm ys2 19..15=0x01 14..12=0x1 yd 6..0=0x57` | `yfcvt.x.f.v  yd, ys2, vm`     | `Convert float to signed integer`
+| `yfcvt.f.xu.v`     | `31..26=0x12 vm ys2 19..15=0x02 14..12=0x1 yd 6..0=0x57` | `yfcvt.f.xu.v yd, ys2, vm`     | `Convert unsigned integer to float`
+| `yfcvt.f.x.v`      | `31..26=0x12 vm ys2 19..15=0x03 14..12=0x1 yd 6..0=0x57` | `yfcvt.f.x.v  yd, ys2, vm`     | `Convert signed integer to float.`
+| `yfcvt.rtz.xu.f.v` | `31..26=0x12 vm ys2 19..15=0x06 14..12=0x1 yd 6..0=0x57` | `yfcvt.rtz.xu.f.v yd, ys2, vm` | `Convert float to unsigned integer, truncating`
+| `yfcvt.rtz.x.f.v`  | `31..26=0x12 vm ys2 19..15=0x07 14..12=0x1 yd 6..0=0x57` | `yfcvt.rtz.x.f.v  yd, ys2, vm` | `Convert float to signed integer, truncating`
+|===
+
+|===
+| Name                | Opcode / Argument                                        | Format                          | Pseudo-Code
+| `yfwcvt.xu.f.v`     | `31..26=0x12 vm ys2 19..15=0x08 14..12=0x1 yd 6..0=0x57` | `yfwcvt.xu.f.v yd, ys2, vm`     | `Convert float to double-width unsigned integer`
+| `yfwcvt.x.f.v`      | `31..26=0x12 vm ys2 19..15=0x09 14..12=0x1 yd 6..0=0x57` | `yfwcvt.x.f.v  yd, ys2, vm`     | `Convert float to double-width signed integer`
+| `yfwcvt.f.xu.v`     | `31..26=0x12 vm ys2 19..15=0x0A 14..12=0x1 yd 6..0=0x57` | `yfwcvt.f.xu.v yd, ys2, vm`     | `Convert unsigned integer to double-width float`
+| `yfwcvt.f.x.v`      | `31..26=0x12 vm ys2 19..15=0x0B 14..12=0x1 yd 6..0=0x57` | `yfwcvt.f.x.v  yd, ys2, vm`     | `Convert signed integer to double-width float`
+| `yfwcvt.f.f.v`      | `31..26=0x12 vm ys2 19..15=0x0C 14..12=0x1 yd 6..0=0x57` | `yfwcvt.f.f.v yd, ys2, vm`      | `Convert single-width float to double-width float`
+| `yfwcvt.rtz.xu.f.v` | `31..26=0x12 vm ys2 19..15=0x0E 14..12=0x1 yd 6..0=0x57` | `yfwcvt.rtz.xu.f.v yd, ys2, vm` | `Convert float to double-width unsigned integer, truncating`
+| `yfwcvt.rtz.x.f.v`  | `31..26=0x12 vm ys2 19..15=0x0F 14..12=0x1 yd 6..0=0x57` | `yfwcvt.rtz.x.f.v  yd, ys2, vm` | `Convert float to double-width signed integer, truncating`
+|===
+
+|===
+| Name                | Opcode / Argument                                        | Format                          | Pseudo-Code
+| `yfncvt.xu.f.w`     | `31..26=0x12 vm ys2 19..15=0x10 14..12=0x1 yd 6..0=0x57` | `yfncvt.xu.f.w yd, ys2, vm`     | `Convert double-width float to unsigned integer`
+| `yfncvt.x.f.w`      | `31..26=0x12 vm ys2 19..15=0x11 14..12=0x1 yd 6..0=0x57` | `yfncvt.x.f.w  yd, ys2, vm`     | `Convert double-width float to signed integer`
+| `yfncvt.f.xu.w`     | `31..26=0x12 vm ys2 19..15=0x12 14..12=0x1 yd 6..0=0x57` | `yfncvt.f.xu.w yd, ys2, vm`     | `Convert double-width unsigned integer to float`
+| `yfncvt.f.x.w`      | `31..26=0x12 vm ys2 19..15=0x13 14..12=0x1 yd 6..0=0x57` | `yfncvt.f.x.w  yd, ys2, vm`     | `Convert double-width signed integer to float`
+| `yfncvt.f.f.w`      | `31..26=0x12 vm ys2 19..15=0x14 14..12=0x1 yd 6..0=0x57` | `yfncvt.f.f.w yd, ys2, vm`      | `Convert double-width float to single-width float`
+| `yfncvt.rod.f.f.w`  | `31..26=0x12 vm ys2 19..15=0x15 14..12=0x1 yd 6..0=0x57` | `yfncvt.rod.f.f.w yd, ys2, vm`  | `Convert double-width float to single-width float, rounding towards odd`
+| `yfncvt.rtz.xu.f.w` | `31..26=0x12 vm ys2 19..15=0x16 14..12=0x1 yd 6..0=0x57` | `yfncvt.rtz.xu.f.w yd, ys2, vm` | `Convert double-width float to unsigned integer, truncating`
+| `yfncvt.rtz.x.f.w`  | `31..26=0x12 vm ys2 19..15=0x17 14..12=0x1 yd 6..0=0x57` | `yfncvt.rtz.x.f.w  yd, ys2, vm` | `Convert double-width float to signed integer, truncating`
+|===
+
+|===
+| Name         | Opcode / Argument                                        | Format                   | Pseudo-Code
+| `yfsqrt.v`   | `31..26=0x13 vm ys2 19..15=0x00 14..12=0x1 yd 6..0=0x57` | `yfsqrt.v   yd, ys2, vm` | `Floating-Point square root, tensor-tensor`
+| `yfrsqrt7.v` | `31..26=0x13 vm ys2 19..15=0x04 14..12=0x1 yd 6..0=0x57` | `yfrsqrt7.v yd, ys2, vm` | `Floating-Point reciprocal square-root estimate to 7 bits, tensor-tensor`
+| `yfrec7.v`   | `31..26=0x13 vm ys2 19..15=0x05 14..12=0x1 yd 6..0=0x57` | `yfrec7.v   yd, ys2, vm` | `Floating-Point reciprocal estimate to 7 bits, tensor-tensor`
+| `yfclass.v`  | `31..26=0x13 vm ys2 19..15=0x10 14..12=0x1 yd 6..0=0x57` | `yfclass.v  yd, ys2, vm` | `Floating-Point classify, tensor-tensor`
+|===
+
+|===
+| Name            | Opcode / Argument                                | Format                           | Pseudo-Code
+| `yfwadd.vv`     | `31..26=0x30 vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfwadd.vv yd, ys2, ys1, vm`     | `2*SEW = SEW + SEW, tensor-tensor`
+| `yfwredusum.ys` | `31..26=0x31 vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfwredusum.ys yd, ys2, ys1, vm` | `Unordered sum`
+| `yfwsub.vv`     | `31..26=0x32 vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfwsub.vv yd, ys2, ys1, vm`     | `2*SEW = SEW - SEW, tensor-tensor`
+| `yfwredosum.ys` | `31..26=0x33 vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfwredosum.ys yd, ys2, ys1, vm` | `Ordered sum`
+| `yfwadd.wv`     | `31..26=0x34 vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfwadd.wv  yd, ys2, ys1, vm`    | `2*SEW = 2*SEW + SEW, tensor-tensor`
+| `yfwsub.wv`     | `31..26=0x36 vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfwsub.wv  yd, ys2, ys1, vm`    | `2*SEW = 2*SEW - SEW, tensor-tensor`
+| `yfwmul.vv`     | `31..26=0x38 vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfwmul.vv    yd, ys2, ys1, vm`  | `Widening floating-point multiply, tensor-tensor`
+| `yfwmacc.vv`    | `31..26=0x3c vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfwmacc.vv yd, ys1, ys2, vm`    | `yd[i][j][k] = +(ys1[i][j][k] * ys2[i][j][k]) + yd[i][j][k]`
+| `yfwnmacc.vv`   | `31..26=0x3d vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfwnmacc.vv yd, ys1, ys2, vm`   | `yd[i][j][k] = -(ys1[i][j][k] * ys2[i][j][k]) - yd[i][j][k]`
+| `yfwmsac.vv`    | `31..26=0x3e vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfwmsac.vv yd, ys1, ys2, vm`    | `yd[i][j][k] = +(ys1[i][j][k] * ys2[i][j][k]) - yd[i][j][k]`
+| `yfwnmsac.vv`   | `31..26=0x3f vm ys2 ys1 14..12=0x1 yd 6..0=0x57` | `yfwnmsac.vv yd, ys1, ys2, vm`   | `yd[i][j][k] = -(ys1[i][j][k] * ys2[i][j][k]) + yd[i][j][k]`
+|===
+
+=== Tensor Integer Instructions
+
+.OPIYX
+
+|===
+| Name            | Opcode / Argument                                | Format                           | Pseudo-Code
+| `yadd.vx`       | `31..26=0x00 vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `yadd.vx yd, ys2, rs1, vm`       | `Single-Width Integer Add, tensor-scalar`
+| `ysub.vx`       | `31..26=0x02 vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `ysub.vx yd, ys2, rs1, vm`       | `Single-Width Integer Subtract, tensor-scalar`
+| `yrsub.vx`      | `31..26=0x03 vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `yrsub.vx yd, ys2, rs1, vm`      | `yd[i][j][k] = x[rs1] - ys2[i][j][k]`
+| `yminu.vx`      | `31..26=0x04 vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `yminu.vx yd, ys2, rs1, vm`      | `Unsigned Integer Minimum, tensor-scalar`
+| `ymin.vx`       | `31..26=0x05 vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `ymin.vx yd, ys2, rs1, vm`       | `Signed Integer Minimum, tensor-scalar`
+| `ymaxu.vx`      | `31..26=0x06 vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `ymaxu.vx yd, ys2, rs1, vm`      | `Unsigned Integer Maximum, tensor-scalar`
+| `ymax.vx`       | `31..26=0x07 vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `ymax.vx yd, ys2, rs1, vm`       | `Signed Integer Maximum, tensor-scalar`
+| `yand.vx`       | `31..26=0x09 vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `yand.vx yd, ys2, rs1, vm`       | `Bitwise logical And, tensor-scalar`
+| `yor.vx`        | `31..26=0x0a vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `yor.vx yd, ys2, rs1, vm`        | `Bitwise logical Or, tensor-scalar`
+| `yxor.vx`       | `31..26=0x0b vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `yxor.vx yd, ys2, rs1, vm`       | `Bitwise logical Xor, tensor-scalar`
+| `yrgather.vx`   | `31..26=0x0c vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `yrgather.vx yd, ys2, rs1, vm`   | `yd[i][j][k] = (x[rs1] >= VLMAX) ? 0 : ys2[x[rs1]]`
+| `yslideup.vx`   | `31..26=0x0e vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `yslideup.vx yd, ys2, rs1, vm`   | `yd[i+x[rs1]] = ys2[i][j][k]`
+| `yslidedown.vx` | `31..26=0x0f vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `yslidedown.vx yd, ys2, rs1, vm` | `yd[i][j][k] = ys2[i+x[rs1]]`
+|===
+
+|===
+| Name         | Opcode / Argument                                       | Format                        | Pseudo-Code
+| `yadc.vxm`   | `31..26=0x10 25=0 ys2 rs1 14..12=0x4 yd 6..0=0x57`      | `yadc.vxm yd, ys2, rs1, v0`   | `vd[i][j][k] = vs2[i][j][k] + x[rs1] + v0.mask[i][j][k], tensor-scalar`
+| `ymadc.vxm`  | `31..26=0x11 25=0 ys2 rs1 14..12=0x4 yd 6..0=0x57`      | `ymadc.vxm yd, ys2, rs1, v0`  | `vd.mask[i][j][k] = carry_out(vs2[i][j][k] + x[rs1] + v0.mask[i][j][k]), tensor-scalar`
+| `ymadc.vx`   | `31..26=0x11 25=1 ys2 rs1 14..12=0x4 yd 6..0=0x57`      | `ymadc.vx yd, ys2, rs1`       | `vd.mask[i][j][k] = carry_out(vs2[i][j][k] + x[rs1]), tensor-scalar, no carry-in`
+| `ysbc.vxm`   | `31..26=0x12 25=0 ys2 rs1 14..12=0x4 yd 6..0=0x57`      | `ysbc.vxm yd, ys2, rs1, v0`   | `vd[i][j][k] = vs2[i][j][k] - x[rs1] - v0.mask[i][j][k], tensor-scalar`
+| `ymsbc.vxm`  | `31..26=0x13 25=0 ys2 rs1 14..12=0x4 yd 6..0=0x57`      | `ymsbc.vxm yd, ys2, rs1, v0`  | `vd.mask[i][j][k] = borrow_out(vs2[i][j][k] - x[rs1] - v0.mask[i][j][k]), tensor-scalar`
+| `ymsbc.vx`   | `31..26=0x13 25=1 ys2 rs1 14..12=0x4 yd 6..0=0x57`      | `ymsbc.vx yd, ys2, rs1`       | `vd.mask[i][j][k] = borrow_out(vs2[i][j][k] - x[rs1]), tensor-scalar, no borrow-in`
+| `ymerge.vxm` | `31..26=0x17 25=0 ys2 rs1 14..12=0x4 yd 6..0=0x57`      | `ymerge.vxm yd, ys2, rs1, v0` | `yd[i][j][k] = v0.mask[i][j][k] ? x[rs1] : ys2[i][j][k]`
+| `ymv.v.x`    | `31..26=0x17 25=1 24..20=0 rs1 14..12=0x4 yd 6..0=0x57` | `ymv.v.x yd, rs1`             | `yd[i][j][k] = x[rs1]`
+| `ymseq.vx`   | `31..26=0x18 vm ys2 rs1 14..12=0x4 yd 6..0=0x57`        | `ymseq.vx yd, ys2, rs1, vm`   | `Set if equal, tensor-scalar`
+| `ymsne.vx`   | `31..26=0x19 vm ys2 rs1 14..12=0x4 yd 6..0=0x57`        | `ymsne.vx yd, ys2, rs1, vm`   | `Set if not equal, tensor-scalar`
+| `ymsltu.vx`  | `31..26=0x1a vm ys2 rs1 14..12=0x4 yd 6..0=0x57`        | `ymsltu.vx yd, ys2, rs1, vm`  | `Set if less than, unsigned, tensor-scalar`
+| `ymslt.vx`   | `31..26=0x1b vm ys2 rs1 14..12=0x4 yd 6..0=0x57`        | `ymslt.vx yd, ys2, rs1, vm`   | `Set if less than, signed, tensor-scalar`
+| `ymsleu.vx`  | `31..26=0x1c vm ys2 rs1 14..12=0x4 yd 6..0=0x57`        | `ymsleu.vx yd, ys2, rs1, vm`  | `Set if less than or equal, unsigned, tensor-scalar`
+| `ymsle.vx`   | `31..26=0x1d vm ys2 rs1 14..12=0x4 yd 6..0=0x57`        | `ymsle.vx yd, ys2, rs1, vm`   | `Set if less than or equal, signed, tensor-scalar`
+| `ymsgtu.vx`  | `31..26=0x1e vm ys2 rs1 14..12=0x4 yd 6..0=0x57`        | `ymsgtu.vx yd, ys2, rs1, vm`  | `Set if greater than, unsigned, tensor-scalar`
+| `ymsgt.vx`   | `31..26=0x1f vm ys2 rs1 14..12=0x4 yd 6..0=0x57`        | `ymsgt.vx yd, ys2, rs1, vm`   | `Set if greater than, signed, tensor-scalar`
+|===
+
+|===
+| Name         | Opcode / Argument                                | Format                        | Pseudo-Code
+| `ysaddu.vx`  | `31..26=0x20 vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `ysaddu.vx yd, ys2, rs1, vm`  | `Saturating adds of unsigned integer, tensor-scalar`
+| `ysadd.vx`   | `31..26=0x21 vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `ysadd.vx yd, ys2, rs1, vm`   | `Saturating adds of signed integers, tensor-scalar`
+| `yssubu.vx`  | `31..26=0x22 vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `yssubu.vx yd, ys2, rs1, vm`  | `Saturating subtract of unsigned integers, tensor-scalar`
+| `yssub.vx`   | `31..26=0x23 vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `yssub.vx yd, ys2, rs1, vm`   | `Saturating subtract of signed integers, tensor-scalar`
+| `ysll.vx`    | `31..26=0x25 vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `ysll.vx yd, ys2, rs1, vm`    | `Single-Width Bit Shift, tensor-scalar`
+| `ysmul.vx`   | `31..26=0x27 vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `ysmul.vx yd, ys2, rs1, vm`   | `yd[i][j][k] = clip(roundoff_signed(ys2[i][j][k]*x[rs1], SEW-1))`
+| `ysrl.vx`    | `31..26=0x28 vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `ysrl.vx yd, ys2, rs1, vm`    | `Single-Width Bit Shift, tensor-scalar`
+| `ysra.vx`    | `31..26=0x29 vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `ysra.vx yd, ys2, rs1, vm`    | `Single-Width Bit Shift, tensor-scalar`
+| `yssrl.vx`   | `31..26=0x2a vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `yssrl.vx yd, ys2, rs1, vm`   | `yd[i][j][k] = roundoff_unsigned(ys2[i][j][k], x[rs1])`
+| `yssra.vx`   | `31..26=0x2b vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `yssra.vx yd, ys2, rs1, vm`   | `yd[i][j][k] = roundoff_signed(ys2[i][j][k], x[rs1])`
+| `ynsrl.wx`   | `31..26=0x2c vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `ynsrl.wx yd, ys2, rs1, vm`   | `SEW = (2*SEW) >> SEW, tensor-scalar`
+| `ynsra.wx`   | `31..26=0x2d vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `ynsra.wx yd, ys2, rs1, vm`   | `SEW = (2*SEW) >> SEW, tensor-scalar`
+| `ynclipu.wx` | `31..26=0x2e vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `ynclipu.wx yd, ys2, rs1, vm` | `yd[i][j][k] = clip(roundoff_unsigned(ys2[i][j][k], x[rs1]))`
+| `ynclip.wx`  | `31..26=0x2f vm ys2 rs1 14..12=0x4 yd 6..0=0x57` | `ynclip.wx yd, ys2, rs1, vm`  | `yd[i][j][k] = clip(roundoff_signed(ys2[i][j][k], x[rs1]))`
+|===
+
+.OPIYY
+
+|===
+| Name              | Opcode / Argument                                | Format                             | Pseudo-Code
+| `yadd.vv`         | `31..26=0x00 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `yadd.vv yd, ys2, ys1, vm`         | `Single-Width Integer Add, tensor-tensor`
+| `ysub.vv`         | `31..26=0x02 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `ysub.vv yd, ys2, ys1, vm`         | `Single-Width Integer Subtract, tensor-tensor`
+| `yminu.vv`        | `31..26=0x04 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `yminu.vv yd, ys2, ys1, vm`        | `Unsigned Integer Minimum, tensor-tensor`
+| `ymin.vv`         | `31..26=0x05 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `ymin.vv yd, ys2, ys1, vm`         | `Signed Integer Minimum, tensor-tensor`
+| `ymaxu.vv`        | `31..26=0x06 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `ymaxu.vv yd, ys2, ys1, vm`        | `Unsigned Integer Maximum, tensor-tensor`
+| `ymax.vv`         | `31..26=0x07 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `ymax.vv yd, ys2, ys1, vm`         | `Signed Integer Maximum, tensor-tensor`
+| `yand.vv`         | `31..26=0x09 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `yand.vv yd, ys2, ys1, vm`         | `Bitwise logical And, tensor-tensor`
+| `yor.vv`          | `31..26=0x0a vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `yor.vv yd, ys2, ys1, vm`          | `Bitwise logical Or, tensor-tensor`
+| `yxor.vv`         | `31..26=0x0b vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `yxor.vv yd, ys2, ys1, vm`         | `Bitwise logical Xor, tensor-tensor`
+| `yrgather.vv`     | `31..26=0x0c vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `yrgather.vv yd, ys2, ys1, vm`     | `yd[i][j][k] = (ys1[i][j][k] >= VLMAX) ? 0 : ys2[ys1[i][j][k]]`
+| `yrgatherei16.vv` | `31..26=0x0e vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `yrgatherei16.vv yd, ys2, ys1, vm` | `yd[i][j][k] = (ys1[i][j][k] >= VLMAX) ? 0 : ys2[ys1[i][j][k]]`
+|===
+
+|===
+| Name         | Opcode / Argument                                       | Format                        | Pseudo-Code
+| `yadc.vvm`   | `31..26=0x10 25=0 ys2 ys1 14..12=0x0 yd 6..0=0x57`      | `yadc.vvm yd, ys2, ys1, v0`   | `yd[i][j][k] = ys2[i][j][k] + ys1[i][j][k] + v0.mask[i][j][k], tensor-tensor`
+| `ymadc.vvm`  | `31..26=0x11 25=0 ys2 ys1 14..12=0x0 yd 6..0=0x57`      | `ymadc.vvm yd, ys2, ys1, v0`  | `yd.mask[i][j][k] = carry_out(ys2[i][j][k] + ys1[i][j][k] + v0.mask[i][j][k]), tensor-tensor`
+| `ymadc.vv`   | `31..26=0x11 25=1 ys2 ys1 14..12=0x0 yd 6..0=0x57`      | `ymadc.vv yd, ys2, ys1`       | `yd.mask[i][j][k] = carry_out(ys2[i][j][k] + ys1[i][j][k]), tensor-tensor, no carry-in`
+| `ysbc.vvm`   | `31..26=0x12 25=0 ys2 ys1 14..12=0x0 yd 6..0=0x57`      | `ysbc.vvm yd, ys2, ys1, v0`   | `yd[i][j][k] = ys2[i][j][k] - ys1[i][j][k] - v0.mask[i][j][k], tensor-tensor`
+| `ymsbc.vvm`  | `31..26=0x13 25=0 ys2 ys1 14..12=0x0 yd 6..0=0x57`      | `ymsbc.vvm yd, ys2, ys1, v0`  | `yd.mask[i][j][k] = borrow_out(ys2[i][j][k] - ys1[i][j][k] - v0.mask[i][j][k]), tensor-tensor`
+| `ymsbc.vv`   | `31..26=0x13 25=1 ys2 ys1 14..12=0x0 yd 6..0=0x57`      | `ymsbc.vv yd, ys2, ys1`       | `yd.mask[i][j][k] = borrow_out(ys2[i][j][k] - ys1[i][j][k]), tensor-tensor, no borrow-in`
+| `ymerge.vvm` | `31..26=0x17 25=0 ys2 ys1 14..12=0x0 yd 6..0=0x57`      | `ymerge.vvm yd, ys2, ys1, v0` | `yd[i][j][k] = v0.mask[i][j][k] ? ys1[i][j][k] : ys2[i][j][k]`
+| `ymv.v.v`    | `31..26=0x17 25=1 24..20=0 ys1 14..12=0x0 yd 6..0=0x57` | `ymv.v.v yd, ys1`             | `yd[i][j][k] = ys1[i][j][k]`
+| `ymseq.vv`   | `31..26=0x18 vm ys2 ys1 14..12=0x0 yd 6..0=0x57`        | `ymseq.vv yd, ys2, ys1, vm`   | `Set if equal, tensor-tensor`
+| `ymsne.vv`   | `31..26=0x19 vm ys2 ys1 14..12=0x0 yd 6..0=0x57`        | `ymsne.vv yd, ys2, ys1, vm`   | `Set if not equal, tensor-tensor`
+| `ymsltu.vv`  | `31..26=0x1a vm ys2 ys1 14..12=0x0 yd 6..0=0x57`        | `ymsltu.vv yd, ys2, ys1, vm`  | `Set if less than, unsigned, tensor-tensor`
+| `ymslt.vv`   | `31..26=0x1b vm ys2 ys1 14..12=0x0 yd 6..0=0x57`        | `ymslt.vv yd, ys2, ys1, vm`   | `Set if less than, signed, tensor-tensor`
+| `ymsleu.vv`  | `31..26=0x1c vm ys2 ys1 14..12=0x0 yd 6..0=0x57`        | `ymsleu.vv yd, ys2, ys1, vm`  | `Set if less than or equal, unsigned, tensor-tensor`
+| `ymsle.vv`   | `31..26=0x1d vm ys2 ys1 14..12=0x0 yd 6..0=0x57`        | `ymsle.vv yd, ys2, ys1, vm`   | `Set if less than or equal, signed, tensor-tensor`
+|===
+
+|===
+| Name         | Opcode / Argument                                | Format                        | Pseudo-Code
+| `ysaddu.vv`  | `31..26=0x20 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `ysaddu.vv yd, ys2, ys1, vm`  | `Saturating adds of unsigned integer, tensor-tensor`
+| `ysadd.vv`   | `31..26=0x21 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `ysadd.vv yd, ys2, ys1, vm`   | `tensor-tensor`
+| `yssubu.vv`  | `31..26=0x22 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `yssubu.vv yd, ys2, ys1, vm`  | `tensor-tensor`
+| `yssub.vv`   | `31..26=0x23 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `yssub.vv yd, ys2, ys1, vm`   | `tensor-tensor`
+| `ysll.vv`    | `31..26=0x25 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `ysll.vv yd, ys2, ys1, vm`    | `Single-Width Bit Shift, tensor-tensor`
+| `ysmul.vv`   | `31..26=0x27 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `ysmul.vv yd, ys2, ys1, vm`   | `yd[i][j][k] = clip(roundoff_signed(ys2[i][j][k]*ys1[i][j][k], SEW-1))`
+| `ysrl.vv`    | `31..26=0x28 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `ysrl.vv yd, ys2, ys1, vm`    | `Single-Width Bit Shift, tensor-tensor`
+| `ysra.vv`    | `31..26=0x29 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `ysra.vv yd, ys2, ys1, vm`    | `Single-Width Bit Shift, tensor-tensor`
+| `yssrl.vv`   | `31..26=0x2a vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `yssrl.vv yd, ys2, ys1, vm`   | `yd[i][j][k] = roundoff_unsigned(ys2[i][j][k], ys1[i][j][k])`
+| `yssra.vv`   | `31..26=0x2b vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `yssra.vv yd, ys2, ys1, vm`   | `yd[i][j][k] = roundoff_signed(ys2[i][j][k],ys1[i][j][k])`
+| `ynsrl.wv`   | `31..26=0x2c vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `ynsrl.wv yd, ys2, ys1, vm`   | `SEW = (2*SEW) >> SEW, tensor-tensor`
+| `ynsra.wv`   | `31..26=0x2d vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `ynsra.wv yd, ys2, ys1, vm`   | `SEW = (2*SEW) >> SEW, tensor-tensor`
+| `ynclipu.wv` | `31..26=0x2e vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `ynclipu.wv yd, ys2, ys1, vm` | `yd[i][j][k] = clip(roundoff_unsigned(ys2[i][j][k], ys1[i][j][k]))`
+| `ynclip.wv`  | `31..26=0x2f vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `ynclip.wv yd, ys2, ys1, vm`  | `yd[i][j][k] = clip(roundoff_signed(ys2[i][j][k], ys1[i][j][k]))`
+|===
+
+|===
+| Name           | Opcode / Argument                                | Format                          | Pseudo-Code
+| `ywredsumu.ys` | `31..26=0x30 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `ywredsumu.ys yd, ys2, ys1, vm` | `2*SEW = 2*SEW + sum(zero-extend(SEW))`
+| `ywredsum.ys`  | `31..26=0x31 vm ys2 ys1 14..12=0x0 yd 6..0=0x57` | `ywredsum.ys  yd, ys2, ys1, vm` | `2*SEW = 2*SEW + sum(sign-extend(SEW))`
+|===
+
+.OPIYI
+
+|===
+| Name            | Opcode / Argument                                  | Format                            | Pseudo-Code
+| `yadd.vi`       | `31..26=0x00 vm ys2 simm5 14..12=0x3 yd 6..0=0x57` | `yadd.vi yd, ys2, imm, vm`        | `Single-Width Integer Add, tensor-immediate`
+| `yrsub.vi`      | `31..26=0x03 vm ys2 simm5 14..12=0x3 yd 6..0=0x57` | `yrsub.vi yd, ys2, imm, vm`       | `yd[i][j][k] = imm - ys2[i][j][k]`
+| `yand.vi`       | `31..26=0x09 vm ys2 simm5 14..12=0x3 yd 6..0=0x57` | `yand.vi yd, ys2, imm, vm`        | `Bitwise logical And, tensor-immediate`
+| `yor.vi`        | `31..26=0x0a vm ys2 simm5 14..12=0x3 yd 6..0=0x57` | `yor.vi yd, ys2, imm, vm`         | `Bitwise logical Or, tensor-immediate`
+| `yxor.vi`       | `31..26=0x0b vm ys2 simm5 14..12=0x3 yd 6..0=0x57` | `yxor.vi yd, ys2, imm, vm`        | `Bitwise logical Xor, tensor-immediate`
+| `yrgather.vi`   | `31..26=0x0c vm ys2 simm5 14..12=0x3 yd 6..0=0x57` | `yrgather.vi yd, ys2, uimm, vm`   | `yd[i][j][k] =  (uimm >= VLMAX)  ? 0 : ys2[uimm]`
+| `yslideup.vi`   | `31..26=0x0e vm ys2 simm5 14..12=0x3 yd 6..0=0x57` | `yslideup.vi yd, ys2, uimm, vm`   | `yd[i+uimm] = ys2[i][j][k]`
+| `yslidedown.vi` | `31..26=0x0f vm ys2 simm5 14..12=0x3 yd 6..0=0x57` | `yslidedown.vi yd, ys2, uimm, vm` | `yd[i][j][k] = ys2[i+uimm]`
+|===
+
+|===
+| Name         | Opcode / Argument                                         | Format                        | Pseudo-Code
+| `yadc.vim`   | `31..26=0x10 25=0 ys2 simm5 14..12=0x3 yd 6..0=0x57`      | `yadc.vim yd, ys2, imm, v0`   | `yd[i][j][k] = ys2[i][j][k] + imm + v0.mask[i][j][k], tensor-immediate`
+| `ymadc.vim`  | `31..26=0x11 25=0 ys2 simm5 14..12=0x3 yd 6..0=0x57`      | `ymadc.vim yd, ys2, imm, v0`  | `yd.mask[i][j][k] = carry_out(ys2[i][j][k] + imm + v0.mask[i][j][k]), tensor-immediate`
+| `ymadc.vi`   | `31..26=0x11 25=1 ys2 simm5 14..12=0x3 yd 6..0=0x57`      | `ymadc.vi yd, ys2, imm`       | `tensor-immediate, no carry-in`
+| `ymerge.vim` | `31..26=0x17 25=0 ys2 simm5 14..12=0x3 yd 6..0=0x57`      | `ymerge.vim yd, ys2, imm, v0` | `yd[i][j][k] = v0.mask[i][j][k] ? imm : ys2[i][j][k]`
+| `ymv.v.i`    | `31..26=0x17 25=1 24..20=0 simm5 14..12=0x3 yd 6..0=0x57` | `ymv.v.i yd, imm`             | `yd[i][j][k] = imm`
+| `ymseq.vi`   | `31..26=0x18 vm ys2 simm5 14..12=0x3 yd 6..0=0x57`        | `ymseq.vi yd, ys2, imm, vm`   | `Set if equal, tensor-immediate`
+| `ymsne.vi`   | `31..26=0x19 vm ys2 simm5 14..12=0x3 yd 6..0=0x57`        | `ymsne.vi yd, ys2, imm, vm`   | `Set if not equal, tensor-immediate`
+| `ymsleu.vi`  | `31..26=0x1c vm ys2 simm5 14..12=0x3 yd 6..0=0x57`        | `ymsleu.vi yd, ys2, imm, vm`  | `Set if less than or equal, unsigned, tensor-immediate`
+| `ymsle.vi`   | `31..26=0x1d vm ys2 simm5 14..12=0x3 yd 6..0=0x57`        | `ymsle.vi yd, ys2, imm, vm`   | `Set if less than or equal, signed, tensor-immediate`
+| `ymsgtu.vi`  | `31..26=0x1e vm ys2 simm5 14..12=0x3 yd 6..0=0x57`        | `ymsgtu.vi yd, ys2, imm, vm`  | `Set if greater than, unsigned, tensor-immediate`
+| `ymsgt.vi`   | `31..26=0x1f vm ys2 simm5 14..12=0x3 yd 6..0=0x57`        | `ymsgt.vi yd, ys2, imm, vm`   | `Set if greater than, signed, tensor-immediate`
+|===
+
+|===
+| Name         | Opcode / Argument                                       | Format                         | Pseudo-Code
+| `ysaddu.vi`  | `31..26=0x20 vm ys2 simm5 14..12=0x3 yd 6..0=0x57`      | `ysaddu.vi yd, ys2, imm, vm`   | `Saturating adds of unsigned integer, tensor-immediate`
+| `ysadd.vi`   | `31..26=0x21 vm ys2 simm5 14..12=0x3 yd 6..0=0x57`      | `ysadd.vi yd, ys2, imm, vm`    | `tensor-immediate`
+| `ysll.vi`    | `31..26=0x25 vm ys2 simm5 14..12=0x3 yd 6..0=0x57`      | `ysll.vi yd, ys2, uimm, vm`    | `Single-Width Bit Shift, tensor-immediate`
+| `ymv1r.v`    | `31..26=0x27 25=1 ys2 19..15=0 14..12=0x3 yd 6..0=0x57` | `ymv1r.v v1, v2`               | `Copy v1=v2`
+| `ymv2r.v`    | `31..26=0x27 25=1 ys2 19..15=1 14..12=0x3 yd 6..0=0x57` | `ymv2r.v v10, v12`             | `Copy v10=v12; v11=v13`
+| `ymv4r.v`    | `31..26=0x27 25=1 ys2 19..15=3 14..12=0x3 yd 6..0=0x57` | `ymv4r.v v4, v8`               | `Copy v4=v8; v5=v9; v6=v10; v7=v11`
+| `ymv8r.v`    | `31..26=0x27 25=1 ys2 19..15=7 14..12=0x3 yd 6..0=0x57` | `ymv8r.v v0, v8`               | `Copy v0=v8; v1=v9; ...; v7=v15`
+| `ysrl.vi`    | `31..26=0x28 vm ys2 simm5 14..12=0x3 yd 6..0=0x57`      | `ysrl.vi yd, ys2, uimm, vm`    | `Single-Width Bit Shift, tensor-immediate`
+| `ysra.vi`    | `31..26=0x29 vm ys2 simm5 14..12=0x3 yd 6..0=0x57`      | `ysra.vi yd, ys2, uimm, vm`    | `Single-Width Bit Shift, tensor-immediate`
+| `yssrl.vi`   | `31..26=0x2a vm ys2 simm5 14..12=0x3 yd 6..0=0x57`      | `yssrl.vi yd, ys2, uimm, vm`   | `yd[i][j][k] = roundoff_unsigned(ys2[i][j][k], uimm)`
+| `yssra.vi`   | `31..26=0x2b vm ys2 simm5 14..12=0x3 yd 6..0=0x57`      | `yssra.vi yd, ys2, uimm, vm`   | `yd[i][j][k] = roundoff_signed(ys2[i][j][k], uimm)`
+| `ynsrl.wi`   | `31..26=0x2c vm ys2 simm5 14..12=0x3 yd 6..0=0x57`      | `ynsrl.wi yd, ys2, uimm, vm`   | `SEW = (2*SEW) >> SEW, tensor-immediate`
+| `ynsra.wi`   | `31..26=0x2d vm ys2 simm5 14..12=0x3 yd 6..0=0x57`      | `ynsra.wi yd, ys2, uimm, vm`   | `SEW = (2*SEW) >> SEW, tensor-immediate`
+| `ynclipu.wi` | `31..26=0x2e vm ys2 simm5 14..12=0x3 yd 6..0=0x57`      | `ynclipu.wi yd, ys2, uimm, vm` | `yd[i][j][k] = clip(roundoff_unsigned(ys2[i][j][k], uimm))`
+| `ynclip.wi`  | `31..26=0x2f vm ys2 simm5 14..12=0x3 yd 6..0=0x57`      | `ynclip.wi yd, ys2, uimm, vm`  | `yd[i][j][k] = clip(roundoff_signed(ys2[i][j][k], uimm))`
+|===
+
+.OPI (Tensor Integer Extension Instructions)
+
+|===
+| Name        | Opcode / Argument                                     | Format                  | Pseudo-Code
+| `yzext.vf8` | `31..26=0x12 vm ys2 19..15=2 14..12=0x2 yd 6..0=0x57` | `yzext.vf8 yd, ys2, vm` | `Zero-extend SEW/8 source to SEW destination`
+| `ysext.vf8` | `31..26=0x12 vm ys2 19..15=3 14..12=0x2 yd 6..0=0x57` | `ysext.vf8 yd, ys2, vm` | `Sign-extend SEW/8 source to SEW destination`
+| `yzext.vf4` | `31..26=0x12 vm ys2 19..15=4 14..12=0x2 yd 6..0=0x57` | `yzext.vf4 yd, ys2, vm` | `Zero-extend SEW/4 source to SEW destination`
+| `ysext.vf4` | `31..26=0x12 vm ys2 19..15=5 14..12=0x2 yd 6..0=0x57` | `ysext.vf4 yd, ys2, vm` | `Sign-extend SEW/4 source to SEW destination`
+| `yzext.vf2` | `31..26=0x12 vm ys2 19..15=6 14..12=0x2 yd 6..0=0x57` | `yzext.vf2 yd, ys2, vm` | `Zero-extend SEW/2 source to SEW destination`
+| `ysext.vf2` | `31..26=0x12 vm ys2 19..15=7 14..12=0x2 yd 6..0=0x57` | `ysext.vf2 yd, ys2, vm` | `Sign-extend SEW/2 source to SEW destination`
+|===
+
+|===
+| Name           | Opcode / Argument                                  | Format                      | Pseudo-Code
+| `ycompress.vm` | `31..26=0x17 25=1 ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ycompress.vm yd, ys2, ys1` | `Compress into yd elements of ys2 where ys1 is enabled`
+| `ymandn.mm`    | `31..26=0x18 25=1 ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ymandn.mm yd, ys2, ys1`    | `yd.mask[i][j][k] =   ys2.mask[i][j][k] && !ys1.mask[i][j][k]`
+| `ymand.mm`     | `31..26=0x19 25=1 ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ymand.mm yd, ys2, ys1`     | `yd.mask[i][j][k] =   ys2.mask[i][j][k] &&  ys1.mask[i][j][k]`
+| `ymor.mm`      | `31..26=0x1a 25=1 ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ymxor.mm  yd, ys2, ys1`    | `yd.mask[i][j][k] =   ys2.mask[i][j][k] ^^  ys1.mask[i][j][k]`
+| `ymxor.mm`     | `31..26=0x1b 25=1 ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ymor.mm  yd, ys2, ys1`     | `yd.mask[i][j][k] =   ys2.mask[i][j][k] \|\|  ys1.mask[i][j][k]`
+| `ymorn.mm`     | `31..26=0x1c 25=1 ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ymorn.mm  yd, ys2, ys1`    | `yd.mask[i][j][k] =   ys2.mask[i][j][k] \|\| !ys1.mask[i][j][k]`
+| `ymnand.mm`    | `31..26=0x1d 25=1 ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ymnand.mm yd, ys2, ys1`    | `yd.mask[i][j][k] = !(ys2.mask[i][j][k] &&  ys1.mask[i][j][k])`
+| `ymnor.mm`     | `31..26=0x1e 25=1 ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ymnor.mm  yd, ys2, ys1`    | `yd.mask[i][j][k] = !(ys2.mask[i][j][k] \|\|  ys1.mask[i][j][k])`
+| `ymxnor.mm`    | `31..26=0x1f 25=1 ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ymxnor.mm yd, ys2, ys1`    | `yd.mask[i][j][k] = !(ys2.mask[i][j][k] ^^  ys1.mask[i][j][k])`
+|===
+
+|===
+| Name       | Opcode / Argument                                             | Format                 | Pseudo-Code
+| `ymsbf.m`  | `31..26=0x14 vm ys2 19..15=0x01 14..12=0x2 yd 6..0=0x57`      | `ymsbf.m yd, ys2, vm`  | `set-before-first mask bit`
+| `ymsof.m`  | `31..26=0x14 vm ys2 19..15=0x02 14..12=0x2 yd 6..0=0x57`      | `ymsof.m yd, ys2, vm`  | `set-only-first mask bit`
+| `ymsif.m`  | `31..26=0x14 vm ys2 19..15=0x03 14..12=0x2 yd 6..0=0x57`      | `ymsif.m yd, ys2, vm`  | `set-including-first mask bit`
+| `yiota.m`  | `31..26=0x14 vm ys2 19..15=0x10 14..12=0x2 yd 6..0=0x57`      | `yiota.m yd, ys2, vm`  |
+| `yid.v`    | `31..26=0x14 vm 24..20=0 19..15=0x11 14..12=0x2 yd 6..0=0x57` | `yid.v yd, vm`         | `Write element ID to destination`
+| `ycpop.m`  | `31..26=0x10 vm ys2 19..15=0x10 14..12=0x2 rd 6..0=0x57`      | `ycpop.m rd, ys2, vm`  | `x[rd] = sum_i ( ys2.mask[i][j][k] && v0.mask[i][j][k])`
+| `yfirst.m` | `31..26=0x10 vm ys2 19..15=0x11 14..12=0x2 rd 6..0=0x57`      | `yfirst.m rd, ys2, vm` | `x[rd] even if yl=0 (with the value -1, since no mask elements are active)`
+|===
+
+|===
+| Name         | Opcode / Argument                                | Format                        | Pseudo-Code
+| `ydivu.vv`   | `31..26=0x20 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ydivu.vv yd, ys2, ys1, vm`   | `2*SEW-bit = SEW-bit / SEW-bit, tensor-tensor`
+| `ydiv.vv`    | `31..26=0x21 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ydiv.vv yd, ys2, ys1, vm`    | `2*SEW-bit = SEW-bit / SEW-bit, tensor-tensor`
+| `yremu.vv`   | `31..26=0x22 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `yremu.vv yd, ys2, ys1, vm`   | `2*SEW-bit = SEW-bit % SEW-bit, tensor-tensor`
+| `yrem.vv`    | `31..26=0x23 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `yrem.vv yd, ys2, ys1, vm`    | `2*SEW-bit = SEW-bit % SEW-bit, tensor-tensor`
+| `ymulhu.vv`  | `31..26=0x24 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ymulhu.vv yd, ys2, ys1, vm`  | `2*SEW-bit = SEW-bit * SEW-bit, tensor-tensor`
+| `ymul.vv`    | `31..26=0x25 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ymul.vv yd, ys2, ys1, vm`    | `2*SEW-bit = SEW-bit * SEW-bit, tensor-tensor`
+| `ymulhsu.vv` | `31..26=0x26 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ymulhsu.vv yd, ys2, ys1, vm` | `2*SEW-bit = SEW-bit * SEW-bit, tensor-tensor`
+| `ymulh.vv`   | `31..26=0x27 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ymulh.vv yd, ys2, ys1, vm`   | `2*SEW-bit = SEW-bit * SEW-bit, tensor-tensor`
+| `ymadd.vv`   | `31..26=0x29 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ymadd.vv yd, ys1, ys2, vm`   | `yd[i][j][k] = (ys1[i][j][k] * yd[i][j][k]) + ys2[i][j][k]`
+| `ynmsub.vv`  | `31..26=0x2b vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ynmsub.vv yd, ys1, ys2, vm`  | `yd[i][j][k] = -(ys1[i][j][k] * yd[i][j][k]) + ys2[i][j][k]`
+| `ymacc.vv`   | `31..26=0x2d vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ymacc.vv yd, ys1, ys2, vm`   | `yd[i][j][k] = +(ys1[i][j][k] * ys2[i][j][k]) + yd[i][j][k]`
+| `ynmsac.vv`  | `31..26=0x2f vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ynmsac.vv yd, ys1, ys2, vm`  | `yd[i][j][k] = -(ys1[i][j][k] * ys2[i][j][k]) + yd[i][j][k]`
+|===
+
+|===
+| Name          | Opcode / Argument                                | Format                         | Pseudo-Code
+| `ywaddu.vv`   | `31..26=0x30 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ywaddu.vv  yd, ys2, ys1, vm`  | `2*SEW = SEW + SEW, tensor-tensor`
+| `ywadd.vv`    | `31..26=0x31 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ywadd.vv  yd, ys2, ys1, vm`   | `2*SEW = SEW + SEW, tensor-tensor`
+| `ywsubu.vv`   | `31..26=0x32 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ywsubu.vv  yd, ys2, ys1, vm`  | `2*SEW = SEW - SEW, tensor-tensor`
+| `ywsub.vv`    | `31..26=0x33 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ywsub.vv  yd, ys2, ys1, vm`   | `2*SEW = SEW - SEW, tensor-tensor`
+| `ywaddu.wv`   | `31..26=0x34 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ywaddu.wv  yd, ys2, ys1, vm`  | `2*SEW = 2*SEW + SEW, tensor-tensor`
+| `ywadd.wv`    | `31..26=0x35 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ywadd.wv  yd, ys2, ys1, vm`   | `2*SEW = 2*SEW + SEW, tensor-tensor`
+| `ywsubu.wv`   | `31..26=0x36 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ywsubu.wv  yd, ys2, ys1, vm`  | `2*SEW = 2*SEW - SEW, tensor-tensor`
+| `ywsub.wv`    | `31..26=0x37 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ywsub.wv  yd, ys2, ys1, vm`   | `2*SEW = 2*SEW - SEW, tensor-tensor`
+| `ywmulu.vv`   | `31..26=0x38 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ywmulu.vv yd, ys2, ys1, vm`   | `2*SEW-bit = SEW-bit * SEW-bit, tensor-tensor`
+| `ywmulsu.vv`  | `31..26=0x3a vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ywmulsu.vv yd, ys2, ys1, vm`  | `2*SEW-bit = SEW-bit * SEW-bit, tensor-tensor`
+| `ywmul.vv`    | `31..26=0x3b vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ywmul.vv  yd, ys2, ys1, vm`   | `2*SEW-bit = SEW-bit * SEW-bit, tensor-tensor`
+| `ywmaccu.vv`  | `31..26=0x3c vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ywmaccu.vv yd, ys1, ys2, vm`  | `yd[i][j][k] = +(ys1[i][j][k] * ys2[i][j][k]) + yd[i][j][k]`
+| `ywmacc.vv`   | `31..26=0x3d vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ywmacc.vv yd, ys1, ys2, vm`   | `yd[i][j][k] = +(ys1[i][j][k] * ys2[i][j][k]) + yd[i][j][k]`
+| `ywmaccsu.vv` | `31..26=0x3f vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `ywmaccsu.vv yd, ys1, ys2, vm` | `yd[i][j][k] = +(signed(ys1[i][j][k]) * unsigned(ys2[i][j][k])) + yd[i][j][k]`
+|===
+
+=== Tensor Mask Instructions
+
+.OPMYY
+
+|===
+| Name          | Opcode / Argument                                | Format                         | Pseudo-Code
+| `yredsum.ys`  | `31..26=0x00 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `yredsum.ys  yd, ys2, ys1, vm` | `yd[0][0][0] =  sum( ys1[0][0][0], ys2[*])`
+| `yredand.ys`  | `31..26=0x01 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `yredand.ys  yd, ys2, ys1, vm` | `yd[0][0][0] =  and( ys1[0][0][0], ys2[*])`
+| `yredor.ys`   | `31..26=0x02 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `yredor.ys   yd, ys2, ys1, vm` | `yd[0][0][0] =   or( ys1[0][0][0], ys2[*])`
+| `yredxor.ys`  | `31..26=0x03 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `yredxor.ys  yd, ys2, ys1, vm` | `yd[0][0][0] =  xor( ys1[0][0][0], ys2[*])`
+| `yredminu.ys` | `31..26=0x04 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `yredminu.ys yd, ys2, ys1, vm` | `yd[0][0][0] = minu( ys1[0][0][0], ys2[*])`
+| `yredmin.ys`  | `31..26=0x05 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `yredmin.ys  yd, ys2, ys1, vm` | `yd[0][0][0] =  min( ys1[0][0][0], ys2[*])`
+| `yredmaxu.ys` | `31..26=0x06 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `yredmaxu.ys yd, ys2, ys1, vm` | `yd[0][0][0] = maxu( ys1[0][0][0], ys2[*])`
+| `yredmax.ys`  | `31..26=0x07 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `yredmax.ys  yd, ys2, ys1, vm` | `yd[0][0][0] =  max( ys1[0][0][0], ys2[*])`
+| `yaaddu.vv`   | `31..26=0x08 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `yaadd.vv    yd, ys2, ys1, vm` | `roundoff_signed(ys2[i][j][k] + ys1[i][j][k], 1)`
+| `yaadd.vv`    | `31..26=0x09 vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `yaadd.vv    yd, ys2, ys1, vm` | `roundoff_signed(ys2[i][j][k] + ys1[i][j][k], 1)`
+| `yasubu.vv`   | `31..26=0x0a vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `yasubu.vv   yd, ys2, ys1, vm` | `roundoff_unsigned(ys2[i][j][k] - ys1[i][j][k], 1)`
+| `yasub.vv`    | `31..26=0x0b vm ys2 ys1 14..12=0x2 yd 6..0=0x57` | `yasub.vv    yd, ys2, ys1, vm` | `roundoff_signed(ys2[i][j][k] - ys1[i][j][k], 1)`
+|===
+
+|===
+| Name      | Opcode / Argument                                       | Format            | Pseudo-Code
+| `ymv.x.s` | `31..26=0x10 25=1 ys2 19..15=0 14..12=0x2 rd 6..0=0x57` | `ymv.x.s rd, ys2` | `x[rd] = ys2[0][0][0] (ys1=0)`
+|===
+
+.OPMYX
+
+|===
+| Name        | Opcode / Argument                                | Format                       | Pseudo-Code
+| `yaaddu.vx` | `31..26=0x08 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `yaaddu.vx yd, ys2, rs1, vm` | `roundoff_unsigned(ys2[i][j][k] + x[rs1], 1)`
+| `yaadd.vx`  | `31..26=0x09 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `yaadd.vx yd, ys2, rs1, vm`  | `roundoff_signed(ys2[i][j][k] + x[rs1], 1)`
+| `yasubu.vx` | `31..26=0x0a vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `yasubu.vx yd, ys2, rs1, vm` | `roundoff_unsigned(ys2[i][j][k] - x[rs1], 1)`
+| `yasub.vx`  | `31..26=0x0b vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `yasub.vx yd, ys2, rs1, vm`  | `roundoff_signed(ys2[i][j][k] - x[rs1], 1)`
+|===
+
+|===
+| Name             | Opcode / Argument                                       | Format                             | Pseudo-Code
+| `ymv.s.x`        | `31..26=0x10 25=1 24..20=0 rs1 14..12=0x6 yd 6..0=0x57` | `ymv.s.x yd, rs1`                  | `yd[0][0][0] = x[rs1] (ys2=0)`
+| `yslide1up.vx`   | `31..26=0x0e vm ys2 rs1 14..12=0x6 yd 6..0=0x57`        | `yslide1up.vx  yd, ys2, rs1, vm`   | `yd[0][0][0] = x[rs1], yd[i+1][j+1][k+1] = ys2[i][j][k]`
+| `yslide1down.vx` | `31..26=0x0f vm ys2 rs1 14..12=0x6 yd 6..0=0x57`        | `yslide1down.vx  yd, ys2, rs1, vm` | `yd[i][j][k] = ys2[i+1][j+1][k+1], yd[yl-1]=x[rs1]`
+|===
+
+|===
+| Name         | Opcode / Argument                                | Format                        | Pseudo-Code
+| `ydivu.vx`   | `31..26=0x20 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ydivu.vx yd, ys2, rs1, vm`   | `2*SEW-bit = SEW-bit / SEW-bit, tensor-scalar`
+| `ydiv.vx`    | `31..26=0x21 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ydiv.vx yd, ys2, rs1, vm`    | `2*SEW-bit = SEW-bit / SEW-bit, tensor-scalar`
+| `yremu.vx`   | `31..26=0x22 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `yremu.vx yd, ys2, rs1, vm`   | `2*SEW-bit = SEW-bit % SEW-bit, tensor-scalar`
+| `yrem.vx`    | `31..26=0x23 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `yrem.vx yd, ys2, rs1, vm`    | `2*SEW-bit = SEW-bit % SEW-bit, tensor-scalar`
+| `ymulhu.vx`  | `31..26=0x24 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ymulhu.vx yd, ys2, rs1, vm`  | `2*SEW-bit = SEW-bit * SEW-bit, tensor-scalar`
+| `ymul.vx`    | `31..26=0x25 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ymul.vx yd, ys2, rs1, vm`    | `2*SEW-bit = SEW-bit * SEW-bit, tensor-scalar`
+| `ymulhsu.vx` | `31..26=0x26 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ymulh.vx yd, ys2, rs1, vm`   | `2*SEW-bit = SEW-bit * SEW-bit, tensor-scalar`
+| `ymulh.vx`   | `31..26=0x27 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ymulhsu.vx yd, ys2, rs1, vm` | `2*SEW-bit = SEW-bit * SEW-bit, tensor-scalar`
+| `ymadd.vx`   | `31..26=0x29 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ymadd.vx yd, rs1, ys2, vm`   | `yd[i][j][k] = (x[rs1] * yd[i][j][k]) + ys2[i][j][k]`
+| `ynmsub.vx`  | `31..26=0x2b vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ynmsub.vx yd, rs1, ys2, vm`  | `yd[i][j][k] = -(x[rs1] * yd[i][j][k]) + ys2[i][j][k]`
+| `ymacc.vx`   | `31..26=0x2d vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ymacc.vx yd, rs1, ys2, vm`   | `yd[i][j][k] = +(x[rs1] * ys2[i][j][k]) + yd[i][j][k]`
+| `ynmsac.vx`  | `31..26=0x2f vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ynmsac.vx yd, rs1, ys2, vm`  | `yd[i][j][k] = -(x[rs1] * ys2[i][j][k]) + yd[i][j][k]`
+|===
+
+|===
+| Name          | Opcode / Argument                                | Format                         | Pseudo-Code
+| `ywaddu.vx`   | `31..26=0x30 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ywaddu.vx yd, ys2, rs1, vm`   | `2*SEW = SEW + SEW, tensor-scalar`
+| `ywadd.vx`    | `31..26=0x31 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ywadd.vx yd, ys2, rs1, vm`    | `2*SEW = SEW + SEW, tensor-scalar`
+| `ywsubu.vx`   | `31..26=0x32 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ywsubu.vx yd, ys2, rs1, vm`   | `2*SEW = SEW - SEW, tensor-scalar`
+| `ywsub.vx`    | `31..26=0x33 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ywsub.vx yd, ys2, rs1, vm`    | `2*SEW = SEW - SEW, tensor-scalar`
+| `ywaddu.wx`   | `31..26=0x34 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ywaddu.wx yd, ys2, rs1, vm`   | `2*SEW = 2*SEW + SEW, tensor-scalar`
+| `ywadd.wx`    | `31..26=0x35 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ywadd.wx yd, ys2, rs1, vm`    | `2*SEW = 2*SEW + SEW, tensor-scalar`
+| `ywsubu.wx`   | `31..26=0x36 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ywsubu.wx yd, ys2, rs1, vm`   | `2*SEW = 2*SEW - SEW, tensor-scalar`
+| `ywsub.wx`    | `31..26=0x37 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ywsub.wx yd, ys2, rs1, vm`    | `2*SEW = 2*SEW - SEW, tensor-scalar`
+| `ywmulu.vx`   | `31..26=0x38 vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ywmulu.vx yd, ys2, rs1, vm`   | `2*SEW-bit = SEW-bit * SEW-bit, tensor-scalar`
+| `ywmulsu.vx`  | `31..26=0x3a vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ywmulsu.vx yd, ys2, rs1, vm`  | `2*SEW-bit = SEW-bit * SEW-bit, tensor-scalar`
+| `ywmul.vx`    | `31..26=0x3b vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ywmul.vx yd, ys2, rs1, vm`    | `2*SEW-bit = SEW-bit * SEW-bit, tensor-scalar`
+| `ywmaccu.vx`  | `31..26=0x3c vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ywmaccu.vx yd, rs1, ys2, vm`  | `yd[i][j][k] = +(x[rs1] * ys2[i][j][k]) + yd[i][j][k]`
+| `ywmacc.vx`   | `31..26=0x3d vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ywmacc.vx yd, rs1, ys2, vm`   | `yd[i][j][k] = +(x[rs1] * ys2[i][j][k]) + yd[i][j][k]`
+| `ywmaccus.vx` | `31..26=0x3e vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ywmaccus.vx yd, rs1, ys2, vm` | `yd[i][j][k] = +(unsigned(x[rs1]) * signed(ys2[i][j][k])) + yd[i][j][k]`
+| `ywmaccsu.vx` | `31..26=0x3f vm ys2 rs1 14..12=0x6 yd 6..0=0x57` | `ywmaccsu.vx yd, rs1, ys2, vm` | `yd[i][j][k] = +(signed(x[rs1]) * unsigned(ys2[i][j][k])) + yd[i][j][k]`
+|===

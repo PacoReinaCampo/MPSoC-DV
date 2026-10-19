@@ -1,0 +1,30 @@
+exceptions
+├── base
+│   ├── ORBIS32
+│   │   └── exceptions.md
+│   └── ORBIS64
+│       └── exceptions.md
+├── specific
+│   ├── ORVDX32
+│   │   └── exceptions.md
+│   ├── ORVDX64
+│   │   └── exceptions.md
+│   ├── ORWDX32
+│   │   └── exceptions.md
+│   ├── ORWDX64
+│   │   └── exceptions.md
+│   ├── ORYDX32
+│   │   └── exceptions.md
+│   └── ORYDX64
+│       └── exceptions.md
+└── standard
+    ├── ORFPX128
+    │   └── exceptions.md
+    ├── ORFPX16
+    │   └── exceptions.md
+    ├── ORFPX32
+    │   └── exceptions.md
+    └── ORFPX64
+        └── exceptions.md
+
+15 directories, 12 files

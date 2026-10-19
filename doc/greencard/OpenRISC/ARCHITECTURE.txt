@@ -1,0 +1,30 @@
+architecture
+├── base
+│   ├── ORBIS32
+│   │   └── architecture.md
+│   └── ORBIS64
+│       └── architecture.md
+├── specific
+│   ├── ORVDX32
+│   │   └── architecture.md
+│   ├── ORVDX64
+│   │   └── architecture.md
+│   ├── ORWDX32
+│   │   └── architecture.md
+│   ├── ORWDX64
+│   │   └── architecture.md
+│   ├── ORYDX32
+│   │   └── architecture.md
+│   └── ORYDX64
+│       └── architecture.md
+└── standard
+    ├── ORFPX128
+    │   └── architecture.md
+    ├── ORFPX16
+    │   └── architecture.md
+    ├── ORFPX32
+    │   └── architecture.md
+    └── ORFPX64
+        └── architecture.md
+
+15 directories, 12 files

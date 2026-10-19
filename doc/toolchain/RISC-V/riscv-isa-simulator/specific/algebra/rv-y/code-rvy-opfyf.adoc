@@ -1,0 +1,701 @@
+= RV Instructions Code
+
+[cols="1,4", options="header"]
+|===
+| instruction | code
+| vfadd_vf
+a|
+[source,c]
+----
+// vfadd.vf vd, vs2, rs1
+require_zvfbfa
+
+VI_VFP_VF_LOOP
+({
+  vd = VFP_OP_16(add, vs2, rs1);
+},
+{
+  vd = f32_add(rs1, vs2);
+},
+{
+  vd = f64_add(rs1, vs2);
+})
+----
+| vfdiv_vf
+a|
+[source,c]
+----
+// vfdiv.vf vd, vs2, rs1
+VI_NON_ALTFMT_INSN
+
+VI_VFP_VF_LOOP
+({
+  vd = f16_div(vs2, rs1);
+},
+{
+  vd = f32_div(vs2, rs1);
+},
+{
+  vd = f64_div(vs2, rs1);
+})
+----
+| vfmacc_vf
+a|
+[source,c]
+----
+// vfmacc.vf vd, rs1, vs2, vm    # vd[i] = +(vs2[i] * x[rs1]) + vd[i]
+
+require_zvfbfa
+
+VI_VFP_VF_LOOP
+({
+  vd = VFP_MULADD_16(rs1, vs2, vd);
+},
+{
+  vd = f32_mulAdd(rs1, vs2, vd);
+},
+{
+  vd = f64_mulAdd(rs1, vs2, vd);
+})
+----
+| vfmadd_vf
+a|
+[source,c]
+----
+// vfmadd: vd[i] = +(vd[i] * f[rs1]) + vs2[i]
+require_zvfbfa
+
+VI_VFP_VF_LOOP
+({
+  vd = VFP_MULADD_16(vd, rs1, vs2);
+},
+{
+  vd = f32_mulAdd(vd, rs1, vs2);
+},
+{
+  vd = f64_mulAdd(vd, rs1, vs2);
+})
+----
+| vfmax_vf
+a|
+[source,c]
+----
+// vfmax
+
+require_zvfbfa
+
+VI_VFP_VF_LOOP
+({
+  vd = VFP_OP_16(max, vs2, rs1);
+},
+{
+  vd = f32_max(vs2, rs1);
+},
+{
+  vd = f64_max(vs2, rs1);
+})
+----
+| vfmerge_vfm
+a|
+[source,c]
+----
+// vfmerge_vf vd, vs2, vs1, vm
+VI_VF_MERGE_LOOP({
+  vd = use_first ? rs1 : vs2;
+})
+----
+| vfmin_vf
+a|
+[source,c]
+----
+// vfmin vd, vs2, rs1
+
+require_zvfbfa
+
+VI_VFP_VF_LOOP
+({
+  vd = VFP_OP_16(min, vs2, rs1);
+},
+{
+  vd = f32_min(vs2, rs1);
+},
+{
+  vd = f64_min(vs2, rs1);
+})
+----
+| vfmsac_vf
+a|
+[source,c]
+----
+// vfmsac: vd[i] = +(f[rs1] * vs2[i]) - vd[i]
+
+require_zvfbfa
+
+VI_VFP_VF_LOOP
+({
+  vd = P.VU.altfmt ? bf16_mulAdd(rs1, vs2, bf16(vd.v ^ BF16_SIGN))
+                   :  f16_mulAdd(rs1, vs2,  f16(vd.v ^  F16_SIGN));
+},
+{
+  vd = f32_mulAdd(rs1, vs2, f32(vd.v ^ F32_SIGN));
+},
+{
+  vd = f64_mulAdd(rs1, vs2, f64(vd.v ^ F64_SIGN));
+})
+----
+| vfmsub_vf
+a|
+[source,c]
+----
+// vfmsub: vd[i] = +(vd[i] * f[rs1]) - vs2[i]
+
+require_zvfbfa
+
+VI_VFP_VF_LOOP
+({
+  vd = P.VU.altfmt ? bf16_mulAdd(vd, rs1, bf16(vs2.v ^ BF16_SIGN))
+                   :  f16_mulAdd(vd, rs1,  f16(vs2.v ^  F16_SIGN));
+},
+{
+  vd = f32_mulAdd(vd, rs1, f32(vs2.v ^ F32_SIGN));
+},
+{
+  vd = f64_mulAdd(vd, rs1, f64(vs2.v ^ F64_SIGN));
+})
+----
+| vfmul_vf
+a|
+[source,c]
+----
+// vfmul.vf vd, vs2, rs1, vm
+require_zvfbfa
+
+VI_VFP_VF_LOOP
+({
+  vd = VFP_OP_16(mul, vs2, rs1);
+},
+{
+  vd = f32_mul(vs2, rs1);
+},
+{
+  vd = f64_mul(vs2, rs1);
+})
+----
+| vfmv_s_f
+a|
+[source,c]
+----
+// vfmv_s_f: vd[0] = rs1 (vs2=0)
+require_zvfbfa
+
+VI_VFP_COMMON;
+
+if (vl > 0 && P.VU.vstart->read() < vl) {
+  reg_t rd_num = insn.rd();
+
+  switch (P.VU.vsew) {
+    case e16:
+      P.VU.elt<uint16_t>(rd_num, 0, true) = P.VU.altfmt ? bf16(FRS1).v : f16(FRS1).v;
+      break;
+    case e32:
+      P.VU.elt<uint32_t>(rd_num, 0, true) = f32(FRS1).v;
+      break;
+    case e64:
+      if (FLEN == 64)
+        P.VU.elt<uint64_t>(rd_num, 0, true) = f64(FRS1).v;
+      else
+        P.VU.elt<uint64_t>(rd_num, 0, true) = f32(FRS1).v;
+      break;
+  }
+}
+P.VU.vstart->write(0);
+----
+| vfmv_v_f
+a|
+[source,c]
+----
+// vfmv_vf vd, vs1
+VI_VF_MERGE_LOOP({
+  vd = rs1;
+})
+----
+| vfnmacc_vf
+a|
+[source,c]
+----
+// vfnmacc: vd[i] = -(f[rs1] * vs2[i]) - vd[i]
+
+
+require_zvfbfa
+
+VI_VFP_VF_LOOP
+({
+  vd = P.VU.altfmt ? bf16_mulAdd(rs1, bf16(vs2.v ^ BF16_SIGN), bf16(vd.v ^ BF16_SIGN))
+                   :  f16_mulAdd(rs1,  f16(vs2.v ^  F16_SIGN),  f16(vd.v ^  F16_SIGN));
+},
+{
+  vd = f32_mulAdd(rs1, f32(vs2.v ^ F32_SIGN), f32(vd.v ^ F32_SIGN));
+},
+{
+  vd = f64_mulAdd(rs1, f64(vs2.v ^ F64_SIGN), f64(vd.v ^ F64_SIGN));
+})
+----
+| vfnmadd_vf
+a|
+[source,c]
+----
+// vfnmadd: vd[i] = -(vd[i] * f[rs1]) - vs2[i]
+
+require_zvfbfa
+
+VI_VFP_VF_LOOP
+({
+  vd = P.VU.altfmt ? bf16_mulAdd(bf16(vd.v ^ BF16_SIGN), rs1, bf16(vs2.v ^ BF16_SIGN))
+                   :  f16_mulAdd( f16(vd.v ^  F16_SIGN), rs1,  f16(vs2.v ^  F16_SIGN));
+},
+{
+  vd = f32_mulAdd(f32(vd.v ^ F32_SIGN), rs1, f32(vs2.v ^ F32_SIGN));
+},
+{
+  vd = f64_mulAdd(f64(vd.v ^ F64_SIGN), rs1, f64(vs2.v ^ F64_SIGN));
+})
+----
+| vfnmsac_vf
+a|
+[source,c]
+----
+// vfnmsac: vd[i] = -(f[rs1] * vs2[i]) + vd[i]
+
+require_zvfbfa
+
+VI_VFP_VF_LOOP
+({
+  vd = P.VU.altfmt ? bf16_mulAdd(rs1, bf16(vs2.v ^ BF16_SIGN), vd)
+                   :  f16_mulAdd(rs1,  f16(vs2.v ^  F16_SIGN), vd);
+},
+{
+  vd = f32_mulAdd(rs1, f32(vs2.v ^ F32_SIGN), vd);
+},
+{
+  vd = f64_mulAdd(rs1, f64(vs2.v ^ F64_SIGN), vd);
+})
+----
+| vfnmsub_vf
+a|
+[source,c]
+----
+// vfnmsub: vd[i] = -(vd[i] * f[rs1]) + vs2[i]
+
+require_zvfbfa
+
+VI_VFP_VF_LOOP
+({
+  vd = P.VU.altfmt ? bf16_mulAdd(bf16(vd.v ^ BF16_SIGN), rs1, vs2)
+                   :  f16_mulAdd( f16(vd.v ^  F16_SIGN), rs1, vs2);
+},
+{
+  vd = f32_mulAdd(f32(vd.v ^ F32_SIGN), rs1, vs2);
+},
+{
+  vd = f64_mulAdd(f64(vd.v ^ F64_SIGN), rs1, vs2);
+})
+----
+| vfrdiv_vf
+a|
+[source,c]
+----
+// vfrdiv.vf vd, vs2, rs1, vm  # scalar-vector, vd[i] = f[rs1]/vs2[i]
+VI_NON_ALTFMT_INSN
+
+VI_VFP_VF_LOOP
+({
+  vd = f16_div(rs1, vs2);
+},
+{
+  vd = f32_div(rs1, vs2);
+},
+{
+  vd = f64_div(rs1, vs2);
+})
+----
+| vfrsub_vf
+a|
+[source,c]
+----
+// vfsub.vf vd, vs2, rs1
+VI_VFP_VF_LOOP
+({
+  vd = VFP_OP_16(sub, rs1, vs2);
+},
+{
+  vd = f32_sub(rs1, vs2);
+},
+{
+  vd = f64_sub(rs1, vs2);
+})
+----
+| vfsgnjn_vf
+a|
+[source,c]
+----
+// vfsgnn
+VI_VFP_VF_LOOP
+({
+  vd = P.VU.altfmt ? bfsgnj16(vs2.v, rs1.v, true, false)
+                   :  fsgnj16(vs2.v, rs1.v, true, false);
+},
+{
+  vd = fsgnj32(vs2.v, rs1.v, true, false);
+},
+{
+  vd = fsgnj64(vs2.v, rs1.v, true, false);
+})
+----
+| vfsgnj_vf
+a|
+[source,c]
+----
+// vfsgnj vd, vs2, vs1
+VI_VFP_VF_LOOP
+({
+  vd = P.VU.altfmt ? bfsgnj16(vs2.v, rs1.v, false, false)
+                   :  fsgnj16(vs2.v, rs1.v, false, false);
+},
+{
+  vd = fsgnj32(vs2.v, rs1.v, false, false);
+},
+{
+  vd = fsgnj64(vs2.v, rs1.v, false, false);
+})
+----
+| vfsgnjx_vf
+a|
+[source,c]
+----
+// vfsgnx
+VI_VFP_VF_LOOP
+({
+  vd = P.VU.altfmt ? bfsgnj16(vs2.v, rs1.v, false, true)
+                   :  fsgnj16(vs2.v, rs1.v, false, true);
+},
+{
+  vd = fsgnj32(vs2.v, rs1.v, false, true);
+},
+{
+  vd = fsgnj64(vs2.v, rs1.v, false, true);
+})
+----
+| vfslide1down_vf
+a|
+[source,c]
+----
+//vfslide1down.vf vd, vs2, rs1
+VI_CHECK_SLIDE(false);
+
+VI_VFP_LOOP_BASE
+if (i != vl - 1) {
+  switch (P.VU.vsew) {
+    case e16: {
+      VI_XI_SLIDEDOWN_PARAMS(e16, 1);
+      vd = vs2;
+    }
+    break;
+    case e32: {
+      VI_XI_SLIDEDOWN_PARAMS(e32, 1);
+      vd = vs2;
+    }
+    break;
+    case e64: {
+      VI_XI_SLIDEDOWN_PARAMS(e64, 1);
+      vd = vs2;
+    }
+    break;
+  }
+} else {
+  switch (P.VU.vsew) {
+    case e16:
+      P.VU.elt<float16_t>(rd_num, vl - 1, true) = P.VU.altfmt ? FRS1_BF : FRS1_H;
+      break;
+    case e32:
+      P.VU.elt<float32_t>(rd_num, vl - 1, true) = FRS1_F;
+      break;
+    case e64:
+      P.VU.elt<float64_t>(rd_num, vl - 1, true) = FRS1_D;
+      break;
+  }
+}
+VI_VFP_LOOP_END
+----
+| vfslide1up_vf
+a|
+[source,c]
+----
+//vfslide1up.vf vd, vs2, rs1
+VI_CHECK_SLIDE(true);
+
+VI_VFP_LOOP_BASE
+if (i != 0) {
+  switch (P.VU.vsew) {
+    case e16: {
+      VI_XI_SLIDEUP_PARAMS(e16, 1);
+      vd = vs2;
+    }
+    break;
+    case e32: {
+      VI_XI_SLIDEUP_PARAMS(e32, 1);
+      vd = vs2;
+    }
+    break;
+    case e64: {
+      VI_XI_SLIDEUP_PARAMS(e64, 1);
+      vd = vs2;
+    }
+    break;
+  }
+} else {
+  switch (P.VU.vsew) {
+    case e16:
+      P.VU.elt<float16_t>(rd_num, 0, true) = P.VU.altfmt ? FRS1_BF : FRS1_H;
+      break;
+    case e32:
+      P.VU.elt<float32_t>(rd_num, 0, true) = FRS1_F;
+      break;
+    case e64:
+      P.VU.elt<float64_t>(rd_num, 0, true) = FRS1_D;
+      break;
+  }
+}
+VI_VFP_LOOP_END
+----
+| vfsub_vf
+a|
+[source,c]
+----
+// vfsub.vf vd, vs2, rs1
+require_zvfbfa
+
+VI_VFP_VF_LOOP
+({
+  vd = VFP_OP_16(sub, vs2, rs1);
+},
+{
+  vd = f32_sub(vs2, rs1);
+},
+{
+  vd = f64_sub(vs2, rs1);
+})
+----
+| vfwadd_vf
+a|
+[source,c]
+----
+// vfwadd.vf vd, vs2, rs1
+VI_VFP_VF_LOOP_WIDE
+({
+  vd = f32_add(vs2, rs1);
+},
+{
+  vd = f64_add(vs2, rs1);
+})
+----
+| vfwadd_wf
+a|
+[source,c]
+----
+// vfwadd.wf vd, vs2, vs1
+VI_VFP_WF_LOOP_WIDE
+({
+  vd = f32_add(vs2, rs1);
+},
+{
+  vd = f64_add(vs2, rs1);
+})
+----
+| vfwmacc_vf
+a|
+[source,c]
+----
+// vfwmacc.vf vd, vs2, rs1
+VI_VFP_VF_LOOP_WIDE
+({
+  vd = f32_mulAdd(rs1, vs2, vd);
+},
+{
+  vd = f64_mulAdd(rs1, vs2, vd);
+})
+----
+| vfwmsac_vf
+a|
+[source,c]
+----
+// vfwmsac.vf vd, vs2, rs1
+VI_VFP_VF_LOOP_WIDE
+({
+  vd = f32_mulAdd(rs1, vs2, f32(vd.v ^ F32_SIGN));
+},
+{
+  vd = f64_mulAdd(rs1, vs2, f64(vd.v ^ F64_SIGN));
+})
+----
+| vfwmul_vf
+a|
+[source,c]
+----
+// vfwmul.vf vd, vs2, rs1
+VI_VFP_VF_LOOP_WIDE
+({
+  vd = f32_mul(vs2, rs1);
+},
+{
+  vd = f64_mul(vs2, rs1);
+})
+----
+| vfwnmacc_vf
+a|
+[source,c]
+----
+// vfwnmacc.vf vd, vs2, rs1
+VI_VFP_VF_LOOP_WIDE
+({
+  vd = f32_mulAdd(f32(rs1.v ^ F32_SIGN), vs2, f32(vd.v ^ F32_SIGN));
+},
+{
+  vd = f64_mulAdd(f64(rs1.v ^ F64_SIGN), vs2, f64(vd.v ^ F64_SIGN));
+})
+----
+| vfwnmsac_vf
+a|
+[source,c]
+----
+// vfwnmacc.vf vd, vs2, rs1
+VI_VFP_VF_LOOP_WIDE
+({
+  vd = f32_mulAdd(f32(rs1.v ^ F32_SIGN), vs2, vd);
+},
+{
+  vd = f64_mulAdd(f64(rs1.v ^ F64_SIGN), vs2, vd);
+})
+----
+| vfwsub_vf
+a|
+[source,c]
+----
+// vfwsub.vf vd, vs2, rs1
+VI_VFP_VF_LOOP_WIDE
+({
+  vd = f32_sub(vs2, rs1);
+},
+{
+  vd = f64_sub(vs2, rs1);
+})
+----
+| vfwsub_wf
+a|
+[source,c]
+----
+// vfwsub.wf vd, vs2, rs1
+VI_VFP_WF_LOOP_WIDE
+({
+  vd = f32_sub(vs2, rs1);
+},
+{
+  vd = f64_sub(vs2, rs1);
+})
+----
+| vmfeq_vf
+a|
+[source,c]
+----
+// vmfeq.vf vd, vs2, fs1
+VI_VFP_VF_LOOP_CMP
+({
+  res = VFP_OP_16(eq, vs2, rs1);
+},
+{
+  res = f32_eq(vs2, rs1);
+},
+{
+  res = f64_eq(vs2, rs1);
+})
+----
+| vmfge_vf
+a|
+[source,c]
+----
+// vmfge.vf vd, vs2, rs1
+VI_VFP_VF_LOOP_CMP
+({
+  res = VFP_OP_16(le, rs1, vs2);
+},
+{
+  res = f32_le(rs1, vs2);
+},
+{
+  res = f64_le(rs1, vs2);
+})
+----
+| vmfgt_vf
+a|
+[source,c]
+----
+// vmfgt.vf vd, vs2, rs1
+VI_VFP_VF_LOOP_CMP
+({
+  res = VFP_OP_16(lt, rs1, vs2);
+},
+{
+  res = f32_lt(rs1, vs2);
+},
+{
+  res = f64_lt(rs1, vs2);
+})
+----
+| vmfle_vf
+a|
+[source,c]
+----
+// vmfle.vf vd, vs2, rs1
+VI_VFP_VF_LOOP_CMP
+({
+  res = VFP_OP_16(le, vs2, rs1);
+},
+{
+  res = f32_le(vs2, rs1);
+},
+{
+  res = f64_le(vs2, rs1);
+})
+----
+| vmflt_vf
+a|
+[source,c]
+----
+// vmflt.vf vd, vs2, rs1
+VI_VFP_VF_LOOP_CMP
+({
+  res = VFP_OP_16(lt, vs2, rs1);
+},
+{
+  res = f32_lt(vs2, rs1);
+},
+{
+  res = f64_lt(vs2, rs1);
+})
+----
+| vmfne_vf
+a|
+[source,c]
+----
+// vmfne.vf vd, vs2, rs1
+VI_VFP_VF_LOOP_CMP
+({
+  res = !VFP_OP_16(eq, vs2, rs1);
+},
+{
+  res = !f32_eq(vs2, rs1);
+},
+{
+  res = !f64_eq(vs2, rs1);
+})
+----
+|===

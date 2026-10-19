@@ -1,0 +1,3111 @@
+[[insns-vaesdf, Vector AES decrypt final round]]
+= vaesdf.[vv,vs]
+
+Synopsis::
+Vector AES final-round decryption
+
+Mnemonic::
+vaesdf.vv vd, vs2 +
+vaesdf.vs vd, vs2
+
+Encoding (Vector-Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '00001'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101000'},
+]}
+....
+
+Encoding (Vector-Scalar)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '00001'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101001`'},
+]}
+....
+Reserved Encodings::
+* `SEW` is any value other than 32
+* Only for the `.vs` form: the `vd` register group overlaps the `vs2` scalar element group
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2,2,2,2"]
+|===
+|Register
+|Direction
+|EGW
+|EGS
+|EEW
+|Definition
+
+| Vd  | input  | 128  | 4 | 32 | round state
+| Vs2 | input  | 128  | 4 | 32 | round key
+| Vd  | output | 128  | 4 | 32 | new round state
+|===
+
+Description::
+A final-round AES block cipher decryption is performed.
+
+The InvShiftRows and InvSubBytes steps are applied to each round state element group from `vd`.
+This is then XORed with the round key in either the corresponding element group in `vs2` (vector-vector
+form) or scalar element group in `vs2` (vector-scalar form).
+
+This instruction must always be implemented such that its execution latency does not depend
+on the data being operated upon.
+
+//  if( ((vl%EGS)<>0) | ((vstart%EGS)<>0) | (LMUL*VLEN < EGW))  then {
+
+Operation::
+[source,sail]
+--
+function clause execute (VAESDF(vs2, vd, suffix)) = {
+  if(LMUL*VLEN < EGW)  then {
+    handle_illegal();  // illegal instruction exception
+    RETIRE_FAIL
+  } else {
+
+  eg_len = (vl/EGS)
+  eg_start = (vstart/EGS)
+
+  foreach (i from eg_start to eg_len-1) {
+    let keyelem = if suffix == "vv" then i else 0;
+    let state : bits(128) = get_velem(vd,  EGW=128, i);
+    let rkey  : bits(128) = get_velem(vs2, EGW=128, keyelem);
+    let sr    : bits(128) = aes_shift_rows_inv(state);
+    let sb    : bits(128) = aes_subbytes_inv(sr);
+    let ark   : bits(128) = sb ^ rkey;
+    set_velem(vd, EGW=128, i, ark);
+  }
+  RETIRE_SUCCESS
+  }
+}
+--
+
+Included in::
+<<zvkn>>, <<zvknc>>, <<zvkned>>, <<zvkng>>
+
+[[insns-vaesdm, Vector AES decrypt middle round]]
+= vaesdm.[vv,vs]
+
+Synopsis::
+Vector AES middle-round decryption
+
+Mnemonic::
+vaesdm.vv vd, vs2 +
+vaesdm.vs vd, vs2
+
+Encoding (Vector-Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '00000'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101000'},
+]}
+....
+
+Encoding (Vector-Scalar)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '00000'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101001'},
+]}
+....
+Reserved Encodings::
+* `SEW` is any value other than 32
+* Only for the `.vs` form: the `vd` register group overlaps the `vs2` scalar element group
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2,2,2,2"]
+|===
+|Register
+|Direction
+|EGW
+|EGS
+|EEW
+|Definition
+
+| Vd  | input  | 128  | 4 | 32 | round state
+| Vs2 | input  | 128  | 4 | 32 | round key
+| Vd  | output | 128  | 4 | 32 | new round state
+|===
+
+Description::
+A middle-round AES block cipher decryption is performed.
+
+The InvShiftRows and InvSubBytes steps are applied to each round state element group from `vd`.
+This is then XORed with the round key in either the corresponding element group in `vs2` (vector-vector
+form) or the scalar element group in `vs2` (vector-scalar form). The result is then applied to the
+InvMixColumns step.
+
+This instruction must always be implemented such that its execution latency does not depend
+on the data being operated upon.
+//
+// The number of element groups to be processed is `vl`/`EGS`.
+// `vl` must be set to the number of `SEW=32` elements to be processed and
+// therefore must be a multiple of `EGS=4`. +
+// Likewise, `vstart` must be a multiple of `EGS=4`.
+
+Operation::
+[source,sail]
+--
+function clause execute (VAESDM(vs2, vd, suffix)) = {
+  if(LMUL*VLEN < EGW)  then {
+    handle_illegal();  // illegal instruction exception
+    RETIRE_FAIL
+  } else {
+
+  eg_len = (vl/EGS)
+  eg_start = (vstart/EGS)
+
+  foreach (i from eg_start to eg_len-1) {
+    let keyelem = if suffix == "vv" then i else 0;
+    let state : bits(128) = get_velem(vd, EGW=128, i);
+    let rkey  : bits(128) = get_velem(vs2, EGW=128, keyelem);
+    let sr    : bits(128) = aes_shift_rows_inv(state);
+    let sb    : bits(128) = aes_subbytes_inv(sr);
+    let ark   : bits(128) = sb ^ rkey;
+    let mix   : bits(128) = aes_mixcolumns_inv(ark);
+    set_velem(vd, EGW=128, i, mix);
+  }
+  RETIRE_SUCCESS
+  }
+}
+--
+
+Included in::
+<<zvkn>>, <<zvknc>>, <<zvkned>>, <<zvkng>>
+
+[[insns-vaesef, Vector AES encrypt final round]]
+= vaesef.[vv,vs]
+
+Synopsis::
+Vector AES final-round encryption
+
+Mnemonic::
+vaesef.vv vd, vs2 +
+vaesef.vs vd, vs2
+
+Encoding (Vector-Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '00011'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101000'},
+]}
+....
+
+Encoding (Vector-Scalar)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '00011'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101001'},
+]}
+....
+Reserved Encodings::
+* `SEW` is any value other than 32
+* Only for the `.vs` form: the `vd` register group overlaps the `vs2` scalar element group
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2,2,2,2"]
+|===
+|Register
+|Direction
+|EGW
+|EGS
+|EEW
+|Definition
+
+| vd  | input  | 128  | 4 | 32 | round state
+| vs2 | input  | 128  | 4 | 32 | round key
+| vd  | output | 128  | 4 | 32 | new round state
+|===
+
+Description::
+A final-round encryption function of the AES block cipher is performed.
+
+The SubBytes and ShiftRows steps are applied to each round state element group from `vd`.
+This is then XORed with the round key in either the corresponding element group in `vs2` (vector-vector
+form) or the scalar element group in `vs2` (vector-scalar form).
+
+This instruction must always be implemented such that its execution latency does not depend
+on the data being operated upon.
+//
+// The number of element groups to be processed is `vl`/`EGS`.
+// `vl` must be set to the number of `SEW=32` elements to be processed and
+// therefore must be a multiple of `EGS=4`. +
+// Likewise, `vstart` must be a multiple of `EGS=4`.
+
+Operation::
+[source,sail]
+--
+function clause execute (VAESEF(vs2, vd, suffix) = {
+  if(LMUL*VLEN < EGW)  then {
+    handle_illegal();  // illegal instruction exception
+    RETIRE_FAIL
+  } else {
+
+  eg_len = (vl/EGS)
+  eg_start = (vstart/EGS)
+
+  foreach (i from eg_start to eg_len-1) {
+    let keyelem = if suffix == "vv" then i else 0;
+    let state : bits(128) = get_velem(vd, EGW=128, i);
+    let rkey  : bits(128) = get_velem(vs2, EGW=128, keyelem);
+    let sb    : bits(128) = aes_subbytes_fwd(state);
+    let sr    : bits(128) = aes_shift_rows_fwd(sb);
+    let ark   : bits(128) = sr ^ rkey;
+    set_velem(vd, EGW=128, i, ark);
+  }
+  RETIRE_SUCCESS
+  }
+}
+--
+
+Included in::
+<<zvkn>>, <<zvknc>>, <<zvkned>>, <<zvkng>>
+
+[[insns-vaesem, Vector AES encrypt middle round]]
+= vaesem.[vv,vs]
+
+Synopsis::
+Vector AES middle-round encryption
+
+Mnemonic::
+vaesem.vv vd, vs2 +
+vaesem.vs vd, vs2
+
+Encoding (Vector-Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '00010'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101000'},
+]}
+....
+
+Encoding (Vector-Scalar)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '00010'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101001'},
+]}
+....
+Reserved Encodings::
+* `SEW` is any value other than 32
+* Only for the `.vs` form: the `vd` register group overlaps the `vs2` scalar element group
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2,2,2,2"]
+|===
+|Register
+|Direction
+|EGW
+|EGS
+|EEW
+|Definition
+
+| Vd  | input  | 128  | 4 | 32 | round state
+| Vs2 | input  | 128  | 4 | 32 | Round key
+| Vd  | output | 128  | 4 | 32 | new round state
+|===
+
+Description::
+A middle-round encryption function of the AES block cipher is performed.
+
+The SubBytes, ShiftRows, and MixColumns steps are applied to each round state element group from `vd`.
+This is then XORed with the round key in either the corresponding  element group in `vs2` (vector-vector
+form) or the scalar element group in `vs2` (vector-scalar form).
+
+This instruction must always be implemented such that its execution latency does not depend
+on the data being operated upon.
+//
+// The number of element groups to be processed is `vl`/`EGS`.
+// `vl` must be set to the number of `SEW=32` elements to be processed and
+// therefore must be a multiple of `EGS=4`. +
+// Likewise, `vstart` must be a multiple of `EGS=4`.
+
+Operation::
+[source,sail]
+--
+function clause execute (VAESEM(vs2, vd, suffix)) = {
+  if(LMUL*VLEN < EGW)  then {
+    handle_illegal();  // illegal instruction exception
+    RETIRE_FAIL
+  } else {
+
+  eg_len = (vl/EGS)
+  eg_start = (vstart/EGS)
+
+  foreach (i from eg_start to eg_len-1) {
+    let keyelem = if suffix == "vv" then i else 0;
+    let state : bits(128) = get_velem(vd, EGW=128, i);
+    let rkey  : bits(128) = get_velem(vs2, EGW=128, keyelem);
+    let sb    : bits(128) = aes_subbytes_fwd(state);
+    let sr    : bits(128) = aes_shift_rows_fwd(sb);
+    let mix   : bits(128) = aes_mixcolumns_fwd(sr);
+    let ark   : bits(128) = mix ^ rkey;
+    set_velem(vd, EGW=128, i, ark);
+  }
+  RETIRE_SUCCESS
+  }
+}
+--
+
+Included in::
+<<zvkn>>, <<zvknc>>, <<zvkned>>, <<zvkng>>
+
+[[insns-vaeskf1, Vector AES-128 Forward KeySchedule]]
+= vaeskf1.vi
+
+Synopsis::
+Vector AES-128 Forward KeySchedule generation
+
+Mnemonic::
+vaeskf1.vi vd, vs2, uimm
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: 'uimm'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '100010'},
+]}
+....
+Reserved Encodings::
+* `SEW` is any value other than 32
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2,2,2,2"]
+|===
+|Register
+|Direction
+|EGW
+|EGS
+|EEW
+|Definition
+
+| uimm | input  | -    | - | -  | Round Number (rnd)
+| Vs2  | input  | 128  | 4 | 32 | Current round key
+| Vd   | output | 128  | 4 | 32 | Next round key
+|===
+
+Description::
+A single round of the forward AES-128 KeySchedule is performed.
+
+// Within each element group,
+The next round key is generated word by word from the
+current round key element group in `vs2` and the immediately previous word of the
+round key. The least significant word is generated using the most significant
+word of the current round key as well as a round constant which is selected by
+the round number.
+
+The round number, which ranges from 1 to 10, comes from `uimm[3:0]`;
+`uimm[4]` is ignored.
+The out-of-range `uimm[3:0]` values of 0 and 11-15 are mapped to in-range
+values by inverting `uimm[3]`. Thus, 0 maps to 8, and 11-15 maps to 3-7.
+The round number is used to specify a round constant which is used in generating
+the first round key word.
+
+This instruction must always be implemented such that its execution latency does not depend
+on the data being operated upon.
+
+[NOTE]
+====
+We chose to map out-of-range round numbers to in-range values as this allows the instruction's
+behavior to be fully defined for all values of `uimm[4:0]` with minimal extra logic.
+====
+
+// Each `EGW=128` element group next-round-key output is produced and is written to each `EGW=128`
+// element group of `vd`.
+
+//
+// The number of element groups to be processed is `vl`/`EGS`.
+// `vl` must be set to the number of `SEW=32` elements to be processed and
+// therefore must be a multiple of `EGS=4`. +
+// Likewise, `vstart` must be a multiple of `EGS=4`.
+
+Operation::
+[source,Sail]
+--
+function clause execute (VAESKF1(rnd, vd, vs2)) = {
+  if(LMUL*VLEN < EGW)  then {
+    handle_illegal();  // illegal instruction exception
+    RETIRE_FAIL
+  } else {
+
+ // project out-of-range immediates onto in-range values
+ if( (unsigned(rnd[3:0]) > 10) | (rnd[3:0] = 0)) then rnd[3] = ~rnd[3]
+
+  eg_len = (vl/EGS)
+  eg_start = (vstart/EGS)
+
+  let r : bits(4) = rnd-1;
+
+  foreach (i from eg_start to eg_len-1) {
+      let CurrentRoundKey[3:0]  : bits(128)  = get_velem(vs2, EGW=128, i);
+      let w[0] : bits(32) = aes_subword_fwd(aes_rotword(CurrentRoundKey[3])) XOR
+        aes_decode_rcon(r) XOR CurrentRoundKey[0]
+      let w[1] : bits(32) = w[0] XOR CurrentRoundKey[1]
+      let w[2] : bits(32) = w[1] XOR CurrentRoundKey[2]
+      let w[3] : bits(32) = w[2] XOR CurrentRoundKey[3]
+      set_velem(vd, EGW=128, i, w[3:0]);
+    }
+    RETIRE_SUCCESS
+  }
+}
+
+--
+
+Included in::
+<<zvkn>>, <<zvknc>>, <<zvkned>>, <<zvkng>>
+
+[[insns-vaeskf2, Vector AES-256 Forward KeySchedule]]
+= vaeskf2.vi
+
+Synopsis::
+Vector AES-256 Forward KeySchedule generation
+
+Mnemonic::
+vaeskf2.vi vd, vs2, uimm
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: 'uimm'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101010'},
+]}
+....
+Reserved Encodings::
+* `SEW` is any value other than 32
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2,2,2,2"]
+|===
+|Register
+|Direction
+|EGW
+|EGS
+|EEW
+|Definition
+
+| Vd   | input  | 128  | 4 | 32 | Previous Round key
+| uimm | input  | -    | - | -  | Round Number (rnd)
+| Vs2  | input  | 128  | 4 | 32 | Current Round key
+| Vd   | output | 128  | 4 | 32 | Next round key
+|===
+
+Description::
+A single round of the forward AES-256 KeySchedule is performed.
+
+// Within each element group,
+The next round key is generated word by word from the
+previous round key element group in `vd` and the immediately previous word of the
+round key. The least significant word of the next round key is generated by
+applying a function to the most significant word of the current round key and
+then XORing the result with the round constant.
+The round number is used to select the round constant as well as the function.
+
+The round number, which ranges from 2 to 14, comes from `uimm[3:0]`;
+`uimm[4]` is ignored.
+The out-of-range `uimm[3:0]` values of 0-1 and 15 are mapped to in-range
+values by inverting `uimm[3]`. Thus, 0-1 maps to 8-9, and 15 maps to 7.
+
+This instruction must always be implemented such that its execution latency does not depend
+on the data being operated upon.
+
+[NOTE]
+====
+We chose to map out-of-range round numbers to in-range values as this allows the instruction's
+behavior to be fully defined for all values of `uimm[4:0]` with minimal extra logic.
+====
+
+//
+
+// The number of element groups to be processed is `vl`/`EGS`.
+// `vl` must be set to the number of `SEW=32` elements to be processed and
+// therefore must be a multiple of `EGS=4`. +
+// Likewise, `vstart` must be a multiple of `EGS=4`.
+
+Operation::
+[source,Sail]
+--
+function clause execute (VAESKF2(rnd, vd, vs2)) = {
+  if(LMUL*VLEN < EGW)  then {
+    handle_illegal();  // illegal instruction exception
+    RETIRE_FAIL
+  } else {
+
+ // project out-of-range immediates into in-range values
+ if((unsigned(rnd[3:0]) < 2) |  (unsigned(rnd[3:0]) > 14)) then rnd[3] = ~rnd[3]
+
+  eg_len = (vl/EGS)
+  eg_start = (vstart/EGS)
+
+  foreach (i from eg_start to eg_len-1) {
+      let CurrentRoundKey[3:0]  : bits(128)  = get_velem(vs2, EGW=128, i);
+      let RoundKeyB[3:0] : bits(32)  = get_velem(vd, EGW=128, i); // Previous round key
+
+      let w[0] : bits(32) = if (rnd[0]==1) then
+        aes_subword_fwd(CurrentRoundKey[3]) XOR RoundKeyB[0];
+      else
+        aes_subword_fwd(aes_rotword(CurrentRoundKey[3])) XOR aes_decode_rcon((rnd>>1) - 1) XOR RoundKeyB[0];
+      w[1] : bits(32) = w[0] XOR RoundKeyB[1]
+      w[2] : bits(32) = w[1] XOR RoundKeyB[2]
+      w[3] : bits(32) = w[2] XOR RoundKeyB[3]
+      set_velem(vd, EGW=128, i, w[3:0]);
+    }
+    RETIRE_SUCCESS
+  }
+}
+--
+
+Included in::
+<<zvkn>>, <<zvknc>>, <<zvkned>>, <<zvkng>>
+
+[[insns-vaesz, Vector AES round zero]]
+= vaesz.vs
+
+Synopsis::
+Vector AES round zero encryption/decryption
+
+Mnemonic::
+vaesz.vs vd, vs2
+
+Encoding (Vector-Scalar)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '00111'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101001'},
+]}
+....
+Reserved Encodings::
+* `SEW` is any value other than 32
+* The `vd` register group overlaps the `vs2` register
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2,2,2,2"]
+|===
+|Register
+|Direction
+|EGW
+|EGS
+|EEW
+|Definition
+
+| vd  | input  | 128  | 4 | 32 | round state
+| vs2 | input  | 128  | 4 | 32 | round key
+| vd  | output | 128  | 4 | 32 | new round state
+|===
+
+Description::
+A round-0 AES block cipher operation is performed. This operation is used for both encryption and decryption.
+
+There is only a `.vs` form of the instruction.
+`Vs2` holds a
+scalar element group that is used
+as the round key for all of the round state element groups.
+The new round state output of each element group is produced by XORing
+the round key with each element group of `vd`.
+
+This instruction must always be implemented such that its execution latency does not depend
+on the data being operated upon.
+
+[NOTE]
+====
+This instruction is needed to avoid the need to "splat" a 128-bit vector register group when the round key is the same for
+all 128-bit "lanes". Such a splat would typically be implemented with a `vrgather` instruction which would hurt performance
+in many implementations.
+This instruction only exists in the `.vs` form because the `.vv` form would be identical to the `vxor.vv vd, vs2, vd` instruction.
+====
+
+//
+// The number of element groups to be processed is `vl`/`EGS`.
+// `vl` must be set to the number of `SEW=32` elements to be processed and
+// therefore must be a multiple of `EGS=4`. +
+// Likewise, `vstart` must be a multiple of `EGS=4`.
+
+Operation::
+[source,sail]
+--
+function clause execute (VAESZ(vs2, vd) = {
+  if(((vstart%EGS)<>0) | (LMUL*VLEN < EGW))  then {
+    handle_illegal();  // illegal instruction exception
+    RETIRE_FAIL
+  } else {
+
+  eg_len = (vl/EGS)
+  eg_start = (vstart/EGS)
+
+  foreach (i from eg_start to eg_len-1) {
+    let state : bits(128) = get_velem(vd, EGW=128, i);
+    let rkey  : bits(128) = get_velem(vs2, EGW=128, 0);
+    let ark   : bits(128) = state ^ rkey;
+    set_velem(vd, EGW=128, i, ark);
+  }
+  RETIRE_SUCCESS
+  }
+}
+--
+
+Included in::
+<<zvkn>>, <<zvknc>>, <<zvkned>>, <<zvkng>>
+
+[[insns-vandn, Vector And-Not]]
+= vandn.[vv,vx]
+
+Synopsis::
+Bitwise And-Not
+
+Mnemonic::
+vandn.vv vd, vs2, vs1, vm +
+vandn.vx vd, vs2, rs1, vm
+
+Encoding (Vector-Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPIVV'},
+{bits: 5, name: 'vs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '000001'},
+]}
+....
+
+Encoding (Vector-Scalar)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPIVX'},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '000001'},
+]}
+....
+
+Vector-Vector Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2"]
+|===
+|Register
+|Direction
+|Definition
+
+| Vs1 | input  | Op1  (to be inverted)
+| Vs2 | input  | Op2
+| Vd  | output | Result
+|===
+
+Vector-Scalar Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2"]
+|===
+|Register
+|Direction
+|Definition
+
+| Rs1     | input  | Op1  (to be inverted)
+| Vs2     | input  | Op2
+| Vd      | output | Result
+|===
+
+Description::
+A bitwise _and-not_ operation is performed.
+
+Each bit of `Op1` is inverted and logically ANDed with the corresponding bits in `vs2`.
+In the vector-scalar version, `Op1` is the sign-extended or truncated value in scalar
+register `rs1`.
+In the vector-vector version, `Op1` is `vs1`.
+
+// This instruction must always be implemented such that its execution latency does not depend
+// on the data being operated upon.
+
+[NOTE]
+.Note on necessity of instruction
+====
+This instruction is performance-critical to SHA3. Specifically, the Chi step of the FIPS 202 Keccak Permutation.
+Emulating it via 2 instructions is expected to have significant performance impact.
+The `.vv` form of the instruction is what is needed for SHA3; the `.vx` form was added for completeness.
+====
+
+[NOTE]
+====
+There is no .vi version of this instruction because the same functionality can be achieved by using an inversion
+of the immediate value with the `vand.vi` instruction.
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (VANDN(vs2, vs1, vd, suffix)) = {
+  foreach (i from vstart to vl-1) {
+    let op1 = match suffix {
+      "vv" => get_velem(vs1, SEW, i),
+      "vx" => sext_or_truncate_to_sew(X(vs1))
+    };
+    let op2 = get_velem(vs2, SEW, i);
+    set_velem(vd, EEW=SEW, i, ~op1 & op2);
+  }
+  RETIRE_SUCCESS
+}
+
+--
+
+Included in::
+<<zvbb>>, <<zvkb>>, <<zvkn>>, <<zvknc>>, <<Zvkng>>, <<zvks>>
+<<Zvksc>>, <<Zvksg>>
+
+[[insns-vbrev8, Vector Reverse Bits in Bytes]]
+= vbrev8.v
+
+Synopsis::
+Vector Reverse Bits in Bytes
+
+Mnemonic::
+vbrev8.v vd, vs2, vm
+
+Encoding (Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '01000'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '010010'},
+]}
+....
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2"]
+|===
+|Register
+|Direction
+|Definition
+
+| Vs2 | input  | Input elements
+| Vd  | output | Elements with bit-reversed bytes
+|===
+
+Description::
+A bit reversal is performed on the bits of each byte.
+
+// This instruction must always be implemented such that its execution latency does not depend
+// on the data being operated upon.
+
+[NOTE]
+====
+This instruction is commonly used for GCM when the zvkg extension is not implemented.
+This byte-wise instruction is defined for all SEWs to eliminate the need to change SEW when operating on wider elements. 
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (VBREV8(vs2)) = {
+
+  foreach (i from vstart to vl-1) {
+    let input = get_velem(vs2, SEW, i);
+    let output : bits(SEW) = 0;
+    foreach (i from 0 to SEW-8 by 8)
+      let output[i+7..i] = reverse_bits_in_byte(input[i+7..i]);
+    set_velem(vd, SEW, i, output)
+  }
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+<<zvbb>>, <<zvkb>>, <<zvkn>>, <<zvknc>>, <<Zvkng>>, <<zvks>>
+<<Zvksc>>, <<Zvksg>>
+
+[[insns-vbrev, Vector Reverse Bits in Elements]]
+= vbrev.v
+
+Synopsis::
+Vector Reverse Bits in Elements
+
+Mnemonic::
+vbrev.v vd, vs2, vm
+
+Encoding (Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '01010'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '010010'},
+]}
+....
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2"]
+|===
+|Register
+|Direction
+|Definition
+
+| Vs2 | input  | Input elements
+| Vd  | output | Elements with bits reversed
+|===
+
+Description::
+A bit reversal is performed on the bits of each element.
+
+Operation::
+[source,sail]
+--
+function clause execute (VBREV(vs2)) = {
+
+  foreach (i from vstart to vl-1) {
+    let input = get_velem(vs2, SEW, i);
+    let output : bits(SEW) = 0;
+    foreach (i from 0 to SEW-1)
+      let output[SEW-1-i] = input[i];
+    set_velem(vd, SEW, i, output)
+  }
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+<<zvbb>>
+
+[[insns-vclmul, Vector Carry-less Multiply]]
+= vclmul.[vv,vx]
+
+Synopsis::
+Vector Carry-less Multiply by vector or scalar - returning low half of product.
+
+Mnemonic::
+vclmul.vv vd, vs2, vs1, vm +
+vclmul.vx vd, vs2, rs1, vm
+
+Encoding (Vector-Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: 'vs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '001100'},
+]}
+....
+
+Encoding (Vector-Scalar)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVX'},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '001100'},
+]}
+....
+Reserved Encodings::
+* `SEW` is any value other than 64
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2"]
+|===
+|Register
+|Direction
+|Definition
+
+| Vs1/Rs1 | input  |  multiplier
+| Vs2 | input  |  multiplicand
+| Vd  | output | carry-less product low
+|===
+
+Description::
+Produces the low half of 128-bit carry-less product.
+
+Each 64-bit element in the `vs2` vector register is carry-less multiplied by
+either each 64-bit element in `vs1` (vector-vector), or the 64-bit value
+from integer register `rs1` (vector-scalar). The result is the least
+significant 64 bits of the carry-less product.
+
+[NOTE]
+====
+The 64-bit carryless multiply instructions can be used for implementing GCM in the absence of the `zvkg` extension.
+We do not make these instructions exclusive as the 64-bit carryless multiply is readily derived from the
+instructions in the `zvkg` extension and can have utility in other areas.
+Likewise, we treat other SEW values as reserved so as not to preclude
+future extensions from using this opcode with different element widths.
+For example, a future extension might define an `SEW`=32 version of this instruction to enable `Zve32*` implementations to have
+vector carryless multiplication instructions.
+====
+
+Operation::
+[source,sail]
+--
+
+function clause execute (VCLMUL(vs2, vs1, vd, suffix)) = {
+
+  foreach (i from vstart to vl-1) {
+    let op1 : bits (64) = if suffix =="vv" then get_velem(vs1,i)
+                          else zext_or_truncate_to_sew(X(vs1));
+    let op2 : bits (64) = get_velem(vs2,i);
+    let product : bits (64) = clmul(op1,op2,SEW);
+    set_velem(vd, i, product);
+  }
+  RETIRE_SUCCESS
+}
+
+function clmul(x, y, width) = {
+  let result : bits(width) = zeros();
+  foreach (i from 0 to (width - 1)) {
+    if y[i] == 1 then result = result ^ (x << i);
+  }
+  result
+}
+--
+
+Included in::
+<<zvbc>>, <<zvknc>>, <<zvksc>>
+
+[[insns-vclmulh, Vector Carry-less Multiply Return High Half]]
+= vclmulh.[vv,vx]
+
+Synopsis::
+Vector Carry-less Multiply by vector or scalar - returning high half of product.
+
+Mnemonic::
+vclmulh.vv vd, vs2, vs1, vm +
+vclmulh.vx vd, vs2, rs1, vm
+
+Encoding (Vector-Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: 'vs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '001101'},
+]}
+....
+
+Encoding (Vector-Scalar)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVX'},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '001101'},
+]}
+....
+Reserved Encodings::
+* `SEW` is any value other than 64
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2"]
+|===
+|Register
+|Direction
+|Definition
+
+| Vs1 | input  | multiplier
+| Vs2 | input  | multiplicand
+| Vd  | output | carry-less product high
+|===
+
+Description::
+Produces the high half of 128-bit carry-less product.
+
+Each 64-bit element in the `vs2` vector register is carry-less multiplied by
+either each 64-bit element in `vs1` (vector-vector), or the 64-bit value
+from integer register `rs1` (vector-scalar). The result is the most
+significant 64 bits of the carry-less product.
+
+// This instruction must always be implemented such that its execution latency does not depend
+// on the data being operated upon.
+
+Operation::
+[source,sail]
+--
+function clause execute (VCLMULH(vs2, vs1, vd, suffix)) = {
+
+  foreach (i from vstart to vl-1) {
+    let op1 : bits (64) = if suffix =="vv" then get_velem(vs1,i)
+                          else zext_or_truncate_to_sew(X(vs1));
+    let op2 : bits (64) = get_velem(vs2, i);
+    let product : bits (64) = clmulh(op1, op2, SEW);
+    set_velem(vd, i, product);
+  }
+  RETIRE_SUCCESS
+}
+
+function clmulh(x, y, width) = {
+  let result : bits(width) = 0;
+  foreach (i from 1 to (width - 1)) {
+    if y[i] == 1 then result = result ^ (x >> (width - i));
+  }
+  result
+}
+
+--
+
+Included in::
+<<zvbc>>, <<zvknc>>, <<zvksc>>
+
+[[insns-vclz, Vector Count Leading Zeros]]
+= vclz.v
+
+Synopsis::
+Vector Count Leading Zeros
+
+Mnemonic::
+vclz.v vd, vs2, vm
+
+Encoding (Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '01100'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '010010'},
+]}
+....
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2"]
+|===
+|Register
+|Direction
+|Definition
+
+| Vs2 | input  | Input elements
+| Vd  | output | Count of leading zero bits
+|===
+
+Description::
+A leading zero count is performed on each element.
+
+The result for zero-valued inputs is the value SEW.
+
+Operation::
+[source,sail]
+--
+function clause execute (VCLZ(vs2)) = {
+
+  foreach (i from vstart to vl-1) {
+    let input = get_velem(vs2, SEW, i);
+    for (j = (SEW - 1); j >= 0;  j--)
+      if [input[j]] == 0b1 then break;
+    set_velem(vd, SEW, i, SEW - 1 - j)
+  }
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+<<zvbb>>
+
+[[insns-vcpop, Vector Population Count]]
+= vcpop.v
+
+Synopsis::
+Count the number of bits set in each element
+
+Mnemonic::
+vcpop.v vd, vs2, vm
+
+Encoding (Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '01110'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '010010'},
+]}
+....
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2"]
+|===
+|Register
+|Direction
+|Definition
+
+| Vs2 | input  | Input elements
+| Vd  | output | Count of bits set
+|===
+
+Description::
+A population count is performed on each element.
+
+Operation::
+[source,sail]
+--
+function clause execute (VCPOP(vs2)) = {
+
+  foreach (i from vstart to vl-1) {
+    let input = get_velem(vs2, SEW, i);
+    let output : bits(SEW) = 0;
+    for (j = 0; j < SEW;  j++)
+      output = output + input[j];
+    set_velem(vd, SEW, i, output)
+  }
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+<<zvbb>>
+
+[[insns-vctz, Vector Count Trailing Zeros]]
+= vctz.v
+
+Synopsis::
+Vector Count Trailing Zeros
+
+Mnemonic::
+vctz.v vd, vs2, vm
+
+Encoding (Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '01101'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '010010'},
+]}
+....
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2"]
+|===
+|Register
+|Direction
+|Definition
+
+| Vs2 | input  | Input elements
+| Vd  | output | Count of trailing zero bits
+|===
+
+Description::
+A trailing zero count is performed on each element.
+
+// The result for zero-valued inputs is the value SEW.
+
+Operation::
+[source,sail]
+--
+function clause execute (VCTZ(vs2)) = {
+
+  foreach (i from vstart to vl-1) {
+    let input = get_velem(vs2, SEW, i);
+    for (j = 0; j < SEW;  j++)
+      if [input[j]] == 0b1 then break;
+    set_velem(vd, SEW, i, j)
+  }
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+<<zvbb>>
+
+[[insns-vghsh, Vector GHASH Add-Multiply]]
+= vghsh.vv
+
+Synopsis::
+Vector Add-Multiply over GHASH Galois-Field
+
+Mnemonic::
+vghsh.vv vd, vs2, vs1
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: 'vs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101100'},
+]}
+....
+Reserved Encodings::
+* `SEW` is any value other than 32
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2,2,2,2"]
+|===
+|Register
+|Direction
+|EGW
+|EGS
+|SEW
+|Definition
+
+| Vd  | input  | 128  | 4 | 32 | Partial hash (Y~i~)
+| Vs1 | input  | 128  | 4 | 32 | Cipher text (X~i~)
+| Vs2 | input  | 128  | 4 | 32 | Hash Subkey (H)
+| Vd  | output | 128  | 4 | 32 | Partial-hash (Y~i+1~)
+|===
+
+Description::
+A single "iteration" of the GHASH~H~ algorithm is performed.
+
+This instruction treats all of the inputs and outputs as 128-bit polynomials and
+performs operations over GF[2].
+It produces the next partial hash (Y~i+1~) by adding the current partial
+hash (Y~i~) to the cipher text block (X~i~) and then multiplying (over GF(2^128^))
+this sum by the Hash Subkey (H).
+
+The multiplication over GF(2^128^) is a carryless multiply of two 128-bit polynomials
+modulo GHASH's irreducible polynomial (x^128^ + x^7^ + x^2^ + x + 1).
+
+The operation can be compactly defined as
+// Y~i+1~ = (Y~i~ &#183; H) ^ X~i~
+Y~i+1~ = ((Y~i~ ^ X~i~) &#183; H)
+
+The NIST specification (see <<zvkg>>) orders the coefficients from left to right x~0~x~1~x~2~...x~127~
+for a polynomial x~0~ + x~1~u +x~2~ u^2^ + ... + x~127~u^127^. This can be viewed as a collection of
+byte elements in memory with the byte containing the lowest coefficients (i.e., 0,1,2,3,4,5,6,7)
+residing at the lowest memory address. Since the bits in the bytes are reversed,
+This instruction internally performs bit swaps within bytes to put the bits in the standard ordering
+(e.g., 7,6,5,4,3,2,1,0).
+
+This instruction must always be implemented such that its execution latency does not depend
+on the data being operated upon.
+
+[NOTE]
+====
+We are bit-reversing the bytes of inputs and outputs so that the intermediate values are consistent
+with the NIST specification. These reversals are inexpensive to implement as they unconditionally
+swap bit positions and therefore do not require any logic.
+====
+
+[NOTE]
+====
+Since the same hash subkey `H` will typically be used repeatedly on a given message,
+a future extension might define a vector-scalar version of this instruction where
+`vs2` is the scalar element group. This would help reduce register pressure when `LMUL` > 1.
+====
+
+Operation::
+[source,pseudocode]
+--
+function clause execute (VGHSH(vs2, vs1, vd)) = {
+  // operands are input with bits reversed in each byte
+  if(LMUL*VLEN < EGW)  then {
+    handle_illegal();  // illegal instruction exception
+    RETIRE_FAIL
+  } else {
+
+  eg_len = (vl/EGS)
+  eg_start = (vstart/EGS)
+
+  foreach (i from eg_start to eg_len-1) {
+    let Y = (get_velem(vd,EGW=128,i));  // current partial-hash
+    let X = get_velem(vs1,EGW=128,i);  // block cipher output
+    let H = brev8(get_velem(vs2,EGW=128,i)); // Hash subkey
+
+    let Z : bits(128) = 0;
+
+    let S = brev8(Y ^ X);
+
+    for (int bit = 0; bit < 128; bit++) {
+      if bit_to_bool(S[bit])
+        Z ^= H
+
+      bool reduce = bit_to_bool(H[127]);
+      H = H << 1; // left shift H by 1
+      if (reduce)
+        H ^= 0x87; // Reduce using x^7 + x^2 + x^1 + 1 polynomial
+    }
+
+    let result = brev8(Z); // bit reverse bytes to get back to GCM standard ordering
+    set_velem(vd, EGW=128, i, result);
+  }
+  RETIRE_SUCCESS
+ }
+}
+--
+
+Included in::
+<<zvkg>>, <<zvkng>>, <<zvksg>>
+
+[[insns-vgmul, Vector GHASH Multiply]]
+= vgmul.vv
+
+Synopsis::
+Vector Multiply over GHASH Galois-Field
+
+Mnemonic::
+vgmul.vv vd, vs2
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '10001'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101000'},
+]}
+....
+Reserved Encodings::
+* `SEW` is any value other than 32
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2,2,2,2"]
+|===
+|Register
+|Direction
+|EGW
+|EGS
+|SEW
+|Definition
+
+| Vd  | input  | 128  | 4 | 32 | Multiplier
+| Vs2 | input  | 128  | 4 | 32 | Multiplicand
+| Vd  | output | 128  | 4 | 32 | Product
+|===
+
+Description::
+A GHASH~H~ multiply is performed.
+
+This instruction treats all of the inputs and outputs as 128-bit polynomials and
+performs operations over GF[2].
+It produces the product over GF(2^128^) of the two 128-bit inputs.
+
+The multiplication over GF(2^128^) is a carryless multiply of two 128-bit polynomials
+modulo GHASH's irreducible polynomial (x^128^ + x^7^ + x^2^ + x + 1).
+
+The NIST specification (see <<zvkg>>) orders the coefficients from left to right x~0~x~1~x~2~...x~127~
+for a polynomial x~0~ + x~1~u +x~2~ u^2^ + ... + x~127~u^127^. This can be viewed as a collection of
+byte elements in memory with the byte containing the lowest coefficients (i.e., 0,1,2,3,4,5,6,7)
+residing at the lowest memory address. Since the bits in the bytes are reversed,
+This instruction internally performs bit swaps within bytes to put the bits in the standard ordering
+(e.g., 7,6,5,4,3,2,1,0).
+
+This instruction must always be implemented such that its execution latency does not depend
+on the data being operated upon.
+
+[NOTE]
+====
+We are bit-reversing the bytes of inputs and outputs so that the intermediate values are consistent
+with the NIST specification. These reversals are inexpensive to implement as they unconditionally
+swap bit positions and therefore do not require any logic.
+====
+
+[NOTE]
+====
+Since the same multiplicand will typically be used repeatedly on a given message,
+a future extension might define a vector-scalar version of this instruction where
+`vs2` is the scalar element group. This would help reduce register pressure when `LMUL` > 1.
+====
+
+[NOTE]
+====
+This instruction is identical to `vghsh.vv` with vs1=0.
+This instruction is often used in GHASH code. In some cases it is followed
+by an XOR to perform a multiply-add. Implementations may choose to fuse these
+two instructions to improve performance on GHASH code that
+doesn't use the add-multiply form of the `vghsh.vv` instruction.
+====
+
+Operation::
+[source,pseudocode]
+--
+function clause execute (VGMUL(vs2, vs1, vd)) = {
+  // operands are input with bits reversed in each byte
+  if(LMUL*VLEN < EGW)  then {
+    handle_illegal();  // illegal instruction exception
+    RETIRE_FAIL
+  } else {
+
+  eg_len = (vl/EGS)
+  eg_start = (vstart/EGS)
+
+  foreach (i from eg_start to eg_len-1) {
+    let Y = brev8(get_velem(vd,EGW=128,i));  // Multiplier
+    let H = brev8(get_velem(vs2,EGW=128,i)); // Multiplicand
+    let Z : bits(128) = 0;
+
+    for (int bit = 0; bit < 128; bit++) {
+      if bit_to_bool(Y[bit])
+        Z ^= H
+
+      bool reduce = bit_to_bool(H[127]);
+      H = H << 1; // left shift H by 1
+      if (reduce)
+        H ^= 0x87; // Reduce using x^7 + x^2 + x^1 + 1 polynomial
+    }
+
+    let result = brev8(Z);
+    set_velem(vd, EGW=128, i, result);
+  }
+  RETIRE_SUCCESS
+ }
+}
+--
+
+Included in::
+<<zvkg>>, <<zvkng>>, <<zvksg>>
+
+[[insns-vrev8, Vector Reverse Bytes]]
+= vrev8.v
+
+Synopsis::
+Vector Reverse Bytes
+
+Mnemonic::
+vrev8.v vd, vs2, vm
+
+Encoding (Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '01001'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '010010'},
+]}
+....
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2"]
+|===
+|Register
+|Direction
+|Definition
+
+| Vs2 | input  | Input elements
+| Vd  | output | Byte-reversed elements
+|===
+
+Description::
+A byte reversal is performed on each element of `vs2`, effectively performing an endian swap.
+
+// This instruction must always be implemented such that its execution latency does not depend
+// on the data being operated upon.
+
+[NOTE]
+====
+This element-wise endian swapping is needed for several cryptographic algorithms including SHA2 and SM3.
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (VREV8(vs2)) = {
+  foreach (i from vstart to vl-1) {
+    input = get_velem(vs2, SEW, i);
+    let output : SEW = 0;
+    let j = SEW - 1;
+    foreach (k from 0 to (SEW - 8) by 8) {
+      output[k..(k + 7)] = input[(j - 7)..j];
+      j = j - 8;
+    set_velem(vd, SEW, i, output)
+  }
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+<<zvbb>>, <<zvkb>>, <<zvkn>>, <<zvknc>>, <<Zvkng>>, <<zvks>>
+<<Zvksc>>, <<Zvksg>>
+
+[[insns-vrol, Vector Rotate Left]]
+= vrol.[vv,vx]
+
+Synopsis::
+Vector rotate left by vector/scalar.
+
+Mnemonic::
+vrol.vv vd, vs2, vs1, vm +
+vrol.vx vd, vs2, rs1, vm +
+
+Encoding (Vector-Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPIVV'},
+{bits: 5, name: 'vs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '010101'},
+]}
+....
+
+Encoding (Vector-Scalar)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPIVX'},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '010101'},
+]}
+....
+
+Vector-Vector Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2"]
+|===
+|Register
+|Direction
+|Definition
+
+| Vs1 | input  | Rotate amount
+| Vs2 | input  | Data
+| Vd  | output | Rotated data
+|===
+
+Vector-Scalar Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2"]
+|===
+|Register
+|Direction
+|Definition
+
+| Rs1     | input  | Rotate amount
+| Vs2     | input  | Data
+| Vd      | output | Rotated data
+|===
+
+Description::
+A bitwise left rotation is performed on each element of `vs2`
+
+The elements in `vs2` are rotated left by the rotate amount specified by either
+the corresponding elements of `vs1` (vector-vector), or integer register `rs1`
+(vector-scalar).
+Only the low log2(`SEW`) bits of the rotate-amount value are used, all other
+bits are ignored.
+
+// This instruction must always be implemented such that its execution latency does not depend
+// on the data being operated upon.
+
+[NOTE]
+====
+There is no immediate form of this instruction (i.e., `vrol.vi`) as the same result can be achieved by negating
+the rotate amount and using the immediate form of rotate right instruction (i.e., vror.vi).
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (VROL_VV(vs2, vs1, vd)) = {
+  foreach (i from vstart to vl - 1) {
+    set_velem(vd, EEW=SEW, i,
+      get_velem(vs2, i) <<< (get_velem(vs1, i) & (SEW-1))
+    )
+  }
+  RETIRE_SUCCESS
+}
+
+function clause execute (VROL_VX(vs2, rs1, vd)) = {
+  foreach (i from vstart to vl - 1) {
+    set_velem(vd, EEW=SEW, i,
+      get_velem(vs2, i) <<< (X(rs1) & (SEW-1))
+    )
+  }
+  RETIRE_SUCCESS
+}
+
+--
+
+Included in::
+<<zvbb>>, <<zvkb>>, <<zvkn>>, <<zvknc>>, <<Zvkng>>, <<zvks>>
+<<Zvksc>>, <<Zvksg>>
+
+[[insns-vror, Vector Rotate Right]]
+= vror.[vv,vx,vi]
+
+Synopsis::
+Vector rotate right by vector/scalar/immediate.
+
+Mnemonic::
+vror.vv vd, vs2, vs1, vm +
+vror.vx vd, vs2, rs1, vm +
+vror.vi vd, vs2, uimm, vm
+
+Encoding (Vector-Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPIVV'},
+{bits: 5, name: 'vs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '010100'},
+]}
+....
+
+Encoding (Vector-Scalar)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPIVX'},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '010100'},
+]}
+....
+
+Encoding (Vector-Immediate)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPIVI'},
+{bits: 5, name: 'uimm[4:0]'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 1, name: 'i5'},
+{bits: 5, name: '01010'},
+]}
+....
+
+Vector-Vector Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2"]
+|===
+|Register
+|Direction
+|Definition
+
+| Vs1 | input  | Rotate amount
+| Vs2 | input  | Data
+| Vd  | output | Rotated data
+|===
+
+Vector-Scalar/Immediate Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2"]
+|===
+|Register
+|Direction
+|Definition
+
+| Rs1/imm | input  | Rotate amount
+| Vs2     | input  | Data
+| Vd      | output | Rotated data
+|===
+
+Description::
+A bitwise right rotation is performed on each element of `vs2`.
+
+The elements in `vs2` are rotated right by the rotate amount specified by either
+the corresponding elements of `vs1` (vector-vector), integer register `rs1`
+(vector-scalar), or an immediate value (vector-immediate).
+Only the low log2(`SEW`) bits of the rotate-amount value are used, all other
+bits are ignored.
+
+// This instruction must always be implemented such that its execution latency does not depend
+// on the data being operated upon.
+
+Operation::
+[source,sail]
+--
+function clause execute (VROR_VV(vs2, vs1, vd)) = {
+  foreach (i from vstart to vl - 1) {
+    set_velem(vd, EEW=SEW, i,
+      get_velem(vs2, i) >>> (get_velem(vs1, i) & (SEW-1))
+    )
+  }
+  RETIRE_SUCCESS
+}
+
+function clause execute (VROR_VX(vs2, rs1, vd)) = {
+  foreach (i from vstart to vl - 1) {
+    set_velem(vd, EEW=SEW, i,
+      get_velem(vs2, i) >>> (X(rs1) & (SEW-1))
+    )
+  }
+  RETIRE_SUCCESS
+}
+
+function clause execute (VROR_VI(vs2, imm[5:0], vd)) = {
+  foreach (i from vstart to vl - 1) {
+    set_velem(vd, EEW=SEW, i,
+      get_velem(vs2, i) >>> (imm[5:0] & (SEW-1))
+    )
+  }
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+<<zvbb>>, <<zvkb>>, <<zvkn>>, <<zvknc>>, <<Zvkng>>, <<zvks>>
+<<Zvksc>>, <<Zvksg>>
+
+[[insns-vsha2c, Vector SHA-2 Compression]]
+= vsha2c[hl].vv
+
+Synopsis::
+Vector SHA-2 two rounds of compression.
+
+Mnemonic::
+vsha2ch.vv vd, vs2, vs1 +
+vsha2cl.vv vd, vs2, vs1
+
+Encoding (Vector-Vector) High part::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: 'vs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101110'},
+]}
+....
+
+Encoding (Vector-Vector) Low part::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: 'vs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101111'},
+]}
+....
+Reserved Encodings::
+* `zvknha`: `SEW` is any value other than 32
+* `zvknhb`: `SEW` is any value other than 32 or 64
+* The `vd` register group overlaps with either `vs1` or `vs2`
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2,2,2,2"]
+|===
+|Register
+|Direction
+|EGW
+|EGS
+|EEW
+|Definition
+
+| Vd  | input  | 4*SEW  | 4 | SEW | current state {c, d, g, h}
+| Vs1 | input  | 4*SEW  | 4 | SEW | MessageSched plus constant[3:0]
+| Vs2 | input  | 4*SEW  | 4 | SEW | current state {a, b, e, f}
+| Vd  | output | 4*SEW  | 4 | SEW | next state {a, b, e, f}
+|===
+
+Description::
+- `SEW`=32: 2 rounds of SHA-256 compression are performed (`zvknha` and `zvknhb`)
+- `SEW`=64: 2 rounds of SHA-512 compression are performed (`zvkhnb`)
+
+Two words of `vs1` are processed with
+the 8 words of current state held in `vd` and `vs1` to perform two
+rounds of hash computation producing four words of the
+next state.
+
+// These instructions take in two SEW words _W1_ and _W0_ which are the next two words of the message
+// schedule incremented by the appropriate constant (see
+// link:https://doi.org/10.6028/NIST.FIPS.180-4[FIPS PUB 180-4 Secure Hash Standard (SHS)])
+// and eight SEW word variables: _a_, _b_, _c_, _d_, _e_, _f_, _g,_ and _h_. The
+// output is the new values of _a, b, e_ and _f_ after performing 2 rounds of the hash
+// computation. The new values, _c_, _d_, _g_, and _h_, are equal to the input values for _a_, _b_, // _e_, _f_ respectively.
+
+// [TIP]
+// .Note to software developers
+// ====
+// The MessageSchedplus constant input to this instruction is generated by Software
+// increment each message schedule word by the corresponding
+// round constant as defined in the NIST specification (see <<zvknh>>).
+// ====
+
+[TIP]
+.Note to software developers
+====
+The NIST standard (see <<zvknh>>) requires the final hash to be in big-endian byte ordering
+within SEW-sized words. Since this instruction treats all words as little-endian,
+software needs to perform an endian swap on the final output of this instruction
+after all of the message blocks have been processed.
+====
+
+[NOTE]
+====
+The `vsha2ch` version of this instruction uses the two most significant message schedule
+words from the element group in `vs1`
+while the `vsha2cl` version uses the two least significant message schedule words.
+Otherwise, these versions of the instruction are identical.
+Having a high and low version of this instruction typically improves performance when
+interleaving independent hashing operations (i.e., when hashing several files at once).
+====
+
+// [TIP]
+// .Note to software developers
+// ====
+// These instructions take in two SEW words _W1_ and _W0_ which are the next two words of the message
+// schedule incremented by the appropriate constant,
+// and eight SEW word variables: _a_, _b_, _c_, _d_, _e_, _f_, _g,_ and _h_. The
+// output is the new values of _a, b, e_ and _f_ after performing 2 rounds of the hash
+// computation. The new values, _c_, _d_, _g_, and _h_, are equal to the input values for _a_, _b_, _e_, _f_ respectively.
+// ====
+
+// [NOTE]
+// ====
+// Between executions this instruction it is helpful to swap the register _specifiers_ for
+// `vd` and `vs2`. This is because the first instruction's `vd` next state output
+// (_a_, _b_, _e_, _f_)
+// becomes the second instruction's `vs2` current state input (_a_, _b_, _e_, _f_).
+// Likewise the first instruction's `vs2` input (_a_, _b_, _e_, _f_) "ages" to
+// becomes the second instruction's `vd` current state input of (_c_, _d_, _g_, _h_).
+// ====
+
+[NOTE]
+====
+Preventing overlap between `vd` and `vs1` or `vs2` simplifies implementation with `VLEN < EGW`.
+This restriction does not have any coding impact since proper implementation of the algorithm requires
+that `vd`, `vs1` and `vs2` each are different registers.
+====
+
+// The number of element groups to be processed is `vl`/`EGS`.
+// `vl` must be set to the number of `SEW=32` elements to be processed and
+// therefore must be a multiple of `EGS=4`. +
+// Likewise, `vstart` must be a multiple of `EGS=4`.
+
+Operation::
+[source,sail]
+--
+function clause execute (VSHA2c(vs2, vs1, vd)) = {
+  if(LMUL*VLEN < EGW)  then {
+    handle_illegal();  // illegal instruction exception
+    RETIRE_FAIL
+  } else {
+
+  eg_len = (vl/EGS)
+  eg_start = (vstart/EGS)
+
+  foreach (i from eg_start to eg_len-1) {
+	  let {a @ b @ e @ f} : bits(4*SEW) = get_velem(vs2, 4*SEW, i);
+	  let {c @ d @ g @ h} : bits(4*SEW) = get_velem(vd, 4*SEW, i);
+	  let MessageShedPlusC[3:0] : bits(4*SEW) = get_velem(vs1, 4*SEW, i);
+	  let {W1, W0} == VSHA2cl ? MessageSchedPlusC[1:0] : MessageSchedPlusC[3:2]; // l vs h difference is the words selected
+
+	  let T1 : bits(SEW) = h + sum1(e) + ch(e,f,g) + W0;
+	  let T2 : bits(SEW) = sum0(a) + maj(a,b,c);
+	  h  = g;
+	  g  = f;
+	  f  = e;	
+	  e  = d + T1;
+	  d  = c;
+	  c  = b;
+	  b  = a;
+	  a  = T1 + T2;
+
+	  T1  = h + sum1(e) + ch(e,f,g) + W1;
+	  T2  = sum0(a) + maj(a,b,c);
+	  h = g;
+	  g = f;
+	  f = e;	
+	  e = d + T1;
+	  d = c;
+	  c = b;
+	  b = a;
+	  a = T1 + T2;
+	  set_velem(vd, 4*SEW, i, {a @ b @ e @ f});
+  }
+  RETIRE_SUCCESS
+  }
+}
+
+function sum0(x) = {
+	match SEW {
+		32 => rotr(x,2)  XOR rotr(x,13) XOR rotr(x,22),
+		64 => rotr(x,28) XOR rotr(x,34) XOR rotr(x,39)
+	}
+}
+
+function sum1(x) = {
+	match SEW {
+		32 => rotr(x,6)  XOR rotr(x,11) XOR rotr(x,25),
+		64 => rotr(x,14) XOR rotr(x,18) XOR rotr(x,41)
+	}
+}
+
+function ch(x, y, z) = ((x & y) ^ ((~x) & z))
+
+function maj(x, y, z) =  ((x & y) ^ (x & z) ^ (y & z))
+
+function ROTR(x,n) = (x >> n) | (x << SEW - n)
+
+--
+
+Included in::
+<<zvkn>>, <<zvknc>>, <<zvkng>>, <<zvknh, zvknh[ab]>>
+
+[[insns-vsha2ms, Vector SHA-2 Message Schedule]]
+= vsha2ms.vv
+
+Synopsis::
+Vector SHA-2 message schedule.
+
+Mnemonic::
+vsha2ms.vv vd, vs2, vs1
+
+Encoding (Vector-Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: 'vs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101101'},
+]}
+....
+Reserved Encodings::
+* `zvknha`: `SEW` is any value other than 32
+* `zvknhb`: `SEW` is any value other than 32 or 64
+* The `vd` register group overlaps with either `vs1` or `vs2`
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2,2,2,2"]
+|===
+|Register
+|Direction
+|EGW
+|EGS
+|EEW
+|Definition
+
+| Vd  | input  | 4*SEW  | 4 | SEW | Message words {W[3],  W[2],  W[1],  W[0]}
+| Vs2 | input  | 4*SEW  | 4 | SEW | Message words {W[11], W[10], W[9],  W[4]}
+| Vs1 | input  | 4*SEW  | 4 | SEW | Message words {W[15], W[14], -, W[12]}
+| Vd  | output | 4*SEW  | 4 | SEW | Message words {W[19], W[18], W[17], W[16]}
+|===
+
+Description::
+- `SEW`=32: Four rounds of SHA-256 message schedule expansion are performed (`zvknha` and `zvknhb`)
+- `SEW`=64: Four rounds of SHA-512 message schedule expansion are performed (`zvkhnb`)
+
+Eleven of the last 16 `SEW`-sized message-schedule words from `vd` (oldest), `vs2`,
+and `vs1` (most recent) are processed to produce the
+next 4 message-schedule words.
+
+[TIP]
+.Note to software developers
+====
+The first 16 SEW-sized words of the message schedule come from the _message block_
+in big-endian byte order. Since this instruction treats all words as little endian,
+software is required to endian swap these words.
+
+All of the subsequent message schedule words are produced by this instruction and
+therefore do not require an endian swap.
+====
+
+[TIP]
+.Note to software developers
+====
+Software is required to pack the words into element groups
+as shown above in the arguments table. The indices indicate the relate age with
+lower indices indicating older words.
+====
+// [NOTE]
+// ====
+// W~13~ is not used by the instruction.
+// ====
+
+// Four `SEW` message schedule words are packed into each element group of the
+// source and destination registers. From a vector register point of view,
+// the message schedule words are packed into the
+// element groups from the left to the right with the most significant word on the left
+// and the least significant word on the right.
+
+// `{W~3~, W~2~, W~1~, W~0~} +
+// {W~7~, W~6~, W~5~, W~4~} +
+// {W~11~, W~10~, W~9~, W~8~} +
+// {W~15~, W~14~, W~13~, W~12~}`
+
+// Since W~5~ through W~8~ are not needed in these calculations, we are able to compact these into
+// three element groups
+//
+// `{W~3~, W~2~, W~1~, W~0~} +
+// {W~11~, W~10~, W~9~, W~4~} +
+// {W~15~, W~14~, W~13~, W~12~}`
+
+[TIP]
+.Note to software developers
+====
+The {W~11~, W~10~, W~9~, W~4~} element group can easily be formed by using a vector
+vmerge instruction with the appropriate mask (for example with `vl=4` and `4b0001`
+as the 4 mask bits)
+
+`vmerge.vvm {W~11~, W~10~, W~9~, W~4~}, {W~11~, W~10~, W~9~, W~8~}, {W~7~, W~6~, W~5~, W~4~}, V0`
+====
+
+// The number of words to be processed is `vl`/`EGS`.
+// `vl` must be set to the number of `SEW` elements to be processed and
+// therefore must be a multiple of `EGS=4`. +
+// Likewise, `vstart` must be a multiple of `EGS=4`
+
+[NOTE]
+====
+Preventing overlap between `vd` and `vs1` or `vs2` simplifies implementation with `VLEN < EGW`.
+This restriction does not have any coding impact since proper implementation of the algorithm requires
+that `vd`, `vs1` and `vs2` each contain different portions of the message schedule.
+====
+
+// This instruction is not masked. If any element groups are not to be processed, the _vl_
+// must be set accordingly. It is not possible to skip an intermediary element group.
+// `VLMUL` must be at least 1. In typical usage it is expected to be 1.
+// There are three source operands: `vd`, `vs1` and `vs2`. The result
+// is written to `vd`.
+
+// NB:: for implementations with `VLEN < EGW`, the minimal `VLMUL` is `EGW / VLEN`.
+
+// In this code the input elements are numbered from 0 (16 words ago) to 15 (most recent message-schedule word).
+// The outputs are numbered from 16 to 19.
+
+// The number of element groups to be processed is `vl`/`EGS`.
+// `vl` must be set to the number of `SEW=32` elements to be processed and
+// therefore must be a multiple of `EGS=4`. +
+// Likewise, `vstart` must be a multiple of `EGS=4`.
+
+Operation::
+[source,sail]
+--
+function clause execute (VSHA2ms(vs2, vs1, vd)) = {
+  // SEW32 = SHA-256
+  // SEW64 =  SHA-512
+  if(LMUL*VLEN < EGW)  then {
+    handle_illegal();  // illegal instruction exception
+    RETIRE_FAIL
+  } else {
+
+  eg_len = (vl/EGS)
+  eg_start = (vstart/EGS)
+
+  foreach (i from eg_start to eg_len-1) {
+    {W[3] @  W[2] @  W[1] @  W[0]}  : bits(EGW) = get_velem(vd, EGW, i);
+    {W[11] @ W[10] @ W[9] @  W[4]}  : bits(EGW) = get_velem(vs2, EGW, i);
+    {W[15] @ W[14] @ W[13] @ W[12]} : bits(EGW) = get_velem(vs1, EGW, i);
+
+    W[16] = sig1(W[14]) + W[9]  + sig0(W[1]) + W[0];
+    W[17] = sig1(W[15]) + W[10] + sig0(W[2]) + W[1];
+    W[18] = sig1(W[16]) + W[11] + sig0(W[3]) + W[2];
+    W[19] = sig1(W[17]) + W[12] + sig0(W[4]) + W[3];
+
+    set_velem(vd, EGW, i, {W[19] @ W[18] @ W[17] @ W[16]});
+  }
+  RETIRE_SUCCESS
+  }
+}
+
+function sig0(x) = {
+	match SEW {
+		32 => (ROTR(x,7) XOR ROTR(x,18) XOR SHR(x,3)),
+		64 => (ROTR(x,1) XOR ROTR(x,8) XOR SHR(x,7)));
+	}
+}
+
+function sig1(x) = {
+	match SEW {
+		32 => (ROTR(x,17) XOR ROTR(x,19) XOR SHR(x,10),
+		64 => ROTR(x,19) XOR ROTR(x,61) XOR SHR(x,6));
+	}
+}
+
+function ROTR(x,n) = (x >> n) | (x << SEW - n)
+function SHR (x,n) = x >> n
+
+--
+
+Included in::
+ <<zvkn>>, <<zvknc>>, <<zvkng>>, <<zvknh, zvknh[ab]>>
+
+[[insns-vsm3c, SM3 Compression]]
+= vsm3c.vi
+
+Synopsis::
+Vector SM3 Compression
+
+Mnemonic::
+vsm3c.vi vd, vs2, uimm
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: 'uimm'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101011'},
+]}
+....
+Reserved Encodings::
+* `SEW` is any value other than 32
+* The `vd` register group overlaps with the `vs2` register group
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2,2,2,2"]
+|===
+|Register
+|Direction
+|EGW
+|EGS
+|EEW
+|Definition
+
+| Vd   | input  | 256  | 8 | 32 | Current state {H,G.F,E,D,C,B,A}
+| uimm | input  | -    | - | -  | round number (rnds)
+| Vs2  | input  | 256  | 8 | 32 | Message words {-,-,w[5],w[4],-,-,w[1],w[0]}
+| Vd   | output | 256  | 8 | 32 | Next state {H,G.F,E,D,C,B,A}
+|===
+
+Description::
+Two rounds of SM3 compression are performed.
+
+The current state of eight 32-bit words is read in as an element group from `vd`. Eight 32-bit
+message words are read in as an element group from `vs2`, although only four of them are used.
+All of the 32-bit input words are byte-swapped from big endian to little endian.
+These inputs are processed somewhat differently based on the round group (as specified in rnds),
+and the next state is generated as an element group of eight 32-bit words.
+The next state of eight 32-bit words are generated,
+swapped from little endian to big endian, and are returned in
+an eight-element group.
+
+The round number is provided by the 5-bit `rnds` unsigned immediate. Legal values are 0 - 31
+and indicate which group of two rounds are being performed. For example, if rnds=1,
+then rounds 2 and 3 are being performed.
+
+[NOTE]
+====
+The round number is used in the rotation of the constant as well to inform the
+behavior which differs between rounds 0-15 and rounds 16-63.
+====
+
+[NOTE]
+====
+The endian byte swapping of the input and output words enables us to align with the SM3
+specification without requiring that software perform these swaps.
+====
+
+[NOTE]
+====
+Preventing overlap between `vd` and `vs2` simplifies implementation with `VLEN < EGW`.
+This restriction does not have any coding impact since proper implementation of the algorithm requires
+that `vd` and `vs2` each are different registers.
+====
+
+// The elements are listed here in the order they appear in the register, with the most significant
+// element on the left, and the least significant on the right.
+
+// vs2 = {w[7], w[6], w[5], w[4], w[3], w[2], w[1], w[0]}
+
+// The values consumed by the instruction are
+
+// vs2 = {- , - , w[5], w[4], -, -, w[1], w[0]}
+
+// Where the "-" characters are not consumed and are therefore don't cares.
+
+// This instruction consumes the "W" message schedule inputs and internally generates the "W'" values as needed
+
+// The number of element groups to be processed is `vl`/`EGS`.
+// `vl` must be set to the number of `SEW=32` elements to be processed and
+// therefore must be a multiple of `EGS=8`. +
+// Likewise, `vstart` must be a multiple of `EGS=8`.
+
+Operation::
+[source,sail]
+--
+function clause execute (VSM3C(rnds, vs2, vd)) = {
+  if(LMUL*VLEN < EGW)  then {
+    handle_illegal();  // illegal instruction exception
+    RETIRE_FAIL
+  } else {
+
+  eg_len = (vl/EGS)
+  eg_start = (vstart/EGS)
+
+  foreach (i from eg_start to eg_len-1) {
+
+  // load state
+  let {Hi @ Gi @ Fi @ Ei @ Di @ Ci @ Bi @ Ai} : bits(256) : bits(256) = (get_velem(vd, 256, i));
+  //load message schedule
+  let {u_w7 @ u_w6 @ w5i @ w4i @ u_w3 @ u_w2 @ w1i @ w0i} : bits(256) = (get_velem(vs2, 256, i));
+  // u_w inputs are unused
+
+// perform endian swap
+let H : bits(32) = rev8(Hi);
+let G : bits(32) = rev8(Gi);
+let F : bits(32) = rev8(Fi);
+let E : bits(32) = rev8(Ei);
+let D : bits(32) = rev8(Di);
+let C : bits(32) = rev8(Ci);
+let B : bits(32) = rev8(Bi);
+let A : bits(32) = rev8(Ai);
+
+let w5 = : bits(32) rev8(w5i);
+let w4 = : bits(32) rev8(w4i);
+let w1 = : bits(32) rev8(w1i);
+let w0 = : bits(32) rev8(w0i);
+
+let x0 :bits(32) = w0 ^ w4;  // W'[0]
+let x1 :bits(32) = w1 ^ w5;  // W'[1]
+
+let j = 2 * rnds;
+let ss1 : bits(32) = ROL32(ROL32(A, 12) + E + ROL32(T_j(j), j % 32), 7);
+let ss2 : bits(32) = ss1 ^ ROL32(A, 12);
+let tt1 : bits(32) = FF_j(A, B, C, j) + D + ss2 + x0;
+let tt2 : bits(32) = GG_j(E, F, G, j) + H + ss1 + w0;
+D = C;
+let : bits(32) C1 = ROL32(B, 9);
+B = A;
+let A1 : bits(32) = tt1;
+H = G;
+let G1 : bits(32) = ROL32(F, 19);
+F = E;
+let E1 : bits(32) = P_0(tt2);
+
+j = 2 * rnds + 1;
+ss1 = ROL32(ROL32(A1, 12) + E1 + ROL32(T_j(j), j % 32), 7);
+ss2 = ss1 ^ ROL32(A1, 12);
+tt1 = FF_j(A1, B, C1, j) + D + ss2 + x1;
+tt2 = GG_j(E1, F, G1, j) + H + ss1 + w1;
+D = C1;
+let C2 : bits(32) = ROL32(B, 9);
+B = A1;
+let A2 : bits(32) = tt1;
+H = G1;
+let G2 = : bits(32) ROL32(F, 19);
+F = E1;
+let E2 = : bits(32) P_0(tt2);
+
+// Update the destination register - swap back to big endian
+let result : bits(256) = {rev8(G1) @ rev8(G2) @ rev8(E1) @ rev8(E2) @ rev8(C1) @ rev8(C2) @ rev8(A1) @ rev8(A2)};
+set_velem(vd, 256, i, result);
+      }
+
+RETIRE_SUCCESS
+  }
+}
+
+function FF1(X, Y, Z) = ((X) ^ (Y) ^ (Z))
+function FF2(X, Y, Z) = (((X) & (Y)) | ((X) & (Z)) | ((Y) & (Z)))
+
+function FF_j(X, Y, Z, J) = (((J) <= 15) ? FF1(X, Y, Z) : FF2(X, Y, Z))
+
+function GG1(X, Y, Z) = ((X) ^ (Y) ^ (Z))
+function GG2(X, Y, Z) = (((X) & (Y)) | ((~(X)) & (Z)))
+.
+function GG_j(X, Y, Z, J) = (((J) <= 15) ? GG1(X, Y, Z) : GG2(X, Y, Z))
+
+function T_j(J) = (((J) <= 15) ? (0x79CC4519) : (0x7A879D8A))
+
+function P_0(X) = ((X) ^ ROL32((X),  9) ^ ROL32((X), 17))
+
+--
+
+Included in::
+<<zvks>>, <<zvksc>>, <<zvksg>>, <<zvksh>>
+
+[[insns-vsm3me, SM3 Message Expansion]]
+= vsm3me.vv
+
+Synopsis::
+Vector SM3 Message Expansion
+
+Mnemonic::
+vsm3me.vv vd, vs2, vs1
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: 'vs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '100000'},
+]}
+....
+Reserved Encodings::
+* `SEW` is any value other than 32
+* The `vd` register group overlaps with the `vs2` register group.
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2,2,2,2"]
+|===
+|Register
+|Direction
+|EGW
+|EGS
+|EEW
+|Definition
+
+| Vs1 | input  | 256  | 8 | 32 | Message words W[7:0]
+| Vs2 | input  | 256  | 8 | 32 | Message words W[15:8]
+| Vd  | output | 256  | 8 | 32 | Message words W[23:16]
+|===
+
+Description::
+Eight rounds of SM3 message expansion are performed.
+
+The sixteen most recent 32-bit message words are read in as two
+eight-element groups from `vs1` and `vs2`. Each of these words is
+swapped from big endian to little endian.
+The next eight 32-bit message words are generated,
+swapped from little endian to big endian, and are returned in
+an eight-element group.
+
+[NOTE]
+====
+The endian byte swapping of the input and output words enables us to align with the SM3
+specification without requiring that software perform these swaps.
+====
+
+// NOTE
+// ====
+// For the best performance, it is recommended that implementations have VLEN≥256.
+// When VLEN<EGW, an appropriate LMUL needs to be used by software so that elements from the
+// specified register groups can be combined to form the full element group.
+// ====
+
+// The number of element groups to be processed is `vl`/`EGS`.
+// `vl` must be set to the number of `SEW=32` elements to be processed and
+// therefore must be a multiple of `EGS=8`. +
+// Likewise, `vstart` must be a multiple of `EGS=8`.
+
+[NOTE]
+====
+Preventing overlap between `vd` and `vs2` simplifies implementations with `VLEN < EGW`.
+This restriction should not have any coding impact since the algorithm requires these
+values to be preserved for generating the next 8 words.
+====
+
+Operation::
+[source,sail]
+--
+function clause execute (VSM3ME(vs2, vs1)) = {
+  if(LMUL*VLEN < EGW)  then {
+    handle_illegal();  // illegal instruction exception
+    RETIRE_FAIL
+  } else {
+
+  eg_len = (vl/EGS)
+  eg_start = (vstart/EGS)
+
+  foreach (i from eg_start to eg_len-1) {
+    let w[7:0]  : bits(256) = get_velem(vs1, 256, i);
+    let w[15:8] : bits(256) = get_velem(vs2, 256, i);
+  
+    // Byte Swap inputs from big-endian to little-endian
+    let w15 = rev8(w[15]);
+    let w14 = rev8(w[14]);
+    let w13 = rev8(w[13]);
+    let w12 = rev8(w[12]);
+    let w11 = rev8(w[11]);
+    let w10 = rev8(w[10]);
+    let w9  = rev8(w[9]);
+    let w8  = rev8(w[8]);
+    let w7  = rev8(w[7]);
+    let w6  = rev8(w[6]);
+    let w5  = rev8(w[5]);
+    let w4  = rev8(w[4]);
+    let w3  = rev8(w[3]);
+    let w2  = rev8(w[2]);
+    let w1  = rev8(w[1]);
+    let w0  = rev8(w[0]);
+
+    // Note that some of the newly computed words are used in later invocations.
+    let w[16] = ZVKSH_W(w0 @  w7 @  w13 @   w3 @  w10);
+    let w[17] = ZVKSH_W(w1 @  w8 @  w14 @   w4 @  w11);
+    let w[18] = ZVKSH_W(w2 @  w9 @  w15 @   w5 @  w12);
+    let w[19] = ZVKSH_W(w3 @ w10 @  w16 @   w6 @  w13);
+    let w[20] = ZVKSH_W(w4 @ w11 @  w17 @   w7 @  w14);
+    let w[21] = ZVKSH_W(w5 @ w12 @  w18 @   w8 @  w15);
+    let w[22] = ZVKSH_W(w6 @ w13 @  w19 @   w9 @  w16);
+    let w[23] = ZVKSH_W(w7 @ w14 @  w20 @  w10 @  w17);
+
+  // Byte swap outputs from little-endian back to big-endian
+    let w16 : Bits(32) = rev8(W[16]);
+    let w17 : Bits(32) = rev8(W[17]);
+    let w18 : Bits(32) = rev8(W[18]);
+    let w19 : Bits(32) = rev8(W[19]);
+    let w20 : Bits(32) = rev8(W[20]);
+    let w21 : Bits(32) = rev8(W[21]);
+    let w22 : Bits(32) = rev8(W[22]);
+    let w23 : Bits(32) = rev8(W[23]);
+
+    // Update the destination register.
+    set_velem(vd, 256, i, {w23 @ w22 @ w21 @ w20 @ w19 @ w18 @ w17 @ w16});
+  }
+  RETIRE_SUCCESS
+  }
+}
+
+  function P_1(X) ((X) ^ ROL32((X), 15) ^ ROL32((X), 23))
+
+  function ZVKSH_W(M16, M9, M3, M13, M6) = \
+  (P1( (M16) ^  (M9) ^ ROL32((M3), 15) ) ^ ROL32((M13), 7) ^ (M6))
+--
+
+Included in::
+<<zvks>>, <<zvksc>>, <<zvksg>>, <<zvksh>>
+
+[[insns-vsm4k, Vector SM4 Key Expansion]]
+= vsm4k.vi
+
+Synopsis::
+Vector SM4 KeyExpansion
+
+Mnemonic::
+vsm4k.vi vd, vs2, uimm
+
+Encoding::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: 'uimm'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '100001'},
+]}
+....
+Reserved Encodings::
+* `SEW` is any value other than 32
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2,2,2,2"]
+|===
+|Register
+|Direction
+|EGW
+|EGS
+|EEW
+|Definition
+
+| uimm | input  | -    | - | -  | Round group (rnd)
+| Vs2  | input  | 128  | 4 | 32 | Current 4 round keys rK[0:3]
+| Vd   | output | 128  | 4 | 32 | Next 4 round keys rK'[0:3]
+|===
+
+Description::
+Four rounds of the SM4 Key Expansion are performed.
+
+Four round keys are read in as a 4-element group from `vs2`. Each of the next four round keys are generated
+by iteratively XORing the last three round keys with a constant that is indexed by the Round Group Number,
+performing a byte-wise substitution, and then performing XORs between rotated versions of this value
+and the corresponding current round key.
+
+The Round group number (`rnd`) comes from `uimm[2:0]`; the bits in `uimm[4:3]` are ignored.
+Round group numbers range from 0 to 7 and indicate which
+group of four round keys are being generated. Round Keys range from 0-31.
+For example, if `rnd`=1, then round keys 4, 5, 6, and 7 are being generated.
+
+//  vs2 = {rK[i-4], rK[i-3],rK[i-2], rK[i-1]} // last 4 round keys
+//  rnd = 0 to 7; // group of 4 rounds
+//  vd (out) = {rK[i], rK[i+1],rK[i+2], rK[i+3]} // next 4 rounds keys
+
+// Each of the 32 rounds consumes the last 4 32-bit keys along with a round constant and
+// produces the next 32-bit key.
+
+[NOTE]
+====
+Software needs to generate the initial round keys. This is done by XORing the 128-bit encryption key with
+the system parameters: FK[0:3]
+====
+
+.System Parameters
+[%autowidth]
+[%header,cols="^2,^2"]
+|===
+|FK
+|constant
+
+| 0 | A3B1BAC6
+| 1 | 56AA3350
+| 2 | 677D9197
+| 3 | B27022DC
+|===
+
+////
+.System Parameters
+[%autowidth]
+[%header,cols="^2,^2"]
+|===
+|FK
+|constant
+
+| 0 | A3B1BAC6
+| 1 | 56AA3350
+| 2 | 677D9197
+| 3 | B27022DC
+|===
+////
+
+//  MK = {MK[0], MK[1], MK[2], MK[3]} // Encryption Key
+//  rK[-4,-1] = K[0:3] = MK[0:3] ^ FK[0:3]
+
+// The round keys are rK[0] to rK[31]
+//  B = (rK[i-3] XOR rK[i-2] XOR rK[i-1] XOR CK[round]); +
+//  S = subBytes(B); +
+//  rK[i]= rK[i-4] XOR S XOR ROTL13(S) XOR ROTR23(S); +
+//
+// The round constants and the S-box are described below and can be found at https://datatracker.ietf.org/doc/id/// draft-crypto-sm4-00
+
+[NOTE]
+====
+Implementation Hint
+
+The round constants (CK) can be generated on the fly fairly cheaply.
+If the bytes of the constants are assigned an incrementing index from 0 to 127, the value of each byte is equal to its index multiplied by 7 modulo 256.
+Since the results are all limited to 8 bits, the modulo operation occurs for free:
+
+	B[n] = n + 2n + 4n;
+       = 8n + ~n + 1;
+====
+
+// This instruction only returns the generated keys to the same element group as the source.
+// If it is desired to have the same key in all vector groups, either the input vector groups
+// need to contain the same values, or the output from a particular group needs to be "broadcast"
+// to the other groups using an instruction such as vrgather.
+
+// The number of element groups to be processed is `vl`/`EGS`.
+// `vl` must be set to the number of `SEW=32` elements to be processed and
+// therefore must be a multiple of `EGS=4`. +
+// Likewise, `vstart` must be a multiple of `EGS=4`.
+
+////
+.System Parameters
+[%autowidth]
+[%header,cols="^2,^2"]
+|===
+|FK
+|constant
+
+| 0 | A3B1BAC6
+| 1 | 56AA3350
+| 2 | 677D9197
+| 3 | B27022DC
+|===
+////
+
+Operation::
+[source,sail]
+--
+
+function clause execute (vsm4k(uimm, vs2)) = {
+  if(LMUL*VLEN < EGW)  then {
+    handle_illegal();  // illegal instruction exception
+    RETIRE_FAIL
+  } else {
+
+  eg_len = (vl/EGS)
+  eg_start = (vstart/EGS)
+
+  let B : bits(32) = 0;
+  let S : bits(32) = 0;
+  let rk4 : bits(32) = 0;
+  let rk5 : bits(32) = 0;
+  let rk6 : bits(32) = 0;
+  let rk7 : bits(32) = 0;
+  let rnd : bits(3) = uimm[2:0]; // Lower 3 bits
+
+  foreach (i from eg_start to eg_len-1) {
+    let (rk3 @ rk2 @ rk1 @ rk0) : bits(128) = get_velem(vs2, 128, i);
+  
+    B = rk1 ^ rk2 ^ rk3 ^ ck(4 * rnd);
+    S = sm4_subword(B);
+    rk4 = ROUND_KEY(rk0, S);
+
+    B = rk2 ^ rk3 ^ rk4 ^ ck(4 * rnd + 1);
+    S = sm4_subword(B);
+    rk5 = ROUND_KEY(rk1, S);
+
+    B = rk3 ^ rk4 ^ rk5 ^ ck(4 * rnd + 2);
+    S = sm4_subword(B);
+    rk6 = ROUND_KEY(rk2, S);
+
+    B = rk4 ^ rk5 ^ rk6 ^ ck(4 * rnd + 3);
+    S = sm4_subword(B);
+    rk7 = ROUND_KEY(rk3, S);
+
+    // Update the destination register.
+   set_velem(vd, EGW=128, i, (rk7 @ rk6 @ rk5 @ rk4));
+  }
+  RETIRE_SUCCESS
+  }
+}
+
+val round_key : bits(32) -> bits(32)
+function ROUND_KEY(X, S) = ((X) ^ ((S) ^ ROL32((S), 13) ^ ROL32((S), 23)))
+
+// SM4 Constant Key (CK)
+let ck : list(bits(32)) = [|
+	0x00070E15, 0x1C232A31, 0x383F464D, 0x545B6269,
+	0x70777E85, 0x8C939AA1, 0xA8AFB6BD, 0xC4CBD2D9,
+	0xE0E7EEF5, 0xFC030A11, 0x181F262D, 0x343B4249,
+	0x50575E65, 0x6C737A81, 0x888F969D, 0xA4ABB2B9,
+	0xC0C7CED5, 0xDCE3EAF1, 0xF8FF060D, 0x141B2229,
+	0x30373E45, 0x4C535A61, 0x686F767D, 0x848B9299,
+	0xA0A7AEB5, 0xBCC3CAD1, 0xD8DFE6ED, 0xF4FB0209,
+	0x10171E25, 0x2C333A41, 0x484F565D, 0x646B7279
+  |]
+};
+
+--
+
+Included in::
+<<zvks>>, <<zvksc>>, <<zvksed>>, <<zvksg>>
+
+[[insns-vsm4r, SM4 Block Cipher Rounds]]
+= vsm4r.[vv,vs]
+
+Synopsis::
+Vector SM4 Rounds
+
+Mnemonic::
+vsm4r.vv vd, vs2 +
+vsm4r.vs vd, vs2
+
+Encoding (Vector-Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '10000'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101000'},
+]}
+....
+
+Encoding (Vector-Scalar)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-P'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPMVV'},
+{bits: 5, name: '10000'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: '1'},
+{bits: 6, name: '101001'},
+]}
+....
+Reserved Encodings::
+* `SEW` is any value other than 32
+* Only for the `.vs` form: the `vd` register group overlaps the `vs2` register
+
+Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2,2,2,2"]
+|===
+|Register
+|Direction
+|EGW
+|EGS
+|EEW
+|Definition
+
+| Vd   | input  | 128  | 4 | 32 | Current state X[0:3]
+| Vs2  | input  | 128  | 4 | 32 | Round keys rk[0:3]
+| Vd   | output | 128  | 4 | 32 | Next state X'[0:3]
+|===
+
+Description::
+Four rounds of SM4 Encryption/Decryption are performed.
+
+The four words of current state are read as a 4-element group from 'vd'
+and the round keys are read from either the corresponding 4-element group
+in `vs2` (vector-vector form) or the scalar element group in `vs2`
+(vector-scalar form).
+The next four words of state are generated
+by iteratively XORing the last three words of the state with
+the corresponding round key, performing
+a byte-wise substitution, and then performing XORs between rotated
+versions of this value and the corresponding current state.
+
+[NOTE]
+====
+In SM4, encryption and decryption are identical except that decryption consumes the round keys in the reverse order.
+====
+
+[NOTE]
+====
+For the first  four rounds of encryption, the _current state_ is the plain text.
+For the first four rounds of decryption, the _current state_ is the cipher text.
+For all subsequent rounds, the _current state_ is the _next state_ from the
+previous four rounds.
+====
+
+// The number of element groups to be processed is `vl`/`EGS`.
+// `vl` must be set to the number of `SEW=32` elements to be processed and
+// therefore must be a multiple of `EGS=4`. +
+// Likewise, `vstart` must be a multiple of `EGS=4`.
+
+Operation::
+[source,pseudocode]
+--
+function clause execute (VSM4R(vd, vs2)) = {
+  if(LMUL*VLEN < EGW)  then {
+    handle_illegal();  // illegal instruction exception
+    RETIRE_FAIL
+  } else {
+
+  eg_len = (vl/EGS)
+  eg_start = (vstart/EGS)
+
+ let B  : bits(32) = 0;
+ let S  : bits(32) = 0;
+ let rk0 : bits(32) = 0;
+ let rk1 : bits(32) = 0;
+ let rk2 : bits(32) = 0;
+ let rk3 : bits(32) = 0;
+ let x0 : bits(32) = 0;
+ let x1 : bits(32) = 0;
+ let x2 : bits(32) = 0;
+ let x3 : bits(32) = 0;
+ let x4 : bits(32) = 0;
+ let x5 : bits(32) = 0;
+ let x6 : bits(32) = 0;
+ let x7 : bits(32) = 0;
+
+ let keyelem : bits(32) = 0;
+
+  foreach (i from eg_start to eg_len-1) {
+    keyelem = if suffix == "vv" then i else 0;
+    {rk3 @ rk2 @ rk1 @ rk0} : bits(128) = get_velem(vs2, EGW=128, keyelem);
+    {x3 @ x2 @ x1 @ x0} : bits(128) = get_velem(vd, EGW=128, i);
+
+    B  = x1 ^ x2 ^ x3 ^ rk0;
+    S = sm4_subword(B);
+    x4 = sm4_round(x0, S);
+
+    B = x2 ^ x3 ^ x4 ^ rk1;
+    S = sm4_subword(B);
+    x5= sm4_round(x1, S);
+
+    B = x3 ^ x4 ^ x5 ^ rk2;
+    S = sm4_subword(B);
+    x6 = sm4_round(x2, S);
+
+    B = x4 ^ x5 ^ x6 ^ rk3;
+    S = sm4_subword(B);
+    x7 = sm4_round(x3, S);
+
+    set_velem(vd, EGW=128, i, (x7 @ x6 @ x5 @ x4));
+
+  }
+  RETIRE_SUCCESS
+  }
+}
+
+val sm4_round : bits(32) -> bits(32)
+function sm4_round(X, S) = \
+  ((X) ^ ((S) ^ ROL32((S), 2) ^ ROL32((S), 10) ^ ROL32((S), 18) ^ ROL32((S), 24)))
+
+--
+
+Included in::
+<<zvks>>, <<zvksc>>, <<zvksed>>, <<zvksg>>
+
+[[insns-vwsll, Vector Widening Shift Left Logical]]
+= vwsll.[vv,vx,vi]
+
+Synopsis::
+Vector widening shift left logical by vector/scalar/immediate.
+
+Mnemonic::
+vwsll.vv vd, vs2, vs1, vm +
+vwsll.vx vd, vs2, rs1, vm +
+vwsll.vi vd, vs2, uimm, vm
+
+Encoding (Vector-Vector)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPIVV'},
+{bits: 5, name: 'vs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '110101'},
+]}
+....
+
+Encoding (Vector-Scalar)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPIVX'},
+{bits: 5, name: 'rs1'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '110101'},
+]}
+....
+
+Encoding (Vector-Immediate)::
+[wavedrom, , svg]
+....
+{reg:[
+{bits: 7, name: 'OP-V'},
+{bits: 5, name: 'vd'},
+{bits: 3, name: 'OPIVI'},
+{bits: 5, name: 'uimm[4:0]'},
+{bits: 5, name: 'vs2'},
+{bits: 1, name: 'vm'},
+{bits: 6, name: '110101'},
+]}
+....
+
+Vector-Vector Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2"]
+|===
+|Register
+|Direction
+|Definition
+
+| Vs1 | input  | Shift amount
+| Vs2 | input  | Data
+| Vd  | output | Shifted data
+|===
+
+Vector-Scalar/Immediate Arguments::
+
+[%autowidth]
+[%header,cols="4,2,2,2"]
+|===
+|Register
+|Direction
+|EEW
+|Definition
+
+| Rs1/imm | input  | SEW   | Shift amount
+| Vs2     | input  | SEW   | Data
+| Vd      | output | 2*SEW | Shifted data
+|===
+
+Description::
+A widening logical shift left is performed on each element of `vs2`.
+
+The elements in `vs2` are zero-extended to 2*`SEW` bits, then shifted left
+by the shift amount specified by either
+the corresponding elements of `vs1` (vector-vector), integer register `rs1`
+(vector-scalar), or an immediate value (vector-immediate).
+Only the low log2(2*`SEW`) bits of the shift-amount value are used, all other
+bits are ignored.
+
+Operation::
+[source,sail]
+--
+function clause execute (VWSLL_VV(vs2, vs1, vd)) = {
+  foreach (i from vstart to vl - 1) {
+    set_velem(vd, EEW=2*SEW, i,
+      get_velem(vs2, i) << (get_velem(vs1, i) & ((2*SEW)-1))
+    )
+  }
+  RETIRE_SUCCESS
+}
+
+function clause execute (VWSLL_VX(vs2, rs1, vd)) = {
+  foreach (i from vstart to vl - 1) {
+    set_velem(vd, EEW=2*SEW, i,
+      get_velem(vs2, i) << (X(rs1) & ((2*SEW)-1))
+    )
+  }
+  RETIRE_SUCCESS
+}
+
+function clause execute (VWSLL_VI(vs2, uimm[4:0], vd)) = {
+  foreach (i from vstart to vl - 1) {
+    set_velem(vd, EEW=2*SEW, i,
+      get_velem(vs2, i) << (uimm[4:0] & ((2*SEW)-1))
+    )
+  }
+  RETIRE_SUCCESS
+}
+--
+
+Included in::
+<<zvbb>>

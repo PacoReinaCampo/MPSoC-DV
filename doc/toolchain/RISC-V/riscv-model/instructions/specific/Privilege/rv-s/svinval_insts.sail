@@ -1,0 +1,62 @@
+// =======================================================================================
+// This Sail RISC-V architecture model, comprising all files and
+// directories except where otherwise noted is subject the BSD
+// two-clause license in the LICENSE file.
+//
+// SPDX-License-Identifier: BSD-2-Clause
+// =======================================================================================
+
+function clause currentlyEnabled(Ext_Svinval) = hartSupports(Ext_Svinval)
+
+union clause instruction = SINVAL_VMA : (regidx, regidx)
+
+mapping clause encdec = SINVAL_VMA(rs1, rs2)
+  <-> 0b0001011 @ encdec_reg(rs2) @ encdec_reg(rs1) @ 0b000 @ 0b00000 @ 0b1110011
+  when currentlyEnabled(Ext_Svinval)
+
+function clause execute SINVAL_VMA(rs1, rs2) = {
+  ExecuteAs(SFENCE_VMA(rs1, rs2))
+}
+
+mapping clause assembly = SINVAL_VMA(rs1, rs2)
+  <-> "sinval.vma" ^ spc() ^ reg_name(rs1) ^ sep() ^ reg_name(rs2)
+
+// *****************************************************************
+
+union clause instruction = SFENCE_W_INVAL : unit
+
+mapping clause encdec = SFENCE_W_INVAL()
+  <-> 0b0001100 @ 0b00000 @ 0b00000 @ 0b000 @ 0b00000 @ 0b1110011
+  when currentlyEnabled(Ext_Svinval)
+
+function clause execute SFENCE_W_INVAL() = {
+  if cur_privilege == User
+  then Illegal_Instruction()
+  else if cur_privilege == VirtualUser
+  then Virtual_Instruction()
+  else RETIRE_SUCCESS // Implemented as no-op as all memory operations are visible immediately the current Sail model
+}
+
+mapping clause assembly = SFENCE_W_INVAL() <-> "sfence.w.inval"
+
+// *****************************************************************
+
+union clause instruction = SFENCE_INVAL_IR : unit
+
+mapping clause encdec = SFENCE_INVAL_IR()
+  <-> 0b0001100 @ 0b00001 @ 0b00000 @ 0b000 @ 0b00000 @ 0b1110011
+  when currentlyEnabled(Ext_Svinval)
+
+function clause execute SFENCE_INVAL_IR() = {
+  if cur_privilege == User
+  then Illegal_Instruction()
+  else if cur_privilege == VirtualUser
+  then Virtual_Instruction()
+  else RETIRE_SUCCESS // Implemented as no-op as all memory operations are visible immediately in current Sail model
+}
+
+mapping clause assembly = SFENCE_INVAL_IR() <-> "sfence.inval.ir"
+
+// ******************************************************************
+
+// TODO: Implement HINVAL.VVMA amd HINVAL.GVMA

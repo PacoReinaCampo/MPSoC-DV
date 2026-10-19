@@ -1,0 +1,227 @@
+instructions
+├── base
+│   ├── rv-e
+│   │   ├── class.md
+│   │   ├── description.md
+│   │   ├── fullname.md
+│   │   ├── instructions.md
+│   │   ├── opcode.md
+│   │   ├── pseudocode-hdl.md
+│   │   ├── pseudocode-pl.md
+│   │   └── pseudo-instruction.md
+│   └── rv-i
+│       ├── class.md
+│       ├── description.md
+│       ├── fullname.md
+│       ├── instructions.md
+│       ├── opcode.md
+│       ├── pseudocode-hdl.md
+│       ├── pseudocode-pl.md
+│       └── pseudo-instruction.md
+├── specific
+│   ├── Algebra
+│   │   ├── rv-v
+│   │   │   ├── class.md
+│   │   │   ├── description.md
+│   │   │   ├── fullname.md
+│   │   │   ├── instructions.md
+│   │   │   ├── opcode.md
+│   │   │   ├── pseudocode-hdl.md
+│   │   │   ├── pseudocode-pl.md
+│   │   │   └── pseudo-instruction.md
+│   │   ├── rv-w
+│   │   │   ├── class.md
+│   │   │   ├── description.md
+│   │   │   ├── fullname.md
+│   │   │   ├── instructions.md
+│   │   │   ├── opcode.md
+│   │   │   ├── pseudocode-hdl.md
+│   │   │   ├── pseudocode-pl.md
+│   │   │   └── pseudo-instruction.md
+│   │   └── rv-y
+│   │       ├── class.md
+│   │       ├── description.md
+│   │       ├── fullname.md
+│   │       ├── instructions.md
+│   │       ├── opcode.md
+│   │       ├── pseudocode-hdl.md
+│   │       ├── pseudocode-pl.md
+│   │       └── pseudo-instruction.md
+│   ├── Arithmetic
+│   │   ├── rv-d
+│   │   │   ├── class.md
+│   │   │   ├── description.md
+│   │   │   ├── fullname.md
+│   │   │   ├── instructions.md
+│   │   │   ├── opcode.md
+│   │   │   ├── pseudocode-hdl.md
+│   │   │   ├── pseudocode-pl.md
+│   │   │   └── pseudo-instruction.md
+│   │   ├── rv-f
+│   │   │   ├── class.md
+│   │   │   ├── description.md
+│   │   │   ├── fullname.md
+│   │   │   ├── instructions.md
+│   │   │   ├── opcode.md
+│   │   │   ├── pseudocode-hdl.md
+│   │   │   ├── pseudocode-pl.md
+│   │   │   └── pseudo-instruction.md
+│   │   └── rv-q
+│   │       ├── class.md
+│   │       ├── description.md
+│   │       ├── fullname.md
+│   │       ├── instructions.md
+│   │       ├── opcode.md
+│   │       ├── pseudocode-hdl.md
+│   │       ├── pseudocode-pl.md
+│   │       └── pseudo-instruction.md
+│   ├── Cryptography
+│   │   ├── rv-vk
+│   │   │   ├── class.md
+│   │   │   ├── description.md
+│   │   │   ├── fullname.md
+│   │   │   ├── instructions.md
+│   │   │   ├── opcode.md
+│   │   │   ├── pseudocode-hdl.md
+│   │   │   ├── pseudocode-pl.md
+│   │   │   └── pseudo-instruction.md
+│   │   ├── rv-wk
+│   │   │   ├── class.md
+│   │   │   ├── description.md
+│   │   │   ├── fullname.md
+│   │   │   ├── instructions.md
+│   │   │   ├── opcode.md
+│   │   │   ├── pseudocode-hdl.md
+│   │   │   ├── pseudocode-pl.md
+│   │   │   └── pseudo-instruction.md
+│   │   ├── rv-xk
+│   │   │   ├── class.md
+│   │   │   ├── description.md
+│   │   │   ├── fullname.md
+│   │   │   ├── instructions.md
+│   │   │   ├── opcode.md
+│   │   │   ├── pseudocode-hdl.md
+│   │   │   ├── pseudocode-pl.md
+│   │   │   └── pseudo-instruction.md
+│   │   └── rv-yk
+│   │       ├── class.md
+│   │       ├── description.md
+│   │       ├── fullname.md
+│   │       ├── instructions.md
+│   │       ├── opcode.md
+│   │       ├── pseudocode-hdl.md
+│   │       ├── pseudocode-pl.md
+│   │       └── pseudo-instruction.md
+│   ├── Parallelism
+│   │   ├── rv-b
+│   │   │   ├── class.md
+│   │   │   ├── description.md
+│   │   │   ├── fullname.md
+│   │   │   ├── instructions.md
+│   │   │   ├── opcode.md
+│   │   │   ├── pseudocode-hdl.md
+│   │   │   ├── pseudocode-pl.md
+│   │   │   └── pseudo-instruction.md
+│   │   ├── rv-n
+│   │   │   ├── class.md
+│   │   │   ├── description.md
+│   │   │   ├── fullname.md
+│   │   │   ├── instructions.md
+│   │   │   ├── opcode.md
+│   │   │   ├── pseudocode-hdl.md
+│   │   │   ├── pseudocode-pl.md
+│   │   │   └── pseudo-instruction.md
+│   │   ├── rv-p
+│   │   │   ├── class.md
+│   │   │   ├── description.md
+│   │   │   ├── fullname.md
+│   │   │   ├── instructions.md
+│   │   │   ├── opcode.md
+│   │   │   ├── pseudocode-hdl.md
+│   │   │   ├── pseudocode-pl.md
+│   │   │   └── pseudo-instruction.md
+│   │   └── rv-t
+│   │       ├── class.md
+│   │       ├── description.md
+│   │       ├── fullname.md
+│   │       ├── instructions.md
+│   │       ├── opcode.md
+│   │       ├── pseudocode-hdl.md
+│   │       ├── pseudocode-pl.md
+│   │       └── pseudo-instruction.md
+│   └── Privilege
+│       ├── rv-h
+│       │   ├── class.md
+│       │   ├── description.md
+│       │   ├── fullname.md
+│       │   ├── instructions.md
+│       │   ├── opcode.md
+│       │   ├── pseudocode-hdl.md
+│       │   ├── pseudocode-pl.md
+│       │   └── pseudo-instruction.md
+│       ├── rv-m
+│       │   ├── class.md
+│       │   ├── description.md
+│       │   ├── fullname.md
+│       │   ├── instructions.md
+│       │   ├── opcode.md
+│       │   ├── pseudocode-hdl.md
+│       │   ├── pseudocode-pl.md
+│       │   └── pseudo-instruction.md
+│       ├── rv-s
+│       │   ├── class.md
+│       │   ├── description.md
+│       │   ├── fullname.md
+│       │   ├── instructions.md
+│       │   ├── opcode.md
+│       │   ├── pseudocode-hdl.md
+│       │   ├── pseudocode-pl.md
+│       │   └── pseudo-instruction.md
+│       └── rv-u
+│           ├── class.md
+│           ├── description.md
+│           ├── fullname.md
+│           ├── instructions.md
+│           ├── opcode.md
+│           ├── pseudocode-hdl.md
+│           ├── pseudocode-pl.md
+│           └── pseudo-instruction.md
+└── standard
+    ├── rv-a
+    │   ├── class.md
+    │   ├── description.md
+    │   ├── fullname.md
+    │   ├── instructions.md
+    │   ├── opcode.md
+    │   ├── pseudocode-hdl.md
+    │   ├── pseudocode-pl.md
+    │   └── pseudo-instruction.md
+    ├── rv-c
+    │   ├── class.md
+    │   ├── description.md
+    │   ├── fullname.md
+    │   ├── instructions.md
+    │   ├── opcode.md
+    │   ├── pseudocode-hdl.md
+    │   ├── pseudocode-pl.md
+    │   └── pseudo-instruction.md
+    ├── rv-m
+    │   ├── class.md
+    │   ├── description.md
+    │   ├── fullname.md
+    │   ├── instructions.md
+    │   ├── opcode.md
+    │   ├── pseudocode-hdl.md
+    │   ├── pseudocode-pl.md
+    │   └── pseudo-instruction.md
+    └── rv-o
+        ├── class.md
+        ├── description.md
+        ├── fullname.md
+        ├── instructions.md
+        ├── opcode.md
+        ├── pseudocode-hdl.md
+        ├── pseudocode-pl.md
+        └── pseudo-instruction.md
+
+32 directories, 192 files

@@ -1,0 +1,144 @@
+= RV Instructions Code
+
+[cols="1,4", options="header"]
+|===
+| instruction | code
+| hfence_gvma
+a|
+[source,c]
+----
+require_extension('H');
+require_novirt();
+require_privilege(get_field(STATE.mstatus->read(), MSTATUS_TVM) ? PRV_M : PRV_S);
+MMU.flush_tlb();
+----
+| hfence_vvma
+a|
+[source,c]
+----
+require_extension('H');
+require_novirt();
+require_privilege(PRV_S);
+MMU.flush_tlb();
+----
+| hlv_b
+a|
+[source,c]
+----
+require_extension('H');
+require_novirt();
+require_privilege(get_field(STATE.hstatus->read(), HSTATUS_HU) ? PRV_U : PRV_S);
+WRITE_RD(MMU.guest_load<int8_t>(RS1));
+----
+| hlv_bu
+a|
+[source,c]
+----
+require_extension('H');
+require_novirt();
+require_privilege(get_field(STATE.hstatus->read(), HSTATUS_HU) ? PRV_U : PRV_S);
+WRITE_RD(MMU.guest_load<uint8_t>(RS1));
+----
+| hlv_d
+a|
+[source,c]
+----
+require_extension('H');
+require_rv64;
+require_novirt();
+require_privilege(get_field(STATE.hstatus->read(), HSTATUS_HU) ? PRV_U : PRV_S);
+WRITE_RD(MMU.guest_load<int64_t>(RS1));
+----
+| hlv_h
+a|
+[source,c]
+----
+require_extension('H');
+require_novirt();
+require_privilege(get_field(STATE.hstatus->read(), HSTATUS_HU) ? PRV_U : PRV_S);
+WRITE_RD(MMU.guest_load<int16_t>(RS1));
+----
+| hlv_hu
+a|
+[source,c]
+----
+require_extension('H');
+require_novirt();
+require_privilege(get_field(STATE.hstatus->read(), HSTATUS_HU) ? PRV_U : PRV_S);
+WRITE_RD(MMU.guest_load<uint16_t>(RS1));
+----
+| hlv_w
+a|
+[source,c]
+----
+require_extension('H');
+require_novirt();
+require_privilege(get_field(STATE.hstatus->read(), HSTATUS_HU) ? PRV_U : PRV_S);
+WRITE_RD(MMU.guest_load<int32_t>(RS1));
+----
+| hlv_wu
+a|
+[source,c]
+----
+require_extension('H');
+require_rv64;
+require_novirt();
+require_privilege(get_field(STATE.hstatus->read(), HSTATUS_HU) ? PRV_U : PRV_S);
+WRITE_RD(MMU.guest_load<uint32_t>(RS1));
+----
+| hlvx_hu
+a|
+[source,c]
+----
+require_extension('H');
+require_novirt();
+require_privilege(get_field(STATE.hstatus->read(), HSTATUS_HU) ? PRV_U : PRV_S);
+WRITE_RD(MMU.guest_load_x<uint16_t>(RS1));
+----
+| hlvx_wu
+a|
+[source,c]
+----
+require_extension('H');
+require_novirt();
+require_privilege(get_field(STATE.hstatus->read(), HSTATUS_HU) ? PRV_U : PRV_S);
+WRITE_RD(sext_xlen(MMU.guest_load_x<uint32_t>(RS1)));
+----
+| hsv_b
+a|
+[source,c]
+----
+require_extension('H');
+require_novirt();
+require_privilege(get_field(STATE.hstatus->read(), HSTATUS_HU) ? PRV_U : PRV_S);
+MMU.guest_store<uint8_t>(RS1, RS2);
+----
+| hsv_d
+a|
+[source,c]
+----
+require_extension('H');
+require_rv64;
+require_novirt();
+require_privilege(get_field(STATE.hstatus->read(), HSTATUS_HU) ? PRV_U : PRV_S);
+MMU.guest_store<uint64_t>(RS1, RS2);
+----
+| hsv_h
+a|
+[source,c]
+----
+require_extension('H');
+require_novirt();
+require_privilege(get_field(STATE.hstatus->read(), HSTATUS_HU) ? PRV_U : PRV_S);
+MMU.guest_store<uint16_t>(RS1, RS2);
+----
+| hsv_w
+a|
+[source,c]
+----
+require_extension('H');
+require_novirt();
+require_privilege(get_field(STATE.hstatus->read(), HSTATUS_HU) ? PRV_U : PRV_S);
+MMU.guest_store<uint32_t>(RS1, RS2);
+----
+|===

@@ -1,0 +1,13 @@
+pandoc base/ORBIS32/greencard.md -o base/ORBIS32/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
+pandoc base/ORBIS64/greencard.md -o base/ORBIS64/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
+pandoc openrisc-greencard.md -o openrisc-greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
+pandoc specific/ORVDX32/greencard.md -o specific/ORVDX32/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
+pandoc specific/ORVDX64/greencard.md -o specific/ORVDX64/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
+pandoc specific/ORWDX32/greencard.md -o specific/ORWDX32/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
+pandoc specific/ORWDX64/greencard.md -o specific/ORWDX64/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
+pandoc specific/ORYDX32/greencard.md -o specific/ORYDX32/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
+pandoc specific/ORYDX64/greencard.md -o specific/ORYDX64/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
+pandoc standard/ORFPX128/greencard.md -o standard/ORFPX128/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
+pandoc standard/ORFPX16/greencard.md -o standard/ORFPX16/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
+pandoc standard/ORFPX32/greencard.md -o standard/ORFPX32/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
+pandoc standard/ORFPX64/greencard.md -o standard/ORFPX64/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm

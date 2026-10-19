@@ -1,0 +1,379 @@
+= RV Instructions Code
+
+[cols="1,4", options="header"]
+|===
+| instruction | code
+| add
+a|
+[source,c]
+----
+WRITE_RD(sext_xlen(RS1 + RS2));
+----
+| addi
+a|
+[source,c]
+----
+WRITE_RD(sext_xlen(RS1 + insn.i_imm()));
+----
+| addiw
+a|
+[source,c]
+----
+require_rv64;
+WRITE_RD(sext32(insn.i_imm() + RS1));
+----
+| addw
+a|
+[source,c]
+----
+require_rv64;
+WRITE_RD(sext32(RS1 + RS2));
+----
+| and
+a|
+[source,c]
+----
+WRITE_RD(RS1 & RS2);
+----
+| andi
+a|
+[source,c]
+----
+WRITE_RD(insn.i_imm() & RS1);
+----
+| auipc
+a|
+[source,c]
+----
+WRITE_RD(sext_xlen(insn.u_imm() + pc));
+----
+| beq
+a|
+[source,c]
+----
+if (RS1 == RS2)
+  set_pc(BRANCH_TARGET);
+----
+| bge
+a|
+[source,c]
+----
+if (sreg_t(RS1) >= sreg_t(RS2))
+  set_pc(BRANCH_TARGET);
+----
+| bgeu
+a|
+[source,c]
+----
+if (RS1 >= RS2)
+  set_pc(BRANCH_TARGET);
+----
+| blt
+a|
+[source,c]
+----
+if (sreg_t(RS1) < sreg_t(RS2))
+  set_pc(BRANCH_TARGET);
+----
+| bltu
+a|
+[source,c]
+----
+if (RS1 < RS2)
+  set_pc(BRANCH_TARGET);
+----
+| bne
+a|
+[source,c]
+----
+if (RS1 != RS2)
+  set_pc(BRANCH_TARGET);
+----
+| ebreak
+a|
+[source,c]
+----
+if (!STATE.debug_mode && (
+        (!STATE.v && STATE.prv == PRV_M && STATE.dcsr->ebreakm) \|\|
+        (!STATE.v && STATE.prv == PRV_S && STATE.dcsr->ebreaks) \|\|
+        (!STATE.v && STATE.prv == PRV_U && STATE.dcsr->ebreaku) \|\|
+        (STATE.v && STATE.prv == PRV_S && STATE.dcsr->ebreakvs) \|\|
+        (STATE.v && STATE.prv == PRV_U && STATE.dcsr->ebreakvu))) {
+	throw trap_debug_mode();
+} else {
+	throw trap_breakpoint(STATE.v, pc);
+}
+----
+| ecall
+a|
+[source,c]
+----
+switch (STATE.prv)
+{
+  case PRV_U: throw trap_user_ecall();
+  case PRV_S:
+    if (STATE.v)
+      throw trap_virtual_supervisor_ecall();
+    else
+      throw trap_supervisor_ecall();
+  case PRV_M: throw trap_machine_ecall();
+  default: abort();
+}
+----
+| fence_i
+a|
+[source,c]
+----
+MMU.flush_icache();
+----
+| jal
+a|
+[source,c]
+----
+CHECK_RD();
+reg_t tmp = npc;
+set_pc(JUMP_TARGET);
+WRITE_RD(tmp);
+----
+| jalr
+a|
+[source,c]
+----
+CHECK_RD();
+reg_t tmp = npc;
+set_pc((RS1 + insn.i_imm()) & ~reg_t(1));
+WRITE_RD(tmp);
+
+maybe_set_elp(insn.rs1());
+----
+| lb
+a|
+[source,c]
+----
+WRITE_RD(MMU.load<int8_t>(RS1 + insn.i_imm()));
+----
+| lbu
+a|
+[source,c]
+----
+WRITE_RD(MMU.load<uint8_t>(RS1 + insn.i_imm()));
+----
+| ld
+a|
+[source,c]
+----
+require((xlen == 64) \|\| p->extension_enabled(EXT_ZILSD));
+
+if (xlen == 32) {
+  WRITE_RD_PAIR(MMU.load<int64_t>(RS1 + insn.i_imm()));
+} else {
+  WRITE_RD(MMU.load<int64_t>(RS1 + insn.i_imm()));
+}
+
+----
+| lh
+a|
+[source,c]
+----
+WRITE_RD(MMU.load<int16_t>(RS1 + insn.i_imm()));
+----
+| lhu
+a|
+[source,c]
+----
+WRITE_RD(MMU.load<uint16_t>(RS1 + insn.i_imm()));
+----
+| lui
+a|
+[source,c]
+----
+WRITE_RD(insn.u_imm());
+----
+| lw
+a|
+[source,c]
+----
+WRITE_RD(MMU.load<int32_t>(RS1 + insn.i_imm()));
+----
+| lwu
+a|
+[source,c]
+----
+require_rv64;
+WRITE_RD(MMU.load<uint32_t>(RS1 + insn.i_imm()));
+----
+| or
+a|
+[source,c]
+----
+WRITE_RD(RS1 \| RS2);
+----
+| ori
+a|
+[source,c]
+----
+// prefetch.i/r/w hint when rd = 0 and i_imm[4:0] = 0/1/3
+WRITE_RD(insn.i_imm() \| RS1);
+----
+| sb
+a|
+[source,c]
+----
+MMU.store<uint8_t>(RS1 + insn.s_imm(), RS2);
+----
+| sd
+a|
+[source,c]
+----
+require((xlen == 64) \|\| p->extension_enabled(EXT_ZILSD));
+
+if (xlen == 32) {
+  MMU.store<uint64_t>(RS1 + insn.s_imm(), RS2_PAIR);
+} else {
+  MMU.store<uint64_t>(RS1 + insn.s_imm(), RS2);
+}
+----
+| sh
+a|
+[source,c]
+----
+MMU.store<uint16_t>(RS1 + insn.s_imm(), RS2);
+----
+| sll
+a|
+[source,c]
+----
+WRITE_RD(sext_xlen(RS1 << (RS2 & (xlen-1))));
+----
+| slli
+a|
+[source,c]
+----
+require(SHAMT < xlen);
+WRITE_RD(sext_xlen(RS1 << SHAMT));
+----
+| slliw
+a|
+[source,c]
+----
+require_rv64;
+WRITE_RD(sext32(RS1 << SHAMT));
+----
+| sllw
+a|
+[source,c]
+----
+require_rv64;
+WRITE_RD(sext32(RS1 << (RS2 & 0x1F)));
+----
+| slt
+a|
+[source,c]
+----
+WRITE_RD(sreg_t(RS1) < sreg_t(RS2));
+----
+| slti
+a|
+[source,c]
+----
+WRITE_RD(sreg_t(RS1) < sreg_t(insn.i_imm()));
+----
+| sltiu
+a|
+[source,c]
+----
+WRITE_RD(RS1 < reg_t(insn.i_imm()));
+----
+| sltu
+a|
+[source,c]
+----
+WRITE_RD(RS1 < RS2);
+----
+| sra
+a|
+[source,c]
+----
+WRITE_RD(sext_xlen(sext_xlen(RS1) >> (RS2 & (xlen-1))));
+----
+| srai
+a|
+[source,c]
+----
+require(SHAMT < xlen);
+WRITE_RD(sext_xlen(sext_xlen(RS1) >> SHAMT));
+----
+| sraiw
+a|
+[source,c]
+----
+require_rv64;
+WRITE_RD(sext32(int32_t(RS1) >> SHAMT));
+----
+| sraw
+a|
+[source,c]
+----
+require_rv64;
+WRITE_RD(sext32(int32_t(RS1) >> (RS2 & 0x1F)));
+----
+| srl
+a|
+[source,c]
+----
+WRITE_RD(sext_xlen(zext_xlen(RS1) >> (RS2 & (xlen-1))));
+----
+| srli
+a|
+[source,c]
+----
+require(SHAMT < xlen);
+WRITE_RD(sext_xlen(zext_xlen(RS1) >> SHAMT));
+----
+| srliw
+a|
+[source,c]
+----
+require_rv64;
+WRITE_RD(sext32((uint32_t)RS1 >> SHAMT));
+----
+| srlw
+a|
+[source,c]
+----
+require_rv64;
+WRITE_RD(sext32((uint32_t)RS1 >> (RS2 & 0x1F)));
+----
+| sub
+a|
+[source,c]
+----
+WRITE_RD(sext_xlen(RS1 - RS2));
+----
+| subw
+a|
+[source,c]
+----
+require_rv64;
+WRITE_RD(sext32(RS1 - RS2));
+
+----
+| sw
+a|
+[source,c]
+----
+MMU.store<uint32_t>(RS1 + insn.s_imm(), RS2);
+----
+| xor
+a|
+[source,c]
+----
+WRITE_RD(RS1 ^ RS2);
+----
+| xori
+a|
+[source,c]
+----
+WRITE_RD(insn.i_imm() ^ RS1);
+----
+|===

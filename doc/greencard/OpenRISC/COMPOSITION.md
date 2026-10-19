@@ -1,0 +1,20 @@
+# GreenCard
+## Researching
+
+```
+├── base
+│   ├── ORBIS32
+│   └── ORBIS64
+├── standard
+│   ├── ORFPX16 (ORBIS32, ORBIS64)
+│   ├── ORFPX32 (ORBIS32, ORBIS64, ORFPX16)
+│   ├── ORFPX64 (ORBIS32, ORBIS64, ORFPX32)
+│   └── ORFPX128 (ORBIS32, ORBIS64, ORFPX64)
+└── specific
+    ├── ORVDX32 (ORBIS32, ORFPX32)
+    ├── ORVDX64 (ORBIS64, ORFPX64)
+    ├── ORWDX32 (ORBIS32, ORFPX32)
+    ├── ORWDX64 (ORBIS64, ORFPX64)
+    ├── ORYDX32 (ORBIS32, ORFPX32)
+    └── ORYDX64 (ORBIS64, ORFPX64)
+```

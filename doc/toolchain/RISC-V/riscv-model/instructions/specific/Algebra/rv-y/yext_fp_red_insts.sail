@@ -1,0 +1,158 @@
+// =======================================================================================
+// This Sail RISC-V architecture model, comprising all files and
+// directories except where otherwise noted is subject the BSD
+// two-clause license in the LICENSE file.
+//
+// SPDX-License-Identifier: BSD-2-Clause
+// =======================================================================================
+
+// ******************************************************************************
+// This file implements part of the vector extension.
+// Chapter 14: Vector Reduction Instructions
+// ******************************************************************************
+
+// ********************* OPFVV (Single-Width Floating-Point Reduction) ***********************
+union clause instruction = RFVVTYPE : (rfvvfunct6, bits(1), vregidx, vregidx, vregidx)
+
+mapping encdec_rfvvfunct6 : rfvvfunct6 <-> bits(6) = {
+  FVV_VFREDOSUM   <-> 0b000011,
+  FVV_VFREDUSUM   <-> 0b000001,
+  FVV_VFREDMAX    <-> 0b000111,
+  FVV_VFREDMIN    <-> 0b000101,
+}
+
+mapping clause encdec = RFVVTYPE(funct6, vm, vs2, vs1, vd)
+  <-> encdec_rfvvfunct6(funct6) @ vm @ encdec_vreg(vs2) @ encdec_vreg(vs1) @ 0b001 @ encdec_vreg(vd) @ 0b1010111
+  when (currentlyEnabled(Ext_Zvfh)   & get_sew() == 16)
+     | (currentlyEnabled(Ext_Zve32f) & get_sew() == 32)
+     | (currentlyEnabled(Ext_Zve64d) & get_sew() == 64)
+
+function clause execute RFVVTYPE(funct6, vm, vs2, vs1, vd) = {
+  let SEW         = get_sew();
+  let LMUL_pow    = get_lmul_pow();
+  let num_elem_vs = get_num_elem(LMUL_pow, SEW);
+  let rm_3b       = fcsr[FRM];
+  let num_elem_vd = get_num_elem(0, SEW); // vd regardless of LMUL setting
+
+  if illegal_fp_reduction(SEW, rm_3b) |
+     not(valid_reg_group(vs2, LMUL_pow))
+  then return Illegal_Instruction();
+
+  assert(SEW != 8);
+
+  if unsigned(vl) == 0 then return RETIRE_SUCCESS; // if vl=0, no operation is performed
+
+  let 'n = num_elem_vs;
+  let 'd = num_elem_vd;
+  let 'm = SEW;
+
+  let vm_val  : bits('n)             = read_vmask(num_elem_vs, vm, zvreg);
+  let vd_val  : vector('d, bits('m)) = read_vreg(num_elem_vd, SEW, 0, vd);
+  let vs2_val : vector('n, bits('m)) = read_vreg(num_elem_vs, SEW, LMUL_pow, vs2);
+
+  let mask : bits('n) = match init_masked_source(num_elem_vs, LMUL_pow, vm_val) {
+    Ok(v)   => v,
+    Err(()) => return Illegal_Instruction()
+  };
+
+  var sum : bits('m) = read_single_element(SEW, 0, vs1); // vs1 regardless of LMUL setting
+  foreach (i from 0 to (num_elem_vs - 1)) {
+    if mask[i] == 0b1 then {
+      sum = match funct6 {
+        // currently ordered/unordered sum reductions do the same operations
+        FVV_VFREDOSUM   => fp_add(rm_3b, sum, vs2_val[i]),
+        FVV_VFREDUSUM   => fp_add(rm_3b, sum, vs2_val[i]),
+        FVV_VFREDMAX    => fp_max(sum, vs2_val[i]),
+        FVV_VFREDMIN    => fp_min(sum, vs2_val[i]),
+      }
+    }
+  };
+
+  write_single_element(SEW, 0, vd, sum);
+  // other elements in vd are treated as tail elements, currently remain unchanged
+  // TODO: configuration support for agnostic behavior
+  set_vstart(zeros());
+  RETIRE_SUCCESS
+}
+
+mapping rfvvtype_mnemonic : rfvvfunct6 <-> string = {
+  FVV_VFREDOSUM   <-> "vfredosum.vs",
+  FVV_VFREDUSUM   <-> "vfredusum.vs",
+  FVV_VFREDMAX    <-> "vfredmax.vs",
+  FVV_VFREDMIN    <-> "vfredmin.vs",
+}
+
+mapping clause assembly = RFVVTYPE(funct6, vm, vs2, vs1, vd)
+  <-> rfvvtype_mnemonic(funct6) ^ spc() ^ vreg_name(vd) ^ sep() ^ vreg_name(vs2) ^ sep() ^ vreg_name(vs1) ^ maybe_vmask(vm)
+
+// ********************* OPFVV (Widening Floating-Point Reduction) ***********************
+
+union clause instruction = RFWVVTYPE : (rfwvvfunct6, bits(1), vregidx, vregidx, vregidx)
+
+mapping encdec_rfwvvfunct6 : rfwvvfunct6 <-> bits(6) = {
+  FVV_VFWREDOSUM  <-> 0b110011,
+  FVV_VFWREDUSUM  <-> 0b110001,
+}
+
+mapping clause encdec = RFWVVTYPE(funct6, vm, vs2, vs1, vd)
+  <-> encdec_rfwvvfunct6(funct6) @ vm @ encdec_vreg(vs2) @ encdec_vreg(vs1) @ 0b001 @ encdec_vreg(vd) @ 0b1010111
+  when (currentlyEnabled(Ext_Zvfh)   & get_sew() == 16)
+     | (currentlyEnabled(Ext_Zve64d) & get_sew() == 32)
+
+// `funct6` selects between the ordered (`vfredosum`) and unordered
+// (`vfredusum`) variants of the instruction.  This function currently
+// only implements the ordered variant, as it is a valid
+// implementation of the unordered variant; hence `funct6` is ignored.
+function clause execute RFWVVTYPE(_funct6, vm, vs2, vs1, vd) = {
+  let SEW         = get_sew();
+  let LMUL_pow    = get_lmul_pow();
+  let num_elem_vs = get_num_elem(LMUL_pow, SEW);
+  let rm_3b       = fcsr[FRM];
+  let SEW_widen   = SEW * 2;
+
+  if illegal_fp_widening_reduction(SEW, rm_3b, SEW_widen) |
+     not(valid_reg_group(vs2, LMUL_pow))
+  then return Illegal_Instruction();
+
+  assert(SEW >= 16 & SEW_widen <= 64);
+
+  let num_elem_vd = get_num_elem(0, SEW_widen); // vd regardless of LMUL setting
+
+  if unsigned(vl) == 0 then return RETIRE_SUCCESS; // if vl=0, no operation is performed
+
+  let 'n = num_elem_vs;
+  let 'd = num_elem_vd;
+  let 'm = SEW;
+  let 'o = SEW_widen;
+
+  let vm_val  : bits('n)             = read_vmask(num_elem_vs, vm, zvreg);
+  let vd_val  : vector('d, bits('o)) = read_vreg(num_elem_vd, SEW_widen, 0, vd);
+  let vs2_val : vector('n, bits('m)) = read_vreg(num_elem_vs, SEW, LMUL_pow, vs2);
+
+  let mask : bits('n) = match init_masked_source(num_elem_vs, LMUL_pow, vm_val) {
+    Ok(v)   => v,
+    Err(()) => return Illegal_Instruction()
+  };
+
+  var sum : bits('o) = read_single_element(SEW_widen, 0, vs1); // vs1 regardless of LMUL setting
+  foreach (i from 0 to (num_elem_vs - 1)) {
+    if mask[i] == 0b1 then {
+      // currently ordered/unordered sum reductions do the same operations
+      sum = fp_add(rm_3b, sum, fp_widen(vs2_val[i]))
+    }
+  };
+
+  write_single_element(SEW_widen, 0, vd, sum);
+  // other elements in vd are treated as tail elements, currently remain unchanged
+  // TODO: configuration support for agnostic behavior
+  set_vstart(zeros());
+  RETIRE_SUCCESS
+}
+
+mapping rfwvvtype_mnemonic : rfwvvfunct6 <-> string = {
+  FVV_VFWREDOSUM  <-> "vfwredosum.vs",
+  FVV_VFWREDUSUM  <-> "vfwredusum.vs",
+}
+
+mapping clause assembly = RFWVVTYPE(funct6, vm, vs2, vs1, vd)
+  <-> rfwvvtype_mnemonic(funct6) ^ spc() ^ vreg_name(vd) ^ sep() ^ vreg_name(vs2) ^ sep() ^ vreg_name(vs1) ^ maybe_vmask(vm)

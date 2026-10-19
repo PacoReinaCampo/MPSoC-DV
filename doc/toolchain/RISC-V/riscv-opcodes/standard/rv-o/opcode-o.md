@@ -1,0 +1,62 @@
+# RVO
+
+```
+lui     rd imm20 6..2=0x0D 1..0=3
+auipc   rd imm20 6..2=0x05 1..0=3
+jal     rd jimm20                          6..2=0x1b 1..0=3
+jalr    rd rs1 imm12              14..12=0 6..2=0x19 1..0=3
+beq     bimm12hi rs1 rs2 bimm12lo 14..12=0 6..2=0x18 1..0=3
+bne     bimm12hi rs1 rs2 bimm12lo 14..12=1 6..2=0x18 1..0=3
+blt     bimm12hi rs1 rs2 bimm12lo 14..12=4 6..2=0x18 1..0=3
+bge     bimm12hi rs1 rs2 bimm12lo 14..12=5 6..2=0x18 1..0=3
+bltu    bimm12hi rs1 rs2 bimm12lo 14..12=6 6..2=0x18 1..0=3
+bgeu    bimm12hi rs1 rs2 bimm12lo 14..12=7 6..2=0x18 1..0=3
+lb      rd rs1       imm12 14..12=0 6..2=0x00 1..0=3
+lh      rd rs1       imm12 14..12=1 6..2=0x00 1..0=3
+lw      rd rs1       imm12 14..12=2 6..2=0x00 1..0=3
+lbu     rd rs1       imm12 14..12=4 6..2=0x00 1..0=3
+lhu     rd rs1       imm12 14..12=5 6..2=0x00 1..0=3
+sb     imm12hi rs1 rs2 imm12lo 14..12=0 6..2=0x08 1..0=3
+sh     imm12hi rs1 rs2 imm12lo 14..12=1 6..2=0x08 1..0=3
+sw     imm12hi rs1 rs2 imm12lo 14..12=2 6..2=0x08 1..0=3
+addi    rd rs1 imm12           14..12=0 6..2=0x04 1..0=3
+slti    rd rs1 imm12           14..12=2 6..2=0x04 1..0=3
+sltiu   rd rs1 imm12           14..12=3 6..2=0x04 1..0=3
+xori    rd rs1 imm12           14..12=4 6..2=0x04 1..0=3
+ori     rd rs1 imm12           14..12=6 6..2=0x04 1..0=3
+andi    rd rs1 imm12           14..12=7 6..2=0x04 1..0=3
+add     rd rs1 rs2 31..25=0  14..12=0 6..2=0x0C 1..0=3
+sub     rd rs1 rs2 31..25=32 14..12=0 6..2=0x0C 1..0=3
+sll     rd rs1 rs2 31..25=0  14..12=1 6..2=0x0C 1..0=3
+slt     rd rs1 rs2 31..25=0  14..12=2 6..2=0x0C 1..0=3
+sltu    rd rs1 rs2 31..25=0  14..12=3 6..2=0x0C 1..0=3
+xor     rd rs1 rs2 31..25=0  14..12=4 6..2=0x0C 1..0=3
+srl     rd rs1 rs2 31..25=0  14..12=5 6..2=0x0C 1..0=3
+sra     rd rs1 rs2 31..25=32 14..12=5 6..2=0x0C 1..0=3
+or      rd rs1 rs2 31..25=0  14..12=6 6..2=0x0C 1..0=3
+and     rd rs1 rs2 31..25=0  14..12=7 6..2=0x0C 1..0=3
+fence fm pred succ rs1 14..12=0 rd 6..2=0x03 1..0=3
+```
+
+# RV64O additions to RV32O
+
+```
+lwu     rd rs1       imm12 14..12=6 6..2=0x00 1..0=3
+ld      rd rs1       imm12 14..12=3 6..2=0x00 1..0=3
+sd     imm12hi rs1 rs2 imm12lo 14..12=3 6..2=0x08 1..0=3
+
+slli   rd rs1 31..26=0  shamtd 14..12=1 6..2=0x04 1..0=3
+srli   rd rs1 31..26=0  shamtd 14..12=5 6..2=0x04 1..0=3
+srai   rd rs1 31..26=16 shamtd 14..12=5 6..2=0x04 1..0=3
+
+addiw   rd rs1 imm12            14..12=0 6..2=0x06 1..0=3
+slliw   rd rs1 31..25=0  shamtw 14..12=1 6..2=0x06 1..0=3
+srliw   rd rs1 31..25=0  shamtw 14..12=5 6..2=0x06 1..0=3
+sraiw   rd rs1 31..25=32 shamtw 14..12=5 6..2=0x06 1..0=3
+
+addw    rd rs1 rs2 31..25=0  14..12=0 6..2=0x0E 1..0=3
+subw    rd rs1 rs2 31..25=32 14..12=0 6..2=0x0E 1..0=3
+sllw    rd rs1 rs2 31..25=0  14..12=1 6..2=0x0E 1..0=3
+srlw    rd rs1 rs2 31..25=0  14..12=5 6..2=0x0E 1..0=3
+sraw    rd rs1 rs2 31..25=32 14..12=5 6..2=0x0E 1..0=3
+```

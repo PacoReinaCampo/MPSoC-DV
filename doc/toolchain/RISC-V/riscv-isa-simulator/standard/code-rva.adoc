@@ -1,0 +1,177 @@
+= RV Instructions Code
+
+[cols="1,4", options="header"]
+|===
+| instruction | code
+| amoadd_d
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+require_rv64;
+WRITE_RD(MMU.amo<uint64_t>(RS1, [&](uint64_t lhs) { return lhs + RS2; }));
+----
+| amoadd_w
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+WRITE_RD(sext32(MMU.amo<uint32_t>(RS1, [&](uint32_t lhs) { return lhs + RS2; })));
+----
+| amoand_d
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+require_rv64;
+WRITE_RD(MMU.amo<uint64_t>(RS1, [&](uint64_t lhs) { return lhs & RS2; }));
+----
+| amoand_w
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+WRITE_RD(sext32(MMU.amo<uint32_t>(RS1, [&](uint32_t lhs) { return lhs & RS2; })));
+----
+| amomax_d
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+require_rv64;
+WRITE_RD(MMU.amo<uint64_t>(RS1, [&](int64_t lhs) { return std::max(lhs, int64_t(RS2)); }));
+----
+| amomaxu_d
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+require_rv64;
+WRITE_RD(MMU.amo<uint64_t>(RS1, [&](uint64_t lhs) { return std::max(lhs, RS2); }));
+----
+| amomaxu_w
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+WRITE_RD(sext32(MMU.amo<uint32_t>(RS1, [&](uint32_t lhs) { return std::max(lhs, uint32_t(RS2)); })));
+----
+| amomax_w
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+WRITE_RD(sext32(MMU.amo<uint32_t>(RS1, [&](int32_t lhs) { return std::max(lhs, int32_t(RS2)); })));
+----
+| amomin_d
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+require_rv64;
+WRITE_RD(MMU.amo<uint64_t>(RS1, [&](int64_t lhs) { return std::min(lhs, int64_t(RS2)); }));
+----
+| amominu_d
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+require_rv64;
+WRITE_RD(MMU.amo<uint64_t>(RS1, [&](uint64_t lhs) { return std::min(lhs, RS2); }));
+----
+| amominu_w
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+WRITE_RD(sext32(MMU.amo<uint32_t>(RS1, [&](uint32_t lhs) { return std::min(lhs, uint32_t(RS2)); })));
+----
+| amomin_w
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+WRITE_RD(sext32(MMU.amo<uint32_t>(RS1, [&](int32_t lhs) { return std::min(lhs, int32_t(RS2)); })));
+----
+| amoor_d
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+require_rv64;
+WRITE_RD(MMU.amo<uint64_t>(RS1, [&](uint64_t lhs) { return lhs \| RS2; }));
+----
+| amoor_w
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+WRITE_RD(sext32(MMU.amo<uint32_t>(RS1, [&](uint32_t lhs) { return lhs \| RS2; })));
+----
+| amoswap_d
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+require_rv64;
+WRITE_RD(MMU.amo<uint64_t>(RS1, [&](uint64_t UNUSED lhs) { return RS2; }));
+----
+| amoswap_w
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+WRITE_RD(sext32(MMU.amo<uint32_t>(RS1, [&](uint32_t UNUSED lhs) { return RS2; })));
+----
+| amoxor_d
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+require_rv64;
+WRITE_RD(MMU.amo<uint64_t>(RS1, [&](uint64_t lhs) { return lhs ^ RS2; }));
+----
+| amoxor_w
+a|
+[source,c]
+----
+require_extension(EXT_ZAAMO);
+WRITE_RD(sext32(MMU.amo<uint32_t>(RS1, [&](uint32_t lhs) { return lhs ^ RS2; })));
+----
+| lr_d
+a|
+[source,c]
+----
+require_extension(EXT_ZALRSC);
+require_rv64;
+WRITE_RD(MMU.load_reserved<int64_t>(RS1));
+----
+| lr_w
+a|
+[source,c]
+----
+require_extension(EXT_ZALRSC);
+WRITE_RD(MMU.load_reserved<int32_t>(RS1));
+----
+| sc_d
+a|
+[source,c]
+----
+require_extension(EXT_ZALRSC);
+require_rv64;
+
+bool have_reservation = MMU.store_conditional<uint64_t>(RS1, RS2);
+
+WRITE_RD(!have_reservation);
+----
+| sc_w
+a|
+[source,c]
+----
+require_extension(EXT_ZALRSC);
+
+bool have_reservation = MMU.store_conditional<uint32_t>(RS1, RS2);
+
+WRITE_RD(!have_reservation);
+----
+|===
