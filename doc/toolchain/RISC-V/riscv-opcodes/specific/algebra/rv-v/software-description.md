@@ -8,16 +8,16 @@ hi..lo=value or bit=value or arg=value (e.g. 6..2=0x45 10=1 rd=0)
 
 `<args>` is one of vd, wd, yd, vs3, vs1, vs2, vm, nf, simm5, zimm10, zimm11
 
-  | **Category** | **Operands**     | **Operation** |
-  |:-------------|:-----------------|:--------------|
-  | `OPIVV`      | vector-vector    | Integer       |
-  | `OPIVX`      | vector-scalar    | Integer       |
-  | `OPIVI`      | vector-immediate | Integer       |
-  | `OPFVV`      | vector-vector    | Float         |
-  | `OPFVF`      | vector-scalar    | Float         |
-  | `OPMVV`      | vector-vector    | Mask          |
-  | `OPMVX`      | vector-scalar    | Mask          |
-  | `OPCFG`      | scalars-imms     | Configuration |
+  | **Category** | **Operands**       | **Operation**   |
+  |:-------------|:-------------------|:----------------|
+  | `OPIVV`      | `vector-vector`    | `Integer`       |
+  | `OPIVX`      | `vector-scalar`    | `Integer`       |
+  | `OPIVI`      | `vector-immediate` | `Integer`       |
+  | `OPFVV`      | `vector-vector`    | `Float`         |
+  | `OPFVF`      | `vector-scalar`    | `Float`         |
+  | `OPMVV`      | `vector-vector`    | `Mask`          |
+  | `OPMVX`      | `vector-scalar`    | `Mask`          |
+  | `OPCFG`      | `scalars-imms`     | `Configuration` |
 
 **OPCFG (Configuration Setting)**
 
@@ -33,33 +33,33 @@ hi..lo=value or bit=value or arg=value (e.g. 6..2=0x45 10=1 rd=0)
 
 * **Vector Unit-Stride Instructions (including segment part)**
 
-  | **Name**   | **Opcode / Argument**                                            | **Format**                | **Pseudo-Code**                          |
-  |:-----------|:-----------------------------------------------------------------|:--------------------------|:-----------------------------------------|
-  | `vlm.v`    | `31..28=0 27..26=0 25=1 24..20=0xb rs1 14..12=0x0  vd 6..0=0x07` | `vlm.v   vd, (rs1)`       | `Load byte vector of length ceil(vl/8)`  |
-  | `vsm.v`    | `31..28=0 27..26=0 25=1 24..20=0xb rs1 14..12=0x0 vs3 6..0=0x27` | `vsm.v   vs3, (rs1)`      | `Store byte vector of length ceil(vl/8)` |
-  | `vle8.v`   | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x0  vd 6..0=0x07`      | `vle8.v  vd, (rs1), vm`   | `8-bit unit-stride load`                 |
-  | `vle16.v`  | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x5  vd 6..0=0x07`      | `vle16.v vd, (rs1), vm`   | `16-bit unit-stride load`                |
-  | `vle32.v`  | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x6  vd 6..0=0x07`      | `vle32.v vd, (rs1), vm`   | `32-bit unit-stride load`                |
-  | `vle64.v`  | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x7  vd 6..0=0x07`      | `vle64.v vd, (rs1), vm`   | `64-bit unit-stride load`                |
-  | `vse8.v`   | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x0 vs3 6..0=0x27`      | `vse8.v  vs3, (rs1), vm`  | `8-bit unit-stride store`                |
-  | `vse16.v`  | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x5 vs3 6..0=0x27`      | `vse16.v vs3, (rs1), vm`  | `16-bit unit-stride store`               |
-  | `vse32.v`  | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x6 vs3 6..0=0x27`      | `vse32.v vs3, (rs1), vm`  | `32-bit unit-stride store`               |
-  | `vse64.v`  | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x7 vs3 6..0=0x27`      | `vse64.v vs3, (rs1), vm`  | `64-bit unit-stride store`               |
+  | **Name**  | **Opcode / Argument**                                            | **Format**               | **Pseudo-Code**                          |
+  |:----------|:-----------------------------------------------------------------|:-------------------------|:-----------------------------------------|
+  | `vlm.v`   | `31..28=0 27..26=0 25=1 24..20=0xb rs1 14..12=0x0  vd 6..0=0x07` | `vlm.v   vd, (rs1)`      | `Load byte vector of length ceil(vl/8)`  |
+  | `vsm.v`   | `31..28=0 27..26=0 25=1 24..20=0xb rs1 14..12=0x0 vs3 6..0=0x27` | `vsm.v   vs3, (rs1)`     | `Store byte vector of length ceil(vl/8)` |
+  | `vle8.v`  | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x0  vd 6..0=0x07`      | `vle8.v  vd, (rs1), vm`  | `8-bit unit-stride load`                 |
+  | `vle16.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x5  vd 6..0=0x07`      | `vle16.v vd, (rs1), vm`  | `16-bit unit-stride load`                |
+  | `vle32.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x6  vd 6..0=0x07`      | `vle32.v vd, (rs1), vm`  | `32-bit unit-stride load`                |
+  | `vle64.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x7  vd 6..0=0x07`      | `vle64.v vd, (rs1), vm`  | `64-bit unit-stride load`                |
+  | `vse8.v`  | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x0 vs3 6..0=0x27`      | `vse8.v  vs3, (rs1), vm` | `8-bit unit-stride store`                |
+  | `vse16.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x5 vs3 6..0=0x27`      | `vse16.v vs3, (rs1), vm` | `16-bit unit-stride store`               |
+  | `vse32.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x6 vs3 6..0=0x27`      | `vse32.v vs3, (rs1), vm` | `32-bit unit-stride store`               |
+  | `vse64.v` | `nf 28=0 27..26=0 vm 24..20=0 rs1 14..12=0x7 vs3 6..0=0x27`      | `vse64.v vs3, (rs1), vm` | `64-bit unit-stride store`               |
 
   : Vector Unit-Stride Instructions (including segment part)
 
 * **Vector Indexed-Unordered Instructions (including segment part)**
 
-  | **Name**      | **Opcode / Argument**                                  | **Format**                        | **Pseudo-Code**                              |
-  |:--------------|:-------------------------------------------------------|:----------------------------------|:---------------------------------------------|
-  | `vluxei8.v`   | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x0  vd 6..0=0x07` | `vluxei8.v    vd, (rs1), vs2, vm` | `unordered  8-bit indexed load of SEW data`  |
-  | `vluxei16.v`  | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x5  vd 6..0=0x07` | `vluxei16.v   vd, (rs1), vs2, vm` | `unordered 16-bit indexed load of SEW data`  |
-  | `vluxei32.v`  | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x6  vd 6..0=0x07` | `vluxei32.v   vd, (rs1), vs2, vm` | `unordered 32-bit indexed load of SEW data`  |
-  | `vluxei64.v`  | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x7  vd 6..0=0x07` | `vluxei64.v   vd, (rs1), vs2, vm` | `unordered 64-bit indexed load of SEW data`  |
-  | `vsuxei8.v`   | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x0 vs3 6..0=0x27` | `vsuxei8.v   vs3, (rs1), vs2, vm` | `unordered  8-bit indexed store of SEW data` |
-  | `vsuxei16.v`  | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x5 vs3 6..0=0x27` | `vsuxei16.v  vs3, (rs1), vs2, vm` | `unordered 16-bit indexed store of SEW data` |
-  | `vsuxei32.v`  | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x6 vs3 6..0=0x27` | `vsuxei32.v  vs3, (rs1), vs2, vm` | `unordered 32-bit indexed store of SEW data` |
-  | `vsuxei64.v`  | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x7 vs3 6..0=0x27` | `vsuxei64.v  vs3, (rs1), vs2, vm` | `unordered 64-bit indexed store of SEW data` |
+  | **Name**     | **Opcode / Argument**                                  | **Format**                        | **Pseudo-Code**                              |
+  |:-------------|:-------------------------------------------------------|:----------------------------------|:---------------------------------------------|
+  | `vluxei8.v`  | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x0  vd 6..0=0x07` | `vluxei8.v    vd, (rs1), vs2, vm` | `unordered  8-bit indexed load of SEW data`  |
+  | `vluxei16.v` | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x5  vd 6..0=0x07` | `vluxei16.v   vd, (rs1), vs2, vm` | `unordered 16-bit indexed load of SEW data`  |
+  | `vluxei32.v` | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x6  vd 6..0=0x07` | `vluxei32.v   vd, (rs1), vs2, vm` | `unordered 32-bit indexed load of SEW data`  |
+  | `vluxei64.v` | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x7  vd 6..0=0x07` | `vluxei64.v   vd, (rs1), vs2, vm` | `unordered 64-bit indexed load of SEW data`  |
+  | `vsuxei8.v`  | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x0 vs3 6..0=0x27` | `vsuxei8.v   vs3, (rs1), vs2, vm` | `unordered  8-bit indexed store of SEW data` |
+  | `vsuxei16.v` | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x5 vs3 6..0=0x27` | `vsuxei16.v  vs3, (rs1), vs2, vm` | `unordered 16-bit indexed store of SEW data` |
+  | `vsuxei32.v` | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x6 vs3 6..0=0x27` | `vsuxei32.v  vs3, (rs1), vs2, vm` | `unordered 32-bit indexed store of SEW data` |
+  | `vsuxei64.v` | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x7 vs3 6..0=0x27` | `vsuxei64.v  vs3, (rs1), vs2, vm` | `unordered 64-bit indexed store of SEW data` |
 
   : Vector Indexed-Unordered Instructions (including segment part)
 
@@ -67,11 +67,11 @@ hi..lo=value or bit=value or arg=value (e.g. 6..2=0x45 10=1 rd=0)
 
   | **Name**   | **Opcode / Argument**                                  | **Format**                       | **Pseudo-Code**        |
   |:-----------|:-------------------------------------------------------|:---------------------------------|:-----------------------|
-  | `vlse8.v`  | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x0  vd 6..0=0x07` | `vlse8.v    vd,  (rs1), rs2, vm` |  `8-bit strided load`  |
+  | `vlse8.v`  | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x0  vd 6..0=0x07` | `vlse8.v    vd,  (rs1), rs2, vm` | `8-bit strided load`   |
   | `vlse16.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x5  vd 6..0=0x07` | `vlse16.v   vd,  (rs1), rs2, vm` | `16-bit strided load`  |
   | `vlse32.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x6  vd 6..0=0x07` | `vlse32.v   vd,  (rs1), rs2, vm` | `32-bit strided load`  |
   | `vlse64.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x7  vd 6..0=0x07` | `vlse64.v   vd,  (rs1), rs2, vm` | `64-bit strided load`  |
-  | `vsse8.v`  | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x0 vs3 6..0=0x27` | `vsse8.v    vs3, (rs1), rs2, vm` |  `8-bit strided store` |
+  | `vsse8.v`  | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x0 vs3 6..0=0x27` | `vsse8.v    vs3, (rs1), rs2, vm` | `8-bit strided store`  |
   | `vsse16.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x5 vs3 6..0=0x27` | `vsse16.v   vs3, (rs1), rs2, vm` | `16-bit strided store` |
   | `vsse32.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x6 vs3 6..0=0x27` | `vsse32.v   vs3, (rs1), rs2, vm` | `32-bit strided store` |
   | `vsse64.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x7 vs3 6..0=0x27` | `vsse64.v   vs3, (rs1), rs2, vm` | `64-bit strided store` |
@@ -80,54 +80,54 @@ hi..lo=value or bit=value or arg=value (e.g. 6..2=0x45 10=1 rd=0)
 
 * **Vector Indexed-Ordered Instructions (including segment part)**
 
-  | **Name**      | **Opcode / Argument**                                  | **Format**                         | **Pseudo-Code**                            |
-  |:--------------|:-------------------------------------------------------|:-----------------------------------|:-------------------------------------------|
-  | `vloxei8.v`   | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x0  vd 6..0=0x07` | `vloxei8.v    vd, (rs1), vs2, vm`  | `ordered  8-bit indexed load of SEW data`  |
-  | `vloxei16.v`  | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x5  vd 6..0=0x07` | `vloxei16.v   vd, (rs1), vs2, vm`  | `ordered 16-bit indexed load of SEW data`  |
-  | `vloxei32.v`  | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x6  vd 6..0=0x07` | `vloxei32.v   vd, (rs1), vs2, vm`  | `ordered 32-bit indexed load of SEW data`  |
-  | `vloxei64.v`  | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x7  vd 6..0=0x07` | `vloxei64.v   vd, (rs1), vs2, vm`  | `ordered 64-bit indexed load of SEW data`  |
-  | `vsoxei8.v`   | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x0 vs3 6..0=0x27` | `vsoxei8.v    vs3, (rs1), vs2, vm` | `ordered  8-bit indexed store of SEW data` |
-  | `vsoxei16.v`  | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x5 vs3 6..0=0x27` | `vsoxei16.v   vs3, (rs1), vs2, vm` | `ordered 16-bit indexed store of SEW data` |
-  | `vsoxei32.v`  | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x6 vs3 6..0=0x27` | `vsoxei32.v   vs3, (rs1), vs2, vm` | `ordered 32-bit indexed store of SEW data` |
-  | `vsoxei64.v`  | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x7 vs3 6..0=0x27` | `vsoxei64.v   vs3, (rs1), vs2, vm` | `ordered 64-bit indexed store of SEW data` |
+  | **Name**     | **Opcode / Argument**                                  | **Format**                         | **Pseudo-Code**                            |
+  |:-------------|:-------------------------------------------------------|:-----------------------------------|:-------------------------------------------|
+  | `vloxei8.v`  | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x0  vd 6..0=0x07` | `vloxei8.v    vd, (rs1), vs2, vm`  | `ordered  8-bit indexed load of SEW data`  |
+  | `vloxei16.v` | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x5  vd 6..0=0x07` | `vloxei16.v   vd, (rs1), vs2, vm`  | `ordered 16-bit indexed load of SEW data`  |
+  | `vloxei32.v` | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x6  vd 6..0=0x07` | `vloxei32.v   vd, (rs1), vs2, vm`  | `ordered 32-bit indexed load of SEW data`  |
+  | `vloxei64.v` | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x7  vd 6..0=0x07` | `vloxei64.v   vd, (rs1), vs2, vm`  | `ordered 64-bit indexed load of SEW data`  |
+  | `vsoxei8.v`  | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x0 vs3 6..0=0x27` | `vsoxei8.v    vs3, (rs1), vs2, vm` | `ordered  8-bit indexed store of SEW data` |
+  | `vsoxei16.v` | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x5 vs3 6..0=0x27` | `vsoxei16.v   vs3, (rs1), vs2, vm` | `ordered 16-bit indexed store of SEW data` |
+  | `vsoxei32.v` | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x6 vs3 6..0=0x27` | `vsoxei32.v   vs3, (rs1), vs2, vm` | `ordered 32-bit indexed store of SEW data` |
+  | `vsoxei64.v` | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x7 vs3 6..0=0x27` | `vsoxei64.v   vs3, (rs1), vs2, vm` | `ordered 64-bit indexed store of SEW data` |
 
   : Vector Indexed-Ordered Instructions (including segment part)
 
 * **Unit-stride Fault-Only-First Loads**
 
-  | **Name**      | **Opcode / Argument**                                          | **Format**                   | **Pseudo-Code**                            |
-  |:--------------|:---------------------------------------------------------------|:-----------------------------|:-------------------------------------------|
-  | `vle8ff.v`    | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x0  vd 6..0=0x07` | `vle8ff.v    vd, (rs1), vm`  | `8-bit unit-stride fault-only-first load`  |
-  | `vle16ff.v`   | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x5  vd 6..0=0x07` | `vle16ff.v   vd, (rs1), vm`  | `16-bit unit-stride fault-only-first load` |
-  | `vle32ff.v`   | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x6  vd 6..0=0x07` | `vle32ff.v   vd, (rs1), vm`  | `32-bit unit-stride fault-only-first load` |
-  | `vle64ff.v`   | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x7  vd 6..0=0x07` | `vle64ff.v   vd, (rs1), vm`  | `64-bit unit-stride fault-only-first load` |
+  | **Name**    | **Opcode / Argument**                                          | **Format**                  | **Pseudo-Code**                            |
+  |:------------|:---------------------------------------------------------------|:----------------------------|:-------------------------------------------|
+  | `vle8ff.v`  | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x0  vd 6..0=0x07` | `vle8ff.v    vd, (rs1), vm` | `8-bit unit-stride fault-only-first load`  |
+  | `vle16ff.v` | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x5  vd 6..0=0x07` | `vle16ff.v   vd, (rs1), vm` | `16-bit unit-stride fault-only-first load` |
+  | `vle32ff.v` | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x6  vd 6..0=0x07` | `vle32ff.v   vd, (rs1), vm` | `32-bit unit-stride fault-only-first load` |
+  | `vle64ff.v` | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x7  vd 6..0=0x07` | `vle64ff.v   vd, (rs1), vm` | `64-bit unit-stride fault-only-first load` |
 
   : Unit-stride Fault-Only-First Loads
 
 * **Vector Load/Store Whole Registers**
 
-  | **Name**      | **Opcode / Argument**                                                  | **Format**             | **Pseudo-Code**                                               |
-  |:--------------|:-----------------------------------------------------------------------|:-----------------------|:--------------------------------------------------------------|
-  | `vl1re8.v`    | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vd  6..0=0x07` | `vl1re8.v    v3, (a0)` | `Load v3 with VLEN/8 bytes held at address in a0`             |
-  | `vl1re16.v`   | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 vd  6..0=0x07` | `vl1re16.v   v3, (a0)` | `Load v3 with VLEN/16 halfwords held at address in a0`        |
-  | `vl1re32.v`   | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x6 vd  6..0=0x07` | `vl1re32.v   v3, (a0)` | `Load v3 with VLEN/32 words held at address in a0`            |
-  | `vl1re64.v`   | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x7 vd  6..0=0x07` | `vl1re64.v   v3, (a0)` | `Load v3 with VLEN/64 doublewords held at address in a0`      |
-  | `vl2re8.v`    | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vd  6..0=0x07` | `vl2re8.v    v2, (a0)` | `Load v2-v3 with 2*VLEN/8 bytes from address in a0`           |
-  | `vl2re16.v`   | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 vd  6..0=0x07` | `vl2re16.v   v2, (a0)` | `Load v2-v3 with 2*VLEN/16 halfwords held at address in a0`   |
-  | `vl2re32.v`   | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x6 vd  6..0=0x07` | `vl2re32.v   v2, (a0)` | `Load v2-v3 with 2*VLEN/32 words held at address in a0`       |
-  | `vl2re64.v`   | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x7 vd  6..0=0x07` | `vl2re64.v   v2, (a0)` | `Load v2-v3 with 2*VLEN/64 doublewords held at address in a0` |
-  | `vl4re8.v`    | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vd  6..0=0x07` | `vl4re8.v    v4, (a0)` | `Load v4-v7 with 4*VLEN/8 bytes from address in a0`           |
-  | `vl4re16.v`   | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 vd  6..0=0x07` | `vl4re16.v   v4, (a0)` | `Load v4-v7 with 4*VLEN/16 bytes from address in a0`          |
-  | `vl4re32.v`   | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x6 vd  6..0=0x07` | `vl4re32.v   v4, (a0)` | `Load v4-v7 with 4*VLEN/32 bytes from address in a0`          |
-  | `vl4re64.v`   | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x7 vd  6..0=0x07` | `vl4re64.v   v4, (a0)` | `Load v4-v7 with 4*VLEN/64 bytes from address in a0`          |
-  | `vl8re8.v`    | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vd  6..0=0x07` | `vl8re8.v    v8, (a0)` | `Load v8-v15 with 8*VLEN/8 bytes from address in a0`          |
-  | `vl8re16.v`   | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 vd  6..0=0x07` | `vl8re16.v   v8, (a0)` | `Load v8-v15 with 8*VLEN/16 bytes from address in a0`         |
-  | `vl8re32.v`   | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x6 vd  6..0=0x07` | `vl8re32.v   v8, (a0)` | `Load v8-v15 with 8*VLEN/32 bytes from address in a0`         |
-  | `vl8re64.v`   | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x7 vd  6..0=0x07` | `vl8re64.v   v8, (a0)` | `Load v8-v15 with 8*VLEN/64 bytes from address in a0`         |
-  | `vs1r.v`      | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vs3 6..0=0x27` | `vs1r.v v3, (a1)`      | `Store v3 to address in a1`                                   |
-  | `vs2r.v`      | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vs3 6..0=0x27` | `vs2r.v v2, (a1)`      | `Store v2-v3 to address in a1`                                |
-  | `vs4r.v`      | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vs3 6..0=0x27` | `vs4r.v v4, (a1)`      | `Store v4-v7 to address in a1`                                |
-  | `vs8r.v`      | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vs3 6..0=0x27` | `vs8r.v v8, (a1)`      | `Store v8-v15 to address in a1`                               |
+  | **Name**    | **Opcode / Argument**                                                  | **Format**             | **Pseudo-Code**                                               |
+  |:------------|:-----------------------------------------------------------------------|:-----------------------|:--------------------------------------------------------------|
+  | `vl1re8.v`  | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vd  6..0=0x07` | `vl1re8.v    v3, (a0)` | `Load v3 with VLEN/8 bytes held at address in a0`             |
+  | `vl1re16.v` | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 vd  6..0=0x07` | `vl1re16.v   v3, (a0)` | `Load v3 with VLEN/16 halfwords held at address in a0`        |
+  | `vl1re32.v` | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x6 vd  6..0=0x07` | `vl1re32.v   v3, (a0)` | `Load v3 with VLEN/32 words held at address in a0`            |
+  | `vl1re64.v` | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x7 vd  6..0=0x07` | `vl1re64.v   v3, (a0)` | `Load v3 with VLEN/64 doublewords held at address in a0`      |
+  | `vl2re8.v`  | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vd  6..0=0x07` | `vl2re8.v    v2, (a0)` | `Load v2-v3 with 2*VLEN/8 bytes from address in a0`           |
+  | `vl2re16.v` | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 vd  6..0=0x07` | `vl2re16.v   v2, (a0)` | `Load v2-v3 with 2*VLEN/16 halfwords held at address in a0`   |
+  | `vl2re32.v` | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x6 vd  6..0=0x07` | `vl2re32.v   v2, (a0)` | `Load v2-v3 with 2*VLEN/32 words held at address in a0`       |
+  | `vl2re64.v` | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x7 vd  6..0=0x07` | `vl2re64.v   v2, (a0)` | `Load v2-v3 with 2*VLEN/64 doublewords held at address in a0` |
+  | `vl4re8.v`  | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vd  6..0=0x07` | `vl4re8.v    v4, (a0)` | `Load v4-v7 with 4*VLEN/8 bytes from address in a0`           |
+  | `vl4re16.v` | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 vd  6..0=0x07` | `vl4re16.v   v4, (a0)` | `Load v4-v7 with 4*VLEN/16 bytes from address in a0`          |
+  | `vl4re32.v` | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x6 vd  6..0=0x07` | `vl4re32.v   v4, (a0)` | `Load v4-v7 with 4*VLEN/32 bytes from address in a0`          |
+  | `vl4re64.v` | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x7 vd  6..0=0x07` | `vl4re64.v   v4, (a0)` | `Load v4-v7 with 4*VLEN/64 bytes from address in a0`          |
+  | `vl8re8.v`  | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vd  6..0=0x07` | `vl8re8.v    v8, (a0)` | `Load v8-v15 with 8*VLEN/8 bytes from address in a0`          |
+  | `vl8re16.v` | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 vd  6..0=0x07` | `vl8re16.v   v8, (a0)` | `Load v8-v15 with 8*VLEN/16 bytes from address in a0`         |
+  | `vl8re32.v` | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x6 vd  6..0=0x07` | `vl8re32.v   v8, (a0)` | `Load v8-v15 with 8*VLEN/32 bytes from address in a0`         |
+  | `vl8re64.v` | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x7 vd  6..0=0x07` | `vl8re64.v   v8, (a0)` | `Load v8-v15 with 8*VLEN/64 bytes from address in a0`         |
+  | `vs1r.v`    | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vs3 6..0=0x27` | `vs1r.v v3, (a1)`      | `Store v3 to address in a1`                                   |
+  | `vs2r.v`    | `31..29=1 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vs3 6..0=0x27` | `vs2r.v v2, (a1)`      | `Store v2-v3 to address in a1`                                |
+  | `vs4r.v`    | `31..29=3 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vs3 6..0=0x27` | `vs4r.v v4, (a1)`      | `Store v4-v7 to address in a1`                                |
+  | `vs8r.v`    | `31..29=7 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vs3 6..0=0x27` | `vs8r.v v8, (a1)`      | `Store v8-v15 to address in a1`                               |
 
   : Vector Load/Store Whole Registers
 
@@ -163,20 +163,20 @@ hi..lo=value or bit=value or arg=value (e.g. 6..2=0x45 10=1 rd=0)
 
   : OPFVF II
 
-  | **Name**      | **Opcode / Argument**                            | **Format**                    | **Pseudo-Code**                          |
-  |:--------------|:-------------------------------------------------|:------------------------------|:-----------------------------------------|
-  | `vfdiv.vf`    | `31..26=0x20 vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfdiv.vf vd, vs2, rs1, vm`   | `Floating-Point divide, vector-scalar`   |
-  | `vfrdiv.vf`   | `31..26=0x21 vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfrdiv.vf vd, vs2, rs1, vm`  | `scalar-vector, vd[i] = f[rs1]/vs2[i]`   |
-  | `vfmul.vf`    | `31..26=0x24 vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfmul.vf vd, vs2, rs1, vm`   | `Floating-Point multiply, vector-scalar` |
-  | `vfrsub.vf`   | `31..26=0x27 vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfrsub.vf vd, vs2, rs1, vm`  | `Scalar-vector vd[i] = f[rs1] - vs2[i]`  |
-  | `vfmadd.vf`   | `31..26=0x28 vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfmadd.vf vd, rs1, vs2, vm`  | `vd[i] = +(f[rs1] * vd[i]) + vs2[i]`     |
-  | `vfnmadd.vf`  | `31..26=0x29 vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfnmadd.vf vd, rs1, vs2, vm` | `vd[i] = -(f[rs1] * vd[i]) - vs2[i]`     |
-  | `vfmsub.vf`   | `31..26=0x2a vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfmsub.vf vd, rs1, vs2, vm`  | `vd[i] = +(f[rs1] * vd[i]) - vs2[i]`     |
-  | `vfnmsub.vf`  | `31..26=0x2b vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfnmsub.vf vd, rs1, vs2, vm` | `vd[i] = -(f[rs1] * vd[i]) + vs2[i]`     |
-  | `vfmacc.vf`   | `31..26=0x2c vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfmacc.vf vd, rs1, vs2, vm`  | `vd[i] = +(f[rs1] * vs2[i]) + vd[i]`     |
-  | `vfnmacc.vf`  | `31..26=0x2d vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfnmacc.vf vd, rs1, vs2, vm` | `vd[i] = -(f[rs1] * vs2[i]) - vd[i]`     |
-  | `vfmsac.vf`   | `31..26=0x2e vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfmsac.vf vd, rs1, vs2, vm`  | `vd[i] = +(f[rs1] * vs2[i]) - vd[i]`     |
-  | `vfnmsac.vf`  | `31..26=0x2f vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfnmsac.vf vd, rs1, vs2, vm` | `vd[i] = -(f[rs1] * vs2[i]) + vd[i]`     |
+  | **Name**     | **Opcode / Argument**                            | **Format**                    | **Pseudo-Code**                          |
+  |:-------------|:-------------------------------------------------|:------------------------------|:-----------------------------------------|
+  | `vfdiv.vf`   | `31..26=0x20 vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfdiv.vf vd, vs2, rs1, vm`   | `Floating-Point divide, vector-scalar`   |
+  | `vfrdiv.vf`  | `31..26=0x21 vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfrdiv.vf vd, vs2, rs1, vm`  | `scalar-vector, vd[i] = f[rs1]/vs2[i]`   |
+  | `vfmul.vf`   | `31..26=0x24 vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfmul.vf vd, vs2, rs1, vm`   | `Floating-Point multiply, vector-scalar` |
+  | `vfrsub.vf`  | `31..26=0x27 vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfrsub.vf vd, vs2, rs1, vm`  | `Scalar-vector vd[i] = f[rs1] - vs2[i]`  |
+  | `vfmadd.vf`  | `31..26=0x28 vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfmadd.vf vd, rs1, vs2, vm`  | `vd[i] = +(f[rs1] * vd[i]) + vs2[i]`     |
+  | `vfnmadd.vf` | `31..26=0x29 vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfnmadd.vf vd, rs1, vs2, vm` | `vd[i] = -(f[rs1] * vd[i]) - vs2[i]`     |
+  | `vfmsub.vf`  | `31..26=0x2a vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfmsub.vf vd, rs1, vs2, vm`  | `vd[i] = +(f[rs1] * vd[i]) - vs2[i]`     |
+  | `vfnmsub.vf` | `31..26=0x2b vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfnmsub.vf vd, rs1, vs2, vm` | `vd[i] = -(f[rs1] * vd[i]) + vs2[i]`     |
+  | `vfmacc.vf`  | `31..26=0x2c vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfmacc.vf vd, rs1, vs2, vm`  | `vd[i] = +(f[rs1] * vs2[i]) + vd[i]`     |
+  | `vfnmacc.vf` | `31..26=0x2d vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfnmacc.vf vd, rs1, vs2, vm` | `vd[i] = -(f[rs1] * vs2[i]) - vd[i]`     |
+  | `vfmsac.vf`  | `31..26=0x2e vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfmsac.vf vd, rs1, vs2, vm`  | `vd[i] = +(f[rs1] * vs2[i]) - vd[i]`     |
+  | `vfnmsac.vf` | `31..26=0x2f vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vfnmsac.vf vd, rs1, vs2, vm` | `vd[i] = -(f[rs1] * vs2[i]) + vd[i]`     |
 
   : OPFVF III
 
@@ -213,12 +213,12 @@ hi..lo=value or bit=value or arg=value (e.g. 6..2=0x45 10=1 rd=0)
 
   : OPFVV I
 
-  | **Name**   | **Opcode / Argument**                            | **Format**                     | **Pseudo-Code**                             |
-  |:-----------|:-------------------------------------------------|:-------------------------------|:--------------------------------------------|
-  | `vmfeq.vv` | `31..26=0x18 vm vs2 vs1 14..12=0x1 vd 6..0=0x57` | `vmfeq.vv vd, vs2, vs1, vm`    | `Compare equal, vector-vector`              |
-  | `vmfle.vv` | `31..26=0x19 vm vs2 vs1 14..12=0x1 vd 6..0=0x57` | `vmfle.vv vd, vs2, vs1, vm`    | `Compare less than or equal, vector-vector` |
-  | `vmflt.vv` | `31..26=0x1b vm vs2 vs1 14..12=0x1 vd 6..0=0x57` | `vmflt.vv vd, vs2, vs1, vm`    | `Compare less than, vector-vector`          |
-  | `vmfne.vv` | `31..26=0x1c vm vs2 vs1 14..12=0x1 vd 6..0=0x57` | `vmfne.vv vd, vs2, vs1, vm`    | `Compare not equal, vector-vector`          |
+  | **Name**   | **Opcode / Argument**                            | **Format**                  | **Pseudo-Code**                             |
+  |:-----------|:-------------------------------------------------|:----------------------------|:--------------------------------------------|
+  | `vmfeq.vv` | `31..26=0x18 vm vs2 vs1 14..12=0x1 vd 6..0=0x57` | `vmfeq.vv vd, vs2, vs1, vm` | `Compare equal, vector-vector`              |
+  | `vmfle.vv` | `31..26=0x19 vm vs2 vs1 14..12=0x1 vd 6..0=0x57` | `vmfle.vv vd, vs2, vs1, vm` | `Compare less than or equal, vector-vector` |
+  | `vmflt.vv` | `31..26=0x1b vm vs2 vs1 14..12=0x1 vd 6..0=0x57` | `vmflt.vv vd, vs2, vs1, vm` | `Compare less than, vector-vector`          |
+  | `vmfne.vv` | `31..26=0x1c vm vs2 vs1 14..12=0x1 vd 6..0=0x57` | `vmfne.vv vd, vs2, vs1, vm` | `Compare not equal, vector-vector`          |
 
   : OPFVV II
 
@@ -302,61 +302,61 @@ hi..lo=value or bit=value or arg=value (e.g. 6..2=0x45 10=1 rd=0)
 
 * **OPIVX**
 
-  | **Name**         | **Opcode / Argument**                            | **Format**                       | **Pseudo-Code**                                |
-  |:-----------------|:-------------------------------------------------|:---------------------------------|:-----------------------------------------------|
-  | `vadd.vx`        | `31..26=0x00 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vadd.vx vd, vs2, rs1, vm`       | `Single-Width Integer Add, vector-scalar`      |
-  | `vsub.vx`        | `31..26=0x02 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vsub.vx vd, vs2, rs1, vm`       | `Single-Width Integer Subtract, vector-scalar` |
-  | `vrsub.vx`       | `31..26=0x03 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vrsub.vx vd, vs2, rs1, vm`      | `vd[i] = x[rs1] - vs2[i]`                      |
-  | `vminu.vx`       | `31..26=0x04 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vminu.vx vd, vs2, rs1, vm`      | `Unsigned Integer Minimum, vector-scalar`      |
-  | `vmin.vx`        | `31..26=0x05 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vmin.vx vd, vs2, rs1, vm`       | `Signed Integer Minimum, vector-scalar`        |
-  | `vmaxu.vx`       | `31..26=0x06 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vmaxu.vx vd, vs2, rs1, vm`      | `Unsigned Integer Maximum, vector-scalar`      |
-  | `vmax.vx`        | `31..26=0x07 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vmax.vx vd, vs2, rs1, vm`       | `Signed Integer Maximum, vector-scalar`        |
-  | `vand.vx`        | `31..26=0x09 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vand.vx vd, vs2, rs1, vm`       | `Bitwise logical And, vector-scalar`           |
-  | `vor.vx`         | `31..26=0x0a vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vor.vx vd, vs2, rs1, vm`        | `Bitwise logical Or, vector-scalar`            |
-  | `vxor.vx`        | `31..26=0x0b vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vxor.vx vd, vs2, rs1, vm`       | `Bitwise logical Xor, vector-scalar`           |
-  | `vrgather.vx`    | `31..26=0x0c vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vrgather.vx vd, vs2, rs1, vm`   | `vd[i] = (x[rs1] >= VLMAX) ? 0 : vs2[x[rs1]]`  |
-  | `vslideup.vx`    | `31..26=0x0e vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vslideup.vx vd, vs2, rs1, vm`   | `vd[i+x[rs1]] = vs2[i]`                        |
-  | `vslidedown.vx`  | `31..26=0x0f vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vslidedown.vx vd, vs2, rs1, vm` | `vd[i] = vs2[i+x[rs1]]`                        |
+  | **Name**        | **Opcode / Argument**                            | **Format**                       | **Pseudo-Code**                                |
+  |:----------------|:-------------------------------------------------|:---------------------------------|:-----------------------------------------------|
+  | `vadd.vx`       | `31..26=0x00 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vadd.vx vd, vs2, rs1, vm`       | `Single-Width Integer Add, vector-scalar`      |
+  | `vsub.vx`       | `31..26=0x02 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vsub.vx vd, vs2, rs1, vm`       | `Single-Width Integer Subtract, vector-scalar` |
+  | `vrsub.vx`      | `31..26=0x03 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vrsub.vx vd, vs2, rs1, vm`      | `vd[i] = x[rs1] - vs2[i]`                      |
+  | `vminu.vx`      | `31..26=0x04 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vminu.vx vd, vs2, rs1, vm`      | `Unsigned Integer Minimum, vector-scalar`      |
+  | `vmin.vx`       | `31..26=0x05 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vmin.vx vd, vs2, rs1, vm`       | `Signed Integer Minimum, vector-scalar`        |
+  | `vmaxu.vx`      | `31..26=0x06 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vmaxu.vx vd, vs2, rs1, vm`      | `Unsigned Integer Maximum, vector-scalar`      |
+  | `vmax.vx`       | `31..26=0x07 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vmax.vx vd, vs2, rs1, vm`       | `Signed Integer Maximum, vector-scalar`        |
+  | `vand.vx`       | `31..26=0x09 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vand.vx vd, vs2, rs1, vm`       | `Bitwise logical And, vector-scalar`           |
+  | `vor.vx`        | `31..26=0x0a vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vor.vx vd, vs2, rs1, vm`        | `Bitwise logical Or, vector-scalar`            |
+  | `vxor.vx`       | `31..26=0x0b vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vxor.vx vd, vs2, rs1, vm`       | `Bitwise logical Xor, vector-scalar`           |
+  | `vrgather.vx`   | `31..26=0x0c vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vrgather.vx vd, vs2, rs1, vm`   | `vd[i] = (x[rs1] >= VLMAX) ? 0 : vs2[x[rs1]]`  |
+  | `vslideup.vx`   | `31..26=0x0e vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vslideup.vx vd, vs2, rs1, vm`   | `vd[i+x[rs1]] = vs2[i]`                        |
+  | `vslidedown.vx` | `31..26=0x0f vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vslidedown.vx vd, vs2, rs1, vm` | `vd[i] = vs2[i+x[rs1]]`                        |
 
   : OPIVX I
 
-  | **Name**     | **Opcode / Argument**                                   | **Format**                     | **Pseudo-Code**                                                         |
-  |:-------------|:--------------------------------------------------------|:-------------------------------|:------------------------------------------------------------------------|
-  | `vadc.vxm`   | `31..26=0x10 25=0 vs2 rs1 14..12=0x4 vd 6..0=0x57`      | `vadc.vxm vd, vs2, rs1, v0`    | `vd[i] = vs2[i] + x[rs1] + v0.mask[i], vector-scalar`                   |
-  | `vmadc.vxm`  | `31..26=0x11 25=0 vs2 rs1 14..12=0x4 vd 6..0=0x57`      | `vmadc.vxm vd, vs2, rs1, v0`   | `vd.mask[i] = carry_out(vs2[i] + x[rs1] + v0.mask[i]), vector-scalar`   |
-  | `vmadc.vx`   | `31..26=0x11 25=1 vs2 rs1 14..12=0x4 vd 6..0=0x57`      | `vmadc.vx vd, vs2, rs1`        | `vd.mask[i] = carry_out(vs2[i] + x[rs1]), vector-scalar, no carry-in`   |
-  | `vsbc.vxm`   | `31..26=0x12 25=0 vs2 rs1 14..12=0x4 vd 6..0=0x57`      | `vsbc.vxm vd, vs2, rs1, v0`    | `vd[i] = vs2[i] - x[rs1] - v0.mask[i], vector-scalar`                   |
-  | `vmsbc.vxm`  | `31..26=0x13 25=0 vs2 rs1 14..12=0x4 vd 6..0=0x57`      | `vmsbc.vxm vd, vs2, rs1, v0`   | `vd.mask[i] = borrow_out(vs2[i] - x[rs1] - v0.mask[i]), vector-scalar`  |
-  | `vmsbc.vx`   | `31..26=0x13 25=1 vs2 rs1 14..12=0x4 vd 6..0=0x57`      | `vmsbc.vx vd, vs2, rs1`        | `vd.mask[i] = borrow_out(vs2[i] - x[rs1]), vector-scalar, no borrow-in` |
-  | `vmerge.vxm` | `31..26=0x17 25=0 vs2 rs1 14..12=0x4 vd 6..0=0x57`      | `vmerge.vxm vd, vs2, rs1, v0`  | `vd[i] = v0.mask[i] ? x[rs1] : vs2[i]`                                  |
-  | `vmv.v.x`    | `31..26=0x17 25=1 24..20=0 rs1 14..12=0x4 vd 6..0=0x57` | `vmv.v.x vd, rs1`              | `vd[i] = x[rs1]`                                                        |
-  | `vmseq.vx`   | `31..26=0x18 vm vs2 rs1 14..12=0x4 vd 6..0=0x57`        | `vmseq.vx vd, vs2, rs1, vm`    | `Set if equal, vector-scalar`                                           |
-  | `vmsne.vx`   | `31..26=0x19 vm vs2 rs1 14..12=0x4 vd 6..0=0x57`        | `vmsne.vx vd, vs2, rs1, vm`    | `Set if not equal, vector-scalar`                                       |
-  | `vmsltu.vx`  | `31..26=0x1a vm vs2 rs1 14..12=0x4 vd 6..0=0x57`        | `vmsltu.vx vd, vs2, rs1, vm`   | `Set if less than, unsigned, vector-scalar`                             |
-  | `vmslt.vx`   | `31..26=0x1b vm vs2 rs1 14..12=0x4 vd 6..0=0x57`        | `vmslt.vx vd, vs2, rs1, vm`    | `Set if less than, signed, vector-scalar`                               |
-  | `vmsleu.vx`  | `31..26=0x1c vm vs2 rs1 14..12=0x4 vd 6..0=0x57`        | `vmsleu.vx vd, vs2, rs1, vm`   | `Set if less than or equal, unsigned, vector-scalar`                    |
-  | `vmsle.vx`   | `31..26=0x1d vm vs2 rs1 14..12=0x4 vd 6..0=0x57`        | `vmsle.vx vd, vs2, rs1, vm`    | `Set if less than or equal, signed, vector-scalar`                      |
-  | `vmsgtu.vx`  | `31..26=0x1e vm vs2 rs1 14..12=0x4 vd 6..0=0x57`        | `vmsgtu.vx vd, vs2, rs1, vm`   | `Set if greater than, unsigned, vector-scalar`                          |
-  | `vmsgt.vx`   | `31..26=0x1f vm vs2 rs1 14..12=0x4 vd 6..0=0x57`        | `vmsgt.vx vd, vs2, rs1, vm`    | `Set if greater than, signed, vector-scalar`                            |
+  | **Name**     | **Opcode / Argument**                                   | **Format**                    | **Pseudo-Code**                                                         |
+  |:-------------|:--------------------------------------------------------|:------------------------------|:------------------------------------------------------------------------|
+  | `vadc.vxm`   | `31..26=0x10 25=0 vs2 rs1 14..12=0x4 vd 6..0=0x57`      | `vadc.vxm vd, vs2, rs1, v0`   | `vd[i] = vs2[i] + x[rs1] + v0.mask[i], vector-scalar`                   |
+  | `vmadc.vxm`  | `31..26=0x11 25=0 vs2 rs1 14..12=0x4 vd 6..0=0x57`      | `vmadc.vxm vd, vs2, rs1, v0`  | `vd.mask[i] = carry_out(vs2[i] + x[rs1] + v0.mask[i]), vector-scalar`   |
+  | `vmadc.vx`   | `31..26=0x11 25=1 vs2 rs1 14..12=0x4 vd 6..0=0x57`      | `vmadc.vx vd, vs2, rs1`       | `vd.mask[i] = carry_out(vs2[i] + x[rs1]), vector-scalar, no carry-in`   |
+  | `vsbc.vxm`   | `31..26=0x12 25=0 vs2 rs1 14..12=0x4 vd 6..0=0x57`      | `vsbc.vxm vd, vs2, rs1, v0`   | `vd[i] = vs2[i] - x[rs1] - v0.mask[i], vector-scalar`                   |
+  | `vmsbc.vxm`  | `31..26=0x13 25=0 vs2 rs1 14..12=0x4 vd 6..0=0x57`      | `vmsbc.vxm vd, vs2, rs1, v0`  | `vd.mask[i] = borrow_out(vs2[i] - x[rs1] - v0.mask[i]), vector-scalar`  |
+  | `vmsbc.vx`   | `31..26=0x13 25=1 vs2 rs1 14..12=0x4 vd 6..0=0x57`      | `vmsbc.vx vd, vs2, rs1`       | `vd.mask[i] = borrow_out(vs2[i] - x[rs1]), vector-scalar, no borrow-in` |
+  | `vmerge.vxm` | `31..26=0x17 25=0 vs2 rs1 14..12=0x4 vd 6..0=0x57`      | `vmerge.vxm vd, vs2, rs1, v0` | `vd[i] = v0.mask[i] ? x[rs1] : vs2[i]`                                  |
+  | `vmv.v.x`    | `31..26=0x17 25=1 24..20=0 rs1 14..12=0x4 vd 6..0=0x57` | `vmv.v.x vd, rs1`             | `vd[i] = x[rs1]`                                                        |
+  | `vmseq.vx`   | `31..26=0x18 vm vs2 rs1 14..12=0x4 vd 6..0=0x57`        | `vmseq.vx vd, vs2, rs1, vm`   | `Set if equal, vector-scalar`                                           |
+  | `vmsne.vx`   | `31..26=0x19 vm vs2 rs1 14..12=0x4 vd 6..0=0x57`        | `vmsne.vx vd, vs2, rs1, vm`   | `Set if not equal, vector-scalar`                                       |
+  | `vmsltu.vx`  | `31..26=0x1a vm vs2 rs1 14..12=0x4 vd 6..0=0x57`        | `vmsltu.vx vd, vs2, rs1, vm`  | `Set if less than, unsigned, vector-scalar`                             |
+  | `vmslt.vx`   | `31..26=0x1b vm vs2 rs1 14..12=0x4 vd 6..0=0x57`        | `vmslt.vx vd, vs2, rs1, vm`   | `Set if less than, signed, vector-scalar`                               |
+  | `vmsleu.vx`  | `31..26=0x1c vm vs2 rs1 14..12=0x4 vd 6..0=0x57`        | `vmsleu.vx vd, vs2, rs1, vm`  | `Set if less than or equal, unsigned, vector-scalar`                    |
+  | `vmsle.vx`   | `31..26=0x1d vm vs2 rs1 14..12=0x4 vd 6..0=0x57`        | `vmsle.vx vd, vs2, rs1, vm`   | `Set if less than or equal, signed, vector-scalar`                      |
+  | `vmsgtu.vx`  | `31..26=0x1e vm vs2 rs1 14..12=0x4 vd 6..0=0x57`        | `vmsgtu.vx vd, vs2, rs1, vm`  | `Set if greater than, unsigned, vector-scalar`                          |
+  | `vmsgt.vx`   | `31..26=0x1f vm vs2 rs1 14..12=0x4 vd 6..0=0x57`        | `vmsgt.vx vd, vs2, rs1, vm`   | `Set if greater than, signed, vector-scalar`                            |
 
   : OPIVX II
 
-  | **Name**      | **Opcode / Argument**                            | **Format**                     | **Pseudo-Code**                                           |
-  |:--------------|:-------------------------------------------------|:-------------------------------|:----------------------------------------------------------|
-  | `vsaddu.vx`   | `31..26=0x20 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vsaddu.vx vd, vs2, rs1, vm`   | `Saturating adds of unsigned integer, vector-scalar`      |
-  | `vsadd.vx`    | `31..26=0x21 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vsadd.vx vd, vs2, rs1, vm`    | `Saturating adds of signed integers, vector-scalar`       |
-  | `vssubu.vx`   | `31..26=0x22 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vssubu.vx vd, vs2, rs1, vm`   | `Saturating subtract of unsigned integers, vector-scalar` |
-  | `vssub.vx`    | `31..26=0x23 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vssub.vx vd, vs2, rs1, vm`    | `Saturating subtract of signed integers, vector-scalar`   |
-  | `vsll.vx`     | `31..26=0x25 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vsll.vx vd, vs2, rs1, vm`     | `Single-Width Bit Shift, vector-scalar`                   |
-  | `vsmul.vx`    | `31..26=0x27 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vsmul.vx vd, vs2, rs1, vm`    | `vd[i] = clip(roundoff_signed(vs2[i]*x[rs1], SEW-1))`     |
-  | `vsrl.vx`     | `31..26=0x28 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vsrl.vx vd, vs2, rs1, vm`     | `Single-Width Bit Shift, vector-scalar`                   |
-  | `vsra.vx`     | `31..26=0x29 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vsra.vx vd, vs2, rs1, vm`     | `Single-Width Bit Shift, vector-scalar`                   |
-  | `vssrl.vx`    | `31..26=0x2a vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vssrl.vx vd, vs2, rs1, vm`    | `vd[i] = roundoff_unsigned(vs2[i], x[rs1])`               |
-  | `vssra.vx`    | `31..26=0x2b vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vssra.vx vd, vs2, rs1, vm`    | `vd[i] = roundoff_signed(vs2[i], x[rs1])`                 |
-  | `vnsrl.wx`    | `31..26=0x2c vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vnsrl.wx vd, vs2, rs1, vm`    | `SEW = (2*SEW) >> SEW, vector-scalar`                     |
-  | `vnsra.wx`    | `31..26=0x2d vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vnsra.wx vd, vs2, rs1, vm`    | `SEW = (2*SEW) >> SEW, vector-scalar`                     |
-  | `vnclipu.wx`  | `31..26=0x2e vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vnclipu.wx vd, vs2, rs1, vm`  | `vd[i] = clip(roundoff_unsigned(vs2[i], x[rs1]))`         |
-  | `vnclip.wx`   | `31..26=0x2f vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vnclip.wx vd, vs2, rs1, vm`   | `vd[i] = clip(roundoff_signed(vs2[i], x[rs1]))`           |
+  | **Name**     | **Opcode / Argument**                            | **Format**                    | **Pseudo-Code**                                           |
+  |:-------------|:-------------------------------------------------|:------------------------------|:----------------------------------------------------------|
+  | `vsaddu.vx`  | `31..26=0x20 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vsaddu.vx vd, vs2, rs1, vm`  | `Saturating adds of unsigned integer, vector-scalar`      |
+  | `vsadd.vx`   | `31..26=0x21 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vsadd.vx vd, vs2, rs1, vm`   | `Saturating adds of signed integers, vector-scalar`       |
+  | `vssubu.vx`  | `31..26=0x22 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vssubu.vx vd, vs2, rs1, vm`  | `Saturating subtract of unsigned integers, vector-scalar` |
+  | `vssub.vx`   | `31..26=0x23 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vssub.vx vd, vs2, rs1, vm`   | `Saturating subtract of signed integers, vector-scalar`   |
+  | `vsll.vx`    | `31..26=0x25 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vsll.vx vd, vs2, rs1, vm`    | `Single-Width Bit Shift, vector-scalar`                   |
+  | `vsmul.vx`   | `31..26=0x27 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vsmul.vx vd, vs2, rs1, vm`   | `vd[i] = clip(roundoff_signed(vs2[i]*x[rs1], SEW-1))`     |
+  | `vsrl.vx`    | `31..26=0x28 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vsrl.vx vd, vs2, rs1, vm`    | `Single-Width Bit Shift, vector-scalar`                   |
+  | `vsra.vx`    | `31..26=0x29 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vsra.vx vd, vs2, rs1, vm`    | `Single-Width Bit Shift, vector-scalar`                   |
+  | `vssrl.vx`   | `31..26=0x2a vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vssrl.vx vd, vs2, rs1, vm`   | `vd[i] = roundoff_unsigned(vs2[i], x[rs1])`               |
+  | `vssra.vx`   | `31..26=0x2b vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vssra.vx vd, vs2, rs1, vm`   | `vd[i] = roundoff_signed(vs2[i], x[rs1])`                 |
+  | `vnsrl.wx`   | `31..26=0x2c vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vnsrl.wx vd, vs2, rs1, vm`   | `SEW = (2*SEW) >> SEW, vector-scalar`                     |
+  | `vnsra.wx`   | `31..26=0x2d vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vnsra.wx vd, vs2, rs1, vm`   | `SEW = (2*SEW) >> SEW, vector-scalar`                     |
+  | `vnclipu.wx` | `31..26=0x2e vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vnclipu.wx vd, vs2, rs1, vm` | `vd[i] = clip(roundoff_unsigned(vs2[i], x[rs1]))`         |
+  | `vnclip.wx`  | `31..26=0x2f vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vnclip.wx vd, vs2, rs1, vm`  | `vd[i] = clip(roundoff_signed(vs2[i], x[rs1]))`           |
 
   : OPIVX III
 
@@ -378,41 +378,41 @@ hi..lo=value or bit=value or arg=value (e.g. 6..2=0x45 10=1 rd=0)
 
   : OPIVV I
 
-  | **Name**      | **Opcode / Argument**                                   | **Format**                     | **Pseudo-Code**                                                         |
-  |:--------------|:--------------------------------------------------------|:-------------------------------|:------------------------------------------------------------------------|
-  | `vadc.vvm`    | `31..26=0x10 25=0 vs2 vs1 14..12=0x0 vd 6..0=0x57`      | `vadc.vvm vd, vs2, vs1, v0`    | `vd[i] = vs2[i] + vs1[i] + v0.mask[i], vector-vector`                   |
-  | `vmadc.vvm`   | `31..26=0x11 25=0 vs2 vs1 14..12=0x0 vd 6..0=0x57`      | `vmadc.vvm vd, vs2, vs1, v0`   | `vd.mask[i] = carry_out(vs2[i] + vs1[i] + v0.mask[i]), vector-vector`   |
-  | `vmadc.vv`    | `31..26=0x11 25=1 vs2 vs1 14..12=0x0 vd 6..0=0x57`      | `vmadc.vv vd, vs2, vs1`        | `vd.mask[i] = carry_out(vs2[i] + vs1[i]), vector-vector, no carry-in`   |
-  | `vsbc.vvm`    | `31..26=0x12 25=0 vs2 vs1 14..12=0x0 vd 6..0=0x57`      | `vsbc.vvm vd, vs2, vs1, v0`    | `vd[i] = vs2[i] - vs1[i] - v0.mask[i], vector-vector`                   |
-  | `vmsbc.vvm`   | `31..26=0x13 25=0 vs2 vs1 14..12=0x0 vd 6..0=0x57`      | `vmsbc.vvm vd, vs2, vs1, v0`   | `vd.mask[i] = borrow_out(vs2[i] - vs1[i] - v0.mask[i]), vector-vector`  |
-  | `vmsbc.vv`    | `31..26=0x13 25=1 vs2 vs1 14..12=0x0 vd 6..0=0x57`      | `vmsbc.vv vd, vs2, vs1`        | `vd.mask[i] = borrow_out(vs2[i] - vs1[i]), vector-vector, no borrow-in` |
-  | `vmerge.vvm`  | `31..26=0x17 25=0 vs2 vs1 14..12=0x0 vd 6..0=0x57`      | `vmerge.vvm vd, vs2, vs1, v0`  | `vd[i] = v0.mask[i] ? vs1[i] : vs2[i]`                                  |
-  | `vmv.v.v`     | `31..26=0x17 25=1 24..20=0 vs1 14..12=0x0 vd 6..0=0x57` | `vmv.v.v vd, vs1`              | `vd[i] = vs1[i]`                                                        |
-  | `vmseq.vv`    | `31..26=0x18 vm vs2 vs1 14..12=0x0 vd 6..0=0x57`        | `vmseq.vv vd, vs2, vs1, vm`    | `Set if equal, vector-vector`                                           |
-  | `vmsne.vv`    | `31..26=0x19 vm vs2 vs1 14..12=0x0 vd 6..0=0x57`        | `vmsne.vv vd, vs2, vs1, vm`    | `Set if not equal, vector-vector`                                       |
-  | `vmsltu.vv`   | `31..26=0x1a vm vs2 vs1 14..12=0x0 vd 6..0=0x57`        | `vmsltu.vv vd, vs2, vs1, vm`   | `Set if less than, unsigned, vector-vector`                             |
-  | `vmslt.vv`    | `31..26=0x1b vm vs2 vs1 14..12=0x0 vd 6..0=0x57`        | `vmslt.vv vd, vs2, vs1, vm`    | `Set if less than, signed, vector-vector`                               |
-  | `vmsleu.vv`   | `31..26=0x1c vm vs2 vs1 14..12=0x0 vd 6..0=0x57`        | `vmsleu.vv vd, vs2, vs1, vm`   | `Set if less than or equal, unsigned, vector-vector`                    |
-  | `vmsle.vv`    | `31..26=0x1d vm vs2 vs1 14..12=0x0 vd 6..0=0x57`        | `vmsle.vv vd, vs2, vs1, vm`    | `Set if less than or equal, signed, vector-vector`                      |
+  | **Name**     | **Opcode / Argument**                                   | **Format**                    | **Pseudo-Code**                                                         |
+  |:-------------|:--------------------------------------------------------|:------------------------------|:------------------------------------------------------------------------|
+  | `vadc.vvm`   | `31..26=0x10 25=0 vs2 vs1 14..12=0x0 vd 6..0=0x57`      | `vadc.vvm vd, vs2, vs1, v0`   | `vd[i] = vs2[i] + vs1[i] + v0.mask[i], vector-vector`                   |
+  | `vmadc.vvm`  | `31..26=0x11 25=0 vs2 vs1 14..12=0x0 vd 6..0=0x57`      | `vmadc.vvm vd, vs2, vs1, v0`  | `vd.mask[i] = carry_out(vs2[i] + vs1[i] + v0.mask[i]), vector-vector`   |
+  | `vmadc.vv`   | `31..26=0x11 25=1 vs2 vs1 14..12=0x0 vd 6..0=0x57`      | `vmadc.vv vd, vs2, vs1`       | `vd.mask[i] = carry_out(vs2[i] + vs1[i]), vector-vector, no carry-in`   |
+  | `vsbc.vvm`   | `31..26=0x12 25=0 vs2 vs1 14..12=0x0 vd 6..0=0x57`      | `vsbc.vvm vd, vs2, vs1, v0`   | `vd[i] = vs2[i] - vs1[i] - v0.mask[i], vector-vector`                   |
+  | `vmsbc.vvm`  | `31..26=0x13 25=0 vs2 vs1 14..12=0x0 vd 6..0=0x57`      | `vmsbc.vvm vd, vs2, vs1, v0`  | `vd.mask[i] = borrow_out(vs2[i] - vs1[i] - v0.mask[i]), vector-vector`  |
+  | `vmsbc.vv`   | `31..26=0x13 25=1 vs2 vs1 14..12=0x0 vd 6..0=0x57`      | `vmsbc.vv vd, vs2, vs1`       | `vd.mask[i] = borrow_out(vs2[i] - vs1[i]), vector-vector, no borrow-in` |
+  | `vmerge.vvm` | `31..26=0x17 25=0 vs2 vs1 14..12=0x0 vd 6..0=0x57`      | `vmerge.vvm vd, vs2, vs1, v0` | `vd[i] = v0.mask[i] ? vs1[i] : vs2[i]`                                  |
+  | `vmv.v.v`    | `31..26=0x17 25=1 24..20=0 vs1 14..12=0x0 vd 6..0=0x57` | `vmv.v.v vd, vs1`             | `vd[i] = vs1[i]`                                                        |
+  | `vmseq.vv`   | `31..26=0x18 vm vs2 vs1 14..12=0x0 vd 6..0=0x57`        | `vmseq.vv vd, vs2, vs1, vm`   | `Set if equal, vector-vector`                                           |
+  | `vmsne.vv`   | `31..26=0x19 vm vs2 vs1 14..12=0x0 vd 6..0=0x57`        | `vmsne.vv vd, vs2, vs1, vm`   | `Set if not equal, vector-vector`                                       |
+  | `vmsltu.vv`  | `31..26=0x1a vm vs2 vs1 14..12=0x0 vd 6..0=0x57`        | `vmsltu.vv vd, vs2, vs1, vm`  | `Set if less than, unsigned, vector-vector`                             |
+  | `vmslt.vv`   | `31..26=0x1b vm vs2 vs1 14..12=0x0 vd 6..0=0x57`        | `vmslt.vv vd, vs2, vs1, vm`   | `Set if less than, signed, vector-vector`                               |
+  | `vmsleu.vv`  | `31..26=0x1c vm vs2 vs1 14..12=0x0 vd 6..0=0x57`        | `vmsleu.vv vd, vs2, vs1, vm`  | `Set if less than or equal, unsigned, vector-vector`                    |
+  | `vmsle.vv`   | `31..26=0x1d vm vs2 vs1 14..12=0x0 vd 6..0=0x57`        | `vmsle.vv vd, vs2, vs1, vm`   | `Set if less than or equal, signed, vector-vector`                      |
 
   : OPIVV II
 
-  | **Name**     | **Opcode / Argument**                            | **Format**                     | **Pseudo-Code**                                           |
-  |:-------------|:-------------------------------------------------|:-------------------------------|:----------------------------------------------------------|
-  | `vsaddu.vv`  | `31..26=0x20 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vsaddu.vv vd, vs2, vs1, vm`   | `Saturating adds of unsigned integer, vector-vector`      |
-  | `vsadd.vv`   | `31..26=0x21 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vsadd.vv vd, vs2, vs1, vm`    | `Saturating adds of signed integers, vector-vector`       |
-  | `vssubu.vv`  | `31..26=0x22 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vssubu.vv vd, vs2, vs1, vm`   | `Saturating subtract of unsigned integers, vector-vector` |
-  | `vssub.vv`   | `31..26=0x23 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vssub.vv vd, vs2, vs1, vm`    | `Saturating subtract of signed integers, vector-vector`   |
-  | `vsll.vv`    | `31..26=0x25 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vsll.vv vd, vs2, vs1, vm`     | `Single-Width Bit Shift, vector-vector`                   |
-  | `vsmul.vv`   | `31..26=0x27 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vsmul.vv vd, vs2, vs1, vm`    | `vd[i] = clip(roundoff_signed(vs2[i]*vs1[i], SEW-1))`     |
-  | `vsrl.vv`    | `31..26=0x28 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vsrl.vv vd, vs2, vs1, vm`     | `Single-Width Bit Shift, vector-vector`                   |
-  | `vsra.vv`    | `31..26=0x29 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vsra.vv vd, vs2, vs1, vm`     | `Single-Width Bit Shift, vector-vector`                   |
-  | `vssrl.vv`   | `31..26=0x2a vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vssrl.vv vd, vs2, vs1, vm`    | `vd[i] = roundoff_unsigned(vs2[i], vs1[i])`               |
-  | `vssra.vv`   | `31..26=0x2b vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vssra.vv vd, vs2, vs1, vm`    | `vd[i] = roundoff_signed(vs2[i],vs1[i])`                  |
-  | `vnsrl.wv`   | `31..26=0x2c vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vnsrl.wv vd, vs2, vs1, vm`    | `SEW = (2*SEW) >> SEW, vector-vector`                     |
-  | `vnsra.wv`   | `31..26=0x2d vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vnsra.wv vd, vs2, vs1, vm`    | `SEW = (2*SEW) >> SEW, vector-vector`                     |
-  | `vnclipu.wv` | `31..26=0x2e vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vnclipu.wv vd, vs2, vs1, vm`  | `vd[i] = clip(roundoff_unsigned(vs2[i], vs1[i]))`         |
-  | `vnclip.wv`  | `31..26=0x2f vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vnclip.wv vd, vs2, vs1, vm`   | `vd[i] = clip(roundoff_signed(vs2[i], vs1[i]))`           |
+  | **Name**     | **Opcode / Argument**                            | **Format**                    | **Pseudo-Code**                                           |
+  |:-------------|:-------------------------------------------------|:------------------------------|:----------------------------------------------------------|
+  | `vsaddu.vv`  | `31..26=0x20 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vsaddu.vv vd, vs2, vs1, vm`  | `Saturating adds of unsigned integer, vector-vector`      |
+  | `vsadd.vv`   | `31..26=0x21 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vsadd.vv vd, vs2, vs1, vm`   | `Saturating adds of signed integers, vector-vector`       |
+  | `vssubu.vv`  | `31..26=0x22 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vssubu.vv vd, vs2, vs1, vm`  | `Saturating subtract of unsigned integers, vector-vector` |
+  | `vssub.vv`   | `31..26=0x23 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vssub.vv vd, vs2, vs1, vm`   | `Saturating subtract of signed integers, vector-vector`   |
+  | `vsll.vv`    | `31..26=0x25 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vsll.vv vd, vs2, vs1, vm`    | `Single-Width Bit Shift, vector-vector`                   |
+  | `vsmul.vv`   | `31..26=0x27 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vsmul.vv vd, vs2, vs1, vm`   | `vd[i] = clip(roundoff_signed(vs2[i]*vs1[i], SEW-1))`     |
+  | `vsrl.vv`    | `31..26=0x28 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vsrl.vv vd, vs2, vs1, vm`    | `Single-Width Bit Shift, vector-vector`                   |
+  | `vsra.vv`    | `31..26=0x29 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vsra.vv vd, vs2, vs1, vm`    | `Single-Width Bit Shift, vector-vector`                   |
+  | `vssrl.vv`   | `31..26=0x2a vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vssrl.vv vd, vs2, vs1, vm`   | `vd[i] = roundoff_unsigned(vs2[i], vs1[i])`               |
+  | `vssra.vv`   | `31..26=0x2b vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vssra.vv vd, vs2, vs1, vm`   | `vd[i] = roundoff_signed(vs2[i],vs1[i])`                  |
+  | `vnsrl.wv`   | `31..26=0x2c vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vnsrl.wv vd, vs2, vs1, vm`   | `SEW = (2*SEW) >> SEW, vector-vector`                     |
+  | `vnsra.wv`   | `31..26=0x2d vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vnsra.wv vd, vs2, vs1, vm`   | `SEW = (2*SEW) >> SEW, vector-vector`                     |
+  | `vnclipu.wv` | `31..26=0x2e vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vnclipu.wv vd, vs2, vs1, vm` | `vd[i] = clip(roundoff_unsigned(vs2[i], vs1[i]))`         |
+  | `vnclip.wv`  | `31..26=0x2f vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vnclip.wv vd, vs2, vs1, vm`  | `vd[i] = clip(roundoff_signed(vs2[i], vs1[i]))`           |
 
   : OPIVV III
 
@@ -438,19 +438,19 @@ hi..lo=value or bit=value or arg=value (e.g. 6..2=0x45 10=1 rd=0)
 
   : OPIVI I
 
-  | **Name**      | **Opcode / Argument**                                     | **Format**                      | **Pseudo-Code**                                                       |
-  |:--------------|:----------------------------------------------------------|:--------------------------------|:----------------------------------------------------------------------|
-  | `vadc.vim`    | `31..26=0x10 25=0 vs2 simm5 14..12=0x3 vd 6..0=0x57`      | `vadc.vim vd, vs2, imm, v0`     | `vd[i] = vs2[i] + imm + v0.mask[i], vector-immediate`                 |
-  | `vmadc.vim`   | `31..26=0x11 25=0 vs2 simm5 14..12=0x3 vd 6..0=0x57`      | `vmadc.vim vd, vs2, imm, v0`    | `vd.mask[i] = carry_out(vs2[i] + imm + v0.mask[i]), vector-immediate` |
-  | `vmadc.vi`    | `31..26=0x11 25=1 vs2 simm5 14..12=0x3 vd 6..0=0x57`      | `vmadc.vi vd, vs2, imm`         | `vector-immediate, no carry-in`                                       |
-  | `vmerge.vim`  | `31..26=0x17 25=0 vs2 simm5 14..12=0x3 vd 6..0=0x57`      | `vmerge.vim vd, vs2, imm, v0`   | `vd[i] = v0.mask[i] ? imm : vs2[i]`                                   |
-  | `vmv.v.i`     | `31..26=0x17 25=1 24..20=0 simm5 14..12=0x3 vd 6..0=0x57` | `vmv.v.i vd, imm`               | `vd[i] = imm`                                                         |
-  | `vmseq.vi`    | `31..26=0x18 vm vs2 simm5 14..12=0x3 vd 6..0=0x57`        | `vmseq.vi vd, vs2, imm, vm`     | `Set if equal, vector-immediate`                                      |
-  | `vmsne.vi`    | `31..26=0x19 vm vs2 simm5 14..12=0x3 vd 6..0=0x57`        | `vmsne.vi vd, vs2, imm, vm`     | `Set if not equal, vector-immediate`                                  |
-  | `vmsleu.vi`   | `31..26=0x1c vm vs2 simm5 14..12=0x3 vd 6..0=0x57`        | `vmsleu.vi vd, vs2, imm, vm`    | `Set if less than or equal, unsigned, vector-immediate`               |
-  | `vmsle.vi`    | `31..26=0x1d vm vs2 simm5 14..12=0x3 vd 6..0=0x57`        | `vmsle.vi vd, vs2, imm, vm`     | `Set if less than or equal, signed, vector-immediate`                 |
-  | `vmsgtu.vi`   | `31..26=0x1e vm vs2 simm5 14..12=0x3 vd 6..0=0x57`        | `vmsgtu.vi vd, vs2, imm, vm`    | `Set if greater than, unsigned, vector-immediate`                     |
-  | `vmsgt.vi`    | `31..26=0x1f vm vs2 simm5 14..12=0x3 vd 6..0=0x57`        | `vmsgt.vi vd, vs2, imm, vm`     | `Set if greater than, signed, vector-immediate`                       |
+  | **Name**     | **Opcode / Argument**                                     | **Format**                    | **Pseudo-Code**                                                       |
+  |:-------------|:----------------------------------------------------------|:------------------------------|:----------------------------------------------------------------------|
+  | `vadc.vim`   | `31..26=0x10 25=0 vs2 simm5 14..12=0x3 vd 6..0=0x57`      | `vadc.vim vd, vs2, imm, v0`   | `vd[i] = vs2[i] + imm + v0.mask[i], vector-immediate`                 |
+  | `vmadc.vim`  | `31..26=0x11 25=0 vs2 simm5 14..12=0x3 vd 6..0=0x57`      | `vmadc.vim vd, vs2, imm, v0`  | `vd.mask[i] = carry_out(vs2[i] + imm + v0.mask[i]), vector-immediate` |
+  | `vmadc.vi`   | `31..26=0x11 25=1 vs2 simm5 14..12=0x3 vd 6..0=0x57`      | `vmadc.vi vd, vs2, imm`       | `vector-immediate, no carry-in`                                       |
+  | `vmerge.vim` | `31..26=0x17 25=0 vs2 simm5 14..12=0x3 vd 6..0=0x57`      | `vmerge.vim vd, vs2, imm, v0` | `vd[i] = v0.mask[i] ? imm : vs2[i]`                                   |
+  | `vmv.v.i`    | `31..26=0x17 25=1 24..20=0 simm5 14..12=0x3 vd 6..0=0x57` | `vmv.v.i vd, imm`             | `vd[i] = imm`                                                         |
+  | `vmseq.vi`   | `31..26=0x18 vm vs2 simm5 14..12=0x3 vd 6..0=0x57`        | `vmseq.vi vd, vs2, imm, vm`   | `Set if equal, vector-immediate`                                      |
+  | `vmsne.vi`   | `31..26=0x19 vm vs2 simm5 14..12=0x3 vd 6..0=0x57`        | `vmsne.vi vd, vs2, imm, vm`   | `Set if not equal, vector-immediate`                                  |
+  | `vmsleu.vi`  | `31..26=0x1c vm vs2 simm5 14..12=0x3 vd 6..0=0x57`        | `vmsleu.vi vd, vs2, imm, vm`  | `Set if less than or equal, unsigned, vector-immediate`               |
+  | `vmsle.vi`   | `31..26=0x1d vm vs2 simm5 14..12=0x3 vd 6..0=0x57`        | `vmsle.vi vd, vs2, imm, vm`   | `Set if less than or equal, signed, vector-immediate`                 |
+  | `vmsgtu.vi`  | `31..26=0x1e vm vs2 simm5 14..12=0x3 vd 6..0=0x57`        | `vmsgtu.vi vd, vs2, imm, vm`  | `Set if greater than, unsigned, vector-immediate`                     |
+  | `vmsgt.vi`   | `31..26=0x1f vm vs2 simm5 14..12=0x3 vd 6..0=0x57`        | `vmsgt.vi vd, vs2, imm, vm`   | `Set if greater than, signed, vector-immediate`                       |
 
   : OPIVI II
 
@@ -501,32 +501,32 @@ hi..lo=value or bit=value or arg=value (e.g. 6..2=0x45 10=1 rd=0)
 
   : Vector Integer Extension Instructions II
 
-  | **Name**      | **Opcode / Argument**                                         | **Format**             | **Pseudo-Code**                                                             |
-  |:--------------|:--------------------------------------------------------------|:-----------------------|:----------------------------------------------------------------------------|
-  | `vmsbf.m`     | `31..26=0x14 vm vs2 19..15=0x01 14..12=0x2 vd 6..0=0x57`      | `vmsbf.m vd, vs2, vm`  | `set-before-first mask bit`                                                 |
-  | `vmsof.m`     | `31..26=0x14 vm vs2 19..15=0x02 14..12=0x2 vd 6..0=0x57`      | `vmsof.m vd, vs2, vm`  | `set-only-first mask bit`                                                   |
-  | `vmsif.m`     | `31..26=0x14 vm vs2 19..15=0x03 14..12=0x2 vd 6..0=0x57`      | `vmsif.m vd, vs2, vm`  | `set-including-first mask bit`                                              |
-  | `viota.m`     | `31..26=0x14 vm vs2 19..15=0x10 14..12=0x2 vd 6..0=0x57`      | `viota.m vd, vs2, vm`  |                                                                             |
-  | `vid.v`       | `31..26=0x14 vm 24..20=0 19..15=0x11 14..12=0x2 vd 6..0=0x57` | `vid.v vd, vm`         | `Write element ID to destination`                                           |
-  | `vcpop.m`     | `31..26=0x10 vm vs2 19..15=0x10 14..12=0x2 rd 6..0=0x57`      | `vcpop.m rd, vs2, vm`  | `x[rd] = sum_i ( vs2.mask[i] && v0.mask[i])`                                |
-  | `vfirst.m`    | `31..26=0x10 vm vs2 19..15=0x11 14..12=0x2 rd 6..0=0x57`      | `vfirst.m rd, vs2, vm` | `x[rd] even if vl=0 (with the value -1, since no mask elements are active)` |
+  | **Name**   | **Opcode / Argument**                                         | **Format**             | **Pseudo-Code**                                                             |
+  |:-----------|:--------------------------------------------------------------|:-----------------------|:----------------------------------------------------------------------------|
+  | `vmsbf.m`  | `31..26=0x14 vm vs2 19..15=0x01 14..12=0x2 vd 6..0=0x57`      | `vmsbf.m vd, vs2, vm`  | `set-before-first mask bit`                                                 |
+  | `vmsof.m`  | `31..26=0x14 vm vs2 19..15=0x02 14..12=0x2 vd 6..0=0x57`      | `vmsof.m vd, vs2, vm`  | `set-only-first mask bit`                                                   |
+  | `vmsif.m`  | `31..26=0x14 vm vs2 19..15=0x03 14..12=0x2 vd 6..0=0x57`      | `vmsif.m vd, vs2, vm`  | `set-including-first mask bit`                                              |
+  | `viota.m`  | `31..26=0x14 vm vs2 19..15=0x10 14..12=0x2 vd 6..0=0x57`      | `viota.m vd, vs2, vm`  |                                                                             |
+  | `vid.v`    | `31..26=0x14 vm 24..20=0 19..15=0x11 14..12=0x2 vd 6..0=0x57` | `vid.v vd, vm`         | `Write element ID to destination`                                           |
+  | `vcpop.m`  | `31..26=0x10 vm vs2 19..15=0x10 14..12=0x2 rd 6..0=0x57`      | `vcpop.m rd, vs2, vm`  | `x[rd] = sum_i ( vs2.mask[i] && v0.mask[i])`                                |
+  | `vfirst.m` | `31..26=0x10 vm vs2 19..15=0x11 14..12=0x2 rd 6..0=0x57`      | `vfirst.m rd, vs2, vm` | `x[rd] even if vl=0 (with the value -1, since no mask elements are active)` |
 
   : Vector Integer Extension Instructions III
 
-  | **Name**      | **Opcode / Argument**                            | **Format**                    | **Pseudo-Code**                                |
-  |:--------------|:-------------------------------------------------|:------------------------------|:-----------------------------------------------|
-  | `vdivu.vv`    | `31..26=0x20 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vdivu.vv vd, vs2, vs1, vm`   | `2*SEW-bit = SEW-bit / SEW-bit, vector-vector` |
-  | `vdiv.vv`     | `31..26=0x21 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vdiv.vv vd, vs2, vs1, vm`    | `2*SEW-bit = SEW-bit / SEW-bit, vector-vector` |
-  | `vremu.vv`    | `31..26=0x22 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vremu.vv vd, vs2, vs1, vm`   | `2*SEW-bit = SEW-bit % SEW-bit, vector-vector` |
-  | `vrem.vv`     | `31..26=0x23 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vrem.vv vd, vs2, vs1, vm`    | `2*SEW-bit = SEW-bit % SEW-bit, vector-vector` |
-  | `vmulhu.vv`   | `31..26=0x24 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vmulhu.vv vd, vs2, vs1, vm`  | `2*SEW-bit = SEW-bit * SEW-bit, vector-vector` |
-  | `vmul.vv`     | `31..26=0x25 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vmul.vv vd, vs2, vs1, vm`    | `2*SEW-bit = SEW-bit * SEW-bit, vector-vector` |
-  | `vmulhsu.vv`  | `31..26=0x26 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vmulhsu.vv vd, vs2, vs1, vm` | `2*SEW-bit = SEW-bit * SEW-bit, vector-vector` |
-  | `vmulh.vv`    | `31..26=0x27 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vmulh.vv vd, vs2, vs1, vm`   | `2*SEW-bit = SEW-bit * SEW-bit, vector-vector` |
-  | `vmadd.vv`    | `31..26=0x29 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vmadd.vv vd, vs1, vs2, vm`   | `vd[i] = (vs1[i] * vd[i]) + vs2[i]`            |
-  | `vnmsub.vv`   | `31..26=0x2b vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vnmsub.vv vd, vs1, vs2, vm`  | `vd[i] = -(vs1[i] * vd[i]) + vs2[i]`           |
-  | `vmacc.vv`    | `31..26=0x2d vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vmacc.vv vd, vs1, vs2, vm`   | `vd[i] = +(vs1[i] * vs2[i]) + vd[i]`           |
-  | `vnmsac.vv`   | `31..26=0x2f vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vnmsac.vv vd, vs1, vs2, vm`  | `vd[i] = -(vs1[i] * vs2[i]) + vd[i]`           |
+  | **Name**     | **Opcode / Argument**                            | **Format**                    | **Pseudo-Code**                                |
+  |:-------------|:-------------------------------------------------|:------------------------------|:-----------------------------------------------|
+  | `vdivu.vv`   | `31..26=0x20 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vdivu.vv vd, vs2, vs1, vm`   | `2*SEW-bit = SEW-bit / SEW-bit, vector-vector` |
+  | `vdiv.vv`    | `31..26=0x21 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vdiv.vv vd, vs2, vs1, vm`    | `2*SEW-bit = SEW-bit / SEW-bit, vector-vector` |
+  | `vremu.vv`   | `31..26=0x22 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vremu.vv vd, vs2, vs1, vm`   | `2*SEW-bit = SEW-bit % SEW-bit, vector-vector` |
+  | `vrem.vv`    | `31..26=0x23 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vrem.vv vd, vs2, vs1, vm`    | `2*SEW-bit = SEW-bit % SEW-bit, vector-vector` |
+  | `vmulhu.vv`  | `31..26=0x24 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vmulhu.vv vd, vs2, vs1, vm`  | `2*SEW-bit = SEW-bit * SEW-bit, vector-vector` |
+  | `vmul.vv`    | `31..26=0x25 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vmul.vv vd, vs2, vs1, vm`    | `2*SEW-bit = SEW-bit * SEW-bit, vector-vector` |
+  | `vmulhsu.vv` | `31..26=0x26 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vmulhsu.vv vd, vs2, vs1, vm` | `2*SEW-bit = SEW-bit * SEW-bit, vector-vector` |
+  | `vmulh.vv`   | `31..26=0x27 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vmulh.vv vd, vs2, vs1, vm`   | `2*SEW-bit = SEW-bit * SEW-bit, vector-vector` |
+  | `vmadd.vv`   | `31..26=0x29 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vmadd.vv vd, vs1, vs2, vm`   | `vd[i] = (vs1[i] * vd[i]) + vs2[i]`            |
+  | `vnmsub.vv`  | `31..26=0x2b vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vnmsub.vv vd, vs1, vs2, vm`  | `vd[i] = -(vs1[i] * vd[i]) + vs2[i]`           |
+  | `vmacc.vv`   | `31..26=0x2d vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vmacc.vv vd, vs1, vs2, vm`   | `vd[i] = +(vs1[i] * vs2[i]) + vd[i]`           |
+  | `vnmsac.vv`  | `31..26=0x2f vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vnmsac.vv vd, vs1, vs2, vm`  | `vd[i] = -(vs1[i] * vs2[i]) + vd[i]`           |
 
   : Vector Integer Extension Instructions IV
 
@@ -570,9 +570,9 @@ hi..lo=value or bit=value or arg=value (e.g. 6..2=0x45 10=1 rd=0)
 
   : OPMVV I
 
-  | **Name**   | **Opcode / Argument**                                   | **Format**        | **Pseudo-Code**          |
-  |:-----------|:--------------------------------------------------------|:------------------|:-------------------------|
-  | `vmv.x.s`  | `31..26=0x10 25=1 vs2 19..15=0 14..12=0x2 rd 6..0=0x57` | `vmv.x.s rd, vs2` | `x[rd] = vs2[0] (vs1=0)` |
+  | **Name**  | **Opcode / Argument**                                   | **Format**        | **Pseudo-Code**          |
+  |:----------|:--------------------------------------------------------|:------------------|:-------------------------|
+  | `vmv.x.s` | `31..26=0x10 25=1 vs2 19..15=0 14..12=0x2 rd 6..0=0x57` | `vmv.x.s rd, vs2` | `x[rd] = vs2[0] (vs1=0)` |
 
   : OPMVV II
 
@@ -595,20 +595,20 @@ hi..lo=value or bit=value or arg=value (e.g. 6..2=0x45 10=1 rd=0)
 
   : OPMVX II
 
-  | **Name**      | **Opcode / Argument**                            | **Format**                     | **Pseudo-Code**                                |
-  |:--------------|:-------------------------------------------------|:-------------------------------|:-----------------------------------------------|
-  | `vdivu.vx`    | `31..26=0x20 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vdivu.vx vd, vs2, rs1, vm`    | `2*SEW-bit = SEW-bit / SEW-bit, vector-scalar` |
-  | `vdiv.vx`     | `31..26=0x21 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vdiv.vx vd, vs2, rs1, vm`     | `2*SEW-bit = SEW-bit / SEW-bit, vector-scalar` |
-  | `vremu.vx`    | `31..26=0x22 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vremu.vx vd, vs2, rs1, vm`    | `2*SEW-bit = SEW-bit % SEW-bit, vector-scalar` |
-  | `vrem.vx`     | `31..26=0x23 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vrem.vx vd, vs2, rs1, vm`     | `2*SEW-bit = SEW-bit % SEW-bit, vector-scalar` |
-  | `vmulhu.vx`   | `31..26=0x24 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vmulhu.vx vd, vs2, rs1, vm`   | `2*SEW-bit = SEW-bit * SEW-bit, vector-scalar` |
-  | `vmul.vx`     | `31..26=0x25 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vmul.vx vd, vs2, rs1, vm`     | `2*SEW-bit = SEW-bit * SEW-bit, vector-scalar` |
-  | `vmulhsu.vx`  | `31..26=0x26 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vmulh.vx vd, vs2, rs1, vm`    | `2*SEW-bit = SEW-bit * SEW-bit, vector-scalar` |
-  | `vmulh.vx`    | `31..26=0x27 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vmulhsu.vx vd, vs2, rs1, vm`  | `2*SEW-bit = SEW-bit * SEW-bit, vector-scalar` |
-  | `vmadd.vx`    | `31..26=0x29 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vmadd.vx vd, rs1, vs2, vm`    | `vd[i] = (x[rs1] * vd[i]) + vs2[i]`            |
-  | `vnmsub.vx`   | `31..26=0x2b vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vnmsub.vx vd, rs1, vs2, vm`   | `vd[i] = -(x[rs1] * vd[i]) + vs2[i]`           |
-  | `vmacc.vx`    | `31..26=0x2d vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vmacc.vx vd, rs1, vs2, vm`    | `vd[i] = +(x[rs1] * vs2[i]) + vd[i]`           |
-  | `vnmsac.vx`   | `31..26=0x2f vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vnmsac.vx vd, rs1, vs2, vm`   | `vd[i] = -(x[rs1] * vs2[i]) + vd[i]`           |
+  | **Name**     | **Opcode / Argument**                            | **Format**                    | **Pseudo-Code**                                |
+  |:-------------|:-------------------------------------------------|:------------------------------|:-----------------------------------------------|
+  | `vdivu.vx`   | `31..26=0x20 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vdivu.vx vd, vs2, rs1, vm`   | `2*SEW-bit = SEW-bit / SEW-bit, vector-scalar` |
+  | `vdiv.vx`    | `31..26=0x21 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vdiv.vx vd, vs2, rs1, vm`    | `2*SEW-bit = SEW-bit / SEW-bit, vector-scalar` |
+  | `vremu.vx`   | `31..26=0x22 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vremu.vx vd, vs2, rs1, vm`   | `2*SEW-bit = SEW-bit % SEW-bit, vector-scalar` |
+  | `vrem.vx`    | `31..26=0x23 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vrem.vx vd, vs2, rs1, vm`    | `2*SEW-bit = SEW-bit % SEW-bit, vector-scalar` |
+  | `vmulhu.vx`  | `31..26=0x24 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vmulhu.vx vd, vs2, rs1, vm`  | `2*SEW-bit = SEW-bit * SEW-bit, vector-scalar` |
+  | `vmul.vx`    | `31..26=0x25 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vmul.vx vd, vs2, rs1, vm`    | `2*SEW-bit = SEW-bit * SEW-bit, vector-scalar` |
+  | `vmulhsu.vx` | `31..26=0x26 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vmulh.vx vd, vs2, rs1, vm`   | `2*SEW-bit = SEW-bit * SEW-bit, vector-scalar` |
+  | `vmulh.vx`   | `31..26=0x27 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vmulhsu.vx vd, vs2, rs1, vm` | `2*SEW-bit = SEW-bit * SEW-bit, vector-scalar` |
+  | `vmadd.vx`   | `31..26=0x29 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vmadd.vx vd, rs1, vs2, vm`   | `vd[i] = (x[rs1] * vd[i]) + vs2[i]`            |
+  | `vnmsub.vx`  | `31..26=0x2b vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vnmsub.vx vd, rs1, vs2, vm`  | `vd[i] = -(x[rs1] * vd[i]) + vs2[i]`           |
+  | `vmacc.vx`   | `31..26=0x2d vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vmacc.vx vd, rs1, vs2, vm`   | `vd[i] = +(x[rs1] * vs2[i]) + vd[i]`           |
+  | `vnmsac.vx`  | `31..26=0x2f vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vnmsac.vx vd, rs1, vs2, vm`  | `vd[i] = -(x[rs1] * vs2[i]) + vd[i]`           |
 
   : OPMVX III
 

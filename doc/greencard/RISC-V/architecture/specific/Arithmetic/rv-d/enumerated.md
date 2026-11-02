@@ -1,21 +1,10 @@
 ## ENUMERATED TYPES
 
-RISC-V defines several enumerated types that categorize instructions and fields within instructions:
-
-- **Opcode (OP)**: Specifies the general operation of an instruction (e.g., arithmetic, load, store).
-- **Funct3 (FUNCT3)**: A 3-bit field within instructions that further specifies the operation or variant.
-- **Funct7 (FUNCT7)**: A 7-bit field used in some instructions to extend the opcode space.
-- **Register (REG)**: Specifies a register number or type (e.g., integer register, floating-point register).
-
-Format of a line in the table:
-
-`<group> <name> <value> "<description>" <version>`
-
-| **group** | **name** | **value** | **description**           | **version** |
+| **Group** | **Name** | **Value** | **Description**           | **Version** |
 |:----------|:---------|:----------|:--------------------------|:------------|
 | `type`    | `arg`    | `1`       | `Argument`                | `1.7-`      |
 | `type`    | `creg`   | `2`       | `Compressed Register`     | `1.7-`      |
-| `type`    | `freg`   | `4`       | `Floating Point Register` | `1.7-`      |
+| `type`    | `freg`   | `4`       | `Floating-Point Register` | `1.7-`      |
 | `type`    | `ireg`   | `3`       | `Integer Register`        | `1.7-`      |
 | `type`    | `none`   | `0`       | `None`                    | `1.7-`      |
 | `type`    | `simm`   | `6`       | `Sign Extended Immediate` | `1.7-`      |
@@ -24,9 +13,7 @@ Format of a line in the table:
 
 :Types
 
-This table categorizes and defines the various data types supported by the RISC-V instruction set architecture, including integers, floating-point numbers, and vectors.
-
-| **group** | **name** | **value** | **description**                           | **version** |
+| **Group** | **Name** | **Value** | **Description**                           | **Version** |
 |:----------|:---------|:----------|:------------------------------------------|:------------|
 | `rm`      | `rne`    | `0b000`   | `Round to Nearest, ties to Even`          | `1.7-`      |
 | `rm`      | `rtz`    | `0b001`   | `Round towards Zero`                      | `1.7-`      |
@@ -37,9 +24,7 @@ This table categorizes and defines the various data types supported by the RISC-
 
 :Round Mode
 
-The round mode table specifies the different rounding modes available for floating-point operations in compliance with IEEE 754 standards.
-
-| **group** | **name**  | **value** | **description**                                      | **version** |
+| **Group** | **Name**  | **Value** | **Description**                                      | **Version** |
 |:----------|:----------|:----------|:-----------------------------------------------------|:------------|
 | `aqrl`    | `relaxed` | `0`       | `Atomicity - no explicit ordering`                   | `1.7-`      |
 | `aqrl`    | `acquire` | `2`       | `Acquire - prior writes from other harts visible`    | `1.7-`      |
@@ -48,9 +33,7 @@ The round mode table specifies the different rounding modes available for floati
 
 :Memory Order (AMO aqrl Argument)
 
-This table clarifies the memory order arguments (`aq` and `rl`) used in atomic memory operations (AMO) within the RISC-V ISA.
-
-| **group** | **name** | **value** | **description** | **version** |
+| **Group** | **Name** | **Value** | **Description** | **Version** |
 |:----------|:---------|:----------|:----------------|:------------|
 | `fence`   | `i`      | `8`       | `Input`         | `1.7-`      |
 | `fence`   | `o`      | `4`       | `Output`        | `1.7-`      |
@@ -59,9 +42,7 @@ This table clarifies the memory order arguments (`aq` and `rl`) used in atomic m
 
 :Fence (pred and succ Values)
 
-The fence table details the semantics and usage of the `pred` and `succ` values in fence instructions for memory ordering in RISC-V.
-
-| **group** | **name** | **value** | **description**     | **version** |
+| **Group** | **Name** | **Value** | **Description**     | **Version** |
 |:----------|:---------|:----------|:--------------------|:------------|
 | `fcsr`    | `NX`     | `1`       | `Inexact`           | `1.7-`      |
 | `fcsr`    | `UF`     | `2`       | `Underflow`         | `1.7-`      |
@@ -69,11 +50,9 @@ The fence table details the semantics and usage of the `pred` and `succ` values 
 | `fcsr`    | `DZ`     | `8`       | `Divide by Zero`    | `1.7-`      |
 | `fcsr`    | `NV`     | `16`      | `Invalid Operation` | `1.7-`      |
 
-:Floating Point Exception Register (fcsr)
+:Floating-Point Exception Register (fcsr)
 
-This table describes the fields and bit assignments in the floating-point control and status register (`fcsr`), handling exceptions and flags.
-
-| **group** | **name**        | **value** | **description**             | **version** |
+| **Group** | **Name**        | **Value** | **Description**             | **Version** |
 |:----------|:----------------|:----------|:----------------------------|:------------|
 | `fclass`  | `neg_inf`       | `1`       | `negative infinity`         | `1.7-`      |
 | `fclass`  | `neg_norm`      | `2`       | `negative normal number`    | `1.7-`      |
@@ -86,11 +65,9 @@ This table describes the fields and bit assignments in the floating-point contro
 | `fclass`  | `signaling_nan` | `256`     | `signaling NaN`             | `1.7-`      |
 | `fclass`  | `quiet_nan`     | `512`     | `quiet NaN`                 | `1.7-`      |
 
-:Floating Point Types Returned by fclass
+:Floating-Point Types Returned by fclass
 
-The table enumerates the specific types of floating-point values returned by the `fclass` instruction based on IEEE 754 classifications.
-
-| **group** | **name**  | **value** | **description** | **version** |
+| **Group** | **Name**  | **Value** | **Description** | **Version** |
 |:----------|:----------|:----------|:----------------|:------------|
 | `fs`      | `off`     | `0`       | `Off`           | `1.7-`      |
 | `fs`      | `initial` | `1`       | `Initial`       | `1.7-`      |
@@ -99,9 +76,7 @@ The table enumerates the specific types of floating-point values returned by the
 
 :FPU Status (mstatus.fs)
 
-This table outlines the fields and meanings associated with the floating-point unit (FPU) status in the `mstatus` register of the RISC-V ISA.
-
-| **group** | **name**  | **value** | **description**                | **version** |
+| **Group** | **Name**  | **Value** | **Description**                | **Version** |
 |:----------|:----------|:----------|:-------------------------------|:------------|
 | `xs`      | `all`     | `0`       | `All off`                      | `1.7-`      |
 | `xs`      | `initial` | `1`       | `None dirty or clean, some on` | `1.7-`      |
@@ -110,9 +85,7 @@ This table outlines the fields and meanings associated with the floating-point u
 
 :Extension Status (mstatus.xs)
 
-The extension status table details the fields in the `mstatus` register that indicate the presence and status of ISA extensions.
-
-| **group** | **name** | **value** | **description** | **version** |
+| **Group** | **Name** | **Value** | **Description** | **Version** |
 |:----------|:---------|:----------|:----------------|:------------|
 | `isa`     | `rv32`   | `1`       | `RV32`          | `1.7-`      |
 | `isa`     | `rv64`   | `2`       | `RV64`          | `1.7-`      |
@@ -120,9 +93,7 @@ The extension status table details the fields in the `mstatus` register that ind
 
 :Base ISA Field (misa)
 
-The table specifies the format and interpretation of the `misa` register, which indicates the base instruction set architecture supported by the processor.
-
-| **group** | **name** | **value** | **description**                                | **version** |
+| **Group** | **Name** | **Value** | **Description**                                | **Version** |
 |:----------|:---------|:----------|:-----------------------------------------------|:------------|
 | `ext`     | `I`      | `256`     | `RV32I/64I/128I Base ISA`                      | `1.7-`      |
 | `ext`     | `M`      | `4096`    | `Integer Multiply/Divide extension`            | `1.7-`      |
@@ -134,9 +105,7 @@ The table specifies the format and interpretation of the `misa` register, which 
 
 :ISA Extensions (misa)
 
-This table lists and defines the various optional ISA extensions that can be supported by processors implementing the RISC-V architecture.
-
-| **group** | **name** | **value** | **description**   | **version** |
+| **Group** | **Name** | **Value** | **Description**   | **Version** |
 |:----------|:---------|:----------|:------------------|:------------|
 | `mode`    | `U`      | `0`       | `User mode`       | `1.7-`      |
 | `mode`    | `S`      | `1`       | `Supervisor mode` | `1.7-`      |
@@ -145,9 +114,7 @@ This table lists and defines the various optional ISA extensions that can be sup
 
 :Privilege Mode
 
-The privilege mode table categorizes and defines the different privilege levels (machine mode, supervisor mode, user mode) in the RISC-V ISA.
-
-| **group** | **name** | **value** | **description**                                     | **version** |
+| **Group** | **Name** | **Value** | **Description**                                     | **Version** |
 |:----------|:---------|:----------|:----------------------------------------------------|:------------|
 | `vm`      | `mbare`  | `0`       | `No translation or protection`                      | `1.7-1.9.1` |
 | `vm`      | `mbb`    | `1`       | `Single base-and-bound`                             | `1.7-1.9.1` |
@@ -160,9 +127,7 @@ The privilege mode table categorizes and defines the different privilege levels 
 
 :Virtualization Management Field (mstatus.vm)
 
-The table describes the virtualization management field within the `mstatus` register, governing virtual memory access and behavior.
-
-| **group** | **name** | **value** | **description**                                     | **version** |
+| **Group** | **Name** | **Value** | **Description**                                     | **Version** |
 |:----------|:---------|:----------|:----------------------------------------------------|:------------|
 | `svm`     | `mbare`  | `0`       | `No translation or protection`                      | `1.10`      |
 | `svm`     | `sv32`   | `1`       | `Page-based 32-bit virtual addressing`              | `1.10,rv32` |
@@ -173,9 +138,7 @@ The table describes the virtualization management field within the `mstatus` reg
 
 :Virtualization Management Field (satp.vm)
 
-This table details the virtualization management field within the `satp` register, specifically related to page-based virtual memory translation.
-
-| **group** | **name**              | **value** | **description**                  | **version** |
+| **Group** | **Name**              | **Value** | **Description**                  | **Version** |
 |:----------|:----------------------|:----------|:---------------------------------|:------------|
 | `cause`   | `misaligned_fetch`    | `0`       | `Instruction address misaligned` | `1.7-`      |
 | `cause`   | `fault_fetch`         | `1`       | `Instruction access fault`       | `1.7-`      |
@@ -195,9 +158,7 @@ This table details the virtualization management field within the `satp` registe
 
 :Machine Cause Register Faults (mcause), Interrupt Bit Clear
 
-The table explains the encoding and meaning of the `mcause` register when a fault occurs, and how interrupt bits are cleared.
-
-| **group** | **name**     | **value** | **description**                 | **version** |
+| **Group** | **Name**     | **Value** | **Description**                 | **Version** |
 |:----------|:-------------|:----------|:--------------------------------|:------------|
 | `intr`    | `u_software` | `0`       | `User software interrupt`       | `1.7-`      |
 | `intr`    | `s_software` | `1`       | `Supervisor software interrupt` | `1.7-`      |
@@ -213,7 +174,3 @@ The table explains the encoding and meaning of the `mcause` register when a faul
 | `intr`    | `m_external` | `11`      | `Machine external interrupt`    | `1.7-1.9.1` |
 
 :Machine Cause Register Interrupts (mcause) Interrupt Bit Set
-
-The table details the encoding and interpretation of the `mcause` register when an interrupt occurs, including how interrupt bits are set.
-
-These types help in decoding and executing instructions correctly across different implementations and extensions of the RISC-V ISA.

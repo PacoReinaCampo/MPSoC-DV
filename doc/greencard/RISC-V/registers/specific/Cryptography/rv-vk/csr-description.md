@@ -1,16 +1,6 @@
 ## CONTROL AND STATUS REGISTER DESCRIPTIONS
 
-Control and Status Registers (CSRs) in RISC-V provide mechanisms for managing processor state and control. These registers typically include machine-level and supervisor-level CSRs, which control privileged operations and system-level functions. CSRs are accessed through dedicated instructions, allowing software to read and modify processor state safely and efficiently. They play a critical role in system management, exception handling, and performance monitoring.
-
-Format of a line in the table:
-
-`<csr number> <csr access> <csr name> "<csr description>" <version>`
-
-`<access> is one of urw, uro, srw, sro, hrw, hro, mrw, mro`
-
-`<version> is [introduced]-[deprecated]`
-
-| **number** | **access** | **name**    | **description**      | **version** |
+| **Number** | **Access** | **Name**    | **Description**      | **Version** |
 |:-----------|:-----------|:------------|:---------------------|:------------|
 | `0xF11`    | `mro`      | `mvendorid` | `Vendor ID`          | `1.9-`      |
 | `0xF12`    | `mro`      | `marchid`   | `Architecture ID`    | `1.9-`      |
@@ -19,9 +9,7 @@ Format of a line in the table:
 
 :Machine Information Registers
 
-Registers containing essential machine information are listed and described in this table of the RISC-V ISA.
-
-| **number** | **access** | **name**     | **description**                         | **version** |
+| **Number** | **Access** | **Name**     | **Description**                         | **Version** |
 |:-----------|:-----------|:-------------|:----------------------------------------|:------------|
 | `0x300`    | `mrw`      | `mstatus`    | `Machine status register`               | `1.7-`      |
 | `0x301`    | `mrw`      | `misa`       | `ISA and extensions supported`          | `1.7-`      |
@@ -33,9 +21,7 @@ Registers containing essential machine information are listed and described in t
 
 :Machine Trap Setup
 
-Configuration specifics for setting up traps and exceptions at the machine privilege level are detailed in this part of the RISC-V ISA documentation.
-
-| **number** | **access** | **name**    | **description**                                   | **version** |
+| **Number** | **Access** | **Name**    | **Description**                                   | **Version** |
 |:-----------|:-----------|:------------|:--------------------------------------------------|:------------|
 | `0x340`    | `mrw`      | `mscratch`  | `Scratch register for machine trap handlers`      | `1.7-`      |
 | `0x341`    | `mrw`      | `mepc`      | `Machine exception program counter`               | `1.7-`      |
@@ -66,9 +52,7 @@ Configuration specifics for setting up traps and exceptions at the machine privi
 
 :Machine Trap Handling
 
-This section covers the handling mechanisms and procedures for traps and exceptions at the machine privilege level of the RISC-V ISA.
-
-| **number** | **access** | **name**  | **description**              | **version** |
+| **Number** | **Access** | **Name**  | **Description**              | **Version** |
 |:-----------|:-----------|:----------|:-----------------------------|:------------|
 | `0x380`    | `mrw`      | `mbase`   | `Base register`              | `1.7-`      |
 | `0x381`    | `mrw`      | `mbound`  | `Bound register`             | `1.7-`      |
@@ -79,9 +63,7 @@ This section covers the handling mechanisms and procedures for traps and excepti
 
 :Machine Protection and Translation
 
-Details on the protection and translation mechanisms available to the machine mode are documented comprehensively in this table.
-
-| **number** | **access** | **name**         | **description**                              | **version**    |
+| **Number** | **Access** | **Name**         | **Description**                              | **Version**    |
 |:-----------|:-----------|:-----------------|:---------------------------------------------|:---------------|
 | `0xB00`    | `mrw`      | `mcycle`         | `Machine cycle counter`                      | `1.7-`         |
 | `0xB01`    | `mrw`      | `mtime`          | `Machine wall-clock time`                    | `1.7-1.9`      |
@@ -150,9 +132,7 @@ Details on the protection and translation mechanisms available to the machine mo
 
 :Machine Counters / Timers
 
-The RISC-V ISA provides various counters and timers that are accessible at the machine privilege level, detailed here for reference.
-
-| **number** | **access** | **name**      | **description**                                 | **version** |
+| **Number** | **Access** | **Name**      | **Description**                                 | **Version** |
 |:-----------|:-----------|:--------------|:------------------------------------------------|:------------|
 | `0x320`    | `mrw`      | `mucounteren` | `Machine interrupt-enable register`             | `1.9-1.9.1` |
 | `0x321`    | `mrw`      | `mscounteren` | `Supervisor-mode counter enable`                | `1.9-1.9.1` |
@@ -189,9 +169,7 @@ The RISC-V ISA provides various counters and timers that are accessible at the m
 
 :Machine Counter Setup
 
-Setup and configuration details for the counters in the RISC-V ISA, applicable at the machine privilege level, are provided in this section.
-
-| **number** | **access** | **name**  | **description**                            | **version** |
+| **Number** | **Access** | **Name**  | **Description**                            | **Version** |
 |:-----------|:-----------|:----------|:-------------------------------------------|:------------|
 | `0x7A0`    | `mrw`      | `tselect` | `Debug/Trace trigger register select`      | `1.9.1-`    |
 | `0x7A1`    | `mrw`      | `tdata1`  | `First Debug/Trace trigger data register`  | `1.9.1-`    |
@@ -200,9 +178,7 @@ Setup and configuration details for the counters in the RISC-V ISA, applicable a
 
 :Debug/Trace Registers (shared with Debug Mode)
 
-Registers used for debugging and tracing purposes, which are shared with the Debug Mode of the RISC-V ISA, are detailed in this table.
-
-| **number** | **access** | **name**   | **description**                     | **version** |
+| **Number** | **Access** | **Name**   | **Description**                     | **Version** |
 |:-----------|:-----------|:-----------|:------------------------------------|:------------|
 | `0x7B0`    | `mrw`      | `dcsr`     | `Debug control and status register` | `1.9.1-`    |
 | `0x7B1`    | `mrw`      | `dpc`      | `Debug program counter`             | `1.9.1-`    |
@@ -210,9 +186,7 @@ Registers used for debugging and tracing purposes, which are shared with the Deb
 
 :Debug Mode Registers
 
-This section details the registers specific to the Debug Mode of the RISC-V ISA, outlining their functionalities and usage.
-
-| **number** | **access** | **name**    | **description**             | **version** |
+| **Number** | **Access** | **Name**    | **Description**             | **Version** |
 |:-----------|:-----------|:------------|:----------------------------|:------------|
 | `0x780`    | `mrw`      | `mtohost`   | `IO to Host`                | `1.7-`      |
 | `0x781`    | `mrw`      | `mfromhost` | `IO from Host`              | `1.7-`      |
@@ -221,5 +195,3 @@ This section details the registers specific to the Debug Mode of the RISC-V ISA,
 | `0x784`    | `mrw`      | `miobase`   | `IO Base`                   | `1.7-`      |
 
 :NonStandard
-
-Registers or features that deviate from standard RISC-V specifications are documented in this section for completeness and reference.

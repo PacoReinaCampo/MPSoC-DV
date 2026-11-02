@@ -1,14 +1,6 @@
 ## TRAPS
 
-Format of a line in the table:
-
-`<csr number> <csr access> <csr name> "<csr description>" <version>`
-
-`<access> is one of urw, uro, srw, sro, hrw, hro, mrw, mro`
-
-`<version> is [introduced]-[deprecated]`
-
-| **number** | **access** | **name**     | **description**                         | **version** |
+| **Number** | **Access** | **Name**     | **Description**                         | **Version** |
 |:-----------|:-----------|:-------------|:----------------------------------------|:------------|
 | `0x300`    | `mrw`      | `mstatus`    | `Machine status register`               | `1.7-`      |
 | `0x301`    | `mrw`      | `misa`       | `ISA and extensions supported`          | `1.7-`      |
@@ -20,9 +12,7 @@ Format of a line in the table:
 
 :Machine Trap Setup
 
-Configuration specifics for setting up traps and exceptions at the machine privilege level are detailed in this part of the RISC-V ISA documentation.
-
-| **number** | **access** | **name**    | **description**                                   | **version** |
+| **Number** | **Access** | **Name**    | **Description**                                   | **Version** |
 |:-----------|:-----------|:------------|:--------------------------------------------------|:------------|
 | `0x340`    | `mrw`      | `mscratch`  | `Scratch register for machine trap handlers`      | `1.7-`      |
 | `0x341`    | `mrw`      | `mepc`      | `Machine exception program counter`               | `1.7-`      |
@@ -52,5 +42,3 @@ Configuration specifics for setting up traps and exceptions at the machine privi
 | `0x3BF`    | `mrw`      | `pmpaddr15` | `Physical memory protection address register`     | `1.10-`     |
 
 :Machine Trap Handling
-
-This section covers the handling mechanisms and procedures for traps and exceptions at the machine privilege level of the RISC-V ISA.

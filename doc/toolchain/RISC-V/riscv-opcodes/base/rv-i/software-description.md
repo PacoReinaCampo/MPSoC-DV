@@ -45,16 +45,16 @@
 
 * **RV64I - `RV64I Base Integer Instruction Set (in addition to RV32I)`**
 
-  | **Name**  | **Pseudo-Code**                              | **Notes**                        |
-  |:----------|:---------------------------------------------|:---------------------------------|
-  | `ld`      | `s64 t; mmu.load<s64>(rs1 + imm, t); rd = t` | `rd = sx(*(s64*)ptr(rs1 + imm))` |
-  | `sd`      | `mmu.store<s64>(rs1 + imm, s64(rs2))`        | `*(u64*)ptr(rs1 + imm) = rs2`    |
-  | `addiw`   | `rd = s32(s32(rs1) + imm)`                   | `clang requires -fwrapv`         |
-  | `slliw`   | `rd = s32(u32(rs1) << imm)`                  |                                  |
-  | `srliw`   | `rd = s32(u32(rs1) >> imm)`                  |                                  |
-  | `sraiw`   | `rd = s32(rs1) >> imm`                       |                                  |
-  | `addw`    | `rd = s32(s32(rs1) + s32(rs2))`              | `clang requires -fwrapv`         |
-  | `subw`    | `rd = s32(s32(rs1) - s32(rs2))`              | `clang requires -fwrapv`         |
-  | `sllw`    | `rd = s32(u32(rs1) << (rs2 & 0b11111))`      |                                  |
-  | `srlw`    | `rd = s32(u32(rs1) >> (rs2 & 0b11111))`      |                                  |
-  | `sraw`    | `rd = s32(s32(rs1) >> (rs2 & 0b11111))`      |                                  |
+  | **Name** | **Pseudo-Code**                              | **Notes**                        |
+  |:---------|:---------------------------------------------|:---------------------------------|
+  | `ld`     | `s64 t; mmu.load<s64>(rs1 + imm, t); rd = t` | `rd = sx(*(s64*)ptr(rs1 + imm))` |
+  | `sd`     | `mmu.store<s64>(rs1 + imm, s64(rs2))`        | `*(u64*)ptr(rs1 + imm) = rs2`    |
+  | `addiw`  | `rd = s32(s32(rs1) + imm)`                   | `clang requires -fwrapv`         |
+  | `slliw`  | `rd = s32(u32(rs1) << imm)`                  |                                  |
+  | `srliw`  | `rd = s32(u32(rs1) >> imm)`                  |                                  |
+  | `sraiw`  | `rd = s32(rs1) >> imm`                       |                                  |
+  | `addw`   | `rd = s32(s32(rs1) + s32(rs2))`              | `clang requires -fwrapv`         |
+  | `subw`   | `rd = s32(s32(rs1) - s32(rs2))`              | `clang requires -fwrapv`         |
+  | `sllw`   | `rd = s32(u32(rs1) << (rs2 & 0b11111))`      |                                  |
+  | `srlw`   | `rd = s32(u32(rs1) >> (rs2 & 0b11111))`      |                                  |
+  | `sraw`   | `rd = s32(s32(rs1) >> (rs2 & 0b11111))`      |                                  |

@@ -2,16 +2,16 @@
 
 This directory contains MetaData for the RISC-V Instruction Set Architecture
 
-| **File**                       | **Description**                         |
-|--------------------------------|:----------------------------------------|
-| `test`                         | `Test for Verification`                 |
+| **File** | **Description**         |
+|:---------|:------------------------|
+| `test`   | `Test for Verification` |
 
 :Verification Directory
 
 The verification directory serves as a comprehensive reference for verifying the correctness and compliance of implementations with the RISC-V ISA specifications, detailing test cases, validation methods, and compliance criteria.
 
-| `Architecture 32 bit`    | `PU`           | `SoC`           | `MPSoC`          |
-|--------------------------|:---------------|:----------------|:-----------------|
+| **Architecture 32 Bit**  | **Pu**         | **Soc**         | **Mpsoc**        |
+|:-------------------------|:---------------|:----------------|:-----------------|
 | `Base ISA`               | `rv32-p-i`     | `rv32-pv-i`     | `rv32-pvt-i`     |
 | `Standard ISA`           | `rv32-p-imac`  | `rv32-pv-imac`  | `rv32-pvt-imac`  |
 | `Real Math`              | `rv32-p-gcfdq` | `rv32-pv-gcfdq` | `rv32-pvt-gcfdq` |
@@ -23,8 +23,8 @@ The verification directory serves as a comprehensive reference for verifying the
 
 This table summarizes the key architectural features and specifications specific to the 32-bit implementation of the RISC-V ISA, including addressing modes, register sizes, and instruction formats tailored for 32-bit processors.
 
-| `Architecture 64 bit`    | `PU`           | `SoC`           | `MPSoC`          |
-|--------------------------|:---------------|:----------------|:-----------------|
+| **Architecture 64 Bit**  | **Pu**         | **Soc**         | **Mpsoc**        |
+|:-------------------------|:---------------|:----------------|:-----------------|
 | `Base ISA`               | `rv64-p-i`     | `rv64-pv-i`     | `rv64-pvt-i`     |
 | `Standard ISA`           | `rv64-p-imac`  | `rv64-pv-imac`  | `rv64-pvt-imac`  |
 | `Real Math`              | `rv64-p-gcfdq` | `rv64-pv-gcfdq` | `rv64-pvt-gcfdq` |
@@ -36,8 +36,8 @@ This table summarizes the key architectural features and specifications specific
 
 The table outlines the architectural enhancements and specifications unique to the 64-bit implementation of the RISC-V ISA, such as extended addressing capabilities, larger register files, and support for wider data paths.
 
-| `Architecture 128 bit`   | `PU`            | `SoC`            | `MPSoC`           |
-|--------------------------|:----------------|:-----------------|:------------------|
+| **Architecture 128 Bit** | **Pu**          | **Soc**          | **Mpsoc**         |
+|:-------------------------|:----------------|:-----------------|:------------------|
 | `Base ISA`               | `rv128-p-i`     | `rv128-pv-i`     | `rv128-pvt-i`     |
 | `Standard ISA`           | `rv128-p-imac`  | `rv128-pv-imac`  | `rv128-pvt-imac`  |
 | `Real Math`              | `rv128-p-gcfdq` | `rv128-pv-gcfdq` | `rv128-pvt-gcfdq` |

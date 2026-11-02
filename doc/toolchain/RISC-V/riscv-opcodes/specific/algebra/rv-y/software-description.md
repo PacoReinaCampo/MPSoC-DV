@@ -8,24 +8,24 @@ hi..lo=value or bit=value or arg=value (e.g. 6..2=0x45 10=1 rd=0)
 
 `<args>` is one of vd, wd, yd, ys3, ys1, ys2, vm, nf, simm5, zimm10, zimm11
 
-  | **Category** | **Operands**     | **Operation** |
-  |:-------------|:-----------------|:--------------|
-  | `OPIYY`      | tensor-tensor    | Integer       |
-  | `OPIYX`      | tensor-scalar    | Integer       |
-  | `OPIYI`      | tensor-immediate | Integer       |
-  | `OPFYY`      | tensor-tensor    | Float         |
-  | `OPFYF`      | tensor-scalar    | Float         |
-  | `OPMYY`      | tensor-tensor    | Mask          |
-  | `OPMYX`      | tensor-scalar    | Mask          |
-  | `OPCFG`      | scalars-imms     | Configuration |
+  | **Category** | **Operands**       | **Operation**   |
+  |:-------------|:-------------------|:----------------|
+  | `OPIYY`      | `tensor-tensor`    | `Integer`       |
+  | `OPIYX`      | `tensor-scalar`    | `Integer`       |
+  | `OPIYI`      | `tensor-immediate` | `Integer`       |
+  | `OPFYY`      | `tensor-tensor`    | `Float`         |
+  | `OPFYF`      | `tensor-scalar`    | `Float`         |
+  | `OPMYY`      | `tensor-tensor`    | `Mask`          |
+  | `OPMYX`      | `tensor-scalar`    | `Mask`          |
+  | `OPCFG`      | `scalars-imms`     | `Configuration` |
 
 **OPCFG (Configuration Setting)**
 
-  | **Name**    | **Opcode / Argument**                              | **Format**                  | **Pseudo-Code**                                       |
-  |:------------|:---------------------------------------------------|:----------------------------|:------------------------------------------------------|
-  | `ysetivli`  | `31=1 30=1 zimm10   zimm5 14..12=0x7 rd 6..0=0x57` | `ysetvli rd, rs1, ytypei`   | `rd = new yl, rs1 = AVL, ytypei = new ytype setting`  |
-  | `ysetvli`   | `31=0 zimm11          rs1 14..12=0x7 rd 6..0=0x57` | `ysetivli rd, uimm, ytypei` | `rd = new yl, uimm = AVL, ytypei = new ytype setting` |
-  | `ysetvl`    | `31=1 30..25=0x0 rs2  rs1 14..12=0x7 rd 6..0=0x57` | `ysetvl  rd, rs1, rs2`      | `rd = new yl, rs1 = AVL, rs2 = new ytype value`       |
+  | **Name**   | **Opcode / Argument**                              | **Format**                  | **Pseudo-Code**                                       |
+  |:-----------|:---------------------------------------------------|:----------------------------|:------------------------------------------------------|
+  | `ysetivli` | `31=1 30=1 zimm10   zimm5 14..12=0x7 rd 6..0=0x57` | `ysetvli rd, rs1, ytypei`   | `rd = new yl, rs1 = AVL, ytypei = new ytype setting`  |
+  | `ysetvli`  | `31=0 zimm11          rs1 14..12=0x7 rd 6..0=0x57` | `ysetivli rd, uimm, ytypei` | `rd = new yl, uimm = AVL, ytypei = new ytype setting` |
+  | `ysetvl`   | `31=1 30..25=0x0 rs2  rs1 14..12=0x7 rd 6..0=0x57` | `ysetvl  rd, rs1, rs2`      | `rd = new yl, rs1 = AVL, rs2 = new ytype value`       |
 
   : Configuration Setting
 

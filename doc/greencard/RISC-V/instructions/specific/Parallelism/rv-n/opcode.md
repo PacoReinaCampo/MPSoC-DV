@@ -1,7 +1,7 @@
 ## OPCODE ENCODING INFORMATION
 
-| **extension** | **name** | **encoding** | **variable-fields** | **match** | **mask** |
-|---------------|----------|--------------|---------------------|-----------|----------|
+| **Extension** | **Name** | **Encoding** | **Variable-Fields** | **Match** | **Mask** |
+|:--------------|:---------|:-------------|:--------------------|:----------|:---------|
 | `rv_n`        | `-`      | `-`          | `-`                 | `-`       | `-`      |
 
 :RVN - Specific Extension for User-level Interrupts Instructions

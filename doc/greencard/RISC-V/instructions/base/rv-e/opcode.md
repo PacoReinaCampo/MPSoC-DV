@@ -1,20 +1,6 @@
 ## OPCODE ENCODING INFORMATION
 
-Opcodes in RISC-V are structured within instruction encoding formats, defining fields such as opcode itself, function codes (`funct3`, `funct7`), immediate values, and register specifiers (`rd`, `rs1`, `rs2`). Structured information ensures consistent interpretation and execution across different implementations and extensions of the RISC-V ISA, supporting modularity and compatibility.
-
-Format of a line in the table:
-
-`<instruction name> [<arguments> ...] <opcode> <codec> <extension>`
-
-`<arguments> is one of rd, rs1, rs2, frd, frs1, frs2, frs3, imm20, imm12, sbimm12, simm12, shamt5, shamt6, rm, aq, rl, pred, succ`
-
-`<opcode> is given by specifying one or more range/value pairs: hi..lo=value or bit=value or argument=value (e.g. 6..2=0x45 10=1)`
-
-`<codec> is one of r, i, s, sb, u, uj, ...`
-
-`<extension> is one of { rv32, rv64, rv128 } · { i, m, a, f, d, s, c }`
-
-| **instruction** | **argument**      | **opcode**                                                                         | **codec** | **extension**        |
+| **Instruction** | **Argument**      | **Opcode**                                                                         | **Codec** | **Extension**        |
 |:----------------|:------------------|:-----------------------------------------------------------------------------------|:----------|:---------------------|
 | `lui`           | `rd imm20`        | `6..2=0x0D 1..0=3`                                                                 | `u`       | `rv32i rv64i rv128i` |
 | `auipc`         | `rd oimm20`       | `6..2=0x05 1..0=3`                                                                 | `u+o`     | `rv32i rv64i rv128i` |
@@ -53,14 +39,12 @@ Format of a line in the table:
 | `sra`           | `rd rs1 rs2`      | `31..25=32 14..12=5 6..2=0x0C 1..0=3`                                              | `r`       | `rv32i rv64i rv128i` |
 | `or`            | `rd rs1 rs2`      | `31..25=0  14..12=6 6..2=0x0C 1..0=3`                                              | `r`       | `rv32i rv64i rv128i` |
 | `and`           | `rd rs1 rs2`      | `31..25=0  14..12=7 6..2=0x0C 1..0=3`                                              | `r`       | `rv32i rv64i rv128i` |
-| `fence`         |                   | `31..28=ignore pred succ     19..15=ignore 14..12=0 11..7=ignore 6..2=0x03 1..0=3` | `r·f`     | `rv32i rv64i rv128i` |
-| `fence.i`       |                   | `31..28=ignore 27..20=ignore 19..15=ignore 14..12=1 11..7=ignore 6..2=0x03 1..0=3` | `none`    | `rv32i rv64i rv128i` |
+| `fence`         | `-`               | `31..28=ignore pred succ     19..15=ignore 14..12=0 11..7=ignore 6..2=0x03 1..0=3` | `r·f`     | `rv32i rv64i rv128i` |
+| `fence.i`       | `-`               | `31..28=ignore 27..20=ignore 19..15=ignore 14..12=1 11..7=ignore 6..2=0x03 1..0=3` | `none`    | `rv32i rv64i rv128i` |
 
 :RV32E - "RV32E Base Integer Instruction Set"
 
-The RV32E table details the base integer instruction set for the 32-bit RISC-V architecture, encompassing essential operations and functionalities supported at the machine level.
-
-| **instruction** | **argument**     | **opcode**                            | **codec** | **extension**  |
+| **Instruction** | **Argument**     | **Opcode**                            | **Codec** | **Extension**  |
 |:----------------|:-----------------|:--------------------------------------|:----------|:---------------|
 | `lwu`           | `rd rs1 oimm12`  | `14..12=6 6..2=0x00 1..0=3`           | `i+l`     | `rv64i rv128i` |
 | `ld`            | `rd rs1 oimm12`  | `14..12=3 6..2=0x00 1..0=3`           | `i+l`     | `rv64i rv128i` |
@@ -80,9 +64,7 @@ The RV32E table details the base integer instruction set for the 32-bit RISC-V a
 
 :RV64E - "RV64E Base Integer Instruction Set (+ RV32E)"
 
-Building upon RV32E, RV64E extends the base integer instruction set to 64-bit, maintaining compatibility with RV32E while adding support for larger data and addressing spaces.
-
-| **instruction** | **argument**     | **opcode**                            | **codec** | **extension** |
+| **Instruction** | **Argument**     | **Opcode**                            | **Codec** | **Extension** |
 |:----------------|:-----------------|:--------------------------------------|:----------|:--------------|
 | `ldu`           | `rd rs1 oimm12`  | `14..12=7 6..2=0x00 1..0=3`           | `i+l`     | `rv128i`      |
 | `lq`            | `rd rs1 oimm12`  | `14..12=2 6..2=0x03 1..0=3`           | `i+l`     | `rv128i`      |

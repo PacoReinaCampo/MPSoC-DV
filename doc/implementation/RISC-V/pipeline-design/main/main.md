@@ -1,10 +1,10 @@
 # MAIN
 
-| `Name` | **Value** |
-|:-------|:----------|
-| `XLEN` | `64`      |
-| `PLEN` | `64`      |
-| `FLEN` | `64`      |
+| **Name** | **Value** |
+|:---------|:----------|
+| `XLEN`   | `64`      |
+| `PLEN`   | `64`      |
+| `FLEN`   | `64`      |
 
 | **Name**    | **Value**     | **Description**                          |
 |:------------|:--------------|:-----------------------------------------|
@@ -52,14 +52,14 @@
 
 | **Name**  | **Value** | **Description**                                |
 |:----------|:----------|:-----------------------------------------------|
-| `PMA_CNT` | ` 4`      |                                                |
+| `PMA_CNT` | `4`       |                                                |
 | `PMP_CNT` | `16`      | `Number of Physical Memory Protection entries` |
 
 | **Name**            | **Value** |
 |:--------------------|:----------|
-| `BP_GLOBAL_BITS`    | ` 2`      |
+| `BP_GLOBAL_BITS`    | `2`       |
 | `BP_LOCAL_BITS`     | `10`      |
-| `BP_LOCAL_BITS_LSB` | ` 2`      |
+| `BP_LOCAL_BITS_LSB` | `2`       |
 
 | **Name**     | **Value**   |
 |:-------------|:------------|
@@ -224,23 +224,23 @@ localparam CAUSE_COUNTER_OVERFLOW         = 13;
 | `DBG_GPRS`     | `4'h1`    |
 | `DBG_CSRS`     | `4'h2`    |
 
-| `0` | `00` | `XX` | `Type`  |
-|:----|:-----|:-----|:--------|
-| `0` | `00` | `00` | `ctrl`  |
-| `0` | `00` | `01` |         |
-| `0` | `00` | `10` | `ie`    |
-| `0` | `00` | `11` | `cause` |
+| **0** | **00** | **Xx** | **Type** |
+|:------|:-------|:-------|:---------|
+| `0`   | `00`   | `00`   | `ctrl`   |
+| `0`   | `00`   | `01`   |          |
+| `0`   | `00`   | `10`   | `ie`     |
+| `0`   | `00`   | `11`   | `cause`  |
 
 :Control registers - Reserved
 
-| `1` | `XXXX` | `BPX` | `Type` |
-|:----|:-------|:------|:-------|
-| `1` | `0000` | `BP0` | `Ctrl` |
-| `1` | `0001` | `BP0` | `Data` |
-| `1` | `0010` | `BP1` | `Ctrl` |
-| `1` | `0011` | `BP1` | `Data` |
-| `1` | `1110` | `BP7` | `Ctrl` |
-| `1` | `1111` | `BP7` | `Data` |
+| **1** | **Xxxx** | **Bpx** | **Type** |
+|:------|:---------|:--------|:---------|
+| `1`   | `0000`   | `BP0`   | `Ctrl`   |
+| `1`   | `0001`   | `BP0`   | `Data`   |
+| `1`   | `0010`   | `BP1`   | `Ctrl`   |
+| `1`   | `0011`   | `BP1`   | `Data`   |
+| `1`   | `1110`   | `BP7`   | `Ctrl`   |
+| `1`   | `1111`   | `BP7`   | `Data`   |
 
 | **Name**    | **Value** | **Description**                                           |
 |:------------|:----------|:----------------------------------------------------------|
@@ -287,12 +287,12 @@ localparam CAUSE_COUNTER_OVERFLOW         = 13;
 | `BP_CTRL_CC_ST_ADR`   | `3'h2`    |
 | `BP_CTRL_CC_LDST_ADR` | `3'h3`    |
 
-| `Address`     | `Key` | **Description**             |
-|:--------------|:------|:----------------------------|
-| `0x000-0x01f` | `GPR` | `General Purpose Registers` |
-| `0x100-0x11f` | `FPR` | `Floating Point Registers`  |
-| `0x200`       | `PC`  | `Program Counter`           |
-| `0x201`       | `PPC` | `Previous Program Counter`  |
+| **Address**   | **Key** | **Description**             |
+|:--------------|:--------|:----------------------------|
+| `0x000-0x01f` | `GPR`   | `General Purpose Registers` |
+| `0x100-0x11f` | `FPR`   | `Floating-Point Registers`  |
+| `0x200`       | `PC`    | `Program Counter`           |
+| `0x201`       | `PPC`   | `Previous Program Counter`  |
 
 | **Name**  | **Value**            |
 |:----------|:---------------------|

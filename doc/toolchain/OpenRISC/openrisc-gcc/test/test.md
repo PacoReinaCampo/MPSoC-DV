@@ -73,7 +73,7 @@ cd ..
 ```
 
 | **Tool**   | **Address**                                |
-|------------|--------------------------------------------|
+|:-----------|:-------------------------------------------|
 | `binutils` | `https://github.com/openrisc/binutils-gdb` |
 | `dejagnu`  | `https://github.com/openrisc/or1k-dejagnu` |
 | `gcc`      | `https://github.com/openrisc/or1k-gcc`     |

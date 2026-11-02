@@ -1,7 +1,7 @@
 # GREENCARD
 
-| **extension** | **name** | **encoding** | **variable-fields** | **match** | **mask** |
-|---------------|----------|--------------|---------------------|-----------|----------|
+| **Extension** | **Name** | **Encoding** | **Variable-Fields** | **Match** | **Mask** |
+|:--------------|:---------|:-------------|:--------------------|:----------|:---------|
 | `rv_u`        | `-`      | `-`          | `-`                 | `-`       | `-`      |
 
 :RVU - Specific Extension for User-level Instructions

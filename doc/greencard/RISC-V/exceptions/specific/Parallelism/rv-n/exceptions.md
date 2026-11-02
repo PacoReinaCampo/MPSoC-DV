@@ -1,7 +1,5 @@
 # DESIGN OF EXCEPTIONS
 
-This directory contains exceptions for the RISC-V Instruction Set Architecture
-
 | **File** | **Description**               |
 |:---------|:------------------------------|
 | `causes` | `Cause Code of Traps`         |

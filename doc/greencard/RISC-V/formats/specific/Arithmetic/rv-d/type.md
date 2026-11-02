@@ -1,21 +1,6 @@
 ## INSTRUCTION TYPES
 
-Instructions in RISC-V are categorized into several types based on their functionality:
-
-- **R-Type**: Arithmetic/Logical instructions with register operands.
-- **I-Type**: Immediate instructions with an immediate value and one register operand.
-- **S-Type**: Store instructions that store a register value into memory.
-- **B-Type**: Branch instructions for conditional jumps.
-- **U-Type**: Upper immediate instructions for setting upper bits of a register.
-- **J-Type**: Jump instructions for unconditional jumps.
-
-Each type is designed with specific operand formats and encodings to efficiently perform common computational tasks and control flow operations.
-
-Format of a line in the table:
-
-`<type> <type name> <bit encoding>[=<name>] ...`
-
-| **type** | **type name** | **bit encoding**                                                                            |
+| **Type** | **Type Name** | **Bit Encoding**                                                                            |
 |:---------|:--------------|:--------------------------------------------------------------------------------------------|
 | `32`     | `Base`        | `31:25                       24:20     19:15     14:12        11:7              6:0`        |
 | `r`      | `Register`    | `31:25=funct7                24:20=rs2 19:15=rs1 14:12=funct3 11:7=rd           6:0=opcode` |
@@ -27,16 +12,14 @@ Format of a line in the table:
 
 :RISC-V Base 32-Bit Instruction Type
 
-| **type** | **type name** | **bit encoding**                                                                |
+| **Type** | **Type Name** | **Bit Encoding**                                                                |
 |:---------|:--------------|:--------------------------------------------------------------------------------|
 | `32`     | `Base`        | `31:25                     24:20     19:15     14:12        11:7    6:0`        |
 | `r4`     | `Register`    | `31:27=rs3    26:25=funct2 24:20=rs2 19:15=rs1 14:12=funct3 11:7=rd 6:0=opcode` |
 
 :RISC-V Float-Point 32-Bit Instruction Type
 
-The base instruction type table categorizes and describes the fundamental instructions that constitute the core of the RISC-V ISA, covering essential operations such as arithmetic, logical, control flow, and memory access.
-
-| **type** | **type name**          | **bit encoding**                                                      |
+| **Type** | **Type Name**          | **Bit Encoding**                                                      |
 |:---------|:-----------------------|:----------------------------------------------------------------------|
 | `16`     | `Compressed`           | `15:13        12:10             9:7      6:5     4:2      1:0`        |
 | `cr`     | `Register`             | `15:12=funct4           11:7=rd/rs1      6:2=rs2          1:0=opcode` |
@@ -50,9 +33,7 @@ The base instruction type table categorizes and describes the fundamental instru
 
 :RISC-V Compressed 16-Bit Instruction Type
 
-The compressed instruction type table details the subset of instructions available in compressed format within the RISC-V ISA, offering reduced code size benefits while maintaining compatibility with the base instruction set.
-
-| **type** | **type name** | **bit encoding**                                                                             |
+| **Type** | **Type Name** | **Bit Encoding**                                                                             |
 |:---------|:--------------|:---------------------------------------------------------------------------------------------|
 | `64`     | `Extended`    | `63:48                       47:38     37:28     27:22        21:12             11:0`        |
 | `or`     | `Register`    | `63:54=funct16                                   27:22=funct6 21:12=rd          11:0=opcode` |
@@ -64,11 +45,9 @@ The compressed instruction type table details the subset of instructions availab
 
 :RISC-V Extended 64-Bit Instruction Type
 
-| **type** | **type name** | **bit encoding**                                                                   |
+| **Type** | **Type Name** | **Bit Encoding**                                                                   |
 |:---------|:--------------|:-----------------------------------------------------------------------------------|
 | `64`     | `Extended`    | `63:48                      47:38     37:28     27:22        21:12    11:0`        |
 | `or4`    | `Register`    | `63:54=rs3     53:48=funct6 47:38=rs2 37:28=rs1 27:22=funct6 21:12=rd 11:0=opcode` |
 
 :RISC-V Float-Point 64-Bit Instruction Type
-
-The extended instruction type table details the subset of instructions available in extended format within the RISC-V ISA, offering amplified code size benefits while maintaining compatibility with the base instruction set.

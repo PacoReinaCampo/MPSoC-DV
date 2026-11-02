@@ -1,14 +1,6 @@
 ## TRAPS
 
-Format of a line in the table:
-
-`<csr number> <csr access> <csr name> "<csr description>" <version>`
-
-`<access> is one of urw, uro, srw, sro, hrw, hro, mrw, mro`
-
-`<version> is [introduced]-[deprecated]`
-
-| **number** | **access** | **name**     | **description**                            | **version** |
+| **Number** | **Access** | **Name**     | **Description**                            | **Version** |
 |:-----------|:-----------|:-------------|:-------------------------------------------|:------------|
 | `0x100`    | `srw`      | `sstatus`    | `Supervisor status register`               | `1.7-`      |
 | `0x102`    | `srw`      | `sedeleg`    | `Supervisor exception delegation register` | `1.9-`      |
@@ -19,9 +11,7 @@ Format of a line in the table:
 
 :Supervisor Trap Setup
 
-Configuration specifics for traps and exceptions at the supervisor privilege level are detailed in this part of the RISC-V ISA documentation.
-
-| **number** | **access** | **name**   | **description**                                 | **version** |
+| **Number** | **Access** | **Name**   | **Description**                                 | **Version** |
 |:-----------|:-----------|:-----------|:------------------------------------------------|:------------|
 | `0x140`    | `srw`      | `sscratch` | `Scratch register for supervisor trap handlers` | `1.7-`      |
 | `0x141`    | `srw`      | `sepc`     | `Supervisor exception program counter`          | `1.7-`      |
@@ -31,5 +21,3 @@ Configuration specifics for traps and exceptions at the supervisor privilege lev
 | `0x144`    | `srw`      | `sip`      | `Supervisor interrupt pending`                  | `1.7-`      |
 
 :Supervisor Trap Handling
-
-The procedures and mechanisms for handling traps and exceptions at the supervisor privilege level are documented comprehensively.

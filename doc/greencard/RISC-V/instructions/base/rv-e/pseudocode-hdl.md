@@ -1,12 +1,6 @@
 ## INSTRUCTION PSEUDO-CODE (HDL)
 
-Alternative Pseudo-Code representations may also be used to describe RISC-V instructions, catering to different programming paradigms or abstraction levels. These representations vary in style and detail but aim to convey the fundamental operations and control flow logic inherent in each instruction type.
-
-Format of a line in the table:
-
-`<instruction name> "<instruction pseudo-code>"`
-
-| **instruction** | **instruction pseudo-code**                     |
+| **Instruction** | **Instruction Pseudo-Code**                     |
 |:----------------|:------------------------------------------------|
 | `lui`           | `rd = imm`                                      |
 | `auipc`         | `rd = pc + imm`                                 |
@@ -51,9 +45,7 @@ Format of a line in the table:
 
 :RV32E - "RV32E Base Integer Instruction Set"
 
-The RV32E table details the base integer instruction set for the 32-bit RISC-V architecture, encompassing essential operations and functionalities supported at the machine level.
-
-| **instruction** | **instruction pseudo-code** |
+| **Instruction** | **Instruction Pseudo-Code** |
 |:----------------|:----------------------------|
 | `ld`            | `rd = u64[rs1 + imm]`       |
 | `sd`            | `u64[rs1 + imm] = rs2`      |
@@ -68,5 +60,3 @@ The RV32E table details the base integer instruction set for the 32-bit RISC-V a
 | `sraw`          | `rd = s32(rs1) >> rs2`      |
 
 :RV64E - "RV64E Base Integer Instruction Set (+ RV32E)"
-
-Building upon RV32E, RV64E extends the base integer instruction set to 64-bit, maintaining compatibility with RV32E while adding support for larger data and addressing spaces.

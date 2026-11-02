@@ -1,12 +1,6 @@
 ## PSEUDO-INSTRUCTIONS
 
-Pseudo-Instructions in RISC-V are syntactic conveniences that do not directly correspond to machine instructions but are instead translated by the assembler into one or more actual instructions. They provide shortcuts for common operations or complex sequences that are otherwise tedious to express directly in the base ISA. Pseudo-Instructions aid software development by improving code readability and maintainability, abstracting low-level details while leveraging the underlying simplicity and power of the RISC-V ISA architecture.
-
-Format of a line in the table:
-
-`<pseudo-opcode> <opcode> <format> <constraint> ...`
-
-| **pseudo**   | **opcode**              | **format**       | **constraint**                   |
+| **Pseudo**   | **Opcode**              | **Format**       | **Constraint**                   |
 |:-------------|:------------------------|:-----------------|:---------------------------------|
 | `nop`        | `addi`                  | `none`           | `rd_eq_x0 rs1_eq_x0 imm_eq_zero` |
 | `#lla,la`    | `{lui,slli,addi,addiw}` | `rd,symbol`      | `-`                              |
@@ -66,5 +60,3 @@ Format of a line in the table:
 | `fsflagsi`   | `csrrwi`                | `rd,zimm`        | `csr_eq_0x001`                   |
 
 :Pseudo-Instructions
-
-The pseudo-instructions table documents pseudo-instructions in the RISC-V ISA, which are assembler-level constructs that expand into one or more actual instructions during assembly or compilation, providing convenience or abstraction to programmers.

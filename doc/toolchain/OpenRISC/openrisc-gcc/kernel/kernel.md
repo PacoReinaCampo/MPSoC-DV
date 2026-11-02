@@ -1,7 +1,7 @@
 # KERNEL
 
 | **Tool 32-Bit**           |
-|---------------------------|
+|:--------------------------|
 | `or1k32-linux-addr2line`  |
 | `or1k32-linux-ar`         |
 | `or1k32-linux-as`         |
@@ -32,7 +32,7 @@
 :Application Tools 32-Bit
 
 | **Tool 64-Bit**           |
-|---------------------------|
+|:--------------------------|
 | `or1k64-linux-addr2line`  |
 | `or1k64-linux-ar`         |
 | `or1k64-linux-as`         |
@@ -63,7 +63,7 @@
 :Application Tools 64-Bit
 
 | **Tool**      |
-|---------------|
+|:--------------|
 | `qemu-or1k32` |
 | `qemu-or1k64` |
 

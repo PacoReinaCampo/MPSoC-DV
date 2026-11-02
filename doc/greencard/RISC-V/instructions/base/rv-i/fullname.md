@@ -1,12 +1,6 @@
 ## INSTRUCTION FULL-NAMES
 
-The RISC-V ISA defines a comprehensive set of instructions, each identified by an opcode that denotes its operation. Full-Names for instructions typically include a mnemonic followed by suffixes indicating specific variants or extensions. For instance, "ADD" denotes addition, while "ADDI" specifies addition with an immediate operand.
-
-Format of a line in the table:
-
-`<instruction name> "<instruction full-name>"`
-
-| **instruction** | **instruction full-name**            |
+| **Instruction** | **Instruction Full-Name**            |
 |:----------------|:-------------------------------------|
 | `lui`           | `Load Upper Immediate`               |
 | `auipc`         | `Add Upper Immediate to PC`          |
@@ -51,9 +45,7 @@ Format of a line in the table:
 
 :RV32I - "RV32I Base Integer Instruction Set"
 
-The RV32I table details the base integer instruction set for the 32-bit RISC-V architecture, encompassing essential operations and functionalities supported at the machine level.
-
-| **instruction** | **instruction full-name**               |
+| **Instruction** | **Instruction Full-Name**               |
 |:----------------|:----------------------------------------|
 | `ld`            | `Load Double`                           |
 | `sd`            | `Store Double`                          |
@@ -68,5 +60,3 @@ The RV32I table details the base integer instruction set for the 32-bit RISC-V a
 | `sraw`          | `Shift Right Arithmetic Word`           |
 
 :RV64I - "RV64I Base Integer Instruction Set (+ RV32I)"
-
-Building upon RV32I, RV64I extends the base integer instruction set to 64-bit, maintaining compatibility with RV32I while adding support for larger data and addressing spaces.

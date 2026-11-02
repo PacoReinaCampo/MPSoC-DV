@@ -1,7 +1,7 @@
 # KERNEL
 
 | **Tool 32-Bit**                        |
-|----------------------------------------|
+|:---------------------------------------|
 | `riscv32-unknown-linux-gnu-addr2line`  |
 | `riscv32-unknown-linux-gnu-ar`         |
 | `riscv32-unknown-linux-gnu-as`         |
@@ -37,7 +37,7 @@
 :Application Tools 32-Bit
 
 | **Tool 64-Bit**                        |
-|----------------------------------------|
+|:---------------------------------------|
 | `riscv64-unknown-linux-gnu-addr2line`  |
 | `riscv64-unknown-linux-gnu-ar`         |
 | `riscv64-unknown-linux-gnu-as`         |
@@ -73,7 +73,7 @@
 :Application Tools 64-Bit
 
 | **Tool**       |
-|----------------|
+|:---------------|
 | `qemu-riscv32` |
 | `qemu-riscv64` |
 

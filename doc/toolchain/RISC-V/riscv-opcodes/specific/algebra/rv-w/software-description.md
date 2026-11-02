@@ -8,24 +8,24 @@ hi..lo=value or bit=value or arg=value (e.g. 6..2=0x45 10=1 rd=0)
 
 `<args>` is one of vd, wd, yd, ws3, ws1, ws2, vm, nf, simm5, zimm10, zimm11
 
-  | **Category** | **Operands**     | **Operation** |
-  |:-------------|:-----------------|:--------------|
-  | `OPIWW`      | matrix-matrix    | Integer       |
-  | `OPIWX`      | matrix-scalar    | Integer       |
-  | `OPIWI`      | matrix-immediate | Integer       |
-  | `OPFWW`      | matrix-matrix    | Float         |
-  | `OPFWF`      | matrix-scalar    | Float         |
-  | `OPMWW`      | matrix-matrix    | Mask          |
-  | `OPMWX`      | matrix-scalar    | Mask          |
-  | `OPCFG`      | scalars-imms     | Configuration |
+  | **Category** | **Operands**       | **Operation**   |
+  |:-------------|:-------------------|:----------------|
+  | `OPIWW`      | `matrix-matrix`    | `Integer`       |
+  | `OPIWX`      | `matrix-scalar`    | `Integer`       |
+  | `OPIWI`      | `matrix-immediate` | `Integer`       |
+  | `OPFWW`      | `matrix-matrix`    | `Float`         |
+  | `OPFWF`      | `matrix-scalar`    | `Float`         |
+  | `OPMWW`      | `matrix-matrix`    | `Mask`          |
+  | `OPMWX`      | `matrix-scalar`    | `Mask`          |
+  | `OPCFG`      | `scalars-imms`     | `Configuration` |
 
 **OPCFG (Configuration Setting)**
 
-  | **Name**    | **Opcode / Argument**                              | **Format**                  | **Pseudo-Code**                                       |
-  |:------------|:---------------------------------------------------|:----------------------------|:------------------------------------------------------|
-  | `wsetivli`  | `31=1 30=1 zimm10   zimm5 14..12=0x7 rd 6..0=0x57` | `wsetvli rd, rs1, wtypei`   | `rd = new wl, rs1 = AVL, wtypei = new wtype setting`  |
-  | `wsetvli`   | `31=0 zimm11          rs1 14..12=0x7 rd 6..0=0x57` | `wsetivli rd, uimm, wtypei` | `rd = new wl, uimm = AVL, wtypei = new wtype setting` |
-  | `wsetvl`    | `31=1 30..25=0x0 rs2  rs1 14..12=0x7 rd 6..0=0x57` | `wsetvl  rd, rs1, rs2`      | `rd = new wl, rs1 = AVL, rs2 = new wtype value`       |
+  | **Name**   | **Opcode / Argument**                              | **Format**                  | **Pseudo-Code**                                       |
+  |:-----------|:---------------------------------------------------|:----------------------------|:------------------------------------------------------|
+  | `wsetivli` | `31=1 30=1 zimm10   zimm5 14..12=0x7 rd 6..0=0x57` | `wsetvli rd, rs1, wtypei`   | `rd = new wl, rs1 = AVL, wtypei = new wtype setting`  |
+  | `wsetvli`  | `31=0 zimm11          rs1 14..12=0x7 rd 6..0=0x57` | `wsetivli rd, uimm, wtypei` | `rd = new wl, uimm = AVL, wtypei = new wtype setting` |
+  | `wsetvl`   | `31=1 30..25=0x0 rs2  rs1 14..12=0x7 rd 6..0=0x57` | `wsetvl  rd, rs1, rs2`      | `rd = new wl, rs1 = AVL, rs2 = new wtype value`       |
 
   : Configuration Setting
 

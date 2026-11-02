@@ -1,10 +1,10 @@
 pandoc riscv-greencard.md -o riscv-greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
 pandoc base/rv-e/greencard.md -o base/rv-e/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
 pandoc base/rv-i/greencard.md -o base/rv-i/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
-pandoc base/rv-o/greencard.md -o base/rv-o/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
 pandoc standard/rv-a/greencard.md -o standard/rv-a/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
 pandoc standard/rv-c/greencard.md -o standard/rv-c/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
 pandoc standard/rv-m/greencard.md -o standard/rv-m/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
+pandoc standard/rv-o/greencard.md -o standard/rv-o/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
 pandoc specific/Algebra/rv-v/greencard.md -o specific/Algebra/rv-v/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
 pandoc specific/Algebra/rv-w/greencard.md -o specific/Algebra/rv-w/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm
 pandoc specific/Algebra/rv-y/greencard.md -o specific/Algebra/rv-y/greencard.pdf --pdf-engine=xelatex -V papersize=A3 -V geometry:margin=1cm

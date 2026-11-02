@@ -1,14 +1,6 @@
 ## INSTRUCTION SET EXTENSIONS
 
-RISC-V supports a modular approach to its instruction set, allowing for standard and custom extensions. Standard extensions, denoted by a single letter (e.g., `I` for base integer instructions), provide essential functionalities such as arithmetic, load/store operations, and control flow. Custom extensions, designated by additional letters (e.g., `M` for integer multiplication and division), expand the ISA with specialized instructions tailored for specific applications like vector processing or cryptographic operations.
-
-Each extension provides additional functionality to the core RISC-V ISA, allowing it to be adapted for various computing environments ranging from embedded systems to high-performance computing. The modularity of RISC-V extensions makes it a versatile choice for both general-purpose and specialized computing tasks. Beyond the standard and optional extensions, RISC-V allows for custom extensions tailored to specific applications or domains. These extensions can be defined by users or companies to add specialized instructions that improve performance or efficiency for specific tasks.
-
-Format of a line in the table:
-
-`<prefix> <isa width> <alpha code> <instruction width> "<extension description>"`
-
-| **prefix** | **isa width** | **alpha code** | **instruction width** | **extension description**                                                    |
+| **Prefix** | **Isa Width** | **Alpha Code** | **Instruction Width** | **Extension Description**                                                    |
 |:-----------|:--------------|:---------------|:----------------------|:-----------------------------------------------------------------------------|
 | `rv`       | `32`          | `i`            | `32`                  | `RV32I Base Integer Instruction Set`                                         |
 | `rv`       | `64`          | `i`            | `32`                  | `RV64I Base Integer Instruction Set (+ RV32I)`                               |
@@ -57,9 +49,3 @@ Format of a line in the table:
 | `rv`       | `128`         | `y`            | `32`                  | `RV128Y Specific Extension for Tensor Operations (+ RV64Y)`                  |
 
 :Instruction Set Extensions
-
-This table outlines the various instruction set extensions available in the RISC-V architecture, each introducing additional functionality beyond the base ISA to cater to specific application domains or performance optimizations.
-
-RISC-V, a modular and open-source instruction set architecture, features various extensions denoted by single-letter codes. The "I" extension (Base Integer ISA) forms the fundamental instruction set, supporting basic integer operations. Extensions like "M" (Integer Multiplication and Division), "A" (Atomic Memory Operations), and "F" (Single-Precision Floating-Point) augment capabilities with specialized instructions for arithmetic, memory access, and floating-point computations respectively. The "D" extension adds double-precision floating-point support to "F", while "G" combines "I", "M", "A", "F", and "D" extensions for general-purpose computing. "Q" introduces quad-precision floating-point operations. Additionally, "C" provides compressed instructions to reduce code size without sacrificing performance. Extensions "B" (Bit Manipulation), "K" (Decimal Floating-Point), "J" (Dynamic Translation and Optimization), "P" (Packed SIMD), and "V" (Vector) further expand RISC-V's capabilities for specific tasks like data manipulation, SIMD (Single Instruction, Multiple Data) operations, and dynamic translation. These extensions allow tailoring RISC-V processors for diverse applications from embedded systems to high-performance computing, emphasizing flexibility and efficiency in modern computing environments.
-
-The RISC-V ISA has been extended in several ways to accommodate diverse application domains and evolving technological needs. These extensions primarily focus on adding specialized instructions and features while maintaining compatibility with the core RISC-V principles of simplicity and modularity. One prominent extension is the Vector (RVV) extension, which introduces support for vector processing suitable for tasks like multimedia processing and scientific computing. Another significant extension is the Cryptography extension (RVC), which includes instructions optimized for cryptographic algorithms, enhancing security implementations. Additionally, the Floating-Point extension (RVF) provides comprehensive support for floating-point arithmetic operations, crucial for numerical computing. These extensions ensure RISC-V remains adaptable across a wide range of applications, enabling efficient and specialized computation while leveraging its open-source nature to foster innovation and customization in processor design.

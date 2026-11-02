@@ -1,7 +1,7 @@
 # BAREMETAL APPLICATIONS
 
-| **Tool 32-Bit**                      |
-|----------------------------------|
+| **Tool 32-Bit**                  |
+|:---------------------------------|
 | `riscv32-unknown-elf-addr2line`  |
 | `riscv32-unknown-elf-ar`         |
 | `riscv32-unknown-elf-as`         |
@@ -36,7 +36,7 @@
 :Baremetal Tools 32-Bit
 
 | **Tool 64-Bit**                  |
-|----------------------------------|
+|:---------------------------------|
 | `riscv64-unknown-elf-addr2line`  |
 | `riscv64-unknown-elf-ar`         |
 | `riscv64-unknown-elf-as`         |
@@ -71,7 +71,7 @@
 :Baremetal Tools 64-Bit
 
 | **Tool**          |
-|-------------------|
+|:------------------|
 | `riscv32-isa-sim` |
 | `riscv64-isa-sim` |
 

@@ -1,7 +1,7 @@
 # BAREMETAL APPLICATIONS
 
 | **Tool 32-Bit**         |
-|-------------------------|
+|:------------------------|
 | `or1k32-elf-addr2line`  |
 | `or1k32-elf-ar`         |
 | `or1k32-elf-as`         |
@@ -36,7 +36,7 @@
 :Baremetal Tools 32-Bit
 
 | **Tool 64-Bit**         |
-|-------------------------|
+|:------------------------|
 | `or1k64-elf-addr2line`  |
 | `or1k64-elf-ar`         |
 | `or1k64-elf-as`         |
@@ -71,7 +71,7 @@
 :Baremetal Tools 64-Bit
 
 | **Tool**     |
-|--------------|
+|:-------------|
 | `or1k32-sim` |
 | `or1k64-sim` |
 

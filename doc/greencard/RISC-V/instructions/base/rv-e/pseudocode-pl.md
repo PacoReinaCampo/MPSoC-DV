@@ -1,12 +1,6 @@
 ## INSTRUCTION PSEUDO-CODE (PL)
 
-Pseudo-Code in C-like syntax provides a high-level representation of RISC-V instructions, illustrating their behavior and operational flow without delving into specific machine-level details. This abstraction aids in software development, algorithm design, and understanding of instruction semantics across different implementations and extensions of the RISC-V ISA.
-
-Format of a line in the table:
-
-`<instruction name> "<instruction pseudo-code>"`
-
-| **instruction** | **instruction pseudo-code**                                                             |
+| **Instruction** | **Instruction Pseudo-Code**                                                             |
 |:----------------|:----------------------------------------------------------------------------------------|
 | `lui`           | `rd = imm`                                                                              |
 | `auipc`         | `rd = pc + imm`                                                                         |
@@ -51,9 +45,7 @@ Format of a line in the table:
 
 :RV32E - "RV32E Base Integer Instruction Set"
 
-The RV32E table details the base integer instruction set for the 32-bit RISC-V architecture, encompassing essential operations and functionalities supported at the machine level.
-
-| **instruction** | **instruction pseudo-code**                                                  |
+| **Instruction** | **Instruction Pseudo-Code**                                                  |
 |:----------------|:-----------------------------------------------------------------------------|
 | `ld`            | `s64 t; mmu.load<s64>(rs1 + imm, t); rd = t; rd = sx(*(s64*)ptr(rs1 + imm))` |
 | `sd`            | `mmu.store<s64>(rs1 + imm, s64(rs2)); *(u64*)ptr(rs1 + imm) = rs2`           |
@@ -68,5 +60,3 @@ The RV32E table details the base integer instruction set for the 32-bit RISC-V a
 | `sraw`          | `rd = s32(s32(rs1) >> (rs2 & 0b11111))`                                      |
 
 :RV64E - "RV64E Base Integer Instruction Set (+ RV32E)"
-
-Building upon RV32E, RV64E extends the base integer instruction set to 64-bit, maintaining compatibility with RV32E while adding support for larger data and addressing spaces.

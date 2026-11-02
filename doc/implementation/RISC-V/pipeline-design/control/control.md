@@ -132,9 +132,9 @@ localparam [11:0] SIP           = 'h144;
 localparam [11:0] SCOUNTOVF     = 'hDA0;
 ```
 
-| `Name` | **Value** |
-|:-------|:----------|
-| `SATP` | `'h180`   |
+| **Name** | **Value** |
+|:---------|:----------|
+| `SATP`   | `'h180`   |
 
 :Supervisor Protection and Translation
 

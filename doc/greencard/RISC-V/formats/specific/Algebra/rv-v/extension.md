@@ -1,14 +1,6 @@
 ## EXTENDED INSTRUCTION
 
-RISC-V also includes a extended instruction set (RVO) to further enhance code density without sacrificing performance. Extended instructions are 64 bits long and provide a subset of frequently used operations from the base ISA. They are seamlessly integrated with the standard instruction set, allowing compilers and assemblers to automatically select between extended and unextended instructions based on optimization goals and target architecture support.
-
-Format of a line in the table:
-
-`<extended opcode> <unextended opcode> [<constraint name> ...]`
-
-`<constraint> is one of imm_6, imm_7, imm_8, imm_9, imm_10, imm_12, imm_18, imm_nz, imm_x2, imm_x4, imm_x8, rd_b3, rs1_b3, rs2_b3, rs1_eq_sp, rd_eq_x0, rs1_eq_x0, rs2_eq_x0, rd_ne_x0, rs1_ne_x0, rs2_ne_x0, rd_eq_rs1, rd_eq_ra, rd_ne_x0_x2, rd_eq_sp`
-
-| **u-opcode** | **unextended-opcode**          | **constraint name**             |
+| **O-Opcode** | **Unextended-Opcode**          | **Constraint Name**             |
 |:-------------|:-------------------------------|:--------------------------------|
 | `o.addi4spn` | `addi   imm_10 imm_x4 imm_nz`  | `rd_b3 rs1_eq_sp`               |
 | `o.fld`      | `fld    imm_8  imm_x8`         | `rd_b3 rs1_b3`                  |
@@ -52,7 +44,7 @@ Format of a line in the table:
 
 :RV32O - "Extended Instruction"
 
-| **o-opcode** | **unextended-opcode**   | **constraint name**  |
+| **O-Opcode** | **Unextended-Opcode**   | **Constraint Name**  |
 |:-------------|:------------------------|:---------------------|
 | `o.lq`       | `lq     imm_9  imm_x16` | `-`                  |
 | `o.sq`       | `sq     imm_9  imm_x16` | `-`                  |
@@ -63,5 +55,3 @@ Format of a line in the table:
 | `o.sqsp`     | `sq     imm_10 imm_x16` | `rs1_eq_sp`          |
 
 :RV64O - "Extended Instruction"
-
-The extended instruction table lists specific examples and encodings of instructions that are available in extended form, demonstrating how these instructions are encoded and decoded within the RISC-V architecture.

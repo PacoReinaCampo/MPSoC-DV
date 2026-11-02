@@ -1,16 +1,6 @@
 ## GENERAL PURPOSE REGISTER DESCRIPTIONS
 
-RISC-V specifies a standard Application Binary Interface (ABI) that defines conventions for register usage across software and hardware interfaces. The ABI standardizes how registers are used for passing arguments to functions, returning values, and preserving state across function calls. It also defines callee-saved and caller-saved registers, ensuring compatibility and interoperability between different compilers and operating systems targeting RISC-V processors.
-
-Format of a line in the table:
-
-`<name> <alias> <type> <save> <description>`
-
-`<type> is one of ireg, freg`
-
-`<save> is one of caller, callee, global, zero`
-
-| **name** | **alias** | **type** | **save** | **description**                       |
+| **Name** | **Alias** | **Type** | **Save** | **Description**                       |
 |:---------|:----------|:---------|:---------|:--------------------------------------|
 | `x0`     | `zero`    | `ireg`   | `zero`   | `Hard-wired zero`                     |
 | `x1`     | `ra`      | `ireg`   | `caller` | `Return address Caller`               |
@@ -47,7 +37,7 @@ Format of a line in the table:
 
 :Integer Base Registers
 
-| **name** | **alias** | **type** | **save** | **description**             |
+| **Name** | **Alias** | **Type** | **Save** | **Description**             |
 |:---------|:----------|:---------|:---------|:----------------------------|
 | `f0`     | `ft0`     | `freg`   | `caller` | `FP temporaries Caller`     |
 | `f1`     | `ft1`     | `freg`   | `caller` | `FP temporaries Caller`     |

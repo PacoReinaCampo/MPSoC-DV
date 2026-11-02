@@ -1,16 +1,6 @@
 ## CONSTRAINT DEFINITIONS
 
-Constraints in RISC-V ISA refer to limitations or rules regarding how certain instructions or fields can be used:
-
-- **Immediate Constraints**: Specifies the range and format of immediate values that can be used in specific instructions.
-- **Register Constraints**: Defines which registers can be used for specific operations (e.g., integer registers vs. floating-point registers).
-- **Alignment Constraints**: Specifies memory alignment requirements for load and store operations.
-
-Format of a line in the table:
-
-`<constraint name> <constraint expression> <hint>`
-
-| **constraint name** | **constraint expression**                 |
+| **Constraint Name** | **Constraint Expression**                 |
 |:--------------------|:------------------------------------------|
 | `simm_6`            | `imm >= -32 && imm < 32`                  |
 | `simm_9`            | `imm >= -256 && imm < 256`                |
@@ -59,7 +49,3 @@ Format of a line in the table:
 | `csr_eq_0xc82`      | `imm == 0xc82`                            |
 
 :Constraint Definitions
-
-This table lists and defines the constraints and limitations imposed by the RISC-V ISA on various instructions, operands, and operations.
-
-These constraints ensure compatibility and reliable operation across various implementations of RISC-V processors.

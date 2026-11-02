@@ -1,11 +1,11 @@
 # MAIN
 
-| **Pipeline**      | **Testing Support**                          | **Comments**                                                           |
-|-------------------|----------------------------------------------|------------------------------------------------------------------------|
-| `CAPPUCCINO`      | `Linting` `or1k-tests` `formal-verification` | All supported tests passing                                            |
-| `ESPRESSO`        | `linting` `or1k-tests`                       | Still many pipeline failures, see issue #71                            |
-| `PRONTO_ESPRESSO` | `linting`                                    | No toolchain support for no-delayslot c code                           |
-| `MAROCCHINO`      | `linting` `or1k-tests`                       | See [marocchino](https://github.com/openrisc/or1k_marocchino) project. |
+| **Pipeline**      | **Testing Support**                            | **Comments**                                                             |
+|:------------------|:-----------------------------------------------|:-------------------------------------------------------------------------|
+| `CAPPUCCINO`      | ``Linting` `or1k-tests` `formal-verification`` | `All supported tests passing`                                            |
+| `ESPRESSO`        | ``linting` `or1k-tests``                       | `Still many pipeline failures, see issue #71`                            |
+| `PRONTO_ESPRESSO` | `linting`                                      | `No toolchain support for no-delayslot c code`                           |
+| `MAROCCHINO`      | ``linting` `or1k-tests``                       | `See [marocchino](https://github.com/openrisc/or1k_marocchino) project.` |
 
 | **Component**  |
 |:---------------|

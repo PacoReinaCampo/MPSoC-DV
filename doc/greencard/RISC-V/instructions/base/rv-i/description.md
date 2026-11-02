@@ -1,12 +1,6 @@
 ## INSTRUCTION DESCRIPTIONS
 
-Instructions in RISC-V are designed to perform specific operations ranging from basic arithmetic and logical computations to memory access and control flow. Each instruction description outlines its functionality, including operands (registers or immediates), effects on status flags, memory access patterns, and control flow implications. Descriptions provide a clear understanding of how instructions interact with processor state and contribute to program execution.
-
-Format of a line in the table:
-
-`<instruction name> "<instruction description>"`
-
-| **instruction name** | **instruction description**                                                                                              |
+| **Instruction Name** | **Instruction Description**                                                                                              |
 |:---------------------|:-------------------------------------------------------------------------------------------------------------------------|
 | `lui`                | `Set and sign extend the 20-bit immediate (shited 12 bits left) and zero the bottom 12 bits into rd`                     |
 | `auipc`              | `Place the PC plus the 20-bit signed immediate (shited 12 bits left) into rd (used before JALR)`                         |
@@ -51,9 +45,7 @@ Format of a line in the table:
 
 :RV32I - "RV32I Base Integer Instruction Set"
 
-The RV32I table details the base integer instruction set for the 32-bit RISC-V architecture, encompassing essential operations and functionalities supported at the machine level.
-
-| **instruction name** | **instruction description**                                                                                                      |
+| **Instruction Name** | **Instruction Description**                                                                                                      |
 |:---------------------|:---------------------------------------------------------------------------------------------------------------------------------|
 | `ld`                 | `Load 64-bit value from addr in rs1 plus 12-bit signed immediate and place sign-extended result into rd`                         |
 | `sd`                 | `Store 64-bit value from the low bits of rs2 to addr in rs1 plus the 12-bit signed immediate`                                    |
@@ -68,5 +60,3 @@ The RV32I table details the base integer instruction set for the 32-bit RISC-V a
 | `sraw`               | `Shift 32-bit value in rs1 right by the by the lower 5 bits in rs2 and place the 32-bit result into rd while retaining the sign` |
 
 :RV64I - "RV64I Base Integer Instruction Set (+ RV32I)"
-
-Building upon RV32I, RV64I extends the base integer instruction set to 64-bit, maintaining compatibility with RV32I while adding support for larger data and addressing spaces.
