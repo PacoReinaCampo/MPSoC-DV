@@ -182,7 +182,6 @@
 
 :RV64F - "RV64F Standard Extension for Single-Precision Floating-Point (+ RV32F)"
 
-
 | **Instruction** | **Instruction Full-Name**                |
 |:----------------|:-----------------------------------------|
 | `fld`           | `FP Load (DP)`                           |
@@ -214,7 +213,6 @@
 
 :RV32D - "RV32D Standard Extension for Double-Precision Floating-Point"
 
-
 | **Instruction** | **Instruction Full-Name**                       |
 |:----------------|:------------------------------------------------|
 | `fcvt.l.d`      | `FP Convert Float to Double Word (DP)`          |
@@ -225,7 +223,6 @@
 | `fmv.d.x`       | `FP Move from Integer Register (DP)`            |
 
 :RV64D - "RV64D Standard Extension for Double-Precision Floating-Point (+ RV32D)"
-
 
 | **Instruction** | **Instruction Full-Name**                  |
 |:----------------|:-------------------------------------------|
@@ -239,7 +236,6 @@
 | `fsflagsi`      | `Set FP Accrued Exception Flags Immediate` |
 
 :RV32FD - "RV32F and RV32D Common Floating-Point Instructions"
-
 
 | **Instruction** | **Instruction Full-Name**                |
 |:----------------|:-----------------------------------------|
@@ -274,7 +270,6 @@
 
 :RV32Q - "RV32Q Standard Extension for Quadruple-Precision Floating-Point"
 
-
 | **Instruction** | **Instruction Full-Name**                       |
 |:----------------|:------------------------------------------------|
 | `fcvt.l.q`      | `FP Convert Float to Double Word (QP)`          |
@@ -284,14 +279,12 @@
 
 :RV64Q - "RV64Q Standard Extension for Quadruple-Precision Floating-Point (+ RV32Q)"
 
-
 | **Instruction** | **Instruction Full-Name**            |
 |:----------------|:-------------------------------------|
 | `fmv.x.q`       | `FP Move to Integer Register (QP)`   |
 | `fmv.q.x`       | `FP Move from Integer Register (QP)` |
 
 :RV128Q - "RV128Q Standard Extension for Quadruple-Precision Floating-Point (+ RV64Q)"
-
 
 | **Instruction** | **Instruction Full-Name**            |
 |:----------------|:-------------------------------------|

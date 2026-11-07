@@ -31,7 +31,7 @@
 | `srli`          | `rd = ux(rs1) >> ux(imm)`                        |
 | `srai`          | `rd = sx(rs1) >> ux(imm)`                        |
 | `add`           | `rd = sx(rs1) + sx(rs2)`                         |
-| `sub`           | ``rd = sx(rs1) - sx(rs2)` `rs1 + ~rs2 + 1``      |
+| `sub`           | `rd = sx(rs1) - sx(rs2); rs1 + ~rs2 + 1`         |
 | `sll`           | `rd = ux(rs1) << rs2`                            |
 | `slt`           | `rd = sx(rs1) < sx(rs2)`                         |
 | `sltu`          | `rd = ux(rs1) < ux(rs2)`                         |

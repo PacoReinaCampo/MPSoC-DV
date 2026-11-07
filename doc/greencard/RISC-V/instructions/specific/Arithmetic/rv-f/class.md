@@ -39,5 +39,3 @@
 | `fcvt.s.lu`     | `fpu,fcvt` |
 
 :RV64F - "RV64F Standard Extension for Single-Precision Floating-Point (+ RV32F)"
-
- Expanding on RV32F, RV64F introduces support for single-precision floating-point operations in the 64-bit RISC-V architecture, maintaining compatibility with RV32F for seamless transition.

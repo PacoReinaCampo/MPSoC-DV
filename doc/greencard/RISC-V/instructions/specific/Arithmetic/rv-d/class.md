@@ -40,8 +40,6 @@
 
 :RV64F - "RV64F Standard Extension for Single-Precision Floating-Point (+ RV32F)"
 
- Expanding on RV32F, RV64F introduces support for single-precision floating-point operations in the 64-bit RISC-V architecture, maintaining compatibility with RV32F for seamless transition.
-
 | **Instruction** | **Class**   |
 |:----------------|:------------|
 | `fld`           | `fpu,load`  |
@@ -73,8 +71,6 @@
 
 :RV32D - "RV32D Standard Extension for Double-Precision Floating-Point"
 
- This table describes the double-precision floating-point extension for the 32-bit RISC-V architecture, enabling operations on 64-bit floating-point numbers conforming to IEEE 754 standards.
-
 | **Instruction** | **Class**   |
 |:----------------|:------------|
 | `fcvt.l.d`      | `fpu,fcvt`  |
@@ -85,8 +81,6 @@
 | `fmv.d.x`       | `fpu,fmove` |
 
 :RV64D - "RV64D Standard Extension for Double-Precision Floating-Point (+ RV32D)"
-
- Building upon RV32D, RV64D extends support for double-precision floating-point operations to the 64-bit RISC-V architecture, facilitating higher precision computations.
 
 | **Instruction** | **Class** |
 |:----------------|:----------|
@@ -100,5 +94,3 @@
 | `fsflagsi`      | `csr`     |
 
 :RV32FD - "RV32F and RV32D Common Floating-Point Instructions"
-
- RV32FD documents the common floating-point instructions shared between the RV32F (single-precision) and RV32D (double-precision) floating-point extensions, optimizing instruction set usage.

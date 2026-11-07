@@ -178,8 +178,6 @@
 
 :RV64F - "RV64F Standard Extension for Single-Precision Floating-Point (+ RV32F)"
 
- Expanding on RV32F, RV64F introduces support for single-precision floating-point operations in the 64-bit RISC-V architecture, maintaining compatibility with RV32F for seamless transition.
-
 | **Instruction Name** | **Instruction Description**                                                                                                 |
 |:---------------------|:----------------------------------------------------------------------------------------------------------------------------|
 | `fld`                | `Loads a double-precision foating-point value from memory into foating-point register frd`                                  |
@@ -213,8 +211,6 @@
 
 :RV32D - "RV32D Standard Extension for Double-Precision Floating-Point"
 
- This table describes the double-precision floating-point extension for the 32-bit RISC-V architecture, enabling operations on 64-bit floating-point numbers conforming to IEEE 754 standards.
-
 | **Instruction Name** | **Instruction Description**                                                                            |
 |:---------------------|:-------------------------------------------------------------------------------------------------------|
 | `fcvt.l.d`           | `Convert the double-precision value in frs1 to a 64-bit signed integer, then write the result to rd`   |
@@ -223,8 +219,6 @@
 | `fcvt.d.lu`          | `Convert the 64-bit unsigned integer in rs1 to a double-precision value, then write the result to frd` |
 
 :RV64D - "RV64D Standard Extension for Double-Precision Floating-Point (+ RV32D)"
-
- Building upon RV32D, RV64D extends support for double-precision floating-point operations to the 64-bit RISC-V architecture, facilitating higher precision computations.
 
 | **Instruction Name** | **Instruction Description**                                                               |
 |:---------------------|:------------------------------------------------------------------------------------------|
@@ -238,8 +232,6 @@
 | `fsflagsi`           | `Set FP Accrued Exception Flags Immediate (Bits 4:0 of fcsr Control and Status Register)` |
 
 :RV32FD - "RV32F and RV32D Common Floating-Point Instructions"
-
- RV32FD documents the common floating-point instructions shared between the RV32F (single-precision) and RV32D (double-precision) floating-point extensions, optimizing instruction set usage.
 
 | **Instruction Name** | **Instruction Description**                                                                                                    |
 |:---------------------|:-------------------------------------------------------------------------------------------------------------------------------|
@@ -274,8 +266,6 @@
 
 :RV32Q - "RV32Q Standard Extension for Quadruple-Precision Floating-Point"
 
- This table outlines the quadruple-precision floating-point extension for the 32-bit RISC-V architecture, supporting operations on 128-bit floating-point numbers with extended precision.
-
 | **Instruction Name** | **Instruction Description**                                                                               |
 |:---------------------|:----------------------------------------------------------------------------------------------------------|
 | `fcvt.l.q`           | `Convert the quadruple-precision value in frs1 to a 64-bit signed integer, then write the result to rd`   |
@@ -285,16 +275,12 @@
 
 :RV64Q - "RV64Q Standard Extension for Quadruple-Precision Floating-Point (+ RV32Q)"
 
- Extending RV32Q to 64-bit, RV64Q introduces support for quadruple-precision floating-point operations in the RISC-V architecture, catering to applications requiring ultra-high precision.
-
 | **Instruction Name** | **Instruction Description**                                                          |
 |:---------------------|:-------------------------------------------------------------------------------------|
 | `fmv.x.q`            | `Write the sign extended quadruple-precision value in frs1 into integer register rd` |
 | `fmv.q.x`            | `Write the 64-bit integer register rs1 into the quadruple-precision register frd`    |
 
 :RV128Q - "RV128Q Standard Extension for Quadruple-Precision Floating-Point (+ RV64Q)"
-
- Building upon RV64Q, RV128Q extends quadruple-precision floating-point support to the 128-bit RISC-V architecture, enabling even higher precision computations.
 
 | **Instruction Name** | **Instruction Description**          |
 |:---------------------|:-------------------------------------|

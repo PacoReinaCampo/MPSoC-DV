@@ -17,7 +17,7 @@
 
 **OPCFG (Configuration Setting)**
 
-  | **Name**   | **Opcode / Argument**                              | **HDL Pseudo-Code**                                                                                                                                                                                                                                                                                                                                                                               |
+  | **Name**   | **Opcode / Argument**                              | **Hdl Pseudo-Code**                                                                                                                                                                                                                                                                                                                                                                               |
   |:-----------|:---------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vsetivli` | `31=1 30=1 zimm10   zimm5 14..12=0x7 rd 6..0=0x57` | `x_next = x; t = vtypei; AVL = zext(uimm5, 5, XLEN); if (supported_vtype(t)) begin vtype_next = t; vl_next = select_vl(AVL, vlmax(t)); end else begin vtype_next = 1 << (XLEN - 1); vl_next = 0; end if (rd != 0) x_next[rd] = vl_next; vstart_next = '0;`                                                                                                                                        |
   | `vsetvli`  | `31=0 zimm11          rs1 14..12=0x7 rd 6..0=0x57` | `x_next = x; t = vtypei; AVL = (rs1 != 0 ? $unsigned(x[rs1]) : (rd != 0 ? UINT_MAX_XLEN : vl)); if (rs1 == 0 && rd == 0 && (vtype.vill \|\| vlmax(t) != vlmax(vtype))) reserved_encoding(); if (supported_vtype(t)) begin vtype_next = t; vl_next = select_vl(AVL, vlmax(t)); end else begin vtype_next = 1 << (XLEN - 1); vl_next = 0; end if (rd != 0) x_next[rd] = vl_next; vstart_next = '0;` |
@@ -29,7 +29,7 @@
 
 * **Vector Unit-Stride Instructions (including segment part)**
 
-  | **Name**  | **Opcode / Argument**                                            | **HDL Pseudo-Code**                                                                                                                                                                                                                                              |
+  | **Name**  | **Opcode / Argument**                                            | **Hdl Pseudo-Code**                                                                                                                                                                                                                                              |
   |:----------|:-----------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vlm.v`   | `31..28=0 27..26=0 25=1 24..20=0xb rs1 14..12=0x0  vd 6..0=0x07` | `vd_next = vd; for (int i = vstart; i < ceil_div(vl, 8); ++i) begin vd_next.byte[i] = load_mem(x[rs1] + i, 8); end vstart_next = '0;`                                                                                                                            |
   | `vsm.v`   | `31..28=0 27..26=0 25=1 24..20=0xb rs1 14..12=0x0 vs3 6..0=0x27` | `for (int i = vstart; i < ceil_div(vl, 8); ++i) begin store_mem(x[rs1] + i, vs3.byte[i], 8); end vstart_next = '0;`                                                                                                                                              |
@@ -46,7 +46,7 @@
 
 * **Vector Indexed-Unordered Instructions (including segment part)**
 
-  | **Name**     | **Opcode / Argument**                                  | **HDL Pseudo-Code**                                                                                                                                                                                                                                                              |
+  | **Name**     | **Opcode / Argument**                                  | **Hdl Pseudo-Code**                                                                                                                                                                                                                                                              |
   |:-------------|:-------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vluxei8.v`  | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x0  vd 6..0=0x07` | `vd_next = vd; EMUL = LMUL; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin for (int f = 0; f <= nf; ++f) begin fields(vd_next)[f][i] = load_mem(trunc(x[rs1] + resize_unsigned(vs2.index[i], 8, XLEN) + f * (SEW / 8), XLEN), SEW); end end vstart_next = '0;`  |
   | `vluxei16.v` | `nf 28=0 27..26=1 vm vs2 rs1 14..12=0x5  vd 6..0=0x07` | `vd_next = vd; EMUL = LMUL; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin for (int f = 0; f <= nf; ++f) begin fields(vd_next)[f][i] = load_mem(trunc(x[rs1] + resize_unsigned(vs2.index[i], 16, XLEN) + f * (SEW / 8), XLEN), SEW); end end vstart_next = '0;` |
@@ -61,7 +61,7 @@
 
 * **Vector Strided Instructions (including segment part)**
 
-  | **Name**   | **Opcode / Argument**                                  | **HDL Pseudo-Code**                                                                                                                                                                                                                                                   |
+  | **Name**   | **Opcode / Argument**                                  | **Hdl Pseudo-Code**                                                                                                                                                                                                                                                   |
   |:-----------|:-------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vlse8.v`  | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x0  vd 6..0=0x07` | `vd_next = vd; EMUL = LMUL * 8 / SEW; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin for (int f = 0; f <= nf; ++f) begin fields(vd_next)[f][i] = load_mem(trunc(x[rs1] + i * $signed(x[rs2]) + f * (8 / 8), XLEN), 8); end end vstart_next = '0;`    |
   | `vlse16.v` | `nf 28=0 27..26=2 vm rs2 rs1 14..12=0x5  vd 6..0=0x07` | `vd_next = vd; EMUL = LMUL * 16 / SEW; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin for (int f = 0; f <= nf; ++f) begin fields(vd_next)[f][i] = load_mem(trunc(x[rs1] + i * $signed(x[rs2]) + f * (16 / 8), XLEN), 16); end end vstart_next = '0;` |
@@ -76,7 +76,7 @@
 
 * **Vector Indexed-Ordered Instructions (including segment part)**
 
-  | **Name**     | **Opcode / Argument**                                  | **HDL Pseudo-Code**                                                                                                                                                                                                                                                              |
+  | **Name**     | **Opcode / Argument**                                  | **Hdl Pseudo-Code**                                                                                                                                                                                                                                                              |
   |:-------------|:-------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vloxei8.v`  | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x0  vd 6..0=0x07` | `vd_next = vd; EMUL = LMUL; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin for (int f = 0; f <= nf; ++f) begin fields(vd_next)[f][i] = load_mem(trunc(x[rs1] + resize_unsigned(vs2.index[i], 8, XLEN) + f * (SEW / 8), XLEN), SEW); end end vstart_next = '0;`  |
   | `vloxei16.v` | `nf 28=0 27..26=3 vm vs2 rs1 14..12=0x5  vd 6..0=0x07` | `vd_next = vd; EMUL = LMUL; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin for (int f = 0; f <= nf; ++f) begin fields(vd_next)[f][i] = load_mem(trunc(x[rs1] + resize_unsigned(vs2.index[i], 16, XLEN) + f * (SEW / 8), XLEN), SEW); end end vstart_next = '0;` |
@@ -91,7 +91,7 @@
 
 * **Unit-stride Fault-Only-First Loads**
 
-  | **Name**    | **Opcode / Argument**                                          | **HDL Pseudo-Code**                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+  | **Name**    | **Opcode / Argument**                                          | **Hdl Pseudo-Code**                                                                                                                                                                                                                                                                                                                                                                                                                                 |
   |:------------|:---------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vle8ff.v`  | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x0  vd 6..0=0x07` | `vd_next = vd; vl_next = vl; stop = 0; EMUL = LMUL * 8 / SEW; for (int i = vstart; i < vl && !stop; ++i) if (vm \|\| v0_mask[i]) begin for (int f = 0; f <= nf && !stop; ++f) begin {r, fault} = try_load_mem(trunc(x[rs1] + (i * (nf + 1) + f) * (8 / 8), XLEN), 8); if (fault) begin if (i == 0) begin vstart_next = '0; trap(fault); end else begin vl_next = i; stop = 1; end end else fields(vd_next)[f][i] = r; end end vstart_next = '0;`    |
   | `vle16ff.v` | `nf 28=0 27..26=0 vm 24..20=0x10 rs1 14..12=0x5  vd 6..0=0x07` | `vd_next = vd; vl_next = vl; stop = 0; EMUL = LMUL * 16 / SEW; for (int i = vstart; i < vl && !stop; ++i) if (vm \|\| v0_mask[i]) begin for (int f = 0; f <= nf && !stop; ++f) begin {r, fault} = try_load_mem(trunc(x[rs1] + (i * (nf + 1) + f) * (16 / 8), XLEN), 16); if (fault) begin if (i == 0) begin vstart_next = '0; trap(fault); end else begin vl_next = i; stop = 1; end end else fields(vd_next)[f][i] = r; end end vstart_next = '0;` |
@@ -102,7 +102,7 @@
 
 * **Vector Load/Store Whole Registers**
 
-  | **Name**    | **Opcode / Argument**                                                  | **HDL Pseudo-Code**                                                                                                                                                                                                       |
+  | **Name**    | **Opcode / Argument**                                                  | **Hdl Pseudo-Code**                                                                                                                                                                                                       |
   |:------------|:-----------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vl1re8.v`  | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x0 vd  6..0=0x07` | `vd_next = vd; EEW = min(1 * VLEN, 8); evl = 1 * VLEN / EEW; if (vstart >= evl) reserved_encoding(); for (int i = vstart; i < evl; ++i) begin vd_next[i] = load_mem(x[rs1] + i * (EEW / 8), EEW); end vstart_next = '0;`  |
   | `vl1re16.v` | `31..29=0 28=0 27..26=0 25=1 24..20=0x08 rs1 14..12=0x5 vd  6..0=0x07` | `vd_next = vd; EEW = min(1 * VLEN, 16); evl = 1 * VLEN / EEW; if (vstart >= evl) reserved_encoding(); for (int i = vstart; i < evl; ++i) begin vd_next[i] = load_mem(x[rs1] + i * (EEW / 8), EEW); end vstart_next = '0;` |
@@ -131,7 +131,7 @@
 
 * **OPFVF**
 
-  | **Name**          | **Opcode / Argument**                                   | **HDL Pseudo-Code**                                                                                                                                                                                                               |
+  | **Name**          | **Opcode / Argument**                                   | **Hdl Pseudo-Code**                                                                                                                                                                                                               |
   |:------------------|:--------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vfadd.vf`        | `31..26=0x00 vm vs2 rs1 14..12=0x5 vd 6..0=0x57`        | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_add(vs2[i], fp_scalar(f[rs1], SEW), SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;` |
   | `vfsub.vf`        | `31..26=0x02 vm vs2 rs1 14..12=0x5 vd 6..0=0x57`        | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_sub(vs2[i], fp_scalar(f[rs1], SEW), SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;` |
@@ -146,7 +146,7 @@
 
   : OPFVF I
 
-  | **Name**      | **Opcode / Argument**                                   | **HDL Pseudo-Code**                                                                                                                                                                                                                                |
+  | **Name**      | **Opcode / Argument**                                   | **Hdl Pseudo-Code**                                                                                                                                                                                                                                |
   |:--------------|:--------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vfmerge.vfm` | `31..26=0x17 25=0 vs2 rs1 14..12=0x5 vd 6..0=0x57`      | `vd_next = vd; for (int i = vstart; i < vl; ++i) begin vd_next[i] = v0_mask[i] ? fp_scalar(f[rs1], SEW) : vs2[i]; end vstart_next = '0;`                                                                                                           |
   | `vfmv.v.f`    | `31..26=0x17 25=1 24..20=0 rs1 14..12=0x5 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) begin vd_next[i] = fp_scalar(f[rs1], SEW); end vstart_next = '0;`                                                                                                                                 |
@@ -159,7 +159,7 @@
 
   : OPFVF II
 
-  | **Name**     | **Opcode / Argument**                            | **HDL Pseudo-Code**                                                                                                                                                                                                                                                      |
+  | **Name**     | **Opcode / Argument**                            | **Hdl Pseudo-Code**                                                                                                                                                                                                                                                      |
   |:-------------|:-------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vfdiv.vf`   | `31..26=0x20 vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_div(vs2[i], fp_scalar(f[rs1], SEW), SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;`                                        |
   | `vfrdiv.vf`  | `31..26=0x21 vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_div(fp_scalar(f[rs1], SEW), vs2[i], SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;`                                        |
@@ -176,7 +176,7 @@
 
   : OPFVF III
 
-  | **Name**      | **Opcode / Argument**                            | **HDL Pseudo-Code**                                                                                                                                                                                                                                                                                                                      |
+  | **Name**      | **Opcode / Argument**                            | **Hdl Pseudo-Code**                                                                                                                                                                                                                                                                                                                      |
   |:--------------|:-------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vfwadd.vf`   | `31..26=0x30 vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_add(fp_widen_exact(vs2[i], SEW, 2 * SEW), fp_widen_exact(fp_scalar(f[rs1], SEW), SEW, 2 * SEW), 2 * SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;`                                        |
   | `vfwsub.vf`   | `31..26=0x32 vm vs2 rs1 14..12=0x5 vd 6..0=0x57` | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_sub(fp_widen_exact(vs2[i], SEW, 2 * SEW), fp_widen_exact(fp_scalar(f[rs1], SEW), SEW, 2 * SEW), 2 * SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;`                                        |
@@ -192,7 +192,7 @@
 
 * **OPFVV**
 
-  | **Name**       | **Opcode / Argument**                                   | **HDL Pseudo-Code**                                                                                                                                                                                                                                                                                  |
+  | **Name**       | **Opcode / Argument**                                   | **Hdl Pseudo-Code**                                                                                                                                                                                                                                                                                  |
   |:---------------|:--------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vfadd.vv`     | `31..26=0x00 vm vs2 vs1 14..12=0x1 vd 6..0=0x57`        | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_add(vs2[i], vs1[i], SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;`                                                                                    |
   | `vfredusum.vs` | `31..26=0x01 vm vs2 vs1 14..12=0x1 vd 6..0=0x57`        | `vd_next = vd; fflags_next = fflags; if (vstart != 0) trap(illegal_instruction); if (vl > 0) begin acc = vs1[0]; for (int i = 0; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_add(acc, vs2[i], SEW, frm); acc = r; fflags_next \|= flags; end vd_next[0] = acc; end vstart_next = '0;` |
@@ -209,7 +209,7 @@
 
   : OPFVV I
 
-  | **Name**   | **Opcode / Argument**                            | **HDL Pseudo-Code**                                                                                                                                                                                                                |
+  | **Name**   | **Opcode / Argument**                            | **Hdl Pseudo-Code**                                                                                                                                                                                                                |
   |:-----------|:-------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vmfeq.vv` | `31..26=0x18 vm vs2 vs1 14..12=0x1 vd 6..0=0x57` | `vd_mask_next = vd_mask; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_compare_eq(vs2[i], vs1[i], SEW); vd_mask_next[i] = r; fflags_next \|= flags; end vstart_next = '0;` |
   | `vmfle.vv` | `31..26=0x19 vm vs2 vs1 14..12=0x1 vd 6..0=0x57` | `vd_mask_next = vd_mask; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_compare_le(vs2[i], vs1[i], SEW); vd_mask_next[i] = r; fflags_next \|= flags; end vstart_next = '0;` |
@@ -218,7 +218,7 @@
 
   : OPFVV II
 
-  | **Name**     | **Opcode / Argument**                            | **HDL Pseudo-Code**                                                                                                                                                                                                                                      |
+  | **Name**     | **Opcode / Argument**                            | **Hdl Pseudo-Code**                                                                                                                                                                                                                                      |
   |:-------------|:-------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vfdiv.vv`   | `31..26=0x20 vm vs2 vs1 14..12=0x1 vd 6..0=0x57` | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_div(vs2[i], vs1[i], SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;`                                        |
   | `vfmul.vv`   | `31..26=0x24 vm vs2 vs1 14..12=0x1 vd 6..0=0x57` | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_mul(vs2[i], vs1[i], SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;`                                        |
@@ -233,7 +233,7 @@
 
   : OPFVV III
 
-  | **Name**           | **Opcode / Argument**                                    | **HDL Pseudo-Code**                                                                                                                                                                                                       |
+  | **Name**           | **Opcode / Argument**                                    | **Hdl Pseudo-Code**                                                                                                                                                                                                       |
   |:-------------------|:---------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vfcvt.xu.f.v`     | `31..26=0x12 vm vs2 19..15=0x00 14..12=0x1 vd 6..0=0x57` | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_convert(vs2[i], f, SEW, xu, SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;` |
   | `vfcvt.x.f.v`      | `31..26=0x12 vm vs2 19..15=0x01 14..12=0x1 vd 6..0=0x57` | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_convert(vs2[i], f, SEW, x, SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;`  |
@@ -244,7 +244,7 @@
 
   : OPFVV IV
 
-  | **Name**            | **Opcode / Argument**                                    | **HDL Pseudo-Code**                                                                                                                                                                                                           |
+  | **Name**            | **Opcode / Argument**                                    | **Hdl Pseudo-Code**                                                                                                                                                                                                           |
   |:--------------------|:---------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vfwcvt.xu.f.v`     | `31..26=0x12 vm vs2 19..15=0x08 14..12=0x1 vd 6..0=0x57` | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_convert(vs2[i], f, SEW, xu, 2 * SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;` |
   | `vfwcvt.x.f.v`      | `31..26=0x12 vm vs2 19..15=0x09 14..12=0x1 vd 6..0=0x57` | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_convert(vs2[i], f, SEW, x, 2 * SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;`  |
@@ -256,7 +256,7 @@
 
   : OPFVV V
 
-  | **Name**            | **Opcode / Argument**                                    | **HDL Pseudo-Code**                                                                                                                                                                                                           |
+  | **Name**            | **Opcode / Argument**                                    | **Hdl Pseudo-Code**                                                                                                                                                                                                           |
   |:--------------------|:---------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vfncvt.xu.f.w`     | `31..26=0x12 vm vs2 19..15=0x10 14..12=0x1 vd 6..0=0x57` | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_convert(vs2[i], f, 2 * SEW, xu, SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;` |
   | `vfncvt.x.f.w`      | `31..26=0x12 vm vs2 19..15=0x11 14..12=0x1 vd 6..0=0x57` | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_convert(vs2[i], f, 2 * SEW, x, SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;`  |
@@ -269,7 +269,7 @@
 
   : OPFVV VI
 
-  | **Name**     | **Opcode / Argument**                                    | **HDL Pseudo-Code**                                                                                                                                                                                        |
+  | **Name**     | **Opcode / Argument**                                    | **Hdl Pseudo-Code**                                                                                                                                                                                        |
   |:-------------|:---------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vfsqrt.v`   | `31..26=0x13 vm vs2 19..15=0x00 14..12=0x1 vd 6..0=0x57` | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_sqrt(vs2[i], SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;` |
   | `vfrsqrt7.v` | `31..26=0x13 vm vs2 19..15=0x04 14..12=0x1 vd 6..0=0x57` | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_rsqrt7(vs2[i], SEW); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;`    |
@@ -278,7 +278,7 @@
 
   : OPFVV VII
 
-  | **Name**        | **Opcode / Argument**                            | **HDL Pseudo-Code**                                                                                                                                                                                                                                                                                                                    |
+  | **Name**        | **Opcode / Argument**                            | **Hdl Pseudo-Code**                                                                                                                                                                                                                                                                                                                    |
   |:----------------|:-------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vfwadd.vv`     | `31..26=0x30 vm vs2 vs1 14..12=0x1 vd 6..0=0x57` | `vd_next = vd; fflags_next = fflags; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_add(fp_widen_exact(vs2[i], SEW, 2 * SEW), fp_widen_exact(vs1[i], SEW, 2 * SEW), 2 * SEW, frm); vd_next[i] = r; fflags_next \|= flags; end vstart_next = '0;`                                                      |
   | `vfwredusum.vs` | `31..26=0x31 vm vs2 vs1 14..12=0x1 vd 6..0=0x57` | `vd_next = vd; fflags_next = fflags; if (vstart != 0) trap(illegal_instruction); if (vl > 0) begin acc = vs1[0]; for (int i = 0; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, flags} = fp_add(acc, fp_widen_exact(vs2[i], SEW, 2 * SEW), 2 * SEW, frm); acc = r; fflags_next \|= flags; end vd_next[0] = acc; end vstart_next = '0;` |
@@ -298,7 +298,7 @@
 
 * **OPIVX**
 
-  | **Name**        | **Opcode / Argument**                            | **HDL Pseudo-Code**                                                                                                                                                                                 |
+  | **Name**        | **Opcode / Argument**                            | **Hdl Pseudo-Code**                                                                                                                                                                                 |
   |:----------------|:-------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vadd.vx`       | `31..26=0x00 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(vs2[i] + resize_signed(x[rs1], XLEN, SEW), SEW); end vstart_next = '0;`                           |
   | `vsub.vx`       | `31..26=0x02 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(vs2[i] - resize_signed(x[rs1], XLEN, SEW), SEW); end vstart_next = '0;`                           |
@@ -316,7 +316,7 @@
 
   : OPIVX I
 
-  | **Name**     | **Opcode / Argument**                                   | **HDL Pseudo-Code**                                                                                                                                                                                                         |
+  | **Name**     | **Opcode / Argument**                                   | **Hdl Pseudo-Code**                                                                                                                                                                                                         |
   |:-------------|:--------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vadc.vxm`   | `31..26=0x10 25=0 vs2 rs1 14..12=0x4 vd 6..0=0x57`      | `vd_next = vd; for (int i = vstart; i < vl; ++i) begin vd_next[i] = trunc($unsigned(vs2[i]) + $unsigned(resize_signed(x[rs1], XLEN, SEW)) + v0_mask[i], SEW); end vstart_next = '0;`                                        |
   | `vmadc.vxm`  | `31..26=0x11 25=0 vs2 rs1 14..12=0x4 vd 6..0=0x57`      | `vd_mask_next = vd_mask; for (int i = vstart; i < vl; ++i) begin wide = zext(vs2[i], SEW, SEW + 1) + zext(resize_signed(x[rs1], XLEN, SEW), SEW, SEW + 1) + v0_mask[i]; vd_mask_next[i] = wide[SEW]; end vstart_next = '0;` |
@@ -337,7 +337,7 @@
 
   : OPIVX II
 
-  | **Name**     | **Opcode / Argument**                            | **HDL Pseudo-Code**                                                                                                                                                                                                                                                                                     |
+  | **Name**     | **Opcode / Argument**                            | **Hdl Pseudo-Code**                                                                                                                                                                                                                                                                                     |
   |:-------------|:-------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vsaddu.vx`  | `31..26=0x20 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vd_next = vd; vxsat_next = vxsat; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, saturated} = saturate_unsigned($unsigned(vs2[i]) + $unsigned(resize_signed(x[rs1], XLEN, SEW)), SEW); vd_next[i] = r; vxsat_next \|= saturated; end vstart_next = '0;`                           |
   | `vsadd.vx`   | `31..26=0x21 vm vs2 rs1 14..12=0x4 vd 6..0=0x57` | `vd_next = vd; vxsat_next = vxsat; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, saturated} = saturate_signed($signed(vs2[i]) + $signed(resize_signed(x[rs1], XLEN, SEW)), SEW); vd_next[i] = r; vxsat_next \|= saturated; end vstart_next = '0;`                                 |
@@ -358,7 +358,7 @@
 
 * **OPIVV**
 
-  | **Name**          | **Opcode / Argument**                            | **HDL Pseudo-Code**                                                                                                                                                               |
+  | **Name**          | **Opcode / Argument**                            | **Hdl Pseudo-Code**                                                                                                                                                               |
   |:------------------|:-------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vadd.vv`         | `31..26=0x00 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(vs2[i] + vs1[i], SEW); end vstart_next = '0;`                                   |
   | `vsub.vv`         | `31..26=0x02 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(vs2[i] - vs1[i], SEW); end vstart_next = '0;`                                   |
@@ -374,7 +374,7 @@
 
   : OPIVV I
 
-  | **Name**     | **Opcode / Argument**                                   | **HDL Pseudo-Code**                                                                                                                                                                               |
+  | **Name**     | **Opcode / Argument**                                   | **Hdl Pseudo-Code**                                                                                                                                                                               |
   |:-------------|:--------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vadc.vvm`   | `31..26=0x10 25=0 vs2 vs1 14..12=0x0 vd 6..0=0x57`      | `vd_next = vd; for (int i = vstart; i < vl; ++i) begin vd_next[i] = trunc($unsigned(vs2[i]) + $unsigned(vs1[i]) + v0_mask[i], SEW); end vstart_next = '0;`                                        |
   | `vmadc.vvm`  | `31..26=0x11 25=0 vs2 vs1 14..12=0x0 vd 6..0=0x57`      | `vd_mask_next = vd_mask; for (int i = vstart; i < vl; ++i) begin wide = zext(vs2[i], SEW, SEW + 1) + zext(vs1[i], SEW, SEW + 1) + v0_mask[i]; vd_mask_next[i] = wide[SEW]; end vstart_next = '0;` |
@@ -393,7 +393,7 @@
 
   : OPIVV II
 
-  | **Name**     | **Opcode / Argument**                            | **HDL Pseudo-Code**                                                                                                                                                                                                                                                              |
+  | **Name**     | **Opcode / Argument**                            | **Hdl Pseudo-Code**                                                                                                                                                                                                                                                              |
   |:-------------|:-------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vsaddu.vv`  | `31..26=0x20 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vd_next = vd; vxsat_next = vxsat; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, saturated} = saturate_unsigned($unsigned(vs2[i]) + $unsigned(vs1[i]), SEW); vd_next[i] = r; vxsat_next \|= saturated; end vstart_next = '0;`                              |
   | `vsadd.vv`   | `31..26=0x21 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vd_next = vd; vxsat_next = vxsat; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, saturated} = saturate_signed($signed(vs2[i]) + $signed(vs1[i]), SEW); vd_next[i] = r; vxsat_next \|= saturated; end vstart_next = '0;`                                    |
@@ -412,7 +412,7 @@
 
   : OPIVV III
 
-  | **Name**       | **Opcode / Argument**                            | **HDL Pseudo-Code**                                                                                                                                                                                                                                                   |
+  | **Name**       | **Opcode / Argument**                            | **Hdl Pseudo-Code**                                                                                                                                                                                                                                                   |
   |:---------------|:-------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vwredsumu.vs` | `31..26=0x30 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vd_next = vd; if (vstart != 0) trap(illegal_instruction); if (vl > 0) begin acc = vs1[0]; for (int i = 0; i < vl; ++i) if (vm \|\| v0_mask[i]) begin acc = trunc(acc + extend_unsigned(vs2[i], SEW, 2 * SEW), 2 * SEW); end vd_next[0] = acc; end vstart_next = '0;` |
   | `vwredsum.vs`  | `31..26=0x31 vm vs2 vs1 14..12=0x0 vd 6..0=0x57` | `vd_next = vd; if (vstart != 0) trap(illegal_instruction); if (vl > 0) begin acc = vs1[0]; for (int i = 0; i < vl; ++i) if (vm \|\| v0_mask[i]) begin acc = trunc(acc + extend_signed(vs2[i], SEW, 2 * SEW), 2 * SEW); end vd_next[0] = acc; end vstart_next = '0;`   |
@@ -421,7 +421,7 @@
 
 * **OPIVI**
 
-  | **Name**        | **Opcode / Argument**                              | **HDL Pseudo-Code**                                                                                                                                                                              |
+  | **Name**        | **Opcode / Argument**                              | **Hdl Pseudo-Code**                                                                                                                                                                              |
   |:----------------|:---------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vadd.vi`       | `31..26=0x00 vm vs2 simm5 14..12=0x3 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(vs2[i] + sext(simm5, 5, SEW), SEW); end vstart_next = '0;`                                     |
   | `vrsub.vi`      | `31..26=0x03 vm vs2 simm5 14..12=0x3 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(sext(simm5, 5, SEW) - vs2[i], SEW); end vstart_next = '0;`                                     |
@@ -434,7 +434,7 @@
 
   : OPIVI I
 
-  | **Name**     | **Opcode / Argument**                                     | **HDL Pseudo-Code**                                                                                                                                                                                            |
+  | **Name**     | **Opcode / Argument**                                     | **Hdl Pseudo-Code**                                                                                                                                                                                            |
   |:-------------|:----------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vadc.vim`   | `31..26=0x10 25=0 vs2 simm5 14..12=0x3 vd 6..0=0x57`      | `vd_next = vd; for (int i = vstart; i < vl; ++i) begin vd_next[i] = trunc($unsigned(vs2[i]) + $unsigned(sext(simm5, 5, SEW)) + v0_mask[i], SEW); end vstart_next = '0;`                                        |
   | `vmadc.vim`  | `31..26=0x11 25=0 vs2 simm5 14..12=0x3 vd 6..0=0x57`      | `vd_mask_next = vd_mask; for (int i = vstart; i < vl; ++i) begin wide = zext(vs2[i], SEW, SEW + 1) + zext(sext(simm5, 5, SEW), SEW, SEW + 1) + v0_mask[i]; vd_mask_next[i] = wide[SEW]; end vstart_next = '0;` |
@@ -450,7 +450,7 @@
 
   : OPIVI II
 
-  | **Name**     | **Opcode / Argument**                                   | **HDL Pseudo-Code**                                                                                                                                                                                                                                                             |
+  | **Name**     | **Opcode / Argument**                                   | **Hdl Pseudo-Code**                                                                                                                                                                                                                                                             |
   |:-------------|:--------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vsaddu.vi`  | `31..26=0x20 vm vs2 simm5 14..12=0x3 vd 6..0=0x57`      | `vd_next = vd; vxsat_next = vxsat; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, saturated} = saturate_unsigned($unsigned(vs2[i]) + $unsigned(sext(simm5, 5, SEW)), SEW); vd_next[i] = r; vxsat_next \|= saturated; end vstart_next = '0;`                |
   | `vsadd.vi`   | `31..26=0x21 vm vs2 simm5 14..12=0x3 vd 6..0=0x57`      | `vd_next = vd; vxsat_next = vxsat; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin {r, saturated} = saturate_signed($signed(vs2[i]) + $signed(sext(simm5, 5, SEW)), SEW); vd_next[i] = r; vxsat_next \|= saturated; end vstart_next = '0;`                      |
@@ -472,7 +472,7 @@
 
 * **OPI (Vector Integer Extension Instructions)**
 
-  | **Name**    | **Opcode / Argument**                                 | **HDL Pseudo-Code**                                                                                                                                                   |
+  | **Name**    | **Opcode / Argument**                                 | **Hdl Pseudo-Code**                                                                                                                                                   |
   |:------------|:------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vzext.vf8` | `31..26=0x12 vm vs2 19..15=2 14..12=0x2 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(extend_unsigned(vs2[i], SEW / 8, SEW), SEW); end vstart_next = '0;` |
   | `vsext.vf8` | `31..26=0x12 vm vs2 19..15=3 14..12=0x2 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(extend_signed(vs2[i], SEW / 8, SEW), SEW); end vstart_next = '0;`   |
@@ -483,7 +483,7 @@
 
   : Vector Integer Extension Instructions I
 
-  | **Name**       | **Opcode / Argument**                              | **HDL Pseudo-Code**                                                                                                                                                    |
+  | **Name**       | **Opcode / Argument**                              | **Hdl Pseudo-Code**                                                                                                                                                    |
   |:---------------|:---------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vcompress.vm` | `31..26=0x17 25=1 vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vd_next = vd; if (vstart != 0) trap(illegal_instruction); j = 0; for (int i = 0; i < vl; ++i) if (vs1_mask[i]) begin vd_next[j] = vs2[i]; ++j; end vstart_next = '0;` |
   | `vmandn.mm`    | `31..26=0x18 25=1 vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vd_mask_next = vd_mask; for (int i = vstart; i < vl; ++i) begin vd_mask_next[i] = (vs2_mask[i] & ~vs1_mask[i]) & 1; end vstart_next = '0;`                            |
@@ -497,7 +497,7 @@
 
   : Vector Integer Extension Instructions II
 
-  | **Name**   | **Opcode / Argument**                                         | **HDL Pseudo-Code**                                                                                                                                                                                                                     |
+  | **Name**   | **Opcode / Argument**                                         | **Hdl Pseudo-Code**                                                                                                                                                                                                                     |
   |:-----------|:--------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vmsbf.m`  | `31..26=0x14 vm vs2 19..15=0x01 14..12=0x2 vd 6..0=0x57`      | `vd_mask_next = vd_mask; if (vstart != 0) trap(illegal_instruction); seen = 0; for (int i = 0; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_mask_next[i] = !seen && !vs2_mask[i]; seen = seen \|\| vs2_mask[i]; end vstart_next = '0;` |
   | `vmsof.m`  | `31..26=0x14 vm vs2 19..15=0x02 14..12=0x2 vd 6..0=0x57`      | `vd_mask_next = vd_mask; if (vstart != 0) trap(illegal_instruction); seen = 0; for (int i = 0; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_mask_next[i] = !seen && vs2_mask[i]; seen = seen \|\| vs2_mask[i]; end vstart_next = '0;`  |
@@ -509,7 +509,7 @@
 
   : Vector Integer Extension Instructions III
 
-  | **Name**     | **Opcode / Argument**                            | **HDL Pseudo-Code**                                                                                                                                                                                   |
+  | **Name**     | **Opcode / Argument**                            | **Hdl Pseudo-Code**                                                                                                                                                                                   |
   |:-------------|:-------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vdivu.vv`   | `31..26=0x20 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(riscv_div_unsigned(vs2[i], vs1[i], SEW), SEW); end vstart_next = '0;`                               |
   | `vdiv.vv`    | `31..26=0x21 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(riscv_div_signed(vs2[i], vs1[i], SEW), SEW); end vstart_next = '0;`                                 |
@@ -526,7 +526,7 @@
 
   : Vector Integer Extension Instructions IV
 
-  | **Name**      | **Opcode / Argument**                            | **HDL Pseudo-Code**                                                                                                                                                                                                   |
+  | **Name**      | **Opcode / Argument**                            | **Hdl Pseudo-Code**                                                                                                                                                                                                   |
   |:--------------|:-------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vwaddu.vv`   | `31..26=0x30 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(extend_unsigned(vs2[i], SEW, 2 * SEW) + extend_unsigned(vs1[i], SEW, 2 * SEW), 2 * SEW); end vstart_next = '0;`     |
   | `vwadd.vv`    | `31..26=0x31 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(extend_signed(vs2[i], SEW, 2 * SEW) + extend_signed(vs1[i], SEW, 2 * SEW), 2 * SEW); end vstart_next = '0;`         |
@@ -549,7 +549,7 @@
 
 * **OPMVV**
 
-  | **Name**      | **Opcode / Argument**                            | **HDL Pseudo-Code**                                                                                                                                                                                                                                          |
+  | **Name**      | **Opcode / Argument**                            | **Hdl Pseudo-Code**                                                                                                                                                                                                                                          |
   |:--------------|:-------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vredsum.vs`  | `31..26=0x00 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vd_next = vd; if (vstart != 0) trap(illegal_instruction); if (vl > 0) begin acc = vs1[0]; for (int i = 0; i < vl; ++i) if (vm \|\| v0_mask[i]) begin acc = trunc(acc + vs2[i], SEW); end vd_next[0] = acc; end vstart_next = '0;`                           |
   | `vredand.vs`  | `31..26=0x01 vm vs2 vs1 14..12=0x2 vd 6..0=0x57` | `vd_next = vd; if (vstart != 0) trap(illegal_instruction); if (vl > 0) begin acc = vs1[0]; for (int i = 0; i < vl; ++i) if (vm \|\| v0_mask[i]) begin acc = trunc(acc & vs2[i], SEW); end vd_next[0] = acc; end vstart_next = '0;`                           |
@@ -566,7 +566,7 @@
 
   : OPMVV I
 
-  | **Name**  | **Opcode / Argument**                                   | **HDL Pseudo-Code**                                                                         |
+  | **Name**  | **Opcode / Argument**                                   | **Hdl Pseudo-Code**                                                                         |
   |:----------|:--------------------------------------------------------|:--------------------------------------------------------------------------------------------|
   | `vmv.x.s` | `31..26=0x10 25=1 vs2 19..15=0 14..12=0x2 rd 6..0=0x57` | `x_next = x; if (rd != 0) x_next[rd] = resize_signed(vs2[0], SEW, XLEN); vstart_next = '0;` |
 
@@ -574,7 +574,7 @@
 
 * **OPMVX**
 
-  | **Name**    | **Opcode / Argument**                            | **HDL Pseudo-Code**                                                                                                                                                                                                         |
+  | **Name**    | **Opcode / Argument**                            | **Hdl Pseudo-Code**                                                                                                                                                                                                         |
   |:------------|:-------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vaaddu.vx` | `31..26=0x08 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(roundoff_unsigned($unsigned(vs2[i]) + $unsigned(resize_signed(x[rs1], XLEN, SEW)), 1, vxrm), SEW); end vstart_next = '0;` |
   | `vaadd.vx`  | `31..26=0x09 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(roundoff_signed($signed(vs2[i]) + $signed(resize_signed(x[rs1], XLEN, SEW)), 1, vxrm), SEW); end vstart_next = '0;`       |
@@ -583,7 +583,7 @@
 
   : OPMVX I
 
-  | **Name**         | **Opcode / Argument**                                   | **HDL Pseudo-Code**                                                                                                                                                                         |
+  | **Name**         | **Opcode / Argument**                                   | **Hdl Pseudo-Code**                                                                                                                                                                         |
   |:-----------------|:--------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vmv.s.x`        | `31..26=0x10 25=1 24..20=0 rs1 14..12=0x6 vd 6..0=0x57` | `vd_next = vd; if (vstart < vl) vd_next[0] = resize_signed(x[rs1], XLEN, SEW); vstart_next = '0;`                                                                                           |
   | `vslide1up.vx`   | `31..26=0x0e vm vs2 rs1 14..12=0x6 vd 6..0=0x57`        | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(i == 0 ? resize_signed(x[rs1], XLEN, SEW) : vs2[i - 1], SEW); end vstart_next = '0;`      |
@@ -591,7 +591,7 @@
 
   : OPMVX II
 
-  | **Name**     | **Opcode / Argument**                            | **HDL Pseudo-Code**                                                                                                                                                                                                             |
+  | **Name**     | **Opcode / Argument**                            | **Hdl Pseudo-Code**                                                                                                                                                                                                             |
   |:-------------|:-------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vdivu.vx`   | `31..26=0x20 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(riscv_div_unsigned(vs2[i], resize_signed(x[rs1], XLEN, SEW), SEW), SEW); end vstart_next = '0;`                               |
   | `vdiv.vx`    | `31..26=0x21 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(riscv_div_signed(vs2[i], resize_signed(x[rs1], XLEN, SEW), SEW), SEW); end vstart_next = '0;`                                 |
@@ -608,7 +608,7 @@
 
   : OPMVX III
 
-  | **Name**      | **Opcode / Argument**                            | **HDL Pseudo-Code**                                                                                                                                                                                                                             |
+  | **Name**      | **Opcode / Argument**                            | **Hdl Pseudo-Code**                                                                                                                                                                                                                             |
   |:--------------|:-------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   | `vwaddu.vx`   | `31..26=0x30 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(extend_unsigned(vs2[i], SEW, 2 * SEW) + extend_unsigned(resize_signed(x[rs1], XLEN, SEW), SEW, 2 * SEW), 2 * SEW); end vstart_next = '0;`     |
   | `vwadd.vx`    | `31..26=0x31 vm vs2 rs1 14..12=0x6 vd 6..0=0x57` | `vd_next = vd; for (int i = vstart; i < vl; ++i) if (vm \|\| v0_mask[i]) begin vd_next[i] = trunc(extend_signed(vs2[i], SEW, 2 * SEW) + extend_signed(resize_signed(x[rs1], XLEN, SEW), SEW, 2 * SEW), 2 * SEW); end vstart_next = '0;`         |

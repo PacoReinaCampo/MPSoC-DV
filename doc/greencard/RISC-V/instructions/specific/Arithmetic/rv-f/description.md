@@ -39,5 +39,3 @@
 | `fmv.s.x`            | `Write the lower 32-bits of the integer register rs1 into the single-precision register frd`           |
 
 :RV64F - "RV64F Standard Extension for Single-Precision Floating-Point (+ RV32F)"
-
- Expanding on RV32F, RV64F introduces support for single-precision floating-point operations in the 64-bit RISC-V architecture, maintaining compatibility with RV32F for seamless transition.
